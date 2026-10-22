@@ -33,3 +33,7 @@
 ## Dôležitá aktualizácia 22. 10. 2026
 - DATAcube exporty sa prestali aktualizovať 15. 9. 2026; ďalšie štatistiky riešiť cez STATdata a overiť nový dátový kontrakt: https://data.statistics.sk/api/.
 - RPO MVP: GET /api/rpo?ico=XXXXXXXX; iba 8 číslic, serverová validácia, výstup bez osobných údajov štatutárov. Pred finálnym vydaním overiť reálnu schému a funkčný test na Cloudflare preview.
+
+## Ekonomické údaje – ďalší krok
+- Funkčné MVP pre vybrané ročné ukazovatele cez verejné World Bank API (bez kľúča): /api/ukazovatele.
+- Toto nie je náhrada za STATdata. STATdata je samostatná plánovaná integrácia; nové oficiálne endpointy sú /opendata/cube/dataset/download-url a /opendata/cube/dataset/{dataCubePublicId}/rows/{rows}/columns/{columns}/context/{context}. Pred nasadením konkrétnych ukazovateľov overiť identifikátory kociek a odpovede API.

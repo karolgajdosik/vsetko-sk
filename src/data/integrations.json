@@ -52,5 +52,14 @@
     "status": "evaluate",
     "url": "https://nbs.sk/",
     "note": "Vyžaduje výber presných oficiálnych dátových radov."
+  },
+  {
+    "slug": "worldbank",
+    "title": "Ekonomické ukazovatele Slovenska",
+    "category": "Informácie",
+    "provider": "World Bank Open Data",
+    "status": "ready",
+    "url": "https://data.worldbank.org/country/slovak-republic",
+    "note": "Ročné ukazovatele – počet obyvateľov, HDP a jeho rast; vždy s rokom pozorovania."
   }
 ]
