@@ -80,7 +80,7 @@ function renderDeadlines(){
 }
 el('deadline-form').addEventListener('submit',e=>{e.preventDefault();const title=(el('deadline-name') as HTMLInputElement).value.trim();const date=(el('deadline-date') as HTMLInputElement).value;if(!title||!/^\d{4}-\d{2}-\d{2}$/.test(date)||state.deadlines.length>=500)return;state.deadlines.push({id:uid(),title:title.slice(0,120),date});save();renderDeadlines();(el('deadline-form') as HTMLFormElement).reset();});
 function renderBudget(){
- let total=0;for(const id of budgetIds){const field=el(id) as HTMLInputElement;const n=Number(state.budget[id]||0);field.value=String(n);if(id!=='income')total+=n;}
+ let total=0;for(const id of budgetIds){const field=el(id) as HTMLInputElement;const n=Number(state.budget[id]||0);if(document.activeElement!==field)field.value=String(n);if(id!=='income')total+=n;}
  const income=state.budget.income||0;const balance=income-total;el('expenses-total').textContent=euro(total);el('balance-total').textContent=euro(balance);
  const ratio=income>0?total/income*100:0;el('expense-share').textContent=income>0?ratio.toLocaleString('sk-SK',{maximumFractionDigits:1})+' %':'—';
  (el('expense-bar') as HTMLElement).style.width=Math.min(100,ratio)+'%';
