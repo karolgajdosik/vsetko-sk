@@ -4,3 +4,5 @@
 
 /* V0.5 search suggestions and calculator controls */
 .suggestions{max-width:760px;margin-top:6px;background:#fff;border-radius:14px;box-shadow:0 14px 30px #002c4b40;overflow:hidden;color:#18314d}.suggestions a{display:block;padding:13px 18px;color:#18314d;border-bottom:1px solid #edf2f7}.suggestions a:hover,.suggestions a:focus{background:#eaf4ff;text-decoration:none;outline:2px solid #17649c;outline-offset:-2px}.budget select{display:block;width:100%;margin-top:8px;padding:12px;border:1px solid #cbd8e4;border-radius:10px;background:white}.hero .suggestions{position:relative;z-index:2}
+
+:focus-visible{outline:3px solid #0b8c8a;outline-offset:3px}.grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}

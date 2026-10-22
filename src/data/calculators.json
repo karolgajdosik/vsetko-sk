@@ -1,0 +1,382 @@
+[
+  {
+    "slug": "splatka-uveru",
+    "title": "Splátka spotrebného úveru",
+    "category": "Financie",
+    "kind": "loan",
+    "description": "Orientačná mesačná splátka a celkový úrok.",
+    "keywords": "splatka spotrebny uver",
+    "fields": [
+      {
+        "id": "amount",
+        "label": "Výška úveru (€)",
+        "value": 15000
+      },
+      {
+        "id": "rate",
+        "label": "Ročný úrok (%)",
+        "value": 7
+      },
+      {
+        "id": "years",
+        "label": "Splatnosť (roky)",
+        "value": 5
+      }
+    ]
+  },
+  {
+    "slug": "refinancovanie",
+    "title": "Úspora pri refinancovaní",
+    "category": "Financie",
+    "kind": "refi",
+    "description": "Porovnajte dve úrokové sadzby pri rovnakom zostatku a splatnosti.",
+    "keywords": "refinancovanie hypoteka",
+    "fields": [
+      {
+        "id": "amount",
+        "label": "Zostatok úveru (€)",
+        "value": 150000
+      },
+      {
+        "id": "rate",
+        "label": "Pôvodný úrok (%)",
+        "value": 4.5
+      },
+      {
+        "id": "rate2",
+        "label": "Nový úrok (%)",
+        "value": 3.5
+      },
+      {
+        "id": "years",
+        "label": "Zostávajúce roky",
+        "value": 20
+      }
+    ]
+  },
+  {
+    "slug": "sporenie",
+    "title": "Plán pravidelného sporenia",
+    "category": "Financie",
+    "kind": "savings",
+    "description": "Budúca hodnota mesačných vkladov a úroku.",
+    "keywords": "sporenie mesacne",
+    "fields": [
+      {
+        "id": "monthly",
+        "label": "Mesačný vklad (€)",
+        "value": 100
+      },
+      {
+        "id": "rate",
+        "label": "Ročné zhodnotenie (%)",
+        "value": 3
+      },
+      {
+        "id": "years",
+        "label": "Počet rokov",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "slug": "zlozene-urocenie",
+    "title": "Zložené úročenie",
+    "category": "Financie",
+    "kind": "compound",
+    "description": "Vývoj jednorazovej investície pri ročnom zhodnotení.",
+    "keywords": "investicia urocenie",
+    "fields": [
+      {
+        "id": "amount",
+        "label": "Vstupná investícia (€)",
+        "value": 5000
+      },
+      {
+        "id": "rate",
+        "label": "Ročné zhodnotenie (%)",
+        "value": 5
+      },
+      {
+        "id": "years",
+        "label": "Počet rokov",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "slug": "inflacia",
+    "title": "Vplyv inflácie",
+    "category": "Financie",
+    "kind": "inflation",
+    "description": "Odhad budúcej ceny pri konštantnej inflácii.",
+    "keywords": "inflacia kupna sila",
+    "fields": [
+      {
+        "id": "amount",
+        "label": "Dnešná cena (€)",
+        "value": 1000
+      },
+      {
+        "id": "rate",
+        "label": "Ročná inflácia (%)",
+        "value": 3
+      },
+      {
+        "id": "years",
+        "label": "Počet rokov",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "slug": "financna-rezerva",
+    "title": "Finančná rezerva",
+    "category": "Financie",
+    "kind": "reserve",
+    "description": "Koľko mesiacov výdavkov pokryje vaša rezerva.",
+    "keywords": "financna rezerva",
+    "fields": [
+      {
+        "id": "amount",
+        "label": "Rezerva (€)",
+        "value": 6000
+      },
+      {
+        "id": "monthly",
+        "label": "Mesačné výdavky (€)",
+        "value": 1500
+      }
+    ]
+  },
+  {
+    "slug": "dostupnost-hypoteky",
+    "title": "Vlastné zdroje na bývanie",
+    "category": "Financie",
+    "kind": "downpayment",
+    "description": "Vypočítajte rozdiel medzi cenou bytu a vlastnými zdrojmi.",
+    "keywords": "byt vlastne zdroje hypoteka",
+    "fields": [
+      {
+        "id": "amount",
+        "label": "Cena nehnuteľnosti (€)",
+        "value": 200000
+      },
+      {
+        "id": "monthly",
+        "label": "Vlastné zdroje (€)",
+        "value": 40000
+      }
+    ]
+  },
+  {
+    "slug": "rozpocet-na-dovolenku",
+    "title": "Rozpočet na dovolenku",
+    "category": "Financie",
+    "kind": "travel",
+    "description": "Súčet dopravy, ubytovania a denných výdavkov.",
+    "keywords": "dovolenka cestovanie rozpocet",
+    "fields": [
+      {
+        "id": "amount",
+        "label": "Doprava (€)",
+        "value": 300
+      },
+      {
+        "id": "monthly",
+        "label": "Ubytovanie celkom (€)",
+        "value": 500
+      },
+      {
+        "id": "rate",
+        "label": "Denné výdavky (€)",
+        "value": 60
+      },
+      {
+        "id": "years",
+        "label": "Počet dní",
+        "value": 7
+      }
+    ]
+  },
+  {
+    "slug": "cena-cesty",
+    "title": "Cena jazdy autom",
+    "category": "Auto",
+    "kind": "trip",
+    "description": "Energetické náklady na plánovanú trasu.",
+    "keywords": "cena cesty kilometre",
+    "fields": [
+      {
+        "id": "km",
+        "label": "Dĺžka trasy (km)",
+        "value": 300
+      },
+      {
+        "id": "cons",
+        "label": "Spotreba na 100 km",
+        "value": 7
+      },
+      {
+        "id": "price",
+        "label": "Cena za liter alebo kWh (€)",
+        "value": 1.6
+      }
+    ]
+  },
+  {
+    "slug": "cena-nabijania",
+    "title": "Cena nabíjania elektromobilu",
+    "category": "Auto",
+    "kind": "charging",
+    "description": "Náklady na nabitie batérie podľa množstva energie.",
+    "keywords": "elektromobil nabijanie",
+    "fields": [
+      {
+        "id": "amount",
+        "label": "Nabíjaná energia (kWh)",
+        "value": 60
+      },
+      {
+        "id": "price",
+        "label": "Cena za kWh (€)",
+        "value": 0.4
+      }
+    ]
+  },
+  {
+    "slug": "ev-vs-benzin",
+    "title": "EV verzus benzín",
+    "category": "Auto",
+    "kind": "compare",
+    "description": "Porovnanie ročných nákladov na energiu.",
+    "keywords": "elektromobil benzin porovnanie",
+    "fields": [
+      {
+        "id": "km",
+        "label": "Ročný nájazd (km)",
+        "value": 15000
+      },
+      {
+        "id": "cons",
+        "label": "Benzín (l/100 km)",
+        "value": 7
+      },
+      {
+        "id": "price",
+        "label": "Benzín (€/l)",
+        "value": 1.6
+      },
+      {
+        "id": "cons2",
+        "label": "Elektromobil (kWh/100 km)",
+        "value": 20
+      },
+      {
+        "id": "price2",
+        "label": "Elektrina (€/kWh)",
+        "value": 0.3
+      }
+    ]
+  },
+  {
+    "slug": "leasing",
+    "title": "Orientačná splátka leasingu",
+    "category": "Auto",
+    "kind": "lease",
+    "description": "Anuitný model financovania vozidla bez poplatkov.",
+    "keywords": "leasing auto splatka",
+    "fields": [
+      {
+        "id": "amount",
+        "label": "Cena auta (€)",
+        "value": 35000
+      },
+      {
+        "id": "monthly",
+        "label": "Akontácia (€)",
+        "value": 7000
+      },
+      {
+        "id": "rate",
+        "label": "Ročný úrok (%)",
+        "value": 6
+      },
+      {
+        "id": "years",
+        "label": "Splatnosť (roky)",
+        "value": 5
+      }
+    ]
+  },
+  {
+    "slug": "odpis-hodnoty-auta",
+    "title": "Pokles hodnoty auta",
+    "category": "Auto",
+    "kind": "depreciation",
+    "description": "Odhad hodnoty auta pri zvolenom ročnom poklese.",
+    "keywords": "odpis hodnota vozidla",
+    "fields": [
+      {
+        "id": "amount",
+        "label": "Kúpna cena auta (€)",
+        "value": 30000
+      },
+      {
+        "id": "rate",
+        "label": "Ročný pokles hodnoty (%)",
+        "value": 12
+      },
+      {
+        "id": "years",
+        "label": "Počet rokov",
+        "value": 5
+      }
+    ]
+  },
+  {
+    "slug": "servisny-rozpocet",
+    "title": "Servisný rozpočet auta",
+    "category": "Auto",
+    "kind": "service",
+    "description": "Odhad mesačnej rezervy na servis a pneumatiky.",
+    "keywords": "servis pneu auto",
+    "fields": [
+      {
+        "id": "amount",
+        "label": "Servis za rok (€)",
+        "value": 500
+      },
+      {
+        "id": "monthly",
+        "label": "Pneumatiky za rok (€)",
+        "value": 300
+      },
+      {
+        "id": "price",
+        "label": "Iné výdavky za rok (€)",
+        "value": 200
+      }
+    ]
+  },
+  {
+    "slug": "rocny-najazd",
+    "title": "Ročný nájazd kilometrov",
+    "category": "Auto",
+    "kind": "mileage",
+    "description": "Prepočet pravidelného týždenného nájazdu.",
+    "keywords": "kilometre najazd auto",
+    "fields": [
+      {
+        "id": "km",
+        "label": "Kilometre za týždeň",
+        "value": 300
+      },
+      {
+        "id": "years",
+        "label": "Počet týždňov",
+        "value": 52
+      }
+    ]
+  }
+]

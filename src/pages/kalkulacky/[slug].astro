@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+import catalog from '../../data/calculators.json';
+export function getStaticPaths(){return catalog.map(tool=>({params:{slug:tool.slug},props:{tool}}));}
+const {tool}=Astro.props;
+---
+<Base title={tool.title} description={tool.description} updated="22. 10. 2026">
+<main class="wrap main" id="obsah"><p class="eyebrow"><a href="/kalkulacky/">Kalkulačky</a> / {tool.category}</p><h1>{tool.title}</h1><p class="intro">{tool.description}</p>
+<section class="panel"><div class="budget" id="calculator" data-kind={tool.kind}>{tool.fields.map(field=><label for={field.id}>{field.label}<input type="number" id={field.id} name={field.id} value={field.value} min="0" step="any" inputmode="decimal"/></label>)}</div>
+<div class="result" aria-live="polite" style="margin-top:24px"><p>Výsledok</p><strong id="primary-result">—</strong><p id="secondary-result">—</p></div>
+<p class="note">Výpočet je orientačný. Porovnanie EV a benzínu zahŕňa iba energiu, nie všetky náklady vlastníctva. Sadzby a ceny sú ilustračné vstupy, nie aktuálne ponuky. Model nezohľadňuje všetky poplatky, dane ani individuálne podmienky. Pri výpočtoch úverov predpokladá nemennú sadzbu.</p></section>
+<p><a href="/kalkulacky/">← Všetky kalkulačky</a></p></main>
+<script>
+import {calculate} from '../../lib/calculations.mjs';
+const box=document.querySelector<HTMLElement>('#calculator')!;
+const inputs=Array.from(box.querySelectorAll<HTMLInputElement>('input'));
+const fmt=(n:number)=>Number.isFinite(n)?new Intl.NumberFormat('sk-SK',{style:'currency',currency:'EUR',maximumFractionDigits:2}).format(n):'—';
+const labels:Record<string,[string,string,string]>={loan:['Mesačná splátka','Celkové úroky','eur'],refi:['Úspora mesačne','Úspora za celé obdobie','eur'],savings:['Budúca hodnota','Vložené prostriedky','eur'],compound:['Budúca hodnota','Výnos','eur'],inflation:['Budúca cena','Dnešná suma v budúcej kúpnej sile','eur'],reserve:['Počet mesiacov rezervy','Celková rezerva','months'],downpayment:['Potrebný úver','Podiel vlastných zdrojov','percent'],travel:['Celkové náklady','Priemer na deň','eur'],trip:['Cena trasy','Cena na 100 km','eur'],charging:['Cena nabitia','Množstvo energie (kWh)','kwh'],compare:['Rozdiel benzín mínus EV za rok','EV energia za rok','eur'],lease:['Mesačná splátka','Úroky (bez poplatkov)','eur'],depreciation:['Odhadovaná hodnota','Pokles hodnoty','eur'],service:['Rezerva mesačne','Rezerva ročne','eur'],mileage:['Kilometre za obdobie','Priemer mesačne (km)','km']};
+function update(){const kind=box.dataset.kind!,v=Object.fromEntries(inputs.map(i=>[i.name,Number(i.value)]));const invalid=inputs.some(i=>i.value.trim()===''||!Number.isFinite(i.valueAsNumber)||i.valueAsNumber<0)||(['loan','refi','savings','compound','inflation','lease','depreciation'].includes(kind)&&Number(v.years)<=0);const [a,b]=invalid?[NaN,NaN]:calculate(kind,v);const [l1,l2,unit]=labels[kind];const num=(n:number)=>Number.isFinite(n)?new Intl.NumberFormat('sk-SK',{maximumFractionDigits:2}).format(n):'—';const primary=unit==='months'?num(a)+' mes.':unit==='km'?num(a)+' km':fmt(a);const secondary=kind==='downpayment'?num(b)+' %':kind==='charging'?num(b)+' kWh':kind==='mileage'?num(b)+' km':fmt(b);document.querySelector('#primary-result')!.textContent=l1+': '+primary;document.querySelector('#secondary-result')!.textContent=l2+': '+secondary;}
+inputs.forEach(i=>i.addEventListener('input',update));update();
+</script></Base>

@@ -1,0 +1,7 @@
+import assert from 'node:assert/strict';import {readFileSync,existsSync} from 'node:fs';
+const read=p=>JSON.parse(readFileSync(p,'utf8'));const guides=read('src/data/guides.json'),search=read('src/data/search.json'),calc=read('src/data/calculators.json');
+assert.ok(guides.length>=40);assert.equal(calc.length+3,18);
+const slugs=new Set();for(const g of guides){assert.ok(!slugs.has(g.slug),'duplicate guide: '+g.slug);slugs.add(g.slug);assert.ok(g.steps.length>=3);assert.ok(g.audience?.length>10);assert.ok(g.preparation?.length>=2);assert.ok(g.verification?.length>10);assert.ok(g.source.url.startsWith('https://'));}
+const urls=new Set();for(const item of search){assert.ok(!urls.has(item.url),'duplicate search URL: '+item.url);urls.add(item.url);if(item.url.startsWith('/navody/'))assert.ok(slugs.has(item.url.split('/')[2]));}
+for(const t of calc)assert.ok(urls.has('/kalkulacky/'+t.slug+'/'));
+assert.ok(existsSync('src/pages/kalkulacky/[slug].astro'));console.log('Content integrity passed:',guides.length,'guides,',calc.length+3,'calculators.');
