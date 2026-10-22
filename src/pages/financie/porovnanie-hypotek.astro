@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Porovnanie hypoték – scenáre splátok" description="Porovnajte tri hypotekárne scenáre vedľa seba, mesačné splátky, celkové úroky a vlastné zdroje. Bez registrácie.">
+<main class="wrap main compare-page" id="obsah">
+<p class="eyebrow">Nová interaktívna kalkulačka</p>
+<h1>Porovnajte si tri hypotéky</h1>
+<p class="intro">Zadajte cenu bytu, vlastné zdroje a tri ponuky bánk. Okamžite uvidíte rozdiely v splátkach aj celkových úrokoch. Výpočty prebiehajú iba vo vašom zariadení.</p>
+<section class="panel" aria-label="Parametre financovania"><h2>Vaše bývanie</h2><div class="fields">
+<label>Cena nehnuteľnosti (€)<input id="property" type="number" min="1" max="100000000" step="1000" value="220000" inputmode="decimal"/></label>
+<label>Vlastné zdroje (€)<input id="equity" type="number" min="0" max="100000000" step="1000" value="44000" inputmode="decimal"/></label>
+</div><div class="figures"><div><small>Požadovaný úver</small><strong id="principal">—</strong></div><div><small>Podiel úveru k cene (LTV)</small><strong id="ltv">—</strong></div></div><p id="validation" class="notice" role="status" aria-live="polite"></p></section>
+<section class="panel"><h2>Tri ponuky na porovnanie</h2><div class="offers">
+{[1,2,3].map((n)=><fieldset class="offer"><legend>Ponuka {n}</legend><label>Názov ponuky<input id={'name-'+n} type="text" maxlength="45" value={'Banka '+n}/></label><label>Ročný úrok (%)<input id={'rate-'+n} type="number" min="0" max="100" step=".01" value={n===1?'3.5':n===2?'3.8':'4.1'} inputmode="decimal"/></label><label>Splatnosť (roky)<input id={'years-'+n} type="number" min="1" max="40" step="1" value="30" inputmode="numeric"/></label><label>Jednorazové poplatky (€)<input id={'fees-'+n} type="number" min="0" max="1000000" step="1" value="0" inputmode="decimal"/></label><div class="offer-results"><small>Mesačná splátka</small><strong id={'payment-'+n}>—</strong><small>Celkové úroky</small><strong id={'interest-'+n}>—</strong><small>Splátky + poplatky</small><strong id={'total-'+n}>—</strong></div></fieldset>)}
+</div><p id="winner" class="notice" aria-live="polite"></p><div class="chart" id="chart" role="img" aria-label="Graf porovnania mesačných splátok"></div></section>
+<section class="panel"><h2>Čo ešte porovnať?</h2><p>Nižšia splátka nemusí znamenať lacnejšiu hypotéku. Zohľadnite RPMN, poistenie, vedenie účtu, podmienky zliav a náklady pri zmene fixácie.</p><p class="note">Model predpokladá anuitné splácanie a nemenný úrok počas celej zvolenej splatnosti. Nezohľadňuje zmeny sadzieb po fixácii, RPMN, všetky bankové poplatky ani posúdenie bonity. Ponuky sú ilustračné, nejde o aktuálne sadzby bánk ani o prísľub schválenia.</p><p><a href="https://nbs.sk/" target="_blank" rel="noopener noreferrer">Národná banka Slovenska ↗</a> · <a href="/navody/porovnanie-hypotek/">Návod na porovnanie hypoték →</a></p></section>
+</main>
+<script>
+const get=(id:string)=>document.getElementById(id) as HTMLInputElement;
+const eur=(n:number)=>Number.isFinite(n)?new Intl.NumberFormat('sk-SK',{style:'currency',currency:'EUR'}).format(n):'—';
+const num=(id:string)=>get(id).valueAsNumber;
+const payment=(amount:number,rate:number,years:number)=>{const months=years*12,r=rate/1200;if(r===0)return amount/months;const q=Math.pow(1+r,-months);return amount*r/(1-q);};
+function update(){
+ const price=num('property'),equity=num('equity'),valid=Number.isFinite(price)&&price>0&&Number.isFinite(equity)&&equity>=0&&equity<=price;
+ const principal=valid?price-equity:NaN;get('principal').textContent=eur(principal);get('ltv').textContent=valid?(100*principal/price).toLocaleString('sk-SK',{maximumFractionDigits:1})+' %':'—';
+ get('validation').textContent=!valid?'Zadajte platnú cenu nehnuteľnosti a vlastné zdroje, ktoré neprevyšujú cenu.':'LTV je iba informatívny pomer; samotné schválenie úveru závisí od banky.';
+ const results:{name:string,pay:number,total:number}[]=[];
+ for(let i=1;i<=3;i++){const rate=num('rate-'+i),years=num('years-'+i),fees=num('fees-'+i),ok=valid&&Number.isFinite(rate)&&rate>=0&&rate<=100&&Number.isInteger(years)&&years>=1&&years<=40&&Number.isFinite(fees)&&fees>=0&&fees<=1000000;const pay=ok?payment(principal,rate,years):NaN;const interest=ok?pay*years*12-principal:NaN;const total=ok?pay*years*12+fees:NaN;get('payment-'+i).textContent=eur(pay);get('interest-'+i).textContent=eur(interest);get('total-'+i).textContent=eur(total);if(ok)results.push({name:get('name-'+i).value.trim()||'Ponuka '+i,pay,total});}
+ const winner=document.getElementById('winner')!,chart=document.getElementById('chart')!;chart.replaceChildren();
+ if(results.length!==3){winner.textContent='Skontrolujte vstupy všetkých troch ponúk.';chart.setAttribute('aria-label','Graf nie je dostupný pre neplatné vstupy.');return;}
+ const low=[...results].sort((a,b)=>a.total-b.total)[0];winner.textContent='Najnižšie modelové celkové náklady má '+low.name+' ('+eur(low.total)+'). Pri rôznej splatnosti porovnajte aj výšku splátok a riziká.';
+ const max=Math.max(...results.map(x=>x.pay),1);chart.setAttribute('aria-label','Mesačné splátky: '+results.map(x=>x.name+' '+eur(x.pay)).join(', '));
+ for(const r of results){const row=document.createElement('div');row.className='chart-row';const label=document.createElement('span');label.textContent=r.name;const track=document.createElement('div');track.className='chart-track';const fill=document.createElement('div');fill.className='chart-fill';fill.style.width=(r.pay/max*100)+'%';track.append(fill);const value=document.createElement('strong');value.textContent=eur(r.pay);row.append(label,track,value);chart.append(row);}
+}
+document.querySelectorAll<HTMLInputElement>('.compare-page input').forEach(x=>x.addEventListener('input',update));update();
+</script>
+<style>
+.compare-page{max-width:1100px}.compare-page .panel{padding:1.5rem;margin:1.4rem 0}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.compare-page label{display:block;font-weight:600;margin-bottom:.7rem}.compare-page input{display:block;width:100%;margin-top:.35rem;padding:.75rem;border:1px solid #8d9cb0;border-radius:9px;background:var(--surface);color:var(--ink);font:inherit}.figures{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}.figures>div{display:flex;flex-direction:column;gap:.3rem;padding:1rem;border:1px solid #8794a8;border-radius:12px}.figures strong{font-size:1.4rem}.offers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.offer{min-width:0;border:1px solid #8290a5;border-radius:12px;padding:1rem}.offer legend{font-weight:750;padding:0 .5rem}.offer-results{display:flex;flex-direction:column;gap:.25rem;border-top:1px solid #8290a5;padding-top:.8rem}.offer-results strong{font-size:1.15rem;margin-bottom:.5rem;overflow-wrap:anywhere}.chart{display:grid;gap:.7rem;margin:1.4rem 0}.chart :global(.chart-row){display:grid;grid-template-columns:110px minmax(0,1fr) 110px;align-items:center;gap:.7rem}.chart :global(.chart-track){background:#94a3b844;border-radius:8px;height:16px;overflow:hidden}.chart :global(.chart-fill){background:#5145d8;height:100%}.chart :global(.chart-row strong){text-align:right;font-size:.85rem}@media(max-width:750px){.offers{grid-template-columns:1fr}.fields,.figures{grid-template-columns:1fr}.chart :global(.chart-row){grid-template-columns:1fr}.chart :global(.chart-row strong){text-align:left}}
+</style>
+</Base>
