@@ -1,0 +1,6 @@
+---
+const {title='VŠETKO.sk',description='Praktické návody a kalkulačky pre Slovensko.'}=Astro.props;
+const path=Astro.url.pathname;
+const nav=[['/','Domov'],['/financie/','Financie'],['/auto/','Auto'],['/urady/','Úrady']];
+---
+<!doctype html><html lang="sk"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="description" content={description}/><meta name="theme-color" content="#123b69"/><link rel="canonical" href={new URL(Astro.url.pathname,Astro.site).href}/><link rel="icon" href="/favicon.svg"/><link rel="stylesheet" href="/site.css"/><title>{title} | VŠETKO.sk</title></head><body><a class="skip" href="#obsah">Preskočiť na obsah</a><header class="top"><div class="wrap topinner"><a class="brand" href="/">VŠETKO<span>.sk</span></a><nav aria-label="Hlavná navigácia">{nav.map(([href,label])=><a href={href} aria-current={path===href?'page':undefined}>{label}</a>)}</nav></div></header><slot/><footer class="footer"><div class="wrap footinner"><span>© {new Date().getFullYear()} VŠETKO.sk · Pilotná verzia</span><span>Nezávislý informačný portál, nie stránka štátnej správy.</span></div></footer></body></html>
