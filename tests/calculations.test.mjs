@@ -12,3 +12,7 @@ test('charging cost',()=>assert.equal(calculate('charging',{amount:50,price:0.4}
 test('down payment',()=>assert.deepEqual(calculate('downpayment',{amount:200000,monthly:40000}),[160000,20]));
 test('inflation future cost',()=>assert.ok(Math.abs(calculate('inflation',{amount:100,rate:10,years:1})[0]-110)<0.001));
 test('service budget',()=>assert.deepEqual(calculate('service',{amount:600,monthly:300,price:300}),[100,1200]));
+
+test('refinancing higher rate costs more',()=>assert.ok(calculate('refi',{amount:100000,rate:3,rate2:5,years:20})[0]<0));
+test('reserve without expenses undefined',()=>assert.ok(Number.isNaN(calculate('reserve',{amount:1000,monthly:0})[0])));
+test('charging amount and cost',()=>assert.deepEqual(calculate('charging',{amount:50,price:0.4}),[20,50]));
