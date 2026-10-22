@@ -75,5 +75,110 @@
     "url": "/urady/#dedicstvo",
     "description": "Základná orientácia v dedičskom konaní.",
     "keywords": "dedicstvo notar umrtie pozostalost"
+  },
+  {
+    "title": "Porovnanie hypoték",
+    "category": "Financie",
+    "url": "/navody/porovnanie-hypotek/",
+    "description": "Pred porovnaním ponúk si pripravte cenu nehnuteľnosti, vlastné zdroje a požadovanú splatnosť.",
+    "keywords": "porovnanie hypotek"
+  },
+  {
+    "title": "Refinancovanie úveru",
+    "category": "Financie",
+    "url": "/navody/refinancovanie-uveru/",
+    "description": "Pri zmene banky sledujte celkové náklady a podmienky predčasného splatenia.",
+    "keywords": "refinancovanie uveru"
+  },
+  {
+    "title": "Spotrebný úver",
+    "category": "Financie",
+    "url": "/navody/spotrebny-uver/",
+    "description": "Pred podpisom zmluvy porovnajte celkovú sumu, ktorú zaplatíte.",
+    "keywords": "spotrebny uver"
+  },
+  {
+    "title": "Finančná rezerva",
+    "category": "Financie",
+    "url": "/navody/financna-rezerva/",
+    "description": "Rezerva pomáha zvládať nečakané výdavky bez ďalšieho zadlžovania.",
+    "keywords": "financna rezerva"
+  },
+  {
+    "title": "Kontrola rodinných výdavkov",
+    "category": "Financie",
+    "url": "/navody/kontrola-rodinnych-vydavkov/",
+    "description": "Jednoduchý postup na zmapovanie príjmov a pravidelných platieb.",
+    "keywords": "kontrola rodinnych vydavkov"
+  },
+  {
+    "title": "Povinné zmluvné poistenie",
+    "category": "Auto",
+    "url": "/navody/povinne-zmluvne-poistenie/",
+    "description": "Pri PZP si overte krytie, výluky a postup pri poistnej udalosti.",
+    "keywords": "povinne zmluvne poistenie"
+  },
+  {
+    "title": "Kontrola vozidla pred kúpou",
+    "category": "Auto",
+    "url": "/navody/kontrola-vozidla-pred-kupou/",
+    "description": "Pred kúpou ojazdeného auta preverujte technický aj právny stav.",
+    "keywords": "kontrola vozidla pred kupou"
+  },
+  {
+    "title": "Predaj vozidla",
+    "category": "Auto",
+    "url": "/navody/predaj-vozidla/",
+    "description": "Pri predaji si vopred pripravte zmluvu a overte evidenčné povinnosti.",
+    "keywords": "predaj vozidla"
+  },
+  {
+    "title": "Nabíjanie elektromobilu",
+    "category": "Auto",
+    "url": "/navody/nabijanie-elektromobilu/",
+    "description": "Pri plánovaní cesty sledujte kompatibilitu konektorov a dostupnosť staníc.",
+    "keywords": "nabijanie elektromobilu"
+  },
+  {
+    "title": "Diaľničná známka",
+    "category": "Auto",
+    "url": "/navody/dialnicna-znamka/",
+    "description": "Pred cestou overte, či vozidlo potrebuje diaľničnú známku.",
+    "keywords": "dialnicna znamka"
+  },
+  {
+    "title": "Strata občianskeho preukazu",
+    "category": "Úrady",
+    "url": "/navody/strata-obcianskeho-preukazu/",
+    "description": "Pri strate dokladu riešte nahlásenie a vydanie nového dokladu.",
+    "keywords": "strata obcianskeho preukazu"
+  },
+  {
+    "title": "Výmena cestovného pasu",
+    "category": "Úrady",
+    "url": "/navody/vymena-cestovneho-pasu/",
+    "description": "Pred cestou skontrolujte platnosť pasu a požiadavky cieľovej krajiny.",
+    "keywords": "vymena cestovneho pasu"
+  },
+  {
+    "title": "Zmena trvalého pobytu",
+    "category": "Úrady",
+    "url": "/navody/zmena-trvaleho-pobytu/",
+    "description": "Pri zmene adresy si pripravte potrebné podklady a následné oznámenia.",
+    "keywords": "zmena trvaleho pobytu"
+  },
+  {
+    "title": "Začatie podnikania",
+    "category": "Úrady",
+    "url": "/navody/zacatie-podnikania/",
+    "description": "Pri zakladaní živnosti si overte predmet činnosti a povinnosti podnikateľa.",
+    "keywords": "zacatie podnikania"
+  },
+  {
+    "title": "Dedičské konanie",
+    "category": "Úrady",
+    "url": "/navody/dedicske-konanie/",
+    "description": "Po úmrtí blízkeho si pripravte základné dokumenty a informácie o majetku.",
+    "keywords": "dedicske konanie"
   }
 ]

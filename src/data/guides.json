@@ -1,0 +1,257 @@
+[
+  {
+    "slug": "porovnanie-hypotek",
+    "category": "financie",
+    "title": "Porovnanie hypoték",
+    "description": "Pred porovnaním ponúk si pripravte cenu nehnuteľnosti, vlastné zdroje a požadovanú splatnosť.",
+    "steps": [
+      "Porovnajte RPMN, nielen úrokovú sadzbu.",
+      "Zistite podmienky fixácie a poplatky.",
+      "Overte, čo sa stane po skončení fixácie."
+    ],
+    "source": {
+      "label": "Národná banka Slovenska",
+      "url": "https://nbs.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "porovnanie hypotek"
+  },
+  {
+    "slug": "refinancovanie-uveru",
+    "category": "financie",
+    "title": "Refinancovanie úveru",
+    "description": "Pri zmene banky sledujte celkové náklady a podmienky predčasného splatenia.",
+    "steps": [
+      "Získajte aktuálny zostatok úveru.",
+      "Porovnajte novú ponuku s pôvodnou.",
+      "Započítajte všetky poplatky a vedľajšie náklady."
+    ],
+    "source": {
+      "label": "Národná banka Slovenska",
+      "url": "https://nbs.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "refinancovanie uveru"
+  },
+  {
+    "slug": "spotrebny-uver",
+    "category": "financie",
+    "title": "Spotrebný úver",
+    "description": "Pred podpisom zmluvy porovnajte celkovú sumu, ktorú zaplatíte.",
+    "steps": [
+      "Určite, akú splátku zvládne rozpočet.",
+      "Porovnajte RPMN a celkovú splatnú sumu.",
+      "Prečítajte si podmienky omeškania a predčasného splatenia."
+    ],
+    "source": {
+      "label": "Národná banka Slovenska",
+      "url": "https://nbs.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "spotrebny uver"
+  },
+  {
+    "slug": "financna-rezerva",
+    "category": "financie",
+    "title": "Finančná rezerva",
+    "description": "Rezerva pomáha zvládať nečakané výdavky bez ďalšieho zadlžovania.",
+    "steps": [
+      "Spíšte pravidelné nevyhnutné výdavky.",
+      "Stanovte si realistický cieľ rezervy.",
+      "Odkladajte pravidelnú sumu a priebežne plán upravujte."
+    ],
+    "source": {
+      "label": "Národná banka Slovenska",
+      "url": "https://nbs.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "financna rezerva"
+  },
+  {
+    "slug": "kontrola-rodinnych-vydavkov",
+    "category": "financie",
+    "title": "Kontrola rodinných výdavkov",
+    "description": "Jednoduchý postup na zmapovanie príjmov a pravidelných platieb.",
+    "steps": [
+      "Rozdeľte výdavky na nevyhnutné a voliteľné.",
+      "Skontrolujte predplatné a opakované platby.",
+      "Vyskúšajte kalkulačku rodinného rozpočtu."
+    ],
+    "source": {
+      "label": "Národná banka Slovenska",
+      "url": "https://nbs.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "kontrola rodinnych vydavkov"
+  },
+  {
+    "slug": "povinne-zmluvne-poistenie",
+    "category": "auto",
+    "title": "Povinné zmluvné poistenie",
+    "description": "Pri PZP si overte krytie, výluky a postup pri poistnej udalosti.",
+    "steps": [
+      "Pripravte údaje o vozidle.",
+      "Porovnajte podmienky, nielen cenu.",
+      "Uložte si doklady a kontakty poisťovne."
+    ],
+    "source": {
+      "label": "Slovenská kancelária poisťovateľov",
+      "url": "https://www.skp.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "povinne zmluvne poistenie"
+  },
+  {
+    "slug": "kontrola-vozidla-pred-kupou",
+    "category": "auto",
+    "title": "Kontrola vozidla pred kúpou",
+    "description": "Pred kúpou ojazdeného auta preverujte technický aj právny stav.",
+    "steps": [
+      "Porovnajte VIN na vozidle a v dokladoch.",
+      "Skontrolujte servisnú históriu a technický stav.",
+      "Zmluvu podpisujte až po kontrole údajov."
+    ],
+    "source": {
+      "label": "Ministerstvo vnútra SR",
+      "url": "https://www.minv.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "kontrola vozidla pred kupou"
+  },
+  {
+    "slug": "predaj-vozidla",
+    "category": "auto",
+    "title": "Predaj vozidla",
+    "description": "Pri predaji si vopred pripravte zmluvu a overte evidenčné povinnosti.",
+    "steps": [
+      "Skontrolujte údaje predávajúceho a kupujúceho.",
+      "Zaznamenajte stav kilometrov a odovzdanie.",
+      "Overte aktuálny postup zmeny držiteľa."
+    ],
+    "source": {
+      "label": "Ministerstvo vnútra SR",
+      "url": "https://www.minv.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "predaj vozidla"
+  },
+  {
+    "slug": "nabijanie-elektromobilu",
+    "category": "auto",
+    "title": "Nabíjanie elektromobilu",
+    "description": "Pri plánovaní cesty sledujte kompatibilitu konektorov a dostupnosť staníc.",
+    "steps": [
+      "Skontrolujte nabíjací výkon svojho vozidla.",
+      "Porovnajte ceny a podmienky operátorov.",
+      "Naplánujte alternatívnu zastávku."
+    ],
+    "source": {
+      "label": "Ministerstvo hospodárstva SR",
+      "url": "https://www.mhsr.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "nabijanie elektromobilu"
+  },
+  {
+    "slug": "dialnicna-znamka",
+    "category": "auto",
+    "title": "Diaľničná známka",
+    "description": "Pred cestou overte, či vozidlo potrebuje diaľničnú známku.",
+    "steps": [
+      "Overte kategóriu vozidla.",
+      "Použite oficiálny predajný portál.",
+      "Skontrolujte evidenčné číslo a platnosť."
+    ],
+    "source": {
+      "label": "Oficiálny portál eZnamka",
+      "url": "https://eznamka.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "dialnicna znamka"
+  },
+  {
+    "slug": "strata-obcianskeho-preukazu",
+    "category": "urady",
+    "title": "Strata občianskeho preukazu",
+    "description": "Pri strate dokladu riešte nahlásenie a vydanie nového dokladu.",
+    "steps": [
+      "Overte spôsob nahlásenia straty.",
+      "Pripravte si dostupné identifikačné doklady.",
+      "Skontrolujte podmienky a termíny vydania."
+    ],
+    "source": {
+      "label": "Slovensko.sk",
+      "url": "https://www.slovensko.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "strata obcianskeho preukazu"
+  },
+  {
+    "slug": "vymena-cestovneho-pasu",
+    "category": "urady",
+    "title": "Výmena cestovného pasu",
+    "description": "Pred cestou skontrolujte platnosť pasu a požiadavky cieľovej krajiny.",
+    "steps": [
+      "Skontrolujte platnosť súčasného pasu.",
+      "Overte spôsob podania žiadosti.",
+      "Overte podmienky vstupu do cieľovej krajiny."
+    ],
+    "source": {
+      "label": "Ministerstvo vnútra SR",
+      "url": "https://www.minv.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "vymena cestovneho pasu"
+  },
+  {
+    "slug": "zmena-trvaleho-pobytu",
+    "category": "urady",
+    "title": "Zmena trvalého pobytu",
+    "description": "Pri zmene adresy si pripravte potrebné podklady a následné oznámenia.",
+    "steps": [
+      "Overte požiadavky príslušnej ohlasovne.",
+      "Pripravte doklady k adrese.",
+      "Skontrolujte, ktorým inštitúciám treba zmenu oznámiť."
+    ],
+    "source": {
+      "label": "Slovensko.sk",
+      "url": "https://www.slovensko.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "zmena trvaleho pobytu"
+  },
+  {
+    "slug": "zacatie-podnikania",
+    "category": "urady",
+    "title": "Začatie podnikania",
+    "description": "Pri zakladaní živnosti si overte predmet činnosti a povinnosti podnikateľa.",
+    "steps": [
+      "Vyberte vhodné predmety podnikania.",
+      "Overte podmienky ohlásenia živnosti.",
+      "Skontrolujte daňové a odvodové povinnosti."
+    ],
+    "source": {
+      "label": "Slovensko.sk",
+      "url": "https://www.slovensko.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "zacatie podnikania"
+  },
+  {
+    "slug": "dedicske-konanie",
+    "category": "urady",
+    "title": "Dedičské konanie",
+    "description": "Po úmrtí blízkeho si pripravte základné dokumenty a informácie o majetku.",
+    "steps": [
+      "Zozbierajte dostupné doklady a informácie o majetku.",
+      "Komunikujte s povereným notárom.",
+      "Pred právnymi rozhodnutiami si overte aktuálny postup."
+    ],
+    "source": {
+      "label": "Ministerstvo spravodlivosti SR",
+      "url": "https://www.justice.gov.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "dedicske konanie"
+  }
+]
