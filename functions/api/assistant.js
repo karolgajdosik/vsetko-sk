@@ -15,7 +15,12 @@ export async function onRequestPost({request,env}){
  try{const raw=await request.text();if(raw.length>MAX_BYTES)return reply({error:'Otázka je príliš dlhá.'},413);payload=JSON.parse(raw);}catch{return reply({error:'Neplatná požiadavka.'},400);}
  const question=payload?.question;
  if(typeof question!=='string'||question.trim().length<3||question.length>600)return reply({error:'Otázka musí mať 3 až 600 znakov.'},400);
- if(!env.AI||!env.AI_RATE_LIMITER)return reply({error:'AI asistent ešte nie je aktivovaný. Použite fulltextové vyhľadávanie.',code:'not_configured'},503);\n const ip=request.headers.get('cf-connecting-ip')||'unknown';\n const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(ip));\n const key=Array.from(new Uint8Array(digest)).map(x=>x.toString(16).padStart(2,'0')).join('').slice(0,32);\n const allowed=await env.AI_RATE_LIMITER.limit({key});\n if(!allowed.success)return reply({error:'Limit otázok bol dosiahnutý. Skúste to neskôr.'},429);
+ if(!env.AI||!env.AI_RATE_LIMITER)return reply({error:'AI asistent ešte nie je aktivovaný. Použite fulltextové vyhľadávanie.',code:'not_configured'},503);
+ const ip=request.headers.get('cf-connecting-ip')||'unknown';
+ const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(ip));
+ const key=Array.from(new Uint8Array(digest)).map(x=>x.toString(16).padStart(2,'0')).join('').slice(0,32);
+ const allowed=await env.AI_RATE_LIMITER.limit({key});
+ if(!allowed.success)return reply({error:'Limit otázok bol dosiahnutý. Skúste to neskôr.'},429);
  // Server-owned source catalog; never trust user-provided context for AI grounding.
  const catalog=[
  {title:'Strata občianskeho preukazu',url:'/navody/strata-obcianskeho-preukazu/',description:'Ako postupovať pri strate dokladu, nahlásenie a vybavenie nového.'},
