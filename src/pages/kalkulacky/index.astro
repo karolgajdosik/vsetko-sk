@@ -2,5 +2,33 @@
 import Base from '../../layouts/Base.astro';
 import catalog from '../../data/calculators.json';
 const all=[{slug:'hypoteka',title:'Hypotekárna kalkulačka',category:'Financie',description:'Splátka hypotéky',url:'/financie/#hypoteka'},{slug:'rozpocet',title:'Rodinný rozpočet',category:'Financie',description:'Mesačné príjmy a výdavky',url:'/financie/#rozpocet'},{slug:'naklady-na-auto',title:'Náklady na auto',category:'Auto',description:'Celkové prevádzkové náklady',url:'/kalkulacky/naklady-na-auto/'},...catalog.map(t=>({...t,url:'/kalkulacky/'+t.slug+'/'}))];
+const groups=[{id:'all',label:'Všetky'},{id:'financie',label:'Financie a bývanie'},{id:'auto',label:'Auto a elektromobilita'}];
 ---
-<Base title="Všetky kalkulačky" description="Bezplatné finančné a automobilové kalkulačky na jednom mieste."><main class="wrap main" id="obsah"><p class="eyebrow">Nástroje</p><h1>Všetky kalkulačky</h1><p class="intro">18 bezplatných nástrojov. Výpočty prebiehajú vo vašom prehliadači.</p><div class="list">{all.map(t=><a class="article" href={t.url}><span class="tag">{t.category}</span><h3>{t.title} →</h3><p class="muted">{t.description}</p></a>)}</div></main></Base>
+<Base title="Kalkulačky podľa témy" description="Nájdite správnu kalkulačku pomocou kategórií a vyhľadávania.">
+<main class="wrap main" id="obsah">
+<p class="eyebrow">Praktické nástroje</p><h1>Vyberte si kalkulačku</h1>
+<p class="intro">Nemusíte prechádzať celý zoznam. Vyberte oblasť alebo napíšte, čo chcete vypočítať. Výpočty prebiehajú vo vašom prehliadači.</p>
+<section class="panel" aria-label="Filtrovanie kalkulačiek">
+<label for="calc-search">Čo potrebujete vypočítať?</label>
+<input id="calc-search" type="search" placeholder="Napríklad hypotéka, nabíjanie, sporenie…" autocomplete="off" style="width:100%;max-width:38rem;padding:.8rem;margin:.5rem 0 1rem;border:1px solid #94a3b8;border-radius:.65rem" />
+<div role="group" aria-label="Kategória kalkulačiek" class="filter-buttons">
+{groups.map((g,i)=><button type="button" class="filter-button" data-category={g.id} aria-pressed={i===0?'true':'false'}>{g.label}</button>)}
+</div><p id="calc-count" class="muted" aria-live="polite">Zobrazených {all.length} kalkulačiek</p>
+</section>
+<div class="grid" id="calc-list">{all.map(t=><a class="card calc-item" data-group={t.category.toLowerCase()} data-search={[t.title,t.description,t.keywords??''].join(' ').toLocaleLowerCase('sk')} href={t.url}><span class="tag">{t.category}</span><h2>{t.title} →</h2><p>{t.description}</p></a>)}</div>
+<p id="calc-empty" hidden role="status">Pre tento výber sme nenašli kalkulačku. Skúste iné slovo alebo kategóriu.</p>
+</main>
+<style>
+.filter-buttons{display:flex;gap:.6rem;flex-wrap:wrap}.filter-button{border:1px solid #94a3b8;border-radius:999px;padding:.65rem 1rem;background:transparent;color:inherit;cursor:pointer}.filter-button[aria-pressed="true"]{background:#0f766e;color:white;border-color:#0f766e}.calc-item[hidden],#calc-empty[hidden]{display:none}
+</style>
+<script>
+const input=document.querySelector<HTMLInputElement>('#calc-search');
+const buttons=[...document.querySelectorAll<HTMLButtonElement>('.filter-button')];
+const items=[...document.querySelectorAll<HTMLElement>('.calc-item')];
+const count=document.querySelector<HTMLElement>('#calc-count');
+const empty=document.querySelector<HTMLElement>('#calc-empty');
+let category='all';
+function filter(){const query=(input?.value||'').toLocaleLowerCase('sk').trim();let visible=0;for(const item of items){const match=(category==='all'||item.dataset.group===category)&&(!query||(item.dataset.search||'').includes(query));item.hidden=!match;if(match)visible++;}if(count)count.textContent='Zobrazených '+visible+' z '+items.length+' kalkulačiek';if(empty)empty.hidden=visible!==0;}
+buttons.forEach(button=>button.addEventListener('click',()=>{category=button.dataset.category||'all';buttons.forEach(b=>b.setAttribute('aria-pressed',String(b===button)));filter();}));input?.addEventListener('input',filter);
+</script>
+</Base>

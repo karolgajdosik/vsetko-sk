@@ -15,17 +15,19 @@ const jsonLd={
  inLanguage:'sk',
  dateModified:'2026-10-22',
  mainEntityOfPage:new URL(Astro.url.pathname,Astro.site ?? 'https://vsetko24.sk').href,
- publisher:{'@type':'Organization',name:'VŠETKO.sk',url:'https://vsetko24.sk/'}
+ publisher:{'@type':'Organization',name:'VŠETKO24.sk',url:'https://vsetko24.sk/'}
 };
 ---
 <Base title={guide.title} description={guide.description} updated={guide.updated} sourceLinks={[guide.source]}>
 <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 <main class="wrap main" id="obsah">
 <p class="eyebrow"><a href={`/${guide.category}/`}>{categoryLabel}</a> / Praktický návod</p>
-<h1>{guide.title}</h1><p class="intro">{guide.description}</p>
-<section class="panel"><h2>Pre koho je návod určený</h2><p>{guide.audience}</p><h2>Čo si pripraviť</h2><ul>{guide.preparation.map(item=><li>{item}</li>)}</ul></section>
-<section class="panel"><h2>Postup krok za krokom</h2><ol>{guide.steps.map(step=><li style="margin-bottom:1rem">{step}</li>)}</ol></section>
-<section class="notice"><strong>Dôležité:</strong> {guide.verification} {guide.sourceNote}  Ide o orientačný kontrolný zoznam, nie o právne alebo finančné poradenstvo. Pred vybavovaním overte aktuálne požiadavky na oficiálnom zdroji: <a href={guide.source.url} target="_blank" rel="noopener noreferrer">{guide.source.label} ↗</a>.</section>
-<p><a href="/">← Späť na vyhľadávanie</a></p>
+<h1>{guide.title}</h1><p class="intro">{guide.description}</p><nav class="panel" aria-label="Obsah návodu"><strong>V tomto návode</strong><ol><li><a href="#priprava">Čo si pripraviť</a></li><li><a href="#postup">Postup krok za krokom</a></li><li><a href="#overenie">Overenie a oficiálny zdroj</a></li></ol></nav>
+<section class="panel" id="priprava"><h2>Pre koho je návod určený</h2><p>{guide.audience}</p><h2>Čo si pripraviť</h2><ul>{guide.preparation.map(item=><li>{item}</li>)}</ul></section>
+<section class="panel" id="postup"><h2>Postup krok za krokom</h2><p>Jednotlivé kroky si môžete odškrtávať. Pred odoslaním žiadosti si vždy skontrolujte aktuálne podmienky na oficiálnom portáli.</p><ol class="guide-steps">{guide.steps.map((step,i)=><li><label class="guide-step"><input type="checkbox" aria-label={\`Dokončený krok \${i+1}\`} /><span><strong>Krok {i+1}</strong><span>{step}</span></span></label></li>)}</ol><p id="guide-progress" aria-live="polite"></p></section>
+<section class="notice" id="overenie"><strong>Dôležité:</strong> {guide.verification} {guide.sourceNote}  Ide o orientačný kontrolný zoznam, nie o právne alebo finančné poradenstvo. Pred vybavovaním overte aktuálne požiadavky na oficiálnom zdroji: <a href={guide.source.url} target="_blank" rel="noopener noreferrer">{guide.source.label} ↗</a>.</section>
+<p><a href="/sprievodca/">← Životné situácie</a> · <a href="/kalkulacky/">Kalkulačky</a> · <a href="/">Domov</a></p>
 </main>
+<style>.guide-steps{padding-left:1.5rem}.guide-steps li{margin:0 0 .8rem}.guide-step{display:flex;align-items:flex-start;gap:.9rem;padding:1rem;border:1px solid #cbd5e1;border-radius:.75rem;cursor:pointer}.guide-step input{margin-top:.25rem;width:1.15rem;height:1.15rem;flex-shrink:0}.guide-step span span{display:block;margin-top:.35rem}.guide-step:has(input:checked){background:#f0fdf4}.guide-step:has(input:checked) span span{text-decoration:line-through;opacity:.7}</style>
+<script>const checks=[...document.querySelectorAll<HTMLInputElement>('.guide-step input')];const progress=document.querySelector('#guide-progress');function refresh(){if(progress)progress.textContent='Hotové kroky: '+checks.filter(c=>c.checked).length+' z '+checks.length;}checks.forEach(c=>c.addEventListener('change',refresh));refresh();</script>
 </Base>
