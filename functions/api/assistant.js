@@ -1,6 +1,6 @@
 // Cloudflare Pages Function: bounded Slovak AI assistant with source-grounded context.
 // Requires a Cloudflare Workers AI binding named AI (configured in Pages settings).
-const MODEL='@cf/meta/llama-3.1-8b-instruct';
+const MODEL='@cf/meta/llama-3.1-8b-instruct-fp8-fast';
 const MAX_BYTES=4096;
 const ORIGIN='https://vsetko24.sk';
 const reply=(data,status=200)=>new Response(JSON.stringify(data),{status,headers:{'content-type':'application/json; charset=utf-8','cache-control':'no-store','x-content-type-options':'nosniff'}});
