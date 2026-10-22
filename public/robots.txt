@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vsetko24.sk/sitemap.xml

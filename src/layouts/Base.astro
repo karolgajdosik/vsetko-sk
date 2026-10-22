@@ -4,7 +4,7 @@ const path=Astro.url.pathname;
 const nav=[['/','Domov'],['/financie/','Financie'],['/auto/','Auto'],['/urady/','Úrady'],['/sprievodca/','Sprievodca'],['/data/','Dáta']];
 const canonical = new URL(path, Astro.site ?? 'https://vsetko24.sk').href;
 const analyticsToken = import.meta.env.PUBLIC_CF_ANALYTICS_TOKEN; // Leave unset when Pages injects Web Analytics automatically.
-const fullTitle = title === 'VŠETKO.sk' ? title : `${title} | VŠETKO.sk`;
+const fullTitle = title === 'VŠETKO.sk' ? title : `${title} | VŠETKO24.sk`;
 ---
 <!doctype html>
 <html lang="sk">
@@ -19,7 +19,7 @@ const fullTitle = title === 'VŠETKO.sk' ? title : `${title} | VŠETKO.sk`;
 <link rel="stylesheet" href="/site.css" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="sk_SK" />
-<meta property="og:site_name" content="VŠETKO.sk" />
+<meta property="og:site_name" content="VŠETKO24.sk" />
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonical} />
@@ -29,8 +29,8 @@ const fullTitle = title === 'VŠETKO.sk' ? title : `${title} | VŠETKO.sk`;
 </head>
 <body>
 <a class="skip" href="#obsah">Preskočiť na obsah</a>
-<header class="top"><div class="wrap topinner"><a class="brand" href="/" aria-label="VŠETKO.sk – domov">VŠETKO<span>.sk</span></a><button class="mobile-menu-toggle" type="button" aria-label="Otvoriť navigáciu" aria-controls="site-nav" aria-expanded="false"><span></span><span></span><span></span></button><nav id="site-nav" aria-label="Hlavná navigácia">{nav.map(([href,label])=><a href={href} aria-current={path===href?'page':undefined}>{label}</a>)}</nav></div></header>
+<header class="top"><div class="wrap topinner"><a class="brand" href="/" aria-label="VŠETKO24.sk – domov">VŠETKO<span>24.sk</span></a><button class="mobile-menu-toggle" type="button" aria-label="Otvoriť navigáciu" aria-controls="site-nav" aria-expanded="false"><span></span><span></span><span></span></button><nav id="site-nav" aria-label="Hlavná navigácia">{nav.map(([href,label])=><a href={href} aria-current={path===href?'page':undefined}>{label}</a>)}</nav></div></header>
 <slot />
 {(updated || sourceLinks.length>0) && <aside class="wrap trust" aria-label="Informácie o obsahu"><p><strong>Informácie o obsahu:</strong> {updated ? `Posledná redakčná aktualizácia: ${updated}.` : 'Obsah sa priebežne dopĺňa.'} {sourceLinks.length>0 && <> Oficiálne zdroje: {sourceLinks.map((s,i)=><span>{i>0?', ':''}<a href={s.url} target="_blank" rel="noopener noreferrer">{s.label} ↗</a></span>)}</>}</p><p>Pri úradných a právnych témach majú prednosť aktuálne informácie príslušných úradov. Dátum aktualizácie neznamená overenie všetkých právnych detailov.</p></aside>}
-<footer class="footer"><div class="wrap footinner"><span>© {new Date().getFullYear()} VŠETKO.sk · Nezávislý pilotný portál</span><span><a href="/o-projekte/">O projekte</a> · <a href="/kontakt/">Kontakt</a> · <a href="/ochrana-sukromia/">Ochrana súkromia</a></span><span>Nie sme oficiálny portál štátnej správy.</span></div></footer>
+<footer class="footer"><div class="wrap footinner"><span>© {new Date().getFullYear()} VŠETKO24.sk · Nezávislý pilotný portál</span><span><a href="/o-projekte/">O projekte</a> · <a href="/kontakt/">Kontakt</a> · <a href="/ochrana-sukromia/">Ochrana súkromia</a></span><span>Nie sme oficiálny portál štátnej správy.</span></div></footer>
 <script is:inline>const toggle=document.querySelector('.mobile-menu-toggle');const nav=document.querySelector('#site-nav');if(toggle&&nav){toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Zavrieť navigáciu':'Otvoriť navigáciu');nav.classList.toggle('nav-open',open)});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('nav-open');toggle.setAttribute('aria-expanded','false')}));}</script></body></html>
