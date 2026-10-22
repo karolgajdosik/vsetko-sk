@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 
-// Change SITE_URL in Cloudflare Pages when the custom domain is connected.
+// Canonical production URL. Keep this in sync with the primary Cloudflare Pages custom domain.
 export default defineConfig({
-  site: process.env.SITE_URL || 'https://vsetko-sk.pages.dev',
+  site: 'https://vsetko24.sk',
   output: 'static',
   trailingSlash: 'always'
 });

@@ -1,0 +1,11 @@
+import { readFileSync } from 'node:fs';
+import assert from 'node:assert/strict';
+const config = readFileSync('astro.config.mjs', 'utf8');
+const layout = readFileSync('src/layouts/Base.astro', 'utf8');
+const sitemap = readFileSync('src/pages/sitemap.xml.ts', 'utf8');
+const robots = readFileSync('src/pages/robots.txt.ts', 'utf8');
+assert.match(config, /https:\/\/vsetko24\.sk/);
+assert.match(layout, /rel="canonical"/);
+assert.match(sitemap, /<urlset/);
+assert.match(robots, /Sitemap:/);
+console.log('SEO source checks passed. Run npm run build for full Astro validation.');
