@@ -23,7 +23,7 @@
     "category": "Informácie",
     "provider": "Štatistický úrad SR",
     "status": "evaluate",
-    "url": "https://data.statistics.sk/api/html/help-en.html",
+    "url": "https://data.statistics.sk/api/",
     "note": "Staré DATAcube exporty sa od 15. 9. 2026 neaktualizujú. Pripravuje sa integrácia na STATdata."
   },
   {
@@ -51,7 +51,7 @@
     "provider": "Národná banka Slovenska",
     "status": "evaluate",
     "url": "https://nbs.sk/",
-    "note": "Vyžaduje výber presných oficiálnych dátových radov."
+    "note": "Oficiálne časové rady NBS a ceny nehnuteľností; automatický import konkrétnych sadzieb ešte nie je aktivovaný."
   },
   {
     "slug": "worldbank",
