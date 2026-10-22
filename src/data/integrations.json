@@ -1,0 +1,56 @@
+[
+  {
+    "slug": "ecb-kurzy",
+    "title": "Referenčné výmenné kurzy",
+    "category": "Financie",
+    "provider": "Európska centrálna banka",
+    "status": "ready",
+    "url": "https://data.ecb.europa.eu/help/api/data",
+    "note": "Referenčné, nie bankové nákupné/predajné kurzy."
+  },
+  {
+    "slug": "rpo",
+    "title": "Vyhľadávanie firiem",
+    "category": "Podnikanie",
+    "provider": "Štatistický úrad SR",
+    "status": "evaluate",
+    "url": "https://susrrpo.docs.apiary.io/",
+    "note": "Oficiálne údaje, dostupnosť a formát treba otestovať."
+  },
+  {
+    "slug": "datacube",
+    "title": "Štatistiky Slovenska",
+    "category": "Informácie",
+    "provider": "Štatistický úrad SR",
+    "status": "evaluate",
+    "url": "https://data.statistics.sk/api/html/help-en.html",
+    "note": "Vybrať relevantné ukazovatele a ich periodicitu."
+  },
+  {
+    "slug": "nabijacky",
+    "title": "Nabíjacie stanice",
+    "category": "Auto",
+    "provider": "Open Charge Map",
+    "status": "key-required",
+    "url": "https://www.openchargemap.org/develop/api",
+    "note": "Bezplatný kľúč vyžaduje registráciu; nie je to živá obsadenosť."
+  },
+  {
+    "slug": "pocasie",
+    "title": "Predpoveď počasia",
+    "category": "Informácie",
+    "provider": "Open-Meteo",
+    "status": "evaluate",
+    "url": "https://open-meteo.com/en/terms",
+    "note": "Bezplatná služba je iba na nekomerčné použitie."
+  },
+  {
+    "slug": "nbs",
+    "title": "Bankové a úrokové štatistiky",
+    "category": "Financie",
+    "provider": "Národná banka Slovenska",
+    "status": "evaluate",
+    "url": "https://nbs.sk/",
+    "note": "Vyžaduje výber presných oficiálnych dátových radov."
+  }
+]
