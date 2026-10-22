@@ -1,0 +1,226 @@
+[
+  {
+    "slug": "kupa-bytu",
+    "title": "Chcem kúpiť byt",
+    "description": "Od prípravy rozpočtu po odovzdanie nehnuteľnosti.",
+    "category": "Bývanie",
+    "keywords": "byt hypoteka kupa nehnutelnost",
+    "questions": [
+      {
+        "id": "financing",
+        "title": "Ako plánujete financovať kúpu?",
+        "options": [
+          {
+            "label": "Hypotékou",
+            "value": "hypoteka",
+            "guides": [
+              "hypoteka-prva-ziadost",
+              "porovnanie-hypotek"
+            ],
+            "calculators": [
+              "/financie/#hypoteka",
+              "/kalkulacky/dostupnost-hypoteky/"
+            ]
+          },
+          {
+            "label": "Z vlastných úspor",
+            "value": "uspory",
+            "guides": [
+              "kupa-bytu"
+            ],
+            "calculators": [
+              "/kalkulacky/dostupnost-hypoteky/"
+            ]
+          }
+        ]
+      }
+    ],
+    "guides": [
+      "kupa-bytu",
+      "kataster-vlastnictvo"
+    ],
+    "official": "https://www.slovensko.sk/"
+  },
+  {
+    "slug": "strata-obcianskeho",
+    "title": "Stratil som občiansky preukaz",
+    "description": "Čo si preveriť pri strate dokladu.",
+    "category": "Doklady",
+    "keywords": "strata obciansky doklad",
+    "guides": [
+      "strata-obcianskeho-preukazu",
+      "ako-vybavit-obciansky-preukaz"
+    ],
+    "official": "https://www.slovensko.sk/"
+  },
+  {
+    "slug": "nove-auto",
+    "title": "Kupujem auto",
+    "description": "Kontrola vozidla, poistenie a evidencia.",
+    "category": "Auto",
+    "keywords": "auto kupa prepis pzp",
+    "guides": [
+      "kontrola-vozidla-pred-kupou",
+      "pzp-pri-kupe-auta",
+      "prepis-auta"
+    ],
+    "official": "https://www.slovensko.sk/"
+  },
+  {
+    "slug": "elektromobil",
+    "title": "Zvažujem elektromobil",
+    "description": "Rozpočet, nabíjanie a prevádzka.",
+    "category": "Auto",
+    "keywords": "elektromobil nabijanie ev",
+    "guides": [
+      "kupa-elektromobilu",
+      "domace-nabijanie",
+      "cesta-elektromobilom"
+    ],
+    "calculators": [
+      "/kalkulacky/ev-vs-benzin/",
+      "/kalkulacky/cena-nabijania/"
+    ],
+    "official": "https://www.slovensko.sk/"
+  },
+  {
+    "slug": "zmena-bydliska",
+    "title": "Sťahujem sa",
+    "description": "Zmena pobytu a súvisiace doklady.",
+    "category": "Úrady",
+    "keywords": "stahovanie adresa trvaly pobyt",
+    "guides": [
+      "zmena-trvaleho-pobytu",
+      "ako-vybavit-obciansky-preukaz"
+    ],
+    "official": "https://www.slovensko.sk/"
+  },
+  {
+    "slug": "dieta",
+    "title": "Narodilo sa nám dieťa",
+    "description": "Rodný list a prvé úradné kroky.",
+    "category": "Rodina",
+    "keywords": "dieta narodenie rodny list",
+    "guides": [
+      "rodny-list",
+      "cestovny-pas-pre-dieta"
+    ],
+    "official": "https://www.slovensko.sk/"
+  },
+  {
+    "slug": "svadba",
+    "title": "Plánujeme svadbu",
+    "description": "Doklady a príprava sobáša.",
+    "category": "Rodina",
+    "keywords": "svadba sobas manzelstvo",
+    "guides": [
+      "sobas-na-slovensku",
+      "zmena-mena-a-priezviska"
+    ],
+    "official": "https://www.slovensko.sk/"
+  },
+  {
+    "slug": "umrtie",
+    "title": "Úmrtie v rodine",
+    "description": "Citlivý prehľad administratívnych krokov.",
+    "category": "Rodina",
+    "keywords": "umrtie pohreb dedicstvo",
+    "guides": [
+      "vybavenie-po-umrti",
+      "dedicske-konanie"
+    ],
+    "official": "https://www.slovensko.sk/"
+  },
+  {
+    "slug": "zivnost",
+    "title": "Chcem začať podnikať",
+    "description": "Prvé kroky k živnosti.",
+    "category": "Podnikanie",
+    "keywords": "zivnost podnikanie",
+    "guides": [
+      "zacatie-podnikania"
+    ],
+    "official": "https://www.slovensko.sk/"
+  },
+  {
+    "slug": "refinancovanie",
+    "title": "Chcem zmeniť hypotéku",
+    "description": "Porovnanie ponúk a nákladov.",
+    "category": "Financie",
+    "keywords": "refinancovanie hypoteka fixacia",
+    "guides": [
+      "refinancovanie-uveru",
+      "fixacia-hypoteky"
+    ],
+    "calculators": [
+      "/kalkulacky/refinancovanie/"
+    ],
+    "official": "https://nbs.sk/"
+  },
+  {
+    "slug": "dovolenka",
+    "title": "Plánujem cestu",
+    "description": "Rozpočet a cestovné doklady.",
+    "category": "Cestovanie",
+    "keywords": "dovolenka cestovanie pas",
+    "guides": [
+      "vymena-cestovneho-pasu",
+      "cestovny-pas-pre-dieta"
+    ],
+    "calculators": [
+      "/kalkulacky/rozpocet-na-dovolenku/"
+    ],
+    "official": "https://www.slovensko.sk/"
+  },
+  {
+    "slug": "nehoda",
+    "title": "Mal som dopravnú nehodu",
+    "description": "Bezpečnosť, dokumentácia a poisťovňa.",
+    "category": "Auto",
+    "keywords": "nehoda poistovna auto",
+    "guides": [
+      "nehoda-na-ceste",
+      "povinne-zmluvne-poistenie"
+    ],
+    "official": "https://www.skp.sk/"
+  },
+  {
+    "slug": "predaj-auta",
+    "title": "Predávam auto",
+    "description": "Zmluva, evidencia a odovzdanie.",
+    "category": "Auto",
+    "keywords": "predaj auta zmluva prepis",
+    "guides": [
+      "predaj-vozidla",
+      "prepis-auta"
+    ],
+    "official": "https://www.slovensko.sk/"
+  },
+  {
+    "slug": "rezerva",
+    "title": "Chcem mať finančnú rezervu",
+    "description": "Plánovanie výdavkov a úspor.",
+    "category": "Financie",
+    "keywords": "rezerva sporenie rozpocet",
+    "guides": [
+      "financna-rezerva",
+      "rodinny-financny-plan"
+    ],
+    "calculators": [
+      "/kalkulacky/financna-rezerva/"
+    ],
+    "official": "https://nbs.sk/"
+  },
+  {
+    "slug": "stk",
+    "title": "Pripravujem auto na STK",
+    "description": "Doklady a technická príprava.",
+    "category": "Auto",
+    "keywords": "stk technicka kontrola",
+    "guides": [
+      "stk-priprava",
+      "zimne-pneumatiky"
+    ],
+    "official": "https://www.slovensko.sk/"
+  }
+]

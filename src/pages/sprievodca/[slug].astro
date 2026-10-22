@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import scenarios from '../../data/scenarios.json';
+import guides from '../../data/guides.json';
+export function getStaticPaths(){return scenarios.map(s=>({params:{slug:s.slug},props:{scenario:s}}));}
+const {scenario}=Astro.props;
+const related=guides.filter(g=>scenario.guides.includes(g.slug));
+const options=scenario.questions?.[0]?.options ?? [];
+---
+<Base title={scenario.title} description={scenario.description}>
+<main class="wrap main" id="obsah"><p class="eyebrow"><a href="/sprievodca/">Sprievodca</a> / {scenario.category}</p><h1>{scenario.title}</h1><p class="intro">{scenario.description}</p>
+{scenario.questions?.length>0 && <section class="panel"><h2>{scenario.questions[0].title}</h2><label for="answer">Vyberte možnosť</label><select id="answer"><option value="">Vyberte odpoveď</option>{options.map(o=><option value={o.value}>{o.label}</option>)}</select><div id="personalized" aria-live="polite"></div></section>}
+<section class="panel"><h2>Odporúčané návody</h2><ol>{related.map(g=><li><a href={`/navody/${g.slug}/`}>{g.title}</a></li>)}</ol></section>
+{scenario.calculators?.length>0 && <section class="panel"><h2>Súvisiace kalkulačky</h2><ul>{scenario.calculators.map(url=><li><a href={url}>{url.includes('hypoteka')?'Hypotekárna kalkulačka':'Otvoriť kalkulačku'}</a></li>)}</ul></section>}
+<p class="notice">Informácie sú orientačné. Aktuálne podmienky overte na <a href={scenario.official} target="_blank" rel="noopener noreferrer">oficiálnom portáli ↗</a>.</p><p><a href="/sprievodca/">← Všetky situácie</a></p></main>
+{scenario.questions?.length>0 && <script define:vars={{options}} is:inline>
+const select=document.getElementById('answer');const output=document.getElementById('personalized');select.addEventListener('change',()=>{output.replaceChildren();const chosen=options.find(o=>o.value===select.value);if(!chosen)return;const heading=document.createElement('h3');heading.textContent='Odporúčané ďalšie kroky';output.append(heading);for(const slug of chosen.guides||[]){const p=document.createElement('p');const a=document.createElement('a');a.href='/navody/'+slug+'/';a.textContent=slug.replaceAll('-',' ');p.append(a);output.append(p);}for(const url of chosen.calculators||[]){const p=document.createElement('p');const a=document.createElement('a');a.href=url;a.textContent='Otvoriť súvisiacu kalkulačku';p.append(a);output.append(p);}});
+</script>}
+</Base>
