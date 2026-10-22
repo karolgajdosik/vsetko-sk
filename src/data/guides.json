@@ -253,5 +253,455 @@
     },
     "updated": "22. 10. 2026",
     "keywords": "dedicske konanie"
+  },
+  {
+    "slug": "ako-vybavit-obciansky-preukaz",
+    "title": "Ako vybaviť občiansky preukaz",
+    "category": "urady",
+    "description": "Doklady a postup pred návštevou pracoviska",
+    "steps": [
+      "Zistite, či sa téma „ako vybaviť občiansky preukaz“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Ministerstvo vnútra SR",
+      "url": "https://www.minv.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "ako vybaviť občiansky preukaz"
+  },
+  {
+    "slug": "cestovny-pas-pre-dieta",
+    "title": "Cestovný pas pre dieťa",
+    "category": "urady",
+    "description": "Čo si overiť pri vybavovaní dokladu dieťaťa",
+    "steps": [
+      "Zistite, či sa téma „cestovný pas pre dieťa“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Ministerstvo vnútra SR",
+      "url": "https://www.minv.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "cestovný pas pre dieťa"
+  },
+  {
+    "slug": "strata-cestovneho-pasu",
+    "title": "Strata cestovného pasu",
+    "category": "urady",
+    "description": "Prvé kroky pri strate cestovného dokladu",
+    "steps": [
+      "Zistite, či sa téma „strata cestovného pasu“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Ministerstvo vnútra SR",
+      "url": "https://www.minv.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "strata cestovného pasu"
+  },
+  {
+    "slug": "zmena-mena-a-priezviska",
+    "title": "Zmena mena alebo priezviska",
+    "category": "urady",
+    "description": "Základná orientácia v matričnom postupe",
+    "steps": [
+      "Zistite, či sa téma „zmena mena alebo priezviska“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Ministerstvo vnútra SR",
+      "url": "https://www.minv.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "zmena mena alebo priezviska"
+  },
+  {
+    "slug": "rodny-list",
+    "title": "Vybavenie rodného listu",
+    "category": "urady",
+    "description": "Ako postupovať pri žiadosti o matričný doklad",
+    "steps": [
+      "Zistite, či sa téma „vybavenie rodného listu“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Slovensko.sk",
+      "url": "https://www.slovensko.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "vybavenie rodného listu"
+  },
+  {
+    "slug": "sobas-na-slovensku",
+    "title": "Sobáš na Slovensku",
+    "category": "urady",
+    "description": "Príprava na civilný alebo cirkevný sobáš",
+    "steps": [
+      "Zistite, či sa téma „sobáš na slovensku“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Slovensko.sk",
+      "url": "https://www.slovensko.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "sobáš na slovensku"
+  },
+  {
+    "slug": "vybavenie-po-umrti",
+    "title": "Čo vybaviť po úmrtí blízkeho",
+    "category": "urady",
+    "description": "Praktický zoznam úkonov a dokumentov",
+    "steps": [
+      "Zistite, či sa téma „čo vybaviť po úmrtí blízkeho“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Slovensko.sk",
+      "url": "https://www.slovensko.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "čo vybaviť po úmrtí blízkeho"
+  },
+  {
+    "slug": "kataster-vlastnictvo",
+    "title": "List vlastníctva a kataster",
+    "category": "urady",
+    "description": "Ako overovať údaje o nehnuteľnosti",
+    "steps": [
+      "Zistite, či sa téma „list vlastníctva a kataster“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Úrad geodézie, kartografie a katastra",
+      "url": "https://www.skgeodesy.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "list vlastníctva a kataster"
+  },
+  {
+    "slug": "kupa-bytu",
+    "title": "Kúpa bytu krok za krokom",
+    "category": "financie",
+    "description": "Príprava financovania a kontrola dokumentov",
+    "steps": [
+      "Zistite, či sa téma „kúpa bytu krok za krokom“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Národná banka Slovenska",
+      "url": "https://nbs.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "kúpa bytu krok za krokom"
+  },
+  {
+    "slug": "predaj-bytu",
+    "title": "Predaj bytu",
+    "category": "financie",
+    "description": "Príprava dokumentov a prevodu nehnuteľnosti",
+    "steps": [
+      "Zistite, či sa téma „predaj bytu“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Úrad geodézie, kartografie a katastra",
+      "url": "https://www.skgeodesy.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "predaj bytu"
+  },
+  {
+    "slug": "hypoteka-prva-ziadost",
+    "title": "Prvá žiadosť o hypotéku",
+    "category": "financie",
+    "description": "Podklady a porovnávanie bankových ponúk",
+    "steps": [
+      "Zistite, či sa téma „prvá žiadosť o hypotéku“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Národná banka Slovenska",
+      "url": "https://nbs.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "prvá žiadosť o hypotéku"
+  },
+  {
+    "slug": "fixacia-hypoteky",
+    "title": "Koniec fixácie hypotéky",
+    "category": "financie",
+    "description": "Ako sa pripraviť na zmenu úrokovej sadzby",
+    "steps": [
+      "Zistite, či sa téma „koniec fixácie hypotéky“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Národná banka Slovenska",
+      "url": "https://nbs.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "koniec fixácie hypotéky"
+  },
+  {
+    "slug": "urok-a-rpmn",
+    "title": "Úrok a RPMN – rozdiel",
+    "category": "financie",
+    "description": "Na čo sa zamerať pri porovnávaní úverov",
+    "steps": [
+      "Zistite, či sa téma „úrok a rpmn – rozdiel“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Národná banka Slovenska",
+      "url": "https://nbs.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "úrok a rpmn – rozdiel"
+  },
+  {
+    "slug": "bezpecne-sporenie",
+    "title": "Ako plánovať sporenie",
+    "category": "financie",
+    "description": "Ciele, rezerva a pravidelný vklad",
+    "steps": [
+      "Zistite, či sa téma „ako plánovať sporenie“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Národná banka Slovenska",
+      "url": "https://nbs.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "ako plánovať sporenie"
+  },
+  {
+    "slug": "rodinny-financny-plan",
+    "title": "Rodinný finančný plán",
+    "category": "financie",
+    "description": "Ako si rozdeliť príjmy a výdavky",
+    "steps": [
+      "Zistite, či sa téma „rodinný finančný plán“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Národná banka Slovenska",
+      "url": "https://nbs.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "rodinný finančný plán"
+  },
+  {
+    "slug": "kupa-elektromobilu",
+    "title": "Kúpa elektromobilu",
+    "category": "auto",
+    "description": "Čo overiť pred nákupom elektrického auta",
+    "steps": [
+      "Zistite, či sa téma „kúpa elektromobilu“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Ministerstvo dopravy SR",
+      "url": "https://www.mindop.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "kúpa elektromobilu"
+  },
+  {
+    "slug": "domace-nabijanie",
+    "title": "Domáce nabíjanie elektromobilu",
+    "category": "auto",
+    "description": "Príprava bezpečného nabíjania doma",
+    "steps": [
+      "Zistite, či sa téma „domáce nabíjanie elektromobilu“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Ministerstvo dopravy SR",
+      "url": "https://www.mindop.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "domáce nabíjanie elektromobilu"
+  },
+  {
+    "slug": "cesta-elektromobilom",
+    "title": "Plánovanie cesty elektromobilom",
+    "category": "auto",
+    "description": "Dojazd, prestávky a alternatívne stanice",
+    "steps": [
+      "Zistite, či sa téma „plánovanie cesty elektromobilom“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Ministerstvo dopravy SR",
+      "url": "https://www.mindop.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "plánovanie cesty elektromobilom"
+  },
+  {
+    "slug": "prepis-auta",
+    "title": "Prepis auta na Slovensku",
+    "category": "auto",
+    "description": "Zmena držiteľa vozidla a potrebné podklady",
+    "steps": [
+      "Zistite, či sa téma „prepis auta na slovensku“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Ministerstvo vnútra SR",
+      "url": "https://www.minv.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "prepis auta na slovensku"
+  },
+  {
+    "slug": "stk-priprava",
+    "title": "Príprava na STK",
+    "category": "auto",
+    "description": "Kontrola auta pred technickou kontrolou",
+    "steps": [
+      "Zistite, či sa téma „príprava na stk“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Ministerstvo dopravy SR",
+      "url": "https://www.mindop.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "príprava na stk"
+  },
+  {
+    "slug": "nehoda-na-ceste",
+    "title": "Postup pri dopravnej nehode",
+    "category": "auto",
+    "description": "Bezpečnosť a dokumentácia udalosti",
+    "steps": [
+      "Zistite, či sa téma „postup pri dopravnej nehode“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Ministerstvo vnútra SR",
+      "url": "https://www.minv.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "postup pri dopravnej nehode"
+  },
+  {
+    "slug": "pzp-pri-kupe-auta",
+    "title": "PZP pri kúpe auta",
+    "category": "auto",
+    "description": "Na čo nezabudnúť pri poistení vozidla",
+    "steps": [
+      "Zistite, či sa téma „pzp pri kúpe auta“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Slovenská kancelária poisťovateľov",
+      "url": "https://www.skp.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "pzp pri kúpe auta"
+  },
+  {
+    "slug": "leasing-alebo-uver",
+    "title": "Leasing alebo úver na auto",
+    "category": "auto",
+    "description": "Porovnanie financovania auta",
+    "steps": [
+      "Zistite, či sa téma „leasing alebo úver na auto“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Národná banka Slovenska",
+      "url": "https://nbs.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "leasing alebo úver na auto"
+  },
+  {
+    "slug": "zimne-pneumatiky",
+    "title": "Príprava auta na zimu",
+    "category": "auto",
+    "description": "Kontrola pneumatík a výbavy",
+    "steps": [
+      "Zistite, či sa téma „príprava auta na zimu“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "Ministerstvo dopravy SR",
+      "url": "https://www.mindop.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "príprava auta na zimu"
+  },
+  {
+    "slug": "dialnicna-znamka-kupa",
+    "title": "Kúpa diaľničnej známky",
+    "category": "auto",
+    "description": "Ako bezpečne kúpiť známku",
+    "steps": [
+      "Zistite, či sa téma „kúpa diaľničnej známky“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
+      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
+      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
+      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+    ],
+    "source": {
+      "label": "eZnamka",
+      "url": "https://eznamka.sk/"
+    },
+    "updated": "22. 10. 2026",
+    "keywords": "kúpa diaľničnej známky"
   }
 ]

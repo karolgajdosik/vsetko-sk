@@ -187,5 +187,285 @@
     "url": "/kalkulacky/naklady-na-auto/",
     "description": "Vypočítajte ročné a mesačné náklady benzínového, naftového a elektrického auta.",
     "keywords": "auto elektromobil benzin nafta spotreba naklady kalkulacka palivo elektrina"
+  },
+  {
+    "title": "Splátka spotrebného úveru",
+    "category": "Financie",
+    "url": "/kalkulacky/splatka-uveru/",
+    "description": "Orientačná mesačná splátka a celkový úrok.",
+    "keywords": "splatka spotrebny uver"
+  },
+  {
+    "title": "Úspora pri refinancovaní",
+    "category": "Financie",
+    "url": "/kalkulacky/refinancovanie/",
+    "description": "Porovnajte dve úrokové sadzby pri rovnakom zostatku a splatnosti.",
+    "keywords": "refinancovanie hypoteka"
+  },
+  {
+    "title": "Plán pravidelného sporenia",
+    "category": "Financie",
+    "url": "/kalkulacky/sporenie/",
+    "description": "Budúca hodnota mesačných vkladov a úroku.",
+    "keywords": "sporenie mesacne"
+  },
+  {
+    "title": "Zložené úročenie",
+    "category": "Financie",
+    "url": "/kalkulacky/zlozene-urocenie/",
+    "description": "Vývoj jednorazovej investície pri ročnom zhodnotení.",
+    "keywords": "investicia urocenie"
+  },
+  {
+    "title": "Vplyv inflácie",
+    "category": "Financie",
+    "url": "/kalkulacky/inflacia/",
+    "description": "Odhad budúcej ceny pri konštantnej inflácii.",
+    "keywords": "inflacia kupna sila"
+  },
+  {
+    "title": "Finančná rezerva",
+    "category": "Financie",
+    "url": "/kalkulacky/financna-rezerva/",
+    "description": "Koľko mesiacov výdavkov pokryje vaša rezerva.",
+    "keywords": "financna rezerva"
+  },
+  {
+    "title": "Vlastné zdroje na bývanie",
+    "category": "Financie",
+    "url": "/kalkulacky/dostupnost-hypoteky/",
+    "description": "Vypočítajte rozdiel medzi cenou bytu a vlastnými zdrojmi.",
+    "keywords": "byt vlastne zdroje hypoteka"
+  },
+  {
+    "title": "Rozpočet na dovolenku",
+    "category": "Financie",
+    "url": "/kalkulacky/rozpocet-na-dovolenku/",
+    "description": "Súčet dopravy, ubytovania a denných výdavkov.",
+    "keywords": "dovolenka cestovanie rozpocet"
+  },
+  {
+    "title": "Cena jazdy autom",
+    "category": "Auto",
+    "url": "/kalkulacky/cena-cesty/",
+    "description": "Energetické náklady na plánovanú trasu.",
+    "keywords": "cena cesty kilometre"
+  },
+  {
+    "title": "Cena nabíjania elektromobilu",
+    "category": "Auto",
+    "url": "/kalkulacky/cena-nabijania/",
+    "description": "Náklady na nabitie batérie podľa množstva energie.",
+    "keywords": "elektromobil nabijanie"
+  },
+  {
+    "title": "EV verzus benzín",
+    "category": "Auto",
+    "url": "/kalkulacky/ev-vs-benzin/",
+    "description": "Porovnanie ročných nákladov na energiu.",
+    "keywords": "elektromobil benzin porovnanie"
+  },
+  {
+    "title": "Orientačná splátka leasingu",
+    "category": "Auto",
+    "url": "/kalkulacky/leasing/",
+    "description": "Anuitný model financovania vozidla bez poplatkov.",
+    "keywords": "leasing auto splatka"
+  },
+  {
+    "title": "Pokles hodnoty auta",
+    "category": "Auto",
+    "url": "/kalkulacky/odpis-hodnoty-auta/",
+    "description": "Odhad hodnoty auta pri zvolenom ročnom poklese.",
+    "keywords": "odpis hodnota vozidla"
+  },
+  {
+    "title": "Servisný rozpočet auta",
+    "category": "Auto",
+    "url": "/kalkulacky/servisny-rozpocet/",
+    "description": "Odhad mesačnej rezervy na servis a pneumatiky.",
+    "keywords": "servis pneu auto"
+  },
+  {
+    "title": "Ročný nájazd kilometrov",
+    "category": "Auto",
+    "url": "/kalkulacky/rocny-najazd/",
+    "description": "Prepočet pravidelného týždenného nájazdu.",
+    "keywords": "kilometre najazd auto"
+  },
+  {
+    "title": "Ako vybaviť občiansky preukaz",
+    "category": "Úrady",
+    "url": "/navody/ako-vybavit-obciansky-preukaz/",
+    "description": "Doklady a postup pred návštevou pracoviska",
+    "keywords": "ako vybaviť občiansky preukaz"
+  },
+  {
+    "title": "Cestovný pas pre dieťa",
+    "category": "Úrady",
+    "url": "/navody/cestovny-pas-pre-dieta/",
+    "description": "Čo si overiť pri vybavovaní dokladu dieťaťa",
+    "keywords": "cestovný pas pre dieťa"
+  },
+  {
+    "title": "Strata cestovného pasu",
+    "category": "Úrady",
+    "url": "/navody/strata-cestovneho-pasu/",
+    "description": "Prvé kroky pri strate cestovného dokladu",
+    "keywords": "strata cestovného pasu"
+  },
+  {
+    "title": "Zmena mena alebo priezviska",
+    "category": "Úrady",
+    "url": "/navody/zmena-mena-a-priezviska/",
+    "description": "Základná orientácia v matričnom postupe",
+    "keywords": "zmena mena alebo priezviska"
+  },
+  {
+    "title": "Vybavenie rodného listu",
+    "category": "Úrady",
+    "url": "/navody/rodny-list/",
+    "description": "Ako postupovať pri žiadosti o matričný doklad",
+    "keywords": "vybavenie rodného listu"
+  },
+  {
+    "title": "Sobáš na Slovensku",
+    "category": "Úrady",
+    "url": "/navody/sobas-na-slovensku/",
+    "description": "Príprava na civilný alebo cirkevný sobáš",
+    "keywords": "sobáš na slovensku"
+  },
+  {
+    "title": "Čo vybaviť po úmrtí blízkeho",
+    "category": "Úrady",
+    "url": "/navody/vybavenie-po-umrti/",
+    "description": "Praktický zoznam úkonov a dokumentov",
+    "keywords": "čo vybaviť po úmrtí blízkeho"
+  },
+  {
+    "title": "List vlastníctva a kataster",
+    "category": "Úrady",
+    "url": "/navody/kataster-vlastnictvo/",
+    "description": "Ako overovať údaje o nehnuteľnosti",
+    "keywords": "list vlastníctva a kataster"
+  },
+  {
+    "title": "Kúpa bytu krok za krokom",
+    "category": "Financie",
+    "url": "/navody/kupa-bytu/",
+    "description": "Príprava financovania a kontrola dokumentov",
+    "keywords": "kúpa bytu krok za krokom"
+  },
+  {
+    "title": "Predaj bytu",
+    "category": "Financie",
+    "url": "/navody/predaj-bytu/",
+    "description": "Príprava dokumentov a prevodu nehnuteľnosti",
+    "keywords": "predaj bytu"
+  },
+  {
+    "title": "Prvá žiadosť o hypotéku",
+    "category": "Financie",
+    "url": "/navody/hypoteka-prva-ziadost/",
+    "description": "Podklady a porovnávanie bankových ponúk",
+    "keywords": "prvá žiadosť o hypotéku"
+  },
+  {
+    "title": "Koniec fixácie hypotéky",
+    "category": "Financie",
+    "url": "/navody/fixacia-hypoteky/",
+    "description": "Ako sa pripraviť na zmenu úrokovej sadzby",
+    "keywords": "koniec fixácie hypotéky"
+  },
+  {
+    "title": "Úrok a RPMN – rozdiel",
+    "category": "Financie",
+    "url": "/navody/urok-a-rpmn/",
+    "description": "Na čo sa zamerať pri porovnávaní úverov",
+    "keywords": "úrok a rpmn – rozdiel"
+  },
+  {
+    "title": "Ako plánovať sporenie",
+    "category": "Financie",
+    "url": "/navody/bezpecne-sporenie/",
+    "description": "Ciele, rezerva a pravidelný vklad",
+    "keywords": "ako plánovať sporenie"
+  },
+  {
+    "title": "Rodinný finančný plán",
+    "category": "Financie",
+    "url": "/navody/rodinny-financny-plan/",
+    "description": "Ako si rozdeliť príjmy a výdavky",
+    "keywords": "rodinný finančný plán"
+  },
+  {
+    "title": "Kúpa elektromobilu",
+    "category": "Auto",
+    "url": "/navody/kupa-elektromobilu/",
+    "description": "Čo overiť pred nákupom elektrického auta",
+    "keywords": "kúpa elektromobilu"
+  },
+  {
+    "title": "Domáce nabíjanie elektromobilu",
+    "category": "Auto",
+    "url": "/navody/domace-nabijanie/",
+    "description": "Príprava bezpečného nabíjania doma",
+    "keywords": "domáce nabíjanie elektromobilu"
+  },
+  {
+    "title": "Plánovanie cesty elektromobilom",
+    "category": "Auto",
+    "url": "/navody/cesta-elektromobilom/",
+    "description": "Dojazd, prestávky a alternatívne stanice",
+    "keywords": "plánovanie cesty elektromobilom"
+  },
+  {
+    "title": "Prepis auta na Slovensku",
+    "category": "Auto",
+    "url": "/navody/prepis-auta/",
+    "description": "Zmena držiteľa vozidla a potrebné podklady",
+    "keywords": "prepis auta na slovensku"
+  },
+  {
+    "title": "Príprava na STK",
+    "category": "Auto",
+    "url": "/navody/stk-priprava/",
+    "description": "Kontrola auta pred technickou kontrolou",
+    "keywords": "príprava na stk"
+  },
+  {
+    "title": "Postup pri dopravnej nehode",
+    "category": "Auto",
+    "url": "/navody/nehoda-na-ceste/",
+    "description": "Bezpečnosť a dokumentácia udalosti",
+    "keywords": "postup pri dopravnej nehode"
+  },
+  {
+    "title": "PZP pri kúpe auta",
+    "category": "Auto",
+    "url": "/navody/pzp-pri-kupe-auta/",
+    "description": "Na čo nezabudnúť pri poistení vozidla",
+    "keywords": "pzp pri kúpe auta"
+  },
+  {
+    "title": "Leasing alebo úver na auto",
+    "category": "Auto",
+    "url": "/navody/leasing-alebo-uver/",
+    "description": "Porovnanie financovania auta",
+    "keywords": "leasing alebo úver na auto"
+  },
+  {
+    "title": "Príprava auta na zimu",
+    "category": "Auto",
+    "url": "/navody/zimne-pneumatiky/",
+    "description": "Kontrola pneumatík a výbavy",
+    "keywords": "príprava auta na zimu"
+  },
+  {
+    "title": "Kúpa diaľničnej známky",
+    "category": "Auto",
+    "url": "/navody/dialnicna-znamka-kupa/",
+    "description": "Ako bezpečne kúpiť známku",
+    "keywords": "kúpa diaľničnej známky"
   }
 ]
