@@ -401,11 +401,58 @@
     "keywords": "vymena cestovneho pasu",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
-      "Identifikačné doklady podľa požiadaviek príslušného úradu",
-      "Dokumenty súvisiace s konkrétnou žiadosťou"
+      "Skontrolujte platnosť a stav doterajšieho pasu.",
+      "Pripravte občiansky preukaz alebo iný uznávaný doklad a starý pas, ak ho máte.",
+      "Zistite, či potrebujete štandardnú alebo zrýchlenú lehotu."
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Redakčne spracovaný orientačný postup. Aktuálne poplatky, zákonné lehoty a podmienky konkrétnej služby overte na príslušnom oficiálnom portáli.",
+    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "detail": {
+      "summary": "Nový cestovný pas sa vybavuje osobne na oddelení dokladov. Pred cestou si skontrolujte požiadavky cieľovej krajiny, pretože niektoré štáty požadujú platnosť pasu aj po plánovanom návrate.",
+      "before": [
+        "Skontrolujte platnosť a stav doterajšieho pasu.",
+        "Pripravte občiansky preukaz alebo iný uznávaný doklad a starý pas, ak ho máte.",
+        "Zistite, či potrebujete štandardnú alebo zrýchlenú lehotu."
+      ],
+      "detailed": [
+        {
+          "title": "Overte pravidlá cesty",
+          "body": "Na oficiálnych stránkach cieľovej krajiny a MZVEZ SR si overte víza a požadovanú zostávajúcu platnosť pasu."
+        },
+        {
+          "title": "Objednajte sa na oddelenie dokladov",
+          "body": "Zistite aktuálny rezervačný postup a voľné termíny na pracovisku dokladov. Žiadosť sa spravidla podáva osobne."
+        },
+        {
+          "title": "Podajte žiadosť",
+          "body": "Pracovisko overí totožnosť, zaznamená biometrické údaje podľa veku a oznámi správny poplatok a dostupné lehoty."
+        },
+        {
+          "title": "Prevezmite nový pas",
+          "body": "Skontrolujte údaje a platnosť, postup prevzatia a nakladanie so starým pasom. Pri blížiacom sa odlete ponechajte časovú rezervu."
+        }
+      ],
+      "pitfalls": [
+        "Expresné vybavenie nie je automaticky dostupné v každej situácii.",
+        "Vízové a vstupné pravidlá určuje cieľová krajina.",
+        "Pred kúpou letenky si overte, či bude nový doklad pripravený."
+      ],
+      "outcome": "Máte platný pas a overené podmienky cesty.",
+      "links": [
+        {
+          "label": "Ministerstvo vnútra SR – doklady",
+          "url": "https://www.minv.sk/"
+        },
+        {
+          "label": "Rezervačný portál MV SR",
+          "url": "https://portal.minv.sk/"
+        },
+        {
+          "label": "Ministerstvo zahraničných vecí SR",
+          "url": "https://www.mzv.sk/"
+        }
+      ]
+    }
   },
   {
     "slug": "zmena-trvaleho-pobytu",
@@ -425,11 +472,54 @@
     "keywords": "zmena trvaleho pobytu",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
-      "Identifikačné doklady podľa požiadaviek príslušného úradu",
-      "Dokumenty súvisiace s konkrétnou žiadosťou"
+      "Pripravte doklad totožnosti.",
+      "Overte, kto je vlastníkom nehnuteľnosti a či je potrebný súhlas vlastníka alebo spoluvlastníkov.",
+      "Zistite príslušnú ohlasovňu v obci alebo mestskej časti."
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Redakčne spracovaný orientačný postup. Aktuálne poplatky, zákonné lehoty a podmienky konkrétnej služby overte na príslušnom oficiálnom portáli.",
+    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "detail": {
+      "summary": "Pri sťahovaní na novú adresu treba ohlásiť zmenu trvalého pobytu príslušnej ohlasovni. Následne skontrolujte občiansky preukaz a inštitúcie, ktorým treba novú adresu oznámiť.",
+      "before": [
+        "Pripravte doklad totožnosti.",
+        "Overte, kto je vlastníkom nehnuteľnosti a či je potrebný súhlas vlastníka alebo spoluvlastníkov.",
+        "Zistite príslušnú ohlasovňu v obci alebo mestskej časti."
+      ],
+      "detailed": [
+        {
+          "title": "Overte oprávnenie prihlásiť sa",
+          "body": "Ak nie ste vlastníkom, overte požadovanú formu súhlasu vlastníka a výnimky podľa vašej situácie."
+        },
+        {
+          "title": "Ohláste trvalý pobyt",
+          "body": "Navštívte ohlasovňu alebo overte možnosť elektronického podania na slovensko.sk."
+        },
+        {
+          "title": "Vybavte nový občiansky preukaz",
+          "body": "Pri zmene adresy na občianskom preukaze overte povinnosť a lehotu na podanie žiadosti o nový doklad."
+        },
+        {
+          "title": "Aktualizujte súvisiace údaje",
+          "body": "Skontrolujte banku, zamestnávateľa, poisťovne, vozidlo a ďalšie zmluvy. Niektoré orgány získavajú zmeny automaticky, iné vyžadujú oznámenie."
+        }
+      ],
+      "pitfalls": [
+        "Nájomná zmluva nemusí automaticky nahrádzať požadovaný súhlas vlastníka.",
+        "Trvalý pobyt sám osebe nezakladá vlastnícke právo k nehnuteľnosti.",
+        "Postup môže byť odlišný pri maloletých alebo pri sťahovaní zo zahraničia."
+      ],
+      "outcome": "Nová adresa je zaevidovaná a nadväzujúce doklady a kontakty sú aktualizované.",
+      "links": [
+        {
+          "label": "Slovensko.sk – životné situácie",
+          "url": "https://www.slovensko.sk/"
+        },
+        {
+          "label": "Ministerstvo vnútra SR",
+          "url": "https://www.minv.sk/"
+        }
+      ]
+    }
   },
   {
     "slug": "zacatie-podnikania",
@@ -449,11 +539,62 @@
     "keywords": "zacatie podnikania",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
-      "Identifikačné doklady podľa požiadaviek príslušného úradu",
-      "Dokumenty súvisiace s konkrétnou žiadosťou"
+      "Pripravte občiansky preukaz a identifikačné údaje.",
+      "Vyberte predmety podnikania a adresu miesta podnikania.",
+      "Overte odbornú spôsobilosť pri remeselnej alebo viazanej živnosti."
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Redakčne spracovaný orientačný postup. Aktuálne poplatky, zákonné lehoty a podmienky konkrétnej služby overte na príslušnom oficiálnom portáli.",
+    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "detail": {
+      "summary": "Pred založením živnosti si overte, či ide o voľnú, remeselnú alebo viazanú činnosť, podmienky odbornej spôsobilosti a následné daňové a odvodové povinnosti.",
+      "before": [
+        "Pripravte občiansky preukaz a identifikačné údaje.",
+        "Vyberte predmety podnikania a adresu miesta podnikania.",
+        "Overte odbornú spôsobilosť pri remeselnej alebo viazanej živnosti."
+      ],
+      "detailed": [
+        {
+          "title": "Vyberte predmet podnikania",
+          "body": "Skontrolujte, či zvolená činnosť patrí medzi voľné, remeselné alebo viazané živnosti a či nevyžaduje osobitné povolenie."
+        },
+        {
+          "title": "Pripravte údaje a prílohy",
+          "body": "Pri sídle alebo mieste podnikania overte právny titul na užívanie adresy; pri regulovaných činnostiach doklady o spôsobilosti."
+        },
+        {
+          "title": "Ohláste živnosť",
+          "body": "Vybavte ohlásenie na jednotnom kontaktnom mieste alebo elektronicky prostredníctvom slovensko.sk. Poplatky závisia od druhu živnosti a spôsobu podania."
+        },
+        {
+          "title": "Skontrolujte registrácie a povinnosti",
+          "body": "Overte zápis v živnostenskom registri, daňové povinnosti, zdravotné poistenie a vznik sociálneho poistenia podľa aktuálnych pravidiel."
+        }
+      ],
+      "pitfalls": [
+        "Živnosť nemusí byť vhodná pre každú činnosť; niektoré profesie majú osobitný režim.",
+        "Daňové a odvodové povinnosti sa môžu meniť podľa príjmu a dátumu začatia.",
+        "Nespoliehajte sa na univerzálnu sumu odvodov bez posúdenia situácie."
+      ],
+      "outcome": "Živnostenské oprávnenie je riadne ohlásené a máte plán následných povinností.",
+      "links": [
+        {
+          "label": "Živnostenský register",
+          "url": "https://www.zrsr.sk/"
+        },
+        {
+          "label": "Slovensko.sk",
+          "url": "https://www.slovensko.sk/"
+        },
+        {
+          "label": "Finančná správa",
+          "url": "https://www.financnasprava.sk/"
+        },
+        {
+          "label": "Sociálna poisťovňa",
+          "url": "https://www.socpoist.sk/"
+        }
+      ]
+    }
   },
   {
     "slug": "dedicske-konanie",
@@ -473,11 +614,54 @@
     "keywords": "dedicske konanie",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
-      "Identifikačné doklady podľa požiadaviek príslušného úradu",
-      "Dokumenty súvisiace s konkrétnou žiadosťou"
+      "Zhromaždite dostupné doklady o príbuzenskom vzťahu.",
+      "Spíšte známy majetok, účty, nehnuteľnosti, úvery a ďalšie záväzky.",
+      "Ak existuje závet alebo dôležité listiny, oznámte to notárovi."
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Redakčne spracovaný orientačný postup. Aktuálne poplatky, zákonné lehoty a podmienky konkrétnej služby overte na príslušnom oficiálnom portáli.",
+    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "detail": {
+      "summary": "Dedičské konanie sa spravidla začne po oznámení úmrtia súdu; súd poverí notára ako súdneho komisára. Dedičia si pripravia informácie o majetku, záväzkoch a prípadnom závete.",
+      "before": [
+        "Zhromaždite dostupné doklady o príbuzenskom vzťahu.",
+        "Spíšte známy majetok, účty, nehnuteľnosti, úvery a ďalšie záväzky.",
+        "Ak existuje závet alebo dôležité listiny, oznámte to notárovi."
+      ],
+      "detailed": [
+        {
+          "title": "Počkajte na oznámenie o konaní",
+          "body": "Príslušný súd poverí notára. Ak sa konanie neozýva, overte jeho stav na príslušnom súde."
+        },
+        {
+          "title": "Pripravte prehľad majetku a dlhov",
+          "body": "Zahrňte nehnuteľnosti, účty, vozidlá, podiely, pohľadávky aj dlhy. Nezamlčujte záväzky."
+        },
+        {
+          "title": "Zúčastnite sa úkonov u notára",
+          "body": "Notár zisťuje dedičov, majetok a právny titul dedenia. Vysvetlí možnosti dohody a zákonné postupy."
+        },
+        {
+          "title": "Rozhodnite o dedičstve informovane",
+          "body": "Odmietnutie dedičstva má prísne pravidlá a lehotu; pred vyhlásením si overte právne následky."
+        }
+      ],
+      "pitfalls": [
+        "Neplaťte dlhy zosnulého bez pochopenia právneho postavenia dedičov.",
+        "Dedičstvo a bankové účty sa nesmú zamieňať s voľne dostupnými peniazmi.",
+        "Pri sporoch, zahraničnom majetku alebo podnikaní je vhodné individuálne právne posúdenie."
+      ],
+      "outcome": "Máte zdokumentovaný priebeh dedičského konania a rozhodnutie o dedičstve.",
+      "links": [
+        {
+          "label": "Ministerstvo spravodlivosti SR",
+          "url": "https://www.justice.gov.sk/"
+        },
+        {
+          "label": "Slovensko.sk",
+          "url": "https://www.slovensko.sk/"
+        }
+      ]
+    }
   },
   {
     "slug": "ako-vybavit-obciansky-preukaz",
@@ -498,11 +682,58 @@
     "keywords": "ako vybaviť občiansky preukaz",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
-      "Identifikačné doklady podľa požiadaviek príslušného úradu",
-      "Dokumenty súvisiace s konkrétnou žiadosťou"
+      "Pripravte existujúci občiansky preukaz, ak ho máte.",
+      "Zistite dôvod vydania a potrebné podklady k zmene údajov.",
+      "Overte dostupnosť rezervácie termínu."
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Redakčne spracovaný orientačný postup. Aktuálne poplatky, zákonné lehoty a podmienky konkrétnej služby overte na príslušnom oficiálnom portáli.",
+    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "detail": {
+      "summary": "Občiansky preukaz vybavíte na pracovisku dokladov. Konkrétny postup závisí od toho, či ide o prvé vydanie, skončenie platnosti, zmenu údajov alebo poškodenie.",
+      "before": [
+        "Pripravte existujúci občiansky preukaz, ak ho máte.",
+        "Zistite dôvod vydania a potrebné podklady k zmene údajov.",
+        "Overte dostupnosť rezervácie termínu."
+      ],
+      "detailed": [
+        {
+          "title": "Určite dôvod žiadosti",
+          "body": "Prvé vydanie, koniec platnosti, zmena mena alebo adresy a poškodenie dokladu môžu mať odlišné pravidlá."
+        },
+        {
+          "title": "Pripravte doklady",
+          "body": "Podľa situácie môže byť potrebný rodný list, pôvodný doklad alebo listina preukazujúca zmenu údajov."
+        },
+        {
+          "title": "Podajte žiadosť na oddelení dokladov",
+          "body": "Overí sa totožnosť a podľa podmienok sa spracuje fotografia, podpis a elektronické funkcie."
+        },
+        {
+          "title": "Prevezmite doklad a nastavte eID",
+          "body": "Skontrolujte údaje a platnosť; pri využívaní elektronických služieb si bezpečne nastavte potrebné prístupové prvky."
+        }
+      ],
+      "pitfalls": [
+        "Nezamieňajte občiansky preukaz s cestovným pasom pri cestách mimo EÚ.",
+        "Po zmene osobných údajov môžu platiť osobitné lehoty.",
+        "Výška správneho poplatku závisí od dôvodu a spôsobu vybavenia."
+      ],
+      "outcome": "Máte nový občiansky preukaz so správnymi údajmi.",
+      "links": [
+        {
+          "label": "Ministerstvo vnútra SR",
+          "url": "https://www.minv.sk/"
+        },
+        {
+          "label": "Rezervácie MV SR",
+          "url": "https://portal.minv.sk/"
+        },
+        {
+          "label": "Slovensko.sk – eID",
+          "url": "https://www.slovensko.sk/"
+        }
+      ]
+    }
   },
   {
     "slug": "cestovny-pas-pre-dieta",
@@ -523,11 +754,54 @@
     "keywords": "cestovný pas pre dieťa",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
-      "Identifikačné doklady podľa požiadaviek príslušného úradu",
-      "Dokumenty súvisiace s konkrétnou žiadosťou"
+      "Pripravte rodný list dieťaťa a doklad zákonného zástupcu.",
+      "Overte účasť dieťaťa na pracovisku a podmienky súhlasu alebo zastupovania.",
+      "Skontrolujte požiadavky cieľovej krajiny a plánovaný termín odchodu."
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Redakčne spracovaný orientačný postup. Aktuálne poplatky, zákonné lehoty a podmienky konkrétnej služby overte na príslušnom oficiálnom portáli.",
+    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "detail": {
+      "summary": "Aj dieťa potrebuje na cestu vlastný cestovný doklad, ak ho vyžaduje cieľová krajina. Pri podaní žiadosti sa uplatňujú pravidlá zastúpenia zákonným zástupcom a biometrie podľa veku.",
+      "before": [
+        "Pripravte rodný list dieťaťa a doklad zákonného zástupcu.",
+        "Overte účasť dieťaťa na pracovisku a podmienky súhlasu alebo zastupovania.",
+        "Skontrolujte požiadavky cieľovej krajiny a plánovaný termín odchodu."
+      ],
+      "detailed": [
+        {
+          "title": "Overte potrebný doklad pre cestu",
+          "body": "Niektoré cesty možno absolvovať s občianskym preukazom dieťaťa, inde sa vyžaduje pas."
+        },
+        {
+          "title": "Zistite pravidlá pre vek dieťaťa",
+          "body": "Platnosť pasu, biometrické údaje a podpis sa môžu odlišovať podľa vekovej kategórie."
+        },
+        {
+          "title": "Podajte žiadosť s oprávnenou osobou",
+          "body": "Na pracovisku dokladov predložte doklady a overte, či je potrebná osobná účasť dieťaťa."
+        },
+        {
+          "title": "Prevezmite pas a skontrolujte údaje",
+          "body": "Skontrolujte meno, dátum narodenia a platnosť; pri ceste bez rodičov overte prípadné požiadavky na súhlas."
+        }
+      ],
+      "pitfalls": [
+        "Cestovanie dieťaťa bez rodiča môže vyžadovať ďalšie dokumenty podľa cieľovej krajiny.",
+        "Nespoliehajte sa na platnosť pasu dospelých pre detský pas.",
+        "Fotografia či biometria sa spracúvajú podľa vekových pravidiel."
+      ],
+      "outcome": "Dieťa má vhodný cestovný doklad a overené podmienky vycestovania.",
+      "links": [
+        {
+          "label": "Ministerstvo vnútra SR",
+          "url": "https://www.minv.sk/"
+        },
+        {
+          "label": "Ministerstvo zahraničných vecí SR",
+          "url": "https://www.mzv.sk/"
+        }
+      ]
+    }
   },
   {
     "slug": "strata-cestovneho-pasu",
@@ -598,11 +872,54 @@
     "keywords": "vybavenie rodného listu",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
-      "Identifikačné doklady podľa požiadaviek príslušného úradu",
-      "Dokumenty súvisiace s konkrétnou žiadosťou"
+      "Určite, či ide o prvé vydanie alebo druhopis.",
+      "Pripravte doklad totožnosti a údaje o osobe, ktorej sa rodný list týka.",
+      "Ak žiadate za inú osobu, overte oprávnenie a prípadné splnomocnenie."
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Redakčne spracovaný orientačný postup. Aktuálne poplatky, zákonné lehoty a podmienky konkrétnej služby overte na príslušnom oficiálnom portáli.",
+    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "detail": {
+      "summary": "Rodný list je matričný doklad o narodení. Postup pri prvom vydaní a pri vyžiadaní druhopisu sa líši; kompetentná je matrika podľa pravidiel vedenia matričných záznamov.",
+      "before": [
+        "Určite, či ide o prvé vydanie alebo druhopis.",
+        "Pripravte doklad totožnosti a údaje o osobe, ktorej sa rodný list týka.",
+        "Ak žiadate za inú osobu, overte oprávnenie a prípadné splnomocnenie."
+      ],
+      "detailed": [
+        {
+          "title": "Zistite príslušnú matriku",
+          "body": "Pri narodení sa záznam vedie podľa miesta narodenia; druhopis môže mať dostupné ďalšie spôsoby podania."
+        },
+        {
+          "title": "Pripravte identifikačné údaje",
+          "body": "Matrika môže požadovať údaje o narodení a doklad preukazujúci oprávnenie žiadať."
+        },
+        {
+          "title": "Podajte žiadosť",
+          "body": "Overte osobné, písomné alebo elektronické možnosti a aktuálny správny poplatok pri druhopise."
+        },
+        {
+          "title": "Skontrolujte vydaný doklad",
+          "body": "Overte správnosť mena, dátumu a miesta narodenia a údajov o rodičoch."
+        }
+      ],
+      "pitfalls": [
+        "Za inú osobu nemožno vždy žiadať bez preukázania oprávnenia.",
+        "Doklad pre použitie v zahraničí môže vyžadovať ďalšie overenie alebo preklad.",
+        "Poplatok za druhopis nemusí byť totožný s prvým vydaním."
+      ],
+      "outcome": "Máte správny matričný doklad pre požadovaný účel.",
+      "links": [
+        {
+          "label": "Slovensko.sk",
+          "url": "https://www.slovensko.sk/"
+        },
+        {
+          "label": "Ministerstvo vnútra SR – matriky",
+          "url": "https://www.minv.sk/"
+        }
+      ]
+    }
   },
   {
     "slug": "sobas-na-slovensku",
@@ -648,11 +965,58 @@
     "keywords": "čo vybaviť po úmrtí blízkeho",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
-      "Identifikačné doklady podľa požiadaviek príslušného úradu",
-      "Dokumenty súvisiace s konkrétnou žiadosťou"
+      "Zistite, kto vystavil potrebnú dokumentáciu o úmrtí.",
+      "Pripravte doklady zosnulého a kontakt na pohrebnú službu.",
+      "Zaznamenajte kontakty na nemocnicu, matriku a ďalšie dotknuté inštitúcie."
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Redakčne spracovaný orientačný postup. Aktuálne poplatky, zákonné lehoty a podmienky konkrétnej služby overte na príslušnom oficiálnom portáli.",
+    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "detail": {
+      "summary": "Po úmrtí blízkej osoby sa rieši lekárske potvrdenie, matrika, pohreb, oznámenia inštitúciám a neskôr dedičské konanie. Konkrétny postup závisí od toho, či úmrtie nastalo doma, v nemocnici alebo v zahraničí.",
+      "before": [
+        "Zistite, kto vystavil potrebnú dokumentáciu o úmrtí.",
+        "Pripravte doklady zosnulého a kontakt na pohrebnú službu.",
+        "Zaznamenajte kontakty na nemocnicu, matriku a ďalšie dotknuté inštitúcie."
+      ],
+      "detailed": [
+        {
+          "title": "Zabezpečte potvrdenie o úmrtí",
+          "body": "Pri úmrtí v nemocnici postup koordinuje zdravotnícke zariadenie; pri úmrtí doma postupujte podľa pokynov lekára a príslušných orgánov."
+        },
+        {
+          "title": "Dohodnite pohreb a matričné vybavenie",
+          "body": "Pohrebná služba vysvetlí prevoz, organizáciu a doklady. Matrika vydáva úmrtný list podľa zákonného postupu."
+        },
+        {
+          "title": "Oznámte úmrtie relevantným inštitúciám",
+          "body": "Podľa situácie kontaktujte zamestnávateľa, poisťovne, banky, poskytovateľov služieb a správcu bývania. Niektoré údaje sa prenášajú automaticky."
+        },
+        {
+          "title": "Pripravte sa na dedičské konanie",
+          "body": "Spíšte majetok, zmluvy, úvery a prípadný závet; počkajte na oznámenie notára povereného súdom."
+        }
+      ],
+      "pitfalls": [
+        "Nezabudnite na zrušenie alebo prepis zmlúv a služieb podľa oprávnenia.",
+        "S účtami a majetkom zosnulého nenakladajte bez právneho titulu.",
+        "Pri úmrtí v zahraničí platí osobitný konzulárny a matričný postup."
+      ],
+      "outcome": "Máte vybavené základné matričné a pohrebné úkony a pripravené podklady pre dedičstvo.",
+      "links": [
+        {
+          "label": "Slovensko.sk",
+          "url": "https://www.slovensko.sk/"
+        },
+        {
+          "label": "Ministerstvo spravodlivosti SR",
+          "url": "https://www.justice.gov.sk/"
+        },
+        {
+          "label": "Sociálna poisťovňa",
+          "url": "https://www.socpoist.sk/"
+        }
+      ]
+    }
   },
   {
     "slug": "kataster-vlastnictvo",
@@ -673,11 +1037,58 @@
     "keywords": "list vlastníctva a kataster",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
-      "Identifikačné doklady podľa požiadaviek príslušného úradu",
-      "Dokumenty súvisiace s konkrétnou žiadosťou"
+      "Pripravte adresu, katastrálne územie alebo číslo parcely či listu vlastníctva.",
+      "Overte identitu predávajúceho a jeho oprávnenie nakladať s nehnuteľnosťou.",
+      "Rozlišujte informatívny náhľad od úradne použiteľného výpisu."
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Redakčne spracovaný orientačný postup. Aktuálne poplatky, zákonné lehoty a podmienky konkrétnej služby overte na príslušnom oficiálnom portáli.",
+    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "detail": {
+      "summary": "List vlastníctva slúži na overenie vlastníka, podielov a evidovaných práv k nehnuteľnosti. Pred kúpou si vždy skontrolujte aktuálny stav vrátane tiarch a plomb.",
+      "before": [
+        "Pripravte adresu, katastrálne územie alebo číslo parcely či listu vlastníctva.",
+        "Overte identitu predávajúceho a jeho oprávnenie nakladať s nehnuteľnosťou.",
+        "Rozlišujte informatívny náhľad od úradne použiteľného výpisu."
+      ],
+      "detailed": [
+        {
+          "title": "Vyhľadajte nehnuteľnosť",
+          "body": "Na oficiálnom katastrálnom portáli vyberte obec, katastrálne územie a parcelu alebo list vlastníctva."
+        },
+        {
+          "title": "Skontrolujte vlastníkov a podiely",
+          "body": "Porovnajte časť B listu vlastníctva s údajmi v kúpnej zmluve a dokladmi predávajúceho."
+        },
+        {
+          "title": "Overte ťarchy, poznámky a plomby",
+          "body": "Časť C a ďalšie zápisy môžu obsahovať záložné práva, vecné bremená alebo informácie o prebiehajúcom konaní."
+        },
+        {
+          "title": "Zabezpečte potrebný výpis",
+          "body": "Ak úkon vyžaduje úradný výpis, overte spôsob jeho získania; bežný online náhľad nemusí stačiť."
+        }
+      ],
+      "pitfalls": [
+        "Neexistencia zjavnej ťarchy nezaručuje bezproblémový právny stav.",
+        "Stav katastra sa môže meniť; pred podpisom skontrolujte aktuálny výpis.",
+        "Pri kúpe bytu overte aj správu domu, nedoplatky a zmluvné podmienky."
+      ],
+      "outcome": "Poznáte aktuálne evidované vlastnícke práva a možné riziká pred transakciou.",
+      "links": [
+        {
+          "label": "ÚGKK SR",
+          "url": "https://www.skgeodesy.sk/"
+        },
+        {
+          "label": "Overenie vlastníctva – ÚGKK",
+          "url": "https://beta.skgeodesy.sk/sk/situacie/overenie-vlastnictva/"
+        },
+        {
+          "label": "Kataster CICA",
+          "url": "https://beta.skgeodesy.sk/sk/kataster/cica/"
+        }
+      ]
+    }
   },
   {
     "slug": "kupa-bytu",
