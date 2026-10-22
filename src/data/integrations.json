@@ -1,0 +1,65 @@
+[
+  {
+    "slug": "ecb-kurzy",
+    "title": "Referenčné výmenné kurzy",
+    "category": "Financie",
+    "provider": "Európska centrálna banka",
+    "status": "ready",
+    "url": "https://data.ecb.europa.eu/help/api/data",
+    "note": "Referenčné, nie bankové nákupné/predajné kurzy."
+  },
+  {
+    "slug": "rpo",
+    "title": "Vyhľadávanie firiem",
+    "category": "Podnikanie",
+    "provider": "Štatistický úrad SR",
+    "status": "ready",
+    "url": "https://susrrpo.docs.apiary.io/",
+    "note": "Oficiálny register; nové zmeny sa môžu prejaviť až po dennej aktualizácii."
+  },
+  {
+    "slug": "datacube",
+    "title": "Štatistiky Slovenska – migrácia na STATdata",
+    "category": "Informácie",
+    "provider": "Štatistický úrad SR",
+    "status": "evaluate",
+    "url": "https://data.statistics.sk/api/",
+    "note": "Staré DATAcube exporty sa od 15. 9. 2026 neaktualizujú. Pripravuje sa integrácia na STATdata."
+  },
+  {
+    "slug": "nabijacky",
+    "title": "Nabíjacie stanice",
+    "category": "Auto",
+    "provider": "Open Charge Map",
+    "status": "ready",
+    "url": "https://www.openchargemap.org/develop/api",
+    "note": "Mapa a vyhľadávanie staníc podľa oblasti, s filtrom AC/DC; vyžaduje Cloudflare Secret OPENCHARGEMAP_API_KEY."
+  },
+  {
+    "slug": "pocasie",
+    "title": "Predpoveď počasia",
+    "category": "Informácie",
+    "provider": "Open-Meteo",
+    "status": "evaluate",
+    "url": "https://open-meteo.com/en/terms",
+    "note": "Bezplatná služba je iba na nekomerčné použitie."
+  },
+  {
+    "slug": "nbs",
+    "title": "Bankové a úrokové štatistiky",
+    "category": "Financie",
+    "provider": "Národná banka Slovenska",
+    "status": "evaluate",
+    "url": "https://nbs.sk/",
+    "note": "Oficiálne časové rady NBS a ceny nehnuteľností; automatický import konkrétnych sadzieb ešte nie je aktivovaný."
+  },
+  {
+    "slug": "worldbank",
+    "title": "Ekonomické ukazovatele Slovenska",
+    "category": "Informácie",
+    "provider": "World Bank Open Data",
+    "status": "ready",
+    "url": "https://data.worldbank.org/country/slovak-republic",
+    "note": "Ročné ukazovatele – počet obyvateľov, HDP a jeho rast; vždy s rokom pozorovania."
+  }
+]

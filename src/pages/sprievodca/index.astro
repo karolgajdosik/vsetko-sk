@@ -1,0 +1,7 @@
+---
+import Base from '../../layouts/Base.astro';
+import scenarios from '../../data/scenarios.json';
+---
+<Base title="Sprievodca životnými situáciami" description="Vyberte životnú situáciu a nájdite súvisiace praktické kroky. Bez registrácie a bez plateného AI.">
+<main class="wrap main" id="obsah"><p class="eyebrow">Interaktívny sprievodca</p><h1>Čo potrebujete vyriešiť?</h1><p class="intro">Vyberte si situáciu. Zobrazíme odporúčané návody a nástroje. Nejde o generatívnu AI ani právne poradenstvo.</p><div class="grid">{scenarios.map(s=><a class="card" href={`/sprievodca/${s.slug}/`}><span class="tag">{s.category}</span><h2>{s.title} →</h2><p>{s.description}</p></a>)}</div></main>
+</Base>
