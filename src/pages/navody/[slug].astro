@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+import guides from '../../data/guides.json';
+export function getStaticPaths() {
+ return guides.map(guide => ({params:{slug:guide.slug},props:{guide}}));
+}
+const {guide}=Astro.props;
+const labels={financie:'Financie',auto:'Auto',urady:'Úrady'};
+const categoryLabel=labels[guide.category] ?? guide.category;
+const jsonLd={
+ '@context':'https://schema.org',
+ '@type':'Article',
+ headline:guide.title,
+ description:guide.description,
+ inLanguage:'sk',
+ dateModified:'2026-10-22',
+ mainEntityOfPage:new URL(Astro.url.pathname,Astro.site ?? 'https://vsetko24.sk').href,
+ publisher:{'@type':'Organization',name:'VŠETKO.sk',url:'https://vsetko24.sk/'}
+};
+---
+<Base title={guide.title} description={guide.description} updated={guide.updated} sourceLinks={[guide.source]}>
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+<main class="wrap main" id="obsah">
+<p class="eyebrow"><a href={`/${guide.category}/`}>{categoryLabel}</a> / Praktický návod</p>
+<h1>{guide.title}</h1><p class="intro">{guide.description}</p>
+<section class="panel"><h2>Postup krok za krokom</h2><ol>{guide.steps.map(step=><li style="margin-bottom:1rem">{step}</li>)}</ol></section>
+<section class="notice"><strong>Dôležité:</strong> Ide o orientačný kontrolný zoznam, nie o právne alebo finančné poradenstvo. Pred vybavovaním overte aktuálne požiadavky na oficiálnom zdroji: <a href={guide.source.url} target="_blank" rel="noopener noreferrer">{guide.source.label} ↗</a>.</section>
+<p><a href="/">← Späť na vyhľadávanie</a></p>
+</main>
+</Base>
