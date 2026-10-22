@@ -16,9 +16,22 @@ export async function onRequestPost({request,env}){
  const question=payload?.question;
  if(typeof question!=='string'||question.trim().length<3||question.length>600)return reply({error:'Otázka musí mať 3 až 600 znakov.'},400);
  if(!env.AI)return reply({error:'AI asistent ešte nie je aktivovaný. Použite fulltextové vyhľadávanie.',code:'not_configured'},503);
- // The static index is maintained alongside the site and passed through a bounded trusted catalog.
- const catalog=Array.isArray(payload.context)?payload.context:[];
- const clean=catalog.filter(x=>x&&typeof x.title==='string'&&typeof x.url==='string'&&/^\/(?:navody|kalkulacky|sprievodca|financie|auto|urady|data)\//.test(x.url)).slice(0,8).map(x=>({title:x.title.slice(0,120),url:x.url.slice(0,180),description:String(x.description||'').slice(0,280)}));
+ // Server-owned source catalog; never trust user-provided context for AI grounding.
+ const catalog=[
+ {title:'Strata občianskeho preukazu',url:'/navody/strata-obcianskeho-preukazu/',description:'Ako postupovať pri strate dokladu, nahlásenie a vybavenie nového.'},
+ {title:'Ako vybaviť občiansky preukaz',url:'/navody/ako-vybavit-obciansky-preukaz/',description:'Vydanie občianskeho preukazu, potrebné doklady a postup.'},
+ {title:'Výmena cestovného pasu',url:'/navody/vymena-cestovneho-pasu/',description:'Cestovný pas, výmena a žiadosť.'},
+ {title:'Zmena trvalého pobytu',url:'/navody/zmena-trvaleho-pobytu/',description:'Zmena adresy trvalého pobytu, ohlasovňa a povinnosti.'},
+ {title:'Začatie podnikania',url:'/navody/zacatie-podnikania/',description:'Založenie živnosti a začatie podnikania.'},
+ {title:'Dedičské konanie',url:'/navody/dedicske-konanie/',description:'Dedičstvo, notár, konanie po úmrtí.'},
+ {title:'Vybavenie po úmrtí',url:'/navody/vybavenie-po-umrti/',description:'Postup pozostalých a potrebné úkony po úmrtí.'},
+ {title:'Kontrola vozidla pred kúpou',url:'/navody/kontrola-vozidla-pred-kupou/',description:'Kúpa auta, kontrola vozidla, doklady a technický stav.'},
+ {title:'Nabíjanie elektromobilu',url:'/navody/nabijanie-elektromobilu/',description:'Elektromobil, nabíjanie, konektory a stanice.'},
+ {title:'Porovnanie hypoték',url:'/navody/porovnanie-hypotek/',description:'Hypotéka, úver na bývanie, úroky, splátka a porovnanie bánk.'},
+ {title:'Refinancovanie úveru',url:'/navody/refinancovanie-uveru/',description:'Refinancovanie úveru, splátky a náklady.'},
+ {title:'Finančná rezerva',url:'/navody/financna-rezerva/',description:'Finančná rezerva, úspory a rozpočet.'}
+ ];
+ const clean=catalog;
  const words=norm(question).split(/\s+/).filter(w=>w.length>2&&!STOP.has(w));
  const ranked=clean.map(x=>({...x,score:words.reduce((n,w)=>n+(norm(x.title+' '+x.description).includes(w)?1:0),0)})).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).slice(0,5);
  if(!ranked.length)return reply({answer:'K tejto otázke zatiaľ nemám dostatočný podklad v obsahu portálu. Skúste fulltextové vyhľadávanie alebo oficiálne zdroje.',sources:[],mode:'grounded'});
