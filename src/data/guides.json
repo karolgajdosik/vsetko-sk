@@ -1119,16 +1119,16 @@
       "outcome": "Poznáte aktuálne evidované vlastnícke práva a možné riziká pred transakciou.",
       "links": [
         {
-          "label": "ÚGKK SR",
-          "url": "https://www.skgeodesy.sk/"
+          "label": "ÚGKK SR – oficiálne informácie o CICA",
+          "url": "https://www.skgeodesy.sk/vugk/produkty-sluzby/portal-cica/"
         },
         {
-          "label": "Overenie vlastníctva – ÚGKK",
-          "url": "https://beta.skgeodesy.sk/sk/situacie/overenie-vlastnictva/"
+          "label": "Kataster CICA – informatívny list vlastníctva",
+          "url": "https://kataster.vugk.sk/"
         },
         {
-          "label": "Kataster CICA",
-          "url": "https://beta.skgeodesy.sk/sk/kataster/cica/"
+          "label": "ESKN – elektronické katastrálne služby",
+          "url": "https://kataster.skgeodesy.sk/eskn-portal/"
         }
       ]
     }
