@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import entries from '../data/search.json';
+import guides from '../data/guides.json';
+import calculators from '../data/calculators.json';
+const items=[...entries,...guides.map(g=>({title:g.title,category:'Návody',url:'/navody/'+g.slug+'/',description:g.description,keywords:g.keywords||''})),...calculators.map(c=>({title:c.title,category:'Kalkulačky',url:'/kalkulacky/'+c.slug+'/',description:c.description,keywords:c.title}))];
+const unique=[...new Map(items.map(x=>[x.url,x])).values()];
+---
+<Base title="Fulltextové vyhľadávanie a digitálny sprievodca" description="Hľadajte v návodoch, kalkulačkách a témach VŠETKO24.sk. Bezplatný digitálny sprievodca vyberie relevantné zdroje.">
+<main class="wrap main finder" id="obsah"><p class="eyebrow">Vyhľadávanie a sprievodca</p><h1>Nájdite odpoveď na jednom mieste</h1><p class="intro">Vyhľadávanie prehľadáva názvy, opisy a kľúčové slová našich návodov, kalkulačiek a tém. Sprievodca vám odporučí vhodné postupy podľa otázky.</p>
+<form id="fulltext-form" role="search"><label for="fulltext">Čo potrebujete vyriešiť?</label><div class="finder-input"><input id="fulltext" type="search" placeholder="Napríklad: stratil som občiansky preukaz" autocomplete="off" required/><button type="submit">Hľadať</button></div></form>
+<section class="finder-panel" aria-labelledby="assistant-title"><h2 id="assistant-title">Digitálny sprievodca</h2><p><strong>Bezplatná verzia bez generatívneho AI modelu.</strong> Sprievodca rozpozná kľúčové témy vašej otázky a zobrazí relevantné návody. Nevymýšľa odpovede a neposiela otázky externému AI poskytovateľovi.</p><div id="assistant-answer" role="status" aria-live="polite">Napíšte otázku vyššie. Pomôžem nájsť relevantné postupy a zdroje.</div></section>
+<section aria-labelledby="results-title"><h2 id="results-title">Výsledky <span id="result-count"></span></h2><div id="fulltext-results" class="finder-results"></div><p id="no-match" hidden>Nenašli sa zodpovedajúce témy. Skúste kratší výraz alebo iné slová.</p></section>
+<p class="note">Vyhľadávanie funguje v obsahu portálu, nie na celom internete. Odborné, právne a úradné podmienky si vždy potvrďte v oficiálnom zdroji. Vyhľadávanie je spracované vo vašom prehliadači.</p>
+</main>
+<script id="search-catalog" type="application/json" set:html={JSON.stringify(unique).replace(/</g,'\\u003c')}></script>
+<script>
+type Entry={title:string;category:string;url:string;description:string;keywords?:string};
+const data=JSON.parse(document.querySelector('#search-catalog')!.textContent||'[]') as Entry[];
+const norm=(s:string)=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
+const synonyms:Record<string,string[]>={obciansky:['obcianka','doklad'],obcianka:['obciansky','doklad'],pas:['cestovny'],hypoteka:['uver','byvanie'],auto:['vozidlo'],vozidlo:['auto'],stk:['technicka'],nabijanie:['elektromobil'],dedicstvo:['notar'],umrtie:['pozostalost'],zivnost:['podnikanie']};
+const stop=new Set(['som','chcem','ako','mam','potrebujem','kde','mozem','sa','si','na','do','pre','pri','je','a','v','s','mi','to','ten','ta','co','ked']);
+const form=document.querySelector<HTMLFormElement>('#fulltext-form')!;
+const input=document.querySelector<HTMLInputElement>('#fulltext')!;
+const results=document.querySelector<HTMLElement>('#fulltext-results')!;
+const answer=document.querySelector<HTMLElement>('#assistant-answer')!;
+const count=document.querySelector<HTMLElement>('#result-count')!;
+const empty=document.querySelector<HTMLElement>('#no-match')!;
+function lookup(query:string){const words=norm(query).split(' ').filter(w=>w.length>1&&!stop.has(w));if(!words.length)return [];return data.map(item=>{const title=norm(item.title),desc=norm(item.description||''),keys=norm(item.keywords||''),text=title+' '+desc+' '+keys;let score=0;let found=0;for(const w of words){const variants=[w,...(synonyms[w]||[])];const hit=variants.some(v=>text.includes(v));if(hit){found++;score+=title.includes(w)?8:keys.includes(w)?4:2;}}return {item,score,found};}).filter(x=>x.found>0).sort((a,b)=>b.found-a.found||b.score-a.score||a.item.title.localeCompare(b.item.title,'sk')).slice(0,25);}
+function run(q:string){const matches=lookup(q);results.replaceChildren();count.textContent='('+matches.length+')';empty.hidden=matches.length!==0;for(const {item} of matches){const a=document.createElement('a');a.href=item.url;a.className='finder-result';const category=document.createElement('span');category.className='tag';category.textContent=item.category;const title=document.createElement('strong');title.textContent=item.title+' →';const desc=document.createElement('span');desc.textContent=item.description;a.append(category,title,desc);results.append(a);}answer.replaceChildren();const p=document.createElement('p');p.textContent=matches.length?'K vašej otázke odporúčam začať týmto obsahom:':'K tejto otázke zatiaľ nemáme vhodný návod. Skúste konkrétnejší výraz.';answer.append(p);for(const {item} of matches.slice(0,3)){const link=document.createElement('a');link.href=item.url;link.textContent=item.title+' ↗';link.className='assistant-link';answer.append(link);}if(q)history.replaceState(null,'','?q='+encodeURIComponent(q));}
+form.addEventListener('submit',e=>{e.preventDefault();if(input.value.trim())run(input.value.trim());});
+const initial=new URLSearchParams(location.search).get('q');if(initial){input.value=initial;run(initial);}
+</script>
+<style>
+.finder{max-width:1100px}.finder h1{max-width:20ch}.finder form{margin:2rem 0}.finder label{display:block;font-weight:700;margin-bottom:.65rem}.finder-input{display:flex;gap:.7rem}.finder-input input{flex:1;min-width:0;border:1px solid #9ba9be;border-radius:12px;padding:1rem;background:var(--surface);color:var(--ink)}.finder-input button{background:#5145d8;color:white;border:0;border-radius:12px;padding:0 1.5rem}.finder-panel{padding:1.5rem;border:1px solid #c7d2e3;border-radius:18px;margin:2rem 0;background:var(--surface)}.finder-panel p{line-height:1.65}.finder-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:1rem}.finder-result{display:flex;flex-direction:column;gap:.7rem;padding:1.2rem;border:1px solid #c7d2e3;border-radius:14px;background:var(--surface);color:var(--ink)}.finder-result strong{font-size:1.1rem}.finder-result span:last-child{line-height:1.5}.assistant-link{display:inline-block;margin:.4rem .8rem .4rem 0;text-decoration:underline}@media(max-width:520px){.finder-input{flex-direction:column}.finder-input button{padding:1rem}}
+</style>
+</Base>
