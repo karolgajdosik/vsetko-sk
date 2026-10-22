@@ -154,7 +154,7 @@
     "title": "Vlastné zdroje na bývanie",
     "category": "Financie",
     "kind": "downpayment",
-    "description": "Vypočítajte rozdiel medzi cenou bytu a vlastnými zdrojmi.",
+    "description": "Vypočíta potrebnú výšku úveru a podiel vlastných zdrojov. Neposudzuje príjem, existujúce záväzky, LTV ani schválenie hypotéky bankou.",
     "keywords": "byt vlastne zdroje hypoteka",
     "fields": [
       {
@@ -204,7 +204,7 @@
     "title": "Cena jazdy autom",
     "category": "Auto",
     "kind": "trip",
-    "description": "Energetické náklady na plánovanú trasu.",
+    "description": "Orientačná cena spotrebovaného paliva alebo elektriny na trase. Nezahŕňa diaľničné poplatky, parkovanie, nabíjacie straty ani ďalšie náklady.",
     "keywords": "cena cesty kilometre",
     "fields": [
       {
@@ -214,12 +214,12 @@
       },
       {
         "id": "cons",
-        "label": "Spotreba na 100 km",
+        "label": "Spotreba paliva (l/100 km) alebo elektriny (kWh/100 km)",
         "value": 7
       },
       {
         "id": "price",
-        "label": "Cena za liter alebo kWh (€)",
+        "label": "Cena za liter paliva alebo kWh elektriny (€)",
         "value": 1.6
       }
     ]
@@ -284,7 +284,7 @@
     "title": "Orientačná splátka leasingu",
     "category": "Auto",
     "kind": "lease",
-    "description": "Anuitný model financovania vozidla bez poplatkov.",
+    "description": "Orientačná anuitná splátka pri financovaní ceny auta po odpočítaní akontácie. Bez poplatkov, poistenia, zostatkovej hodnoty a individuálnych leasingových podmienok.",
     "keywords": "leasing auto splatka",
     "fields": [
       {
