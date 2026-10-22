@@ -17,3 +17,56 @@
 
 /* V3.7 accessibility controls and dark theme */
 .access-tools{display:flex;align-items:center;gap:4px;flex-wrap:wrap}.access-tools button{background:transparent;color:var(--ink);border:1px solid #b9c3d5;border-radius:9px;min-width:39px;min-height:39px;padding:7px;font-weight:750}.access-tools button:hover{background:#e8e8fc}.assistant-floating{position:fixed;right:20px;bottom:20px;z-index:20;display:inline-flex;align-items:center;gap:.5rem;background:#5145d8;color:#fff;border-radius:999px;padding:13px 18px;box-shadow:0 8px 30px #101b3c40;font-weight:750}.assistant-floating:hover{color:white;background:#4034b6;text-decoration:none}.skip:focus{position:fixed;left:12px;top:12px;z-index:1000}html{scroll-padding-top:110px}html[data-theme=dark]{color-scheme:dark;--ink:#f1f4fc;--surface:#202a3b;--line:#46546a;background:#121a28;color:#f1f4fc}html[data-theme=dark] body{background:#121a28;color:#f1f4fc}html[data-theme=dark] .top,html[data-theme=dark] .footer,html[data-theme=dark] .card,html[data-theme=dark] .article,html[data-theme=dark] .panel,html[data-theme=dark] .hero-feature,html[data-theme=dark] .suggestions,html[data-theme=dark] .office-card,html[data-theme=dark] .offices-filter,html[data-theme=dark] .offices-steps article{background:#202a3b;color:#f1f4fc;border-color:#46546a}html[data-theme=dark] .hero{background:linear-gradient(135deg,#17223b,#1b2c49);color:#f1f4fc}html[data-theme=dark] .hero h1,html[data-theme=dark] .card h3,html[data-theme=dark] .article h3,html[data-theme=dark] .brand,html[data-theme=dark] .feature-heading{color:#f1f4fc}html[data-theme=dark] .hero p,html[data-theme=dark] .intro,html[data-theme=dark] .muted,html[data-theme=dark] .note,html[data-theme=dark] .panel p,html[data-theme=dark] .trust,html[data-theme=dark] .footer{color:#c7d1e3}html[data-theme=dark] .top nav a{color:#d2d9ed}html[data-theme=dark] .top nav a:hover,html[data-theme=dark] .top nav a[aria-current=page]{background:#35385f;color:#fff}html[data-theme=dark] .searchbar,html[data-theme=dark] .searchbar input,html[data-theme=dark] input,html[data-theme=dark] select,html[data-theme=dark] textarea{background:#202a3b;color:#f1f4fc;border-color:#71819a}html[data-theme=dark] .searchbar input::placeholder,html[data-theme=dark] input::placeholder{color:#b7c2d5}html[data-theme=dark] .suggestions a,html[data-theme=dark] .feature-link,html[data-theme=dark] .hero-chips a{background:#26334b;color:#f1f4fc;border-color:#526078}html[data-theme=dark] .result,html[data-theme=dark] .notice,html[data-theme=dark] .live-data-card,html[data-theme=dark] .data-tiles a{background:#24374a;color:#f1f4fc}html[data-theme=dark] .result strong{color:#8ee6d3}html[data-theme=dark] .access-tools button{color:#f1f4fc;border-color:#74819b}html[data-theme=dark] a{color:#a6c8ff}html[data-theme=dark] .assistant-floating,html[data-theme=dark] .primary{color:white}html[data-theme=dark] .offices-nav a{color:#f1f4fc}html[data-theme=dark] .office-tag{color:#8ce5d3}@media(max-width:760px){.access-tools{padding:5px 0}.assistant-floating{right:12px;bottom:12px;padding:12px}.assistant-floating span{display:none}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+
+/* V3.7.1 complete dark-mode surface and contrast corrections */
+html[data-theme=dark]{
+ --ink:#eef3ff;--surface:#202b3d;--line:#485975;
+ --accent:#afa8ff;
+}
+html[data-theme=dark] :is(.smart-guide-link,.live-data-card,.data-preview,.data-tiles a,.hero-feature,.feature-link,.feature-bottom,.feature-top,.hero-chips a,.searchbar,.suggestions,.card,.article,.panel,.notice,.result,.budget,.trust,.footer,.top,.list a,.section-link,.finder-panel,.finder-result){
+ border-color:#485975;
+}
+html[data-theme=dark] :is(.smart-guide-link,.live-data-card,.data-preview,.data-tiles a,.hero-feature,.feature-link,.hero-chips a,.suggestions,.card,.article,.panel,.budget,.finder-panel,.finder-result){
+ background:#202b3d;
+ color:#eef3ff;
+}
+html[data-theme=dark] :is(.smart-guide-link strong,.live-data-card strong,.data-tiles strong,.feature-link strong,.feature-heading,.section-heading h2,.section-heading h3,.card h3,.article h3,.data-preview h2,.finder-result strong){
+ color:#f5f7ff;
+}
+html[data-theme=dark] :is(.smart-guide-link small,.live-data-card small,.live-data-card>span:not(.tag),.data-tiles small,.feature-link small,.feature-top,.feature-bottom,.section-heading p,.search-info,.feature-dots,.data-preview p,.finder-result span:last-child){
+ color:#c7d3e6;
+}
+html[data-theme=dark] :is(.tag,.section-kicker){
+ background:#34335a;color:#ddd8ff;
+}
+html[data-theme=dark] :is(.searchbar,.suggestions,.budget input,.budget select,.field input,.finder-input input){
+ background:#202b3d;color:#f5f7ff;border-color:#70829f;
+}
+html[data-theme=dark] :is(.searchbar input,.finder-input input)::placeholder{color:#c1ccdd}
+html[data-theme=dark] .suggestions a{background:#202b3d;color:#f5f7ff}
+html[data-theme=dark] .suggestions a:hover,
+html[data-theme=dark] .suggestions a:focus{background:#354564}
+html[data-theme=dark] .result{background:#1b403f;color:#f5f7ff}
+html[data-theme=dark] .result strong{color:#a2f3dd}
+html[data-theme=dark] .notice{background:#263851;color:#f1f5ff;border-left-color:#96a8ff}
+html[data-theme=dark] .data-preview{background:#1c2a40}
+html[data-theme=dark] .data-tiles a{background:#293a53}
+html[data-theme=dark] .search-info{color:#d2dbea}
+html[data-theme=dark] .hero .eyebrow{color:#c7bfff}
+html[data-theme=dark] .hero-chips a{background:#28374f;color:#e8edff}
+html[data-theme=dark] .feature-icon{background:#38335d;color:#e1d8ff}
+html[data-theme=dark] .gradient-text{background-image:linear-gradient(95deg,#b4a6ff,#91caff,#7ce5db)}
+html[data-theme=dark] .access-tools button:hover{background:#394863}
+html[data-theme=dark] .assistant-floating{background:#6c5ce7;color:#fff}
+html[data-theme=dark] .assistant-floating:hover{background:#5543c9}
+html[data-theme=dark] .brand span:not(.brand-mark){color:#b5a9ff}
+html[data-theme=dark] .brand-mark{color:#fff!important}
+html[data-theme=dark] :is(.primary,.searchbar button,.finder-input button){color:#fff}
+html[data-theme=dark] :is(.footer a,.trust a,.section-link,.more-link a:not(.primary)){color:#b7d0ff}
+html[data-theme=dark] :is(.section-heading,.home-topics,.home-quick,.live-data-section,.smart-guide-section){color:#eef3ff}
+html[data-theme=dark] :is(.calc,.field,.budget,.check){color:#eef3ff}
+html[data-theme=dark] :is(.check,.trust){border-color:#465671}
+html[data-theme=dark] :is(.office-card,.offices-filter,.offices-steps article){background:#202b3d;color:#eef3ff}
+html[data-theme=dark] :is(.office-card h3,.office-card strong){color:#eef3ff}
+html[data-theme=dark] a:focus-visible,html[data-theme=dark] button:focus-visible,html[data-theme=dark] input:focus-visible{outline:3px solid #9edcff;outline-offset:3px}
