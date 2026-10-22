@@ -31,9 +31,9 @@
     "title": "Nabíjacie stanice",
     "category": "Auto",
     "provider": "Open Charge Map",
-    "status": "key-required",
+    "status": "ready",
     "url": "https://www.openchargemap.org/develop/api",
-    "note": "Bezplatný kľúč vyžaduje registráciu; nie je to živá obsadenosť."
+    "note": "Mapa a vyhľadávanie staníc podľa oblasti, s filtrom AC/DC; vyžaduje Cloudflare Secret OPENCHARGEMAP_API_KEY."
   },
   {
     "slug": "pocasie",
