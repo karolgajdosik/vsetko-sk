@@ -1,6 +1,36 @@
 ---
-const {title='VŠETKO.sk',description='Praktické návody a kalkulačky pre Slovensko.'}=Astro.props;
+const {title='VŠETKO.sk',description='Praktické návody a kalkulačky pre Slovensko.',updated,sourceLinks=[]}=Astro.props;
 const path=Astro.url.pathname;
 const nav=[['/','Domov'],['/financie/','Financie'],['/auto/','Auto'],['/urady/','Úrady']];
+const canonical = new URL(path, Astro.site ?? 'https://vsetko-sk.pages.dev').href;
+const analyticsToken = import.meta.env.PUBLIC_CF_ANALYTICS_TOKEN;
+const fullTitle = title === 'VŠETKO.sk' ? title : `${title} | VŠETKO.sk`;
 ---
-<!doctype html><html lang="sk"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="description" content={description}/><meta name="theme-color" content="#123b69"/><link rel="canonical" href={new URL(Astro.url.pathname,Astro.site).href}/><link rel="icon" href="/favicon.svg"/><link rel="stylesheet" href="/site.css"/><title>{title} | VŠETKO.sk</title></head><body><a class="skip" href="#obsah">Preskočiť na obsah</a><header class="top"><div class="wrap topinner"><a class="brand" href="/">VŠETKO<span>.sk</span></a><nav aria-label="Hlavná navigácia">{nav.map(([href,label])=><a href={href} aria-current={path===href?'page':undefined}>{label}</a>)}</nav></div></header><slot/><footer class="footer"><div class="wrap footinner"><span>© {new Date().getFullYear()} VŠETKO.sk · Pilotná verzia</span><span>Nezávislý informačný portál, nie stránka štátnej správy.</span></div></footer></body></html>
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content={description} />
+<meta name="theme-color" content="#123b69" />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<link rel="canonical" href={canonical} />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="/site.css" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="sk_SK" />
+<meta property="og:site_name" content="VŠETKO.sk" />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta name="twitter:card" content="summary" />
+<title>{fullTitle}</title>
+{analyticsToken && <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({token:analyticsToken})}></script>}
+</head>
+<body>
+<a class="skip" href="#obsah">Preskočiť na obsah</a>
+<header class="top"><div class="wrap topinner"><a class="brand" href="/" aria-label="VŠETKO.sk – domov">VŠETKO<span>.sk</span></a><nav aria-label="Hlavná navigácia">{nav.map(([href,label])=><a href={href} aria-current={path===href?'page':undefined}>{label}</a>)}</nav></div></header>
+<slot />
+{(updated || sourceLinks.length>0) && <aside class="wrap trust" aria-label="Informácie o obsahu"><p><strong>Informácie o obsahu:</strong> {updated ? `Posledná redakčná aktualizácia: ${updated}.` : 'Obsah sa priebežne dopĺňa.'} {sourceLinks.length>0 && <> Oficiálne zdroje: {sourceLinks.map((s,i)=><span>{i>0?', ':''}<a href={s.url} target="_blank" rel="noopener noreferrer">{s.label} ↗</a></span>)}</>}</p><p>Pri úradných a právnych témach majú prednosť aktuálne informácie príslušných úradov. Dátum aktualizácie neznamená overenie všetkých právnych detailov.</p></aside>}
+<footer class="footer"><div class="wrap footinner"><span>© {new Date().getFullYear()} VŠETKO.sk · Nezávislý pilotný portál</span><span><a href="/o-projekte/">O projekte</a> · <a href="/kontakt/">Kontakt</a> · <a href="/ochrana-sukromia/">Ochrana súkromia</a></span><span>Nie sme oficiálny portál štátnej správy.</span></div></footer>
+</body></html>

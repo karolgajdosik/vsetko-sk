@@ -1,32 +1,44 @@
-# VŠETKO.sk – MVP 0.2
+# VŠETKO.sk – verzia 0.3
 
-Statický portál Astro, bez plateného API a databázy.
+Nezávislý slovenský informačný portál postavený na Astro. Vychádza z MVP 0.2, zachováva všetky kalkulačky a sekcie.
 
 ## Lokálne spustenie
 
+Vyžaduje Node.js 22 a npm:
+
 ```bash
 npm install
-npm run dev
 npm run build
+npm run dev
 ```
 
-## Cloudflare Pages
+## Cloudflare Pages – GitHub integrácia
 
-- Prepojte GitHub repozitár s Cloudflare Pages.
-- Framework preset: **Astro**.
-- Build command: `npm run build`
-- Build output directory: `dist`
-- Root directory: koreň projektu.
-- Node.js: 22 (alebo aktuálna podporovaná LTS verzia).
+- Framework preset: **Astro**
+- Build command: **npm run build**
+- Build output directory: **dist**
+- Root directory: `/` (ak je obsah projektu v koreni repozitára)
+- Environment variable `NODE_VERSION`: `22`
+- Voliteľne `SITE_URL`: `https://vsetko-sk.pages.dev` (predvolená hodnota)
+- Voliteľne `PUBLIC_CF_ANALYTICS_TOKEN`: token z Cloudflare Web Analytics. Bez tokenu sa analytický skript nevkladá.
 
-## Obsah a vyhľadávanie
+Po pripojení vlastnej domény nastavte `SITE_URL=https://vsetko.sk` a znovu spustite deployment. Overte, že `robots.txt`, `sitemap.xml` a canonical URL majú správnu doménu. Používajte jednu kanonickú doménu a podľa potreby nastavte presmerovania.
 
-Vyhľadávací index: `src/data/search.json`. Každý výsledok odkazuje na existujúcu sekciu stránky. Všetky návody s právnym dopadom vyžadujú manuálne overenie aktuálnych pravidiel a presnejších oficiálnych zdrojov pred publikovaním.
+## Obsah a dôveryhodnosť
 
-## Pred spustením domény
+- Redakčný dátum **nie je právne overenie**; konkrétne postupy treba overiť voči oficiálnym dokumentom.
+- Informačné zdroje sú odkazy na oficiálne inštitúcie, nie automatické potvrdenie jednotlivých tvrdení.
+- Pred verejným marketingovým spustením doplňte prevádzkovateľa, skutočný kontakt a skontrolujte ochranu osobných údajov.
+- `404.astro` vytvára vlastnú chybovú stránku.
+- `sitemap.xml` a `robots.txt` sa generujú podľa `SITE_URL`.
 
-Konfigurácia `astro.config.mjs`, kanonické URL, `robots.txt` a sitemap počítajú s `https://vsetko.sk`. Ak ešte doména nie je pripojená, produkčné SEO metadáta upravte podľa reálnej adresy. Pridajte Search Console a analytiku až po nasadení.
+## Testovanie po nasadení
 
-## Overenie
+1. Otvorte `/`, `/financie/`, `/auto/`, `/urady/`.
+2. Skontrolujte obe kalkulačky a vyhľadávanie.
+3. Otvorte `/robots.txt` a `/sitemap.xml`.
+4. V zdrojovom kóde stránok overte canonical URL a metadáta.
+5. Overte `/o-projekte/`, `/kontakt/`, `/ochrana-sukromia/` a neexistujúcu adresu (404).
+6. Cloudflare Web Analytics aktivujte iba po doplnení tokenu a príslušných informácií o spracúvaní údajov.
 
-Spustite `npm run build` a otestujte vyhľadávanie, kalkulačky, odkazy a mobilné zobrazenie.
+Žiadne platené AI API ani serverová databáza nie sú potrebné.
