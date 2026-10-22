@@ -467,5 +467,110 @@
     "url": "/navody/dialnicna-znamka-kupa/",
     "description": "Ako bezpečne kúpiť známku",
     "keywords": "kúpa diaľničnej známky"
+  },
+  {
+    "title": "Chcem kúpiť byt",
+    "category": "Sprievodca",
+    "url": "/sprievodca/kupa-bytu/",
+    "description": "Od prípravy rozpočtu po odovzdanie nehnuteľnosti.",
+    "keywords": "byt hypoteka kupa nehnutelnost"
+  },
+  {
+    "title": "Stratil som občiansky preukaz",
+    "category": "Sprievodca",
+    "url": "/sprievodca/strata-obcianskeho/",
+    "description": "Čo si preveriť pri strate dokladu.",
+    "keywords": "strata obciansky doklad"
+  },
+  {
+    "title": "Kupujem auto",
+    "category": "Sprievodca",
+    "url": "/sprievodca/nove-auto/",
+    "description": "Kontrola vozidla, poistenie a evidencia.",
+    "keywords": "auto kupa prepis pzp"
+  },
+  {
+    "title": "Zvažujem elektromobil",
+    "category": "Sprievodca",
+    "url": "/sprievodca/elektromobil/",
+    "description": "Rozpočet, nabíjanie a prevádzka.",
+    "keywords": "elektromobil nabijanie ev"
+  },
+  {
+    "title": "Sťahujem sa",
+    "category": "Sprievodca",
+    "url": "/sprievodca/zmena-bydliska/",
+    "description": "Zmena pobytu a súvisiace doklady.",
+    "keywords": "stahovanie adresa trvaly pobyt"
+  },
+  {
+    "title": "Narodilo sa nám dieťa",
+    "category": "Sprievodca",
+    "url": "/sprievodca/dieta/",
+    "description": "Rodný list a prvé úradné kroky.",
+    "keywords": "dieta narodenie rodny list"
+  },
+  {
+    "title": "Plánujeme svadbu",
+    "category": "Sprievodca",
+    "url": "/sprievodca/svadba/",
+    "description": "Doklady a príprava sobáša.",
+    "keywords": "svadba sobas manzelstvo"
+  },
+  {
+    "title": "Úmrtie v rodine",
+    "category": "Sprievodca",
+    "url": "/sprievodca/umrtie/",
+    "description": "Citlivý prehľad administratívnych krokov.",
+    "keywords": "umrtie pohreb dedicstvo"
+  },
+  {
+    "title": "Chcem začať podnikať",
+    "category": "Sprievodca",
+    "url": "/sprievodca/zivnost/",
+    "description": "Prvé kroky k živnosti.",
+    "keywords": "zivnost podnikanie"
+  },
+  {
+    "title": "Chcem zmeniť hypotéku",
+    "category": "Sprievodca",
+    "url": "/sprievodca/refinancovanie/",
+    "description": "Porovnanie ponúk a nákladov.",
+    "keywords": "refinancovanie hypoteka fixacia"
+  },
+  {
+    "title": "Plánujem cestu",
+    "category": "Sprievodca",
+    "url": "/sprievodca/dovolenka/",
+    "description": "Rozpočet a cestovné doklady.",
+    "keywords": "dovolenka cestovanie pas"
+  },
+  {
+    "title": "Mal som dopravnú nehodu",
+    "category": "Sprievodca",
+    "url": "/sprievodca/nehoda/",
+    "description": "Bezpečnosť, dokumentácia a poisťovňa.",
+    "keywords": "nehoda poistovna auto"
+  },
+  {
+    "title": "Predávam auto",
+    "category": "Sprievodca",
+    "url": "/sprievodca/predaj-auta/",
+    "description": "Zmluva, evidencia a odovzdanie.",
+    "keywords": "predaj auta zmluva prepis"
+  },
+  {
+    "title": "Chcem mať finančnú rezervu",
+    "category": "Sprievodca",
+    "url": "/sprievodca/rezerva/",
+    "description": "Plánovanie výdavkov a úspor.",
+    "keywords": "rezerva sporenie rozpocet"
+  },
+  {
+    "title": "Pripravujem auto na STK",
+    "category": "Sprievodca",
+    "url": "/sprievodca/stk/",
+    "description": "Doklady a technická príprava.",
+    "keywords": "stk technicka kontrola"
   }
 ]
