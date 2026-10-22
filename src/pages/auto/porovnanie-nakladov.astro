@@ -1,0 +1,49 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="EV vs. benzín vs. diesel – celkové náklady auta" description="Porovnajte celkové náklady vlastníctva elektromobilu, benzínového a naftového auta vrátane energie, servisu, poistenia a straty hodnoty.">
+<main class="wrap main tco" id="obsah">
+<p class="eyebrow">Novinka · Auto a elektromobilita</p><h1>EV vs. benzín vs. diesel</h1>
+<p class="intro">Nielen palivo. Porovnajte odhad celkových nákladov vlastníctva troch áut za rovnaké obdobie. Výpočty prebiehajú iba vo vašom prehliadači.</p>
+<section class="panel"><h2>Spoločné parametre</h2><div class="shared"><label>Ročný nájazd (km)<input id="km" type="number" min="0" max="150000" step="1000" value="20000"/></label><label>Obdobie vlastníctva (roky)<input id="years" type="number" min="1" max="20" step="1" value="5"/></label></div></section>
+<section class="panel"><h2>Porovnávané vozidlá</h2><div class="vehicles">
+{[{id:'ev',name:'⚡ Elektromobil',price:44000,resale:23000,cons:20,energy:.3,service:350,insurance:800,tax:0,other:150},{id:'petrol',name:'⛽ Benzín',price:32000,resale:14000,cons:7,energy:1.6,service:650,insurance:650,tax:0,other:150},{id:'diesel',name:'🚙 Diesel',price:35000,resale:16000,cons:5.5,energy:1.55,service:750,insurance:700,tax:0,other:150}].map(v=><fieldset class="vehicle"><legend>{v.name}</legend>
+<label>Kúpna cena (€)<input id={v.id+'-price'} type="number" min="0" max="10000000" value={v.price} step="1000"/></label>
+<label>Odhad predajnej ceny po období (€)<input id={v.id+'-resale'} type="number" min="0" max="10000000" value={v.resale} step="1000"/></label>
+<label>{v.id==='ev'?'Spotreba (kWh/100 km)':'Spotreba (l/100 km)'}<input id={v.id+'-cons'} type="number" min="0" max="100" value={v.cons} step=".1"/></label>
+<label>{v.id==='ev'?'Cena elektriny (€/kWh)':'Cena paliva (€/l)'}<input id={v.id+'-energy'} type="number" min="0" max="100" value={v.energy} step=".01"/></label>
+<label>Servis a pneumatiky ročne (€)<input id={v.id+'-service'} type="number" min="0" max="1000000" value={v.service}/></label>
+<label>Poistenie ročne (€)<input id={v.id+'-insurance'} type="number" min="0" max="1000000" value={v.insurance}/></label>
+<label>Dane a poplatky ročne (€)<input id={v.id+'-tax'} type="number" min="0" max="1000000" value={v.tax}/></label>
+<label>Ostatné náklady ročne (€)<input id={v.id+'-other'} type="number" min="0" max="1000000" value={v.other}/></label>
+<div class="result-card"><small>Celkové náklady</small><strong id={v.id+'-total'}>—</strong><small>Cena za kilometer</small><strong id={v.id+'-perkm'}>—</strong></div></fieldset>)}
+</div><p id="tco-error" class="note" role="status" aria-live="polite"></p></section>
+<section class="panel"><h2>Výsledok porovnania</h2><p id="tco-winner" class="notice" aria-live="polite">Načítavam výpočet…</p><div id="tco-chart" class="chart" role="img" aria-label="Porovnanie celkových nákladov"></div><div id="tco-breakdown" class="breakdown"></div>
+<p class="note">Model zahŕňa rozdiel medzi kúpnou a predajnou cenou (pokles hodnoty), energiu, servis, poistenie a zadané ďalšie náklady. Nezahŕňa financovanie, úroky, infláciu, časovú hodnotu peňazí, nabíjacie straty ani náklady mimo zadaných položiek. Predajné ceny sú iba vaše odhady. Predvolené ceny nie sú aktuálne trhové ponuky.</p><p><a href="/kalkulacky/cena-nabijania/">Cena nabíjania →</a> · <a href="/kalkulacky/naklady-na-auto/">Náklady na auto →</a></p></section>
+</main>
+<script>
+const ids=['ev','petrol','diesel'];const names:Record<string,string>={ev:'Elektromobil',petrol:'Benzín',diesel:'Diesel'};
+const field=(id:string)=>document.getElementById(id) as HTMLInputElement;
+const euro=(v:number)=>new Intl.NumberFormat('sk-SK',{style:'currency',currency:'EUR',maximumFractionDigits:2}).format(v);
+function recalc(){
+ const km=field('km').valueAsNumber,years=field('years').valueAsNumber,validCommon=Number.isFinite(km)&&km>=0&&km<=150000&&Number.isInteger(years)&&years>=1&&years<=20;
+ const results:{id:string,total:number,energy:number,depreciation:number,ongoing:number}[]=[];
+ for(const id of ids){
+ const keys=['price','resale','cons','energy','service','insurance','tax','other'];const v=Object.fromEntries(keys.map(k=>[k,field(id+'-'+k).valueAsNumber]));const valid=validCommon&&keys.every(k=>Number.isFinite(v[k])&&v[k]>=0&&v[k]<=(k==='cons'||k==='energy'?100:k==='price'||k==='resale'?10000000:1000000));
+ const depreciation=valid?v.price-v.resale:NaN,energy=valid?km*years*v.cons/100*v.energy:NaN,ongoing=valid?years*(v.service+v.insurance+v.tax+v.other):NaN,total=depreciation+energy+ongoing;
+ field(id+'-total').textContent=valid?euro(total):'—';field(id+'-perkm').textContent=valid&&km>0?euro(total/(km*years))+'/km':'—';
+ if(valid)results.push({id,total,energy,depreciation,ongoing});
+ }
+ const error=document.getElementById('tco-error')!,winner=document.getElementById('tco-winner')!,chart=document.getElementById('tco-chart')!,breakdown=document.getElementById('tco-breakdown')!;chart.replaceChildren();breakdown.replaceChildren();
+ if(results.length!==3){error.textContent='Skontrolujte všetky vstupy. Obdobie musí byť 1 až 20 rokov a hodnoty nesmú byť záporné.';winner.textContent='Porovnanie nie je dostupné pre neplatné vstupy.';return;}error.textContent='';
+ const low=[...results].sort((a,b)=>a.total-b.total)[0];winner.textContent='Najnižšie modelové náklady má '+names[low.id]+' ('+euro(low.total)+'). Rozdiel oproti najdrahšiemu variantu: '+euro(Math.max(...results.map(x=>x.total))-low.total)+'.';
+ const max=Math.max(1,...results.map(x=>Math.abs(x.total)));chart.setAttribute('aria-label',results.map(x=>names[x.id]+': '+euro(x.total)).join('; '));
+ for(const x of results){const row=document.createElement('div');row.className='bar-row';const name=document.createElement('span');name.textContent=names[x.id];const track=document.createElement('div');track.className='bar-track';const fill=document.createElement('div');fill.className='bar-fill';fill.style.width=Math.max(0,x.total)/max*100+'%';track.append(fill);const val=document.createElement('strong');val.textContent=euro(x.total);row.append(name,track,val);chart.append(row);
+ const detail=document.createElement('p');detail.textContent=names[x.id]+': pokles hodnoty '+euro(x.depreciation)+' · energia '+euro(x.energy)+' · ostatná prevádzka '+euro(x.ongoing);breakdown.append(detail);}
+}
+document.querySelectorAll<HTMLInputElement>('.tco input').forEach(i=>i.addEventListener('input',recalc));recalc();
+</script>
+<style>
+.tco{max-width:1150px}.tco .panel{padding:1.5rem;margin:1.3rem 0}.shared{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.vehicles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.vehicle{min-width:0;padding:1rem;border:1px solid #8c9ab0;border-radius:12px}.vehicle legend{font-weight:800;padding:0 .5rem}.tco label{display:block;font-weight:600;margin:.5rem 0}.tco input{display:block;width:100%;padding:.7rem;margin:.3rem 0 .7rem;background:var(--surface);color:var(--ink);border:1px solid #8290a5;border-radius:9px;font:inherit}.result-card{border-top:1px solid #8290a5;padding-top:1rem;display:flex;flex-direction:column;gap:.4rem}.result-card strong{font-size:1.2rem}.chart{display:grid;gap:.8rem;margin:1.3rem 0}.chart :global(.bar-row){display:grid;grid-template-columns:100px minmax(0,1fr) 135px;align-items:center;gap:.7rem}.chart :global(.bar-track){background:#94a3b855;height:18px;border-radius:10px;overflow:hidden}.chart :global(.bar-fill){height:100%;background:#5145d8}.chart :global(.bar-row strong){text-align:right}.breakdown{overflow-wrap:anywhere}@media(max-width:780px){.vehicles,.shared{grid-template-columns:1fr}.chart :global(.bar-row){grid-template-columns:1fr}.chart :global(.bar-row strong){text-align:left}}
+</style>
+</Base>
