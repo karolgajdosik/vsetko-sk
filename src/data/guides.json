@@ -14,7 +14,14 @@
       "url": "https://nbs.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "porovnanie hypotek"
+    "keywords": "porovnanie hypotek",
+    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "preparation": [
+      "Vlastné finančné údaje a relevantné zmluvy",
+      "Ponuky alebo doklady potrebné na porovnanie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "refinancovanie-uveru",
@@ -31,7 +38,14 @@
       "url": "https://nbs.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "refinancovanie uveru"
+    "keywords": "refinancovanie uveru",
+    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "preparation": [
+      "Vlastné finančné údaje a relevantné zmluvy",
+      "Ponuky alebo doklady potrebné na porovnanie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "spotrebny-uver",
@@ -48,7 +62,14 @@
       "url": "https://nbs.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "spotrebny uver"
+    "keywords": "spotrebny uver",
+    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "preparation": [
+      "Vlastné finančné údaje a relevantné zmluvy",
+      "Ponuky alebo doklady potrebné na porovnanie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "financna-rezerva",
@@ -65,7 +86,14 @@
       "url": "https://nbs.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "financna rezerva"
+    "keywords": "financna rezerva",
+    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "preparation": [
+      "Vlastné finančné údaje a relevantné zmluvy",
+      "Ponuky alebo doklady potrebné na porovnanie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "kontrola-rodinnych-vydavkov",
@@ -82,7 +110,14 @@
       "url": "https://nbs.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "kontrola rodinnych vydavkov"
+    "keywords": "kontrola rodinnych vydavkov",
+    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "preparation": [
+      "Vlastné finančné údaje a relevantné zmluvy",
+      "Ponuky alebo doklady potrebné na porovnanie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "povinne-zmluvne-poistenie",
@@ -99,7 +134,14 @@
       "url": "https://www.skp.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "povinne zmluvne poistenie"
+    "keywords": "povinne zmluvne poistenie",
+    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "preparation": [
+      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
+      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "kontrola-vozidla-pred-kupou",
@@ -116,7 +158,14 @@
       "url": "https://www.minv.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "kontrola vozidla pred kupou"
+    "keywords": "kontrola vozidla pred kupou",
+    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "preparation": [
+      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
+      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "predaj-vozidla",
@@ -133,7 +182,14 @@
       "url": "https://www.minv.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "predaj vozidla"
+    "keywords": "predaj vozidla",
+    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "preparation": [
+      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
+      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "nabijanie-elektromobilu",
@@ -150,7 +206,14 @@
       "url": "https://www.mhsr.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "nabijanie elektromobilu"
+    "keywords": "nabijanie elektromobilu",
+    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "preparation": [
+      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
+      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "dialnicna-znamka",
@@ -167,7 +230,14 @@
       "url": "https://eznamka.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "dialnicna znamka"
+    "keywords": "dialnicna znamka",
+    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "preparation": [
+      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
+      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "strata-obcianskeho-preukazu",
@@ -184,7 +254,14 @@
       "url": "https://www.slovensko.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "strata obcianskeho preukazu"
+    "keywords": "strata obcianskeho preukazu",
+    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "preparation": [
+      "Identifikačné doklady podľa požiadaviek príslušného úradu",
+      "Dokumenty súvisiace s konkrétnou žiadosťou"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "vymena-cestovneho-pasu",
@@ -201,7 +278,14 @@
       "url": "https://www.minv.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "vymena cestovneho pasu"
+    "keywords": "vymena cestovneho pasu",
+    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "preparation": [
+      "Identifikačné doklady podľa požiadaviek príslušného úradu",
+      "Dokumenty súvisiace s konkrétnou žiadosťou"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "zmena-trvaleho-pobytu",
@@ -218,7 +302,14 @@
       "url": "https://www.slovensko.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "zmena trvaleho pobytu"
+    "keywords": "zmena trvaleho pobytu",
+    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "preparation": [
+      "Identifikačné doklady podľa požiadaviek príslušného úradu",
+      "Dokumenty súvisiace s konkrétnou žiadosťou"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "zacatie-podnikania",
@@ -235,7 +326,14 @@
       "url": "https://www.slovensko.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "zacatie podnikania"
+    "keywords": "zacatie podnikania",
+    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "preparation": [
+      "Identifikačné doklady podľa požiadaviek príslušného úradu",
+      "Dokumenty súvisiace s konkrétnou žiadosťou"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "dedicske-konanie",
@@ -252,7 +350,14 @@
       "url": "https://www.justice.gov.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "dedicske konanie"
+    "keywords": "dedicske konanie",
+    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "preparation": [
+      "Identifikačné doklady podľa požiadaviek príslušného úradu",
+      "Dokumenty súvisiace s konkrétnou žiadosťou"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "ako-vybavit-obciansky-preukaz",
@@ -270,7 +375,14 @@
       "url": "https://www.minv.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "ako vybaviť občiansky preukaz"
+    "keywords": "ako vybaviť občiansky preukaz",
+    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "preparation": [
+      "Identifikačné doklady podľa požiadaviek príslušného úradu",
+      "Dokumenty súvisiace s konkrétnou žiadosťou"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "cestovny-pas-pre-dieta",
@@ -288,7 +400,14 @@
       "url": "https://www.minv.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "cestovný pas pre dieťa"
+    "keywords": "cestovný pas pre dieťa",
+    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "preparation": [
+      "Identifikačné doklady podľa požiadaviek príslušného úradu",
+      "Dokumenty súvisiace s konkrétnou žiadosťou"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "strata-cestovneho-pasu",
@@ -306,7 +425,14 @@
       "url": "https://www.minv.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "strata cestovného pasu"
+    "keywords": "strata cestovného pasu",
+    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "preparation": [
+      "Identifikačné doklady podľa požiadaviek príslušného úradu",
+      "Dokumenty súvisiace s konkrétnou žiadosťou"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "zmena-mena-a-priezviska",
@@ -324,7 +450,14 @@
       "url": "https://www.minv.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "zmena mena alebo priezviska"
+    "keywords": "zmena mena alebo priezviska",
+    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "preparation": [
+      "Identifikačné doklady podľa požiadaviek príslušného úradu",
+      "Dokumenty súvisiace s konkrétnou žiadosťou"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "rodny-list",
@@ -342,7 +475,14 @@
       "url": "https://www.slovensko.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "vybavenie rodného listu"
+    "keywords": "vybavenie rodného listu",
+    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "preparation": [
+      "Identifikačné doklady podľa požiadaviek príslušného úradu",
+      "Dokumenty súvisiace s konkrétnou žiadosťou"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "sobas-na-slovensku",
@@ -360,7 +500,14 @@
       "url": "https://www.slovensko.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "sobáš na slovensku"
+    "keywords": "sobáš na slovensku",
+    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "preparation": [
+      "Identifikačné doklady podľa požiadaviek príslušného úradu",
+      "Dokumenty súvisiace s konkrétnou žiadosťou"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "vybavenie-po-umrti",
@@ -368,17 +515,24 @@
     "category": "urady",
     "description": "Praktický zoznam úkonov a dokumentov",
     "steps": [
-      "Zistite, či sa téma „čo vybaviť po úmrtí blízkeho“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Zabezpečte potvrdenie o úmrtí a komunikáciu s pohrebnou službou; podľa okolností získajte úmrtný list.",
+      "Odložte si faktúry, doklady zosnulého a kontakty na banky, poisťovne či zamestnávateľa.",
+      "Overte postup pri dedičskom konaní a počkajte na informáciu o poverenom notárovi.",
+      "Preverte možné dávky a zmluvné povinnosti; nevyberajte peniaze z účtu zosnulého bez oprávnenia."
     ],
     "source": {
       "label": "Slovensko.sk",
       "url": "https://www.slovensko.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "čo vybaviť po úmrtí blízkeho"
+    "keywords": "čo vybaviť po úmrtí blízkeho",
+    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "preparation": [
+      "Identifikačné doklady podľa požiadaviek príslušného úradu",
+      "Dokumenty súvisiace s konkrétnou žiadosťou"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "kataster-vlastnictvo",
@@ -386,17 +540,24 @@
     "category": "urady",
     "description": "Ako overovať údaje o nehnuteľnosti",
     "steps": [
-      "Zistite, či sa téma „list vlastníctva a kataster“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Vyhľadajte nehnuteľnosť podľa obce, katastrálneho územia a identifikátora parcely alebo stavby.",
+      "Skontrolujte vlastníkov, podiely a zapísané ťarchy; porovnajte údaje so zmluvou.",
+      "Pri právnom úkone si overte, či potrebujete úradný výpis alebo ďalšie listiny.",
+      "Pri nejasnostiach požiadajte príslušný katastrálny odbor alebo právnika o vysvetlenie."
     ],
     "source": {
       "label": "Úrad geodézie, kartografie a katastra",
       "url": "https://www.skgeodesy.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "list vlastníctva a kataster"
+    "keywords": "list vlastníctva a kataster",
+    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "preparation": [
+      "Identifikačné doklady podľa požiadaviek príslušného úradu",
+      "Dokumenty súvisiace s konkrétnou žiadosťou"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "kupa-bytu",
@@ -404,17 +565,24 @@
     "category": "financie",
     "description": "Príprava financovania a kontrola dokumentov",
     "steps": [
-      "Zistite, či sa téma „kúpa bytu krok za krokom“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Pred rezerváciou preverujte vlastníka, list vlastníctva, ťarchy a technický stav bytu.",
+      "Spočítajte vlastné zdroje, cenu financovania a rezervu na poplatky či opravy.",
+      "Dajte si skontrolovať rezervačnú a kúpnu zmluvu vrátane úschovy kúpnej ceny.",
+      "Dohodnite odovzdanie bytu, stavy meračov a prepis energií; odložte si protokol."
     ],
     "source": {
       "label": "Národná banka Slovenska",
       "url": "https://nbs.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "kúpa bytu krok za krokom"
+    "keywords": "kúpa bytu krok za krokom",
+    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "preparation": [
+      "Vlastné finančné údaje a relevantné zmluvy",
+      "Ponuky alebo doklady potrebné na porovnanie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "predaj-bytu",
@@ -432,7 +600,14 @@
       "url": "https://www.skgeodesy.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "predaj bytu"
+    "keywords": "predaj bytu",
+    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "preparation": [
+      "Vlastné finančné údaje a relevantné zmluvy",
+      "Ponuky alebo doklady potrebné na porovnanie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "hypoteka-prva-ziadost",
@@ -450,7 +625,14 @@
       "url": "https://nbs.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "prvá žiadosť o hypotéku"
+    "keywords": "prvá žiadosť o hypotéku",
+    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "preparation": [
+      "Vlastné finančné údaje a relevantné zmluvy",
+      "Ponuky alebo doklady potrebné na porovnanie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "fixacia-hypoteky",
@@ -468,7 +650,14 @@
       "url": "https://nbs.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "koniec fixácie hypotéky"
+    "keywords": "koniec fixácie hypotéky",
+    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "preparation": [
+      "Vlastné finančné údaje a relevantné zmluvy",
+      "Ponuky alebo doklady potrebné na porovnanie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "urok-a-rpmn",
@@ -486,7 +675,14 @@
       "url": "https://nbs.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "úrok a rpmn – rozdiel"
+    "keywords": "úrok a rpmn – rozdiel",
+    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "preparation": [
+      "Vlastné finančné údaje a relevantné zmluvy",
+      "Ponuky alebo doklady potrebné na porovnanie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "bezpecne-sporenie",
@@ -504,7 +700,14 @@
       "url": "https://nbs.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "ako plánovať sporenie"
+    "keywords": "ako plánovať sporenie",
+    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "preparation": [
+      "Vlastné finančné údaje a relevantné zmluvy",
+      "Ponuky alebo doklady potrebné na porovnanie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "rodinny-financny-plan",
@@ -522,7 +725,14 @@
       "url": "https://nbs.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "rodinný finančný plán"
+    "keywords": "rodinný finančný plán",
+    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "preparation": [
+      "Vlastné finančné údaje a relevantné zmluvy",
+      "Ponuky alebo doklady potrebné na porovnanie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "kupa-elektromobilu",
@@ -540,7 +750,14 @@
       "url": "https://www.mindop.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "kúpa elektromobilu"
+    "keywords": "kúpa elektromobilu",
+    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "preparation": [
+      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
+      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "domace-nabijanie",
@@ -548,17 +765,24 @@
     "category": "auto",
     "description": "Príprava bezpečného nabíjania doma",
     "steps": [
-      "Zistite, či sa téma „domáce nabíjanie elektromobilu“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Overte kapacitu elektroinštalácie, istenie a možnosti parkovacieho miesta.",
+      "Výber wallboxu a montáž zverte kvalifikovanému odborníkovi.",
+      "Pri bytovom dome vopred riešte súhlas a pravidlá správcu či vlastníkov.",
+      "Po inštalácii sledujte bezpečnostné pokyny výrobcu a cenu elektriny."
     ],
     "source": {
       "label": "Ministerstvo dopravy SR",
       "url": "https://www.mindop.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "domáce nabíjanie elektromobilu"
+    "keywords": "domáce nabíjanie elektromobilu",
+    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "preparation": [
+      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
+      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "cesta-elektromobilom",
@@ -576,7 +800,14 @@
       "url": "https://www.mindop.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "plánovanie cesty elektromobilom"
+    "keywords": "plánovanie cesty elektromobilom",
+    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "preparation": [
+      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
+      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "prepis-auta",
@@ -584,17 +815,24 @@
     "category": "auto",
     "description": "Zmena držiteľa vozidla a potrebné podklady",
     "steps": [
-      "Zistite, či sa téma „prepis auta na slovensku“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Porovnajte VIN, osvedčenie o evidencii a identitu zmluvných strán.",
+      "Dohodnite zmluvu, dátum odovzdania a spôsob úhrady; pripravte potrebné splnomocnenia.",
+      "Pred úkonom overte aktuálne možnosti vybavenia, poplatky a požiadavky na poistenie.",
+      "Po zmene držiteľa skontrolujte nové doklady a potvrdenia."
     ],
     "source": {
       "label": "Ministerstvo vnútra SR",
       "url": "https://www.minv.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "prepis auta na slovensku"
+    "keywords": "prepis auta na slovensku",
+    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "preparation": [
+      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
+      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "stk-priprava",
@@ -612,7 +850,14 @@
       "url": "https://www.mindop.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "príprava na stk"
+    "keywords": "príprava na stk",
+    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "preparation": [
+      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
+      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "nehoda-na-ceste",
@@ -620,17 +865,24 @@
     "category": "auto",
     "description": "Bezpečnosť a dokumentácia udalosti",
     "steps": [
-      "Zistite, či sa téma „postup pri dopravnej nehode“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Najskôr zabezpečte miesto udalosti a zdravie osôb; v núdzi volajte 112.",
+      "Zdokumentujte polohu vozidiel, poškodenia, kontakty účastníkov a svedkov, ak je to bezpečné.",
+      "Overte, či situácia vyžaduje privolanie polície; nepredpokladajte, že každá udalosť sa rieši rovnako.",
+      "Informujte poisťovňu a uchovajte dokumentáciu."
     ],
     "source": {
       "label": "Ministerstvo vnútra SR",
       "url": "https://www.minv.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "postup pri dopravnej nehode"
+    "keywords": "postup pri dopravnej nehode",
+    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "preparation": [
+      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
+      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "pzp-pri-kupe-auta",
@@ -648,7 +900,14 @@
       "url": "https://www.skp.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "pzp pri kúpe auta"
+    "keywords": "pzp pri kúpe auta",
+    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "preparation": [
+      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
+      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "leasing-alebo-uver",
@@ -666,7 +925,14 @@
       "url": "https://nbs.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "leasing alebo úver na auto"
+    "keywords": "leasing alebo úver na auto",
+    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "preparation": [
+      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
+      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "zimne-pneumatiky",
@@ -684,7 +950,14 @@
       "url": "https://www.mindop.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "príprava auta na zimu"
+    "keywords": "príprava auta na zimu",
+    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "preparation": [
+      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
+      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   },
   {
     "slug": "dialnicna-znamka-kupa",
@@ -702,6 +975,13 @@
       "url": "https://eznamka.sk/"
     },
     "updated": "22. 10. 2026",
-    "keywords": "kúpa diaľničnej známky"
+    "keywords": "kúpa diaľničnej známky",
+    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "preparation": [
+      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
+      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+    ],
+    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
   }
 ]

@@ -1,5 +1,5 @@
 export function annuity(principal,annualRate,years){if(!Number.isFinite(principal)||!Number.isFinite(annualRate)||!Number.isFinite(years)||principal<0||years<=0||annualRate<0)return NaN;const n=years*12,r=annualRate/1200;return r===0?principal/n:principal*r/(1-(1+r)**(-n));}
-export function calculate(kind,v){const x=k=>Math.max(0,Number(v[k])||0);const a=x('amount'),m=x('monthly'),r=x('rate'),y=x('years'),km=x('km'),c=x('cons'),p=x('price');switch(kind){
+export function calculate(kind,v){const x=k=>{const n=Number(v[k]);return Number.isFinite(n)?Math.max(0,n):0;};const a=x('amount'),m=x('monthly'),r=x('rate'),y=x('years'),km=x('km'),c=x('cons'),p=x('price');switch(kind){
 case 'loan':{const payment=annuity(a,r,y);return [payment,payment*y*12-a];}
 case 'refi':{const old=annuity(a,r,y),next=annuity(a,x('rate2'),y);return [old-next,(old-next)*y*12];}
 case 'savings':{const n=y*12,q=r/1200;return [q===0?m*n:m*((1+q)**n-1)/q,m*n];}
