@@ -1,0 +1,98 @@
+---
+import Base from '../layouts/Base.astro';
+import scenarios from '../data/scenarios.json';
+---
+<Base title="Moje centrum – úlohy, termíny a rozpočet" description="Osobné digitálne centrum: plánujte úlohy, sledujte termíny a zostavte mesačný rozpočet. Bez registrácie, údaje zostávajú vo vašom prehliadači.">
+<main class="wrap main center" id="obsah">
+<p class="eyebrow">Novinka · VŠETKO24.sk</p>
+<h1>Moje centrum</h1>
+<p class="intro">Všetko, čo potrebujete vybaviť, na jednom mieste. Zoznam úloh, dôležité termíny a mesačný rozpočet. Bez účtu a bez odosielania údajov na server.</p>
+<div class="privacy" role="note"><strong>🔒 Súkromie:</strong> Údaje sa ukladajú iba v tomto prehliadači (localStorage). Pri vymazaní údajov prehliadača alebo pri použití iného zariadenia sa neprenesú. Pre zálohu použite export.</div>
+<nav class="center-tabs" aria-label="Časti osobného centra">
+<a href="#ulohy">✓ Úlohy</a><a href="#terminy">📅 Termíny</a><a href="#rozpocet">€ Rozpočet</a><a href="#zaloha">↓ Záloha</a>
+</nav>
+<section id="ulohy" class="panel tool">
+<h2>Moje úlohy</h2><p class="muted">Zostavte si vlastný zoznam. Hotové úlohy môžete označiť alebo odstrániť.</p>
+<form id="task-form" class="inline-form"><label for="task-name">Nová úloha</label><div class="fields"><input id="task-name" maxlength="120" required placeholder="Napr. vybaviť nový občiansky preukaz" /><button type="submit">Pridať úlohu</button></div></form>
+<p id="task-count" role="status" aria-live="polite"></p><ul id="task-list" class="task-list"></ul>
+<div class="recommend"><h3>Pridať si úlohu podľa životnej situácie</h3><div class="scenario-grid">{scenarios.slice(0,9).map(s=><button type="button" class="scenario-add" data-title={s.title}>+ {s.title}</button>)}</div><p><a href="/sprievodca/">Všetky životné situácie →</a></p></div>
+</section>
+<section id="terminy" class="panel tool">
+<h2>Dôležité termíny</h2><p class="muted">Súkromný prehľad dátumov. Termíny zobrazujeme podľa dátumu; neposielame automatické upozornenia ani e-maily.</p>
+<form id="deadline-form"><div class="deadline-fields"><div><label for="deadline-name">Čo potrebujete stihnúť?</label><input id="deadline-name" required maxlength="120" placeholder="Napr. kontrola STK" /></div><div><label for="deadline-date">Dátum</label><input id="deadline-date" type="date" required /></div><button type="submit">Pridať termín</button></div></form>
+<ul id="deadline-list" class="task-list"></ul>
+</section>
+<section id="rozpocet" class="panel tool">
+<h2>Mesačný rozpočet</h2><p class="muted">Zadajte orientačné mesačné sumy v eurách. Výsledok sa prepočítava okamžite, bez odosielania údajov.</p>
+<div class="budget-grid">
+<div><label for="income">Čistý mesačný príjem (€)</label><input id="income" type="number" min="0" max="10000000" step="0.01" inputmode="decimal" value="0" /></div>
+<div><label for="housing">Bývanie a energie (€)</label><input id="housing" type="number" min="0" max="10000000" step="0.01" inputmode="decimal" value="0" /></div>
+<div><label for="loans">Úvery a leasing (€)</label><input id="loans" type="number" min="0" max="10000000" step="0.01" inputmode="decimal" value="0" /></div>
+<div><label for="food">Potraviny a domácnosť (€)</label><input id="food" type="number" min="0" max="10000000" step="0.01" inputmode="decimal" value="0" /></div>
+<div><label for="transport">Doprava (€)</label><input id="transport" type="number" min="0" max="10000000" step="0.01" inputmode="decimal" value="0" /></div>
+<div><label for="other">Ostatné výdavky (€)</label><input id="other" type="number" min="0" max="10000000" step="0.01" inputmode="decimal" value="0" /></div>
+</div>
+<div class="summary" aria-live="polite"><div><small>Celkové výdavky</small><strong id="expenses-total">0 €</strong></div><div><small>Voľné prostriedky</small><strong id="balance-total">0 €</strong></div><div><small>Podiel výdavkov</small><strong id="expense-share">—</strong></div></div>
+<div class="bar-track" aria-label="Podiel výdavkov na príjme"><div id="expense-bar" class="bar-fill"></div></div>
+<p id="budget-message" role="status" class="muted">Vyplňte svoj mesačný príjem a výdavky.</p>
+<p><a href="/kalkulacky/financna-rezerva/">Vypočítať finančnú rezervu →</a> · <a href="/kalkulacky/dostupnost-hypoteky/">Dostupnosť hypotéky →</a></p>
+</section>
+<section id="zaloha" class="panel tool">
+<h2>Moje údaje a záloha</h2><p>Exportujte všetky údaje do súboru JSON, prípadne ich neskôr obnovte. Import prepíše údaje v tomto prehliadači.</p>
+<div class="actions"><button id="export-data" type="button">Stiahnuť zálohu JSON</button><label class="import-label" for="import-data">Obnoviť zo zálohy</label><input id="import-data" type="file" accept=".json,application/json" /><button id="clear-data" type="button" class="danger">Vymazať moje údaje</button></div>
+<p id="data-status" role="status" aria-live="polite"></p>
+</section>
+</main>
+<script>
+type Task={id:string,title:string,done:boolean};
+type Deadline={id:string,title:string,date:string};
+type Store={version:1,tasks:Task[],deadlines:Deadline[],budget:Record<string,number>};
+const KEY='v24-personal-center-v1';
+const budgetIds=['income','housing','loans','food','transport','other'];
+const empty=():Store=>({version:1,tasks:[],deadlines:[],budget:{}});
+function valid(v:unknown):v is Store{
+ if(!v||typeof v!=='object')return false;
+ const o=v as Record<string,unknown>;
+ return o.version===1&&Array.isArray(o.tasks)&&o.tasks.length<=500&&o.tasks.every((t:any)=>t&&typeof t.id==='string'&&typeof t.title==='string'&&t.title.length<=120&&typeof t.done==='boolean')&&Array.isArray(o.deadlines)&&o.deadlines.length<=500&&o.deadlines.every((d:any)=>d&&typeof d.id==='string'&&typeof d.title==='string'&&d.title.length<=120&&typeof d.date==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(d.date))&&o.budget!==null&&typeof o.budget==='object'&&!Array.isArray(o.budget)&&budgetIds.every(k=>{const n=(o.budget as Record<string,unknown>)[k];return n===undefined||(typeof n==='number'&&Number.isFinite(n)&&n>=0&&n<=10000000)});
+}
+let state:Store=empty();
+try{const raw=localStorage.getItem(KEY);if(raw){const parsed:unknown=JSON.parse(raw);if(valid(parsed))state=parsed;}}catch{}
+const el=(id:string)=>document.getElementById(id)!;
+const euro=(n:number)=>new Intl.NumberFormat('sk-SK',{style:'currency',currency:'EUR'}).format(n);
+const uid=()=>crypto.randomUUID?.()||String(Date.now())+'-'+Math.random().toString(36).slice(2);
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(state));el('data-status').textContent='Údaje sú uložené v tomto prehliadači.';}catch{el('data-status').textContent='Ukladanie v tomto prehliadači nie je dostupné. Použite export zálohy.';}};
+function renderTasks(){
+ const list=el('task-list');list.replaceChildren();
+ const done=state.tasks.filter(t=>t.done).length;el('task-count').textContent=state.tasks.length?('Hotovo '+done+' z '+state.tasks.length+' úloh'):'Zatiaľ nemáte žiadne úlohy.';
+ for(const task of state.tasks){
+ const li=document.createElement('li');const label=document.createElement('label');const check=document.createElement('input');check.type='checkbox';check.checked=task.done;check.addEventListener('change',()=>{task.done=check.checked;save();renderTasks();});const span=document.createElement('span');span.textContent=task.title;if(task.done)span.className='completed';label.append(check,span);const del=document.createElement('button');del.type='button';del.textContent='Odstrániť';del.setAttribute('aria-label','Odstrániť úlohu '+task.title);del.addEventListener('click',()=>{state.tasks=state.tasks.filter(t=>t.id!==task.id);save();renderTasks();});li.append(label,del);list.append(li);
+ }
+}
+function addTask(title:string){const t=title.trim();if(!t||state.tasks.length>=500)return;state.tasks.push({id:uid(),title:t.slice(0,120),done:false});save();renderTasks();}
+el('task-form').addEventListener('submit',e=>{e.preventDefault();const field=el('task-name') as HTMLInputElement;addTask(field.value);field.value='';field.focus();});
+document.querySelectorAll<HTMLButtonElement>('.scenario-add').forEach(b=>b.addEventListener('click',()=>{addTask(b.dataset.title||'');el('ulohy').scrollIntoView({behavior:'smooth'});}));
+function renderDeadlines(){
+ const list=el('deadline-list');list.replaceChildren();
+ const today=new Date();const start=new Date(today.getFullYear(),today.getMonth(),today.getDate()).getTime();
+ const sorted=[...state.deadlines].sort((a,b)=>a.date.localeCompare(b.date));
+ if(!sorted.length){const li=document.createElement('li');li.textContent='Zatiaľ nemáte uložené termíny.';list.append(li);return;}
+ for(const d of sorted){const li=document.createElement('li');const date=new Date(d.date+'T12:00:00');const day=new Date(d.date+'T00:00:00').getTime();const days=Math.round((day-start)/86400000);const info=document.createElement('span');info.textContent=d.title+' · '+(Number.isNaN(date.getTime())?d.date:date.toLocaleDateString('sk-SK'))+' · '+(days<0?'Po termíne':days===0?'Dnes':days===1?'Zajtra':'O '+days+' dní');if(days<0)info.className='overdue';const del=document.createElement('button');del.type='button';del.textContent='Odstrániť';del.addEventListener('click',()=>{state.deadlines=state.deadlines.filter(x=>x.id!==d.id);save();renderDeadlines();});li.append(info,del);list.append(li);}
+}
+el('deadline-form').addEventListener('submit',e=>{e.preventDefault();const title=(el('deadline-name') as HTMLInputElement).value.trim();const date=(el('deadline-date') as HTMLInputElement).value;if(!title||!/^\d{4}-\d{2}-\d{2}$/.test(date)||state.deadlines.length>=500)return;state.deadlines.push({id:uid(),title:title.slice(0,120),date});save();renderDeadlines();(el('deadline-form') as HTMLFormElement).reset();});
+function renderBudget(){
+ let total=0;for(const id of budgetIds){const field=el(id) as HTMLInputElement;const n=Number(state.budget[id]||0);field.value=String(n);if(id!=='income')total+=n;}
+ const income=state.budget.income||0;const balance=income-total;el('expenses-total').textContent=euro(total);el('balance-total').textContent=euro(balance);
+ const ratio=income>0?total/income*100:0;el('expense-share').textContent=income>0?ratio.toLocaleString('sk-SK',{maximumFractionDigits:1})+' %':'—';
+ (el('expense-bar') as HTMLElement).style.width=Math.min(100,ratio)+'%';
+ el('budget-message').textContent=income===0?'Zadajte príjem, aby bolo možné porovnať výdavky.':balance<0?'Výdavky prevyšujú príjem o '+euro(-balance)+'.':balance===0?'Váš príjem sa rovná výdavkom.':'Po započítaní výdavkov zostáva '+euro(balance)+' mesačne.';
+}
+budgetIds.forEach(id=>(el(id) as HTMLInputElement).addEventListener('input',()=>{const n=Number((el(id) as HTMLInputElement).value);state.budget[id]=Number.isFinite(n)?Math.max(0,Math.min(10000000,n)):0;save();renderBudget();}));
+el('export-data').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='vsetko24-moje-centrum.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+(el('import-data') as HTMLInputElement).addEventListener('change',async e=>{const field=e.currentTarget as HTMLInputElement;const file=field.files?.[0];if(!file)return;if(file.size>200000){el('data-status').textContent='Súbor je príliš veľký (max. 200 kB).';field.value='';return;}try{const parsed:unknown=JSON.parse(await file.text());if(!valid(parsed))throw Error('format');if(!confirm('Import nahradí všetky súčasné úlohy, termíny a rozpočet. Pokračovať?'))return;state=parsed;save();renderTasks();renderDeadlines();renderBudget();el('data-status').textContent='Záloha bola úspešne obnovená.';}catch{el('data-status').textContent='Neplatný formát zálohy.';}finally{field.value='';}});
+el('clear-data').addEventListener('click',()=>{if(!confirm('Naozaj vymazať všetky úlohy, termíny a rozpočet v tomto prehliadači?'))return;state=empty();save();renderTasks();renderDeadlines();renderBudget();el('data-status').textContent='Údaje boli vymazané.';});
+renderTasks();renderDeadlines();renderBudget();
+</script>
+<style>
+.center{max-width:1020px}.privacy{padding:1rem 1.2rem;border:1px solid #64748b;border-radius:12px;margin:1.2rem 0}.center-tabs{display:flex;gap:.65rem;flex-wrap:wrap;margin:1.5rem 0}.center-tabs a{padding:.7rem 1rem;border:1px solid #8290a5;border-radius:12px;color:var(--ink);text-decoration:none}.tool{margin:1.5rem 0;padding:1.5rem;scroll-margin-top:7rem}.tool h2{margin-top:0}.tool label{display:block;font-weight:650;margin-bottom:.35rem}.tool input:not([type=checkbox]):not([type=file]){width:100%;min-width:0;padding:.8rem;border:1px solid #8c9ab0;border-radius:10px;background:var(--surface);color:var(--ink);font:inherit}.tool button,.import-label{padding:.75rem 1rem;border:1px solid #8c9ab0;border-radius:10px;background:#5145d8;color:white;cursor:pointer;font:inherit}.fields{display:flex;gap:.6rem}.fields input{flex:1}.task-list{list-style:none;padding:0;margin:1rem 0}.task-list :global(li){display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem 0;border-bottom:1px solid #8290a555}.task-list :global(label){display:flex;gap:.7rem;align-items:center;min-width:0;overflow-wrap:anywhere}.task-list :global(button){font-size:.85rem;background:transparent;color:var(--ink);flex-shrink:0}.task-list :global(.completed){text-decoration:line-through;opacity:.65}.task-list :global(.overdue){font-weight:700}.scenario-grid{display:flex;flex-wrap:wrap;gap:.5rem}.scenario-grid button{background:transparent;color:var(--ink)}.recommend{margin-top:2rem}.deadline-fields{display:grid;grid-template-columns:2fr 1fr auto;gap:.7rem;align-items:end}.budget-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.5rem 0}.summary>div{padding:1rem;border:1px solid #8290a5;border-radius:12px;display:flex;flex-direction:column;gap:.4rem}.summary strong{font-size:1.3rem;overflow-wrap:anywhere}.bar-track{height:14px;background:#94a3b855;border-radius:20px;overflow:hidden}.bar-fill{height:100%;width:0;background:#5145d8;transition:width .15s}.actions{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem}.actions .danger{background:#8b2736}.actions input[type=file]{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}.import-label{display:inline-block;margin:0}.actions input[type=file]:focus-visible+.import-label{outline:2px solid currentColor}@media(max-width:650px){.fields{flex-direction:column}.deadline-fields,.budget-grid,.summary{grid-template-columns:1fr}.tool{padding:1rem}.task-list :global(li){align-items:flex-start}.center-tabs a{flex:1;text-align:center}}
+</style>
+</Base>
