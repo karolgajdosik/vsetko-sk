@@ -38,6 +38,14 @@ export async function onRequestPost({request,env}){
  const isLostId=/(strat|ukrad|odcudz)/.test(normalized)&&/(obciansk|obciank|preukaz)/.test(normalized);
  const ranked=clean.map(x=>({...x,score:words.reduce((n,w)=>n+(norm(x.title+' '+x.description).includes(w)?1:0),0)+(isLostId&&x.url==='/navody/strata-obcianskeho-preukazu/'?100:0)})).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).slice(0,5);
  if(isLostId)return reply({answer:'Stratu alebo krádež občianskeho preukazu bezodkladne nahláste Policajnému zboru. O nový občiansky preukaz požiadajte na oddelení dokladov Policajného zboru, nie na obecnom úrade. Podrobnosti o dokladoch, lehotách a poplatkoch si overte na oficiálnom portáli slovensko.sk alebo na oddelení dokladov.',sources:[{title:'Strata občianskeho preukazu',url:'/navody/strata-obcianskeho-preukazu/'}],officialSources:[{title:'Ústredný portál verejnej správy',url:OFFICIAL}],mode:'verified-guide'});
+ // High-impact life situations: use reviewed summaries instead of ungrounded model-generated steps.
+ const verified=[
+  {match:/(hypotek|uver na byvanie|uveru na byvanie)/,title:'Porovnanie hypoték',url:'/navody/porovnanie-hypotek/',answer:'Pri porovnávaní hypoték sledujte najmä RPMN, úrokovú sadzbu, dĺžku fixácie, mesačnú splátku a všetky poplatky. Schválenie úveru závisí od individuálneho posúdenia banky. Konkrétne limity a podmienky si overte v banke a v aktuálnych informáciách NBS.'},
+  {match:/(prepis|prevod|zmena drzitel|predaj auta|kupil som auto)/,title:'Prepis auta',url:'/navody/prepis-auta/',answer:'Pri zmene držiteľa vozidla si najprv overte aktuálny postup evidenčných úkonov na pracovisku evidencie vozidiel Policajného zboru alebo na slovensko.sk. Pripravte si údaje o vozidle a overte požiadavky na doklady, poistenie, lehoty a poplatky. Konkrétne podmienky sa môžu líšiť podľa situácie.'},
+  {match:/(dedic|deden|pozostal|umrti|zomrel)/,title:'Dedičské konanie',url:'/navody/dedicske-konanie/',answer:'Dedičské konanie na Slovensku prebieha prostredníctvom súdu a povereného notára. Uschovajte dostupné doklady o majetku a záväzkoch zosnulého a riaďte sa pokynmi notára. Pri konkrétnych lehotách, dlhoch či sporoch si vyžiadajte aktuálne informácie od notára alebo právnika.'}
+ ];
+ const matched=verified.find(item=>item.match.test(normalized));
+ if(matched)return reply({answer:matched.answer,sources:[{title:matched.title,url:matched.url}],officialSources:[{title:'Ústredný portál verejnej správy',url:OFFICIAL}],mode:'verified-guide'});
  if(!ranked.length)return reply({answer:'K tejto otázke zatiaľ nemám dostatočný podklad v obsahu portálu. Skúste fulltextové vyhľadávanie alebo oficiálne zdroje.',sources:[],mode:'grounded'});
  try{
   const response=await env.AI.run(MODEL,{messages:[
