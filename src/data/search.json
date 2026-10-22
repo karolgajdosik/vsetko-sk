@@ -180,5 +180,12 @@
     "url": "/navody/dedicske-konanie/",
     "description": "Po úmrtí blízkeho si pripravte základné dokumenty a informácie o majetku.",
     "keywords": "dedicske konanie"
+  },
+  {
+    "title": "Kalkulačka nákladov na auto",
+    "category": "Auto",
+    "url": "/kalkulacky/naklady-na-auto/",
+    "description": "Vypočítajte ročné a mesačné náklady benzínového, naftového a elektrického auta.",
+    "keywords": "auto elektromobil benzin nafta spotreba naklady kalkulacka palivo elektrina"
   }
 ]
