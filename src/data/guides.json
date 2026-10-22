@@ -352,12 +352,33 @@
       "outcome": "Strata je zaevidovaná, starý doklad nemožno používať a máš vybavený alebo rozpracovaný nový občiansky preukaz.",
       "links": [
         {
-          "label": "Portál elektronických služieb štátu",
-          "url": "https://www.slovensko.sk/"
+          "label": "Nahlásenie straty alebo odcudzenia OP s čipom – elektronická služba",
+          "url": "https://www.slovensko.sk/sk/detail-sluzby?externalCode=sluzba_egov_1065"
         },
         {
-          "label": "Ministerstvo vnútra SR",
-          "url": "https://www.minv.sk/"
+          "label": "Oficiálny postup pri strate občianskeho preukazu",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_co-robit-pri-strate-alebo-odcu/"
+        },
+        {
+          "label": "Elektronický postup a požadované údaje",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_ukradli-mi-doklady-stratili"
+        }
+      ],
+      "screenGuide": [
+        {
+          "title": "Otvorte katalóg elektronickej služby",
+          "instruction": "Na stránke slovensko.sk vyberte „Prejsť na službu“. Ak ste si vopred nenastavili diskrétny údaj, použite osobný postup.",
+          "url": "https://www.slovensko.sk/sk/detail-sluzby?externalCode=sluzba_egov_1065"
+        },
+        {
+          "title": "Vyplňte údaje podľa formulára",
+          "instruction": "Zvoľte stratu alebo odcudzenie, zadajte požadované identifikačné údaje a diskrétny údaj. Údaje nikdy nezadávajte na VŠETKO24.sk.",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_ukradli-mi-doklady-stratili"
+        },
+        {
+          "title": "Skontrolujte výsledok podania",
+          "instruction": "Po odoslaní si overte potvrdenie spracovania a následne postupujte pri žiadosti o nový doklad.",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_co-robit-pri-strate-alebo-odcu/"
         }
       ]
     }
@@ -724,12 +745,33 @@
       "outcome": "Byt je právne nadobudnutý, úhrada bezpečne zrealizovaná, nehnuteľnosť prevzatá a služby prepísané.",
       "links": [
         {
-          "label": "Úrad geodézie, kartografie a katastra SR",
-          "url": "https://www.skgeodesy.sk/"
+          "label": "Overenie vlastníctva – oficiálny rozcestník katastra",
+          "url": "https://beta.skgeodesy.sk/sk/situacie/overenie-vlastnictva/"
         },
         {
-          "label": "Národná banka Slovenska – financovanie",
-          "url": "https://nbs.sk/"
+          "label": "CICA – informatívny list vlastníctva",
+          "url": "https://beta.skgeodesy.sk/sk/kataster/cica/"
+        },
+        {
+          "label": "ESKN – návrh na vklad a elektronické podania",
+          "url": "https://beta.skgeodesy.sk/sk/kataster/eskn-portal/"
+        }
+      ],
+      "screenGuide": [
+        {
+          "title": "Overte vlastníctvo a ťarchy",
+          "instruction": "Otvorte rozcestník katastra a vyberte CICA pre informatívne overenie. Skontrolujte vlastníkov, ťarchy a plomby.",
+          "url": "https://beta.skgeodesy.sk/sk/kataster/cica/"
+        },
+        {
+          "title": "Rozhodnite o type výpisu",
+          "instruction": "Informatívny výpis nemusí stačiť na právny úkon. Pri požiadavke na úradný dokument použite ESKN alebo osobné vybavenie.",
+          "url": "https://beta.skgeodesy.sk/sk/kataster/eskn-portal/"
+        },
+        {
+          "title": "Pripravte podanie na vklad",
+          "instruction": "Po právnej kontrole zmlúv overte požadované prílohy a možnosti elektronického podania návrhu na vklad.",
+          "url": "https://beta.skgeodesy.sk/sk/kataster/eskn-portal/"
         }
       ]
     }
@@ -1072,12 +1114,33 @@
       "outcome": "Zmluva a odovzdanie sú zdokumentované, zmena je zaevidovaná a poistenie aj doklady zodpovedajú novému stavu.",
       "links": [
         {
-          "label": "Ministerstvo vnútra SR – evidencia vozidiel",
-          "url": "https://www.minv.sk/"
+          "label": "Elektronická žiadosť o zmenu držby alebo vlastníctva vozidla",
+          "url": "https://www.slovensko.sk/sk/detail-sluzby?externalCode=ks_235405"
         },
         {
-          "label": "Slovenská kancelária poisťovateľov",
-          "url": "https://www.skp.sk/"
+          "label": "Oficiálny postup pri predaji auta",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_predaj-auta/"
+        },
+        {
+          "label": "Elektronické služby evidencie vozidiel",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_elektronicke-sluzby-evidencie"
+        }
+      ],
+      "screenGuide": [
+        {
+          "title": "Otvorte elektronickú službu",
+          "instruction": "Na slovensko.sk vyberte službu zmeny držby alebo vlastníctva vozidla. Pri elektronickom podaní overte eID a požiadavku kvalifikovaného elektronického podpisu.",
+          "url": "https://www.slovensko.sk/sk/detail-sluzby?externalCode=ks_235405"
+        },
+        {
+          "title": "Vyplňte údaje o vozidle a osobách",
+          "instruction": "Podľa formulára skontrolujte identifikáciu vozidla a údaje nového držiteľa. Podmienky zastupovania a súhlasu druhej strany overte v oficiálnom návode.",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_elektronicke-sluzby-evidencie"
+        },
+        {
+          "title": "Dokončite podanie a platbu",
+          "instruction": "Postupujte podľa pokynov služby, skontrolujte prípadný správny poplatok a uložte potvrdenie.",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_predaj-auta/"
         }
       ]
     }
