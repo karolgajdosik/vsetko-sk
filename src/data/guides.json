@@ -213,7 +213,60 @@
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
     "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "detail": {
+      "summary": "Pri nabíjaní sleduj typ konektora, skutočný výkon auta aj stanice, spôsob platby a cenu za kWh. Deklarovaný výkon stanice nie je zárukou rovnako rýchleho nabíjania.",
+      "before": [
+        "Zisti, aký AC a DC výkon podporuje tvoje vozidlo a aký konektor používa.",
+        "Over si ceny, roaming a prípadné časové alebo parkovacie poplatky.",
+        "Pred dlhšou cestou priprav alternatívnu nabíjaciu stanicu."
+      ],
+      "detailed": [
+        {
+          "title": "Vyber kompatibilnú stanicu",
+          "body": "Pre bežné AC nabíjanie sa na európskych vozidlách často používa Type 2, pre DC rýchlonabíjanie CCS2. Vždy však skontroluj konkrétnu výbavu vozidla a dostupný konektor.",
+          "where": "Technická dokumentácia vozidla a mapa nabíjacích staníc.",
+          "tool": "/data/nabijacky/"
+        },
+        {
+          "title": "Skontroluj cenu a dostupnosť",
+          "body": "Porovnaj cenu za kWh, prípadné minútové poplatky, blokovacie poplatky a cenu cez roamingovú kartu. Mapa môže zobrazovať stanicu aj bez spoľahlivej informácie o jej aktuálnej obsadenosti.",
+          "where": "Aplikácia operátora, aktuálny cenník a mapa staníc.",
+          "tool": "/kalkulacky/cena-nabijania/"
+        },
+        {
+          "title": "Priprav auto na DC nabíjanie",
+          "body": "Ak vozidlo podporuje predohrev batérie pri navigovaní na nabíjačku, použi ho. Výkon závisí od teploty batérie, stavu nabitia a zdieľania výkonu na stanici.",
+          "where": "Navigácia vozidla a používateľská príručka."
+        },
+        {
+          "title": "Spusti nabíjanie a over priebeh",
+          "body": "Zaparkuj podľa značenia, pripoj kábel a autorizuj nabíjanie spôsobom, ktorý uvádza prevádzkovateľ. Skontroluj, či sa nabíjanie naozaj spustilo a či sa účtuje očakávaná tarifa.",
+          "where": "Displej stanice, aplikácia operátora a vozidlo."
+        },
+        {
+          "title": "Ukonči nabíjanie a skontroluj platbu",
+          "body": "Nabíjanie ukonči pred odpojením podľa pokynov vozidla a stanice. Uvoľni miesto a v aplikácii skontroluj spotrebu, cenu a prípadné ďalšie poplatky.",
+          "where": "Aplikácia operátora alebo potvrdenie o transakcii."
+        }
+      ],
+      "pitfalls": [
+        "Výkon 150 kW na stojane neznamená, že auto bude celý čas nabíjať 150 kW.",
+        "Ceny sa môžu líšiť pri priamej platbe a roamingu.",
+        "Údaje o dostupnosti v komunitnej databáze nemusia byť v reálnom čase."
+      ],
+      "outcome": "Nabíjanie prebehlo bezpečne, vieš koľko energie si odobral a aká bola konečná cena.",
+      "links": [
+        {
+          "label": "Mapa nabíjacích staníc VŠETKO24.sk",
+          "url": "https://vsetko24.sk/data/nabijacky/"
+        },
+        {
+          "label": "Kalkulačka ceny nabíjania",
+          "url": "https://vsetko24.sk/kalkulacky/cena-nabijania/"
+        }
+      ]
+    }
   },
   {
     "slug": "dialnicna-znamka",
@@ -261,7 +314,74 @@
       "Dokumenty súvisiace s konkrétnou žiadosťou"
     ],
     "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "detail": {
+      "summary": "Pri strate alebo krádeži občianskeho preukazu je prioritou nahlásenie neplatného dokladu a následné vybavenie nového. Ak máš aktivované elektronické funkcie, rieš aj ochranu prístupových údajov.",
+      "before": [
+        "Zisti, či je doklad skutočne stratený alebo odcudzený; pri podozrení na krádež oznám okolnosti polícii.",
+        "Priprav si iný dostupný doklad totožnosti, ak ho máš, a kontaktné údaje.",
+        "Ak si mimo Slovenska, kontaktuj slovenské zastupiteľstvo a over si postup pri návrate."
+      ],
+      "detailed": [
+        {
+          "title": "Bezodkladne nahlás stratu alebo krádež",
+          "body": "Kontaktuj príslušné pracovisko dokladov Policajného zboru. Pri krádeži zároveň oznám okolnosti polícii. Po nahlásení už pôvodný doklad nepoužívaj, ani keď sa neskôr nájde.",
+          "where": "Oddelenie dokladov Policajného zboru alebo dostupná elektronická služba po overení podmienok."
+        },
+        {
+          "title": "Over elektronické prístupy",
+          "body": "Ak si používal elektronický občiansky preukaz, over stav certifikátov a možnosť ich zrušenia. Zabezpeč si aj účty, pri ktorých si stratený doklad používal na identifikáciu.",
+          "where": "Oficiálne informácie o eID na slovensko.sk."
+        },
+        {
+          "title": "Požiadaj o nový doklad",
+          "body": "Over si, či potrebuješ rezerváciu termínu. Na pracovisku sa informuj o dokladoch potrebných na identifikáciu, poplatku a možnostiach prevzatia. Presná výška poplatku závisí od okolností a zvoleného postupu.",
+          "where": "Pracovisko dokladov; aktuálne požiadavky over na minv.sk."
+        },
+        {
+          "title": "Po prevzatí skontroluj údaje",
+          "body": "Skontroluj meno, dátum narodenia, platnosť a prípadne funkčnosť elektronických služieb. Nové číslo dokladu aktualizuj tam, kde ho vyžaduje banka či iná služba.",
+          "where": "Pri prevzatí nového občianskeho preukazu."
+        }
+      ],
+      "pitfalls": [
+        "Nájdený doklad po nahlásení straty nemusí byť opäť platný.",
+        "Nevyhlasuj neoverené termíny vybavenia alebo poplatky za univerzálne; líšia sa podľa situácie.",
+        "Pri pobyte v zahraničí môže byť potrebný osobitný postup."
+      ],
+      "outcome": "Strata je zaevidovaná, starý doklad nemožno používať a máš vybavený alebo rozpracovaný nový občiansky preukaz.",
+      "links": [
+        {
+          "label": "Nahlásenie straty alebo odcudzenia OP s čipom – elektronická služba",
+          "url": "https://www.slovensko.sk/sk/detail-sluzby?externalCode=sluzba_egov_1065"
+        },
+        {
+          "label": "Oficiálny postup pri strate občianskeho preukazu",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_co-robit-pri-strate-alebo-odcu/"
+        },
+        {
+          "label": "Elektronický postup a požadované údaje",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_ukradli-mi-doklady-stratili"
+        }
+      ],
+      "screenGuide": [
+        {
+          "title": "Otvorte katalóg elektronickej služby",
+          "instruction": "Na stránke slovensko.sk vyberte „Prejsť na službu“. Ak ste si vopred nenastavili diskrétny údaj, použite osobný postup.",
+          "url": "https://www.slovensko.sk/sk/detail-sluzby?externalCode=sluzba_egov_1065"
+        },
+        {
+          "title": "Vyplňte údaje podľa formulára",
+          "instruction": "Zvoľte stratu alebo odcudzenie, zadajte požadované identifikačné údaje a diskrétny údaj. Údaje nikdy nezadávajte na VŠETKO24.sk.",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_ukradli-mi-doklady-stratili"
+        },
+        {
+          "title": "Skontrolujte výsledok podania",
+          "instruction": "Po odoslaní si overte potvrdenie spracovania a následne postupujte pri žiadosti o nový doklad.",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_co-robit-pri-strate-alebo-odcu/"
+        }
+      ]
+    }
   },
   {
     "slug": "vymena-cestovneho-pasu",
@@ -582,7 +702,79 @@
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
     "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "detail": {
+      "summary": "Pri kúpe bytu postupuj od overenia právneho stavu cez financovanie až po bezpečnú úhradu a prevzatie. Najväčšie riziká bývajú v zmluvách, ťarchách a načasovaní peňazí.",
+      "before": [
+        "Stanov si maximálny rozpočet vrátane rezervy na poplatky, zariadenie a opravy.",
+        "Vyžiadaj list vlastníctva, pôdorys, informácie o správcovi, mesačných nákladoch a prípadných nedoplatkoch.",
+        "Ak financuješ hypotékou, predbežne over schopnosť splácať a požiadavky banky."
+      ],
+      "detailed": [
+        {
+          "title": "Skontroluj byt a dom",
+          "body": "Pozri technický stav, vlhkosť, rozvody, okná, spoločné priestory, plánované opravy a fond opráv. Pýtaj si podklady o mesačných platbách a stave bytového domu.",
+          "where": "Obhliadka, správca alebo spoločenstvo vlastníkov."
+        },
+        {
+          "title": "Over list vlastníctva a obmedzenia",
+          "body": "Porovnaj vlastníkov, podiely, ťarchy, vecné bremená a prípadné plomby. Pri nejasnostiach využi právnika; samotný výpis nenahrádza komplexnú právnu kontrolu.",
+          "where": "Oficiálny kataster a dokumenty predávajúceho."
+        },
+        {
+          "title": "Dohodni bezpečné zmluvy a úhradu",
+          "body": "Rezervačnú aj kúpnu zmluvu daj preveriť nezávislému právnikovi. Podmienky uvoľnenia peňazí nastav tak, aby zohľadňovali povolenie vkladu a prípadné vymazanie tiarch; zváž notársku alebo bankovú úschovu.",
+          "where": "Právnik, notár, banka."
+        },
+        {
+          "title": "Podaj návrh na vklad a sleduj konanie",
+          "body": "Over, kto podáva návrh na vklad, aké prílohy sú potrebné a ako sa riešia prípadné výzvy k doplneniu. Vlastnícke právo pri zmluvnom prevode vzniká povolením vkladu do katastra.",
+          "where": "Príslušný okresný úrad – katastrálny odbor."
+        },
+        {
+          "title": "Prevezmi byt a prepíš služby",
+          "body": "Spíš odovzdávací protokol s fotografiami a stavmi meračov. Prevezmi kľúče, čipy a dokumentáciu. Nahlás zmenu správcovi a dodávateľom energií podľa konkrétneho postupu.",
+          "where": "Pri odovzdaní bytu."
+        }
+      ],
+      "pitfalls": [
+        "Rezervačný poplatok neplať bez jasných podmienok jeho vrátenia.",
+        "Skontroluj, či predávajúci môže byt platne previesť a či sa riešia všetky ťarchy.",
+        "Financovanie a prevod vlastníctva majú rozdielne časové kroky."
+      ],
+      "outcome": "Byt je právne nadobudnutý, úhrada bezpečne zrealizovaná, nehnuteľnosť prevzatá a služby prepísané.",
+      "links": [
+        {
+          "label": "Overenie vlastníctva – oficiálny rozcestník katastra",
+          "url": "https://beta.skgeodesy.sk/sk/situacie/overenie-vlastnictva/"
+        },
+        {
+          "label": "CICA – informatívny list vlastníctva",
+          "url": "https://beta.skgeodesy.sk/sk/kataster/cica/"
+        },
+        {
+          "label": "ESKN – návrh na vklad a elektronické podania",
+          "url": "https://beta.skgeodesy.sk/sk/kataster/eskn-portal/"
+        }
+      ],
+      "screenGuide": [
+        {
+          "title": "Overte vlastníctvo a ťarchy",
+          "instruction": "Otvorte rozcestník katastra a vyberte CICA pre informatívne overenie. Skontrolujte vlastníkov, ťarchy a plomby.",
+          "url": "https://beta.skgeodesy.sk/sk/kataster/cica/"
+        },
+        {
+          "title": "Rozhodnite o type výpisu",
+          "instruction": "Informatívny výpis nemusí stačiť na právny úkon. Pri požiadavke na úradný dokument použite ESKN alebo osobné vybavenie.",
+          "url": "https://beta.skgeodesy.sk/sk/kataster/eskn-portal/"
+        },
+        {
+          "title": "Pripravte podanie na vklad",
+          "instruction": "Po právnej kontrole zmlúv overte požadované prílohy a možnosti elektronického podania návrhu na vklad.",
+          "url": "https://beta.skgeodesy.sk/sk/kataster/eskn-portal/"
+        }
+      ]
+    }
   },
   {
     "slug": "predaj-bytu",
@@ -632,7 +824,59 @@
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
     "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "detail": {
+      "summary": "Hypotéku porovnávaj podľa celkových nákladov a schopnosti splácať, nie iba podľa reklamného úroku. Rozhodujúce sú príjmy, existujúce záväzky, vlastné zdroje a hodnota zabezpečenia.",
+      "before": [
+        "Priprav doklady o príjme a informácie o všetkých úveroch, leasingoch a limitoch.",
+        "Urči vlastné zdroje, rezervu a cenu nehnuteľnosti.",
+        "Vyžiadaj od banky zoznam dokumentov podľa typu príjmu a nehnuteľnosti."
+      ],
+      "detailed": [
+        {
+          "title": "Vypočítaj bezpečný mesačný rozpočet",
+          "body": "Spočítaj čisté príjmy, fixné výdavky, existujúce splátky a rezervu na nečakané udalosti. Neber maximálnu bankou ponúknutú splátku ako automaticky vhodnú.",
+          "where": "Vlastný rozpočet a hypotekárna kalkulačka.",
+          "tool": "/financie/#hypoteka"
+        },
+        {
+          "title": "Porovnaj viacero bankových ponúk",
+          "body": "Pri rovnakom úvere a splatnosti sleduj úrok, RPMN, fixáciu, povinné produkty, poistenie, poplatky a podmienky mimoriadnych splátok. Vypýtaj si predzmluvné informácie.",
+          "where": "Banky alebo licencovaný sprostredkovateľ."
+        },
+        {
+          "title": "Over nehnuteľnosť a hodnotu zabezpečenia",
+          "body": "Banka môže vyžadovať ocenenie, list vlastníctva a ďalšie doklady. Over si, ako banka určuje hodnotu a akú časť kúpnej ceny musíš pokryť z vlastných zdrojov.",
+          "where": "Banka, kataster, predávajúci."
+        },
+        {
+          "title": "Podaj žiadosť a čítaj podmienky čerpania",
+          "body": "Po predložení dokumentov si nechaj vysvetliť rozhodnutie, termíny, záložné právo, poistné podmienky a podmienky uvoľnenia peňazí. Podpisuj až po kontrole všetkých dokumentov.",
+          "where": "Banka a právnik pri kúpe nehnuteľnosti."
+        },
+        {
+          "title": "Priprav sa na obdobie po čerpaní",
+          "body": "Sleduj splátkový kalendár, dátum konca fixácie, povinnosti voči banke a tvorbu rezervy. Priprav si pripomienku na včasné porovnanie ponúk pred refixáciou.",
+          "where": "Klientska zóna banky."
+        }
+      ],
+      "pitfalls": [
+        "Reklamná sadzba nemusí byť dostupná každému.",
+        "Splátka z kalkulačky nezahŕňa automaticky všetky poplatky a poistenia.",
+        "Schválenie úveru a čerpanie peňazí sú samostatné kroky."
+      ],
+      "outcome": "Máš porovnateľné ponuky, rozumieš nákladom aj rizikám a poznáš podmienky schválenia a čerpania.",
+      "links": [
+        {
+          "label": "Národná banka Slovenska – finančný spotrebiteľ",
+          "url": "https://nbs.sk/"
+        },
+        {
+          "label": "Hypotekárna kalkulačka VŠETKO24.sk",
+          "url": "https://vsetko24.sk/financie/#hypoteka"
+        }
+      ]
+    }
   },
   {
     "slug": "fixacia-hypoteky",
@@ -832,7 +1076,74 @@
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
     "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "detail": {
+      "summary": "Pri zmene držiteľa alebo vlastníka vozidla si najskôr ujasni typ prevodu, údaje strán a poistenie. Podrobnosti sa môžu líšiť podľa toho, či ide o predaj, darovanie, leasing alebo dovoz.",
+      "before": [
+        "Priprav osvedčenia o evidencii vozidla, údaje kupujúceho a predávajúceho a doklad o nadobudnutí.",
+        "Skontroluj VIN, EČV, stav kilometrov a údaje uvedené v zmluve.",
+        "Over platnosť PZP a dohodni, kto zabezpečí poistenie pri prevode."
+      ],
+      "detailed": [
+        {
+          "title": "Over údaje a právny stav vozidla",
+          "body": "Porovnaj VIN priamo na vozidle s dokladmi. Pri financovanom aute over súhlas leasingovej spoločnosti a oprávnenie previesť vlastníctvo.",
+          "where": "Doklady vozidla, zmluva, prípadne financujúca spoločnosť."
+        },
+        {
+          "title": "Priprav zmluvu a odovzdávací protokol",
+          "body": "Do dokumentov uveď identifikačné údaje strán, vozidla, cenu alebo právny dôvod prevodu, dátum a čas odovzdania, stav kilometrov, kľúče a doklady. Obom stranám ponechaj podpísanú kópiu.",
+          "where": "Pred stretnutím na pracovisku evidencie vozidiel."
+        },
+        {
+          "title": "Over postup zmeny držby v evidencii",
+          "body": "Na oficiálnom portáli zisti, či môžeš použiť elektronickú službu alebo je potrebná osobná návšteva. Skontroluj podmienky zastúpenia, podpisov, evidenčných dokladov a správnych poplatkov.",
+          "where": "Ministerstvo vnútra SR / evidencia vozidiel."
+        },
+        {
+          "title": "Vybav poistenie a prevzatie dokladov",
+          "body": "Pred používaním auta musí byť zabezpečené požadované PZP. Po zmene evidencie skontroluj vydané doklady a údaje, prípadne uprav diaľničnú známku alebo parkovacie oprávnenia.",
+          "where": "Poisťovňa, evidencia vozidiel a súvisiace služby."
+        }
+      ],
+      "pitfalls": [
+        "Samotná podpísaná kúpna zmluva ešte neznamená, že sa zmenil záznam v evidencii.",
+        "Pri leasingu môže byť vlastníkom financujúca spoločnosť.",
+        "Nepoužívaj univerzálny zoznam poplatkov bez overenia aktuálneho sadzobníka."
+      ],
+      "outcome": "Zmluva a odovzdanie sú zdokumentované, zmena je zaevidovaná a poistenie aj doklady zodpovedajú novému stavu.",
+      "links": [
+        {
+          "label": "Elektronická žiadosť o zmenu držby alebo vlastníctva vozidla",
+          "url": "https://www.slovensko.sk/sk/detail-sluzby?externalCode=ks_235405"
+        },
+        {
+          "label": "Oficiálny postup pri predaji auta",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_predaj-auta/"
+        },
+        {
+          "label": "Elektronické služby evidencie vozidiel",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_elektronicke-sluzby-evidencie"
+        }
+      ],
+      "screenGuide": [
+        {
+          "title": "Otvorte elektronickú službu",
+          "instruction": "Na slovensko.sk vyberte službu zmeny držby alebo vlastníctva vozidla. Pri elektronickom podaní overte eID a požiadavku kvalifikovaného elektronického podpisu.",
+          "url": "https://www.slovensko.sk/sk/detail-sluzby?externalCode=ks_235405"
+        },
+        {
+          "title": "Vyplňte údaje o vozidle a osobách",
+          "instruction": "Podľa formulára skontrolujte identifikáciu vozidla a údaje nového držiteľa. Podmienky zastupovania a súhlasu druhej strany overte v oficiálnom návode.",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_elektronicke-sluzby-evidencie"
+        },
+        {
+          "title": "Dokončite podanie a platbu",
+          "instruction": "Postupujte podľa pokynov služby, skontrolujte prípadný správny poplatok a uložte potvrdenie.",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_predaj-auta/"
+        }
+      ]
+    }
   },
   {
     "slug": "stk-priprava",
