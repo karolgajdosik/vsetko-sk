@@ -940,11 +940,54 @@
     "keywords": "sobáš na slovensku",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
-      "Identifikačné doklady podľa požiadaviek príslušného úradu",
-      "Dokumenty súvisiace s konkrétnou žiadosťou"
+      "Vyberte termín, miesto a formu sobáša.",
+      "Pripravte doklady totožnosti a informácie o osobnom stave.",
+      "Ak je jeden zo snúbencov cudzinec, včas overte požiadavky na zahraničné doklady a preklady."
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Redakčne spracovaný orientačný postup. Aktuálne poplatky a doklady overte na príslušnej matrike.",
+    "sourceNote": "Oficiálne zdroje sú uvedené v podrobných informáciách.",
+    "detail": {
+      "summary": "Pri uzavretí manželstva sa najprv dohodnite s príslušným matričným úradom alebo oprávneným cirkevným orgánom. Doklady, termíny a podmienky sa líšia podľa štátneho občianstva snúbencov a miesta sobáša.",
+      "before": [
+        "Vyberte termín, miesto a formu sobáša.",
+        "Pripravte doklady totožnosti a informácie o osobnom stave.",
+        "Ak je jeden zo snúbencov cudzinec, včas overte požiadavky na zahraničné doklady a preklady."
+      ],
+      "detailed": [
+        {
+          "title": "Kontaktujte matriku",
+          "body": "Overte príslušnosť matriky, dostupný termín a postup pre civilný alebo cirkevný sobáš."
+        },
+        {
+          "title": "Pripravte požadované listiny",
+          "body": "Matrika vysvetlí doklady podľa občianstva a rodinného stavu; pri rozvode alebo ovdovení môžu byť potrebné ďalšie doklady."
+        },
+        {
+          "title": "Podajte žiadosť a potvrďte termín",
+          "body": "Spolu s matrikou vyplňte potrebné údaje, dohodnite svedkov a overte poplatky za osobitné podmienky obradu."
+        },
+        {
+          "title": "Skontrolujte sobášny list a následné zmeny",
+          "body": "Po zápise manželstva skontrolujte údaje a pri zmene priezviska vybavte potrebné doklady a oznámenia."
+        }
+      ],
+      "pitfalls": [
+        "Pri sobáši s cudzincom môže príprava dokladov trvať dlhšie.",
+        "Sobáš mimo určenej miestnosti alebo času môže podliehať osobitným podmienkam.",
+        "Zmena priezviska môže vyvolať povinnosť vymeniť doklady."
+      ],
+      "outcome": "Manželstvo je zapísané v matrike a máte k dispozícii sobášny list.",
+      "links": [
+        {
+          "label": "Slovensko.sk",
+          "url": "https://www.slovensko.sk/"
+        },
+        {
+          "label": "Ministerstvo vnútra SR",
+          "url": "https://www.minv.sk/"
+        }
+      ]
+    }
   },
   {
     "slug": "vybavenie-po-umrti",
