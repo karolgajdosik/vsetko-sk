@@ -29,3 +29,7 @@
 - DATAcube: https://data.statistics.sk/api/html/help-en.html
 - Open Charge Map: https://www.openchargemap.org/develop/api
 - Open-Meteo podmienky: https://open-meteo.com/en/terms
+
+## Dôležitá aktualizácia 22. 10. 2026
+- DATAcube exporty sa prestali aktualizovať 15. 9. 2026; ďalšie štatistiky riešiť cez STATdata a overiť nový dátový kontrakt: https://data.statistics.sk/api/.
+- RPO MVP: GET /api/rpo?ico=XXXXXXXX; iba 8 číslic, serverová validácia, výstup bez osobných údajov štatutárov. Pred finálnym vydaním overiť reálnu schému a funkčný test na Cloudflare preview.
