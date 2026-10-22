@@ -1,0 +1,33 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Kalkulačka nákladov na auto" description="Porovnajte ročné a mesačné náklady benzínového, naftového alebo elektrického auta. Bez registrácie a odosielania údajov." updated="22. 10. 2026">
+<main id="obsah" class="wrap main">
+<p class="eyebrow"><a href="/auto/">Auto</a> / Kalkulačky</p>
+<h1>Kalkulačka nákladov na auto</h1>
+<p class="intro section-intro">Vypočítajte orientačné náklady na jazdu aj vlastníctvo vozidla. Hodnoty si môžete upraviť podľa svojho auta a cien energií.</p>
+<section class="panel">
+<div class="budget">
+<label for="type">Pohon<select id="type"><option value="petrol">Benzín</option><option value="diesel">Nafta</option><option value="ev">Elektromobil</option></select></label>
+<label for="km">Najazdené kilometre ročne<input id="km" type="number" min="0" max="200000" step="1000" value="15000"/></label>
+<label for="consumption">Spotreba (l/100 km)<input id="consumption" type="number" min="0" max="100" step="0.1" value="7"/></label>
+<label for="price">Cena paliva (€/l)<input id="price" type="number" min="0" max="20" step="0.01" value="1.6"/></label>
+<label for="insurance">Poistenie ročne (€)<input id="insurance" type="number" min="0" max="100000" value="450"/></label>
+<label for="service">Servis a pneumatiky ročne (€)<input id="service" type="number" min="0" max="100000" value="600"/></label>
+<label for="other">Ostatné ročné náklady (€)<input id="other" type="number" min="0" max="100000" value="150"/></label>
+</div>
+<div class="result" style="margin-top:24px" aria-live="polite"><p>Celkové ročné náklady</p><strong id="annual">—</strong><p>Mesačne: <b id="monthly">—</b></p><p>Na 100 km: <b id="per100">—</b></p><p>Energia/palivo ročne: <b id="energy">—</b></p></div>
+<p class="note">Nezahŕňa obstarávaciu cenu, odpisy, financovanie, parkovanie ani mimoriadne opravy, pokiaľ ich nezahrniete do ostatných nákladov. Ceny sú vaše vstupy, nie aktuálne trhové údaje. Výsledok je orientačný.</p>
+</section></main>
+<script>
+type Kind='petrol'|'diesel'|'ev';
+const get=(id:string)=>document.getElementById(id) as HTMLInputElement;
+const fmt=(n:number)=>new Intl.NumberFormat('sk-SK',{style:'currency',currency:'EUR',maximumFractionDigits:2}).format(n);
+const presets:Record<Kind,[number,number]>={petrol:[7,1.6],diesel:[6,1.55],ev:[20,0.3]};
+function updateLabels(){const ev=get('type').value==='ev';document.querySelector<HTMLLabelElement>('label[for="consumption"]')!.firstChild!.textContent=ev?'Spotreba (kWh/100 km)':'Spotreba (l/100 km)';document.querySelector<HTMLLabelElement>('label[for="price"]')!.firstChild!.textContent=ev?'Cena elektriny (€/kWh)':'Cena paliva (€/l)';}
+function val(id:string){const n=Number(get(id).value);return Number.isFinite(n)?Math.max(0,n):0;}
+function update(){const km=val('km'),energy=km/100*val('consumption')*val('price'),annual=energy+val('insurance')+val('service')+val('other');get('annual').textContent=fmt(annual);get('monthly').textContent=fmt(annual/12);get('per100').textContent=km>0?fmt(annual/km*100):'—';get('energy').textContent=fmt(energy);}
+get('type').addEventListener('change',()=>{const [c,p]=presets[get('type').value as Kind];get('consumption').value=String(c);get('price').value=String(p);updateLabels();update();});
+document.querySelectorAll<HTMLInputElement>('input[type="number"]').forEach(el=>el.addEventListener('input',update));updateLabels();update();
+</script>
+</Base>
