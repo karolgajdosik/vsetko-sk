@@ -9,7 +9,7 @@ import scenarios from '../data/scenarios.json';
 <p class="intro">Všetko, čo potrebujete vybaviť, na jednom mieste. Zoznam úloh, dôležité termíny a mesačný rozpočet. Bez účtu a bez odosielania údajov na server.</p>
 <div class="privacy" role="note"><strong>🔒 Súkromie:</strong> Údaje sa ukladajú iba v tomto prehliadači (localStorage). Pri vymazaní údajov prehliadača alebo pri použití iného zariadenia sa neprenesú. Pre zálohu použite export.</div>
 <nav class="center-tabs" aria-label="Časti osobného centra">
-<a href="#ulohy">✓ Úlohy</a><a href="#terminy">📅 Termíny</a><a href="#rozpocet">€ Rozpočet</a><a href="#zaloha">↓ Záloha</a>
+<a href="#ulohy">✓ Úlohy</a><a href="#terminy">📅 Termíny</a><a href="#rozpocet">€ Rozpočet</a><a href="#hypoteka">🏠 Hypotéka</a><a href="#zaloha">↓ Záloha</a>
 </nav>
 <section id="ulohy" class="panel tool">
 <h2>Moje úlohy</h2><p class="muted">Zostavte si vlastný zoznam. Hotové úlohy môžete označiť alebo odstrániť.</p>
@@ -36,6 +36,20 @@ import scenarios from '../data/scenarios.json';
 <div class="bar-track" aria-label="Podiel výdavkov na príjme"><div id="expense-bar" class="bar-fill"></div></div>
 <p id="budget-message" role="status" class="muted">Vyplňte svoj mesačný príjem a výdavky.</p>
 <p><a href="/kalkulacky/financna-rezerva/">Vypočítať finančnú rezervu →</a> · <a href="/kalkulacky/dostupnost-hypoteky/">Dostupnosť hypotéky →</a></p>
+</section>
+<section id="hypoteka" class="panel tool">
+<h2>Moje bývanie – prepojenie s rozpočtom</h2>
+<p class="muted">Vypočítajte orientačnú splátku plánovanej hypotéky a porovnajte ju so svojím mesačným rozpočtom. Príjem a výdavky sa preberajú z časti Rozpočet vyššie.</p>
+<div class="budget-grid">
+<div><label for="home-price">Cena nehnuteľnosti (€)</label><input id="home-price" type="number" min="1" max="100000000" step="1000" value="220000"/></div>
+<div><label for="home-equity">Vlastné zdroje (€)</label><input id="home-equity" type="number" min="0" max="100000000" step="1000" value="44000"/></div>
+<div><label for="home-rate">Ročný úrok (%)</label><input id="home-rate" type="number" min="0" max="100" step=".01" value="3.8"/></div>
+<div><label for="home-years">Splatnosť (roky)</label><input id="home-years" type="number" min="1" max="40" step="1" value="30"/></div>
+</div>
+<div class="summary" aria-live="polite"><div><small>Požadovaný úver</small><strong id="home-loan">—</strong></div><div><small>Orientačná splátka</small><strong id="home-payment">—</strong></div><div><small>Zostatok po splátke</small><strong id="home-left">—</strong></div></div>
+<p id="home-message" role="status" class="muted"></p>
+<p><a href="/financie/porovnanie-hypotek/" id="home-compare">Porovnať tri ponuky hypoték →</a></p>
+<p class="note">Zostatok po splátke = príjem mínus evidované výdavky mínus modelová splátka. Ak už rozpočet zahŕňa splátku tejto hypotéky, započítala by sa dvakrát. Nejde o posúdenie bonity bankou; výpočet nezohľadňuje všetky zákonné limity, životné minimum, ďalšie záväzky ani zmenu sadzieb po fixácii.</p>
 </section>
 <section id="zaloha" class="panel tool">
 <h2>Moje údaje a záloha</h2><p>Exportujte všetky údaje do súboru JSON, prípadne ich neskôr obnovte. Import prepíše údaje v tomto prehliadači.</p>
@@ -84,8 +98,18 @@ function renderBudget(){
  const income=state.budget.income||0;const balance=income-total;el('expenses-total').textContent=euro(total);el('balance-total').textContent=euro(balance);
  const ratio=income>0?total/income*100:0;el('expense-share').textContent=income>0?ratio.toLocaleString('sk-SK',{maximumFractionDigits:1})+' %':'—';
  (el('expense-bar') as HTMLElement).style.width=Math.min(100,ratio)+'%';
- el('budget-message').textContent=income===0?'Zadajte príjem, aby bolo možné porovnať výdavky.':balance<0?'Výdavky prevyšujú príjem o '+euro(-balance)+'.':balance===0?'Váš príjem sa rovná výdavkom.':'Po započítaní výdavkov zostáva '+euro(balance)+' mesačne.';
+ renderHome();el('budget-message').textContent=income===0?'Zadajte príjem, aby bolo možné porovnať výdavky.':balance<0?'Výdavky prevyšujú príjem o '+euro(-balance)+'.':balance===0?'Váš príjem sa rovná výdavkom.':'Po započítaní výdavkov zostáva '+euro(balance)+' mesačne.';
 }
+function renderHome(){
+ const price=(el('home-price') as HTMLInputElement).valueAsNumber,equity=(el('home-equity') as HTMLInputElement).valueAsNumber,rate=(el('home-rate') as HTMLInputElement).valueAsNumber,years=(el('home-years') as HTMLInputElement).valueAsNumber;
+ const valid=[price,equity,rate,years].every(Number.isFinite)&&price>0&&equity>=0&&equity<=price&&rate>=0&&rate<=100&&Number.isInteger(years)&&years>=1&&years<=40;
+ if(!valid){el('home-loan').textContent='—';el('home-payment').textContent='—';el('home-left').textContent='—';el('home-message').textContent='Skontrolujte vstupy hypotéky.';return;}
+ const loan=price-equity,months=years*12,r=rate/1200,payment=r===0?loan/months:loan*r/(1-Math.pow(1+r,-months));
+ const expenses=budgetIds.filter(id=>id!=='income').reduce((sum,id)=>sum+(state.budget[id]||0),0),income=state.budget.income||0,left=income-expenses-payment;
+ el('home-loan').textContent=euro(loan);el('home-payment').textContent=euro(payment);el('home-left').textContent=income>0?euro(left):'—';
+ el('home-message').textContent=income<=0?'Vyplňte mesačný príjem v rozpočte, aby sme vedeli porovnať splátku s vašimi financiami.':left<0?'Modelová splátka spolu s výdavkami prevyšuje príjem o '+euro(-left)+'.':'Po evidovaných výdavkoch a modelovej splátke zostáva '+euro(left)+' mesačne. Nejde o schválenie hypotéky.';
+}
+['home-price','home-equity','home-rate','home-years'].forEach(id=>el(id).addEventListener('input',renderHome));
 budgetIds.forEach(id=>(el(id) as HTMLInputElement).addEventListener('input',()=>{const n=Number((el(id) as HTMLInputElement).value);state.budget[id]=Number.isFinite(n)?Math.max(0,Math.min(10000000,n)):0;save();renderBudget();}));
 el('export-data').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='vsetko24-moje-centrum.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
 (el('import-data') as HTMLInputElement).addEventListener('change',async e=>{const field=e.currentTarget as HTMLInputElement;const file=field.files?.[0];if(!file)return;if(file.size>200000){el('data-status').textContent='Súbor je príliš veľký (max. 200 kB).';field.value='';return;}try{const parsed:unknown=JSON.parse(await file.text());if(!valid(parsed))throw Error('format');if(!confirm('Import nahradí všetky súčasné úlohy, termíny a rozpočet. Pokračovať?'))return;state=parsed;save();renderTasks();renderDeadlines();renderBudget();el('data-status').textContent='Záloha bola úspešne obnovená.';}catch{el('data-status').textContent='Neplatný formát zálohy.';}finally{field.value='';}});
