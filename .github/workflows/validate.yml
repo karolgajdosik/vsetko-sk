@@ -18,8 +18,9 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - name: Browser layout audit
         run: |
-          npm run preview -- --host 127.0.0.1 --port 4321 > /tmp/vsetko-preview.log 2>&1 &
+          python3 -m http.server 4321 --bind 127.0.0.1 --directory dist > /tmp/vsetko-preview.log 2>&1 &
           for i in $(seq 1 30); do if curl -fsS http://127.0.0.1:4321/ > /dev/null; then break; fi; sleep 1; done
+          curl -fsS http://127.0.0.1:4321/ >/dev/null || { cat /tmp/vsetko-preview.log; exit 1; }
           node tests/browser-layout.mjs
       - uses: actions/upload-artifact@v4
         if: always()
