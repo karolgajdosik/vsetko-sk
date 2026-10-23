@@ -1,0 +1,5 @@
+import assert from 'node:assert/strict';import {readFileSync,existsSync} from 'node:fs';import test from 'node:test';
+const tools=JSON.parse(readFileSync('src/data/suite-tools.json','utf8'));const hubs=JSON.parse(readFileSync('src/data/hubs.json','utf8'));
+test('all seven non-AI service hubs have a functional tool',()=>{assert.equal(hubs.length,7);assert.equal(tools.length,7);assert.deepEqual(new Set(tools.map(t=>t.slug)),new Set(hubs.map(h=>h.slug)));assert.ok(existsSync('src/pages/nastroje/[slug].astro'));});
+test('interactive suite includes privacy-safe output rendering and data export',()=>{const s=readFileSync('src/pages/nastroje/[slug].astro','utf8');for(const id of ['compare','finance-calc','journal','steps-form','company-form','deadlines','region'])assert.ok(s.includes(id));assert.ok(s.includes('textContent'));assert.ok(s.includes('text/csv'));assert.ok(!s.includes('innerHTML'));});
+test('AI search uses local catalog',()=>{const s=readFileSync('src/pages/ai.astro','utf8');assert.ok(s.includes("import catalog from '../data/search.json'"));assert.ok(s.includes('knowledge-query'));});
