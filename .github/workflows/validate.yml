@@ -14,3 +14,16 @@ jobs:
       - run: npm install --no-audit --no-fund
       - run: npm test
       - run: npm run build
+      - run: npm install --no-save playwright@1.56.1
+      - run: npx playwright install --with-deps chromium
+      - name: Browser layout audit
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4321 > /tmp/vsetko-preview.log 2>&1 &
+          for i in $(seq 1 30); do if curl -fsS http://127.0.0.1:4321/ > /dev/null; then break; fi; sleep 1; done
+          node tests/browser-layout.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: responsive-layout-screenshots
+          path: layout-*.png
+          if-no-files-found: ignore
