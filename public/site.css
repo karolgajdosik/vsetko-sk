@@ -94,3 +94,37 @@ html[data-theme=dark] a:focus-visible,html[data-theme=dark] button:focus-visible
 @media(max-width:760px){.topinner{display:flex;flex-direction:row;align-items:center;min-height:70px;gap:10px}.top nav{display:none;position:absolute;left:16px;right:16px;top:68px;flex-direction:column;align-items:stretch;flex-wrap:nowrap;justify-content:flex-start;padding:12px;gap:3px}.top nav.nav-open{display:flex}.top nav a{font-size:14px;padding:13px 15px}.access-tools{flex-wrap:nowrap}.hero{padding:52px 0 58px}.main{padding-top:32px}.home-highlights{gap:14px;margin-bottom:45px}.home-highlights>.panel{padding:21px}}
 @media(max-width:620px){.home-highlights{grid-template-columns:1fr}.home-highlights>.panel{padding:22px}.access-tools button{min-width:32px}.brand{font-size:19px}}
 @media(max-width:420px){.access-tools button{min-width:28px;min-height:32px;padding:3px;font-size:12px}.topinner{gap:5px}.mobile-menu-toggle{padding:9px}.brand{font-size:18px}}
+
+
+/* V4.25: stable single-row navigation; overflow items live in a real dropdown. */
+@media(min-width:761px){
+ .topinner{grid-template-columns:auto minmax(0,1fr) auto;gap:14px}
+ .top nav{flex-wrap:nowrap!important;white-space:nowrap;justify-content:center;gap:2px}
+ .top nav>a{flex:0 0 auto;font-size:13px;padding:10px 9px}
+ .nav-more{position:relative;flex:0 0 auto}
+ .nav-more summary{list-style:none;cursor:pointer;color:#58617a;font-weight:650;font-size:13px;padding:10px 9px;border-radius:11px}
+ .nav-more summary::-webkit-details-marker{display:none}
+ .nav-more summary:hover,.nav-more[open] summary{background:#f0efff;color:#5544d2}
+ .nav-more-links{position:absolute;right:0;top:calc(100% + 8px);min-width:185px;padding:8px;background:var(--surface);border:1px solid var(--line);border-radius:13px;box-shadow:0 15px 35px #202c5220;display:grid;gap:3px;z-index:30}
+ .top .nav-more-links a{display:block;padding:11px 13px;font-size:13px;white-space:nowrap}
+}
+@media(max-width:1050px) and (min-width:761px){
+ .top nav>a{font-size:12px;padding:9px 6px}
+ .nav-more summary{font-size:12px;padding:9px 6px}
+ .topinner{gap:8px}
+ .brand{font-size:20px}
+ .access-tools button{min-width:30px;padding:4px}
+}
+@media(max-width:900px) and (min-width:761px){
+ .top nav>a{font-size:11px;padding:9px 4px}
+ .nav-more summary{font-size:11px;padding:9px 4px}
+}
+@media(max-width:760px){
+ .nav-more{width:100%}
+ .nav-more summary{cursor:pointer;list-style:none;padding:13px 15px;font-weight:650;color:#58617a}
+ .nav-more summary::-webkit-details-marker{display:none}
+ .nav-more-links{display:grid;padding-left:12px;gap:3px}
+ .top .nav-more-links a{display:block;padding:12px 15px}
+}
+html[data-theme=dark] .nav-more summary{color:#d2d9ed}
+html[data-theme=dark] .nav-more-links{background:#202a3b;border-color:#46546a}
