@@ -2,6 +2,8 @@
 const {title='VŠETKO24.sk',description='Praktické návody a kalkulačky pre Slovensko.',updated,sourceLinks=[]}=Astro.props;
 const path=Astro.url.pathname;
 const nav=[['/','Domov'],['/sluzby/','Služby'],['/financie/','Financie'],['/auto/','Auto'],['/urady/','Úrady'],['/sprievodca/','Sprievodca'],['/data/','Dáta'],['/hladat/','Hľadať'],['/ai/','VŠETKO AI'],['/moje-centrum/','Moje centrum'],['/kalendar/','Kalendár'],['/dokumenty/','Dokumenty']];
+const primaryNav=nav.filter(([href])=>!['/data/','/moje-centrum/','/kalendar/','/dokumenty/'].includes(href));
+const extraNav=nav.filter(([href])=>['/data/','/moje-centrum/','/kalendar/','/dokumenty/'].includes(href));
 const canonical = new URL(path, Astro.site ?? 'https://vsetko24.sk').href;
 const analyticsToken = import.meta.env.PUBLIC_CF_ANALYTICS_TOKEN; // Leave unset when Pages injects Web Analytics automatically.
 const fullTitle = title === 'VŠETKO.sk' ? title : `${title} | VŠETKO24.sk`;
@@ -20,7 +22,7 @@ const fullTitle = title === 'VŠETKO.sk' ? title : `${title} | VŠETKO24.sk`;
 <meta name="robots" content="index,follow,max-image-preview:large" />
 <link rel="canonical" href={canonical} />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-<link rel="stylesheet" href="/site.css?v=3.7.2" />
+<link rel="stylesheet" href="/site.css?v=4.25.1" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="sk_SK" />
 <meta property="og:site_name" content="VŠETKO24.sk" />
@@ -33,7 +35,7 @@ const fullTitle = title === 'VŠETKO.sk' ? title : `${title} | VŠETKO24.sk`;
 </head>
 <body>
 <a class="skip" href="#obsah">Preskočiť na obsah</a>
-<header class="top"><div class="wrap topinner"><a class="brand" href="/" aria-label="VŠETKO24.sk – domov">VŠETKO<span>24.sk</span></a><button class="mobile-menu-toggle" type="button" aria-label="Otvoriť navigáciu" aria-controls="site-nav" aria-expanded="false"><span></span><span></span><span></span></button><nav id="site-nav" aria-label="Hlavná navigácia">{nav.map(([href,label])=><a href={href} aria-current={path===href?'page':undefined}>{label}</a>)}</nav><div class="access-tools" role="group" aria-label="Nastavenia zobrazenia"><button type="button" id="theme-toggle" aria-label="Prepnúť tmavý režim" aria-pressed="false" title="Tmavý režim">◐</button><button type="button" id="font-down" aria-label="Zmenšiť písmo" title="Zmenšiť písmo">A−</button><button type="button" id="font-up" aria-label="Zväčšiť písmo" title="Zväčšiť písmo">A+</button><button type="button" id="font-reset" aria-label="Obnoviť veľkosť písma" title="Obnoviť písmo">↺</button></div></div></header>
+<header class="top"><div class="wrap topinner"><a class="brand" href="/" aria-label="VŠETKO24.sk – domov">VŠETKO<span>24.sk</span></a><button class="mobile-menu-toggle" type="button" aria-label="Otvoriť navigáciu" aria-controls="site-nav" aria-expanded="false"><span></span><span></span><span></span></button><nav id="site-nav" aria-label="Hlavná navigácia">{primaryNav.map(([href,label])=><a href={href} aria-current={path===href?'page':undefined}>{label}</a>)}<details class="nav-more"><summary>Viac <span aria-hidden="true">▾</span></summary><div class="nav-more-links">{extraNav.map(([href,label])=><a href={href} aria-current={path===href?'page':undefined}>{label}</a>)}</div></details></nav><div class="access-tools" role="group" aria-label="Nastavenia zobrazenia"><button type="button" id="theme-toggle" aria-label="Prepnúť tmavý režim" aria-pressed="false" title="Tmavý režim">◐</button><button type="button" id="font-down" aria-label="Zmenšiť písmo" title="Zmenšiť písmo">A−</button><button type="button" id="font-up" aria-label="Zväčšiť písmo" title="Zväčšiť písmo">A+</button><button type="button" id="font-reset" aria-label="Obnoviť veľkosť písma" title="Obnoviť písmo">↺</button></div></div></header>
 <slot />
 <a class="assistant-floating" href="/ai/" aria-label="Otvoriť AI asistenta">✦ <span>Sprievodca</span></a>
 {(updated || sourceLinks.length>0) && <aside class="wrap trust" aria-label="Informácie o obsahu"><p><strong>Informácie o obsahu:</strong> {updated ? `Posledná redakčná aktualizácia: ${updated}.` : 'Obsah sa priebežne dopĺňa.'} {sourceLinks.length>0 && <> Oficiálne zdroje: {sourceLinks.map((s,i)=><span>{i>0?', ':''}<a href={s.url} target="_blank" rel="noopener noreferrer">{s.label} ↗</a></span>)}</>}</p><p>Pri úradných a právnych témach majú prednosť aktuálne informácie príslušných úradov. Dátum aktualizácie neznamená overenie všetkých právnych detailov.</p></aside>}
