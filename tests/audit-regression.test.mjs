@@ -16,5 +16,5 @@ test('suite uses local ISO dates instead of locale-specific date strings',()=>{
 test('header contains a more-menu and versioned CSS asset',()=>{
  const source=read('src/layouts/Base.astro');
  assert.match(source,/class="nav-more"/);
- assert.match(source,/site\.css\?v=4\.25\.1/);
+ assert.match(source,/site\.css\?v=4\.26\.0/);
 });
