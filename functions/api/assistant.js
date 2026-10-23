@@ -30,7 +30,12 @@ export async function onRequestPost({request,env}){
  {title:'Nabíjanie elektromobilu',url:'/navody/nabijanie-elektromobilu/',description:'Elektromobil, nabíjanie, konektory a stanice.'},
  {title:'Porovnanie hypoték',url:'/navody/porovnanie-hypotek/',description:'Hypotéka, úver na bývanie, úroky, splátka a porovnanie bánk.'},
  {title:'Refinancovanie úveru',url:'/navody/refinancovanie-uveru/',description:'Refinancovanie úveru, splátky a náklady.'},
- {title:'Finančná rezerva',url:'/navody/financna-rezerva/',description:'Finančná rezerva, úspory a rozpočet.'}
+ {title:'Finančná rezerva',url:'/navody/financna-rezerva/',description:'Finančná rezerva, úspory a rozpočet.'},
+ {title:'Porovnanie troch hypoték',url:'/financie/porovnanie-hypotek/',description:'Kalkulačka hypotéka bývanie porovnanie troch úrokov mesačné splátky úver.'},
+ {title:'Moje centrum',url:'/moje-centrum/',description:'Osobný rozpočet úlohy termíny hypotéka finančné plánovanie.'},
+ {title:'Porovnanie nákladov na autá',url:'/auto/porovnanie-nakladov/',description:'Elektromobil benzín diesel servis poistenie náklady na auto porovnanie.'},
+ {title:'Kalendár povinností',url:'/kalendar/',description:'Termíny STK PZP pripomienky kalendár export udalostí.'},
+ {title:'Generátor dokumentov',url:'/dokumenty/',description:'Žiadosť čestné vyhlásenie odovzdávací protokol PDF dokument.'}
  ];
  const clean=catalog;
  const words=norm(question).split(/\s+/).filter(w=>w.length>2&&!STOP.has(w));
