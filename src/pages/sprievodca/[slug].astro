@@ -12,8 +12,24 @@ const options=scenario.questions?.[0]?.options ?? [];
 {scenario.questions?.length>0 && <section class="panel"><h2>{scenario.questions[0].title}</h2><label for="answer">Vyberte možnosť</label><select id="answer"><option value="">Vyberte odpoveď</option>{options.map(o=><option value={o.value}>{o.label}</option>)}</select><div id="personalized" aria-live="polite"></div></section>}
 <section class="panel"><h2>Odporúčané návody</h2><ol>{related.map(g=><li><a href={`/navody/${g.slug}/`}>{g.title}</a></li>)}</ol></section>
 {scenario.calculators?.length>0 && <section class="panel"><h2>Súvisiace kalkulačky</h2><ul>{scenario.calculators.map(url=><li><a href={url}>{url.includes('hypoteka')?'Hypotekárna kalkulačka':'Otvoriť kalkulačku'}</a></li>)}</ul></section>}
+<section class="panel checklist" data-scenario={scenario.slug}>
+<h2>Môj postup krok za krokom</h2><p>Označte si vybavené kroky. Postup zostáva uložený iba v tomto prehliadači.</p>
+<p id="step-progress" aria-live="polite"></p><div id="step-list">
+{related.map((g,i)=><label class="step"><input type="checkbox" data-step={g.slug}/><span><strong>Krok {i+1}: {g.title}</strong><small><a href={`/navody/${g.slug}/`}>Otvoriť návod →</a></small></span></label>)}
+<label class="step"><input type="checkbox" data-step="official"/><span><strong>Overiť aktuálne podmienky na oficiálnom portáli</strong><small><a href={scenario.official} target="_blank" rel="noopener noreferrer">Otvoriť oficiálny zdroj ↗</a></small></span></label>
+</div><button id="reset-steps" type="button">Začať odznova</button><p class="note">Postup je orientačný. Poradie a potrebné úkony sa môžu líšiť podľa konkrétnej situácie.</p>
+</section>
 <p class="notice">Informácie sú orientačné. Aktuálne podmienky overte na <a href={scenario.official} target="_blank" rel="noopener noreferrer">oficiálnom portáli ↗</a>.</p><p><a href="/sprievodca/">← Všetky situácie</a></p></main>
 {scenario.questions?.length>0 && <script define:vars={{options}} is:inline>
 const select=document.getElementById('answer');const output=document.getElementById('personalized');select.addEventListener('change',()=>{output.replaceChildren();const chosen=options.find(o=>o.value===select.value);if(!chosen)return;const heading=document.createElement('h3');heading.textContent='Odporúčané ďalšie kroky';output.append(heading);for(const slug of chosen.guides||[]){const p=document.createElement('p');const a=document.createElement('a');a.href='/navody/'+slug+'/';a.textContent=slug.replaceAll('-',' ');p.append(a);output.append(p);}for(const url of chosen.calculators||[]){const p=document.createElement('p');const a=document.createElement('a');a.href=url;a.textContent='Otvoriť súvisiacu kalkulačku';p.append(a);output.append(p);}});
 </script>}
+<script>
+const root=document.querySelector<HTMLElement>('.checklist');
+if(root){const key='v24-checklist-'+root.dataset.scenario;const checks=Array.from(root.querySelectorAll<HTMLInputElement>('input[type="checkbox"]'));let saved:string[]=[];try{const raw=JSON.parse(localStorage.getItem(key)||'[]');if(Array.isArray(raw))saved=raw.filter((x:unknown)=>typeof x==='string').slice(0,100);}catch{}
+checks.forEach(c=>{c.checked=saved.includes(c.dataset.step||'');c.addEventListener('change',()=>{const completed=checks.filter(x=>x.checked).map(x=>x.dataset.step||'');try{localStorage.setItem(key,JSON.stringify(completed));}catch{}render();});});
+const progress=document.getElementById('step-progress')!;function render(){const n=checks.filter(x=>x.checked).length;progress.textContent='Hotovo '+n+' z '+checks.length+' krokov'+(n===checks.length?' · Všetky kroky označené ako vybavené.':'');}render();
+document.getElementById('reset-steps')?.addEventListener('click',()=>{if(!confirm('Vynulovať postup tejto životnej situácie?'))return;checks.forEach(c=>c.checked=false);try{localStorage.removeItem(key);}catch{}render();});
+}
+</script>
+<style>.checklist{padding:1.4rem;margin:1.5rem 0}.step{display:flex;gap:.8rem;align-items:flex-start;padding:1rem 0;border-bottom:1px solid #8794aa55}.step input{width:20px;height:20px;flex-shrink:0}.step span{display:flex;flex-direction:column;gap:.35rem}.step small{font-size:.9rem}.checklist button{padding:.7rem 1rem;margin-top:1rem;border-radius:10px;cursor:pointer}</style>
 </Base>
