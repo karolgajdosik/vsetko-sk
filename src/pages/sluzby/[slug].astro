@@ -1,0 +1,10 @@
+---
+import Base from '../../layouts/Base.astro';
+import hubs from '../../data/hubs.json';
+export function getStaticPaths(){return hubs.map(h=>({params:{slug:h.slug},props:{hub:h}}));}
+const {hub}=Astro.props;
+---
+<Base title={hub.title} description={hub.desc}>
+<main class="wrap main hub" id="obsah"><p class="eyebrow"><a href="/sluzby/">Služby</a> / {hub.title}</p><h1>{hub.title}</h1><p class="intro">{hub.desc}</p><section class="panel"><h2>Dostupné nástroje</h2><div class="hub-grid">{hub.links.map(([url,title])=><a class="hub-link" href={url}><strong>{title}</strong><span>Otvoriť →</span></a>)}</div></section><section class="panel"><h2>Čo rozširujeme</h2><p>{hub.next}</p><p class="note">Portál je nezávislý pilotný projekt. Ak ide o verejné dáta alebo ponuky, rozhodujú údaje ich pôvodného poskytovateľa.</p></section></main>
+<style>.hub{max-width:1050px}.hub .panel{padding:1.5rem;margin:1.5rem 0}.hub-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.hub-link{display:flex;flex-direction:column;gap:.7rem;border:1px solid #8290a5;border-radius:12px;padding:1.2rem;color:var(--ink);text-decoration:none}.hub-link span{color:#7a6af5}@media(max-width:650px){.hub-grid{grid-template-columns:1fr}}</style>
+</Base>
