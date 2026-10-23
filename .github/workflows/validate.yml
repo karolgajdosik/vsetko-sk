@@ -5,7 +5,7 @@ on:
     branches: [release/v1.0-platform]
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -14,3 +14,17 @@ jobs:
       - run: npm install --no-audit --no-fund
       - run: npm test
       - run: npm run build
+      - run: npm install --no-save playwright@1.56.1
+      - run: npx playwright install --with-deps chromium
+      - name: Browser layout audit
+        run: |
+          python3 -m http.server 4321 --bind 127.0.0.1 --directory dist > /tmp/vsetko-preview.log 2>&1 &
+          for i in $(seq 1 30); do if curl -fsS http://127.0.0.1:4321/ > /dev/null; then break; fi; sleep 1; done
+          curl -fsS http://127.0.0.1:4321/ >/dev/null || { cat /tmp/vsetko-preview.log; exit 1; }
+          node tests/browser-layout.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: responsive-layout-screenshots
+          path: layout-*.png
+          if-no-files-found: ignore
