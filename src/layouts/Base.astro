@@ -1,7 +1,7 @@
 ---
 const {title='VŠETKO24.sk',description='Praktické návody a kalkulačky pre Slovensko.',updated,sourceLinks=[]}=Astro.props;
 const path=Astro.url.pathname;
-const nav=[['/','Domov'],['/financie/','Financie'],['/auto/','Auto'],['/urady/','Úrady'],['/sprievodca/','Sprievodca'],['/data/','Dáta'],['/hladat/','Hľadať'],['/ai/','VŠETKO AI'],['/moje-centrum/','Moje centrum'],['/kalendar/','Kalendár'],['/dokumenty/','Dokumenty']];
+const nav=[['/','Domov'],['/sluzby/','Služby'],['/financie/','Financie'],['/auto/','Auto'],['/urady/','Úrady'],['/sprievodca/','Sprievodca'],['/data/','Dáta'],['/hladat/','Hľadať'],['/ai/','VŠETKO AI'],['/moje-centrum/','Moje centrum'],['/kalendar/','Kalendár'],['/dokumenty/','Dokumenty']];
 const canonical = new URL(path, Astro.site ?? 'https://vsetko24.sk').href;
 const analyticsToken = import.meta.env.PUBLIC_CF_ANALYTICS_TOKEN; // Leave unset when Pages injects Web Analytics automatically.
 const fullTitle = title === 'VŠETKO.sk' ? title : `${title} | VŠETKO24.sk`;
