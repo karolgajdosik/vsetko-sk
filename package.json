@@ -10,7 +10,7 @@
     "check:seo": "node scripts/check-seo.mjs",
     "test:calculators": "node --test tests/calculations.test.mjs",
     "test:content": "node scripts/check-content.mjs",
-    "test": "npm run test:calculators && npm run test:content && npm run check:seo && node --test tests/service-suite.test.mjs"
+    "test": "npm run test:calculators && npm run test:content && npm run check:seo && node --test tests/service-suite.test.mjs && node --test tests/audit-regression.test.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0"
