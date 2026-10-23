@@ -1,0 +1,37 @@
+[
+  {
+    "slug": "porovnavac",
+    "title": "Porovnávač nákladov",
+    "desc": "Porovnajte dva modelové varianty na základe vlastných čísel. Nejde o živé ceny dodávateľov."
+  },
+  {
+    "slug": "slovensko",
+    "title": "Slovensko – porovnanie regiónov",
+    "desc": "Praktický rozcestník krajov s odkazmi na oficiálne zdroje. Údaje nie sú automaticky načítavané."
+  },
+  {
+    "slug": "financie-pro",
+    "title": "Finančný plánovač",
+    "desc": "Spočítajte čas potrebný na dosiahnutie cieľa a sledujte ho iba vo svojom prehliadači."
+  },
+  {
+    "slug": "auto-ev",
+    "title": "Servisný denník auta",
+    "desc": "Zaznamenávajte servisné úkony a výdavky bez registrácie."
+  },
+  {
+    "slug": "obcan",
+    "title": "Môj úradný postup",
+    "desc": "Vytvorte si vlastný zoznam krokov a sledujte ich splnenie."
+  },
+  {
+    "slug": "firmy",
+    "title": "Overenie firmy vo verejných registroch",
+    "desc": "Vyhľadajte subjekt cez odkazy na oficiálne registre. Výsledky registrov neukladáme."
+  },
+  {
+    "slug": "dnes",
+    "title": "Môj denný prehľad",
+    "desc": "Vlastná štartovacia stránka s termínmi a rýchlymi odkazmi."
+  }
+]
