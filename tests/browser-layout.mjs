@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 const browser=await chromium.launch({headless:true});
 const base='http://127.0.0.1:4321';
 try {
- for(const width of [375,768,1024,1280,1920]){
+ for(const width of [320,375,430,768,1024,1280,1920]){
   const page=await browser.newPage({viewport:{width,height:900}});
   await page.goto(base+'/',{waitUntil:'networkidle'});
   await page.locator('.hero-art').evaluate(img=>img.decode());
@@ -20,7 +20,32 @@ try {
   if(width<=620)assert.equal(info.tilesColumns,1,`Homepage highlights should stack at ${width}px`);
   if(width>=1024)assert.equal(info.tilesColumns,2,`Homepage highlights should have two columns at ${width}px`);
   await page.screenshot({path:`layout-${width}.png`,fullPage:true});
+  if(width<=430){
+   const bottom=page.locator('.mobile-bottom-nav');
+   assert.equal(await bottom.locator('a').count(),5,'Mobile dock must have five links');
+   assert.ok(await bottom.isVisible(),'Mobile dock must be visible');
+   await page.locator('#mobile-theme-toggle').click();
+   assert.equal(await page.locator('html').getAttribute('data-theme'),'dark','Mobile theme switch must work');
+   await page.locator('#mobile-font-up').click();
+   const fontSize=await page.locator('html').evaluate(el=>parseInt(el.style.fontSize,10));
+   assert.ok(fontSize>=110,'Mobile font increase must work');
+   await page.locator('.mobile-menu-toggle').click();
+   assert.equal(await page.locator('.mobile-menu-toggle').getAttribute('aria-expanded'),'true','Mobile menu should open');
+   await page.locator('.mobile-menu-toggle').click();
+   await page.evaluate(()=>{localStorage.removeItem('v24-theme');localStorage.removeItem('v24-font')});
+  }
   await page.close();
  }
- console.log('Browser layout checks passed at 375, 768, 1024, 1280, 1920px');
+ for(const width of [320,375,430,768,1024]){
+  const page=await browser.newPage({viewport:{width,height:850}});
+  for(const route of ['/sluzby/','/kalkulacky/','/navody/','/sprievodca/','/moje-centrum/','/financie/','/auto/','/urady/','/ai/','/hladat/']){
+   const response=await page.goto(base+route,{waitUntil:'domcontentloaded'});
+   assert.equal(response.status(),200,`Broken page ${route}`);
+   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
+   assert.ok(overflow<=1,`Horizontal overflow at ${width}px on ${route}: ${overflow}px`);
+   if(width<=430)assert.ok(await page.locator('.mobile-bottom-nav').isVisible(),`Missing mobile dock on ${route}`);
+  }
+  await page.close();
+ }
+ console.log('Browser layout and mobile interaction checks passed across 7 widths and 10 sections');
 } finally {await browser.close()}
