@@ -153,3 +153,7 @@ html[data-theme=dark] .nav-more-links{background:#202a3b;border-color:#46546a}
 .section-photo-overlay{position:absolute;inset:0;z-index:1;display:flex;align-items:end;padding-bottom:24px;color:white;font-weight:750;font-size:clamp(18px,2.5vw,28px);letter-spacing:-.025em}
 .section-photo-overlay .wrap{width:100%;text-shadow:0 2px 12px #10203570}
 @media(max-width:620px){.section-photo{height:125px}.section-photo-overlay{padding-bottom:15px}.section-photo-overlay .wrap{font-size:18px}}
+
+/* Editorial image within individual guides, scenarios, calculators and services */
+.detail-photo{display:block;width:100%;height:clamp(165px,24vw,300px);object-fit:cover;object-position:center;border-radius:17px;margin:12px 0 26px;filter:saturate(.82) contrast(1.04);background:#dfe7ee;box-shadow:0 8px 28px #0c2c4517}
+@media(max-width:620px){.detail-photo{height:175px;border-radius:12px;margin:8px 0 20px}}
