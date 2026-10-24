@@ -45,3 +45,10 @@ test('mobile accessibility controls and guide index are functional',()=>{
  assert.match(source,/getElementById\('mobile-font-up'\)/);
  assert.match(read('src/pages/navody/index.astro'),/guides\.map/);
 });
+
+test('sitemap includes all main navigable section indexes and key comparison tools',()=>{
+ const sitemap=read('src/pages/sitemap.xml.ts');
+ for(const route of ['/navody/','/kalkulacky/','/financie/porovnanie-hypotek/','/auto/porovnanie-nakladov/','/pristupnost/']){
+  assert.ok(sitemap.includes("'"+route+"'"),'Sitemap missing '+route);
+ }
+});
