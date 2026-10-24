@@ -128,3 +128,12 @@ html[data-theme=dark] a:focus-visible,html[data-theme=dark] button:focus-visible
 }
 html[data-theme=dark] .nav-more summary{color:#d2d9ed}
 html[data-theme=dark] .nav-more-links{background:#202a3b;border-color:#46546a}
+
+/* V4.26: original self-hosted editorial illustrations */
+.hero-feature .hero-art{display:block;width:100%;height:auto;max-height:190px;object-fit:cover;object-position:center;border-radius:16px;margin-bottom:18px;box-shadow:0 10px 30px #001c3540}
+.home-highlights>.panel .highlight-art{display:block;width:calc(100% + 56px);max-width:none;height:185px;object-fit:cover;object-position:center;margin:-28px -28px 22px;border-radius:17px 17px 0 0}
+.home-highlights>.panel{overflow:hidden}
+.home-highlights>.panel:hover .highlight-art{filter:saturate(1.1)}
+@media(max-width:760px){.hero-feature .hero-art{max-height:170px}.home-highlights>.panel .highlight-art{width:calc(100% + 42px);height:170px;margin:-21px -21px 20px}}
+@media(max-width:620px){.home-highlights>.panel .highlight-art{width:calc(100% + 44px);height:190px;margin:-22px -22px 20px}}
+@media(prefers-reduced-motion:no-preference){.home-highlights>.panel .highlight-art{transition:filter .2s ease}}
