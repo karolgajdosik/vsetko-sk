@@ -1,0 +1,12 @@
+---
+import Base from '../../layouts/Base.astro';
+import guides from '../../data/guides.json';
+---
+<Base title="Praktické návody" description="Prehľad praktických návodov pre financie, auto a úrady.">
+<main class="wrap main" id="obsah">
+<p class="eyebrow">Jednoducho a krok za krokom</p>
+<h1>Praktické návody</h1>
+<p class="intro">Vyberte si tému a nájdite konkrétny postup, potrebné doklady aj odkazy na oficiálne zdroje.</p>
+<div class="grid">{guides.map(g=><a class="card" href={`/navody/${g.slug}/`}><span class="tag">{g.category}</span><h2>{g.title} →</h2><p>{g.description}</p></a>)}</div>
+</main>
+</Base>
