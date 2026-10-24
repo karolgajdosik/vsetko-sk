@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import {photoFor} from '../../lib/editorial-photos.mjs';
 import guides from '../../data/guides.json';
 export function getStaticPaths() {
  return guides.map(guide => ({params:{slug:guide.slug},props:{guide}}));
@@ -22,7 +23,8 @@ const jsonLd={
 <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 <main class="wrap main" id="obsah">
 <p class="eyebrow"><a href={`/${guide.category}/`}>{categoryLabel}</a> / Praktický návod</p>
-<h1>{guide.title}</h1><p class="intro">{guide.description}</p><nav class="panel" aria-label="Obsah návodu"><strong>V tomto návode</strong><ol><li><a href="#priprava">Čo si pripraviť</a></li><li><a href="#postup">Postup krok za krokom</a></li>{guide.detail && <li><a href="#podrobne">Podrobný postup</a></li>}{guide.detail?.screenGuide && <li><a href="#online">Navigácia na oficiálnom portáli</a></li>}{guide.detail && <li><a href="#pozor">Na čo si dať pozor</a></li>}<li><a href="#overenie">Overenie a oficiálny zdroj</a></li></ol></nav>
+<h1>{guide.title}</h1><p class="intro">{guide.description}</p>
+<img class="detail-photo" src={photoFor(guide)} alt="" width="1400" height="420" loading="lazy" decoding="async" /><nav class="panel" aria-label="Obsah návodu"><strong>V tomto návode</strong><ol><li><a href="#priprava">Čo si pripraviť</a></li><li><a href="#postup">Postup krok za krokom</a></li>{guide.detail && <li><a href="#podrobne">Podrobný postup</a></li>}{guide.detail?.screenGuide && <li><a href="#online">Navigácia na oficiálnom portáli</a></li>}{guide.detail && <li><a href="#pozor">Na čo si dať pozor</a></li>}<li><a href="#overenie">Overenie a oficiálny zdroj</a></li></ol></nav>
 <section class="panel" id="priprava"><h2>Pre koho je návod určený</h2><p>{guide.audience}</p><h2>Čo si pripraviť</h2><ul>{guide.preparation.map(item=><li>{item}</li>)}</ul></section>
 <section class="panel" id="postup"><h2>Postup krok za krokom</h2><p>Jednotlivé kroky si môžete odškrtávať. Pred odoslaním žiadosti si vždy skontrolujte aktuálne podmienky na oficiálnom portáli.</p><ol class="guide-steps">{guide.steps.map((step,i)=><li><label class="guide-step"><input type="checkbox" aria-label={'Dokončený krok '+(i+1)} /><span><strong>Krok {i+1}</strong><span>{step}</span></span></label></li>)}</ol><p id="guide-progress" aria-live="polite"></p></section>
 {guide.detail && <section class="panel" id="podrobne"><h2>Podrobný praktický postup</h2><p>{guide.detail.summary}</p><h3>Pred začiatkom</h3><ul>{guide.detail.before.map(x=><li>{x}</li>)}</ul><div class="guide-detail-steps">{guide.detail.detailed.map((item,i)=><article class="guide-detail-step"><span class="tag">Krok {i+1}</span><h3>{item.title}</h3><p>{item.body}</p><p class="muted"><strong>Kde:</strong> {item.where}</p>{item.tool && <p><a href={item.tool}>Otvoriť súvisiaci nástroj →</a></p>}</article>)}</div><h3>Čo má byť výsledkom</h3><p>{guide.detail.outcome}</p><h3>Oficiálne a súvisiace odkazy</h3><ul>{guide.detail.links.map(link=><li><a href={link.url} target="_blank" rel="noopener noreferrer">{link.label} ↗</a></li>)}</ul></section>}

@@ -16,5 +16,13 @@ test('suite uses local ISO dates instead of locale-specific date strings',()=>{
 test('header contains a more-menu and versioned CSS asset',()=>{
  const source=read('src/layouts/Base.astro');
  assert.match(source,/class="nav-more"/);
- assert.match(source,/site\.css\?v=4\.27\.0/);
+ assert.match(source,/site\.css\?v=4\.28\.0/);
+});
+
+test('all key portal sections use contextual photographic headers',()=>{
+ const source=read('src/layouts/Base.astro');
+ for(const section of ['financie','kalkulacky','auto','urady','navody','sprievodca','sluzby','nastroje','data','ai']){
+  assert.ok(source.includes(section+':['),section+' should have an image');
+ }
+ assert.match(source,/class="section-photo"/);
 });
