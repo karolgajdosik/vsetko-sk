@@ -52,3 +52,11 @@ test('sitemap includes all main navigable section indexes and key comparison too
   assert.ok(sitemap.includes("'"+route+"'"),'Sitemap missing '+route);
  }
 });
+
+test('page titles use current brand and theme toggle exposes accessible state',()=>{
+ const base=read('src/layouts/Base.astro');
+ assert.match(base,/title === 'VŠETKO24.sk'/);
+ assert.match(base,/id="mobile-theme-toggle" aria-pressed="false"/);
+ assert.match(base,/noindex,follow/);
+ assert.match(read('src/pages/404.astro'),/VŠETKO24.sk/);
+});
