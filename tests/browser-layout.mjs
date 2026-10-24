@@ -6,6 +6,7 @@ try {
  for(const width of [375,768,1024,1280,1920]){
   const page=await browser.newPage({viewport:{width,height:900}});
   await page.goto(base+'/',{waitUntil:'networkidle'});
+  await page.locator('.hero-art').evaluate(img=>img.decode());
   const info=await page.evaluate(()=>{
    const nav=document.querySelector('#site-nav'),header=document.querySelector('.top'),tiles=document.querySelector('.home-highlights');
    const links=[...nav.querySelectorAll(':scope > a')];
