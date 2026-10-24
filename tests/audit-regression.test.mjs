@@ -16,7 +16,7 @@ test('suite uses local ISO dates instead of locale-specific date strings',()=>{
 test('header contains a more-menu and versioned CSS asset',()=>{
  const source=read('src/layouts/Base.astro');
  assert.match(source,/class="nav-more"/);
- assert.match(source,/site\.css\?v=4\.28\.0/);
+ assert.match(source,/site\.css\?v=4\.29\.0/);
 });
 
 test('all key portal sections use contextual photographic headers',()=>{
@@ -25,4 +25,14 @@ test('all key portal sections use contextual photographic headers',()=>{
   assert.ok(source.includes(section+':['),section+' should have an image');
  }
  assert.match(source,/class="section-photo"/);
+});
+
+test('mobile navigation provides five direct functional section links',()=>{
+ const source=read('src/layouts/Base.astro');
+ assert.match(source,/class="mobile-bottom-nav"/);
+ assert.match(source,/class="mobile-quick-actions"/);
+ for(const href of ['/sluzby/','/ai/','/hladat/','/moje-centrum/'])assert.ok(source.includes('href="'+href+'"'));
+ const css=read('public/site.css');
+ assert.match(css,/safe-area-inset-bottom/);
+ assert.match(css,/\.mobile-bottom-nav/);
 });
