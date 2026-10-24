@@ -192,3 +192,20 @@ html[data-theme=dark] .nav-more-links{background:#202a3b;border-color:#46546a}
  .mobile-quick-actions a{width:35px}
  .topinner .mobile-menu-toggle{flex-basis:40px}
 }
+
+/* v4.30: theme and type controls remain reachable in compact mobile header */
+@media(max-width:760px){
+ .mobile-quick-actions button{appearance:none;border:0;background:transparent;color:var(--ink);width:35px;height:44px;display:grid;place-items:center;padding:0;cursor:pointer;border-radius:10px;font-weight:800;font-size:15px}
+ .mobile-quick-actions button:focus-visible,.mobile-quick-actions a:focus-visible,.mobile-bottom-nav a:focus-visible{outline:2px solid #1675ce;outline-offset:2px}
+ .mobile-quick-actions button svg{width:20px;height:20px}
+ .topinner .brand{font-size:clamp(15px,4vw,21px)}
+ .mobile-quick-actions a{width:35px}
+ .topinner .mobile-menu-toggle{flex-basis:40px}
+}
+@media(max-width:390px){
+ .topinner{gap:2px}
+ .topinner .brand{font-size:15px;letter-spacing:-.06em}
+ .mobile-quick-actions button,.mobile-quick-actions a{width:31px}
+ .topinner .mobile-menu-toggle{flex-basis:36px}
+}
+@media(max-width:340px){.mobile-quick-actions button,.mobile-quick-actions a{width:28px}.topinner .brand{font-size:14px}}
