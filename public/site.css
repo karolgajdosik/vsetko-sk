@@ -137,3 +137,11 @@ html[data-theme=dark] .nav-more-links{background:#202a3b;border-color:#46546a}
 @media(max-width:760px){.hero-feature .hero-art{max-height:170px}.home-highlights>.panel .highlight-art{width:calc(100% + 42px);height:170px;margin:-21px -21px 20px}}
 @media(max-width:620px){.home-highlights>.panel .highlight-art{width:calc(100% + 44px);height:190px;margin:-22px -22px 20px}}
 @media(prefers-reduced-motion:no-preference){.home-highlights>.panel .highlight-art{transition:filter .2s ease}}
+
+/* V4.27: premium editorial photography, restrained architectural style */
+.hero-feature .hero-art{max-height:230px;object-fit:cover;filter:saturate(.82) contrast(1.07);border-radius:13px}
+.home-highlights>.panel .highlight-art{height:215px;object-fit:cover;filter:saturate(.82) contrast(1.05);border-radius:17px 17px 0 0}
+.home-highlights>.panel{box-shadow:0 12px 32px #16345112;border-color:#dfe6ee}
+.home-highlights>.panel:hover .highlight-art{filter:saturate(.96) contrast(1.06)}
+@media(max-width:760px){.hero-feature .hero-art{max-height:185px}.home-highlights>.panel .highlight-art{height:180px}}
+@media(max-width:620px){.home-highlights>.panel .highlight-art{height:205px}}
