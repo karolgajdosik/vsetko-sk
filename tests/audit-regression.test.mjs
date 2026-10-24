@@ -16,7 +16,7 @@ test('suite uses local ISO dates instead of locale-specific date strings',()=>{
 test('header contains a more-menu and versioned CSS asset',()=>{
  const source=read('src/layouts/Base.astro');
  assert.match(source,/class="nav-more"/);
- assert.match(source,/site\.css\?v=4\.29\.0/);
+ assert.match(source,/site\.css\?v=4\.30\.0/);
 });
 
 test('all key portal sections use contextual photographic headers',()=>{
@@ -31,8 +31,17 @@ test('mobile navigation provides five direct functional section links',()=>{
  const source=read('src/layouts/Base.astro');
  assert.match(source,/class="mobile-bottom-nav"/);
  assert.match(source,/class="mobile-quick-actions"/);
- for(const href of ['/sluzby/','/ai/','/hladat/','/moje-centrum/'])assert.ok(source.includes('href="'+href+'"'));
+ for(const href of ['/sluzby/','/kalkulacky/','/ai/','/navody/','/moje-centrum/'])assert.ok(source.includes('href="'+href+'"'));
  const css=read('public/site.css');
  assert.match(css,/safe-area-inset-bottom/);
  assert.match(css,/\.mobile-bottom-nav/);
+});
+
+test('mobile accessibility controls and guide index are functional',()=>{
+ const source=read('src/layouts/Base.astro');
+ assert.match(source,/id="mobile-theme-toggle"/);
+ assert.match(source,/id="mobile-font-up"/);
+ assert.match(source,/getElementById\('mobile-theme-toggle'\)/);
+ assert.match(source,/getElementById\('mobile-font-up'\)/);
+ assert.match(read('src/pages/navody/index.astro'),/guides\.map/);
 });
