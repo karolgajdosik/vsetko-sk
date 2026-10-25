@@ -60,3 +60,10 @@ test('page titles use current brand and theme toggle exposes accessible state',(
  assert.match(base,/noindex,follow/);
  assert.match(read('src/pages/404.astro'),/VŠETKO24.sk/);
 });
+
+test('homepage and fulltext use the same ranked search module',()=>{
+ const home=read('src/pages/index.astro');
+ const fulltext=read('src/pages/hladat.astro');
+ assert.match(home,/import \{searchPortal\} from '\.\.\/lib\/search\.mjs'/);
+ assert.match(fulltext,/import \{searchPortal\} from '\.\.\/lib\/search\.mjs'/);
+});
