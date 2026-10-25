@@ -25,7 +25,10 @@ try {
    assert.equal(await bottom.locator('a').count(),5,'Mobile dock must have five links');
    assert.ok(await bottom.isVisible(),'Mobile dock must be visible');
    await page.locator('#mobile-theme-toggle').click();
+   assert.equal(await page.locator('#mobile-theme-toggle').getAttribute('aria-pressed'),'true','Mobile theme button state must be announced');
    assert.equal(await page.locator('html').getAttribute('data-theme'),'dark','Mobile theme switch must work');
+   await page.locator('#mobile-theme-toggle').click();
+   assert.equal(await page.locator('#mobile-theme-toggle').getAttribute('aria-pressed'),'false','Mobile theme button must reset');
    await page.locator('#mobile-font-up').click();
    const fontSize=await page.locator('html').evaluate(el=>parseInt(el.style.fontSize,10));
    assert.ok(fontSize>=110,'Mobile font increase must work');
