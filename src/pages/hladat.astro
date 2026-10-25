@@ -15,18 +15,16 @@ const unique=[...new Map(items.map(x=>[x.url,x])).values()];
 </main>
 <script id="search-catalog" type="application/json" set:html={JSON.stringify(unique).replace(/</g,'\\u003c')}></script>
 <script>
+import {searchPortal} from '../lib/search.mjs';
 type Entry={title:string;category:string;url:string;description:string;keywords?:string};
 const data=JSON.parse(document.querySelector('#search-catalog')!.textContent||'[]') as Entry[];
-const norm=(s:string)=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
-const synonyms:Record<string,string[]>={obciansky:['obcianka','doklad'],obcianka:['obciansky','doklad'],pas:['cestovny'],hypoteka:['uver','byvanie'],auto:['vozidlo'],vozidlo:['auto'],stk:['technicka'],nabijanie:['elektromobil'],dedicstvo:['notar'],umrtie:['pozostalost'],zivnost:['podnikanie']};
-const stop=new Set(['som','chcem','ako','mam','potrebujem','kde','mozem','sa','si','na','do','pre','pri','je','a','v','s','mi','to','ten','ta','co','ked']);
 const form=document.querySelector<HTMLFormElement>('#fulltext-form')!;
 const input=document.querySelector<HTMLInputElement>('#fulltext')!;
 const results=document.querySelector<HTMLElement>('#fulltext-results')!;
 const answer=document.querySelector<HTMLElement>('#assistant-answer')!;
 const count=document.querySelector<HTMLElement>('#result-count')!;
 const empty=document.querySelector<HTMLElement>('#no-match')!;
-function lookup(query:string){const words=norm(query).split(' ').filter(w=>w.length>1&&!stop.has(w));if(!words.length)return [];return data.map(item=>{const title=norm(item.title),desc=norm(item.description||''),keys=norm(item.keywords||''),text=title+' '+desc+' '+keys;let score=0;let found=0;for(const w of words){const variants=[w,...(synonyms[w]||[])];const hit=variants.some(v=>text.includes(v));if(hit){found++;score+=title.includes(w)?8:keys.includes(w)?4:2;}}return {item,score,found};}).filter(x=>x.found>0).sort((a,b)=>b.found-a.found||b.score-a.score||a.item.title.localeCompare(b.item.title,'sk')).slice(0,25);}
+function lookup(query:string){return searchPortal(data,query);}
 function run(q:string){const matches=lookup(q);results.replaceChildren();count.textContent='('+matches.length+')';empty.hidden=matches.length!==0;for(const {item} of matches){const a=document.createElement('a');a.href=item.url;a.className='finder-result';const category=document.createElement('span');category.className='tag';category.textContent=item.category;const title=document.createElement('strong');title.textContent=item.title+' →';const desc=document.createElement('span');desc.textContent=item.description;a.append(category,title,desc);results.append(a);}answer.replaceChildren();const p=document.createElement('p');p.textContent=matches.length?'K vašej otázke odporúčam začať týmto obsahom:':'K tejto otázke zatiaľ nemáme vhodný návod. Skúste konkrétnejší výraz.';answer.append(p);for(const {item} of matches.slice(0,3)){const link=document.createElement('a');link.href=item.url;link.textContent=item.title+' ↗';link.className='assistant-link';answer.append(link);}if(q)history.replaceState(null,'','?q='+encodeURIComponent(q));}
 form.addEventListener('submit',e=>{e.preventDefault();if(input.value.trim())run(input.value.trim());});
 const initial=new URLSearchParams(location.search).get('q');if(initial){input.value=initial;run(initial);}
