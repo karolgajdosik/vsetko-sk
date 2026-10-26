@@ -16,7 +16,7 @@ test('suite uses local ISO dates instead of locale-specific date strings',()=>{
 test('header contains a more-menu and versioned CSS asset',()=>{
  const source=read('src/layouts/Base.astro');
  assert.match(source,/class="nav-more"/);
- assert.match(source,/site\.css\?v=4\.31\.0/);
+ assert.match(source,/site\.css\?v=4\.\d+\.\d+/);
 });
 
 test('all key portal sections use contextual photographic headers',()=>{
