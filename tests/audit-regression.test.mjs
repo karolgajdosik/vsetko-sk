@@ -67,3 +67,12 @@ test('homepage and fulltext use the same ranked search module',()=>{
  assert.match(home,/import \{searchPortal\} from '\.\.\/lib\/search\.mjs'/);
  assert.match(fulltext,/import \{searchPortal\} from '\.\.\/lib\/search\.mjs'/);
 });
+
+test('obsolete mortgage calculator URL redirects to a published calculator',()=>{
+ const redirects=read('public/_redirects');
+ assert.match(redirects,/\/kalkulacky\/hypoteka\/\s+\/kalkulacky\/dostupnost-hypoteky\/\s+301/);
+ const home=read('src/pages/index.astro');
+ assert.doesNotMatch(home,/href="\/kalkulacky\/hypoteka\/"/);
+ const calculators=JSON.parse(read('src/data/calculators.json'));
+ assert.ok(calculators.some(x=>x.slug==='dostupnost-hypoteky'));
+});
