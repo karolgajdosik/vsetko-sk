@@ -237,3 +237,14 @@ html[data-theme=dark] .nav-more-links{background:#202a3b;border-color:#46546a}
  .mobile-bottom-nav a:active{background:#415b8c}
  .mobile-bottom-nav a[href="/ai/"] svg{color:#bca6ff}
 }
+
+/* v4.32: accessibility and responsive rendering safeguards */
+@media (prefers-reduced-motion: reduce) {
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+@media (max-width:760px) {
+ img,video,iframe,svg{max-width:100%}
+ img,video{height:auto}
+ .wrap{min-width:0}
+}
