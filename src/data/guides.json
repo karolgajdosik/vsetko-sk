@@ -3,7 +3,7 @@
     "slug": "porovnanie-hypotek",
     "category": "financie",
     "title": "Porovnanie hypoték",
-    "description": "Pred porovnaním ponúk si pripravte cenu nehnuteľnosti, vlastné zdroje a požadovanú splatnosť.",
+    "description": "Porovnajte hypotéky podľa RPMN, celkovej sumy na zaplatenie, fixácie, poplatkov a podmienok čerpania. Praktický kontrolný zoznam pred podpisom.",
     "steps": [
       "Porovnajte RPMN, nielen úrokovú sadzbu.",
       "Zistite podmienky fixácie a poplatky.",
@@ -21,13 +21,31 @@
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
     "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "practical": [
+      {
+        "title": "Porovnávajte rovnaký scenár",
+        "body": "Pri každej banke použite rovnakú výšku úveru, dobu splatnosti, typ fixácie a hodnotu nehnuteľnosti. Inak rozdiel v splátke nemusí odrážať výhodnejšiu ponuku."
+      },
+      {
+        "title": "Sledujte aj podmienky zľavy",
+        "body": "Zistite, či úrok závisí od účtu, poistenia alebo ďalšieho produktu. Do nákladov započítajte aj ich pravidelné poplatky."
+      },
+      {
+        "title": "Pýtajte sa na čerpanie a predčasné splatenie",
+        "body": "Overte lehotu na čerpanie, podmienky ocenenia nehnuteľnosti a postup pri mimoriadnej splátke. Pravidlá a možné náklady si nechajte potvrdiť písomne."
+      },
+      {
+        "title": "Urobte si vlastný prehľad",
+        "body": "Do jednej tabuľky si zapíšte úrok, RPMN, mesačnú splátku, celkové náklady, poplatky a podmienky zmeny sadzby po fixácii."
+      }
+    ]
   },
   {
     "slug": "refinancovanie-uveru",
     "category": "financie",
     "title": "Refinancovanie úveru",
-    "description": "Pri zmene banky sledujte celkové náklady a podmienky predčasného splatenia.",
+    "description": "Kedy sa oplatí refinancovať úver? Porovnajte úsporu na splátke s poplatkami, novou splatnosťou a celkovými nákladmi.",
     "steps": [
       "Získajte aktuálny zostatok úveru.",
       "Porovnajte novú ponuku s pôvodnou.",
@@ -45,7 +63,25 @@
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
     "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "practical": [
+      {
+        "title": "Zistite skutočný zostatok",
+        "body": "Vyžiadajte si aktuálne vyčíslenie dlhu a informáciu o podmienkach predčasného splatenia k zamýšľanému dátumu."
+      },
+      {
+        "title": "Nepozerajte iba na mesačnú splátku",
+        "body": "Nižšia splátka môže byť výsledkom predĺženia splatnosti. Porovnajte aj celkovú sumu, ktorú ešte zaplatíte pri starej a novej zmluve."
+      },
+      {
+        "title": "Spočítajte jednorazové náklady",
+        "body": "Zohľadnite prípadné náklady na znalecký posudok, kataster, účet, poistenie a ďalšie služby. Výšku a použiteľnosť poplatkov si overte podľa konkrétnej zmluvy."
+      },
+      {
+        "title": "Pripravte si termíny",
+        "body": "Zistite, dokedy platí ponuka novej banky, kedy končí fixácia a aké dokumenty sú potrebné na splatenie pôvodného úveru."
+      }
+    ]
   },
   {
     "slug": "spotrebny-uver",
@@ -1461,7 +1497,7 @@
     "slug": "domace-nabijanie",
     "title": "Domáce nabíjanie elektromobilu",
     "category": "auto",
-    "description": "Príprava bezpečného nabíjania doma",
+    "description": "Domáce nabíjanie elektromobilu: ako preveriť elektroinštaláciu, vhodný wallbox, výkon, bezpečnosť a cenu nabíjania.",
     "steps": [
       "Overte kapacitu elektroinštalácie, istenie a možnosti parkovacieho miesta.",
       "Výber wallboxu a montáž zverte kvalifikovanému odborníkovi.",
@@ -1480,7 +1516,25 @@
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
     "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "practical": [
+      {
+        "title": "Overte elektrický prívod",
+        "body": "Pred výberom wallboxu požiadajte kvalifikovaného elektrikára o posúdenie rozvádzača, istenia, dostupného príkonu a možností vedenia k parkovaciemu miestu."
+      },
+      {
+        "title": "Výkon prispôsobte autu aj domu",
+        "body": "Maximálny výkon nabíjania závisí od palubnej nabíjačky vozidla, dostupného prívodu a ďalšej spotreby v domácnosti. Vyšší nominálny výkon wallboxu nemusí znamenať rýchlejšie nabíjanie."
+      },
+      {
+        "title": "Myslite na bezpečnosť",
+        "body": "Riešte odbornú montáž, vhodné ochranné prvky a požadovanú kontrolu či revíziu podľa konkrétnej inštalácie. Nepoužívajte neoverené predlžovacie káble ako trvalé riešenie."
+      },
+      {
+        "title": "Porovnajte prevádzkové náklady",
+        "body": "Pri odhade ceny používajte skutočnú cenu elektriny za kWh vrátane relevantných poplatkov a počítajte aj so stratami pri nabíjaní."
+      }
+    ]
   },
   {
     "slug": "cesta-elektromobilom",
@@ -1603,7 +1657,7 @@
     "slug": "stk-priprava",
     "title": "Príprava na STK",
     "category": "auto",
-    "description": "Kontrola auta pred technickou kontrolou",
+    "description": "Kontrolný zoznam pred STK: svetlá, pneumatiky, brzdy, povinná výbava, doklady a najčastejšie nedostatky.",
     "steps": [
       "Zistite, či sa téma „príprava na stk“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
       "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
@@ -1622,7 +1676,25 @@
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
     "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "practical": [
+      {
+        "title": "Skontrolujte svetlá a signalizáciu",
+        "body": "Vyskúšajte stretávacie, diaľkové, smerové, brzdové a ďalšie predpísané svetlá. Pozrite aj stav skiel svetlometov a čitateľnosť evidenčného čísla."
+      },
+      {
+        "title": "Prezrite pneumatiky a sklá",
+        "body": "Skontrolujte viditeľné poškodenia pneumatík, ich rozmery podľa vozidla a stav čelného skla v zornom poli vodiča. Konkrétne zákonné limity overte podľa typu vozidla."
+      },
+      {
+        "title": "Venujte pozornosť brzdám a podvozku",
+        "body": "Ak vozidlo pri brzdení ťahá do strany, má nezvyčajné zvuky alebo únik kvapalín, objednajte servisnú kontrolu ešte pred STK."
+      },
+      {
+        "title": "Pripravte doklady",
+        "body": "Pred návštevou pracoviska si overte jeho aktuálne požiadavky na doklady, rezerváciu a rozsah kontroly vrátane prípadnej emisnej kontroly."
+      }
+    ]
   },
   {
     "slug": "nehoda-na-ceste",
