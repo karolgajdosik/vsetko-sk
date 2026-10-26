@@ -56,7 +56,7 @@ try {
   await page.goto(base+'/',{waitUntil:'domcontentloaded'});
   await page.locator('#search').fill('hypotéka');
   await page.locator('#search-form button[type="submit"]').click();
-  await page.waitForURL(/\\/hladat\\/\\?q=/);
+  await page.waitForURL(url=>url.pathname==='/hladat/' && url.searchParams.has('q'));
   assert.equal(await page.locator('#fulltext').inputValue(),'hypotéka','Search term must survive navigation');
   assert.ok(await page.locator('.finder-result').count()>0,'Known topic must return results');
   await page.locator('#fulltext').fill('zzzxqv-no-match-2026');
