@@ -76,3 +76,19 @@ test('obsolete mortgage calculator URL redirects to a published calculator',()=>
  const calculators=JSON.parse(read('src/data/calculators.json'));
  assert.ok(calculators.some(x=>x.slug==='dostupnost-hypoteky'));
 });
+
+test('priority guides provide specific practical content',()=>{
+ const guides=JSON.parse(read('src/data/guides.json'));
+ for(const slug of ['porovnanie-hypotek','refinancovanie-uveru','domace-nabijanie','stk-priprava']){
+  const guide=guides.find(x=>x.slug===slug);
+  assert.ok(guide,slug);
+  assert.ok(guide.practical.length>=4,slug);
+  assert.ok(guide.practical.every(x=>x.title&&x.body.length>80),slug);
+ }
+ const template=read('src/pages/navody/[slug].astro');
+ assert.match(template,/guide\.practical\.map/);
+});
+test('homepage SEO description uses current brand',()=>{
+ const homepage=read('src/pages/index.astro');
+ assert.match(homepage,/description="VŠETKO24\.sk/);
+});
