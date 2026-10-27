@@ -88,3 +88,14 @@ test('World Bank: upstream error returns 503',async()=>{
     assert.equal((await indicators()).status,503);
   });
 });
+
+test('RPO: slow but successful upstream response is accepted',async()=>{
+  await withFetch(async(_url,options)=>{
+    assert.equal(options.signal.aborted,false);
+    return Response.json({results:[{identifier:'31333532',name:'Test company'}]});
+  },async()=>{
+    const res=await rpo({request:request('/api/rpo?ico=31333532')});
+    assert.equal(res.status,200);
+    assert.equal((await res.json()).count,1);
+  });
+});
