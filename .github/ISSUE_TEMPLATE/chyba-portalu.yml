@@ -1,0 +1,34 @@
+name: Nahlásiť chybu portálu
+description: Nefunkčný odkaz, nesprávny výpočet alebo neaktuálna informácia
+title: '[Chyba] '
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: 'Hlásenie je verejné. Neuvádzajte osobné ani citlivé údaje.'
+  - type: input
+    id: page
+    attributes:
+      label: Adresa stránky
+      placeholder: https://vsetko24.sk/...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Čo ste očakávali?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Čo sa stalo?
+    validations:
+      required: true
+  - type: dropdown
+    id: device
+    attributes:
+      label: Zariadenie
+      options: ['Mobil', 'Počítač', 'Tablet', 'Iné']
+    validations:
+      required: true
