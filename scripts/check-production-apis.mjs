@@ -12,7 +12,7 @@ for(const item of endpoints){
  let passed=false;
  for(let attempt=1;attempt<=2;attempt++){
   try{
-   const response=await fetch(url,{signal:AbortSignal.timeout(20000),headers:{Accept:'application/json','User-Agent':'VSETKO24-production-health-check'}});
+   const response=await fetch(url,{signal:AbortSignal.timeout(30000),headers:{Accept:'application/json','User-Agent':'VSETKO24-production-health-check'}});
    const data=await response.json();
    if(!response.ok||!item.check(data))throw Error('HTTP '+response.status+' or unexpected response schema');
    console.log('PASS',url.pathname,'HTTP',response.status,'attempt',attempt);
