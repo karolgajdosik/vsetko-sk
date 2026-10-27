@@ -1,0 +1,38 @@
+name: Auto-merge validated pull requests
+on:
+  workflow_run:
+    workflows: ["Validate VSETKO24"]
+    types: [completed]
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  merge:
+    if: ${{ github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Squash merge validated internal pull requests
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const run = context.payload.workflow_run;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const prs = run.pull_requests || [];
+            for (const item of prs) {
+              const {data: pr} = await github.rest.pulls.get({owner,repo,pull_number:item.number});
+              if (pr.state !== 'open' || pr.draft || pr.base.ref !== 'main') continue;
+              if (pr.head.repo.full_name !== `${owner}/${repo}`) continue;
+              if (pr.head.sha !== run.head_sha) continue;
+              const {data: checks} = await github.rest.checks.listForRef({owner,repo,ref:pr.head.sha,per_page:100});
+              const validation = checks.check_runs.filter(c => c.name === 'verify' && c.app?.slug === 'github-actions');
+              if (!validation.some(c => c.conclusion === 'success')) continue;
+              try {
+                const merged = await github.rest.pulls.merge({
+                  owner,repo,pull_number:pr.number,merge_method:'squash',sha:pr.head.sha
+                });
+                core.info(`Merged PR #${pr.number}: ${merged.data.sha}`);
+              } catch (error) {
+                core.warning(`PR #${pr.number} was not merged: ${error.message}`);
+                throw error;
+              }
