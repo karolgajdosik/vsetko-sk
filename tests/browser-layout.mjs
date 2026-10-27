@@ -59,9 +59,9 @@ try {
   await page.waitForURL(url=>url.pathname==='/hladat/' && url.searchParams.has('q'));
   assert.equal(await page.locator('#fulltext').inputValue(),'hypotéka','Search term must survive navigation');
   assert.ok(await page.locator('.finder-result').count()>0,'Known topic must return results');
-  await page.locator('#fulltext').fill('zzzxqv-no-match-2026');
+  await page.locator('#fulltext').fill('zzzxqvnomatchunique');
   await page.locator('#fulltext-form button[type="submit"]').click();
-  await page.waitForFunction(()=>document.querySelector('#no-match')?.hidden===false && document.querySelectorAll('.finder-result').length===0,{timeout:5000});
+  await page.waitForFunction(()=>document.querySelector('#no-match')?.hidden===false && document.querySelectorAll('.finder-result').length===0,null,{timeout:5000});
   assert.ok(await page.locator('#no-match').isVisible(),'No-match feedback must be visible');
   await page.close();
  }
