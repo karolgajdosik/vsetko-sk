@@ -50,5 +50,20 @@ try {
   }
   await page.close();
  }
+ // End-to-end visitor journeys: homepage search, results and unknown query.
+ {
+  const page=await browser.newPage({viewport:{width:390,height:844}});
+  await page.goto(base+'/',{waitUntil:'domcontentloaded'});
+  await page.locator('#search').fill('hypotéka');
+  await page.locator('#search-form button[type="submit"]').click();
+  await page.waitForURL(url=>url.pathname==='/hladat/' && url.searchParams.has('q'));
+  assert.equal(await page.locator('#fulltext').inputValue(),'hypotéka','Search term must survive navigation');
+  assert.ok(await page.locator('.finder-result').count()>0,'Known topic must return results');
+  await page.locator('#fulltext').fill('zzzxqvnomatchunique');
+  await page.locator('#fulltext-form button[type="submit"]').click();
+  await page.waitForFunction(()=>document.querySelector('#no-match')?.hidden===false && document.querySelectorAll('.finder-result').length===0,null,{timeout:5000});
+  assert.ok(await page.locator('#no-match').isVisible(),'No-match feedback must be visible');
+  await page.close();
+ }
  console.log('Browser layout and mobile interaction checks passed across 7 widths and 10 sections');
 } finally {await browser.close()}
