@@ -4,7 +4,7 @@ export async function onRequestGet({request}){
  const ico=new URL(request.url).searchParams.get('ico')?.trim()||'';
  if(!/^\d{8}$/.test(ico))return json({error:'Zadajte platné osemmiestne IČO.'},400);
  try{
-  const upstream=await fetch('https://api.statistics.sk/rpo/v1/search?identifier='+ico,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(8000)});
+  const upstream=await fetch('https://api.statistics.sk/rpo/v1/search?identifier='+ico,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(18000)});
   if(!upstream.ok)throw Error('RPO unavailable');
   const raw=await upstream.json();
   const items=Array.isArray(raw)?raw:Array.isArray(raw.results)?raw.results:Array.isArray(raw.items)?raw.items:[];
