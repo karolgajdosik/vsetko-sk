@@ -103,6 +103,12 @@ try {
   assert.notEqual(await annual.textContent(),initial,'Car costs do not update on drivetrain change');
   await page.locator('#km').fill('20000');
   assert.ok((await annual.textContent())!=='—','Car costs result missing after input');
+  await page.locator('#km').fill('-10');
+  assert.ok(await page.locator('#car-validation').isVisible(),'Invalid car mileage must show a warning');
+  assert.equal(await annual.textContent(),'—','Invalid mileage must not produce a plausible result');
+  await page.locator('#km').fill('20000');
+  assert.ok(await page.locator('#car-validation').isHidden(),'Corrected mileage must clear the warning');
+  assert.notEqual(await annual.textContent(),'—','Corrected mileage must recalculate');
   await page.close();
  }
  // Phase 3: essential user journeys in the three primary hubs.
