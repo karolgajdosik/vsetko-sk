@@ -6,7 +6,7 @@ function htmlFiles(dir){return readdirSync(dir,{withFileTypes:true}).flatMap(ent
 const files=htmlFiles(root),broken=[];let checked=0;
 for(const file of files){
  const html=readFileSync(file,'utf8');
- for(const match of html.matchAll(/\\bhref\\s*=\\s*[\"']([^\"']+)[\"']/gi)){
+ for(const match of html.matchAll(/\bhref\s*=\s*[\"']([^\"']+)[\"']/gi)){
   const href=match[1];if(!href.startsWith('/')||href.startsWith('//')||href.startsWith('/api/'))continue;
   const path=decodeURIComponent(href.split(/[?#]/,1)[0]);if(!path)continue;
   const target=resolve(root,'.'+path);
