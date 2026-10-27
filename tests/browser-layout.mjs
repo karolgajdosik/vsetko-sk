@@ -95,6 +95,12 @@ try {
   assert.equal(await calcInputs.first().getAttribute('aria-invalid'),'true','Invalid field must be announced');
   await calcInputs.first().fill('100000');
   assert.ok(await page.locator('#validation-message').isHidden(),'Corrected calculator input clears guidance');
+  const yearsField=page.locator('#calculator input[name="years"]');
+  await yearsField.fill('0');
+  assert.ok(await page.locator('#validation-message').isVisible(),'Zero-year loan must be invalid');
+  assert.equal(await yearsField.getAttribute('aria-invalid'),'true','Zero-year field must be announced as invalid');
+  await yearsField.fill('5');
+  assert.ok(await page.locator('#validation-message').isHidden(),'Valid loan duration must clear warning');
   await page.goto(base+'/kalkulacky/naklady-na-auto/',{waitUntil:'load'});
   const annual=page.locator('#annual');
   const initial=await annual.textContent();
