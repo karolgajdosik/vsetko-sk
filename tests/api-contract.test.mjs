@@ -16,7 +16,7 @@ test('ECB: four supported currencies, parsed rates and latest date',async()=>{
   const seen=[];
   await withFetch(async url=>{
     seen.push(String(url));
-    return new Response('TIME_PERIOD,OBS_VALUE\\n2026-10-23,1.1\\n2026-10-26,1.2\\n',{status:200});
+    return new Response('TIME_PERIOD,OBS_VALUE\n2026-10-23,1.1\n2026-10-26,1.2\n',{status:200});
   },async()=>{
     const res=await ecb({request:request('/api/ecb-rates'),env:{}});
     assert.equal(res.status,200);
