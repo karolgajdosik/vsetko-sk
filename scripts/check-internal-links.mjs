@@ -18,5 +18,5 @@ for(const file of files){
 }
 assert.ok(files.length>15,'Expected complete generated site');
 assert.ok(checked>50,'Expected substantial internal link coverage');
-assert.deepEqual(broken,[],`Broken internal links (\\${broken.length}):\\n${broken.join('\\n')}`);
+assert.deepEqual(broken,[],'Broken internal links ('+broken.length+'):\n'+broken.join('\n'));
 console.log('Internal link integrity passed:',checked,'links across',files.length,'HTML pages');
