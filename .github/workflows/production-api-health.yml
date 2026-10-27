@@ -5,6 +5,7 @@ on:
     - cron: '20 6 * * *'
 permissions:
   contents: read
+  issues: write
 jobs:
   check:
     runs-on: ubuntu-24.04
@@ -14,4 +15,32 @@ jobs:
         with:
           node-version: '22'
       - name: Check four live production APIs
+        id: health
+        continue-on-error: true
         run: node scripts/check-production-apis.mjs
+      - name: Create or resolve API outage issue
+        uses: actions/github-script@v7
+        env:
+          HEALTH_OUTCOME: ${{ steps.health.outcome }}
+        with:
+          script: |
+            const owner=context.repo.owner,repo=context.repo.repo;
+            const title='Production API health check failing';
+            const {data:issues}=await github.rest.issues.listForRepo({owner,repo,state:'open',per_page:100});
+            const existing=issues.find(issue=>!issue.pull_request&&issue.title===title);
+            if(process.env.HEALTH_OUTCOME==='failure'){
+              if(!existing){
+                await github.rest.issues.create({
+                  owner,repo,title,
+                  body:'Automatická kontrola produkčných API zlyhala. Pozrite logy workflow: '+context.serverUrl+'/'+owner+'/'+repo+'/actions/runs/'+context.runId+'\n\nKontrolované: ECB, World Bank, RPO a Open Charge Map. Pri krátkodobom výpadku externého poskytovateľa môže ísť o prechodný problém.'
+                });
+              }else{
+                core.info('Existing open outage issue #'+existing.number);
+              }
+            }else if(existing){
+              await github.rest.issues.createComment({owner,repo,issue_number:existing.number,body:'Produkčná API kontrola opäť prešla: '+context.serverUrl+'/'+owner+'/'+repo+'/actions/runs/'+context.runId});
+              await github.rest.issues.update({owner,repo,issue_number:existing.number,state:'closed'});
+            }
+      - name: Mark workflow failed when API check fails
+        if: ${{ steps.health.outcome == 'failure' }}
+        run: exit 1
