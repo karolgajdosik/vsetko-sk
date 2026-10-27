@@ -36,3 +36,4 @@ jobs:
                 core.warning(`PR #${pr.number} was not merged: ${error.message}`);
                 throw error;
               }
+            }
