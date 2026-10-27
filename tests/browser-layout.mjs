@@ -93,5 +93,33 @@ try {
   assert.ok((await annual.textContent())!=='—','Car costs result missing after input');
   await page.close();
  }
+ // Phase 3: essential user journeys in the three primary hubs.
+ for(const width of [390,1280]){
+  const page=await browser.newPage({viewport:{width,height:850}});
+  await page.goto(base+'/financie/',{waitUntil:'load'});
+  const originalPayment=await page.locator('#payment').textContent();
+  assert.ok(originalPayment&&!originalPayment.includes('—'),'Mortgage result must be calculated');
+  await page.locator('#amount').fill('250000');
+  assert.notEqual(await page.locator('#payment').textContent(),originalPayment,'Mortgage slider must recalculate');
+  await page.locator('#income').fill('3000');
+  await page.locator('#expenses').fill('2000');
+  assert.ok((await page.locator('#balance').textContent()).includes('1 000')||(await page.locator('#balance').textContent()).replace(/\\s/g,'').includes('1000'),'Budget must show EUR 1000 balance');
+  await page.goto(base+'/data/hypoteky-nbs/',{waitUntil:'load'});
+  const mortgageLink=page.getByRole('link',{name:'Otvoriť kalkulačku'});
+  await mortgageLink.click();
+  await page.waitForURL(url=>url.pathname==='/financie/'&&url.hash==='#hypoteka');
+  await page.goto(base+'/auto/',{waitUntil:'load'});
+  assert.ok(await page.locator('a[href="/kalkulacky/naklady-na-auto/"]').count()>0,'Car costs tool must be discoverable');
+  await page.locator('a[href="/kalkulacky/naklady-na-auto/"]').first().click();
+  await page.waitForURL(url=>url.pathname==='/kalkulacky/naklady-na-auto/');
+  assert.ok(await page.locator('#annual').isVisible(),'Car costs result must be visible');
+  await page.goto(base+'/urady/',{waitUntil:'load'});
+  const guide=page.locator('a[href="/navody/vybavenie-po-umrti/"]').first();
+  assert.ok(await guide.isVisible(),'Office guide must be discoverable');
+  await guide.click();
+  await page.waitForURL(url=>url.pathname==='/navody/vybavenie-po-umrti/');
+  assert.ok(await page.locator('h1').isVisible(),'Office guide heading must be visible');
+  await page.close();
+ }
  console.log('Browser layout and mobile interaction checks passed across 7 widths and 10 sections');
 } finally {await browser.close()}
