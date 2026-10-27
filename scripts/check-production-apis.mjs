@@ -9,12 +9,21 @@ const endpoints=[
 let failures=0;
 for(const item of endpoints){
  const url=new URL(item.path,base);
- try{
-  const response=await fetch(url,{signal:AbortSignal.timeout(20000),headers:{Accept:'application/json','User-Agent':'VSETKO24-production-health-check'}});
-  const data=await response.json();
-  if(!response.ok||!item.check(data))throw Error('HTTP '+response.status+' or unexpected response schema');
-  console.log('PASS',url.pathname,'HTTP',response.status);
- }catch(error){failures++;console.error('FAIL',url.pathname,error.message);}
+ let passed=false;
+ for(let attempt=1;attempt<=2;attempt++){
+  try{
+   const response=await fetch(url,{signal:AbortSignal.timeout(20000),headers:{Accept:'application/json','User-Agent':'VSETKO24-production-health-check'}});
+   const data=await response.json();
+   if(!response.ok||!item.check(data))throw Error('HTTP '+response.status+' or unexpected response schema');
+   console.log('PASS',url.pathname,'HTTP',response.status,'attempt',attempt);
+   passed=true;
+   break;
+  }catch(error){
+   console.error('Attempt',attempt,'failed for',url.pathname,error.message);
+   if(attempt<2)await new Promise(resolve=>setTimeout(resolve,2000));
+  }
+ }
+ if(!passed){failures++;console.error('FAIL',url.pathname,'after two attempts');}
 }
 if(failures){console.error(failures+' production API checks failed');process.exitCode=1;}
 else console.log('All production API smoke checks passed');
