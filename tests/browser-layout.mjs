@@ -34,7 +34,12 @@ try {
    assert.ok(fontSize>=110,'Mobile font increase must work');
    await page.locator('.mobile-menu-toggle').click();
    assert.equal(await page.locator('.mobile-menu-toggle').getAttribute('aria-expanded'),'true','Mobile menu should open');
+   await page.keyboard.press('Escape');
+   assert.equal(await page.locator('.mobile-menu-toggle').getAttribute('aria-expanded'),'false','Escape closes mobile menu');
+   assert.equal(await page.locator('.mobile-menu-toggle').getAttribute('aria-label'),'Otvoriť navigáciu','Closed menu must have accurate accessible label');
    await page.locator('.mobile-menu-toggle').click();
+   await page.locator('main').click({position:{x:10,y:10}});
+   assert.equal(await page.locator('.mobile-menu-toggle').getAttribute('aria-expanded'),'false','Outside click closes mobile menu');
    await page.evaluate(()=>{localStorage.removeItem('v24-theme');localStorage.removeItem('v24-font')});
   }
   await page.close();
