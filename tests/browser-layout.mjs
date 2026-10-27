@@ -121,5 +121,28 @@ try {
   assert.ok(await page.locator('h1').isVisible(),'Office guide heading must be visible');
   await page.close();
  }
+ // Phase 4: real visitor flows, including zero-interest mortgage and negative budget.
+ for(const width of [390,1280]){
+  const page=await browser.newPage({viewport:{width,height:850}});
+  await page.goto(base+'/financie/',{waitUntil:'load'});
+  await page.locator('#amount').fill('120000');
+  await page.locator('#rate').fill('0');
+  await page.locator('#years').fill('10');
+  const payment=(await page.locator('#payment').textContent()).replace(/[^0-9,]/g,'');
+  assert.ok(payment.startsWith('1000'),'Zero-interest mortgage must cost 1000 EUR monthly: '+payment);
+  await page.locator('#income').fill('1000');
+  await page.locator('#expenses').fill('1500');
+  assert.ok((await page.locator('#balance').textContent()).includes('-500'),'Negative monthly budget must remain visible');
+  await page.goto(base+'/hladat/?q='+encodeURIComponent('občiansky preukaz'),{waitUntil:'load'});
+  assert.equal(await page.locator('#fulltext').inputValue(),'občiansky preukaz');
+  assert.ok(await page.locator('.finder-result').count()>0,'Official-document query must return results');
+  await page.locator('#fulltext').fill('neexistujucetema987654321');
+  await page.locator('#fulltext-form button').click();
+  assert.ok(await page.locator('#no-match').isVisible(),'Unknown search must show no-results message');
+  await page.goto(base+'/kontakt/',{waitUntil:'load'});
+  assert.ok(await page.getByRole('heading',{name:'Kontakt a spätná väzba'}).isVisible());
+  assert.ok(await page.getByText('nemáme zverejnený kontaktný e-mail ani kontaktný formulár',{exact:false}).isVisible(),'Contact page must disclose missing contact channel');
+  await page.close();
+ }
  console.log('Browser layout and mobile interaction checks passed across 7 widths and 10 sections');
 } finally {await browser.close()}
