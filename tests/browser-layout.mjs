@@ -61,7 +61,7 @@ try {
   assert.ok(await page.locator('.finder-result').count()>0,'Known topic must return results');
   await page.locator('#fulltext').fill('zzzxqv-no-match-2026');
   await page.locator('#fulltext-form button[type="submit"]').click();
-  assert.equal(await page.locator('.finder-result').count(),0,'Unknown topic must not invent results');
+  await page.waitForFunction(()=>document.querySelector('#no-match')?.hidden===false && document.querySelectorAll('.finder-result').length===0,{timeout:5000});
   assert.ok(await page.locator('#no-match').isVisible(),'No-match feedback must be visible');
   await page.close();
  }
