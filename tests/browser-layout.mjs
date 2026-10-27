@@ -65,5 +65,33 @@ try {
   assert.ok(await page.locator('#no-match').isVisible(),'No-match feedback must be visible');
   await page.close();
  }
+ // Audit all calculator pages using real browser input events on mobile and desktop.
+ for(const width of [390,1280]){
+  const page=await browser.newPage({viewport:{width,height:850}});
+  for(const slug of ['splatka-uveru','refinancovanie','sporenie','zlozene-urocenie','inflacia','financna-rezerva','dostupnost-hypoteky','rozpocet-na-dovolenku','cena-cesty','cena-nabijania','ev-vs-benzin','leasing','odpis-hodnoty-auta','servisny-rozpocet','rocny-najazd']){
+   const response=await page.goto(base+'/kalkulacky/'+slug+'/',{waitUntil:'load'});
+   assert.equal(response.status(),200,'Calculator page missing: '+slug);
+   const primary=page.locator('#primary-result');
+   await assert.doesNotReject(()=>primary.waitFor({state:'visible'}));
+   const before=await primary.textContent();
+   assert.ok(before&&!before.endsWith('—'),'Calculator has no initial result: '+slug);
+   const first=page.locator('#calculator input').first();
+   const value=Number(await first.inputValue());
+   await first.fill(String(value+100));
+   const after=await primary.textContent();
+   assert.notEqual(after,before,'Calculator does not update after input: '+slug);
+   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
+   assert.ok(overflow<=1,'Calculator horizontal overflow: '+slug+' at '+width+'px');
+  }
+  await page.goto(base+'/kalkulacky/naklady-na-auto/',{waitUntil:'load'});
+  const annual=page.locator('#annual');
+  const initial=await annual.textContent();
+  await page.locator('#type').selectOption('ev');
+  assert.ok((await page.locator('label[for="consumption"]').textContent()).includes('kWh'),'EV consumption unit not updated');
+  assert.notEqual(await annual.textContent(),initial,'Car costs do not update on drivetrain change');
+  await page.locator('#km').fill('20000');
+  assert.ok((await annual.textContent())!=='—','Car costs result missing after input');
+  await page.close();
+ }
  console.log('Browser layout and mobile interaction checks passed across 7 widths and 10 sections');
 } finally {await browser.close()}
