@@ -88,6 +88,13 @@ try {
    const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
    assert.ok(overflow<=1,'Calculator horizontal overflow: '+slug+' at '+width+'px');
   }
+  await page.goto(base+'/kalkulacky/splatka-uveru/',{waitUntil:'load'});
+  const calcInputs=page.locator('#calculator input');
+  await calcInputs.first().fill('-100');
+  assert.ok(await page.locator('#validation-message').isVisible(),'Invalid calculator input must show guidance');
+  assert.equal(await calcInputs.first().getAttribute('aria-invalid'),'true','Invalid field must be announced');
+  await calcInputs.first().fill('100000');
+  assert.ok(await page.locator('#validation-message').isHidden(),'Corrected calculator input clears guidance');
   await page.goto(base+'/kalkulacky/naklady-na-auto/',{waitUntil:'load'});
   const annual=page.locator('#annual');
   const initial=await annual.textContent();
