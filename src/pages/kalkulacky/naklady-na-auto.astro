@@ -16,6 +16,7 @@ import Base from '../../layouts/Base.astro';
 <label for="service">Servis a pneumatiky ročne (€)<input id="service" type="number" min="0" max="100000" value="600"/></label>
 <label for="other">Ostatné ročné náklady (€)<input id="other" type="number" min="0" max="100000" value="150"/></label>
 </div>
+<p id="car-validation" class="note" role="status" aria-live="polite" hidden>Skontrolujte hodnoty. Polia musia obsahovať platné nezáporné čísla v uvedenom rozsahu.</p>
 <div class="result" style="margin-top:24px" aria-live="polite"><p>Celkové ročné náklady</p><strong id="annual">—</strong><p>Mesačne: <b id="monthly">—</b></p><p>Na 100 km: <b id="per100">—</b></p><p>Energia/palivo ročne: <b id="energy">—</b></p></div>
 <p class="note">Nezahŕňa obstarávaciu cenu, odpisy, financovanie, parkovanie ani mimoriadne opravy, pokiaľ ich nezahrniete do ostatných nákladov. Ceny sú vaše vstupy, nie aktuálne trhové údaje. Výsledok je orientačný.</p>
 </section></main>
@@ -26,7 +27,7 @@ const fmt=(n:number)=>new Intl.NumberFormat('sk-SK',{style:'currency',currency:'
 const presets:Record<Kind,[number,number]>={petrol:[7,1.6],diesel:[6,1.55],ev:[20,0.3]};
 function updateLabels(){const ev=get('type').value==='ev';document.querySelector<HTMLLabelElement>('label[for="consumption"]')!.firstChild!.textContent=ev?'Spotreba (kWh/100 km)':'Spotreba (l/100 km)';document.querySelector<HTMLLabelElement>('label[for="price"]')!.firstChild!.textContent=ev?'Cena elektriny (€/kWh)':'Cena paliva (€/l)';}
 function val(id:string){const n=Number(get(id).value);return Number.isFinite(n)?Math.max(0,n):0;}
-function update(){const km=val('km'),energy=km/100*val('consumption')*val('price'),annual=energy+val('insurance')+val('service')+val('other');get('annual').textContent=fmt(annual);get('monthly').textContent=fmt(annual/12);get('per100').textContent=km>0?fmt(annual/km*100):'—';get('energy').textContent=fmt(energy);}
+function update(){const fields=Array.from(document.querySelectorAll<HTMLInputElement>('input[type="number"]'));const invalid=fields.some(i=>i.value.trim()===''||!i.validity.valid||!Number.isFinite(i.valueAsNumber));fields.forEach(i=>i.setAttribute('aria-invalid',String(i.value.trim()===''||!i.validity.valid||!Number.isFinite(i.valueAsNumber))));document.getElementById('car-validation')!.hidden=!invalid;if(invalid){for(const id of ['annual','monthly','per100','energy'])get(id).textContent='—';return;}const km=val('km'),energy=km/100*val('consumption')*val('price'),annual=energy+val('insurance')+val('service')+val('other');get('annual').textContent=fmt(annual);get('monthly').textContent=fmt(annual/12);get('per100').textContent=km>0?fmt(annual/km*100):'—';get('energy').textContent=fmt(energy);}
 get('type').addEventListener('change',()=>{const [c,p]=presets[get('type').value as Kind];get('consumption').value=String(c);get('price').value=String(p);updateLabels();update();});
 document.querySelectorAll<HTMLInputElement>('input[type="number"]').forEach(el=>el.addEventListener('input',update));updateLabels();update();
 </script>
