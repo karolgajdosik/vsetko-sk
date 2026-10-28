@@ -83,3 +83,11 @@ test('production monitor only fails when UI or API smoke check actually fails',(
  assert.ok(workflow.includes("if: ${{ steps.health.outcome == 'failure' }}"),'API failure condition must be a GitHub Actions expression');
  assert.ok(!workflow.includes('if: \\${{'),'Failure conditions must not be escaped');
 });
+
+test('RPO lookup provides official fallback only on lookup errors',()=>{
+ const source=read('src/pages/data/firmy.astro');
+ assert.match(source,/id="rpo-fallback"[^>]*hidden/);
+ assert.match(source,/https:\/\/rpot\.statistics\.sk\//);
+ assert.match(source,/getElementById\('rpo-fallback'\)\.hidden=true/);
+ assert.match(source,/getElementById\('rpo-fallback'\)\.hidden=false/);
+});
