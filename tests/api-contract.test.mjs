@@ -99,3 +99,25 @@ test('RPO: slow but successful upstream response is accepted',async()=>{
     assert.equal((await res.json()).count,1);
   });
 });
+
+test('RPO: transient upstream 503 is retried once and recovered',async()=>{
+ let calls=0;
+ await withFetch(async()=>{
+  calls++;
+  return calls===1?new Response('',{status:503}):Response.json({results:[{identifier:'31333532',fullName:'Recovered company'}]});
+ },async()=>{
+  const res=await rpo({request:request('/api/rpo?ico=31333532')});
+  assert.equal(res.status,200);
+  assert.equal((await res.json()).results[0].name,'Recovered company');
+  assert.equal(calls,2);
+ });
+});
+test('RPO: persistent upstream errors return safe 503 after two attempts',async()=>{
+ let calls=0;
+ await withFetch(async()=>{calls++;return new Response('',{status:503});},async()=>{
+  const res=await rpo({request:request('/api/rpo?ico=31333532')});
+  assert.equal(res.status,503);
+  assert.equal(res.headers.get('Cache-Control'),'no-store');
+  assert.equal(calls,2);
+ });
+});
