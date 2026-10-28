@@ -91,3 +91,11 @@ test('RPO lookup provides official fallback only on lookup errors',()=>{
  assert.match(source,/getElementById\('rpo-fallback'\)\.hidden=true/);
  assert.match(source,/getElementById\('rpo-fallback'\)\.hidden=false/);
 });
+
+test('production RPO monitor rejects empty company results and requires exact IČO',()=>{
+ const source=read('scripts/check-production-apis.mjs');
+ assert.match(source,/data\.ico==='31333532'/);
+ assert.match(source,/data\.results\.some\(/);
+ assert.match(source,/x\.identifier==='31333532'/);
+ assert.match(source,/x\.name\.trim\(\)\.length>0/);
+});
