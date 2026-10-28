@@ -56,7 +56,7 @@ jobs:
               await github.rest.issues.update({owner,repo,issue_number:existing.number,state:'closed'});
             }
       - name: Mark workflow failed when UI check fails
-        if: \${{ steps.ui.outcome == 'failure' }}
+        if: ${{ steps.ui.outcome == 'failure' }}
         run: exit 1
       - name: Mark workflow failed when API check fails
         if: ${{ steps.health.outcome == 'failure' }}
