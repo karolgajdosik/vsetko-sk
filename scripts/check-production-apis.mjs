@@ -3,7 +3,7 @@ const base=process.env.SITE_URL||'https://vsetko24.sk';
 const endpoints=[
   {path:'/api/ecb-rates',check:data=>Array.isArray(data.rates)&&data.rates.length===4&&data.rates.every(x=>Number(x.rate)>0)},
   {path:'/api/ukazovatele',check:data=>Array.isArray(data.indicators)&&data.indicators.length===3},
-  {path:'/api/rpo?ico=31333532',check:data=>Array.isArray(data.results)},
+  {path:'/api/rpo?ico=31333532',check:data=>data.ico==='31333532'&&Array.isArray(data.results)&&data.results.some(x=>x.identifier==='31333532'&&typeof x.name==='string'&&x.name.trim().length>0)},
   {path:'/api/nabijacky?lat=48.1486&lon=17.1077&distance=30',check:data=>Array.isArray(data.stations)}
 ];
 let failures=0;
