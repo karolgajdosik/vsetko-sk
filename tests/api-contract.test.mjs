@@ -138,3 +138,16 @@ test('RPO: malformed records are rejected rather than silently skipped',async()=
   assert.equal(res.status,502);
  });
 });
+
+test('RPO: official timed identifiers and names are parsed correctly',async()=>{
+ await withFetch(async()=>Response.json({results:[
+  {id:123,identifiers:[{value:'31333532',validFrom:'1992-01-01'}],fullNames:[{value:'Starý názov',validTo:'2020-01-01'},{value:'ESET, spol. s r.o.',validFrom:'2020-01-02'}]},
+  {id:124,identifiers:[{value:'99999999'}],fullNames:[{value:'Iná firma'}]}
+ ]}),async()=>{
+  const res=await rpo({request:request('/api/rpo?ico=31333532')});
+  assert.equal(res.status,200);
+  const body=await res.json();
+  assert.equal(body.count,1);
+  assert.deepEqual(body.results[0],{identifier:'31333532',name:'ESET, spol. s r.o.',id:123});
+ });
+});
