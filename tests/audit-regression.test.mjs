@@ -87,7 +87,7 @@ test('production monitor only fails when UI or API smoke check actually fails',(
 test('RPO lookup provides official fallback only on lookup errors',()=>{
  const source=read('src/pages/data/firmy.astro');
  assert.match(source,/id="rpo-fallback"[^>]*hidden/);
- assert.match(source,/https:\/\/rpot\.statistics\.sk\//);
+ assert.match(source,/https:\/\/rpo\.minv\.sk\/new\//);
  assert.match(source,/getElementById\('rpo-fallback'\)\.hidden=true/);
  assert.match(source,/getElementById\('rpo-fallback'\)\.hidden=false/);
 });
