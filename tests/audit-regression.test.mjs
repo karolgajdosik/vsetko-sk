@@ -91,3 +91,13 @@ test('RPO lookup provides official fallback only on lookup errors',()=>{
  assert.match(source,/getElementById\('rpo-fallback'\)\.hidden=true/);
  assert.match(source,/getElementById\('rpo-fallback'\)\.hidden=false/);
 });
+
+test('production monitoring tracks UI outages separately from API outages',()=>{
+ const workflow=read('.github/workflows/production-api-health.yml');
+ assert.match(workflow,/title='Production UI health check failing'/);
+ assert.match(workflow,/UI_OUTCOME: \$\{\{ steps\.ui\.outcome \}\}/);
+ assert.match(workflow,/process\.env\.UI_OUTCOME==='failure'/);
+ assert.match(workflow,/issues\.createComment/);
+ assert.match(workflow,/issues\.update/);
+ assert.match(workflow,/title='Production API health check failing'/);
+});
