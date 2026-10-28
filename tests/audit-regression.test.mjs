@@ -76,3 +76,10 @@ test('obsolete mortgage calculator URL redirects to a published calculator',()=>
  const calculators=JSON.parse(read('src/data/calculators.json'));
  assert.ok(calculators.some(x=>x.slug==='dostupnost-hypoteky'));
 });
+
+test('production monitor only fails when UI or API smoke check actually fails',()=>{
+ const workflow=read('.github/workflows/production-api-health.yml');
+ assert.ok(workflow.includes("if: ${{ steps.ui.outcome == 'failure' }}"),'UI failure condition must be a GitHub Actions expression');
+ assert.ok(workflow.includes("if: ${{ steps.health.outcome == 'failure' }}"),'API failure condition must be a GitHub Actions expression');
+ assert.ok(!workflow.includes('if: \\${{'),'Failure conditions must not be escaped');
+});
