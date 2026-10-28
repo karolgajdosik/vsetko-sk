@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/production-api-health.yml'
       - 'scripts/check-production-apis.mjs'
+      - 'scripts/check-production-ui.mjs'
   workflow_run:
     workflows: ['Auto-merge validated pull requests']
     types: [completed]
@@ -23,6 +24,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Check public production pages and release markers
+        id: ui
+        continue-on-error: true
+        run: node scripts/check-production-ui.mjs
       - name: Check four live production APIs
         id: health
         continue-on-error: true
@@ -50,6 +55,9 @@ jobs:
               await github.rest.issues.createComment({owner,repo,issue_number:existing.number,body:'Produkčná API kontrola opäť prešla: '+context.serverUrl+'/'+owner+'/'+repo+'/actions/runs/'+context.runId});
               await github.rest.issues.update({owner,repo,issue_number:existing.number,state:'closed'});
             }
+      - name: Mark workflow failed when UI check fails
+        if: \${{ steps.ui.outcome == 'failure' }}
+        run: exit 1
       - name: Mark workflow failed when API check fails
         if: ${{ steps.health.outcome == 'failure' }}
         run: exit 1
