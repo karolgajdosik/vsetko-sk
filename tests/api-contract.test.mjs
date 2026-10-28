@@ -121,3 +121,20 @@ test('RPO: persistent upstream errors return safe 503 after two attempts',async(
   assert.equal(calls,2);
  });
 });
+
+test('RPO: unexpected upstream response is not reported as zero companies',async()=>{
+ for(const payload of [{message:'maintenance'},{data:[{identifier:'31333532'}]},null]){
+  await withFetch(async()=>Response.json(payload),async()=>{
+   const res=await rpo({request:request('/api/rpo?ico=31333532')});
+   assert.equal(res.status,502);
+   assert.equal(res.headers.get('Cache-Control'),'no-store');
+   assert.match((await res.json()).error,/neočakávanú odpoveď/);
+  });
+ }
+});
+test('RPO: malformed records are rejected rather than silently skipped',async()=>{
+ await withFetch(async()=>Response.json({results:[null]}),async()=>{
+  const res=await rpo({request:request('/api/rpo?ico=31333532')});
+  assert.equal(res.status,502);
+ });
+});
