@@ -15,8 +15,10 @@ export function searchPortal(items,query,limit=25){
    for(const variant of variants){
     if(title.split(' ').includes(variant))best=Math.max(best,12);
     else if(title.includes(variant))best=Math.max(best,8);
-    if(keywords.includes(variant))best=Math.max(best,5);
-    if(description.includes(variant))best=Math.max(best,2);
+    if(keywords.split(' ').includes(variant))best=Math.max(best,5);
+    else if(keywords.includes(variant)&&variant.length>=4)best=Math.max(best,3);
+    if(description.split(' ').includes(variant))best=Math.max(best,2);
+    else if(description.includes(variant)&&variant.length>=4)best=Math.max(best,1);
    }
    if(!best&&word.length>=4){
     const tokens=fields.flatMap(field=>field.split(' ')).filter(t=>t.length>=3);
