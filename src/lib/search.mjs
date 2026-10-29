@@ -14,7 +14,7 @@ export function searchPortal(items,query,limit=25){
    let best=0;
    for(const variant of variants){
     if(title.split(' ').includes(variant))best=Math.max(best,12);
-    else if(title.includes(variant))best=Math.max(best,8);
+    else if(variant.length>=4&&title.split(' ').some(t=>t.startsWith(variant)))best=Math.max(best,8);
     if(keywords.split(' ').includes(variant))best=Math.max(best,5);
     else if(keywords.includes(variant)&&variant.length>=4)best=Math.max(best,3);
     if(description.split(' ').includes(variant))best=Math.max(best,2);
