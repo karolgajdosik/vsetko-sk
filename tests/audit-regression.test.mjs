@@ -99,3 +99,14 @@ test('production RPO monitor rejects empty company results and requires exact IÄ
  assert.match(source,/x\.identifier==='31333532'/);
  assert.match(source,/x\.name\.trim\(\)\.length>0/);
 });
+
+test('mobile search has accessible results and touch-friendly controls',()=>{
+ const source=read('src/pages/hladat.astro');
+ assert.match(source,/enterkeyhint="search"/);
+ assert.match(source,/aria-controls="fulltext-results"/);
+ assert.match(source,/id="result-count" aria-live="polite"/);
+ assert.match(source,/\.finder-input button\{[^}]*min-height:48px/);
+ assert.match(source,/@media\(max-width:520px\)/);
+ assert.match(source,/\.finder-input input\{font-size:16px;min-height:48px\}/);
+ assert.match(source,/\.finder-result:focus-visible/);
+});
