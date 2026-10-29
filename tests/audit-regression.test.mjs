@@ -110,3 +110,9 @@ test('mobile search has accessible results and touch-friendly controls',()=>{
  assert.match(source,/\.finder-input input\{font-size:16px;min-height:48px\}/);
  assert.match(source,/\.finder-result:focus-visible/);
 });
+
+test('navigation highlights parent sections on nested routes without marking homepage',()=>{
+ const source=read('src/layouts/Base.astro');
+ assert.match(source,/const activeNav=\(href\)=>href==='\/'\?path==='\/':path===href\|\|path\.startsWith\(href\)/);
+ assert.match(source,/aria-current=\{activeNav\(href\)\?'page':undefined\}/);
+});
