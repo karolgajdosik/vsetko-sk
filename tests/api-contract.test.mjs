@@ -151,3 +151,25 @@ test('RPO: official timed identifiers and names are parsed correctly',async()=>{
   assert.deepEqual(body.results[0],{identifier:'31333532',name:'ESET, spol. s r.o.',id:123});
  });
 });
+
+test('RPO: empty but valid results remain a legitimate empty search',async()=>{
+ await withFetch(async()=>Response.json({results:[]}),async()=>{
+  const res=await rpo({request:request('/api/rpo?ico=31333532')});
+  assert.equal(res.status,200);
+  const body=await res.json();
+  assert.equal(body.count,0);
+  assert.deepEqual(body.results,[]);
+ });
+});
+test('RPO: alternate items envelope and expired historical name are supported',async()=>{
+ await withFetch(async()=>Response.json({items:[
+  {identifiers:[{value:'31333532'}],fullNames:[{value:'Historic',validTo:'2020-01-01'},{value:'Current'}]},
+  {identifiers:[{value:'00000000'}],fullNames:[{value:'Other'}]}
+ ]}),async()=>{
+  const res=await rpo({request:request('/api/rpo?ico=31333532')});
+  assert.equal(res.status,200);
+  const body=await res.json();
+  assert.equal(body.count,1);
+  assert.equal(body.results[0].name,'Current');
+ });
+});
