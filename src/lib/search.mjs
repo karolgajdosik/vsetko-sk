@@ -14,9 +14,9 @@ export function searchPortal(items,query,limit=25){
    let best=0;
    for(const variant of variants){
     if(title.split(' ').includes(variant))best=Math.max(best,12);
-    else if(title.includes(variant))best=Math.max(best,8);
-    if(keywords.includes(variant))best=Math.max(best,5);
-    if(description.includes(variant))best=Math.max(best,2);
+    else if(variant.length>=4&&title.split(' ').some(t=>t.startsWith(variant)))best=Math.max(best,8);
+    if(keywords.split(' ').includes(variant))best=Math.max(best,5);
+    if(description.split(' ').includes(variant))best=Math.max(best,2);
    }
    if(!best&&word.length>=4){
     const tokens=fields.flatMap(field=>field.split(' ')).filter(t=>t.length>=3);
