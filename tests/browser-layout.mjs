@@ -63,6 +63,15 @@ try {
   await page.locator('#search-form button[type="submit"]').click();
   await page.waitForURL(url=>url.pathname==='/hladat/' && url.searchParams.has('q'));
   assert.equal(await page.locator('#fulltext').inputValue(),'hypotéka','Search term must survive navigation');
+  assert.equal(await page.locator('#fulltext').getAttribute('enterkeyhint'),'search','Mobile keyboard must offer search action');
+  assert.equal(await page.locator('#fulltext').getAttribute('aria-controls'),'fulltext-results','Search must identify its results');
+  const mobileSearch=await page.locator('#fulltext').evaluate(el=>({font:parseFloat(getComputedStyle(el).fontSize),height:el.getBoundingClientRect().height}));
+  assert.ok(mobileSearch.font>=16,'Mobile search input must avoid iOS zoom');
+  assert.ok(mobileSearch.height>=44,'Mobile search input must have usable touch target');
+  const searchButtonHeight=await page.locator('#fulltext-form button').evaluate(el=>el.getBoundingClientRect().height);
+  assert.ok(searchButtonHeight>=44,'Mobile search button must have usable touch target');
+  assert.equal(await page.locator('#result-count').getAttribute('aria-live'),'polite','Result count must be announced accessibly');
+
   assert.ok(await page.locator('.finder-result').count()>0,'Known topic must return results');
   await page.locator('#fulltext').fill('zzzxqvnomatchunique');
   await page.locator('#fulltext-form button[type="submit"]').click();
