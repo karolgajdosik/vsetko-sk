@@ -1,9 +1,14 @@
+import {readFileSync} from 'node:fs';
+import {getRepairedGuideRoutes} from './production-guide-routes.mjs';
+const search=JSON.parse(readFileSync(new URL('../src/data/search.json',import.meta.url),'utf8'));
+const guides=JSON.parse(readFileSync(new URL('../src/data/guides.json',import.meta.url),'utf8'));
 const origin=process.env.VSETKO_ORIGIN||'https://vsetko24.sk';
 const routes=[
  {path:'/kontakt/',markers:['Nahlásiť chybu na GitHube','issues/new?template=chyba-portalu.yml']},
  {path:'/kalkulacky/splatka-uveru/',markers:['id="validation-message"','aria-invalid']},
  {path:'/kalkulacky/naklady-na-auto/',markers:['id="car-validation"','id="annual"']},
- {path:'/',markers:['VŠETKO24']}
+ {path:'/',markers:['VŠETKO24']},
+ ...getRepairedGuideRoutes(search,guides)
 ];
 const failures=[];
 for(const {path,markers} of routes){
