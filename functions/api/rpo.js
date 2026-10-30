@@ -1,5 +1,28 @@
 // Official Slovak RPO lookup by IČO only. Never expose a generic upstream proxy.
 const json=(data,status=200)=>new Response(JSON.stringify(data),{status,headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':status===200?'public, max-age=600, s-maxage=21600':'no-store'}});
+// Best-effort Cloudflare edge cache: only previously verified, nonempty IČO results.
+// Cached data is never represented as a successful live lookup during an outage.
+const cacheKey=(request,ico)=>new Request(new URL('/api/rpo?ico='+ico,request.url).toString());
+async function readVerifiedCache(request,ico){
+ try{
+  const cache=globalThis.caches?.default;
+  if(!cache)return null;
+  const response=await cache.match(cacheKey(request,ico));
+  if(!response?.ok)return null;
+  const data=await response.json();
+  const age=Date.now()-Date.parse(data?.checkedAt);
+  if(data?.ico!==ico||!Array.isArray(data.results)||!data.results.length||!data.results.every(x=>x?.identifier===ico&&typeof x.name==='string'&&x.name.trim())||!Number.isFinite(age)||age<0||age>86400000)return null;
+  return data;
+ }catch(error){console.warn('RPO cached lookup unavailable',{type:error?.name||'Error'});return null;}
+}
+async function saveVerifiedCache(request,ico,data){
+ if(!data.results.length)return;
+ try{
+  const cache=globalThis.caches?.default;
+  if(!cache)return;
+  await cache.put(cacheKey(request,ico),new Response(JSON.stringify(data),{headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'public, max-age=86400'}}));
+ }catch(error){console.warn('RPO cache write unavailable',{type:error?.name||'Error'});}
+}
 export async function onRequestGet({request}){
  const ico=new URL(request.url).searchParams.get('ico')?.trim()||'';
  if(!/^\d{8}$/.test(ico))return json({error:'Zadajte platné osemmiestne IČO.'},400);
@@ -21,6 +44,13 @@ export async function onRequestGet({request}){
    const identifiers=Array.isArray(x.identifiers)?x.identifiers.filter(v=>v&&typeof v.value==='string').map(v=>v.value):[];
    return identifiers.includes(ico)||String(x.identifier??x.identificationNumber??x.ico??'')===ico;
   }).slice(0,5).map(x=>({identifier:ico,name:current(x.fullNames)??(typeof x.fullName==='string'?x.fullName:typeof x.name==='string'?x.name:typeof x.businessName==='string'?x.businessName:null),id:Number.isSafeInteger(x.id)?x.id:null}));
-  return json({ico,results:safe,count:safe.length,source:'Register právnických osôb (RPO)',sourceUrl:'https://rpo.minv.sk/new/',checkedAt:new Date().toISOString(),note:'RPO sa aktualizuje spravidla raz denne. Výpis má informatívny charakter.'});
- }catch(error){console.error('RPO lookup unavailable',{type:error?.name||'Error'});return json({error:'Oficiálny register je momentálne nedostupný. Skúste to neskôr.'},503);}
+  const data={ico,results:safe,count:safe.length,source:'Register právnických osôb (RPO)',sourceUrl:'https://rpo.minv.sk/new/',checkedAt:new Date().toISOString(),note:'RPO sa aktualizuje spravidla raz denne. Výpis má informatívny charakter.'};
+  await saveVerifiedCache(request,ico,data);
+  return json(data);
+ }catch(error){
+  console.error('RPO lookup unavailable',{type:error?.name||'Error'});
+  const cached=await readVerifiedCache(request,ico);
+  if(cached)return json({...cached,stale:true,error:'Oficiálny register je momentálne nedostupný.',note:'Zobrazené údaje pochádzajú z predchádzajúceho overenia. Ich aktuálnosť sa teraz nedá potvrdiť.'},503);
+  return json({error:'Oficiálny register je momentálne nedostupný. Skúste to neskôr.'},503);
+ }
 }
