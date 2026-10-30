@@ -23,9 +23,12 @@ jobs:
           for i in $(seq 1 30); do if curl -fsS http://127.0.0.1:4321/ > /dev/null; then break; fi; sleep 1; done
           curl -fsS http://127.0.0.1:4321/ >/dev/null || { cat /tmp/vsetko-preview.log; exit 1; }
           node tests/browser-layout.mjs
+          VSETKO_ORIGIN=http://127.0.0.1:4321 node tests/production-mobile-calculators.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: responsive-layout-screenshots
-          path: layout-*.png
+          path: |
+            layout-*.png
+            production-mobile-*.png
           if-no-files-found: ignore
