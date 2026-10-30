@@ -1,5 +1,6 @@
 import {readFileSync} from 'node:fs';
 import {getRepairedGuideRoutes} from './production-guide-routes.mjs';
+import {hasProductionMarker,productionMarkerLabel} from './production-ui-markers.mjs';
 const search=JSON.parse(readFileSync(new URL('../src/data/search.json',import.meta.url),'utf8'));
 const guides=JSON.parse(readFileSync(new URL('../src/data/guides.json',import.meta.url),'utf8'));
 const origin=process.env.VSETKO_ORIGIN||'https://vsetko24.sk';
@@ -20,7 +21,7 @@ for(const {path,markers} of routes){
   try{
    const response=await fetch(new URL(path,origin),{signal:AbortSignal.timeout(15000),headers:{'user-agent':'VSETKO24-production-smoke/1.0'}});
    const html=await response.text();
-   const missing=markers.filter(marker=>!html.includes(marker));
+   const missing=markers.filter(marker=>!hasProductionMarker(html,marker)).map(productionMarkerLabel);
    if(response.ok&&missing.length===0){console.log('PASS',path,'HTTP',response.status,'attempt',attempt);ok=true;break;}
    last='HTTP '+response.status+' missing: '+missing.join(', ');
   }catch(error){last=String(error)}

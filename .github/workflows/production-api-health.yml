@@ -8,6 +8,7 @@ on:
       - 'scripts/production-api-health-utils.mjs'
       - 'scripts/check-production-ui.mjs'
       - 'scripts/production-guide-routes.mjs'
+      - 'scripts/production-ui-markers.mjs'
       - 'src/data/search.json'
       - 'src/data/guides.json'
   workflow_run:
