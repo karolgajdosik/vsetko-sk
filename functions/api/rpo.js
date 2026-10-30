@@ -26,9 +26,9 @@ async function saveVerifiedCache(request,ico,data){
 export async function onRequestGet({request}){
  const ico=new URL(request.url).searchParams.get('ico')?.trim()||'';
  if(!/^\d{8}$/.test(ico))return json({error:'Zadajte platné osemmiestne IČO.'},400);
+ let lastUpstreamStatus=null;
  try{
   let raw;
-  let lastUpstreamStatus=null;
   for(let attempt=0;attempt<2;attempt++){
    try{
     const upstream=await fetch('https://api.statistics.sk/rpo/v1/search?identifier='+ico,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(8000)});
