@@ -252,3 +252,11 @@ html[data-theme=dark] .nav-more-links{background:#202a3b;border-color:#46546a}
 /* Lighthouse accessibility: readable labels on light feature card */
 html:not([data-theme=dark]) .feature-top{color:#505c72}
 html:not([data-theme=dark]) .feature-dots{color:#505c72}
+
+/* Mobile core-topic shortcuts: prominent only inside the expanded menu. */
+.mobile-core-links{display:none}
+@media(max-width:760px){
+ .top nav.nav-open .mobile-core-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:4px 0 12px;margin-bottom:7px;border-bottom:1px solid #e5e7f1}
+ .top nav .mobile-core-links a{display:grid;place-items:center;text-align:center;min-height:48px;padding:8px 3px;border-radius:11px;background:#f0efff;color:#5544d2;font-size:13px;font-weight:750}
+ .top nav .mobile-core-links a[aria-current="page"]{background:#5544d2;color:white}
+}

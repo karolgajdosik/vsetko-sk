@@ -34,6 +34,11 @@ try {
    assert.ok(fontSize>=110,'Mobile font increase must work');
    await page.locator('.mobile-menu-toggle').click();
    assert.equal(await page.locator('.mobile-menu-toggle').getAttribute('aria-expanded'),'true','Mobile menu should open');
+   const shortcuts=page.locator('.mobile-core-links a');
+   assert.deepEqual(await shortcuts.allTextContents(),['Financie','Auto','Úrady'],'Mobile menu must surface the three main topics');
+   assert.ok(await shortcuts.first().isVisible(),'Core topic shortcuts must be visible in expanded mobile menu');
+   const shortcutHeight=await shortcuts.first().evaluate(el=>el.getBoundingClientRect().height);
+   assert.ok(shortcutHeight>=44,'Core topic shortcuts must be touch-friendly');
    await page.keyboard.press('Escape');
    assert.equal(await page.locator('.mobile-menu-toggle').getAttribute('aria-expanded'),'false','Escape closes mobile menu');
    assert.equal(await page.locator('.mobile-menu-toggle').getAttribute('aria-label'),'Otvoriť navigáciu','Closed menu must have accurate accessible label');
