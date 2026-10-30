@@ -260,3 +260,10 @@ html:not([data-theme=dark]) .feature-dots{color:#505c72}
  .top nav .mobile-core-links a{display:grid;place-items:center;text-align:center;min-height:48px;padding:8px 3px;border-radius:11px;background:#f0efff;color:#5544d2;font-size:13px;font-weight:750}
  .top nav .mobile-core-links a[aria-current="page"]{background:#5544d2;color:white}
 }
+
+/* Mobile calculator usability: keep inputs touch-friendly and long results legible. */
+.calculator-panel .budget,.calculator-panel .budget label,.calculator-panel .result{min-width:0}
+.calculator-panel .budget input,.calculator-panel .budget select{box-sizing:border-box;width:100%;min-width:0;min-height:48px;font-size:16px}
+.calculator-panel .result{overflow-wrap:anywhere}
+.calculator-panel .result strong{font-size:clamp(1.5rem,5vw,2.25rem);line-height:1.35;overflow-wrap:anywhere}
+@media(max-width:760px){.calculator-panel .budget{grid-template-columns:minmax(0,1fr)}.calculator-panel .result{padding:clamp(14px,4vw,22px)}}

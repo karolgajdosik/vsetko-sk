@@ -108,6 +108,32 @@ try {
   assert.ok(await page.locator('#rpo-fallback').isVisible(),'Official RPO fallback must remain visible');
   await page.close();
  }
+ // Backlog #86: mobile calculator touch targets and legible long results at 360-390px.
+ for(const width of [360,390]){
+  const page=await browser.newPage({viewport:{width,height:780}});
+  for(const [route,inputSelector,value] of [
+   ['/kalkulacky/splatka-uveru/','#calculator input[name="amount"]','999999999'],
+   ['/kalkulacky/naklady-na-auto/','#km','200000']
+  ]){
+   await page.goto(base+route,{waitUntil:'load'});
+   const controls=page.locator('.calculator-panel .budget input, .calculator-panel .budget select');
+   assert.ok(await controls.count()>0,'Calculator controls missing: '+route);
+   for(const control of await controls.all()){
+    const dimensions=await control.evaluate(el=>({height:el.getBoundingClientRect().height,font:parseFloat(getComputedStyle(el).fontSize),right:el.getBoundingClientRect().right}));
+    assert.ok(dimensions.height>=44,'Touch target below 44px at '+width+' on '+route);
+    assert.ok(dimensions.font>=16,'Mobile input font below 16px at '+width+' on '+route);
+    assert.ok(dimensions.right<=width+1,'Control exceeds viewport at '+width+' on '+route);
+   }
+   await page.locator(inputSelector).fill(value);
+   const result=page.locator('.calculator-panel .result');
+   assert.ok(await result.isVisible(),'Calculator result hidden on '+route);
+   const metrics=await result.evaluate(el=>({right:el.getBoundingClientRect().right,font:parseFloat(getComputedStyle(el.querySelector('strong')).fontSize),scroll:document.documentElement.scrollWidth,viewport:innerWidth}));
+   assert.ok(metrics.font>=22,'Result text too small at '+width+' on '+route);
+   assert.ok(metrics.right<=width+1,'Result panel exceeds viewport at '+width+' on '+route);
+   assert.ok(metrics.scroll<=metrics.viewport+1,'Horizontal overflow at '+width+' on '+route);
+  }
+  await page.close();
+ }
  // Audit all calculator pages using real browser input events on mobile and desktop.
  for(const width of [390,1280]){
   const page=await browser.newPage({viewport:{width,height:850}});
