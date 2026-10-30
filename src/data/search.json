@@ -16,63 +16,63 @@
   {
     "title": "Kúpa ojazdeného auta",
     "category": "Auto",
-    "url": "/auto/#ojazdene",
+    "url": "/navody/kontrola-vozidla-pred-kupou/",
     "description": "Kontrolný zoznam pred kúpou vozidla.",
     "keywords": "vozidlo auto kupna zmluva vin"
   },
   {
     "title": "Prepis vozidla",
     "category": "Auto",
-    "url": "/auto/#prepis",
+    "url": "/navody/prepis-auta/",
     "description": "Čo si pripraviť a kde overiť aktuálny postup.",
     "keywords": "prepis auta zmena drzitel vlastnik evidencia vozidla"
   },
   {
     "title": "STK a emisná kontrola",
     "category": "Auto",
-    "url": "/auto/#stk",
+    "url": "/navody/stk-priprava/",
     "description": "Kde overiť povinnosti a termíny kontrol.",
     "keywords": "stk ek technicka emisna kontrola"
   },
   {
     "title": "Elektromobilita",
     "category": "Auto",
-    "url": "/auto/#elektro",
+    "url": "/navody/nabijanie-elektromobilu/",
     "description": "Základné informácie o nabíjaní elektromobilu.",
     "keywords": "elektromobil nabijanie ev"
   },
   {
     "title": "Občiansky preukaz",
     "category": "Úrady",
-    "url": "/urady/#obciansky",
+    "url": "/navody/ako-vybavit-obciansky-preukaz/",
     "description": "Doklady, termíny a oficiálne informácie.",
     "keywords": "obciansky preukaz obcianka doklady"
   },
   {
     "title": "Cestovný pas",
     "category": "Úrady",
-    "url": "/urady/#pas",
+    "url": "/navody/vymena-cestovneho-pasu/",
     "description": "Ako overiť podanie žiadosti a lehoty.",
     "keywords": "pas cestovny doklad"
   },
   {
     "title": "Trvalý pobyt",
     "category": "Úrady",
-    "url": "/urady/#pobyt",
+    "url": "/navody/zmena-trvaleho-pobytu/",
     "description": "Zmena adresy a príslušná ohlasovňa.",
     "keywords": "trvaly pobyt adresa prihlasenie"
   },
   {
     "title": "Živnosť",
     "category": "Úrady",
-    "url": "/urady/#zivnost",
+    "url": "/navody/zacatie-podnikania/",
     "description": "Prvé kroky pri ohlásení živnosti.",
     "keywords": "zivnost podnikanie podnikatel"
   },
   {
     "title": "Dedičstvo",
     "category": "Úrady",
-    "url": "/urady/#dedicstvo",
+    "url": "/navody/dedicske-konanie/",
     "description": "Základná orientácia v dedičskom konaní.",
     "keywords": "dedicstvo notar umrtie pozostalost"
   },
