@@ -33,3 +33,9 @@ test('RPO upstream HTTP status is included in outage diagnostics without treatin
  assert.match(result.reason,/upstream HTTP 429/);
  assert.match(result.reason,/no verified cached result/);
 });
+
+test('RPO timeout remains a failing health check with a clear diagnostic',()=>{
+ const result=evaluateApiResponse('/api/rpo',503,{upstreamFailureType:'TimeoutError'},valid);
+ assert.equal(result.ok,false);
+ assert.match(result.reason,/upstream TimeoutError/);
+});
