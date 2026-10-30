@@ -79,7 +79,8 @@ test('obsolete mortgage calculator URL redirects to a published calculator',()=>
 
 test('production monitor only fails when UI or API smoke check actually fails',()=>{
  const workflow=read('.github/workflows/production-api-health.yml');
- assert.ok(workflow.includes("if: ${{ steps.ui.outcome == 'failure' }}"),'UI failure condition must be a GitHub Actions expression');
+ assert.ok(workflow.includes("if: ${{ steps.ui.outcome == 'failure' || steps.mobile.outcome == 'failure' }}"),'UI and mobile browser failures must both fail production monitoring');
+ assert.ok(workflow.includes("steps.mobile.outcome == 'failure'"),'Mobile browser result must be included in outage reporting');
  assert.ok(workflow.includes("if: ${{ steps.health.outcome == 'failure' }}"),'API failure condition must be a GitHub Actions expression');
  assert.ok(!workflow.includes('if: \\${{'),'Failure conditions must not be escaped');
 });
