@@ -95,6 +95,18 @@ try {
   assert.ok(await page.locator(card).first().isVisible(),'Reset must restore topics: '+route);
   await page.close();
  }
+ // RPO outage: cached results must be explicitly marked stale and the official link shown.
+ {
+  const page=await browser.newPage({viewport:{width:390,height:844}});
+  await page.route('**/api/rpo?ico=*',route=>route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({ico:'31333532',results:[{identifier:'31333532',name:'Previously verified company'}],checkedAt:'2026-10-30T08:00:00.000Z',stale:true,error:'Register is unavailable'})}));
+  await page.goto(base+'/data/firmy/',{waitUntil:'load'});
+  await page.locator('#ico').fill('31333532');
+  await page.locator('#rpo-form button').click();
+  assert.ok(await page.getByText('Previously verified company').isVisible(),'Cached company must remain visible');
+  assert.match(await page.locator('#rpo-status').textContent(),/aktuálne neoverené údaje/,'Outage must clearly warn about stale records');
+  assert.ok(await page.locator('#rpo-fallback').isVisible(),'Official RPO fallback must remain visible');
+  await page.close();
+ }
  // Audit all calculator pages using real browser input events on mobile and desktop.
  for(const width of [390,1280]){
   const page=await browser.newPage({viewport:{width,height:850}});
