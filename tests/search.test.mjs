@@ -23,3 +23,19 @@ test('multiword query prioritizes coverage of all requested topics',()=>{
  const corpus=[{title:'Hypotéka',description:'Výpočet splátky',keywords:'uver',url:'/partial/'},{title:'Hypotéka a bývanie',description:'Kalkulačka splátky',keywords:'uver byvanie',url:'/complete/'}];
  assert.equal(searchPortal(corpus,'hypoteka byvanie')[0].item.url,'/complete/');
 });
+
+test('homepage search entries point to published Auto and Úrady guides, not removed anchors',async()=>{
+ const {readFileSync}=await import('node:fs');
+ const search=JSON.parse(readFileSync(new URL('../src/data/search.json',import.meta.url),'utf8'));
+ const guides=JSON.parse(readFileSync(new URL('../src/data/guides.json',import.meta.url),'utf8'));
+ const slugs=new Set(guides.map(g=>g.slug));
+ const topics=['Kúpa ojazdeného auta','Prepis vozidla','STK a emisná kontrola','Elektromobilita','Občiansky preukaz','Cestovný pas','Trvalý pobyt','Živnosť','Dedičstvo'];
+ for(const title of topics){
+  const item=search.find(entry=>entry.title===title);
+  assert.ok(item,'Missing homepage search topic: '+title);
+  const match=item.url.match(/^\/navody\/([a-z0-9-]+)\/$/);
+  assert.ok(match,'Topic must link directly to a guide: '+title);
+  assert.ok(slugs.has(match[1]),'Guide not published for '+title);
+ }
+ assert.ok(!search.some(entry=>/^\/(auto|urady)\/#/.test(entry.url)),'Search must not link to removed topic anchors');
+});
