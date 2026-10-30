@@ -28,10 +28,11 @@ export async function onRequestGet({request}){
  if(!/^\d{8}$/.test(ico))return json({error:'Zadajte platné osemmiestne IČO.'},400);
  try{
   let raw;
+  let lastUpstreamStatus=null;
   for(let attempt=0;attempt<2;attempt++){
    try{
     const upstream=await fetch('https://api.statistics.sk/rpo/v1/search?identifier='+ico,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(8000)});
-    if(!upstream.ok){console.warn('RPO upstream HTTP failure',{status:upstream.status,attempt:attempt+1});throw Error('RPO unavailable: '+upstream.status); }
+    if(!upstream.ok){lastUpstreamStatus=upstream.status;console.warn('RPO upstream HTTP failure',{status:upstream.status,attempt:attempt+1});throw Error('RPO unavailable: '+upstream.status); }
     raw=await upstream.json();
     break;
    }catch(error){console.warn('RPO upstream request failed',{attempt:attempt+1,type:error?.name||'Error'});if(attempt===1)throw error;}
@@ -50,7 +51,7 @@ export async function onRequestGet({request}){
  }catch(error){
   console.error('RPO lookup unavailable',{type:error?.name||'Error'});
   const cached=await readVerifiedCache(request,ico);
-  if(cached)return json({...cached,stale:true,error:'Oficiálny register je momentálne nedostupný.',note:'Zobrazené údaje pochádzajú z predchádzajúceho overenia. Ich aktuálnosť sa teraz nedá potvrdiť.'},503);
-  return json({error:'Oficiálny register je momentálne nedostupný. Skúste to neskôr.'},503);
+  if(cached)return json({...cached,stale:true,...(lastUpstreamStatus?{upstreamStatus:lastUpstreamStatus}:{}),error:'Oficiálny register je momentálne nedostupný.',note:'Zobrazené údaje pochádzajú z predchádzajúceho overenia. Ich aktuálnosť sa teraz nedá potvrdiť.'},503);
+  return json({error:'Oficiálny register je momentálne nedostupný. Skúste to neskôr.',...(lastUpstreamStatus?{upstreamStatus:lastUpstreamStatus}:{})},503);
  }
 }
