@@ -116,3 +116,10 @@ test('navigation highlights parent sections on nested routes without marking hom
  assert.match(source,/const activeNav=\(href\)=>href==='\/'\?path==='\/':path===href\|\|path\.startsWith\(href\)/);
  assert.match(source,/aria-current=\{activeNav\(href\)\?'page':undefined\}/);
 });
+
+test('finance hub exposes verified task-first links to published calculators',()=>{
+ const source=read('src/pages/financie.astro');
+ for(const route of ['/kalkulacky/dostupnost-hypoteky/','/financie/porovnanie-hypotek/','/kalkulacky/refinancovanie/','/kalkulacky/financna-rezerva/','/kalkulacky/sporenie/','/kalkulacky/inflacia/'])assert.ok(source.includes('href="'+route+'"'),'Missing finance shortcut '+route);
+ assert.match(source,/aria-labelledby="finance-tasks"/);
+ assert.match(source,/Výpočty sú orientačné/);
+});
