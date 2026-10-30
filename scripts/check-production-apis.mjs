@@ -1,3 +1,4 @@
+import {evaluateApiResponse} from './production-api-health-utils.mjs';
 // Live production API smoke test. Runs separately from deterministic PR validation.
 const base=process.env.SITE_URL||'https://vsetko24.sk';
 const endpoints=[
@@ -13,8 +14,10 @@ for(const item of endpoints){
  for(let attempt=1;attempt<=2;attempt++){
   try{
    const response=await fetch(url,{signal:AbortSignal.timeout(30000),headers:{Accept:'application/json','User-Agent':'VSETKO24-production-health-check'}});
-   const data=await response.json();
-   if(!response.ok||!item.check(data))throw Error('HTTP '+response.status+' or unexpected response schema');
+   let data;
+   try{data=await response.json();}catch{throw Error('HTTP '+response.status+': invalid JSON response');}
+   const result=evaluateApiResponse(url.pathname,response.status,data,item.check);
+   if(!result.ok)throw Error(result.reason);
    console.log('PASS',url.pathname,'HTTP',response.status,'attempt',attempt);
    passed=true;
    break;
