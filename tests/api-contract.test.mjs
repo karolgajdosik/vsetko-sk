@@ -119,6 +119,7 @@ test('RPO: persistent upstream errors return safe 503 after two attempts',async(
   assert.equal(res.status,503);
   assert.equal(res.headers.get('Cache-Control'),'no-store');
   assert.equal(calls,2);
+  assert.equal((await res.json()).upstreamStatus,503,'Upstream failure status must be available for diagnostics');
  });
 });
 
@@ -224,4 +225,14 @@ test('RPO: expired or unrelated cached data never masks upstream outage',async()
   if(original)Object.defineProperty(globalThis,'caches',original);
   else delete globalThis.caches;
  }
+});
+
+test('RPO: upstream timeout is reported as a safe diagnostic type',async()=>{
+ await withFetch(async()=>{throw new DOMException('timeout','TimeoutError');},async()=>{
+  const res=await rpo({request:request('/api/rpo?ico=31333532')});
+  assert.equal(res.status,503);
+  const body=await res.json();
+  assert.equal(body.upstreamFailureType,'TimeoutError');
+  assert.equal(body.upstreamStatus,undefined);
+ });
 });
