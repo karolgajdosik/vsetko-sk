@@ -102,6 +102,7 @@ try {
   await page.goto(base+'/data/firmy/',{waitUntil:'load'});
   await page.locator('#ico').fill('31333532');
   await page.locator('#rpo-form button').click();
+  await page.getByText('Previously verified company').waitFor({state:'visible'});
   assert.ok(await page.getByText('Previously verified company').isVisible(),'Cached company must remain visible');
   assert.match(await page.locator('#rpo-status').textContent(),/aktuálne neoverené údaje/,'Outage must clearly warn about stale records');
   assert.ok(await page.locator('#rpo-fallback').isVisible(),'Official RPO fallback must remain visible');
