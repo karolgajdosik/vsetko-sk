@@ -84,6 +84,17 @@ try {
   assert.ok(await page.locator('#no-match').isVisible(),'No-match feedback must be visible');
   await page.close();
  }
+ // Empty-result recovery in the two main topic hubs.
+ for(const [route,search,reset,card] of [['/auto/','#auto-search','#auto-reset','.auto-topic'],['/urady/','#office-search','#office-reset','.office-guide']]){
+  const page=await browser.newPage({viewport:{width:390,height:844}});
+  await page.goto(base+route,{waitUntil:'load'});
+  await page.locator(search).fill('zzzxqvnomatchunique');
+  assert.ok(await page.locator(reset).isVisible(),'Empty search must offer reset: '+route);
+  await page.locator(reset).click();
+  assert.equal(await page.locator(search).inputValue(),'','Reset must clear query: '+route);
+  assert.ok(await page.locator(card).first().isVisible(),'Reset must restore topics: '+route);
+  await page.close();
+ }
  // Audit all calculator pages using real browser input events on mobile and desktop.
  for(const width of [390,1280]){
   const page=await browser.newPage({viewport:{width,height:850}});
