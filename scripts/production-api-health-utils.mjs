@@ -6,7 +6,7 @@ export function evaluateApiResponse(path,status,data,check){
   }
   if(valid)return {ok:true,reason:''};
   if(path==='/api/rpo'&&status===503){
-    const upstream=Number.isInteger(data?.upstreamStatus)&&data.upstreamStatus>=400&&data.upstreamStatus<=599?' (upstream HTTP '+data.upstreamStatus+')':'';
+    const upstream=Number.isInteger(data?.upstreamStatus)&&data.upstreamStatus>=400&&data.upstreamStatus<=599?' (upstream HTTP '+data.upstreamStatus+')':(['TimeoutError','AbortError','TypeError'].includes(data?.upstreamFailureType)?' (upstream '+data.upstreamFailureType+')':'');
     const date=data?.stale===true&&typeof data.checkedAt==='string'&&!Number.isNaN(Date.parse(data.checkedAt))?data.checkedAt:null;
     return {ok:false,reason:date
       ?'HTTP 503: RPO live lookup unavailable'+upstream+'; verified cached data from '+date+' marked stale'
