@@ -7,6 +7,9 @@ on:
       - 'scripts/check-production-apis.mjs'
       - 'scripts/production-api-health-utils.mjs'
       - 'scripts/check-production-ui.mjs'
+      - 'scripts/production-guide-routes.mjs'
+      - 'src/data/search.json'
+      - 'src/data/guides.json'
   workflow_run:
     workflows: ['Auto-merge validated pull requests']
     types: [completed]
