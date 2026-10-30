@@ -236,3 +236,35 @@ test('RPO: upstream timeout is reported as a safe diagnostic type',async()=>{
   assert.equal(body.upstreamStatus,undefined);
  });
 });
+
+test('RPO: final timeout replaces an earlier HTTP error in outage diagnostics',async()=>{
+ let calls=0;
+ await withFetch(async()=>{
+  calls++;
+  if(calls===1)return new Response('',{status:429});
+  throw new DOMException('timeout','TimeoutError');
+ },async()=>{
+  const res=await rpo({request:request('/api/rpo?ico=31333532')});
+  assert.equal(res.status,503);
+  const body=await res.json();
+  assert.equal(calls,2);
+  assert.equal(body.upstreamFailureType,'TimeoutError');
+  assert.equal(body.upstreamStatus,undefined,'Earlier HTTP 429 must not mask final timeout');
+ });
+});
+
+test('RPO: final HTTP error replaces an earlier timeout in outage diagnostics',async()=>{
+ let calls=0;
+ await withFetch(async()=>{
+  calls++;
+  if(calls===1)throw new DOMException('timeout','TimeoutError');
+  return new Response('',{status:429});
+ },async()=>{
+  const res=await rpo({request:request('/api/rpo?ico=31333532')});
+  assert.equal(res.status,503);
+  const body=await res.json();
+  assert.equal(calls,2);
+  assert.equal(body.upstreamStatus,429);
+  assert.equal(body.upstreamFailureType,undefined,'Earlier timeout must not mask final HTTP 429');
+ });
+});

@@ -31,12 +31,16 @@ export async function onRequestGet({request}){
  try{
   let raw;
   for(let attempt=0;attempt<2;attempt++){
+   let attemptUpstreamStatus=null;
    try{
     const upstream=await fetch('https://api.statistics.sk/rpo/v1/search?identifier='+ico,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(8000)});
-    if(!upstream.ok){lastUpstreamStatus=upstream.status;console.warn('RPO upstream HTTP failure',{status:upstream.status,attempt:attempt+1});throw Error('RPO unavailable: '+upstream.status); }
+    if(!upstream.ok){attemptUpstreamStatus=upstream.status;console.warn('RPO upstream HTTP failure',{status:upstream.status,attempt:attempt+1});throw Error('RPO unavailable: '+upstream.status); }
     raw=await upstream.json();
     break;
-   }catch(error){lastUpstreamFailureType=['TimeoutError','AbortError','TypeError'].includes(error?.name)?error.name:null;console.warn('RPO upstream request failed',{attempt:attempt+1,type:error?.name||'Error'});if(attempt===1)throw error;}
+   }catch(error){
+    // Diagnostics must describe the final attempt, not a different earlier failure.
+    lastUpstreamStatus=attemptUpstreamStatus;
+    lastUpstreamFailureType=attemptUpstreamStatus===null&&['TimeoutError','AbortError','TypeError'].includes(error?.name)?error.name:null;console.warn('RPO upstream request failed',{attempt:attempt+1,type:error?.name||'Error'});if(attempt===1)throw error;}
   }
   const items=Array.isArray(raw)?raw:Array.isArray(raw?.results)?raw.results:Array.isArray(raw?.items)?raw.items:null;
   if(!items){console.error('RPO unexpected upstream response shape',{type:raw===null?'null':Array.isArray(raw)?'array':typeof raw});return json({error:'Register vrátil neočakávanú odpoveď. Výsledok vyhľadávania nie je možné overiť.'},502);}
