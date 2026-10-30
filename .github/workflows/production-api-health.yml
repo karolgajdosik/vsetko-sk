@@ -11,6 +11,7 @@ on:
       - 'scripts/production-ui-markers.mjs'
       - 'src/data/search.json'
       - 'src/data/guides.json'
+      - 'tests/production-mobile-calculators.mjs'
   workflow_run:
     workflows: ['Auto-merge validated pull requests']
     types: [completed]
@@ -37,6 +38,20 @@ jobs:
         id: health
         continue-on-error: true
         run: node scripts/check-production-apis.mjs
+      - name: Install browser for production mobile checks
+        run: |
+          npm install --no-save playwright@1.56.1 --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: Check live mobile calculators at 360px and 390px
+        id: mobile
+        continue-on-error: true
+        run: node tests/production-mobile-calculators.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: production-mobile-calculator-screenshots
+          path: production-mobile-*.png
+          if-no-files-found: ignore
       - name: Create or resolve API outage issue
         uses: actions/github-script@v7
         env:
@@ -63,7 +78,7 @@ jobs:
       - name: Create or resolve production UI outage issue
         uses: actions/github-script@v7
         env:
-          UI_OUTCOME: ${{ steps.ui.outcome }}
+          UI_OUTCOME: ${{ (steps.ui.outcome == 'failure' || steps.mobile.outcome == 'failure') && 'failure' || 'success' }}
         with:
           script: |
             const owner=context.repo.owner,repo=context.repo.repo;
@@ -75,7 +90,7 @@ jobs:
               if(!existing){
                 await github.rest.issues.create({
                   owner,repo,title,
-                  body:'Automatická kontrola verejných stránok VŠETKO24 zlyhala. Diagnostika: '+runUrl+'\n\nKontrolované: úvodná stránka, kontakt a dve kľúčové kalkulačky.'
+                  body:'Automatická kontrola verejných stránok VŠETKO24 zlyhala. Diagnostika: '+runUrl+'\n\nKontrolované: úvodná stránka, kontakt, návody a dve kľúčové kalkulačky vrátane reálneho mobilného Chromium testu na 360 a 390 px.'
                 });
               }else{
                 core.info('Existing open UI outage issue #'+existing.number);
@@ -85,7 +100,7 @@ jobs:
               await github.rest.issues.update({owner,repo,issue_number:existing.number,state:'closed'});
             }
       - name: Mark workflow failed when UI check fails
-        if: ${{ steps.ui.outcome == 'failure' }}
+        if: ${{ steps.ui.outcome == 'failure' || steps.mobile.outcome == 'failure' }}
         run: exit 1
       - name: Mark workflow failed when API check fails
         if: ${{ steps.health.outcome == 'failure' }}
