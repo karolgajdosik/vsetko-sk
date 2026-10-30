@@ -14,69 +14,6 @@
     "keywords": "rodina peniaze prijem vydavky rozpocet"
   },
   {
-    "title": "Kúpa ojazdeného auta",
-    "category": "Auto",
-    "url": "/auto/#ojazdene",
-    "description": "Kontrolný zoznam pred kúpou vozidla.",
-    "keywords": "vozidlo auto kupna zmluva vin"
-  },
-  {
-    "title": "Prepis vozidla",
-    "category": "Auto",
-    "url": "/auto/#prepis",
-    "description": "Čo si pripraviť a kde overiť aktuálny postup.",
-    "keywords": "prepis auta zmena drzitel vlastnik evidencia vozidla"
-  },
-  {
-    "title": "STK a emisná kontrola",
-    "category": "Auto",
-    "url": "/auto/#stk",
-    "description": "Kde overiť povinnosti a termíny kontrol.",
-    "keywords": "stk ek technicka emisna kontrola"
-  },
-  {
-    "title": "Elektromobilita",
-    "category": "Auto",
-    "url": "/auto/#elektro",
-    "description": "Základné informácie o nabíjaní elektromobilu.",
-    "keywords": "elektromobil nabijanie ev"
-  },
-  {
-    "title": "Občiansky preukaz",
-    "category": "Úrady",
-    "url": "/urady/#obciansky",
-    "description": "Doklady, termíny a oficiálne informácie.",
-    "keywords": "obciansky preukaz obcianka doklady"
-  },
-  {
-    "title": "Cestovný pas",
-    "category": "Úrady",
-    "url": "/urady/#pas",
-    "description": "Ako overiť podanie žiadosti a lehoty.",
-    "keywords": "pas cestovny doklad"
-  },
-  {
-    "title": "Trvalý pobyt",
-    "category": "Úrady",
-    "url": "/urady/#pobyt",
-    "description": "Zmena adresy a príslušná ohlasovňa.",
-    "keywords": "trvaly pobyt adresa prihlasenie"
-  },
-  {
-    "title": "Živnosť",
-    "category": "Úrady",
-    "url": "/urady/#zivnost",
-    "description": "Prvé kroky pri ohlásení živnosti.",
-    "keywords": "zivnost podnikanie podnikatel"
-  },
-  {
-    "title": "Dedičstvo",
-    "category": "Úrady",
-    "url": "/urady/#dedicstvo",
-    "description": "Základná orientácia v dedičskom konaní.",
-    "keywords": "dedicstvo notar umrtie pozostalost"
-  },
-  {
     "title": "Porovnanie hypoték",
     "category": "Financie",
     "url": "/navody/porovnanie-hypotek/",
@@ -123,7 +60,7 @@
     "category": "Auto",
     "url": "/navody/kontrola-vozidla-pred-kupou/",
     "description": "Pred kúpou ojazdeného auta preverujte technický aj právny stav.",
-    "keywords": "kontrola vozidla pred kupou"
+    "keywords": "kontrola vozidla pred kupou Kúpa ojazdeného auta vozidlo auto kupna zmluva vin"
   },
   {
     "title": "Predaj vozidla",
@@ -137,7 +74,7 @@
     "category": "Auto",
     "url": "/navody/nabijanie-elektromobilu/",
     "description": "Pri plánovaní cesty sledujte kompatibilitu konektorov a dostupnosť staníc.",
-    "keywords": "nabijanie elektromobilu"
+    "keywords": "nabijanie elektromobilu Elektromobilita elektromobil nabijanie ev"
   },
   {
     "title": "Diaľničná známka",
@@ -158,28 +95,28 @@
     "category": "Úrady",
     "url": "/navody/vymena-cestovneho-pasu/",
     "description": "Pred cestou skontrolujte platnosť pasu a požiadavky cieľovej krajiny.",
-    "keywords": "vymena cestovneho pasu"
+    "keywords": "vymena cestovneho pasu Cestovný pas pas cestovny doklad"
   },
   {
     "title": "Zmena trvalého pobytu",
     "category": "Úrady",
     "url": "/navody/zmena-trvaleho-pobytu/",
     "description": "Pri zmene adresy si pripravte potrebné podklady a následné oznámenia.",
-    "keywords": "zmena trvaleho pobytu"
+    "keywords": "zmena trvaleho pobytu Trvalý pobyt trvaly pobyt adresa prihlasenie"
   },
   {
     "title": "Začatie podnikania",
     "category": "Úrady",
     "url": "/navody/zacatie-podnikania/",
     "description": "Pri zakladaní živnosti si overte predmet činnosti a povinnosti podnikateľa.",
-    "keywords": "zacatie podnikania"
+    "keywords": "zacatie podnikania Živnosť zivnost podnikanie podnikatel"
   },
   {
     "title": "Dedičské konanie",
     "category": "Úrady",
     "url": "/navody/dedicske-konanie/",
     "description": "Po úmrtí blízkeho si pripravte základné dokumenty a informácie o majetku.",
-    "keywords": "dedicske konanie"
+    "keywords": "dedicske konanie Dedičstvo dedicstvo notar umrtie pozostalost"
   },
   {
     "title": "Kalkulačka nákladov na auto",
@@ -298,7 +235,7 @@
     "category": "Úrady",
     "url": "/navody/ako-vybavit-obciansky-preukaz/",
     "description": "Doklady a postup pred návštevou pracoviska",
-    "keywords": "ako vybaviť občiansky preukaz"
+    "keywords": "ako vybaviť občiansky preukaz Občiansky preukaz obciansky preukaz obcianka doklady"
   },
   {
     "title": "Cestovný pas pre dieťa",
@@ -424,14 +361,14 @@
     "category": "Auto",
     "url": "/navody/prepis-auta/",
     "description": "Zmena držiteľa vozidla a potrebné podklady",
-    "keywords": "prepis auta na slovensku"
+    "keywords": "prepis auta na slovensku Prepis vozidla prepis auta zmena drzitel vlastnik evidencia vozidla"
   },
   {
     "title": "Príprava na STK",
     "category": "Auto",
     "url": "/navody/stk-priprava/",
     "description": "Kontrola auta pred technickou kontrolou",
-    "keywords": "príprava na stk"
+    "keywords": "príprava na stk STK a emisná kontrola stk ek technicka emisna kontrola"
   },
   {
     "title": "Postup pri dopravnej nehode",
