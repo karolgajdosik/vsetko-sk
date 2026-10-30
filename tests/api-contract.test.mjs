@@ -119,6 +119,7 @@ test('RPO: persistent upstream errors return safe 503 after two attempts',async(
   assert.equal(res.status,503);
   assert.equal(res.headers.get('Cache-Control'),'no-store');
   assert.equal(calls,2);
+  assert.equal((await res.json()).upstreamStatus,503,'Upstream failure status must be available for diagnostics');
  });
 });
 
