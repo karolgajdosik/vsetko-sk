@@ -20,6 +20,6 @@ export function getRepairedGuideRoutes(search,guides){
   if(!urls.has(path))throw new Error('Missing repaired search destination for '+query+': '+path);
   const guide=bySlug.get(slug);
   if(!guide)throw new Error('Missing published guide for '+query+': '+slug);
-  return {path,markers:['<h1>'+guide.title+'</h1>']};
+  return {path,markers:[{heading:guide.title}]};
  });
 }
