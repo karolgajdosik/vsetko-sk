@@ -6,6 +6,7 @@ on:
       - '.github/workflows/production-api-health.yml'
       - 'scripts/check-production-apis.mjs'
       - 'scripts/production-api-health-utils.mjs'
+      - 'scripts/rpo-upstream-probe.mjs'
       - 'scripts/check-production-ui.mjs'
       - 'scripts/production-guide-routes.mjs'
       - 'scripts/production-ui-markers.mjs'
