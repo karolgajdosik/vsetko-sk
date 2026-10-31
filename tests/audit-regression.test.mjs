@@ -193,5 +193,5 @@ test('home EV charging guide explains safe installation, realistic power and cha
  const stk=guides.find(x=>x.slug==='stk-priprava');
  assert.ok(stk && !Object.hasOwn(stk,'practical'),'STK guide remains unreviewed');
  const template=read('src/pages/navody/[slug].astro');
- assert.match(template,/guide\\.practical\\?\\.length > 0 && <section class="panel" id="prakticke-tipy">/);
+ assert.ok(template.includes('guide.practical?.length > 0 && <section class="panel" id="prakticke-tipy">'),'Home charging tips must use the conditional guide section');
 });
