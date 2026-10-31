@@ -22,6 +22,14 @@ test('AI dynamic chat classes retain globally scoped Astro styles',()=>{
  }
 });
 
+test('AI chat renders only allowlisted official sources using a shared URL validator',()=>{
+ const source=read('src/pages/ai.astro');
+ assert.ok(source.includes("import {trustedOfficialUrl} from '../lib/official-sources.mjs'"));
+ assert.ok(source.includes('const trustedUrl=trustedOfficialUrl(source?.url)'));
+ assert.ok(source.includes('a.href=trustedUrl'));
+ assert.ok(!source.includes("source.url.startsWith('https://www.slovensko.sk/')"),'Old single-domain filter must not hide verified NBS and justice.gov.sk links');
+});
+
 test('suite uses local ISO dates instead of locale-specific date strings',()=>{
  const source=read('src/pages/nastroje/[slug].astro');
  assert.match(source,/function localDateISO\(/);
