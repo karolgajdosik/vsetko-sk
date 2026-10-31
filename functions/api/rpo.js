@@ -45,7 +45,18 @@ export async function onRequestGet({request}){
   const items=Array.isArray(raw)?raw:Array.isArray(raw?.results)?raw.results:Array.isArray(raw?.items)?raw.items:null;
   if(!items){console.error('RPO unexpected upstream response shape',{type:raw===null?'null':Array.isArray(raw)?'array':typeof raw});return json({error:'Register vrátil neočakávanú odpoveď. Výsledok vyhľadávania nie je možné overiť.'},502);}
   if(items.some(x=>!x||typeof x!=='object'||Array.isArray(x))){console.error('RPO invalid upstream record type');return json({error:'Register vrátil neplatné údaje. Skúste to neskôr.'},502);}
-  const current=values=>Array.isArray(values)?values.find(x=>x&&typeof x.value==='string'&&!x.validTo)?.value??values.find(x=>x&&typeof x.value==='string')?.value:null;
+  // RPO fullNames can contain historical or future names. Never label them as current.
+  const isoDay=value=>typeof value==='string'&&/^\d{4}-\d{2}-\d{2}(?:$|T)/.test(value)&&!Number.isNaN(Date.parse(value))?value.slice(0,10):null;
+  const current=values=>{
+   if(!Array.isArray(values))return null;
+   const today=new Date().toISOString().slice(0,10);
+   return values.find(x=>{
+    if(!x||typeof x.value!=='string'||!x.value.trim())return false;
+    const from=x.validFrom==null?null:isoDay(x.validFrom);
+    const to=x.validTo==null?null:isoDay(x.validTo);
+    return (x.validFrom==null||(from!==null&&from<=today))&&(x.validTo==null||(to!==null&&to>=today));
+   })?.value??null;
+  };
   const safe=items.filter(x=>{
    const identifiers=Array.isArray(x.identifiers)?x.identifiers.filter(v=>v&&typeof v.value==='string').map(v=>v.value):[];
    return identifiers.includes(ico)||String(x.identifier??x.identificationNumber??x.ico??'')===ico;

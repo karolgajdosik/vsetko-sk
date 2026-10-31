@@ -293,3 +293,54 @@ test('RPO: matching records with missing names are rejected and never cached',as
   else delete globalThis.caches;
  }
 });
+
+test('RPO: future-dated name is not chosen ahead of the currently valid name',async()=>{
+ await withFetch(async()=>Response.json({results:[{
+  identifier:'31333532',
+  fullNames:[
+   {value:'Budúci názov',validFrom:'2999-01-01'},
+   {value:'Aktuálny názov',validFrom:'2020-01-01'}
+  ]
+ }]}),async()=>{
+  const res=await rpo({request:request('/api/rpo?ico=31333532')});
+  assert.equal(res.status,200);
+  assert.equal((await res.json()).results[0].name,'Aktuálny názov');
+ });
+});
+
+test('RPO: historical-only and future-only names are rejected without caching',async()=>{
+ const original=Object.getOwnPropertyDescriptor(globalThis,'caches');
+ let writes=0;
+ Object.defineProperty(globalThis,'caches',{value:{default:{put:async()=>{writes++;}}},configurable:true});
+ try{
+  for(const name of [
+   {value:'Historický názov',validTo:'2020-01-01'},
+   {value:'Budúci názov',validFrom:'2999-01-01'},
+   {value:'Neplatný dátum',validFrom:'unknown'}
+  ]){
+   await withFetch(async()=>Response.json({results:[{identifier:'31333532',fullNames:[name]}]}),async()=>{
+    const res=await rpo({request:request('/api/rpo?ico=31333532')});
+    assert.equal(res.status,502);
+    assert.equal(res.headers.get('Cache-Control'),'no-store');
+    assert.match((await res.json()).error,/neúplné údaje/);
+   });
+  }
+  assert.equal(writes,0,'Invalid names must never be stored in the edge cache');
+ }finally{
+  if(original)Object.defineProperty(globalThis,'caches',original);
+  else delete globalThis.caches;
+ }
+});
+
+test('RPO: bounded active and undated official names remain valid',async()=>{
+ for(const name of [
+  {value:'Časovo platný názov',validFrom:'2020-01-01',validTo:'2999-12-31'},
+  {value:'Názov bez dátumov'}
+ ]){
+  await withFetch(async()=>Response.json({results:[{identifier:'31333532',fullNames:[name]}]}),async()=>{
+   const res=await rpo({request:request('/api/rpo?ico=31333532')});
+   assert.equal(res.status,200);
+   assert.equal((await res.json()).results[0].name,name.value);
+  });
+ }
+});
