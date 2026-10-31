@@ -45,7 +45,7 @@
     "slug": "refinancovanie-uveru",
     "category": "financie",
     "title": "Refinancovanie úveru",
-    "description": "Pri zmene banky sledujte celkové náklady a podmienky predčasného splatenia.",
+    "description": "Kedy sa oplatí refinancovať úver? Porovnajte úsporu na splátke s poplatkami, novou splatnosťou a celkovými nákladmi.",
     "steps": [
       "Získajte aktuálny zostatok úveru.",
       "Porovnajte novú ponuku s pôvodnou.",
@@ -63,7 +63,25 @@
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
     "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "practical": [
+      {
+        "title": "Zistite skutočný zostatok",
+        "body": "Vyžiadajte si aktuálne vyčíslenie dlhu a informáciu o podmienkach predčasného splatenia k zamýšľanému dátumu."
+      },
+      {
+        "title": "Nepozerajte iba na mesačnú splátku",
+        "body": "Nižšia splátka môže byť výsledkom predĺženia splatnosti. Porovnajte aj celkovú sumu, ktorú ešte zaplatíte pri starej a novej zmluve."
+      },
+      {
+        "title": "Spočítajte jednorazové náklady",
+        "body": "Zohľadnite prípadné náklady na znalecký posudok, kataster, účet, poistenie a ďalšie služby. Výšku a použiteľnosť poplatkov si overte podľa konkrétnej zmluvy."
+      },
+      {
+        "title": "Pripravte si termíny",
+        "body": "Zistite, dokedy platí ponuka novej banky, kedy končí fixácia a aké dokumenty sú potrebné na splatenie pôvodného úveru."
+      }
+    ]
   },
   {
     "slug": "spotrebny-uver",
