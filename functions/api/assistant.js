@@ -14,7 +14,7 @@ export async function onRequestPost({request,env}){
  if(!request.headers.get('content-type')?.includes('application/json'))return reply({error:'Očakáva sa JSON.'},415);
  if(Number(request.headers.get('content-length')||0)>MAX_BYTES)return reply({error:'Otázka je príliš dlhá.'},413);
  let payload;
- try{const raw=await request.text();if(raw.length>MAX_BYTES)return reply({error:'Otázka je príliš dlhá.'},413);payload=JSON.parse(raw);}catch{return reply({error:'Neplatná požiadavka.'},400);}
+ try{const raw=await request.text();if(new TextEncoder().encode(raw).byteLength>MAX_BYTES)return reply({error:'Otázka je príliš dlhá.'},413);payload=JSON.parse(raw);}catch{return reply({error:'Neplatná požiadavka.'},400);}
  const question=payload?.question;
  if(typeof question!=='string'||question.trim().length<3||question.length>600)return reply({error:'Otázka musí mať 3 až 600 znakov.'},400);
  // Only narrow, non-procedural guide navigation is served without the AI model.
