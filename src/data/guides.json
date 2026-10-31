@@ -1497,7 +1497,7 @@
     "slug": "domace-nabijanie",
     "title": "Domáce nabíjanie elektromobilu",
     "category": "auto",
-    "description": "Príprava bezpečného nabíjania doma",
+    "description": "Domáce nabíjanie elektromobilu: ako preveriť elektroinštaláciu, vhodný wallbox, výkon, bezpečnosť a cenu nabíjania.",
     "steps": [
       "Overte kapacitu elektroinštalácie, istenie a možnosti parkovacieho miesta.",
       "Výber wallboxu a montáž zverte kvalifikovanému odborníkovi.",
@@ -1516,7 +1516,25 @@
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
     "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "practical": [
+      {
+        "title": "Overte elektrický prívod",
+        "body": "Pred výberom wallboxu požiadajte kvalifikovaného elektrikára o posúdenie rozvádzača, istenia, dostupného príkonu a možností vedenia k parkovaciemu miestu."
+      },
+      {
+        "title": "Výkon prispôsobte autu aj domu",
+        "body": "Maximálny výkon nabíjania závisí od palubnej nabíjačky vozidla, dostupného prívodu a ďalšej spotreby v domácnosti. Vyšší nominálny výkon wallboxu nemusí znamenať rýchlejšie nabíjanie."
+      },
+      {
+        "title": "Myslite na bezpečnosť",
+        "body": "Riešte odbornú montáž, vhodné ochranné prvky a požadovanú kontrolu či revíziu podľa konkrétnej inštalácie. Nepoužívajte neoverené predlžovacie káble ako trvalé riešenie."
+      },
+      {
+        "title": "Porovnajte prevádzkové náklady",
+        "body": "Pri odhade ceny používajte skutočnú cenu elektriny za kWh vrátane relevantných poplatkov a počítajte aj so stratami pri nabíjaní."
+      }
+    ]
   },
   {
     "slug": "cesta-elektromobilom",

@@ -149,7 +149,7 @@ test('mortgage guide renders practical comparison advice only when present',()=>
   assert.ok(item.title?.length>8,'Practical tip needs a meaningful heading');
   assert.ok(item.body?.length>60,'Practical tip needs actionable guidance');
  }
- assert.equal(guides.filter(x=>Array.isArray(x.practical)).length,2,'Only the two reviewed finance guides have practical advice so far');
+ assert.equal(guides.filter(x=>Array.isArray(x.practical)).length,3,'Only three reviewed guides have practical advice so far');
  const template=read('src/pages/navody/[slug].astro');
  assert.match(template,/guide\.practical\?\.length > 0 && <li><a href="#prakticke-tipy">/);
  assert.match(template,/guide\.practical\?\.length > 0 && <section class="panel" id="prakticke-tipy">/);
@@ -169,8 +169,29 @@ test('refinancing guide has actionable tips and preserves conditional rendering 
  }
  assert.ok(refinancing.practical.some(x=>/predĺženia splatnosti/.test(x.body)),'Explain the longer-term cost risk');
  assert.ok(refinancing.practical.some(x=>/predčasného splatenia/.test(x.body)),'Mention early repayment conditions');
- const otherGuides=guides.filter(x=>!['porovnanie-hypotek','refinancovanie-uveru'].includes(x.slug));
+ const otherGuides=guides.filter(x=>!['porovnanie-hypotek','refinancovanie-uveru','domace-nabijanie'].includes(x.slug));
  assert.ok(otherGuides.every(x=>!Object.hasOwn(x,'practical')),'Unreviewed guides must not display practical tips');
  const template=read('src/pages/navody/[slug].astro');
  assert.match(template,/guide\.practical\?\.length > 0 && <section class="panel" id="prakticke-tipy">/);
+});
+
+
+test('home EV charging guide explains safe installation, realistic power and charging costs',()=>{
+ const guides=JSON.parse(read('src/data/guides.json'));
+ const charging=guides.find(x=>x.slug==='domace-nabijanie');
+ assert.ok(charging,'Home charging guide must exist');
+ assert.match(charging.description,/wallbox/);
+ assert.equal(charging.practical?.length,4);
+ for(const tip of charging.practical){
+  assert.ok(tip.title?.length>8,'Each practical tip needs a meaningful heading');
+  assert.ok(tip.body?.length>60,'Each practical tip needs actionable guidance');
+ }
+ assert.ok(charging.practical.some(x=>/kvalifikovaného elektrikára/.test(x.body)),'Recommend qualified assessment');
+ assert.ok(charging.practical.some(x=>/palubnej nabíjačky/.test(x.body)),'Charging power must account for the car');
+ assert.ok(charging.practical.some(x=>/ochranné prvky/.test(x.body)),'Safety protections must be mentioned');
+ assert.ok(charging.practical.some(x=>/stratami pri nabíjaní/.test(x.body)),'Cost estimate must account for charging losses');
+ const stk=guides.find(x=>x.slug==='stk-priprava');
+ assert.ok(stk && !Object.hasOwn(stk,'practical'),'STK guide remains unreviewed');
+ const template=read('src/pages/navody/[slug].astro');
+ assert.ok(template.includes('guide.practical?.length > 0 && <section class="panel" id="prakticke-tipy">'),'Home charging tips must use the conditional guide section');
 });
