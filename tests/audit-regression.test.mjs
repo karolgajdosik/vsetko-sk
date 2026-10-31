@@ -149,7 +149,7 @@ test('mortgage guide renders practical comparison advice only when present',()=>
   assert.ok(item.title?.length>8,'Practical tip needs a meaningful heading');
   assert.ok(item.body?.length>60,'Practical tip needs actionable guidance');
  }
- assert.equal(guides.filter(x=>Array.isArray(x.practical)).length,3,'Only three reviewed guides have practical advice so far');
+ assert.equal(guides.filter(x=>Array.isArray(x.practical)).length,4,'Only four reviewed guides have practical advice so far');
  const template=read('src/pages/navody/[slug].astro');
  assert.match(template,/guide\.practical\?\.length > 0 && <li><a href="#prakticke-tipy">/);
  assert.match(template,/guide\.practical\?\.length > 0 && <section class="panel" id="prakticke-tipy">/);
@@ -169,7 +169,7 @@ test('refinancing guide has actionable tips and preserves conditional rendering 
  }
  assert.ok(refinancing.practical.some(x=>/predĺženia splatnosti/.test(x.body)),'Explain the longer-term cost risk');
  assert.ok(refinancing.practical.some(x=>/predčasného splatenia/.test(x.body)),'Mention early repayment conditions');
- const otherGuides=guides.filter(x=>!['porovnanie-hypotek','refinancovanie-uveru','domace-nabijanie'].includes(x.slug));
+ const otherGuides=guides.filter(x=>!['porovnanie-hypotek','refinancovanie-uveru','domace-nabijanie','stk-priprava'].includes(x.slug));
  assert.ok(otherGuides.every(x=>!Object.hasOwn(x,'practical')),'Unreviewed guides must not display practical tips');
  const template=read('src/pages/navody/[slug].astro');
  assert.match(template,/guide\.practical\?\.length > 0 && <section class="panel" id="prakticke-tipy">/);
@@ -190,8 +190,28 @@ test('home EV charging guide explains safe installation, realistic power and cha
  assert.ok(charging.practical.some(x=>/palubnej nabíjačky/.test(x.body)),'Charging power must account for the car');
  assert.ok(charging.practical.some(x=>/ochranné prvky/.test(x.body)),'Safety protections must be mentioned');
  assert.ok(charging.practical.some(x=>/stratami pri nabíjaní/.test(x.body)),'Cost estimate must account for charging losses');
- const stk=guides.find(x=>x.slug==='stk-priprava');
- assert.ok(stk && !Object.hasOwn(stk,'practical'),'STK guide remains unreviewed');
  const template=read('src/pages/navody/[slug].astro');
  assert.ok(template.includes('guide.practical?.length > 0 && <section class="panel" id="prakticke-tipy">'),'Home charging tips must use the conditional guide section');
+});
+
+
+test('STK preparation guide offers vehicle-specific checks without unsupported legal deadlines',()=>{
+ const guides=JSON.parse(read('src/data/guides.json'));
+ const stk=guides.find(x=>x.slug==='stk-priprava');
+ assert.ok(stk,'STK guide must exist');
+ assert.match(stk.description,/pneumatiky/);
+ assert.equal(stk.practical?.length,4);
+ for(const tip of stk.practical){
+  assert.ok(tip.title?.length>8,'STK advice needs a clear heading');
+  assert.ok(tip.body?.length>60,'STK advice needs an actionable explanation');
+ }
+ assert.ok(stk.practical.some(x=>/svetl/.test(x.title+' '+x.body)),'Include lighting checks');
+ assert.ok(stk.practical.some(x=>/pneumatik/.test(x.title+' '+x.body)),'Include tyre checks');
+ assert.ok(stk.practical.some(x=>/brzd/.test(x.title+' '+x.body)),'Include brake safety');
+ assert.ok(stk.practical.some(x=>/doklad/.test(x.title+' '+x.body)),'Include document preparation');
+ assert.ok(stk.steps.every(step=>!/podaním žiadosti|podpisom zmluvy/.test(step)),'No generic application instructions in STK steps');
+ assert.ok(stk.steps.some(step=>/podľa typu vozidla/.test(step)),'Emissions check must be conditional on vehicle type');
+ assert.ok(stk.practical.some(x=>/overte podľa typu vozidla/.test(x.body)),'Avoid asserting one legal tyre limit for all vehicles');
+ const template=read('src/pages/navody/[slug].astro');
+ assert.ok(template.includes('guide.practical?.length > 0 && <section class="panel" id="prakticke-tipy">'),'Only guides with practical tips render the section');
 });
