@@ -58,7 +58,7 @@ test('production assistant smoke retries transient failures without suppressing 
 test('production assistant smoke rejects missing, wrong-topic and spoofed official links',async()=>{
  const invalid=[
   undefined,
-  official(1),
+  official(0), // valid domain, but wrong topic for vehicle transfer
   [{title:'Oficiálny zdroj',url:'https://nbs.sk.evil.example/'}]
  ];
  let index=0;
