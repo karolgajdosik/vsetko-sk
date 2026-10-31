@@ -8,6 +8,20 @@ test('AI search splits on whitespace and removes Slovak accents',()=>{
  assert.match(source,/replace\(\/\[\\u0300-\\u036f\]\/g/);
  assert.doesNotMatch(source,/split\(\/\\\\s\+\/\)/);
 });
+
+test('AI dynamic chat classes retain globally scoped Astro styles',()=>{
+ const source=read('src/pages/ai.astro');
+ assert.ok(source.includes("div.className='ai-message '+role"),'Runtime-created chat bubbles must have the expected classes');
+ assert.ok(source.includes("links.className='ai-sources'"),'Runtime-created source links must have the expected class');
+ assert.ok(source.includes("official.className='ai-sources'"),'Official source links must share the styled class');
+ for(const selector of ['ai-message','ai-bot','ai-user','ai-sources']){
+  assert.ok(source.includes(':global(.'+selector+')'),'Dynamic .'+selector+' must not be scoped away by Astro');
+ }
+ for(const selector of [':global(.ai-sources strong)',':global(.ai-sources a)',':global(.ai-message){max-width:100%}']){
+  assert.ok(source.includes(selector),'Missing dynamic source-link or mobile style: '+selector);
+ }
+});
+
 test('suite uses local ISO dates instead of locale-specific date strings',()=>{
  const source=read('src/pages/nastroje/[slug].astro');
  assert.match(source,/function localDateISO\(/);
