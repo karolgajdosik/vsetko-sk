@@ -4,6 +4,12 @@ import {checkProductionAssistant} from '../scripts/check-production-assistant.mj
 
 const json=(body,status=200)=>new Response(JSON.stringify(body),{status,headers:{'content-type':'application/json; charset=utf-8'}});
 const expectedPaths=['/navody/porovnanie-hypotek/','/navody/prepis-auta/','/navody/dedicske-konanie/'];
+const officialUrls=[
+ 'https://nbs.sk/dohlad-nad-financnym-trhom/ofs/zivotne-situacie/chceme-byvat-sami/',
+ 'https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_elektronicke-sluzby-evidencie',
+ 'https://www.justice.gov.sk/agenda-ministerstva/civilne-pravo/civilny-mimosporovy-poriadok/'
+];
+const official=idx=>[{title:'Oficiálny zdroj',url:officialUrls[idx]}];
 
 test('production assistant smoke uses bounded guide navigation and no personal data',async()=>{
  const seen=[];
@@ -16,7 +22,7 @@ test('production assistant smoke uses bounded guide navigation and no personal d
   assert.equal(typeof payload.question,'string');
   const expected=expectedPaths[seen.length];
   seen.push(payload.question);
-  return json({mode:'guide-navigation',sources:[{title:'Návod',url:expected}]});
+  return json({mode:'guide-navigation',sources:[{title:'Návod',url:expected}],officialSources:official(seen.length-1)});
  }});
  assert.deepEqual(failures,[]);
  assert.equal(seen.length,3);
@@ -42,8 +48,34 @@ test('production assistant smoke retries transient failures without suppressing 
   const index=[...calls.keys()].indexOf(question);
   if(index===0&&count===1)return json({error:'temporary'},503);
   if(index===1)return json({mode:'guide-navigation',sources:[]});
-  return json({mode:'guide-navigation',sources:[{url:expectedPaths[index]}]});
+  return json({mode:'guide-navigation',sources:[{url:expectedPaths[index]}],officialSources:official(index)});
  }});
  assert.deepEqual(failures,[expectedPaths[1]]);
  assert.deepEqual([...calls.values()],[2,2,1]);
+});
+
+
+test('production assistant smoke rejects missing, wrong-topic and spoofed official links',async()=>{
+ const invalid=[
+  undefined,
+  official(1),
+  [{title:'Oficiálny zdroj',url:'https://nbs.sk.evil.example/'}]
+ ];
+ let index=0;
+ const failures=await checkProductionAssistant({attempts:1,fetchImpl:async()=>{
+  const i=index++;
+  return json({mode:'guide-navigation',sources:[{url:expectedPaths[i]}],officialSources:invalid[i]});
+ }});
+ assert.deepEqual(failures,expectedPaths);
+});
+
+test('production assistant smoke rejects extra unsafe sources even with correct official link',async()=>{
+ let index=0;
+ const failures=await checkProductionAssistant({attempts:1,fetchImpl:async()=>{
+  const i=index++;
+  const sources=official(i);
+  if(i===0)sources.push({title:'Falošný odkaz',url:'https://nbs.sk.evil.example/'});
+  return json({mode:'guide-navigation',sources:[{url:expectedPaths[i]}],officialSources:sources});
+ }});
+ assert.deepEqual(failures,[expectedPaths[0]]);
 });
