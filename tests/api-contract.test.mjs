@@ -268,3 +268,28 @@ test('RPO: final HTTP error replaces an earlier timeout in outage diagnostics',a
   assert.equal(body.upstreamFailureType,undefined,'Earlier timeout must not mask final HTTP 429');
  });
 });
+
+test('RPO: matching records with missing names are rejected and never cached',async()=>{
+ const original=Object.getOwnPropertyDescriptor(globalThis,'caches');
+ let cacheWrites=0;
+ Object.defineProperty(globalThis,'caches',{value:{default:{put:async()=>{cacheWrites++;}}},configurable:true});
+ const malformed=[
+  {identifier:'31333532'},
+  {identifier:'31333532',name:'   '},
+  {identifiers:[{value:'31333532'}],fullNames:[{value:'  '}]}
+ ];
+ try{
+  for(const record of malformed){
+   await withFetch(async()=>Response.json({results:[record]}),async()=>{
+    const res=await rpo({request:request('/api/rpo?ico=31333532')});
+    assert.equal(res.status,502);
+    assert.equal(res.headers.get('Cache-Control'),'no-store');
+    assert.match((await res.json()).error,/neúplné údaje/);
+   });
+  }
+  assert.equal(cacheWrites,0,'Incomplete RPO records must not be cached');
+ }finally{
+  if(original)Object.defineProperty(globalThis,'caches',original);
+  else delete globalThis.caches;
+ }
+});

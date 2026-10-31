@@ -50,6 +50,12 @@ export async function onRequestGet({request}){
    const identifiers=Array.isArray(x.identifiers)?x.identifiers.filter(v=>v&&typeof v.value==='string').map(v=>v.value):[];
    return identifiers.includes(ico)||String(x.identifier??x.identificationNumber??x.ico??'')===ico;
   }).slice(0,5).map(x=>({identifier:ico,name:current(x.fullNames)??(typeof x.fullName==='string'?x.fullName:typeof x.name==='string'?x.name:typeof x.businessName==='string'?x.businessName:null),id:Number.isSafeInteger(x.id)?x.id:null}));
+  // A matched company without a usable name is not a verified RPO result.
+  // Keep it out of both successful API responses and the edge cache.
+  if(safe.some(x=>typeof x.name!=='string'||!x.name.trim())){
+   console.error('RPO matching record missing a usable name');
+   return json({error:'Register vrátil neúplné údaje. Výsledok vyhľadávania nie je možné overiť.'},502);
+  }
   const data={ico,results:safe,count:safe.length,source:'Register právnických osôb (RPO)',sourceUrl:'https://rpo.minv.sk/new/',checkedAt:new Date().toISOString(),note:'RPO sa aktualizuje spravidla raz denne. Výpis má informatívny charakter.'};
   await saveVerifiedCache(request,ico,data);
   return json(data);
