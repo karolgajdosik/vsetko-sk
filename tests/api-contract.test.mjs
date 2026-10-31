@@ -344,3 +344,44 @@ test('RPO: bounded active and undated official names remain valid',async()=>{
   });
  }
 });
+
+test('RPO: impossible calendar dates are rejected and never cached',async()=>{
+ const original=Object.getOwnPropertyDescriptor(globalThis,'caches');
+ let writes=0;
+ Object.defineProperty(globalThis,'caches',{value:{default:{put:async()=>{writes++;}}},configurable:true});
+ try{
+  for(const period of [
+   {validFrom:'2026-02-31'},
+   {validFrom:'2025-02-29'},
+   {validFrom:'2026-04-31'},
+   {validTo:'2026-02-31'}
+  ]){
+   await withFetch(async()=>Response.json({results:[{
+    identifier:'31333532',fullNames:[{value:'Neoveriteľný názov',...period}]
+   }]}),async()=>{
+    const res=await rpo({request:request('/api/rpo?ico=31333532')});
+    assert.equal(res.status,502,JSON.stringify(period));
+    assert.equal(res.headers.get('Cache-Control'),'no-store');
+   });
+  }
+  assert.equal(writes,0,'Invalid calendar dates must never enter the RPO edge cache');
+ }finally{
+  if(original)Object.defineProperty(globalThis,'caches',original);
+  else delete globalThis.caches;
+ }
+});
+
+test('RPO: valid leap day and ISO timestamps remain supported',async()=>{
+ for(const period of [
+  {validFrom:'2024-02-29',validTo:'2999-12-31'},
+  {validFrom:'2024-02-29T09:30:00+01:00',validTo:'2999-12-31T23:59:59Z'}
+ ]){
+  await withFetch(async()=>Response.json({results:[{
+   identifier:'31333532',fullNames:[{value:'Platný názov',...period}]
+  }]}),async()=>{
+   const res=await rpo({request:request('/api/rpo?ico=31333532')});
+   assert.equal(res.status,200,JSON.stringify(period));
+   assert.equal((await res.json()).results[0].name,'Platný názov');
+  });
+ }
+});
