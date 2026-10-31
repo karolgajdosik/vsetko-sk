@@ -425,3 +425,61 @@ test('RPO: legacy name fields still work when official fullNames history is abse
   });
  }
 });
+
+test('RPO: expired, future and invalid official identifiers cannot match through legacy fields',async()=>{
+ const original=Object.getOwnPropertyDescriptor(globalThis,'caches');
+ let writes=0;
+ Object.defineProperty(globalThis,'caches',{value:{default:{put:async()=>{writes++;}}},configurable:true});
+ try{
+  for(const period of [
+   {validTo:'2020-01-01'},
+   {validFrom:'2999-01-01'},
+   {validFrom:'2026-02-31'},
+   {validTo:'2025-02-29'}
+  ]){
+   await withFetch(async()=>Response.json({results:[{
+    identifier:'31333532',
+    identifiers:[{value:'31333532',...period}],
+    fullNames:[{value:'Historická spoločnosť'}]
+   }]}),async()=>{
+    const res=await rpo({request:request('/api/rpo?ico=31333532')});
+    assert.equal(res.status,200,JSON.stringify(period));
+    assert.equal((await res.json()).count,0,'Noncurrent official identifier must not match');
+   });
+  }
+  assert.equal(writes,0,'Unverified identifier matches must never enter edge cache');
+ }finally{
+  if(original)Object.defineProperty(globalThis,'caches',original);
+  else delete globalThis.caches;
+ }
+});
+
+test('RPO: current, undated and leap-day official identifiers remain searchable',async()=>{
+ for(const identifiers of [
+  [{value:'31333532',validFrom:'2024-02-29',validTo:'2999-12-31'}],
+  [{value:'31333532'}],
+  [{value:'31333532',validTo:'2020-01-01'},{value:'31333532',validFrom:'2020-01-02'}]
+ ]){
+  await withFetch(async()=>Response.json({results:[{
+   identifiers,fullNames:[{value:'Aktuálna spoločnosť'}]
+  }]}),async()=>{
+   const res=await rpo({request:request('/api/rpo?ico=31333532')});
+   assert.equal(res.status,200,JSON.stringify(identifiers));
+   const body=await res.json();
+   assert.equal(body.count,1);
+   assert.equal(body.results[0].name,'Aktuálna spoločnosť');
+  });
+ }
+});
+
+test('RPO: legacy identifier is supported when no official matching identifier exists',async()=>{
+ await withFetch(async()=>Response.json({results:[{
+  identifier:'31333532',
+  identifiers:[{value:'99999999',validTo:'2020-01-01'}],
+  name:'Legacy company'
+ }]}),async()=>{
+  const res=await rpo({request:request('/api/rpo?ico=31333532')});
+  assert.equal(res.status,200);
+  assert.equal((await res.json()).count,1);
+ });
+});

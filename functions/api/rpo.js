@@ -65,8 +65,18 @@ export async function onRequestGet({request}){
    })?.value??null;
   };
   const safe=items.filter(x=>{
-   const identifiers=Array.isArray(x.identifiers)?x.identifiers.filter(v=>v&&typeof v.value==='string').map(v=>v.value):[];
-   return identifiers.includes(ico)||String(x.identifier??x.identificationNumber??x.ico??'')===ico;
+   // Official identifier history may include expired or future IČO entries.
+   // A legacy field must not override an explicitly dated matching identifier.
+   const matching=Array.isArray(x.identifiers)?x.identifiers.filter(v=>v&&v.value===ico):[];
+   if(matching.length){
+    const today=new Date().toISOString().slice(0,10);
+    return matching.some(v=>{
+     const from=v.validFrom==null?null:isoDay(v.validFrom);
+     const to=v.validTo==null?null:isoDay(v.validTo);
+     return (v.validFrom==null||(from!==null&&from<=today))&&(v.validTo==null||(to!==null&&to>=today));
+    });
+   }
+   return String(x.identifier??x.identificationNumber??x.ico??'')===ico;
   }).slice(0,5).map(x=>{
    // When the registry provides a name history, only a currently valid entry
    // can be presented as the company's current name. Legacy fallback fields
