@@ -1,4 +1,5 @@
 import test from 'node:test';
+import {readFileSync} from 'node:fs';
 import assert from 'node:assert/strict';
 import {evaluateApiResponse} from '../scripts/production-api-health-utils.mjs';
 import {probeOfficialRpo} from '../scripts/rpo-upstream-probe.mjs';
@@ -62,4 +63,14 @@ test('independent RPO diagnostic distinguishes timeout and malformed upstream da
  assert.equal(invalid.status,'invalid_schema');
  const missing=await probeOfficialRpo({fetchImpl:async()=>Response.json({results:[{identifier:'00000000'}]})});
  assert.equal(missing.status,'no_matching_record');
+});
+
+test('production health reports live AI browser failures as workflow failures',()=>{
+ const workflow=readFileSync(new URL('../.github/workflows/production-api-health.yml',import.meta.url),'utf8');
+ assert.match(workflow,/id:\s*assistantBrowser/);
+ const gate=workflow.match(/- name: Mark workflow failed when UI check fails\s*\n\s*if:\s*\$\{\{\s*([^}]+)\}\}\s*\n\s*run:\s*exit 1/);
+ assert.ok(gate,'Expected explicit exit 1 on failed production UI checks');
+ for(const step of ['ui','mobile','assistantBrowser']){
+  assert.ok(gate[1].includes(`steps.${step}.outcome == 'failure'`),`Missing failure signal for ${step}`);
+ }
 });
