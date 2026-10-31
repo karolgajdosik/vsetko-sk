@@ -14,6 +14,7 @@ on:
       - 'src/data/search.json'
       - 'src/data/guides.json'
       - 'tests/production-mobile-calculators.mjs'
+      - 'tests/browser-assistant.mjs'
   workflow_run:
     workflows: ['Auto-merge validated pull requests']
     types: [completed]
@@ -52,6 +53,10 @@ jobs:
         id: mobile
         continue-on-error: true
         run: node tests/production-mobile-calculators.mjs
+      - name: Check live official links rendered in AI chat
+        id: assistantBrowser
+        continue-on-error: true
+        run: ASSISTANT_LIVE=1 VSETKO_ORIGIN=https://vsetko24.sk node tests/browser-assistant.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -84,7 +89,7 @@ jobs:
       - name: Create or resolve production UI outage issue
         uses: actions/github-script@v7
         env:
-          UI_OUTCOME: ${{ (steps.ui.outcome == 'failure' || steps.mobile.outcome == 'failure') && 'failure' || 'success' }}
+          UI_OUTCOME: ${{ (steps.ui.outcome == 'failure' || steps.mobile.outcome == 'failure' || steps.assistantBrowser.outcome == 'failure') && 'failure' || 'success' }}
         with:
           script: |
             const owner=context.repo.owner,repo=context.repo.repo;
@@ -96,7 +101,7 @@ jobs:
               if(!existing){
                 await github.rest.issues.create({
                   owner,repo,title,
-                  body:'Automatická kontrola verejných stránok VŠETKO24 zlyhala. Diagnostika: '+runUrl+'\n\nKontrolované: úvodná stránka, kontakt, návody a dve kľúčové kalkulačky vrátane reálneho mobilného Chromium testu na 360 a 390 px.'
+                  body:'Automatická kontrola verejných stránok VŠETKO24 zlyhala. Diagnostika: '+runUrl+'\n\nKontrolované: úvodná stránka, kontakt, návody a dve kľúčové kalkulačky vrátane reálneho mobilného Chromium testu na 360 a 390 px a zobrazenia oficiálnych odkazov AI asistenta.'
                 });
               }else{
                 core.info('Existing open UI outage issue #'+existing.number);
