@@ -40,7 +40,7 @@ export async function onRequestGet({request}){
    }catch(error){
     // Diagnostics must describe the final attempt, not a different earlier failure.
     lastUpstreamStatus=attemptUpstreamStatus;
-    lastUpstreamFailureType=attemptUpstreamStatus===null&&['TimeoutError','AbortError','TypeError'].includes(error?.name)?error.name:null;console.warn('RPO upstream request failed',{attempt:attempt+1,type:error?.name||'Error'});if(attempt===1)throw error;}
+    lastUpstreamFailureType=attemptUpstreamStatus===null&&['TimeoutError','AbortError','TypeError'].includes(error?.name)?error.name:null;console.warn('RPO upstream request failed',{attempt:attempt+1,type:error?.name||'Error'});if(attempt===1||(attemptUpstreamStatus!==null&&attemptUpstreamStatus>=400&&attemptUpstreamStatus<500&&![408,425,429].includes(attemptUpstreamStatus)))throw error;}
   }
   const items=Array.isArray(raw)?raw:Array.isArray(raw?.results)?raw.results:Array.isArray(raw?.items)?raw.items:null;
   if(!items){console.error('RPO unexpected upstream response shape',{type:raw===null?'null':Array.isArray(raw)?'array':typeof raw});return json({error:'Register vrátil neočakávanú odpoveď. Výsledok vyhľadávania nie je možné overiť.'},502);}
