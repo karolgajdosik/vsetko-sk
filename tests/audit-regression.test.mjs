@@ -149,9 +149,28 @@ test('mortgage guide renders practical comparison advice only when present',()=>
   assert.ok(item.title?.length>8,'Practical tip needs a meaningful heading');
   assert.ok(item.body?.length>60,'Practical tip needs actionable guidance');
  }
- assert.equal(guides.filter(x=>Array.isArray(x.practical)).length,1,'Only the reviewed guide gets practical advice in this first PR');
+ assert.equal(guides.filter(x=>Array.isArray(x.practical)).length,2,'Only the two reviewed finance guides have practical advice so far');
  const template=read('src/pages/navody/[slug].astro');
  assert.match(template,/guide\.practical\?\.length > 0 && <li><a href="#prakticke-tipy">/);
  assert.match(template,/guide\.practical\?\.length > 0 && <section class="panel" id="prakticke-tipy">/);
  assert.match(template,/guide\.practical\.map\(item=><article><h3>\{item\.title\}<\/h3><p>\{item\.body\}<\/p><\/article>\)/);
+});
+
+
+test('refinancing guide has actionable tips and preserves conditional rendering for other guides',()=>{
+ const guides=JSON.parse(read('src/data/guides.json'));
+ const refinancing=guides.find(x=>x.slug==='refinancovanie-uveru');
+ assert.ok(refinancing,'Refinancing guide must exist');
+ assert.match(refinancing.description,/celkovými nákladmi/);
+ assert.equal(refinancing.practical?.length,4);
+ for(const tip of refinancing.practical){
+  assert.ok(tip.title?.length>8,'Practical tip needs a meaningful heading');
+  assert.ok(tip.body?.length>60,'Practical tip needs actionable guidance');
+ }
+ assert.ok(refinancing.practical.some(x=>/predĺženia splatnosti/.test(x.body)),'Explain the longer-term cost risk');
+ assert.ok(refinancing.practical.some(x=>/predčasného splatenia/.test(x.body)),'Mention early repayment conditions');
+ const otherGuides=guides.filter(x=>!['porovnanie-hypotek','refinancovanie-uveru'].includes(x.slug));
+ assert.ok(otherGuides.every(x=>!Object.hasOwn(x,'practical')),'Unreviewed guides must not display practical tips');
+ const template=read('src/pages/navody/[slug].astro');
+ assert.match(template,/guide\.practical\?\.length > 0 && <section class="panel" id="prakticke-tipy">/);
 });
