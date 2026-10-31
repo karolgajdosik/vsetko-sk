@@ -46,7 +46,7 @@ export async function onRequestGet({request}){
   if(!items){console.error('RPO unexpected upstream response shape',{type:raw===null?'null':Array.isArray(raw)?'array':typeof raw});return json({error:'Register vrátil neočakávanú odpoveď. Výsledok vyhľadávania nie je možné overiť.'},502);}
   if(items.some(x=>!x||typeof x!=='object'||Array.isArray(x))){console.error('RPO invalid upstream record type');return json({error:'Register vrátil neplatné údaje. Skúste to neskôr.'},502);}
   // RPO fullNames can contain historical or future names. Never label them as current.
-  const isoDay=value=>typeof value==='string'&&/^\\d{4}-\\d{2}-\\d{2}(?:$|T)/.test(value)&&!Number.isNaN(Date.parse(value))?value.slice(0,10):null;
+  const isoDay=value=>typeof value==='string'&&/^\d{4}-\d{2}-\d{2}(?:$|T)/.test(value)&&!Number.isNaN(Date.parse(value))?value.slice(0,10):null;
   const current=values=>{
    if(!Array.isArray(values))return null;
    const today=new Date().toISOString().slice(0,10);
