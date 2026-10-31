@@ -124,3 +124,16 @@ test('finance hub exposes verified task-first links to published calculators',()
  assert.match(source,/aria-labelledby="finance-tasks"/);
  assert.match(source,/Výpočty sú orientačné/);
 });
+
+test('homepage SEO metadata uses the current brand in search and social previews',()=>{
+ const home=read('src/pages/index.astro');
+ const base=read('src/layouts/Base.astro');
+ const description=home.match(/<Base[^>]*\bdescription="([^"]+)"/)?.[1];
+ assert.ok(description,'Homepage must provide a description');
+ assert.match(description,/^VŠETKO24\.sk – /);
+ assert.match(description,/kalkulačky/);
+ assert.match(description,/financiách, aute a úradoch/);
+ assert.doesNotMatch(description,/VŠETKO\.sk/);
+ assert.match(base,/<meta name="description" content=\{description\}/);
+ assert.match(base,/<meta property="og:description" content=\{description\}/);
+});
