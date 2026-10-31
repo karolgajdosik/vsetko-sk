@@ -483,3 +483,33 @@ test('RPO: legacy identifier is supported when no official matching identifier e
   assert.equal((await res.json()).count,1);
  });
 });
+
+test('RPO: HTTP 403 is not retried and remains a visible upstream outage',async()=>{
+ let calls=0;
+ await withFetch(async()=>{
+  calls++;
+  return new Response('',{status:403});
+ },async()=>{
+  const res=await rpo({request:request('/api/rpo?ico=31333532')});
+  assert.equal(res.status,503);
+  assert.equal(res.headers.get('Cache-Control'),'no-store');
+  const body=await res.json();
+  assert.equal(body.upstreamStatus,403);
+  assert.match(body.error,/nedostupný/);
+ });
+ assert.equal(calls,1,'Forbidden responses must not trigger a second request to the registry');
+});
+
+test('RPO: HTTP 429 remains retryable and can recover on the second attempt',async()=>{
+ let calls=0;
+ await withFetch(async()=>{
+  calls++;
+  return calls===1?new Response('',{status:429}):Response.json({results:[{identifier:'31333532',fullName:'Recovered after throttling'}]});
+ },async()=>{
+  const res=await rpo({request:request('/api/rpo?ico=31333532')});
+  assert.equal(res.status,200);
+  const body=await res.json();
+  assert.equal(body.results[0].name,'Recovered after throttling');
+ });
+ assert.equal(calls,2,'Throttling should keep the bounded retry behavior');
+});
