@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/production-api-health.yml'
       - 'scripts/check-production-apis.mjs'
+      - 'scripts/check-production-assistant.mjs'
       - 'scripts/production-api-health-utils.mjs'
       - 'scripts/rpo-upstream-probe.mjs'
       - 'scripts/check-production-ui.mjs'
@@ -39,6 +40,10 @@ jobs:
         id: health
         continue-on-error: true
         run: node scripts/check-production-apis.mjs
+      - name: Check live production assistant guide navigation
+        id: assistant
+        continue-on-error: true
+        run: node scripts/check-production-assistant.mjs
       - name: Install browser for production mobile checks
         run: |
           npm install --no-save playwright@1.56.1 --no-audit --no-fund
@@ -56,7 +61,7 @@ jobs:
       - name: Create or resolve API outage issue
         uses: actions/github-script@v7
         env:
-          HEALTH_OUTCOME: ${{ steps.health.outcome }}
+          HEALTH_OUTCOME: ${{ (steps.health.outcome == 'failure' || steps.assistant.outcome == 'failure') && 'failure' || 'success' }}
         with:
           script: |
             const owner=context.repo.owner,repo=context.repo.repo;
@@ -67,7 +72,7 @@ jobs:
               if(!existing){
                 await github.rest.issues.create({
                   owner,repo,title,
-                  body:'Automatická kontrola produkčných API zlyhala. Pozrite logy workflow: '+context.serverUrl+'/'+owner+'/'+repo+'/actions/runs/'+context.runId+'\n\nKontrolované: ECB, World Bank, RPO a Open Charge Map. Pri krátkodobom výpadku externého poskytovateľa môže ísť o prechodný problém.'
+                  body:'Automatická kontrola produkčných API zlyhala. Pozrite logy workflow: '+context.serverUrl+'/'+owner+'/'+repo+'/actions/runs/'+context.runId+'\n\nKontrolované: ECB, World Bank, RPO, Open Charge Map a AI asistent (bezplatná navigácia na návody). Pri krátkodobom výpadku externého poskytovateľa môže ísť o prechodný problém.'
                 });
               }else{
                 core.info('Existing open outage issue #'+existing.number);
@@ -104,5 +109,5 @@ jobs:
         if: ${{ steps.ui.outcome == 'failure' || steps.mobile.outcome == 'failure' }}
         run: exit 1
       - name: Mark workflow failed when API check fails
-        if: ${{ steps.health.outcome == 'failure' }}
+        if: ${{ steps.health.outcome == 'failure' || steps.assistant.outcome == 'failure' }}
         run: exit 1
