@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {getRepairedGuideRoutes,repairedSearchTargets} from '../scripts/production-guide-routes.mjs';
+import {getRepairedGuideRoutes,repairedSearchTargets,getPracticalGuideRoutes,practicalGuideSlugs} from '../scripts/production-guide-routes.mjs';
 const search=JSON.parse(readFileSync(new URL('../src/data/search.json',import.meta.url),'utf8'));
 const guides=JSON.parse(readFileSync(new URL('../src/data/guides.json',import.meta.url),'utf8'));
 
@@ -34,4 +34,31 @@ test('Astro scoped H1 attributes and nested spans do not cause false production 
  assert.equal(hasProductionMarker('<h2>Prepis auta na Slovensku</h2>',marker),false);
  assert.equal(hasProductionMarker('<h1>Prepis auta na Slovensku</h1>','<h1>Prepis auta na Slovensku</h1>'),true);
  assert.equal(productionMarkerLabel(marker),'H1 heading: Prepis auta na Slovensku');
+});
+
+
+test('production smoke covers all four merged backlog practical guides',()=>{
+ const routes=getPracticalGuideRoutes(guides);
+ assert.deepEqual(routes.map(route=>route.path),practicalGuideSlugs.map(slug=>'/navody/'+slug+'/'));
+ for(const route of routes){
+  assert.equal(route.markers.length,2);
+  assert.equal(route.markers[1].practicalTitles.length,4);
+  assert.ok(route.markers[1].practicalTitles.every(title=>title.length>8));
+ }
+ assert.throws(()=>getPracticalGuideRoutes(guides.filter(guide=>guide.slug!=='domace-nabijanie')),/Missing practical guide/);
+ const broken=guides.map(guide=>guide.slug==='stk-priprava'?{...guide,practical:[]}:guide);
+ assert.throws(()=>getPracticalGuideRoutes(broken),/Missing practical advice/);
+});
+
+test('production practical marker requires visible tips inside section and TOC navigation',async()=>{
+ const {hasProductionMarker,productionMarkerLabel}=await import('../scripts/production-ui-markers.mjs');
+ const marker={practicalTitles:['Overte úrok & poplatky','Porovnajte všetky náklady']};
+ const section='<section class="panel" data-astro-cid="abc" id="prakticke-tipy"><h2>Praktické rady</h2><article><h3 data-astro-cid="abc">Overte úrok &amp; poplatky</h3><p>Porovnajte podmienky banky vrátane všetkých súvisiacich nákladov.</p></article><article><h3>Porovnajte všetky náklady</h3><p>Skontrolujte poplatky, dobu splatnosti a ďalšie požiadavky banky.</p></article></section>';
+ const nav='<nav aria-label="Obsah návodu"><a href="#prakticke-tipy">Praktické rady</a></nav>';
+ assert.equal(hasProductionMarker(nav+section,marker),true);
+ assert.equal(hasProductionMarker(section,marker),false,'Missing navigation must fail');
+ assert.equal(hasProductionMarker(nav+section.replace('id="prakticke-tipy"','id="ine"'),marker),false,'Missing section must fail');
+ assert.equal(hasProductionMarker(nav+section.replace('Porovnajte všetky náklady</h3>','Iný text</h3>'),marker),false,'Changed heading must fail');
+ assert.equal(hasProductionMarker(nav+section.replace('Skontrolujte poplatky, dobu splatnosti a ďalšie požiadavky banky.','Krátke.'),marker),false,'Missing actionable paragraph must fail');
+ assert.equal(productionMarkerLabel(marker),'Practical tips section and navigation (2 tips)');
 });
