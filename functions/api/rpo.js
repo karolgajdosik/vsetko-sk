@@ -67,7 +67,15 @@ export async function onRequestGet({request}){
   const safe=items.filter(x=>{
    const identifiers=Array.isArray(x.identifiers)?x.identifiers.filter(v=>v&&typeof v.value==='string').map(v=>v.value):[];
    return identifiers.includes(ico)||String(x.identifier??x.identificationNumber??x.ico??'')===ico;
-  }).slice(0,5).map(x=>({identifier:ico,name:current(x.fullNames)??(typeof x.fullName==='string'?x.fullName:typeof x.name==='string'?x.name:typeof x.businessName==='string'?x.businessName:null),id:Number.isSafeInteger(x.id)?x.id:null}));
+  }).slice(0,5).map(x=>{
+   // When the registry provides a name history, only a currently valid entry
+   // can be presented as the company's current name. Legacy fallback fields
+   // are not independently date-verified and may contain a historical name.
+   const hasNameHistory=Array.isArray(x.fullNames)&&x.fullNames.length>0;
+   const verifiedName=current(x.fullNames);
+   const legacyName=typeof x.fullName==='string'?x.fullName:typeof x.name==='string'?x.name:typeof x.businessName==='string'?x.businessName:null;
+   return {identifier:ico,name:hasNameHistory?verifiedName:(verifiedName??legacyName),id:Number.isSafeInteger(x.id)?x.id:null};
+  });
   // A matched company without a usable name is not a verified RPO result.
   // Keep it out of both successful API responses and the edge cache.
   if(safe.some(x=>typeof x.name!=='string'||!x.name.trim())){

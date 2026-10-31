@@ -385,3 +385,43 @@ test('RPO: valid leap day and ISO timestamps remain supported',async()=>{
   });
  }
 });
+
+test('RPO: expired and future fullNames cannot be bypassed by unverified legacy name fields',async()=>{
+ const original=Object.getOwnPropertyDescriptor(globalThis,'caches');
+ let writes=0;
+ Object.defineProperty(globalThis,'caches',{value:{default:{put:async()=>{writes++;}}},configurable:true});
+ try{
+  for(const record of [
+   {identifier:'31333532',fullNames:[{value:'Historický názov',validTo:'2020-01-01'}],fullName:'Historický názov'},
+   {identifier:'31333532',fullNames:[{value:'Budúci názov',validFrom:'2999-01-01'}],name:'Budúci názov'},
+   {identifier:'31333532',fullNames:[{value:'Neplatný názov',validFrom:'2026-02-31'}],businessName:'Neplatný názov'}
+  ]){
+   await withFetch(async()=>Response.json({results:[record]}),async()=>{
+    const res=await rpo({request:request('/api/rpo?ico=31333532')});
+    assert.equal(res.status,502,JSON.stringify(record));
+    assert.equal(res.headers.get('Cache-Control'),'no-store');
+    assert.match((await res.json()).error,/neúplné údaje/);
+   });
+  }
+  assert.equal(writes,0,'Unverified legacy fallback names must never enter cache');
+ }finally{
+  if(original)Object.defineProperty(globalThis,'caches',original);
+  else delete globalThis.caches;
+ }
+});
+
+test('RPO: legacy name fields still work when official fullNames history is absent or empty',async()=>{
+ for(const record of [
+  {identifier:'31333532',fullName:'Firma bez histórie'},
+  {identifier:'31333532',fullNames:[],name:'Firma s prázdnou históriou'},
+  {identifier:'31333532',fullNames:[],businessName:'Firma s alternatívnym názvom'}
+ ]){
+  await withFetch(async()=>Response.json({results:[record]}),async()=>{
+   const res=await rpo({request:request('/api/rpo?ico=31333532')});
+   assert.equal(res.status,200,JSON.stringify(record));
+   const body=await res.json();
+   assert.equal(body.count,1);
+   assert.ok(body.results[0].name);
+  });
+ }
+});
