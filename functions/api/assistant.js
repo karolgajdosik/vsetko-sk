@@ -1,3 +1,4 @@
+import {guideNavigationFor} from './assistant-guide-routes.mjs';
 // Cloudflare Pages Function: bounded Slovak AI assistant with source-grounded context.
 // Requires a Cloudflare Workers AI binding named AI (configured in Pages settings).
 const MODEL='@cf/meta/llama-3.1-8b-instruct-fp8-fast';
@@ -16,6 +17,9 @@ export async function onRequestPost({request,env}){
  try{const raw=await request.text();if(raw.length>MAX_BYTES)return reply({error:'Otázka je príliš dlhá.'},413);payload=JSON.parse(raw);}catch{return reply({error:'Neplatná požiadavka.'},400);}
  const question=payload?.question;
  if(typeof question!=='string'||question.trim().length<3||question.length>600)return reply({error:'Otázka musí mať 3 až 600 znakov.'},400);
+ // Only narrow, non-procedural guide navigation is served without the AI model.
+ const guide=guideNavigationFor(question);
+ if(guide)return reply(guide);
  if(!env.AI)return reply({error:'AI asistent ešte nie je aktivovaný. Použite fulltextové vyhľadávanie.',code:'not_configured'},503);
  // Server-owned source catalog; never trust user-provided context for AI grounding.
  const catalog=[
