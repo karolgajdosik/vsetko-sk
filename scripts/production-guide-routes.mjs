@@ -23,3 +23,20 @@ export function getRepairedGuideRoutes(search,guides){
   return {path,markers:[{heading:guide.title}]};
  });
 }
+
+// Monitor the four independently merged practical-advice guides from backlog #104.
+export const practicalGuideSlugs=Object.freeze([
+ 'porovnanie-hypotek','refinancovanie-uveru','domace-nabijanie','stk-priprava'
+]);
+
+export function getPracticalGuideRoutes(guides){
+ const bySlug=new Map(guides.map(guide=>[guide.slug,guide]));
+ return practicalGuideSlugs.map(slug=>{
+  const guide=bySlug.get(slug);
+  if(!guide)throw new Error('Missing practical guide: '+slug);
+  if(!Array.isArray(guide.practical)||guide.practical.length!==4||guide.practical.some(tip=>!tip.title?.trim()||!tip.body?.trim())){
+   throw new Error('Missing practical advice for '+slug);
+  }
+  return {path:'/navody/'+slug+'/',markers:[{heading:guide.title},{practicalTitles:guide.practical.map(tip=>tip.title)}]};
+ });
+}
