@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {guideNavigationFor} from '../functions/api/assistant-guide-routes.mjs';
 import {onRequestPost} from '../functions/api/assistant.js';
+import {trustedOfficialUrl} from '../src/lib/official-sources.mjs';
 
 const post=question=>new Request('https://vsetko24.sk/api/assistant',{method:'POST',headers:{'Content-Type':'application/json','Origin':'https://vsetko24.sk'},body:JSON.stringify({question})});
 
@@ -53,4 +54,36 @@ test('request validation remains in force and guide navigation works without pai
  assert.equal(foreign.status,403);
  const invalid=await onRequestPost({request:post('x'),env:noModel});
  assert.equal(invalid.status,400);
+});
+
+test('guide navigation links to verified, topic-specific official information without procedural claims',()=>{
+ const expected=[
+  ['Ako vybaviť hypotéku?','nbs.sk','/dohlad-nad-financnym-trhom/ofs/zivotne-situacie/chceme-byvat-sami/'],
+  ['Čo potrebujem na prepis auta?','www.slovensko.sk','/sk/zivotne-situacie/zivotna-situacia/_elektronicke-sluzby-evidencie'],
+  ['Čo treba na dedičské konanie?','www.justice.gov.sk','/agenda-ministerstva/civilne-pravo/civilny-mimosporovy-poriadok/']
+ ];
+ for(const [question,hostname,pathname] of expected){
+  const guide=guideNavigationFor(question);
+  assert.equal(guide?.mode,'guide-navigation');
+  assert.equal(guide.officialSources?.length,1,question);
+  const url=trustedOfficialUrl(guide.officialSources[0].url);
+  assert.ok(url,question);
+  assert.equal(new URL(url).hostname,hostname);
+  assert.equal(new URL(url).pathname,pathname);
+  assert.match(guide.answer,/overte|overiť/);
+ }
+});
+
+test('official source validator blocks lookalike domains, credentials and unsafe schemes',()=>{
+ for(const input of [
+  'http://nbs.sk/', 'javascript:alert(1)',
+  'https://nbs.sk.evil.example/', 'https://nbs.sk@evil.example/',
+  'https://www.justice.gov.sk.evil.example/',
+  'https://www.slovensko.sk:444/',
+  'https://evil.example/?redirect=https://nbs.sk/',
+  '/navody/prepis-auta/', null, {}
+ ])assert.equal(trustedOfficialUrl(input),null,String(input));
+ for(const url of ['https://nbs.sk/','https://www.slovensko.sk/','https://www.justice.gov.sk/']){
+  assert.equal(trustedOfficialUrl(url),url);
+ }
 });
