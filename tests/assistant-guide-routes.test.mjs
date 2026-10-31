@@ -87,3 +87,27 @@ test('official source validator blocks lookalike domains, credentials and unsafe
   assert.equal(trustedOfficialUrl(url),url);
  }
 });
+
+
+test('assistant rejects UTF-8 JSON payloads over 4096 bytes without Content-Length',async()=>{
+ const body=JSON.stringify({question:'Ako vybaviť hypotéku?',padding:'ž'.repeat(2100)});
+ assert.ok(body.length<4096,'Regression fixture must be shorter in UTF-16 code units');
+ assert.ok(new TextEncoder().encode(body).byteLength>4096,'Regression fixture must exceed UTF-8 byte limit');
+ const request=new Request('https://vsetko24.sk/api/assistant',{
+  method:'POST',headers:{'Content-Type':'application/json','Origin':'https://vsetko24.sk'},body
+ });
+ assert.equal(request.headers.has('content-length'),false);
+ const response=await onRequestPost({request,env:{}});
+ assert.equal(response.status,413);
+ assert.equal(response.headers.get('cache-control'),'no-store');
+});
+
+test('assistant accepts valid UTF-8 JSON payload below 4096 bytes',async()=>{
+ const body=JSON.stringify({question:'Ako vybaviť hypotéku?',padding:'ž'.repeat(1900)});
+ assert.ok(new TextEncoder().encode(body).byteLength<4096);
+ const response=await onRequestPost({request:new Request('https://vsetko24.sk/api/assistant',{
+  method:'POST',headers:{'Content-Type':'application/json','Origin':'https://vsetko24.sk'},body
+ }),env:{}});
+ assert.equal(response.status,200);
+ assert.equal((await response.json()).mode,'guide-navigation');
+});
