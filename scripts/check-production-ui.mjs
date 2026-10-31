@@ -1,5 +1,5 @@
 import {readFileSync} from 'node:fs';
-import {getRepairedGuideRoutes} from './production-guide-routes.mjs';
+import {getRepairedGuideRoutes,getPracticalGuideRoutes} from './production-guide-routes.mjs';
 import {hasProductionMarker,productionMarkerLabel} from './production-ui-markers.mjs';
 const search=JSON.parse(readFileSync(new URL('../src/data/search.json',import.meta.url),'utf8'));
 const guides=JSON.parse(readFileSync(new URL('../src/data/guides.json',import.meta.url),'utf8'));
@@ -9,7 +9,8 @@ const routes=[
  {path:'/kalkulacky/splatka-uveru/',markers:['id="validation-message"','aria-invalid']},
  {path:'/kalkulacky/naklady-na-auto/',markers:['id="car-validation"','id="annual"']},
  {path:'/',markers:['VŠETKO24']},
- ...getRepairedGuideRoutes(search,guides)
+ ...getRepairedGuideRoutes(search,guides),
+ ...getPracticalGuideRoutes(guides)
 ];
 const failures=[];
 for(const {path,markers} of routes){
