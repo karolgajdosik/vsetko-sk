@@ -137,3 +137,21 @@ test('homepage SEO metadata uses the current brand in search and social previews
  assert.match(base,/<meta name="description" content=\{description\}/);
  assert.match(base,/<meta property="og:description" content=\{description\}/);
 });
+
+
+test('mortgage guide renders practical comparison advice only when present',()=>{
+ const guides=JSON.parse(read('src/data/guides.json'));
+ const mortgage=guides.find(x=>x.slug==='porovnanie-hypotek');
+ assert.ok(mortgage,'Mortgage guide must exist');
+ assert.match(mortgage.description,/RPMN/);
+ assert.equal(mortgage.practical?.length,4);
+ for(const item of mortgage.practical){
+  assert.ok(item.title?.length>8,'Practical tip needs a meaningful heading');
+  assert.ok(item.body?.length>60,'Practical tip needs actionable guidance');
+ }
+ assert.equal(guides.filter(x=>Array.isArray(x.practical)).length,1,'Only the reviewed guide gets practical advice in this first PR');
+ const template=read('src/pages/navody/[slug].astro');
+ assert.match(template,/guide\.practical\?\.length > 0 && <li><a href="#prakticke-tipy">/);
+ assert.match(template,/guide\.practical\?\.length > 0 && <section class="panel" id="prakticke-tipy">/);
+ assert.match(template,/guide\.practical\.map\(item=><article><h3>\{item\.title\}<\/h3><p>\{item\.body\}<\/p><\/article>\)/);
+});
