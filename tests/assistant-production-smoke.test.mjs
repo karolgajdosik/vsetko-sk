@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {checkProductionAssistant} from '../scripts/check-production-assistant.mjs';
+import {checkProductionAssistant,checkProductionAssistantBodyLimit,assistantLimitBodies} from '../scripts/check-production-assistant.mjs';
 
 const json=(body,status=200)=>new Response(JSON.stringify(body),{status,headers:{'content-type':'application/json; charset=utf-8'}});
 const expectedPaths=['/navody/porovnanie-hypotek/','/navody/prepis-auta/','/navody/dedicske-konanie/'];
@@ -78,4 +78,50 @@ test('production assistant smoke rejects extra unsafe sources even with correct 
   return json({mode:'guide-navigation',sources:[{url:expectedPaths[i]}],officialSources:sources});
  }});
  assert.deepEqual(failures,[expectedPaths[0]]);
+});
+
+test('production assistant body-limit probe sends UTF-8 JSON on both sides of 4096 bytes without personal data',async()=>{
+ const encoder=new TextEncoder();
+ const bodies=assistantLimitBodies();
+ assert.deepEqual(bodies.map(x=>x.name),['within-limit','over-limit']);
+ assert.ok(encoder.encode(bodies[0].body).byteLength<=4096);
+ assert.ok(encoder.encode(bodies[1].body).byteLength>4096);
+ assert.ok(bodies.every(x=>JSON.parse(x.body).question==='Ako vybaviť hypotéku?'));
+ assert.ok(bodies.every(x=>JSON.parse(x.body).padding.includes('ž')));
+ let index=0;
+ const failures=await checkProductionAssistantBodyLimit({attempts:1,fetchImpl:async(url,options)=>{
+  assert.equal(url.href,'https://vsetko24.sk/api/assistant');
+  assert.equal(options.method,'POST');
+  assert.equal(options.headers.origin,'https://vsetko24.sk');
+  assert.equal(options.headers['content-length'],undefined);
+  assert.equal(options.body,bodies[index].body);
+  const response=index===0
+   ?json({mode:'guide-navigation',sources:[{url:'/navody/porovnanie-hypotek/'}]})
+   :json({error:'Otázka je príliš dlhá.'},413);
+  index++;
+  return response;
+ }});
+ assert.deepEqual(failures,[]);
+ assert.equal(index,2);
+});
+
+test('production assistant body-limit probe rejects a false 200 for oversized JSON',async()=>{
+ let index=0;
+ const failures=await checkProductionAssistantBodyLimit({attempts:1,fetchImpl:async()=>{
+  const response=index++===0
+   ?json({mode:'guide-navigation',sources:[{url:'/navody/porovnanie-hypotek/'}]})
+   :json({mode:'guide-navigation',sources:[{url:'/navody/porovnanie-hypotek/'}]});
+  return response;
+ }});
+ assert.deepEqual(failures,['over-limit']);
+});
+
+test('production assistant body-limit probe rejects bad under-limit response and non-JSON 413',async()=>{
+ let index=0;
+ const failures=await checkProductionAssistantBodyLimit({attempts:1,fetchImpl:async()=>{
+  return index++===0
+   ?json({error:'Unavailable'},503)
+   :new Response('<html>blocked</html>',{status:413,headers:{'content-type':'text/html'}});
+ }});
+ assert.deepEqual(failures,['within-limit','over-limit']);
 });
