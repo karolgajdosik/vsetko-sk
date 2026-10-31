@@ -3,7 +3,7 @@
     "slug": "porovnanie-hypotek",
     "category": "financie",
     "title": "Porovnanie hypoték",
-    "description": "Pred porovnaním ponúk si pripravte cenu nehnuteľnosti, vlastné zdroje a požadovanú splatnosť.",
+    "description": "Porovnajte hypotéky podľa RPMN, celkovej sumy na zaplatenie, fixácie, poplatkov a podmienok čerpania. Praktický kontrolný zoznam pred podpisom.",
     "steps": [
       "Porovnajte RPMN, nielen úrokovú sadzbu.",
       "Zistite podmienky fixácie a poplatky.",
@@ -21,7 +21,25 @@
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
     "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "practical": [
+      {
+        "title": "Porovnávajte rovnaký scenár",
+        "body": "Pri každej banke použite rovnakú výšku úveru, dobu splatnosti, typ fixácie a hodnotu nehnuteľnosti. Inak rozdiel v splátke nemusí odrážať výhodnejšiu ponuku."
+      },
+      {
+        "title": "Sledujte aj podmienky zľavy",
+        "body": "Zistite, či úrok závisí od účtu, poistenia alebo ďalšieho produktu. Do nákladov započítajte aj ich pravidelné poplatky."
+      },
+      {
+        "title": "Pýtajte sa na čerpanie a predčasné splatenie",
+        "body": "Overte lehotu na čerpanie, podmienky ocenenia nehnuteľnosti a postup pri mimoriadnej splátke. Pravidlá a možné náklady si nechajte potvrdiť písomne."
+      },
+      {
+        "title": "Urobte si vlastný prehľad",
+        "body": "Do jednej tabuľky si zapíšte úrok, RPMN, mesačnú splátku, celkové náklady, poplatky a podmienky zmeny sadzby po fixácii."
+      }
+    ]
   },
   {
     "slug": "refinancovanie-uveru",
