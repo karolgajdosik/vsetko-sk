@@ -26,7 +26,7 @@ jobs:
               if (pr.head.repo.full_name !== `${owner}/${repo}`) continue;
               if (pr.head.sha !== run.head_sha) continue;
               const {data: checks} = await github.rest.checks.listForRef({owner,repo,ref:pr.head.sha,per_page:100});
-              const validation = checks.check_runs.filter(c => c.name === 'verify' && c.app?.slug === 'github-actions');
+              const validation = checks.check_runs.filter(c => c.name === 'verify' && c.app?.slug === 'github-actions' && c.check_suite?.id === run.check_suite_id);
               if (!validation.some(c => c.conclusion === 'success')) continue;
               try {
                 const merged = await github.rest.pulls.merge({
