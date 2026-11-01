@@ -31,3 +31,9 @@ test('auto-merge requires successful verify check and uses head-SHA guarded squa
   assert.match(workflow, /merge_method:'squash',sha:pr\.head\.sha/);
   assert.doesNotMatch(workflow, /pull_request_target:/);
 });
+
+test('auto-merge binds the successful verify check to the triggering workflow run', () => {
+  const workflow = read('.github/workflows/auto-merge.yml');
+  assert.ok(workflow.includes("c.check_suite?.id === run.check_suite_id"));
+  assert.ok(workflow.includes("validation.some(c => c.conclusion === 'success')"));
+});
