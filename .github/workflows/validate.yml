@@ -9,10 +9,10 @@ jobs:
   verify:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           persist-credentials: false
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: '22'
       - run: npm install --no-audit --no-fund
@@ -30,7 +30,7 @@ jobs:
           node tests/browser-assistant.mjs
           VSETKO_ORIGIN=http://127.0.0.1:4321 node scripts/check-production-ui.mjs
           VSETKO_ORIGIN=http://127.0.0.1:4321 node tests/production-mobile-calculators.mjs
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         if: always()
         with:
           name: responsive-layout-screenshots
