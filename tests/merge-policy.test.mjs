@@ -16,8 +16,20 @@ test('validation has a verify job triggered for pull requests', () => {
 test('PR validation has least-privilege token and no persisted checkout credentials', () => {
   const workflow = read('.github/workflows/validate.yml');
   assert.match(workflow, /^permissions:\n  contents: read$/m);
-  assert.match(workflow, /- uses: actions\/checkout@v4\n        with:\n          persist-credentials: false/);
+  assert.match(workflow, /- uses: actions\/checkout@v5\n        with:\n          persist-credentials: false/);
   assert.doesNotMatch(workflow, /^\s*pull_request_target:/m);
+});
+
+test('PR validation uses Node 24 compatible official Actions', () => {
+  const workflow = read('.github/workflows/validate.yml');
+  assert.ok(workflow.includes('runs-on: ubuntu-24.04'));
+  assert.ok(workflow.includes('- uses: actions/checkout@v5'));
+  assert.ok(workflow.includes('- uses: actions/setup-node@v5'));
+  assert.ok(workflow.includes('- uses: actions/upload-artifact@v6'));
+  assert.ok(workflow.includes("node-version: '22'"));
+  for (const outdated of ['actions/checkout@v4', 'actions/setup-node@v4', 'actions/upload-artifact@v4']) {
+    assert.ok(!workflow.includes('- uses: ' + outdated), 'outdated action: ' + outdated);
+  }
 });
 
 test('auto-merge requires successful pull-request validation and matching head', () => {
