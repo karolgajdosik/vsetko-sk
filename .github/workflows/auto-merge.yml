@@ -34,7 +34,8 @@ jobs:
                 core.warning(`Skipping PR #${pr.number}: cannot verify the complete changed-file list.`);
                 continue;
               }
-              if (changedFiles.some(file => file.filename.startsWith('.github/workflows/'))) {
+              if (changedFiles.some(file => file.filename.startsWith('.github/workflows/') ||
+                file.previous_filename?.startsWith('.github/workflows/'))) {
                 core.warning(`Skipping PR #${pr.number}: GitHub Actions workflow changes require manual review.`);
                 continue;
               }
