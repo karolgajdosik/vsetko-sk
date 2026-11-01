@@ -1,0 +1,24 @@
+# Main branch protection — status and verification
+
+Related issue: #137. This is a **partial, code-level safety check**, not GitHub branch protection.
+
+## Current repository constraints (2026-11-01)
+
+- The repository is private; the `main` branch reports `protected: false` and required checks disabled.
+- GitHub's repository rulesets endpoint returned HTTP 403 with a plan/visibility limitation. The branch-protection endpoint returned HTTP 403 for the integration.
+- Changing the subscription, visibility, or repository permissions requires an explicit owner decision. Do **not** make the repository public merely to enable protection.
+
+## What is already checked
+
+`Validate VSETKO24` runs on pull requests and executes `npm test`, build, link validation and browser checks. `Auto-merge validated pull requests` processes only successful pull-request workflow runs, ignores drafts and external forks, matches the PR head SHA and requires a successful `verify` check before attempting a SHA-guarded squash merge. GitHub rejects merge conflicts.
+
+`tests/merge-policy.test.mjs` is executed by `npm test` and detects accidental removal of these key safeguards. It is a **static regression test**, not an authorization control. A user with direct write access to `main` can still bypass PR validation; the tests cannot prevent this.
+
+## Remaining steps before resolving #137
+
+1. Obtain an owner-approved GitHub plan/permissions approach that supports enforced protection for this private repository; do not purchase or change visibility automatically.
+2. Configure `main` to reject direct pushes, require a successful `verify` status check, and reject conflicting or stale PR merges. Check compatibility with the existing `workflow_run`-based merge automation.
+3. Test with a safe PR: a failed `verify` must prevent merging; a successful PR may merge only after required checks; direct push must be rejected.
+4. Verify the actual branch rules and production deployment independently, then close #137.
+
+Until the above is complete, report branch protection as **not enforced** even if CI and production monitoring are green.
