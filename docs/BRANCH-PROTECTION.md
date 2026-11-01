@@ -10,7 +10,7 @@ Related issue: #137. This is a **partial, code-level safety check**, not GitHub 
 
 ## What is already checked
 
-`Validate VSETKO24` runs on pull requests and executes `npm test`, build, link validation and browser checks. `Auto-merge validated pull requests` processes only successful pull-request workflow runs, ignores drafts and external forks, matches the PR head SHA and requires a successful `verify` check from the **same check suite as the triggering workflow run** before attempting a SHA-guarded squash merge. This avoids trusting a successful check from a different run on the same commit. GitHub rejects merge conflicts.
+`Validate VSETKO24` runs on pull requests and executes `npm test`, build, link validation and browser checks. `Auto-merge validated pull requests` processes only successful pull-request workflow runs, ignores drafts and external forks, matches the PR head SHA and requires a successful `verify` check from the **same check suite as the triggering workflow run** before attempting a SHA-guarded squash merge. This avoids trusting a successful check from a different run on the same commit. GitHub rejects merge conflicts. Before merging, the automation also compares the validated PR head against the **current** `main` commit and skips the merge if the PR is behind `main` (the branch must be updated and CI rerun). A concurrent change to `main` after this comparison remains a theoretical race until GitHub-enforced branch protection is enabled.
 
 `tests/merge-policy.test.mjs` is executed by `npm test` and detects accidental removal of these key safeguards. It is a **static regression test**, not an authorization control. A user with direct write access to `main` can still bypass PR validation; the tests cannot prevent this.
 
