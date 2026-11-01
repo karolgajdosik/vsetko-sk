@@ -28,9 +28,16 @@ jobs:
               const {data: checks} = await github.rest.checks.listForRef({owner,repo,ref:pr.head.sha,per_page:100});
               const validation = checks.check_runs.filter(c => c.name === 'verify' && c.app?.slug === 'github-actions' && c.check_suite?.id === run.check_suite_id);
               if (!validation.some(c => c.conclusion === 'success')) continue;
+              // The PR snapshot can become stale while a merge workflow is running.
+              const {data: mainRef} = await github.rest.git.getRef({owner,repo,ref:'heads/main'});
+              const currentMain = mainRef.object.sha;
+              if (pr.base.sha !== currentMain) {
+                core.warning(`Skipping PR #${pr.number}: main moved since the PR snapshot; rerun validation.`);
+                continue;
+              }
               // A successful check for an older base is not proof of compatibility with current main.
               const {data: comparison} = await github.rest.repos.compareCommits({
-                owner,repo,base:pr.head.sha,head:pr.base.sha
+                owner,repo,base:pr.head.sha,head:currentMain
               });
               if (comparison.ahead_by !== 0) {
                 core.warning(`Skipping PR #${pr.number}: head is missing ${comparison.ahead_by} commit(s) from main; update the branch and rerun CI.`);
