@@ -37,3 +37,49 @@ test('auto-merge binds the successful verify check to the triggering workflow ru
   assert.ok(workflow.includes("c.check_suite?.id === run.check_suite_id"));
   assert.ok(workflow.includes("validation.some(c => c.conclusion === 'success')"));
 });
+
+test('auto-merge only merges a validated PR when its head includes current main', async () => {
+  const workflow = read('.github/workflows/auto-merge.yml');
+  const marker = '          script: |\\n';
+  assert.ok(workflow.includes(marker));
+  const script = workflow.split(marker)[1].replace(/^ {12}/gm, '');
+  const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
+  const run = new AsyncFunction('github', 'context', 'core', script);
+  const context = {
+    repo: {owner: 'karolgajdosik', repo: 'vsetko-sk'},
+    payload: {workflow_run: {
+      head_sha: 'validated-head',
+      check_suite_id: 123,
+      pull_requests: [{number: 42}],
+    }},
+  };
+
+  for (const aheadBy of [0, 2]) {
+    let merges = 0;
+    let compareArgs;
+    const github = {rest: {
+      pulls: {
+        get: async () => ({data: {
+          number: 42, state: 'open', draft: false,
+          base: {ref: 'main', sha: 'current-main'},
+          head: {sha: 'validated-head', repo: {full_name: 'karolgajdosik/vsetko-sk'}},
+        }}),
+        merge: async () => { merges++; return {data: {sha: 'merged-sha'}}; },
+      },
+      checks: {listForRef: async () => ({data: {check_runs: [{
+        name: 'verify', conclusion: 'success',
+        app: {slug: 'github-actions'}, check_suite: {id: 123},
+      }]}})},
+      repos: {compareCommits: async args => {
+        compareArgs = args;
+        return {data: {ahead_by: aheadBy}};
+      }},
+    }};
+    await run(github, context, {info: () => {}, warning: () => {}});
+    assert.deepEqual(compareArgs, {
+      owner: 'karolgajdosik', repo: 'vsetko-sk',
+      base: 'validated-head', head: 'current-main',
+    });
+    assert.equal(merges, aheadBy === 0 ? 1 : 0);
+  }
+});
