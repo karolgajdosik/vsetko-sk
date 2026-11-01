@@ -25,6 +25,19 @@ jobs:
               if (pr.state !== 'open' || pr.draft || pr.base.ref !== 'main') continue;
               if (pr.head.repo.full_name !== `${owner}/${repo}`) continue;
               if (pr.head.sha !== run.head_sha) continue;
+              // A PR may rewrite its own validation workflow to produce a green but untrusted CI result.
+              // Require a manual review for any GitHub Actions workflow change.
+              const changedFiles = await github.paginate(github.rest.pulls.listFiles, {
+                owner,repo,pull_number:pr.number,per_page:100
+              });
+              if (pr.changed_files >= 3000 || changedFiles.length !== pr.changed_files) {
+                core.warning(`Skipping PR #${pr.number}: cannot verify the complete changed-file list.`);
+                continue;
+              }
+              if (changedFiles.some(file => file.filename.startsWith('.github/workflows/'))) {
+                core.warning(`Skipping PR #${pr.number}: GitHub Actions workflow changes require manual review.`);
+                continue;
+              }
               const {data: checks} = await github.rest.checks.listForRef({owner,repo,ref:pr.head.sha,per_page:100});
               const validation = checks.check_runs.filter(c => c.name === 'verify' && c.app?.slug === 'github-actions' && c.check_suite?.id === run.check_suite_id);
               if (!validation.some(c => c.conclusion === 'success')) continue;
