@@ -72,10 +72,16 @@ test('auto-merge only merges a validated PR against the live main ref', async ()
     let merges = 0;
     let compareArgs;
     let refArgs;
-    const github = {rest: {
+    const github = {
+      paginate: async (_method, args) => {
+        assert.equal(args.per_page, 100);
+        return [{filename: 'src/pages/index.astro'}];
+      },
+      rest: {
       pulls: {
         get: async () => ({data: {
           number: 42, state: 'open', draft: false,
+          changed_files: 1,
           base: {ref: 'main', sha: 'current-main'},
           head: {sha: 'validated-head', repo: {full_name: 'karolgajdosik/vsetko-sk'}},
         }}),
@@ -103,5 +109,60 @@ test('auto-merge only merges a validated PR against the live main ref', async ()
       base: 'validated-head', head: 'current-main',
     } : undefined);
     assert.equal(merges, scenario.expectedMerges);
+  }
+});
+
+test('auto-merge refuses workflow-changing PRs and incomplete file listings', async () => {
+  const workflow = read('.github/workflows/auto-merge.yml');
+  const script = workflow.split('          script: |' + String.fromCharCode(10))[1].replace(/^ {12}/gm, '');
+  assert.ok(script);
+  const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
+  const run = new AsyncFunction('github', 'context', 'core', script);
+  const context = {
+    repo: {owner: 'karolgajdosik', repo: 'vsetko-sk'},
+    payload: {workflow_run: {
+      head_sha: 'validated-head', check_suite_id: 123,
+      pull_requests: [{number: 42}],
+    }},
+  };
+  const scenarios = [
+    {filename: 'src/pages/index.astro', changedFiles: 1, expectedMerges: 1},
+    {filename: '.github/workflows/validate.yml', changedFiles: 1, expectedMerges: 0},
+    {filename: '.github/workflows/auto-merge.yml', changedFiles: 1, expectedMerges: 0},
+    {filename: '.github/workflows/production-api-health.yml', changedFiles: 1, expectedMerges: 0},
+    {filename: 'src/pages/index.astro', changedFiles: 2, expectedMerges: 0},
+  ];
+  for (const scenario of scenarios) {
+    let merges = 0;
+    let listed = 0;
+    const github = {
+      paginate: async (method, args) => {
+        assert.equal(method, github.rest.pulls.listFiles);
+        assert.equal(args.pull_number, 42);
+        assert.equal(args.per_page, 100);
+        listed++;
+        return [{filename: scenario.filename}];
+      },
+      rest: {
+        pulls: {
+          get: async () => ({data: {
+            number: 42, state: 'open', draft: false, changed_files: scenario.changedFiles,
+            base: {ref: 'main', sha: 'current-main'},
+            head: {sha: 'validated-head', repo: {full_name: 'karolgajdosik/vsetko-sk'}},
+          }}),
+          listFiles: async () => { throw Error('must use github.paginate'); },
+          merge: async () => { merges++; return {data: {sha: 'merged-sha'}}; },
+        },
+        checks: {listForRef: async () => ({data: {check_runs: [{
+          name: 'verify', conclusion: 'success',
+          app: {slug: 'github-actions'}, check_suite: {id: 123},
+        }]}})},
+        git: {getRef: async () => ({data: {object: {sha: 'current-main'}}})},
+        repos: {compareCommits: async () => ({data: {ahead_by: 0}})},
+      },
+    };
+    await run(github, context, {info: () => {}, warning: () => {}});
+    assert.equal(listed, 1);
+    assert.equal(merges, scenario.expectedMerges, scenario.filename);
   }
 });
