@@ -12,6 +12,14 @@ test('validation has a verify job triggered for pull requests', () => {
   assert.match(workflow, /- run: npm run build/);
 });
 
+
+test('PR validation has least-privilege token and no persisted checkout credentials', () => {
+  const workflow = read('.github/workflows/validate.yml');
+  assert.match(workflow, /^permissions:\n  contents: read$/m);
+  assert.match(workflow, /- uses: actions\/checkout@v4\n        with:\n          persist-credentials: false/);
+  assert.doesNotMatch(workflow, /^\s*pull_request_target:/m);
+});
+
 test('auto-merge requires successful pull-request validation and matching head', () => {
   const workflow = read('.github/workflows/auto-merge.yml');
   assert.match(workflow, /workflow_run:/);
