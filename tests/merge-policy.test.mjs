@@ -130,6 +130,7 @@ test('auto-merge refuses workflow-changing PRs and incomplete file listings', as
     {filename: '.github/workflows/validate.yml', changedFiles: 1, expectedMerges: 0},
     {filename: '.github/workflows/auto-merge.yml', changedFiles: 1, expectedMerges: 0},
     {filename: '.github/workflows/production-api-health.yml', changedFiles: 1, expectedMerges: 0},
+    {filename: 'archived/validate.yml', previousFilename: '.github/workflows/validate.yml', changedFiles: 1, expectedMerges: 0},
     {filename: 'src/pages/index.astro', changedFiles: 2, expectedMerges: 0},
   ];
   for (const scenario of scenarios) {
@@ -141,7 +142,7 @@ test('auto-merge refuses workflow-changing PRs and incomplete file listings', as
         assert.equal(args.pull_number, 42);
         assert.equal(args.per_page, 100);
         listed++;
-        return [{filename: scenario.filename}];
+        return [{filename: scenario.filename, previous_filename: scenario.previousFilename}];
       },
       rest: {
         pulls: {
