@@ -46,7 +46,7 @@ test('auto-merge binds the successful verify check to the triggering workflow ru
   assert.ok(workflow.includes("validation.some(c => c.conclusion === 'success')"));
 });
 
-test('auto-merge only merges a validated PR when its head includes current main', async () => {
+test('auto-merge only merges a validated PR against the live main ref', async () => {
   const workflow = read('.github/workflows/auto-merge.yml');
   const marker = '          script: |' + String.fromCharCode(10);
   assert.ok(workflow.includes(marker));
@@ -62,9 +62,16 @@ test('auto-merge only merges a validated PR when its head includes current main'
     }},
   };
 
-  for (const aheadBy of [0, 2]) {
+  const scenarios = [
+    {mainSha: 'current-main', aheadBy: 0, expectedMerges: 1, expectedCompare: true},
+    {mainSha: 'current-main', aheadBy: 2, expectedMerges: 0, expectedCompare: true},
+    // A stale PR API snapshot must not be merged even when its old base was valid.
+    {mainSha: 'advanced-main', aheadBy: 0, expectedMerges: 0, expectedCompare: false},
+  ];
+  for (const scenario of scenarios) {
     let merges = 0;
     let compareArgs;
+    let refArgs;
     const github = {rest: {
       pulls: {
         get: async () => ({data: {
@@ -78,16 +85,23 @@ test('auto-merge only merges a validated PR when its head includes current main'
         name: 'verify', conclusion: 'success',
         app: {slug: 'github-actions'}, check_suite: {id: 123},
       }]}})},
+      git: {getRef: async args => {
+        refArgs = args;
+        return {data: {object: {sha: scenario.mainSha}}};
+      }},
       repos: {compareCommits: async args => {
         compareArgs = args;
-        return {data: {ahead_by: aheadBy}};
+        return {data: {ahead_by: scenario.aheadBy}};
       }},
     }};
     await run(github, context, {info: () => {}, warning: () => {}});
-    assert.deepEqual(compareArgs, {
+    assert.deepEqual(refArgs, {
+      owner: 'karolgajdosik', repo: 'vsetko-sk', ref: 'heads/main',
+    });
+    assert.deepEqual(compareArgs, scenario.expectedCompare ? {
       owner: 'karolgajdosik', repo: 'vsetko-sk',
       base: 'validated-head', head: 'current-main',
-    });
-    assert.equal(merges, aheadBy === 0 ? 1 : 0);
+    } : undefined);
+    assert.equal(merges, scenario.expectedMerges);
   }
 });
