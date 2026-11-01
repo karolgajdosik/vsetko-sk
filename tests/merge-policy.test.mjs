@@ -40,7 +40,7 @@ test('auto-merge binds the successful verify check to the triggering workflow ru
 
 test('auto-merge only merges a validated PR when its head includes current main', async () => {
   const workflow = read('.github/workflows/auto-merge.yml');
-  const marker = '          script: |\\n';
+  const marker = '          script: |' + String.fromCharCode(10);
   assert.ok(workflow.includes(marker));
   const script = workflow.split(marker)[1].replace(/^ {12}/gm, '');
   const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
