@@ -22,6 +22,10 @@ test('auto-merge refuses untrusted checks, stale refs, drafts and forks', async 
   const cases = [
     {name: 'valid same-suite check and current base', expected: 1},
     {name: 'check from a different suite', suiteId: 999, expected: 0},
+    {name: 'missing triggering suite and missing check suite must not match', runSuiteId: undefined, omitCheckSuite: true, expected: 0},
+    {name: 'null triggering suite must not match', runSuiteId: null, expected: 0},
+    {name: 'zero triggering suite must not match', runSuiteId: 0, suiteId: 0, expected: 0},
+    {name: 'check without suite metadata must not match valid trigger', omitCheckSuite: true, expected: 0},
     {name: 'unsuccessful check', conclusion: 'failure', expected: 0},
     {name: 'untrusted check publisher', appSlug: 'third-party', expected: 0},
     {name: 'different check name', checkName: 'lint', expected: 0},
@@ -35,6 +39,7 @@ test('auto-merge refuses untrusted checks, stale refs, drafts and forks', async 
   ];
 
   for (const scenario of cases) {
+    context.payload.workflow_run.check_suite_id = Object.hasOwn(scenario, 'runSuiteId') ? scenario.runSuiteId : 123;
     let merges = 0;
     const github = {
       paginate: async () => [{filename: 'src/pages/index.astro'}],
@@ -62,7 +67,7 @@ test('auto-merge refuses untrusted checks, stale refs, drafts and forks', async 
             name: scenario.checkName ?? 'verify',
             conclusion: scenario.conclusion ?? 'success',
             app: {slug: scenario.appSlug ?? 'github-actions'},
-            check_suite: {id: scenario.suiteId ?? 123},
+            check_suite: scenario.omitCheckSuite ? undefined : {id: scenario.suiteId ?? 123},
           }]}}),
         },
         git: {getRef: async () => ({data: {object: {sha: scenario.mainSha ?? 'base-sha'}}})},

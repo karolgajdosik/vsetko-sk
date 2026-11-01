@@ -20,6 +20,11 @@ jobs:
             const owner = context.repo.owner;
             const repo = context.repo.repo;
             const prs = run.pull_requests || [];
+            // Missing suite metadata must never match another check with an undefined suite ID.
+            if (!Number.isSafeInteger(run.check_suite_id) || run.check_suite_id <= 0) {
+              core.warning('Skipping auto-merge: missing or invalid validation check suite ID.');
+              return;
+            }
             for (const item of prs) {
               const {data: pr} = await github.rest.pulls.get({owner,repo,pull_number:item.number});
               if (pr.state !== 'open' || pr.draft || pr.base.ref !== 'main') continue;
@@ -34,7 +39,8 @@ jobs:
                 core.warning(`Skipping PR #${pr.number}: cannot verify the complete changed-file list.`);
                 continue;
               }
-              if (changedFiles.some(file => file.filename.startsWith('.github/workflows/'))) {
+              if (changedFiles.some(file => file.filename.startsWith('.github/workflows/') ||
+                file.previous_filename?.startsWith('.github/workflows/'))) {
                 core.warning(`Skipping PR #${pr.number}: GitHub Actions workflow changes require manual review.`);
                 continue;
               }
