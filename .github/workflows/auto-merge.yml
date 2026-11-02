@@ -51,6 +51,25 @@ jobs:
                 core.warning(`Skipping PR #${pr.number}: CI-defining files require manual review.`);
                 continue;
               }
+              // Successful CI must not override a human request for changes.
+              // COMMENTED does not clear a prior CHANGES_REQUESTED decision.
+              const reviews = await github.paginate(github.rest.pulls.listReviews, {
+                owner,repo,pull_number:pr.number,per_page:100
+              });
+              const reviewerDecisions = new Map();
+              let unattributedChangeRequest = false;
+              for (const review of reviews) {
+                if (review.state === 'CHANGES_REQUESTED' && !review.user?.login) {
+                  unattributedChangeRequest = true;
+                }
+                if (review.user?.login && ['CHANGES_REQUESTED', 'APPROVED', 'DISMISSED'].includes(review.state)) {
+                  reviewerDecisions.set(review.user.login, review.state);
+                }
+              }
+              if (unattributedChangeRequest || [...reviewerDecisions.values()].includes('CHANGES_REQUESTED')) {
+                core.warning(`Skipping PR #${pr.number}: an unresolved changes-requested review requires manual review.`);
+                continue;
+              }
               const {data: checks} = await github.rest.checks.listForRef({owner,repo,ref:pr.head.sha,per_page:100});
               const validation = checks.check_runs.filter(c => c.name === 'verify' && c.app?.slug === 'github-actions' && c.check_suite?.id === run.check_suite_id);
               if (!validation.some(c => c.conclusion === 'success')) continue;
