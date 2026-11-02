@@ -137,7 +137,7 @@ test('auto-merge only merges a validated PR against the live main ref', async ()
   }
 });
 
-test('auto-merge refuses workflow-changing PRs and incomplete file listings', async () => {
+test('auto-merge refuses CI-defining PRs and incomplete file listings', async () => {
   const workflow = read('.github/workflows/auto-merge.yml');
   const script = workflow.split('          script: |' + String.fromCharCode(10))[1].replace(/^ {12}/gm, '');
   assert.ok(script);
@@ -158,6 +158,18 @@ test('auto-merge refuses workflow-changing PRs and incomplete file listings', as
     {filename: 'archived/validate.yml', previousFilename: '.github/workflows/validate.yml', changedFiles: 1, expectedMerges: 0},
     {filename: 'archived/merge.yml', previousFilename: '.github/workflows/auto-merge.yml', changedFiles: 1, expectedMerges: 0},
     {filename: '.github/workflows/validate.yml', previousFilename: 'archived/validate.yml', changedFiles: 1, expectedMerges: 0},
+    {filename: '.github/actions/custom/action.yml', changedFiles: 1, expectedMerges: 0},
+    {filename: 'package.json', changedFiles: 1, expectedMerges: 0},
+    {filename: 'package-lock.json', changedFiles: 1, expectedMerges: 0},
+    {filename: 'npm-shrinkwrap.json', changedFiles: 1, expectedMerges: 0},
+    {filename: '.npmrc', changedFiles: 1, expectedMerges: 0},
+    {filename: 'astro.config.mjs', changedFiles: 1, expectedMerges: 0},
+    {filename: 'scripts/check-seo.mjs', changedFiles: 1, expectedMerges: 0},
+    {filename: 'tests/merge-policy.test.mjs', changedFiles: 1, expectedMerges: 0},
+    {filename: 'src/pages/new.astro', previousFilename: 'tests/old.test.mjs', changedFiles: 1, expectedMerges: 0},
+    {filename: 'src/pages/new.astro', previousFilename: 'scripts/old.mjs', changedFiles: 1, expectedMerges: 0},
+    {filename: 'src/pages/new.astro', previousFilename: 'package.json', changedFiles: 1, expectedMerges: 0},
+    {filename: 'src/pages/index.astro', changedFiles: 1, expectedMerges: 1},
     {filename: 'src/pages/new.astro', previousFilename: 'src/pages/old.astro', changedFiles: 1, expectedMerges: 1},
     {filename: 'src/pages/index.astro', changedFiles: 2, expectedMerges: 0},
   ];
