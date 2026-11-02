@@ -22,3 +22,10 @@ test('production monitor uses Node 24 compatible official Actions', () => {
     assert.ok(!workflow.includes('- uses: ' + outdated), 'outdated action: ' + outdated);
   }
 });
+
+
+test('production outage issue steps use Node.js 24 GitHub Script', () => {
+  const scripts = [...workflow.matchAll(/^        uses: actions\/github-script@v(\d+)$/gm)];
+  assert.equal(scripts.length, 2, 'expected API and UI issue automation steps');
+  assert.ok(scripts.every(match => match[1] === '8'), 'both steps must use github-script@v8');
+});
