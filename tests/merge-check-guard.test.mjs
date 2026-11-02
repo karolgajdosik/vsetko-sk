@@ -42,7 +42,7 @@ test('auto-merge refuses untrusted checks, stale refs, drafts and forks', async 
     context.payload.workflow_run.check_suite_id = Object.hasOwn(scenario, 'runSuiteId') ? scenario.runSuiteId : 123;
     let merges = 0;
     const github = {
-      paginate: async () => [{filename: 'src/pages/index.astro'}],
+      paginate: async method => method === github.rest.pulls.listReviews ? [] : [{filename: 'src/pages/index.astro'}],
       rest: {
         pulls: {
           get: async () => ({data: {
@@ -57,6 +57,7 @@ test('auto-merge refuses untrusted checks, stale refs, drafts and forks', async 
             },
           }}),
           listFiles: async () => { throw Error('use pagination'); },
+          listReviews: async () => { throw Error('use pagination'); },
           merge: async () => {
             merges++;
             return {data: {sha: 'merged-sha'}};
@@ -75,6 +76,65 @@ test('auto-merge refuses untrusted checks, stale refs, drafts and forks', async 
       },
     };
     await run(github, context, {info: () => {}, warning: () => {}});
+    assert.equal(merges, scenario.expected, scenario.name);
+  }
+});
+
+test('auto-merge respects outstanding changes-requested reviews', async () => {
+  const run = new AsyncFunction('github', 'context', 'core', script);
+  const context = {
+    repo: {owner: 'karolgajdosik', repo: 'vsetko-sk'},
+    payload: {workflow_run: {
+      head_sha: 'validated-head', check_suite_id: 123,
+      pull_requests: [{number: 42}],
+    }},
+  };
+  const reviewer = (state, login = 'reviewer') => ({state, user: login ? {login} : null});
+  const cases = [
+    {name: 'no reviews', reviews: [], expected: 1},
+    {name: 'outstanding change request', reviews: [reviewer('CHANGES_REQUESTED')], expected: 0},
+    {name: 'change request resolved by approval', reviews: [reviewer('CHANGES_REQUESTED'), reviewer('APPROVED')], expected: 1},
+    {name: 'new change request after approval', reviews: [reviewer('APPROVED'), reviewer('CHANGES_REQUESTED')], expected: 0},
+    {name: 'comment does not resolve change request', reviews: [reviewer('CHANGES_REQUESTED'), reviewer('COMMENTED')], expected: 0},
+    {name: 'dismissed change request', reviews: [reviewer('CHANGES_REQUESTED'), reviewer('DISMISSED')], expected: 1},
+    {name: 'another reviewer still requests changes', reviews: [reviewer('CHANGES_REQUESTED', 'alice'), reviewer('APPROVED', 'bob')], expected: 0},
+    {name: 'unattributed change request fails closed', reviews: [reviewer('CHANGES_REQUESTED', null)], expected: 0},
+  ];
+  for (const scenario of cases) {
+    let merges = 0;
+    let reviewFetches = 0;
+    const github = {
+      paginate: async (method, args) => {
+        assert.equal(args.pull_number, 42);
+        assert.equal(args.per_page, 100);
+        if (method === github.rest.pulls.listReviews) {
+          reviewFetches++;
+          return scenario.reviews;
+        }
+        assert.equal(method, github.rest.pulls.listFiles);
+        return [{filename: 'src/pages/index.astro'}];
+      },
+      rest: {
+        pulls: {
+          get: async () => ({data: {
+            number: 42, state: 'open', draft: false, changed_files: 1,
+            base: {ref: 'main', sha: 'base-sha'},
+            head: {sha: 'validated-head', repo: {full_name: 'karolgajdosik/vsetko-sk'}},
+          }}),
+          listFiles: async () => { throw Error('use pagination'); },
+          listReviews: async () => { throw Error('use pagination'); },
+          merge: async () => { merges++; return {data: {sha: 'merged-sha'}}; },
+        },
+        checks: {listForRef: async () => ({data: {check_runs: [{
+          name: 'verify', conclusion: 'success', app: {slug: 'github-actions'},
+          check_suite: {id: 123},
+        }]}})},
+        git: {getRef: async () => ({data: {object: {sha: 'base-sha'}}})},
+        repos: {compareCommits: async () => ({data: {ahead_by: 0}})},
+      },
+    };
+    await run(github, context, {info: () => {}, warning: () => {}});
+    assert.equal(reviewFetches, 1, scenario.name);
     assert.equal(merges, scenario.expected, scenario.name);
   }
 });
