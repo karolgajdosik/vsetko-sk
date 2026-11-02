@@ -2,7 +2,7 @@ name: Validate VSETKO24
 on:
   pull_request:
   push:
-    branches: [release/v1.0-platform]
+    branches: [main, release/v1.0-platform]
 permissions:
   contents: read
 jobs:
