@@ -36,6 +36,8 @@ test('auto-merge refuses untrusted checks, stale refs, drafts and forks', async 
     {name: 'non-main base', baseRef: 'develop', expected: 0},
     {name: 'main changed after PR snapshot', mainSha: 'new-main', expected: 0},
     {name: 'head is behind main', aheadBy: 1, expected: 0},
+    {name: 'GitHub reports merge conflicts', mergeable: false, expected: 0},
+    {name: 'GitHub has not computed mergeability', mergeable: null, expected: 0},
   ];
 
   for (const scenario of cases) {
@@ -50,6 +52,7 @@ test('auto-merge refuses untrusted checks, stale refs, drafts and forks', async 
             state: scenario.state ?? 'open',
             draft: scenario.draft ?? false,
             changed_files: 1,
+            mergeable: Object.hasOwn(scenario, 'mergeable') ? scenario.mergeable : true,
             base: {ref: scenario.baseRef ?? 'main', sha: 'base-sha'},
             head: {
               sha: scenario.headSha ?? 'validated-head',
@@ -117,7 +120,7 @@ test('auto-merge respects outstanding changes-requested reviews', async () => {
       rest: {
         pulls: {
           get: async () => ({data: {
-            number: 42, state: 'open', draft: false, changed_files: 1,
+            number: 42, state: 'open', draft: false, changed_files: 1, mergeable: true,
             base: {ref: 'main', sha: 'base-sha'},
             head: {sha: 'validated-head', repo: {full_name: 'karolgajdosik/vsetko-sk'}},
           }}),
