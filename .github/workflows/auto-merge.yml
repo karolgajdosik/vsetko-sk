@@ -39,11 +39,10 @@ jobs:
                 core.warning(`Skipping PR #${pr.number}: cannot verify the complete changed-file list.`);
                 continue;
               }
-              // A PR can redefine npm test/build, alter test scripts, or change local Actions.
-              // Do not auto-merge changes to CI inputs based on checks defined by that PR.
+              // A PR can change repository security policy (e.g. CODEOWNERS, Dependabot),
+              // redefine npm test/build, or alter CI inputs. Require manual review.
               const isSensitive = path => typeof path === 'string' && (
-                path.startsWith('.github/workflows/') ||
-                path.startsWith('.github/actions/') ||
+                path.startsWith('.github/') ||
                 path.startsWith('scripts/') ||
                 path.startsWith('tests/') ||
                 ['package.json', 'package-lock.json', 'npm-shrinkwrap.json', '.npmrc', 'astro.config.mjs'].includes(path)
