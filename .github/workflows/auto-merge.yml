@@ -50,6 +50,9 @@ jobs:
                 path.startsWith('.github/') ||
                 path.startsWith('scripts/') ||
                 path.startsWith('tests/') ||
+                // Backend handlers and Cloudflare redirects can affect data security and routing.
+                path.startsWith('functions/') ||
+                path === 'public/_redirects' ||
                 ['package.json', 'package-lock.json', 'npm-shrinkwrap.json', '.npmrc', 'astro.config.mjs'].includes(path)
               );
               if (changedFiles.some(file => isSensitive(file.filename) || isSensitive(file.previous_filename))) {
