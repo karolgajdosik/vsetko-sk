@@ -29,10 +29,10 @@ jobs:
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           persist-credentials: false
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: '22'
       - name: Check public production pages and release markers
@@ -59,7 +59,7 @@ jobs:
         id: assistantBrowser
         continue-on-error: true
         run: ASSISTANT_LIVE=1 VSETKO_ORIGIN=https://vsetko24.sk node tests/browser-assistant.mjs
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         if: always()
         with:
           name: production-mobile-calculator-screenshots
