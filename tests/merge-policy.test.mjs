@@ -98,9 +98,9 @@ test('auto-merge only merges a validated PR against the live main ref', async ()
     let compareArgs;
     let refArgs;
     const github = {
-      paginate: async (_method, args) => {
+      paginate: async (method, args) => {
         assert.equal(args.per_page, 100);
-        return [{filename: 'src/pages/index.astro'}];
+        return method === github.rest.pulls.listReviews ? [] : [{filename: 'src/pages/index.astro'}];
       },
       rest: {
       pulls: {
@@ -110,6 +110,7 @@ test('auto-merge only merges a validated PR against the live main ref', async ()
           base: {ref: 'main', sha: 'current-main'},
           head: {sha: 'validated-head', repo: {full_name: 'karolgajdosik/vsetko-sk'}},
         }}),
+        listReviews: async () => { throw Error('must use github.paginate'); },
         merge: async () => { merges++; return {data: {sha: 'merged-sha'}}; },
       },
       checks: {listForRef: async () => ({data: {check_runs: [{
@@ -183,6 +184,7 @@ test('auto-merge refuses CI-defining PRs and incomplete file listings', async ()
     let listed = 0;
     const github = {
       paginate: async (method, args) => {
+        if (method === github.rest.pulls.listReviews) return [];
         assert.equal(method, github.rest.pulls.listFiles);
         assert.equal(args.pull_number, 42);
         assert.equal(args.per_page, 100);
@@ -197,6 +199,7 @@ test('auto-merge refuses CI-defining PRs and incomplete file listings', async ()
             head: {sha: 'validated-head', repo: {full_name: 'karolgajdosik/vsetko-sk'}},
           }}),
           listFiles: async () => { throw Error('must use github.paginate'); },
+          listReviews: async () => { throw Error('must use github.paginate'); },
           merge: async () => { merges++; return {data: {sha: 'merged-sha'}}; },
         },
         checks: {listForRef: async () => ({data: {check_runs: [{
