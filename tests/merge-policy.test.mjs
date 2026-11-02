@@ -13,6 +13,19 @@ test('validation has a verify job triggered for pull requests', () => {
 });
 
 
+test('direct pushes to main run the same verify job for detection, not prevention', () => {
+  const workflow = read('.github/workflows/validate.yml');
+  const pushTrigger = workflow.match(/^  push:\n    branches: \[([^\]]+)\]/m);
+  assert.ok(pushTrigger, 'validation must define an explicit push branch list');
+  const branches = pushTrigger[1].split(',').map(branch => branch.trim());
+  assert.ok(branches.includes('main'), 'main pushes must run validation');
+  assert.ok(branches.includes('release/v1.0-platform'), 'existing release validation must remain');
+  assert.match(workflow, /^  pull_request:\s*$/m);
+  assert.match(workflow, /^  verify:\s*$/m);
+  assert.match(workflow, /- run: npm test/);
+  assert.match(workflow, /- run: npm run build/);
+});
+
 test('PR validation has least-privilege token and no persisted checkout credentials', () => {
   const workflow = read('.github/workflows/validate.yml');
   assert.match(workflow, /^permissions:\n  contents: read$/m);
