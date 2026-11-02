@@ -39,9 +39,17 @@ jobs:
                 core.warning(`Skipping PR #${pr.number}: cannot verify the complete changed-file list.`);
                 continue;
               }
-              if (changedFiles.some(file => file.filename.startsWith('.github/workflows/') ||
-                file.previous_filename?.startsWith('.github/workflows/'))) {
-                core.warning(`Skipping PR #${pr.number}: GitHub Actions workflow changes require manual review.`);
+              // A PR can redefine npm test/build, alter test scripts, or change local Actions.
+              // Do not auto-merge changes to CI inputs based on checks defined by that PR.
+              const isSensitive = path => typeof path === 'string' && (
+                path.startsWith('.github/workflows/') ||
+                path.startsWith('.github/actions/') ||
+                path.startsWith('scripts/') ||
+                path.startsWith('tests/') ||
+                ['package.json', 'package-lock.json', 'npm-shrinkwrap.json', '.npmrc', 'astro.config.mjs'].includes(path)
+              );
+              if (changedFiles.some(file => isSensitive(file.filename) || isSensitive(file.previous_filename))) {
+                core.warning(`Skipping PR #${pr.number}: CI-defining files require manual review.`);
                 continue;
               }
               const {data: checks} = await github.rest.checks.listForRef({owner,repo,ref:pr.head.sha,per_page:100});
