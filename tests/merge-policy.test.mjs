@@ -182,3 +182,10 @@ test('auto-merge refuses workflow-changing PRs and incomplete file listings', as
     assert.equal(merges, scenario.expectedMerges, scenario.filename);
   }
 });
+
+
+test('auto-merge runs GitHub Script on Node.js 24', () => {
+  const workflow = read('.github/workflows/auto-merge.yml');
+  assert.match(workflow, /^        uses: actions\/github-script@v8$/m);
+  assert.doesNotMatch(workflow, /actions\/github-script@v7/);
+});
