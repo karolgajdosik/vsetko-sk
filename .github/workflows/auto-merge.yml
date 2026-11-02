@@ -30,6 +30,11 @@ jobs:
               if (pr.state !== 'open' || pr.draft || pr.base.ref !== 'main') continue;
               if (pr.head.repo.full_name !== `${owner}/${repo}`) continue;
               if (pr.head.sha !== run.head_sha) continue;
+              // GitHub may report null while computing mergeability. Never merge without a conflict-free result.
+              if (pr.mergeable !== true) {
+                core.warning(`Skipping PR #${pr.number}: GitHub has not confirmed a conflict-free merge.`);
+                continue;
+              }
               // A PR may rewrite its own validation workflow to produce a green but untrusted CI result.
               // Require a manual review for any GitHub Actions workflow change.
               const changedFiles = await github.paginate(github.rest.pulls.listFiles, {

@@ -55,6 +55,7 @@ test('auto-merge requires successful pull-request validation and matching head',
   assert.ok(workflow.includes("pr.state !== 'open' || pr.draft || pr.base.ref !== 'main'"));
   assert.ok(workflow.includes('pr.head.repo.full_name !== `${owner}/${repo}`'));
   assert.ok(workflow.includes('pr.head.sha !== run.head_sha'));
+  assert.ok(workflow.includes('pr.mergeable !== true'));
 });
 
 test('auto-merge requires successful verify check and uses head-SHA guarded squash', () => {
@@ -106,7 +107,7 @@ test('auto-merge only merges a validated PR against the live main ref', async ()
       pulls: {
         get: async () => ({data: {
           number: 42, state: 'open', draft: false,
-          changed_files: 1,
+          changed_files: 1, mergeable: true,
           base: {ref: 'main', sha: 'current-main'},
           head: {sha: 'validated-head', repo: {full_name: 'karolgajdosik/vsetko-sk'}},
         }}),
@@ -194,7 +195,7 @@ test('auto-merge refuses CI-defining PRs and incomplete file listings', async ()
       rest: {
         pulls: {
           get: async () => ({data: {
-            number: 42, state: 'open', draft: false, changed_files: scenario.changedFiles,
+            number: 42, state: 'open', draft: false, changed_files: scenario.changedFiles, mergeable: true,
             base: {ref: 'main', sha: 'current-main'},
             head: {sha: 'validated-head', repo: {full_name: 'karolgajdosik/vsetko-sk'}},
           }}),
