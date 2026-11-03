@@ -53,7 +53,10 @@ jobs:
                 // Backend handlers and Cloudflare redirects can affect data security and routing.
                 path.startsWith('functions/') ||
                 path === 'public/_redirects' ||
-                ['package.json', 'package-lock.json', 'npm-shrinkwrap.json', '.npmrc', 'astro.config.mjs'].includes(path)
+                // Cloudflare Pages security headers, routing and deployment config require review.
+                ['package.json', 'package-lock.json', 'npm-shrinkwrap.json', '.npmrc', 'astro.config.mjs',
+                 'public/_headers', 'public/_routes.json', 'public/_worker.js',
+                 'wrangler.toml', 'wrangler.json', 'wrangler.jsonc'].includes(path)
               );
               if (changedFiles.some(file => isSensitive(file.filename) || isSensitive(file.previous_filename))) {
                 core.warning(`Skipping PR #${pr.number}: CI-defining files require manual review.`);
