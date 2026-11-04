@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import scenarios from '../data/scenarios.json';
+const categories = [
+  {slug:'praca', title:'Práca a podnikanie', description:'Zamestnanie, podnikanie a praktické finančné rozhodnutia.', tags:['Podnikanie','Financie']},
+  {slug:'rodina', title:'Rodina a životné situácie', description:'Narodenie dieťaťa, svadba a pomoc pri náročných životných situáciách.', tags:['Rodina']},
+  {slug:'vzdelavanie', title:'Škola a vzdelávanie', description:'Pripravujeme overené návody pre rodičov, žiakov a učiteľov.', tags:[]}
+];
+---
+<Base title="Život a vzdelávanie | VŠETKO24.sk" description="Rozcestník pre prácu, rodinu a vzdelávanie na Slovensku.">
+  <main class="wrap main" id="obsah">
+    <nav aria-label="Navigácia"><a href="/">Úvod</a> / Život a vzdelávanie</nav>
+    <h1>Práca, rodina a vzdelávanie</h1>
+    <p>Vyberte si oblasť a pokračujte k existujúcim sprievodcom. Nové návody budeme dopĺňať postupne.</p>
+    {categories.map(category => {
+      const guides = scenarios.filter(s => category.tags.includes(s.category));
+      return <section class="panel" id={category.slug} aria-labelledby={category.slug+'-title'}>
+        <h2 id={category.slug+'-title'}>{category.title}</h2>
+        <p>{category.description}</p>
+        {guides.length ? <ul>{guides.map(guide => <li><a href={'/sprievodca/'+guide.slug+'/'}>{guide.title}</a> – {guide.description}</li>)}</ul> : <p>Prvé návody sa pripravujú. Zatiaľ môžete použiť <a href="/sprievodca/">existujúcich sprievodcov</a>.</p>}
+      </section>;
+    })}
+  </main>
+</Base>
