@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+const links = [
+  { title: 'Dostupnosť hypotéky', href: '/kalkulacky/dostupnost-hypoteky/', description: 'Orientačný výpočet dostupnosti bývania.' },
+  { title: 'Porovnanie hypoték', href: '/financie/porovnanie-hypotek/', description: 'Porovnajte splátky a celkové náklady.' },
+  { title: 'Rodinný rozpočet', href: '/kalkulacky/', description: 'Prehľad ďalších kalkulačiek a nástrojov.' }
+];
+---
+<Base title="Bývanie a nehnuteľnosti | VŠETKO24.sk" description="Bývanie na Slovensku: hypotéky, náklady na domácnosť a praktické nástroje.">
+  <main class="wrap main" id="obsah">
+    <nav aria-label="Navigácia"><a href="/">Úvod</a> / Bývanie</nav>
+    <section class="panel">
+      <h1>Bývanie a nehnuteľnosti</h1>
+      <p>Plánujete kúpu alebo prenájom bývania? Začnite praktickými výpočtami a overenými nástrojmi. Výsledky kalkulačiek sú orientačné.</p>
+    </section>
+    <section aria-labelledby="byvanie-nastroje">
+      <h2 id="byvanie-nastroje">Praktické nástroje</h2>
+      <div class="grid">
+        {links.map(link => <article class="panel"><h3><a href={link.href}>{link.title}</a></h3><p>{link.description}</p></article>)}
+      </div>
+    </section>
+  </main>
+</Base>

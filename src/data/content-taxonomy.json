@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "categories": [
+    {
+      "slug": "byvanie",
+      "title": "Bývanie",
+      "scenarioCategories": [
+        "Bývanie"
+      ],
+      "status": "active"
+    },
+    {
+      "slug": "praca",
+      "title": "Práca a podnikanie",
+      "scenarioCategories": [
+        "Podnikanie"
+      ],
+      "status": "active"
+    },
+    {
+      "slug": "rodina",
+      "title": "Rodina",
+      "scenarioCategories": [
+        "Rodina"
+      ],
+      "status": "active"
+    },
+    {
+      "slug": "auto",
+      "title": "Auto",
+      "scenarioCategories": [
+        "Auto"
+      ],
+      "status": "active"
+    },
+    {
+      "slug": "urady",
+      "title": "Úrady",
+      "scenarioCategories": [
+        "Úrady",
+        "Doklady"
+      ],
+      "status": "active"
+    },
+    {
+      "slug": "vzdelavanie",
+      "title": "Vzdelávanie",
+      "scenarioCategories": [],
+      "status": "planned"
+    }
+  ]
+}
