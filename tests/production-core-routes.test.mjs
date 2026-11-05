@@ -36,3 +36,14 @@ test('DNS and timeout errors are reported separately from HTTP failures', async 
   assert.equal(result.results[0].reason, 'dns_unresolved');
   assert.equal(result.results[0].status, null);
 });
+
+test('cross-origin redirect to a successful HTML page is rejected', async () => {
+  const result = await probeCoreRoutes({routes: ['/'], fetchImpl: async () => {
+    const response = html();
+    Object.defineProperty(response, 'url', {value: 'https://untrusted.example/login'});
+    return response;
+  }});
+  assert.equal(result.ok, false);
+  assert.equal(result.results[0].reason, 'unexpected_redirect_origin');
+  assert.equal(result.results[0].finalUrl, 'https://untrusted.example/login');
+});
