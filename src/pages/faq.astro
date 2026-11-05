@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+const questions = [
+ {q:'Je používanie VŠETKO24.sk bezplatné?',a:'Áno. Verejné návody, vyhľadávanie a dostupné kalkulačky môžeš používať bez registrácie.',href:'/sluzby/',label:'Prehľad služieb'},
+ {q:'Kde nájdem postup pre konkrétnu životnú situáciu?',a:'V sprievodcovi si vyber situáciu a prejdi odporúčané kroky. Pri úradných postupoch si vždy over aktuálne pravidlá na oficiálnom webe.',href:'/sprievodca/',label:'Životné situácie'},
+ {q:'Môžem sa spoľahnúť na výsledok kalkulačky?',a:'Výsledky sú orientačné. Nenahrádzajú individuálnu ponuku banky, poisťovne ani odborné poradenstvo.',href:'/kalkulacky/',label:'Kalkulačky'},
+ {q:'Ako nájdem informácie o aute alebo elektromobile?',a:'V sekcii Auto sú návody, nástroje a informácie o elektromobilite.',href:'/auto/',label:'Auto'},
+ {q:'Čo ak nenájdem odpoveď?',a:'Použi vyhľadávanie naprieč portálom alebo preskúmaj dostupné témy.',href:'/hladat/',label:'Vyhľadávanie'}
+];
+---
+<Base title="Časté otázky" description="Odpovede na časté otázky o bezplatnom portáli VŠETKO24.sk, sprievodcoch a kalkulačkách.">
+ <main class="wrap main" id="obsah">
+  <h1>Časté otázky</h1>
+  <p>Rýchle odpovede o používaní portálu. Informácie majú orientačný charakter; rozhodujúce sú aktuálne údaje príslušných inštitúcií.</p>
+  <div class="list">
+   {questions.map(item=><section aria-label={item.q}>
+    <h2>{item.q}</h2><p>{item.a}</p><p><a href={item.href}>{item.label} →</a></p>
+   </section>)}
+  </div>
+ </main>
+</Base>
