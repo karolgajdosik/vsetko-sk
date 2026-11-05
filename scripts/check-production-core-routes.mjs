@@ -16,7 +16,7 @@ export async function probeCoreRoutes({origin = 'https://vsetko24.sk', fetchImpl
       const contentType = response.headers.get('content-type') || '';
       const body = await response.text();
       const ok = response.status === 200 && contentType.includes('text/html') && /<html[\s>]/i.test(body);
-      results.push({route, url, status: response.status, ok, reason: ok ? 'ok' : 'unexpected_http_or_html'});
+      results.push({route, url, finalUrl, status: response.status, ok, reason: !sameOrigin ? 'unexpected_redirect_origin' : ok ? 'ok' : 'unexpected_http_or_html'});
     } catch (error) {
       results.push({route, url, status: null, ok: false, reason: classifyProbeError(error)});
     }
