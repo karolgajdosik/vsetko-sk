@@ -74,3 +74,6 @@ test('production health reports live AI browser failures as workflow failures',(
   assert.ok(gate[1].includes(`steps.${step}.outcome == 'failure'`),`Missing failure signal for ${step}`);
  }
 });
+
+// Run core page smoke regression tests as part of the existing production health suite.
+import './production-core-routes.test.mjs';
