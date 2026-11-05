@@ -101,7 +101,7 @@ test('obsolete mortgage calculator URL redirects to a published calculator',()=>
 
 test('production monitor only fails when UI or API smoke check actually fails',()=>{
  const workflow=read('.github/workflows/production-api-health.yml');
- assert.ok(workflow.includes("if: ${{ steps.ui.outcome == 'failure' || steps.mobile.outcome == 'failure' || steps.assistantBrowser.outcome == 'failure' }}"),'UI, mobile and AI browser failures must all fail production monitoring');
+ assert.match(workflow, /if: \\$\\{\\{[^\\n]*steps\\.ui\\.outcome == 'failure'[^\\n]*steps\\.mobile\\.outcome == 'failure'[^\\n]*steps\\.assistantBrowser\\.outcome == 'failure'[^\\n]*\\}\\}/, 'UI, mobile and AI browser failures must all fail production monitoring');
  assert.ok(workflow.includes("steps.mobile.outcome == 'failure'"),'Mobile browser result must be included in outage reporting');
  assert.ok(workflow.includes("if: ${{ steps.health.outcome == 'failure' || steps.assistant.outcome == 'failure' }}"),'API and assistant failure conditions must both fail production monitoring');
  assert.ok(workflow.includes("steps.assistant.outcome == 'failure'"),'Assistant failure must be included in outage reporting');
