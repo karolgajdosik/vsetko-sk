@@ -47,3 +47,13 @@ test('cross-origin redirect to a successful HTML page is rejected', async () => 
   assert.equal(result.results[0].reason, 'unexpected_redirect_origin');
   assert.equal(result.results[0].finalUrl, 'https://untrusted.example/login');
 });
+
+// The production workflow must execute the probe, not merely unit-test it.
+import {readFileSync} from 'node:fs';
+test('production workflow executes and gates core route smoke', () => {
+  const workflow = readFileSync(new URL('../.github/workflows/production-api-health.yml', import.meta.url), 'utf8');
+  assert.match(workflow, /id:\\s*coreRoutes/);
+  assert.match(workflow, /run:\\s*node scripts\\/check-production-core-routes\\.mjs/);
+  assert.match(workflow, /steps\\.coreRoutes\\.outcome == 'failure'/);
+  assert.match(workflow, /- 'scripts\\/check-production-core-routes\\.mjs'/);
+});
