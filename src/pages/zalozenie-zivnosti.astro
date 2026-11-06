@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+const steps = [
+  { title: '1. Overte si podmienky', detail: 'Zistite, či plánovaná činnosť patrí medzi voľné, remeselné alebo viazané živnosti. Pri regulovaných činnostiach si overte odbornú spôsobilosť a prípadné ďalšie povolenia.' },
+  { title: '2. Pripravte údaje a doklady', detail: 'Pripravte identifikačné údaje, predmety podnikania, miesto podnikania a prípadné doklady o oprávnení užívať nehnuteľnosť. Presný zoznam závisí od typu živnosti.' },
+  { title: '3. Ohláste živnosť', detail: 'Vyberte elektronické podanie cez slovensko.sk alebo príslušný okresný úrad, odbor živnostenského podnikania. Pred odoslaním si overte aktuálne správne poplatky a spôsob podpisovania.' },
+  { title: '4. Skontrolujte registrácie', detail: 'Po vybavení ohlásenia si overte zápis v živnostenskom registri a informácie o daňovej registrácii, zdravotnom a sociálnom poistení. Povinnosti a termíny sa líšia podľa situácie.' },
+  { title: '5. Pripravte prevádzku', detail: 'Pred prvou faktúrou si overte pravidlá fakturácie, evidencie príjmov a výdavkov, prípadnej registračnej pokladnice a ochrany osobných údajov.' }
+];
+---
+<Base title="Založenie živnosti – praktický postup | VŠETKO24.sk" description="Orientačný postup založenia živnosti na Slovensku, od overenia podmienok po registrácie a prvú faktúru.">
+  <main class="wrap main" id="obsah">
+    <nav aria-label="Navigácia"><a href="/">Úvod</a> / Založenie živnosti</nav>
+    <h1>Založenie živnosti: kontrolný zoznam</h1>
+    <p>Praktický prehľad krokov pre začínajúcich podnikateľov na Slovensku. Nenahrádza právne, účtovné ani daňové poradenstvo.</p>
+    <ol>{steps.map(step => <li class="panel"><h2>{step.title}</h2><p>{step.detail}</p></li>)}</ol>
+    <section class="panel" aria-labelledby="zdroje">
+      <h2 id="zdroje">Oficiálne informácie</h2>
+      <p>Postup, elektronické služby a aktuálne podmienky si overte na <a href="https://www.slovensko.sk/" rel="noopener noreferrer">slovensko.sk</a> a v <a href="https://www.zrsr.sk/" rel="noopener noreferrer">živnostenskom registri</a>. Daňové informácie nájdete na <a href="https://www.financnasprava.sk/" rel="noopener noreferrer">Finančnej správe SR</a>.</p>
+      <p><strong>Obsah pripravený:</strong> 6. 11. 2026. Konkrétne poplatky a termíny zámerne neuvádzame bez aktuálneho overenia.</p>
+    </section>
+  </main>
+</Base>
