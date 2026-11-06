@@ -7,6 +7,7 @@ export const expectedHeadings = Object.freeze({
   '/zalozenie-zivnosti/': 'Založenie živnosti: kontrolný zoznam',
   '/umrtie-v-rodine/': 'Úmrtie v rodine: čo treba vybaviť',
   '/strata-dokladov/': 'Strata dokladov: čo urobiť ako prvé',
+  '/kalkulacky/naklady-na-byvanie/': 'Koľko vás skutočne stojí bývanie?',
 });
 export const coreRoutes = ['/', ...Object.keys(expectedHeadings)];
 function pageHeading(html) {

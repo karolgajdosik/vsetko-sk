@@ -16,8 +16,8 @@ test('core smoke checks homepage and both newly merged category routes', async (
   assert.ok(result.results.every(item => item.status === 200 && item.ok));
 });
 
-test('all six new V3 production routes have expected page headings', () => {
-  const expected = ['/faq/', '/generator-reklamacie/', '/kupa-nehnutelnosti/', '/zalozenie-zivnosti/', '/umrtie-v-rodine/', '/strata-dokladov/'];
+test('all seven new V3 production routes have expected page headings', () => {
+  const expected = ['/faq/', '/generator-reklamacie/', '/kupa-nehnutelnosti/', '/zalozenie-zivnosti/', '/umrtie-v-rodine/', '/strata-dokladov/', '/kalkulacky/naklady-na-byvanie/'];
   for (const route of expected) {
     assert.ok(coreRoutes.includes(route), 'Missing live smoke route: ' + route);
     assert.ok(expectedHeadings[route], 'Missing expected heading for ' + route);
