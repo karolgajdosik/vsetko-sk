@@ -52,8 +52,8 @@ test('cross-origin redirect to a successful HTML page is rejected', async () => 
 import {readFileSync} from 'node:fs';
 test('production workflow executes and gates core route smoke', () => {
   const workflow = readFileSync(new URL('../.github/workflows/production-api-health.yml', import.meta.url), 'utf8');
-  assert.match(workflow, /id:\\s*coreRoutes/);
-  assert.match(workflow, /run:\\s*node scripts\\/check-production-core-routes\\.mjs/);
-  assert.match(workflow, /steps\\.coreRoutes\\.outcome == 'failure'/);
-  assert.match(workflow, /- 'scripts\\/check-production-core-routes\\.mjs'/);
+  assert.ok(workflow.includes('id: coreRoutes'));
+  assert.ok(workflow.includes('node scripts/check-production-core-routes.mjs'));
+  assert.ok(workflow.includes("steps.coreRoutes.outcome == 'failure'"));
+  assert.ok(workflow.includes("'scripts/check-production-core-routes.mjs'"));
 });
