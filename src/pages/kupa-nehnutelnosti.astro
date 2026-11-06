@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+const steps = [
+  { title: '1. Rozpočet a financovanie', detail: 'Porovnajte vlastné zdroje, predbežnú ponuku banky, mesačnú splátku aj rezervu na poplatky a opravy.' },
+  { title: '2. Overenie nehnuteľnosti', detail: 'Skontrolujte list vlastníctva, vlastníkov, ťarchy, prípadné vecné bremená a súlad skutočného stavu s dokumentáciou. Pri byte sa informujte aj o dlhoch a stave domu.' },
+  { title: '3. Zmluvy a bezpečná úhrada', detail: 'Pred podpisom si dajte nezávisle preveriť rezervačnú a kúpnu zmluvu. Dohodnite bezpečný spôsob úhrady, podmienky uvoľnenia peňazí a postup pri zamietnutí vkladu.' },
+  { title: '4. Kataster a odovzdanie', detail: 'Overte podanie návrhu na vklad a následne zápis vlastníckeho práva. Pri odovzdaní spíšte protokol, stavy meračov a odovzdané kľúče.' },
+  { title: '5. Po kúpe', detail: 'Preverte povinnosti voči obci, správcovi, dodávateľom energií a poisťovni. Termíny a postupy si potvrďte podľa konkrétnej situácie.' }
+];
+---
+<Base title="Kúpa nehnuteľnosti – kontrolný zoznam | VŠETKO24.sk" description="Praktický kontrolný zoznam pred kúpou bytu alebo domu na Slovensku: financovanie, kataster, zmluvy a odovzdanie.">
+  <main class="wrap main" id="obsah">
+    <nav aria-label="Navigácia"><a href="/">Úvod</a> / <a href="/byvanie/">Bývanie</a> / Kúpa nehnuteľnosti</nav>
+    <h1>Kúpa nehnuteľnosti: na čo nezabudnúť</h1>
+    <p>Orientačný kontrolný zoznam pre kúpu bytu alebo domu na Slovensku. Nenahrádza právne, finančné ani daňové poradenstvo.</p>
+    <ol>
+      {steps.map(step => <li class="panel"><h2>{step.title}</h2><p>{step.detail}</p></li>)}
+    </ol>
+    <section class="panel" aria-labelledby="overenie">
+      <h2 id="overenie">Užitočné overenie</h2>
+      <p>Aktuálne údaje o nehnuteľnosti a postupe na katastri si overte cez <a href="https://www.skgeodesy.sk/" rel="noopener noreferrer">Úrad geodézie, kartografie a katastra SR</a>. Pri financovaní vám pomôže <a href="/kalkulacky/dostupnost-hypoteky/">orientačná kalkulačka dostupnosti hypotéky</a>.</p>
+      <p><strong>Aktualizované:</strong> 6. 11. 2026. Pred rozhodnutím si overte aktuálne pravidlá a konkrétne podklady.</p>
+    </section>
+  </main>
+</Base>
