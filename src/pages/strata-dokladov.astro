@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+const steps = [
+  { title: '1. Zabezpečte stratené doklady', detail: 'Ak ste stratili peňaženku, skontrolujte aj platobné karty. Pri strate alebo krádeži karty kontaktujte banku a kartu bezodkladne zablokujte.' },
+  { title: '2. Nahláste stratu občianskeho preukazu', detail: 'Stratu alebo odcudzenie občianskeho preukazu oznámte príslušnému oddeleniu dokladov Policajného zboru. Overte si aj možnosti elektronického nahlásenia a podmienky podania žiadosti o nový doklad.' },
+  { title: '3. Skontrolujte ostatné doklady', detail: 'Ak chýba aj cestovný pas alebo vodičský preukaz, overte si samostatný postup nahlásenia a vybavenia náhradného dokladu. Pri strate v zahraničí kontaktujte miestne orgány a slovenské zastupiteľstvo.' },
+  { title: '4. Pripravte sa na vybavenie nových dokladov', detail: 'Pred návštevou pracoviska si na oficiálnych stránkach overte potrebné podklady, rezerváciu termínu, poplatky a lehoty. Podmienky sa môžu líšiť podľa dokladu a okolností.' },
+  { title: '5. Znížte riziko zneužitia', detail: 'Sledujte nezvyčajné transakcie a oznámenia banky. Ak máte podozrenie na zneužitie identity alebo krádež, obráťte sa na políciu a príslušné inštitúcie.' }
+];
+---
+<Base title="Strata dokladov – čo vybaviť | VŠETKO24.sk" description="Praktický kontrolný zoznam pri strate občianskeho preukazu, pasu, vodičského preukazu alebo platobnej karty na Slovensku.">
+  <main class="wrap main" id="obsah">
+    <nav aria-label="Navigácia"><a href="/">Úvod</a> / <a href="/urady/">Úrady</a> / Strata dokladov</nav>
+    <h1>Strata dokladov: čo urobiť ako prvé</h1>
+    <p>Orientačný postup pre situáciu, keď stratíte doklady alebo peňaženku. Pri krádeži alebo podozrení na zneužitie postupujte bez odkladu.</p>
+    <ol>{steps.map(step => <li class="panel"><h2>{step.title}</h2><p>{step.detail}</p></li>)}</ol>
+    <section class="panel" aria-labelledby="zdroje">
+      <h2 id="zdroje">Oficiálne zdroje</h2>
+      <p>Podmienky vybavovania dokladov a elektronické služby si overte na <a href="https://www.slovensko.sk/" rel="noopener noreferrer">slovensko.sk</a> a <a href="https://www.minv.sk/" rel="noopener noreferrer">Ministerstve vnútra SR</a>. Pri strate v zahraničí vyhľadajte pomoc cez <a href="https://www.mzv.sk/" rel="noopener noreferrer">Ministerstvo zahraničných vecí SR</a>.</p>
+      <p><strong>Pripravené:</strong> 6. 11. 2026. Aktuálne poplatky, lehoty a úradné postupy si vždy potvrďte na oficiálnom webe.</p>
+    </section>
+  </main>
+</Base>
