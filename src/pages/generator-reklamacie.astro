@@ -1,0 +1,101 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Generátor reklamácie" description="Vytvor si bezplatný reklamačný list priamo v prehliadači. Bez registrácie a odosielania údajov na server.">
+  <main class="wrap main" id="obsah">
+    <p class="eyebrow">Praktický nástroj · Bez registrácie</p>
+    <h1>Generátor reklamačného listu</h1>
+    <p>Vyplň údaje a vytvor si návrh sprievodného listu k reklamácii tovaru. Text si môžeš skopírovať, upraviť a doručiť predávajúcemu. Údaje spracúva len tvoj prehliadač; formulár ich neposiela na náš server.</p>
+    <p><strong>Upozornenie:</strong> Toto je všeobecná pomôcka, nie právne poradenstvo. Konkrétne nároky závisia od povahy vady a okolností kúpy. Over si svoje práva podľa aktuálnych pravidiel.</p>
+    <form id="claim-form" class="claim-form">
+      <label for="claim-buyer">Meno a kontaktná adresa kupujúceho</label>
+      <textarea id="claim-buyer" rows="2" maxlength="350" required placeholder="Meno, ulica, PSČ, mesto"></textarea>
+      <label for="claim-seller">Obchodník a jeho adresa</label>
+      <textarea id="claim-seller" rows="2" maxlength="350" required placeholder="Názov obchodníka, adresa"></textarea>
+      <label for="claim-item">Reklamovaný tovar</label>
+      <input id="claim-item" type="text" maxlength="200" required placeholder="Napr. práčka, značka a model"/>
+      <label for="claim-date">Dátum kúpy (ak ho poznáš)</label>
+      <input id="claim-date" type="date"/>
+      <label for="claim-receipt">Doklad o kúpe alebo číslo objednávky (nepovinné)</label>
+      <input id="claim-receipt" type="text" maxlength="140" placeholder="Napr. objednávka č. 12345"/>
+      <label for="claim-defect">Ako sa vada prejavuje?</label>
+      <textarea id="claim-defect" rows="4" maxlength="1800" required placeholder="Popíš konkrétny problém a kedy si ho zistil."></textarea>
+      <label for="claim-remedy">Čo navrhuješ?</label>
+      <select id="claim-remedy">
+        <option value="Žiadam o posúdenie vady a vybavenie reklamácie v súlade s platnými právnymi predpismi.">Zákonné vybavenie reklamácie</option>
+        <option value="Navrhujem opravu tovaru, ak sú na to splnené zákonné podmienky.">Oprava</option>
+        <option value="Navrhujem výmenu tovaru, ak sú na to splnené zákonné podmienky.">Výmena</option>
+        <option value="Žiadam o primeranú zľavu, ak sú na to splnené zákonné podmienky.">Primeraná zľava</option>
+        <option value="Žiadam o odstúpenie od zmluvy, ak sú na to splnené zákonné podmienky.">Odstúpenie od zmluvy</option>
+      </select>
+      <button type="submit">Vytvoriť list</button>
+    </form>
+    <section class="claim-result" aria-labelledby="result-title">
+      <h2 id="result-title">Návrh listu</h2>
+      <p id="claim-status" role="status" aria-live="polite">Po vyplnení formulára sa tu zobrazí text listu.</p>
+      <label for="claim-text">Text na skopírovanie alebo ďalšiu úpravu</label>
+      <textarea id="claim-text" rows="17" readonly aria-describedby="claim-status"></textarea>
+      <button type="button" id="claim-copy" disabled>Skopírovať text</button>
+    </section>
+    <section aria-labelledby="checklist-title">
+      <h2 id="checklist-title">Pred odoslaním</h2>
+      <ul>
+        <li>Skontroluj správnosť údajov a zvolený spôsob riešenia.</li>
+        <li>Pripoj príslušné doklady, napríklad doklad o kúpe a fotografie vady.</li>
+        <li>Uchovaj si kópiu reklamácie aj dôkaz o jej doručení obchodníkovi.</li>
+      </ul>
+      <p>Oficiálny právny zdroj: <a href="https://www.slov-lex.sk/ezbierky/pravne-predpisy/SK/ZZ/2024/108" target="_blank" rel="noopener noreferrer">Zákon o ochrane spotrebiteľa (Slov-Lex)</a>. Právne predpisy sa môžu meniť. Aktualizované 6. 11. 2026.</p>
+    </section>
+  </main>
+</Base>
+<style>
+  .claim-form{display:grid;gap:.65rem;max-width:760px;margin:1.5rem 0 2.5rem}
+  .claim-form label,.claim-result label{font-weight:650}
+  .claim-form input,.claim-form textarea,.claim-form select,.claim-result textarea{box-sizing:border-box;width:100%;padding:.8rem;font:inherit;border:1px solid #8491a1;border-radius:.6rem;background:transparent;color:inherit}
+  .claim-form button,.claim-result button{justify-self:start;width:max-content;max-width:100%;border:0;border-radius:.6rem;padding:.85rem 1.2rem;background:#16436d;color:#fff;font:inherit;font-weight:650;cursor:pointer}
+  .claim-form button:hover,.claim-result button:hover{background:#205d92}
+  .claim-result button:disabled{opacity:.55;cursor:not-allowed}
+  .claim-result{max-width:760px;margin:2rem 0}
+  .claim-result textarea{display:block;margin:.5rem 0 .8rem;white-space:pre-wrap}
+</style>
+<script is:inline>
+(() => {
+  const form=document.getElementById('claim-form');
+  const output=document.getElementById('claim-text');
+  const status=document.getElementById('claim-status');
+  const copy=document.getElementById('claim-copy');
+  const value=id=>document.getElementById(id).value.trim();
+  form.addEventListener('submit',event=>{
+    event.preventDefault();
+    if(!form.reportValidity())return;
+    const date=value('claim-date');
+    const purchase=date&&/^\d{4}-\d{2}-\d{2}$/.test(date)?date.split('-').reverse().join('. '):'neuvedený';
+    const receipt=value('claim-receipt');
+    output.value=[
+      value('claim-buyer'),'','Adresát:',value('claim-seller'),'',
+      'VEC: Uplatnenie reklamácie tovaru','',
+      'Dobrý deň,','',
+      'Týmto uplatňujem reklamáciu nasledujúceho tovaru: '+value('claim-item')+'.',
+      'Dátum kúpy: '+purchase+'.',
+      ...(receipt?['Doklad alebo číslo objednávky: '+receipt+'.']:[]),
+      '','Popis vady:',value('claim-defect'),'',
+      value('claim-remedy'),'',
+      'Prosím o potvrdenie prijatia reklamácie a informáciu o ďalšom postupe.','',
+      'S pozdravom',value('claim-buyer')
+    ].join('\n');
+    copy.disabled=false;
+    status.textContent='List je pripravený. Skontroluj ho a skopíruj.';
+    output.focus();
+  });
+  copy.addEventListener('click',async()=>{
+    if(!output.value)return;
+    try{
+      await navigator.clipboard.writeText(output.value);
+      status.textContent='Text bol skopírovaný.';
+    }catch{
+      output.focus();output.select();
+      status.textContent='Automatické kopírovanie nie je dostupné. Označený text skopíruj ručne.';
+    }
+  });
+})();
+</script>
