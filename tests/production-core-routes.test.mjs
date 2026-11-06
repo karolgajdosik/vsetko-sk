@@ -1,19 +1,43 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {coreRoutes, classifyProbeError, probeCoreRoutes} from '../scripts/check-production-core-routes.mjs';
+import {coreRoutes, expectedHeadings, classifyProbeError, probeCoreRoutes} from '../scripts/check-production-core-routes.mjs';
 
-const html = (status = 200, type = 'text/html') => new Response('<!doctype html><html><body>OK</body></html>', {status, headers: {'content-type': type}});
+const html = (status = 200, type = 'text/html', heading = 'OK') => new Response(`<html><body><main><h1>${heading}</h1></main></body></html>`, {status, headers: {'content-type': type}});
 
 test('core smoke checks homepage and both newly merged category routes', async () => {
   const seen = [];
   const result = await probeCoreRoutes({fetchImpl: async (url, options) => {
     seen.push(new URL(url).pathname);
     assert.equal(options.method, 'GET');
-    return html();
+    return html(200, 'text/html', expectedHeadings[new URL(url).pathname] ?? 'OK');
   }});
   assert.equal(result.ok, true);
   assert.deepEqual(seen, coreRoutes);
   assert.ok(result.results.every(item => item.status === 200 && item.ok));
+});
+
+test('all six new V3 production routes have expected page headings', () => {
+  const expected = ['/faq/', '/generator-reklamacie/', '/kupa-nehnutelnosti/', '/zalozenie-zivnosti/', '/umrtie-v-rodine/', '/strata-dokladov/'];
+  for (const route of expected) {
+    assert.ok(coreRoutes.includes(route), 'Missing live smoke route: ' + route);
+    assert.ok(expectedHeadings[route], 'Missing expected heading for ' + route);
+  }
+  assert.equal(new Set(coreRoutes).size, coreRoutes.length);
+});
+
+test('HTTP 200 homepage fallback does not pass as a new feature', async () => {
+  const result = await probeCoreRoutes({routes: ['/faq/'], fetchImpl: async () => html(200, 'text/html', 'Všetko, čo potrebuješ')});
+  assert.equal(result.ok, false);
+  assert.equal(result.results[0].status, 200);
+  assert.equal(result.results[0].reason, 'unexpected_page_heading');
+  assert.equal(result.results[0].expectedHeading, 'Časté otázky');
+});
+
+test('each new V3 page passes only with its own heading', async () => {
+  const routes = coreRoutes.filter(route => route in expectedHeadings);
+  const result = await probeCoreRoutes({routes, fetchImpl: async url => html(200, 'text/html', expectedHeadings[new URL(url).pathname])});
+  assert.equal(result.ok, true);
+  assert.ok(result.results.every(item => item.reason === 'ok'));
 });
 
 test('HTTP 200 with JSON or non-HTML content does not pass', async () => {

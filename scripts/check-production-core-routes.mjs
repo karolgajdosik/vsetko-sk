@@ -1,4 +1,18 @@
-export const coreRoutes = ['/', '/byvanie/', '/zivot-a-vzdelavanie/'];
+export const expectedHeadings = Object.freeze({
+  '/byvanie/': 'Bývanie a nehnuteľnosti',
+  '/zivot-a-vzdelavanie/': 'Práca, rodina a vzdelávanie',
+  '/faq/': 'Časté otázky',
+  '/generator-reklamacie/': 'Generátor reklamačného listu',
+  '/kupa-nehnutelnosti/': 'Kúpa nehnuteľnosti: na čo nezabudnúť',
+  '/zalozenie-zivnosti/': 'Založenie živnosti: kontrolný zoznam',
+  '/umrtie-v-rodine/': 'Úmrtie v rodine: čo treba vybaviť',
+  '/strata-dokladov/': 'Strata dokladov: čo urobiť ako prvé',
+});
+export const coreRoutes = ['/', ...Object.keys(expectedHeadings)];
+function pageHeading(html) {
+  const match = html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i);
+  return match ? match[1].replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim() : '';
+}
 
 export function classifyProbeError(error) {
   const code = error?.cause?.code || error?.code || '';
@@ -17,8 +31,12 @@ export async function probeCoreRoutes({origin = 'https://vsetko24.sk', fetchImpl
       const body = await response.text();
       const finalUrl = response.url || url;
       const sameOrigin = new URL(finalUrl).origin === new URL(url).origin;
-      const ok = sameOrigin && response.status === 200 && contentType.includes('text/html') && /<html[\s>]/i.test(body);
-      results.push({route, url, finalUrl, status: response.status, ok, reason: !sameOrigin ? 'unexpected_redirect_origin' : ok ? 'ok' : 'unexpected_http_or_html'});
+      const htmlOk = sameOrigin && response.status === 200 && contentType.includes('text/html') && /<html[\s>]/i.test(body);
+      const expectedHeading = expectedHeadings[route] ?? null;
+      const heading = pageHeading(body);
+      const headingOk = !expectedHeading || heading === expectedHeading;
+      const ok = htmlOk && headingOk;
+      results.push({route, url, finalUrl, status: response.status, ok, expectedHeading, observedHeading: heading, reason: !sameOrigin ? 'unexpected_redirect_origin' : !htmlOk ? 'unexpected_http_or_html' : !headingOk ? 'unexpected_page_heading' : 'ok'});
     } catch (error) {
       results.push({route, url, status: null, ok: false, reason: classifyProbeError(error)});
     }
