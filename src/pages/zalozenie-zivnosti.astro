@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import GuideChecklist from '../components/GuideChecklist.astro';
 const steps = [
   { title: '1. Overte si podmienky', detail: 'Zistite, či plánovaná činnosť patrí medzi voľné, remeselné alebo viazané živnosti. Pri regulovaných činnostiach si overte odbornú spôsobilosť a prípadné ďalšie povolenia.' },
   { title: '2. Pripravte údaje a doklady', detail: 'Pripravte identifikačné údaje, predmety podnikania, miesto podnikania a prípadné doklady o oprávnení užívať nehnuteľnosť. Presný zoznam závisí od typu živnosti.' },
@@ -13,7 +14,7 @@ const steps = [
     <nav aria-label="Navigácia"><a href="/">Úvod</a> / Založenie živnosti</nav>
     <h1>Založenie živnosti: kontrolný zoznam</h1>
     <p>Praktický prehľad krokov pre začínajúcich podnikateľov na Slovensku. Nenahrádza právne, účtovné ani daňové poradenstvo.</p>
-    <ol>{steps.map(step => <li class="panel"><h2>{step.title}</h2><p>{step.detail}</p></li>)}</ol>
+    <GuideChecklist steps={steps} storageKey="zalozenie-zivnosti" />
     <section class="panel" aria-labelledby="zdroje">
       <h2 id="zdroje">Oficiálne informácie</h2>
       <p>Postup, elektronické služby a aktuálne podmienky si overte na <a href="https://www.slovensko.sk/" rel="noopener noreferrer">slovensko.sk</a> a v <a href="https://www.zrsr.sk/" rel="noopener noreferrer">živnostenskom registri</a>. Daňové informácie nájdete na <a href="https://www.financnasprava.sk/" rel="noopener noreferrer">Finančnej správe SR</a>.</p>

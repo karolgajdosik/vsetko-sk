@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import GuideChecklist from '../components/GuideChecklist.astro';
 const steps = [
   { title: '1. Získajte úmrtný list', detail: 'Po úmrtí si overte postup vystavenia úmrtného listu na príslušnej matrike. Ak úmrtie nastalo v nemocnici, informujte sa, ktoré dokumenty odovzdá zdravotnícke zariadenie.' },
   { title: '2. Zabezpečte pohreb a uschovajte doklady', detail: 'Kontaktujte pohrebnú službu a odložte si faktúry a potvrdenia o úhrade. Pri vybavovaní dávok a pozostalostných záležitostí sa môžu hodiť.' },
@@ -13,7 +14,7 @@ const steps = [
     <nav aria-label="Navigácia"><a href="/">Úvod</a> / <a href="/zivot-a-vzdelavanie/">Životné situácie</a> / Úmrtie v rodine</nav>
     <h1>Úmrtie v rodine: čo treba vybaviť</h1>
     <p>Praktický prehľad pre pozostalých na Slovensku. Nie všetky kroky sú potrebné v každej situácii. Tento obsah nenahrádza právne poradenstvo ani pokyny matriky, súdu či notára.</p>
-    <ol>{steps.map(step => <li class="panel"><h2>{step.title}</h2><p>{step.detail}</p></li>)}</ol>
+    <GuideChecklist steps={steps} storageKey="umrtie-v-rodine" />
     <section class="panel" aria-labelledby="zdroje">
       <h2 id="zdroje">Oficiálne zdroje a overenie</h2>
       <p>Informácie o životných situáciách a matrikách nájdete na <a href="https://www.slovensko.sk/" rel="noopener noreferrer">slovensko.sk</a>. Podmienky pozostalostných dôchodkov si overte v <a href="https://www.socpoist.sk/" rel="noopener noreferrer">Sociálnej poisťovni</a>; informácie o príspevku na pohreb na <a href="https://www.upsvr.gov.sk/" rel="noopener noreferrer">Ústredí práce, sociálnych vecí a rodiny</a>. Pri dedičstve sa riaďte pokynmi povereného notára.</p>
