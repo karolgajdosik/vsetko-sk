@@ -43,6 +43,7 @@ const fields = [
       </div>
       <p class="housing-note">Mesačný priemer rozpočítava jednorazové výdavky rovnomerne počas zvoleného obdobia. Ročný priemer zodpovedá dvanástim takýmto priemerným mesiacom. Ak nezadáte príjem, podiel z príjmu sa nevypočíta.</p>
     </section>
+    <button type="button" id="housing-print" class="housing-reset">Vytlačiť alebo uložiť výsledky ako PDF</button>
     <section aria-labelledby="housing-method" class="panel">
       <h2 id="housing-method">Čo výpočet zahŕňa?</h2>
       <p>Priebežné platby, náklady na energie a služby, ročné poistenie a dane prepočítané na mesiace, rezervu na údržbu a samostatne zadané jednorazové výdavky.</p>
@@ -65,6 +66,7 @@ const fields = [
   .housing-result small{font-size:.85rem}
   .housing-result strong{font-size:clamp(1.15rem,2.5vw,1.65rem);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
   .housing-note{margin-top:1rem}
+  @media print{.housing-form,.housing-reset{display:none!important}.housing-results{break-inside:avoid}}
   #housing-error[hidden]{display:none}
 </style>
 <script>
@@ -90,5 +92,6 @@ const fields = [
   }
   document.getElementById('housing-form')?.addEventListener('input',update);
   document.getElementById('housing-form')?.addEventListener('reset',()=>requestAnimationFrame(update));
+  document.getElementById("housing-print")?.addEventListener("click",()=>window.print());
   update();
 </script>
