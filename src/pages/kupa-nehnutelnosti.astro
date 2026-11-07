@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import GuideChecklist from '../components/GuideChecklist.astro';
 const steps = [
   { title: '1. Rozpočet a financovanie', detail: 'Porovnajte vlastné zdroje, predbežnú ponuku banky, mesačnú splátku aj rezervu na poplatky a opravy.' },
   { title: '2. Overenie nehnuteľnosti', detail: 'Skontrolujte list vlastníctva, vlastníkov, ťarchy, prípadné vecné bremená a súlad skutočného stavu s dokumentáciou. Pri byte sa informujte aj o dlhoch a stave domu.' },
@@ -13,9 +14,15 @@ const steps = [
     <nav aria-label="Navigácia"><a href="/">Úvod</a> / <a href="/byvanie/">Bývanie</a> / Kúpa nehnuteľnosti</nav>
     <h1>Kúpa nehnuteľnosti: na čo nezabudnúť</h1>
     <p>Orientačný kontrolný zoznam pre kúpu bytu alebo domu na Slovensku. Nenahrádza právne, finančné ani daňové poradenstvo.</p>
-    <ol>
-      {steps.map(step => <li class="panel"><h2>{step.title}</h2><p>{step.detail}</p></li>)}
-    </ol>
+    <GuideChecklist steps={steps} storageKey="kupa-nehnutelnosti" />
+    <section class="panel" aria-labelledby="rozpocet">
+      <h2 id="rozpocet">Vypočítajte si náklady ešte pred podpisom</h2>
+      <p>Okrem kúpnej ceny počítajte s vlastnými zdrojmi, rezervou na opravy a pravidelnými nákladmi domácnosti. Výsledky kalkulačiek sú orientačné a nenahrádzajú ponuku banky.</p>
+      <ul>
+        <li><a href="/kalkulacky/dostupnost-hypoteky/">Dostupnosť hypotéky – orientačný výpočet</a></li>
+        <li><a href="/kalkulacky/naklady-na-byvanie/">Mesačné a ročné náklady na bývanie</a></li>
+      </ul>
+    </section>
     <section class="panel" aria-labelledby="overenie">
       <h2 id="overenie">Užitočné overenie</h2>
       <p>Aktuálne údaje o nehnuteľnosti a postupe na katastri si overte cez <a href="https://www.skgeodesy.sk/" rel="noopener noreferrer">Úrad geodézie, kartografie a katastra SR</a>. Pri financovaní vám pomôže <a href="/kalkulacky/dostupnost-hypoteky/">orientačná kalkulačka dostupnosti hypotéky</a>.</p>
