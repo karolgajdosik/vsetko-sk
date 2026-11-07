@@ -1,0 +1,74 @@
+---
+import Base from '../../layouts/Base.astro';
+const guides = [
+  { key: 'strata-dokladov', title: 'Strata dokladov', href: '/strata-dokladov/', total: 5 },
+  { key: 'zalozenie-zivnosti', title: 'Založenie živnosti', href: '/zalozenie-zivnosti/', total: 5 },
+  { key: 'umrtie-v-rodine', title: 'Úmrtie v rodine', href: '/umrtie-v-rodine/', total: 5 },
+  { key: 'kupa-nehnutelnosti', title: 'Kúpa nehnuteľnosti', href: '/kupa-nehnutelnosti/', total: 5 },
+];
+---
+<Base title="Moje kontrolné zoznamy | VŠETKO24.sk" description="Prehľad rozpracovaných životných situácií a vybavených krokov bez registrácie a bez odosielania údajov na server.">
+  <main class="wrap main" id="obsah">
+    <nav aria-label="Navigácia"><a href="/">Úvod</a> / Moje kontrolné zoznamy</nav>
+    <h1>Moje kontrolné zoznamy</h1>
+    <p>Na jednom mieste vidíte postup pri vybavovaní životných situácií. Údaje sú uložené iba v tomto prehliadači a na tomto zariadení.</p>
+    <section class="panel" aria-labelledby="overall-title">
+      <h2 id="overall-title">Celkový postup</h2>
+      <p id="guide-overall" role="status" aria-live="polite">Načítavam uložený postup…</p>
+      <progress id="guide-overall-bar" max="20" value="0" aria-label="Celkový počet vybavených krokov"></progress>
+    </section>
+    <section class="guide-cards" aria-label="Jednotlivé kontrolné zoznamy">
+      {guides.map(guide => (
+        <article class="panel guide-card" data-guide-key={guide.key} data-guide-total={guide.total}>
+          <h2><a href={guide.href}>{guide.title}</a></h2>
+          <p data-guide-count>Načítavam…</p>
+          <progress max={guide.total} value="0" aria-label={`Postup: ${guide.title}`}></progress>
+          <div class="guide-actions"><a href={guide.href}>Pokračovať v zozname →</a><button type="button" data-guide-clear>Vymazať postup</button></div>
+        </article>
+      ))}
+    </section>
+    <section class="panel" aria-labelledby="privacy-title">
+      <h2 id="privacy-title">Súkromie a dostupnosť</h2>
+      <p>Postup sa neodosiela na server. Pri vymazaní údajov prehliadača alebo používaní iného zariadenia nemusí byť dostupný. Vymazanie postupu je nevratné; samotný kontrolný zoznam zostane dostupný.</p>
+    </section>
+  </main>
+</Base>
+<style>
+  .guide-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:1rem;margin:1rem 0}
+  .guide-card h2{margin-top:0}
+  progress{width:100%;height:1.1rem;accent-color:var(--accent,#177c78)}
+  .guide-actions{display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap;margin-top:1rem}
+  .guide-actions button{padding:.55rem .7rem;border:1px solid var(--border,#ccd3dd);border-radius:.5rem;cursor:pointer;background:transparent;color:inherit}
+</style>
+<script>
+  const prefix = 'vsetko24:guide:v1:';
+  const cards = [...document.querySelectorAll<HTMLElement>('[data-guide-key]')];
+  const render = () => {
+    let doneAll = 0;
+    let totalAll = 0;
+    for (const card of cards) {
+      const total = Number(card.dataset.guideTotal) || 0;
+      let saved: unknown = [];
+      try { saved = JSON.parse(localStorage.getItem(prefix + card.dataset.guideKey) || '[]'); } catch {}
+      const done = Array.isArray(saved) ? saved.slice(0,total).filter(item => item === true).length : 0;
+      doneAll += done;
+      totalAll += total;
+      const count = card.querySelector<HTMLElement>('[data-guide-count]');
+      if (count) count.textContent = `Vybavené: ${done} z ${total}`;
+      const bar = card.querySelector<HTMLProgressElement>('progress');
+      if (bar) bar.value = done;
+    }
+    const overall = document.getElementById('guide-overall');
+    if (overall) overall.textContent = `Vybavené: ${doneAll} z ${totalAll} krokov`;
+    const overallBar = document.querySelector<HTMLProgressElement>('#guide-overall-bar');
+    if (overallBar) { overallBar.max = totalAll || 1; overallBar.value = doneAll; }
+  };
+  cards.forEach(card => card.querySelector('[data-guide-clear]')?.addEventListener('click', () => {
+    if (!window.confirm('Vymazať uložený postup pre tento kontrolný zoznam?')) return;
+    try { localStorage.removeItem(prefix + card.dataset.guideKey); } catch {}
+    render();
+  }));
+  window.addEventListener('storage', render);
+  window.addEventListener('pageshow', render);
+  render();
+</script>
