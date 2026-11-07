@@ -27,6 +27,17 @@ const guides = [
         </article>
       ))}
     </section>
+    <section class="panel" aria-labelledby="backup-title">
+      <h2 id="backup-title">Záloha a obnovenie postupu</h2>
+      <p>Stiahnite si zálohu štyroch kontrolných zoznamov ako súbor JSON. Môžete ju obnoviť na inom zariadení. Súbor sa nikam neodosiela, spracuje sa len vo vašom prehliadači.</p>
+      <div class="guide-actions">
+        <button type="button" id="guide-export">Stiahnuť zálohu</button>
+        <label for="guide-import">Obnoviť zo súboru JSON</label>
+        <input id="guide-import" type="file" accept=".json,application/json" />
+      </div>
+      <p id="guide-backup-status" role="status" aria-live="polite"></p>
+      <p><small>Obnovenie nahradí aktuálny postup vo všetkých štyroch zoznamoch až po vašom potvrdení. Záložný súbor môže prezrádzať vaše vybavené úlohy, preto ho uchovávajte bezpečne.</small></p>
+    </section>
     <section class="panel" aria-labelledby="privacy-title">
       <h2 id="privacy-title">Súkromie a dostupnosť</h2>
       <p>Postup sa neodosiela na server. Pri vymazaní údajov prehliadača alebo používaní iného zariadenia nemusí byť dostupný. Vymazanie postupu je nevratné; samotný kontrolný zoznam zostane dostupný.</p>
@@ -38,7 +49,7 @@ const guides = [
   .guide-card h2{margin-top:0}
   progress{width:100%;height:1.1rem;accent-color:var(--accent,#177c78)}
   .guide-actions{display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap;margin-top:1rem}
-  .guide-actions button{padding:.55rem .7rem;border:1px solid var(--border,#ccd3dd);border-radius:.5rem;cursor:pointer;background:transparent;color:inherit}
+  .guide-actions label{cursor:pointer;text-decoration:underline}\n  .guide-actions button{padding:.55rem .7rem;border:1px solid var(--border,#ccd3dd);border-radius:.5rem;cursor:pointer;background:transparent;color:inherit}
 </style>
 <script>
   const prefix = 'vsetko24:guide:v1:';
@@ -68,6 +79,65 @@ const guides = [
     try { localStorage.removeItem(prefix + card.dataset.guideKey); } catch {}
     render();
   }));
+  const backupStatus = document.getElementById('guide-backup-status');
+  const setBackupStatus = (message: string) => { if (backupStatus) backupStatus.textContent = message; };
+  const getGuideSpecs = () => cards.map(card => ({ key: card.dataset.guideKey || '', total: Number(card.dataset.guideTotal) || 0 }));
+  document.getElementById('guide-export')?.addEventListener('click', () => {
+    try {
+      const guides: Record<string, boolean[]> = {};
+      for (const { key, total } of getGuideSpecs()) {
+        const raw = JSON.parse(localStorage.getItem(prefix + key) || '[]');
+        if (!Array.isArray(raw)) throw new Error('invalid local progress');
+        guides[key] = Array.from({ length: total }, (_, index) => raw[index] === true);
+      }
+      const payload = JSON.stringify({ format: 'vsetko24-guide-progress', version: 1, guides }, null, 2);
+      const url = URL.createObjectURL(new Blob([payload], { type: 'application/json' }));
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'vsetko24-kontrolne-zoznamy.json';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+      setBackupStatus('Záložný súbor bol pripravený na stiahnutie.');
+    } catch {
+      setBackupStatus('Zálohu sa nepodarilo vytvoriť. Skontrolujte dostupnosť údajov v prehliadači.');
+    }
+  });
+  document.getElementById('guide-import')?.addEventListener('change', async (event) => {
+    const input = event.currentTarget as HTMLInputElement;
+    const file = input.files?.[0];
+    if (!file) return;
+    try {
+      if (file.size > 65536) throw new Error('large');
+      const data: unknown = JSON.parse(await file.text());
+      if (!data || typeof data !== 'object' || Array.isArray(data)) throw new Error('format');
+      const parsed = data as { format?: unknown; version?: unknown; guides?: unknown };
+      if (parsed.format !== 'vsetko24-guide-progress' || parsed.version !== 1 || !parsed.guides || typeof parsed.guides !== 'object' || Array.isArray(parsed.guides)) throw new Error('format');
+      const saved = parsed.guides as Record<string, unknown>;
+      const specs = getGuideSpecs();
+      if (Object.keys(saved).length !== specs.length || !specs.every(({ key, total }) => Array.isArray(saved[key]) && (saved[key] as unknown[]).length === total && (saved[key] as unknown[]).every(value => typeof value === 'boolean'))) throw new Error('data');
+      if (!window.confirm('Nahradiť aktuálny postup vo všetkých štyroch kontrolných zoznamoch údajmi zo zálohy?')) {
+        setBackupStatus('Obnovenie bolo zrušené.');
+        return;
+      }
+      const previous = specs.map(({ key }) => ({ key, value: localStorage.getItem(prefix + key) }));
+      try {
+        for (const { key } of specs) localStorage.setItem(prefix + key, JSON.stringify(saved[key]));
+      } catch (error) {
+        for (const { key, value } of previous) {
+          try { if (value === null) localStorage.removeItem(prefix + key); else localStorage.setItem(prefix + key, value); } catch {}
+        }
+        throw error;
+      }
+      render();
+      setBackupStatus('Postup zo zálohy bol obnovený.');
+    } catch {
+      setBackupStatus('Súbor sa nepodarilo obnoviť. Použite platnú zálohu VŠETKO24.sk (max. 64 kB).');
+    } finally {
+      input.value = '';
+    }
+  });
   window.addEventListener('storage', render);
   window.addEventListener('pageshow', render);
   render();
