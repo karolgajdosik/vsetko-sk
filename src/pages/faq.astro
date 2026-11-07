@@ -1,22 +1,63 @@
 ---
 import Base from '../layouts/Base.astro';
-const questions = [
- {q:'Je používanie VŠETKO24.sk bezplatné?',a:'Áno. Verejné návody, vyhľadávanie a dostupné kalkulačky môžeš používať bez registrácie.',href:'/sluzby/',label:'Prehľad služieb'},
- {q:'Kde nájdem postup pre konkrétnu životnú situáciu?',a:'V sprievodcovi si vyber situáciu a prejdi odporúčané kroky. Pri úradných postupoch si vždy over aktuálne pravidlá na oficiálnom webe.',href:'/sprievodca/',label:'Životné situácie'},
- {q:'Môžem sa spoľahnúť na výsledok kalkulačky?',a:'Výsledky sú orientačné. Nenahrádzajú individuálnu ponuku banky, poisťovne ani odborné poradenstvo.',href:'/kalkulacky/',label:'Kalkulačky'},
- {q:'Ako nájdem informácie o aute alebo elektromobile?',a:'V sekcii Auto sú návody, nástroje a informácie o elektromobilite.',href:'/auto/',label:'Auto'},
- {q:'Čo ak nenájdem odpoveď?',a:'Použi vyhľadávanie naprieč portálom alebo preskúmaj dostupné témy.',href:'/hladat/',label:'Vyhľadávanie'}
+
+const sections = [
+  {
+    title: 'Používanie portálu',
+    questions: [
+      { q: 'Je používanie VŠETKO24.sk bezplatné?', a: 'Áno. Verejné návody, vyhľadávanie a dostupné kalkulačky môžeš používať bez registrácie.', href: '/sluzby/', label: 'Prehľad služieb' },
+      { q: 'Kde nájdem postup pre konkrétnu životnú situáciu?', a: 'V sprievodcovi si vyber situáciu a prejdi odporúčané kroky. Pri úradných postupoch si vždy over aktuálne pravidlá na oficiálnom webe.', href: '/sprievodca/', label: 'Životné situácie' },
+      { q: 'Čo ak nenájdem odpoveď?', a: 'Použi vyhľadávanie naprieč portálom alebo preskúmaj dostupné témy.', href: '/hladat/', label: 'Vyhľadávanie' },
+      { q: 'Ako nájdem informácie o aute alebo elektromobile?', a: 'V sekcii Auto sú návody, nástroje a informácie o elektromobilite.', href: '/auto/', label: 'Auto a doprava' }
+    ]
+  },
+  {
+    title: 'Kalkulačky a bývanie',
+    questions: [
+      { q: 'Môžem sa spoľahnúť na výsledok kalkulačky?', a: 'Výsledky sú orientačné. Nenahrádzajú individuálnu ponuku banky, poisťovne ani odborné poradenstvo.', href: '/kalkulacky/', label: 'Všetky kalkulačky' },
+      { q: 'Aké výdavky zahrnúť do nákladov na bývanie?', a: 'Okrem splátky alebo nájomného počítaj s energiami, správou domu, internetom, poistením a rezervou na opravy. Nezabudni na jednorazové poplatky pri sťahovaní.', href: '/kalkulacky/naklady-na-byvanie/', label: 'Kalkulačka nákladov na bývanie' },
+      { q: 'Čo preveriť pred kúpou nehnuteľnosti?', a: 'Over vlastníctvo a ťarchy na liste vlastníctva, technický stav, mesačné náklady, financovanie a podmienky zmlúv. Pri nejasnostiach sa obráť na kvalifikovaného odborníka.', href: '/kupa-nehnutelnosti/', label: 'Sprievodca kúpou nehnuteľnosti' }
+    ]
+  },
+  {
+    title: 'Úrady a životné situácie',
+    questions: [
+      { q: 'Čo robiť po strate občianskeho preukazu?', a: 'Stratu bezodkladne oznám príslušnému orgánu, požiadaj o nový doklad a podľa okolností zabezpeč ďalšie stratené karty či prístupy. Aktuálne lehoty a poplatky si over na oficiálnom portáli.', href: '/strata-dokladov/', label: 'Postup pri strate dokladov' },
+      { q: 'Ako začať podnikať na živnosť?', a: 'Vyber si predmety podnikania, prever podmienky odbornej spôsobilosti, ohlás živnosť a sleduj nadväzujúce daňové a odvodové povinnosti. Konkrétne podmienky sa líšia podľa činnosti.', href: '/zalozenie-zivnosti/', label: 'Založenie živnosti' },
+      { q: 'Čo treba vybaviť pri úmrtí v rodine?', a: 'Najprv zabezpeč potrebné potvrdenia a pohrebné služby. Následne rieš matriku, príslušné inštitúcie, zmluvy a dedičské konanie. Poradie úkonov závisí od okolností.', href: '/umrtie-v-rodine/', label: 'Úmrtie v rodine' },
+      { q: 'Ako pripraviť reklamáciu tovaru?', a: 'Priprav údaje o nákupe, popis vady a požadovaný spôsob riešenia. Uchovaj si doklad o uplatnení reklamácie a komunikáciu s predajcom.', href: '/generator-reklamacie/', label: 'Generátor reklamácie' }
+    ]
+  },
+  {
+    title: 'Súkromie a spoľahlivosť informácií',
+    questions: [
+      { q: 'Sú informácie na portáli právne záväzné?', a: 'Nie. Návody sú informačnou pomôckou, nie úradným rozhodnutím ani právnym, finančným či zdravotným poradenstvom. Pri dôležitých úkonoch si over platné predpisy a oficiálne pokyny.', href: '/urady/', label: 'Úrady' },
+      { q: 'Môžem používať návody aj na mobile?', a: 'Áno, stránky sú určené aj pre mobilné prehliadače. Pri vyplňovaní formulárov a práci s dokladmi používaj dôveryhodné zariadenie.', href: '/sprievodca/', label: 'Otvoriť sprievodcu' },
+      { q: 'Kde nájdem prehľad svojich rozpracovaných kontrolných zoznamov?', a: 'Na spoločnej stránke kontrolných zoznamov môžeš pokračovať v jednotlivých sprievodcoch. Údaje sú viazané na prehliadač a zariadenie; pre prenos môžeš použiť export a import.', href: '/moje-kontrolne-zoznamy/', label: 'Moje kontrolné zoznamy' }
+    ]
+  }
 ];
 ---
-<Base title="Časté otázky" description="Odpovede na časté otázky o bezplatnom portáli VŠETKO24.sk, sprievodcoch a kalkulačkách.">
+<Base title="Časté otázky" description="Praktické odpovede na otázky o používaní VŠETKO24.sk, bývaní, úradoch, kalkulačkách a súkromí.">
  <main class="wrap main" id="obsah">
   <h1>Časté otázky</h1>
-  <p>Rýchle odpovede o používaní portálu. Informácie majú orientačný charakter; rozhodujúce sú aktuálne údaje príslušných inštitúcií.</p>
-  <div class="list">
-   {questions.map(item=><section aria-label={item.q}>
-    <h2>{item.q}</h2><p>{item.a}</p><p><a href={item.href}>{item.label} →</a></p>
-   </section>)}
-  </div>
+  <p>Odpovede na najčastejšie otázky o portáli aj bežných životných situáciách. Informácie sú orientačné; pri úradných úkonoch rozhodujú aktuálne pokyny príslušných inštitúcií.</p>
+  <nav aria-label="Témy častých otázok">
+   <h2>Vyber si tému</h2>
+   <ul>
+    {sections.map((section, index) => <li><a href={`#tema-${index + 1}`}>{section.title}</a></li>)}
+   </ul>
+  </nav>
+  {sections.map((section, index) => <section aria-labelledby={`tema-${index + 1}`}>
+   <h2 id={`tema-${index + 1}`}>{section.title}</h2>
+   <div class="list">
+    {section.questions.map(item => <section aria-label={item.q}>
+     <h3>{item.q}</h3>
+     <p>{item.a}</p>
+     <p><a href={item.href}>{item.label} →</a></p>
+    </section>)}
+   </div>
+  </section>)}
   <section aria-labelledby="prakticke-navody">
    <h2 id="prakticke-navody">Praktické návody a nástroje</h2>
    <p>Pokračuj priamo na konkrétnu tému:</p>
