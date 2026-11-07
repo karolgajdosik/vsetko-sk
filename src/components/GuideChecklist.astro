@@ -5,7 +5,7 @@ const { steps, storageKey } = Astro.props;
 ---
 <section class="panel guide-checklist" data-guide-checklist data-storage-key={storageKey} aria-label="Kontrolný zoznam úloh">
   <h2>Váš postup krok za krokom</h2>
-  <p>Označte vybavené kroky. Postup sa ukladá iba vo vašom prehliadači, nie na server.</p>
+  <p>Označte vybavené kroky. Postup sa ukladá iba vo vašom prehliadači, nie na server. <a href="/moje-kontrolne-zoznamy/">Zobraziť prehľad všetkých kontrolných zoznamov →</a></p>
   <p class="guide-progress" role="status" aria-live="polite">Vybavené: 0 z {steps.length}</p>
   <ol class="guide-steps">
     {steps.map((step, index) => (
