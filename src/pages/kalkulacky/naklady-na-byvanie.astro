@@ -74,7 +74,7 @@ const fields = [
   const output=(id:string)=>document.getElementById(id) as HTMLElement;
   const euro=(value:number)=>new Intl.NumberFormat('sk-SK',{style:'currency',currency:'EUR',maximumFractionDigits:2}).format(value);
   function update(){
-    const inputs=Object.fromEntries(ids.map(id=>[id,el(id).valueAsNumber]));
+    const inputs=Object.fromEntries(ids.map(id=>[id,id==='income' && el(id).value.trim()==='' ? 0 : el(id).valueAsNumber]));
     const result=calculateHousingCosts(inputs);
     const error=output('housing-error');
     error.hidden=Boolean(result);
