@@ -99,7 +99,7 @@ const fields = [
     const status=output("housing-copy-status");
     const labels=[["housing-regular","Bežné mesačné výdavky"],["housing-monthly","Mesačný priemer"],["housing-annual","Ročný priemer"],["housing-total","Celkom za obdobie"],["housing-share","Podiel z príjmu"]];
     if(!output("housing-error").hidden){status.textContent="Najprv opravte neplatné vstupy.";return;}
-    const summary=["Náklady na bývanie",...labels.map(([id,label])=>`${label}: ${output(id).textContent}`)].join("\\n");
+    const summary=["Náklady na bývanie",...labels.map(([id,label])=>`${label}: ${output(id).textContent}`)].join("\n");
     try{await navigator.clipboard.writeText(summary);status.textContent="Súhrn bol skopírovaný.";}
     catch{status.textContent="Kopírovanie nie je dostupné. Použite tlač alebo uloženie do PDF.";}
   });
