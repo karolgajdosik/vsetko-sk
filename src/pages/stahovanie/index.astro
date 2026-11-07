@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import GuideChecklist from '../components/GuideChecklist.astro';
+
+const steps = [
+  { title: 'Zostavte rozpočet a harmonogram', detail: 'Stanovte dátum sťahovania, spôsob dopravy, odhad objemu vecí a rezervu na nečakané výdavky. Porovnajte viacero ponúk sťahovacích služieb vrátane poistenia a podmienok.' },
+  { title: 'Dohodnite odovzdanie pôvodného a nového bývania', detail: 'Písomne si potvrďte dátumy, kľúče, prístup do budovy, parkovanie a prípadné pravidlá správcu. Pri nájme skontrolujte výpovednú lehotu a podmienky vrátenia zábezpeky.' },
+  { title: 'Zabezpečte energie, internet a služby', detail: 'Vopred zistite postup prepisu alebo ukončenia zmlúv. Pri odovzdaní odfoťte stavy meračov a uschovajte potvrdenia. Nepredpokladajte automatické zrušenie pôvodných služieb.' },
+  { title: 'Pripravte doklady a oznámenia', detail: 'Ak meníte trvalý pobyt, overte aktuálny postup na príslušnej ohlasovni alebo slovensko.sk. Samostatne skontrolujte banku, poisťovňu, zamestnávateľa, lekára a ďalšie zmluvné kontakty podľa svojej situácie.' },
+  { title: 'Zabaľte a označte veci', detail: 'Krehké veci zabezpečte zvlášť, krabice označte miestnosťou a prioritou. Doklady, lieky, nabíjačky, kľúče a základné potreby majte pri sebe.' },
+  { title: 'Spíšte odovzdávací protokol', detail: 'Zaznamenajte dátum, stavy meračov, počet kľúčov, vybavenie, zistené vady a fotografie. Obe strany by mali dostať rovnakú kópiu.' },
+  { title: 'Po presťahovaní skontrolujte všetky záväzky', detail: 'Overte aktiváciu služieb na novej adrese, konečné vyúčtovania, doručovanie pošty a vrátenie zábezpeky podľa zmluvy. Uchovajte si doklady a potvrdenia.' }
+];
+const timeline = [
+  { when: '4–6 týždňov vopred', tasks: 'Zostavte rozpočet, objednajte dopravu, dohodnite termíny odovzdania, preverujte podmienky nájmu a služby.' },
+  { when: '1–2 týždne vopred', tasks: 'Trieďte a balte veci, pripravte zoznam zmlúv, oznámení a kontaktov, potvrďte prístup a parkovanie.' },
+  { when: 'V deň sťahovania', tasks: 'Odfoťte stavy meračov, skontrolujte inventár, podpíšte protokoly a odovzdajte alebo prevezmite kľúče.' },
+  { when: 'Po presťahovaní', tasks: 'Dokončite prepisy a oznámenia, sledujte vyúčtovania a aktualizujte kontaktné údaje tam, kde je to potrebné.' }
+];
+---
+<Base title="Sťahovanie bytu alebo domu – praktický plán | VŠETKO24.sk" description="Kompletný plán sťahovania na Slovensku: časový harmonogram, kontrolný zoznam, odovzdanie bytu, energie, zmena adresy a rozpočet.">
+  <main class="wrap main" id="obsah">
+    <nav aria-label="Navigácia"><a href="/">Úvod</a> / <a href="/byvanie/">Bývanie</a> / Sťahovanie</nav>
+    <h1>Sťahovanie: praktický plán krok za krokom</h1>
+    <p>Od prípravy rozpočtu po odovzdanie kľúčov. Označujte hotové kroky a pokračujte neskôr v rovnakom prehliadači. Tento návod je orientačný; lehoty a povinnosti závisia od zmluvy a vašej situácie.</p>
+    <GuideChecklist steps={steps} storageKey="stahovanie-bytu" />
+    <section class="panel" aria-labelledby="harmonogram">
+      <h2 id="harmonogram">Časový harmonogram</h2>
+      <ol>
+        {timeline.map(item => <li><strong>{item.when}:</strong> {item.tasks}</li>)}
+      </ol>
+    </section>
+    <section class="panel" aria-labelledby="rozpocet">
+      <h2 id="rozpocet">Čo zahrnúť do rozpočtu</h2>
+      <ul>
+        <li>Doprava, sťahovacia služba, obalový materiál a prípadné skladovanie.</li>
+        <li>Prípadná zábezpeka, prvé nájomné a prekrytie dvoch bývaní.</li>
+        <li>Pripojenie služieb, drobné opravy, čistenie a základné vybavenie.</li>
+        <li>Rezerva na nečakané výdavky; pred objednaním si overte konečnú cenu a rozsah služieb.</li>
+      </ul>
+      <p><a href="/kalkulacky/naklady-na-byvanie/">Prepočítať mesačné náklady na nové bývanie →</a></p>
+    </section>
+    <section class="panel" aria-labelledby="protokol">
+      <h2 id="protokol">Odovzdávací protokol: čo zaznamenať</h2>
+      <p>Do protokolu uveďte adresu, dátum, zúčastnené osoby, stavy elektromera, plynomera a vodomerov (ak sa používajú), počet odovzdaných kľúčov, inventár a stav priestorov. Priložte fotografie a podpisy. Nezabudnite si ponechať kópiu.</p>
+      <p>Pri kúpe nehnuteľnosti nadväzuje odovzdanie na zmluvné podmienky a zápis vlastníctva. <a href="/kupa-nehnutelnosti/">Pozrieť sprievodcu kúpou nehnuteľnosti →</a></p>
+    </section>
+    <section class="panel" aria-labelledby="adresa">
+      <h2 id="adresa">Zmena adresy a úradné povinnosti</h2>
+      <p>Nie každé sťahovanie znamená zmenu trvalého pobytu. Ak ho meníte, overte si konkrétny postup a následné povinnosti na <a href="https://www.slovensko.sk/" rel="noopener noreferrer">slovensko.sk</a> alebo príslušnej ohlasovni. Osobitne si skontrolujte kontaktnú adresu pri zmluvách a službách.</p>
+      <p><strong>Aktualizované:</strong> 7. 11. 2026. Informácie nie sú právnym poradenstvom.</p>
+    </section>
+  </main>
+</Base>
