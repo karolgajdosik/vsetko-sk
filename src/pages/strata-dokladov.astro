@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import GuideChecklist from '../components/GuideChecklist.astro';
 const steps = [
   { title: '1. Zabezpečte stratené doklady', detail: 'Ak ste stratili peňaženku, skontrolujte aj platobné karty. Pri strate alebo krádeži karty kontaktujte banku a kartu bezodkladne zablokujte.' },
   { title: '2. Nahláste stratu občianskeho preukazu', detail: 'Stratu alebo odcudzenie občianskeho preukazu oznámte príslušnému oddeleniu dokladov Policajného zboru. Overte si aj možnosti elektronického nahlásenia a podmienky podania žiadosti o nový doklad.' },
@@ -13,7 +14,7 @@ const steps = [
     <nav aria-label="Navigácia"><a href="/">Úvod</a> / <a href="/urady/">Úrady</a> / Strata dokladov</nav>
     <h1>Strata dokladov: čo urobiť ako prvé</h1>
     <p>Orientačný postup pre situáciu, keď stratíte doklady alebo peňaženku. Pri krádeži alebo podozrení na zneužitie postupujte bez odkladu.</p>
-    <ol>{steps.map(step => <li class="panel"><h2>{step.title}</h2><p>{step.detail}</p></li>)}</ol>
+    <GuideChecklist steps={steps} storageKey="strata-dokladov" />
     <section class="panel" aria-labelledby="zdroje">
       <h2 id="zdroje">Oficiálne zdroje</h2>
       <p>Podmienky vybavovania dokladov a elektronické služby si overte na <a href="https://www.slovensko.sk/" rel="noopener noreferrer">slovensko.sk</a> a <a href="https://www.minv.sk/" rel="noopener noreferrer">Ministerstve vnútra SR</a>. Pri strate v zahraničí vyhľadajte pomoc cez <a href="https://www.mzv.sk/" rel="noopener noreferrer">Ministerstvo zahraničných vecí SR</a>.</p>
