@@ -1,12 +1,91 @@
 ---
 import Base from '../../layouts/Base.astro';
 import guides from '../../data/guides.json';
+
+const categories = [
+  {id:'all', label:'Všetky témy'},
+  {id:'financie', label:'Financie'},
+  {id:'auto', label:'Auto a doprava'},
+  {id:'urady', label:'Úrady a doklady'}
+];
+const names = {financie:'Financie', auto:'Auto a doprava', urady:'Úrady a doklady'};
 ---
-<Base title="Praktické návody" description="Prehľad praktických návodov pre financie, auto a úrady.">
-<main class="wrap main" id="obsah">
-<p class="eyebrow">Jednoducho a krok za krokom</p>
-<h1>Praktické návody</h1>
-<p class="intro">Vyberte si tému a nájdite konkrétny postup, potrebné doklady aj odkazy na oficiálne zdroje.</p>
-<div class="grid">{guides.map(g=><a class="card" href={`/navody/${g.slug}/`}><span class="tag">{g.category}</span><h2>{g.title} →</h2><p>{g.description}</p></a>)}</div>
-</main>
+<Base title="Praktické návody – financie, auto a úrady" description="Vyhľadávajte a filtrujte 40 praktických slovenských návodov. Postupy krok za krokom, príprava dokladov a odkazy na pôvodné zdroje.">
+  <main class="wrap main guides-hub" id="obsah">
+    <nav class="breadcrumbs" aria-label="Drobečková navigácia"><a href="/">Domov</a> / Návody</nav>
+    <p class="eyebrow">Jednoducho a krok za krokom</p>
+    <h1>Praktické návody</h1>
+    <p class="intro">Vyberte si konkrétny postup z {guides.length} návodov. V každom nájdete prípravu, kontrolný zoznam a odkaz na oficiálny zdroj. Podmienky úradov sa môžu meniť, preto si pred podaním overte aktuálne pravidlá.</p>
+
+    <section class="panel guide-search" aria-label="Hľadanie a filtrovanie návodov">
+      <label for="guide-search-input">Čo potrebujete vybaviť?</label>
+      <input id="guide-search-input" type="search" placeholder="Napr. hypotéka, občiansky preukaz, elektromobil…" autocomplete="off" />
+      <div class="guide-filters" role="group" aria-label="Oblasť návodov">
+        {categories.map((category,index) =>
+          <button type="button" class="guide-filter" data-category={category.id} aria-pressed={index === 0 ? 'true' : 'false'}>
+            {category.label}
+          </button>
+        )}
+      </div>
+      <p id="guide-count" role="status" aria-live="polite">Zobrazených {guides.length} návodov</p>
+    </section>
+
+    <div class="grid guide-grid" id="guides-list">
+      {guides.map(g =>
+        <a class="card guide-item" href={'/navody/' + g.slug + '/'} data-category={g.category} data-search={[g.title,g.description,g.keywords ?? '',names[g.category] ?? g.category].join(' ').toLocaleLowerCase('sk')}>
+          <span class="tag">{names[g.category] ?? g.category}</span>
+          <h2>{g.title} →</h2>
+          <p>{g.description}</p>
+          <span class="guide-meta">Postup krok za krokom · {g.steps?.length ?? 0} kroky</span>
+        </a>
+      )}
+    </div>
+    <p id="guide-empty" role="status" hidden>Nenašli sa žiadne zodpovedajúce návody. Skúste iný výraz alebo zvoľte všetky témy.</p>
+    <p class="guide-help"><a href="/sprievodca/">Pomôžte mi vybrať postup podľa životnej situácie →</a></p>
+  </main>
+
+  <style>
+    .guides-hub{padding-block:1.5rem 3rem}
+    .breadcrumbs{margin-bottom:1rem;font-size:.9rem}
+    .intro{max-width:68rem;line-height:1.7}
+    .guide-search{margin:1.5rem 0;padding:1.2rem;border:1px solid #94a3b855;border-radius:.9rem}
+    .guide-search label{display:block;font-weight:700;margin-bottom:.45rem}
+    #guide-search-input{box-sizing:border-box;width:100%;max-width:43rem;padding:.8rem;border:1px solid #94a3b8;border-radius:.6rem;font:inherit}
+    .guide-filters{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.1rem 0 .8rem}
+    .guide-filter{font:inherit;cursor:pointer;padding:.5rem .9rem;border:1px solid #94a3b8;border-radius:999px;background:transparent;color:inherit}
+    .guide-filter[aria-pressed=true]{background:#064f56;color:white;border-color:#064f56}
+    .guide-search [role=status]{margin-bottom:0}
+    .guide-item[hidden],#guide-empty[hidden]{display:none!important}
+    .guide-meta{font-size:.85rem;opacity:.85}
+    .guide-help{margin-top:1.4rem}
+    @media(max-width:650px){.guide-search{padding:.9rem}.guide-filter{font-size:.92rem}}
+  </style>
+
+  <script>
+    const input = document.querySelector<HTMLInputElement>('#guide-search-input');
+    const buttons = [...document.querySelectorAll<HTMLButtonElement>('.guide-filter')];
+    const items = [...document.querySelectorAll<HTMLElement>('.guide-item')];
+    const count = document.querySelector<HTMLElement>('#guide-count');
+    const empty = document.querySelector<HTMLElement>('#guide-empty');
+    let category = 'all';
+
+    function filterGuides(){
+      const query = (input?.value ?? '').trim().toLocaleLowerCase('sk');
+      let visible = 0;
+      for(const item of items){
+        const matchesCategory = category === 'all' || item.dataset.category === category;
+        const matchesQuery = !query || (item.dataset.search ?? '').includes(query);
+        item.hidden = !(matchesCategory && matchesQuery);
+        if(!item.hidden) visible++;
+      }
+      if(count) count.textContent = 'Zobrazených ' + visible + ' z ' + items.length + ' návodov';
+      if(empty) empty.hidden = visible > 0;
+    }
+    buttons.forEach(button => button.addEventListener('click',()=>{
+      category = button.dataset.category || 'all';
+      buttons.forEach(b => b.setAttribute('aria-pressed',String(b === button)));
+      filterGuides();
+    }));
+    input?.addEventListener('input',filterGuides);
+  </script>
 </Base>
