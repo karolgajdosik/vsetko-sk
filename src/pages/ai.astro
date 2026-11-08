@@ -44,7 +44,13 @@ function findLocal(question:string,max=6){
     .slice(0,max).map(item=>item.x);
 }
 function renderLocalLinks(parent:HTMLElement,question:string,label='Súvisiace návody a nástroje:', showEmpty=false){
-  const hits=findLocal(question);
+  const linked = new Set(Array.from(parent.querySelectorAll('a'), anchor => anchor.href));
+  const hits = findLocal(question).filter(item => {
+    const href = new URL(item.url, location.origin).href;
+    if (linked.has(href)) return false;
+    linked.add(href);
+    return true;
+  });
   if(!hits.length){if(showEmpty){const p=document.createElement('p');p.textContent='V databáze portálu som nenašiel dostatočne súvisiace stránky. Skúste kratšiu otázku alebo fulltext.';parent.append(p);}return;}
   const block=document.createElement('div');block.className='ai-sources';
   const heading=document.createElement('strong');heading.textContent=label;block.append(heading);
