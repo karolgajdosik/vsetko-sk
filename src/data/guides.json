@@ -351,9 +351,10 @@
     "title": "Nabíjanie elektromobilu",
     "description": "Pri plánovaní cesty sledujte kompatibilitu konektorov a dostupnosť staníc.",
     "steps": [
-      "Zistite maximálny AC a DC nabíjací výkon vozidla a porovnajte ho s konektorom a výkonom vybranej stanice.",
-      "Pred cestou si overte aktuálnu dostupnosť stanice, cenu za kWh, prípadné časové poplatky a spôsob autorizácie platby.",
-      "Pri rýchlom nabíjaní sledujte priebeh výkonu a stav batérie; plánujte aj alternatívnu stanicu pre prípad obsadenia alebo poruchy."
+      "Pred pripojením skontrolujte typ konektora vozidla, maximálny prijímaný výkon a podporované spôsoby autorizácie platby.",
+      "V aplikácii prevádzkovateľa si overte cenu, prípadné časové poplatky a dostupnosť stanice; roaming môže mať odlišný cenník.",
+      "Pri rýchlom nabíjaní sledujte priebeh výkonu a podľa potreby ukončite nabíjanie, keď ďalšie percentá pribúdajú neúmerne pomaly.",
+      "Po skončení relácie skontrolujte ukončenie účtovania, odpojte kábel podľa pokynov stanice a uvoľnite miesto ďalšiemu vozidlu."
     ],
     "source": {
       "label": "MH SR – elektromobilita a nabíjacia infraštruktúra",
@@ -1988,10 +1989,10 @@
     "category": "auto",
     "description": "Čo overiť pred nákupom elektrického auta",
     "steps": [
-      "Zistite, či sa téma „kúpa elektromobilu“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Zistite typické denné a dlhé trasy, dostupnosť domáceho nabíjania a reálnu spotrebu pri vašom diaľničnom tempe.",
+      "Pri konkrétnom vozidle si vyžiadajte informácie o využiteľnej kapacite batérie, nabíjacej krivke, záruke na batériu a kompatibilite konektorov.",
+      "Pri jazdenom vozidle porovnajte servisnú históriu, stav batérie z dôveryhodnej diagnostiky a podmienky zostávajúcej záruky.",
+      "Vypočítajte celkové náklady vrátane poistenia, pneumatík, domáceho či verejného nabíjania a prípadnej inštalácie nabíjačky."
     ],
     "source": {
       "label": "MH SR – politika elektromobility",
@@ -2031,10 +2032,10 @@
     "category": "auto",
     "description": "Domáce nabíjanie elektromobilu: ako preveriť elektroinštaláciu, vhodný wallbox, výkon, bezpečnosť a cenu nabíjania.",
     "steps": [
-      "Overte kapacitu elektroinštalácie, istenie a možnosti parkovacieho miesta.",
-      "Výber wallboxu a montáž zverte kvalifikovanému odborníkovi.",
-      "Pri bytovom dome vopred riešte súhlas a pravidlá správcu či vlastníkov.",
-      "Po inštalácii sledujte bezpečnostné pokyny výrobcu a cenu elektriny."
+      "Zistite, či máte vlastné parkovacie miesto, aký je dostupný elektrický príkon a kto musí schváliť stavebný alebo elektroinštalačný zásah.",
+      "Požiadajte kvalifikovaného elektrikára o posúdenie rozvádzača, istenia, ochranných prvkov a spôsobu vedenia kábla; nezapájajte nabíjačku svojpomocne.",
+      "Porovnajte nabíjanie z vhodne navrhnutého wallboxu s existujúcim pripojením a overte možnosti riadenia výkonu pri súbehu domácich spotrebičov.",
+      "Pred používaním si vyžiadajte potrebnú dokumentáciu a výsledky príslušných odborných kontrol; vyskúšajte nastavenie nabíjacieho limitu vozidla."
     ],
     "source": {
       "label": "MH SR – stratégia nabíjacej infraštruktúry",
@@ -2078,10 +2079,10 @@
     "category": "auto",
     "description": "Dojazd, prestávky a alternatívne stanice",
     "steps": [
-      "Pred cestou si odhadnite spotrebu podľa dĺžky trasy, diaľničného tempa, počasia a prevýšenia.",
-      "Vyberte vhodné nabíjacie zastávky podľa konektora, výkonu podporovaného vozidlom a predpokladanej rezervy batérie.",
-      "Overte aktuálnu dostupnosť staníc, spôsob platby a cenu u prevádzkovateľa; pre každú dôležitú zastávku si určte alternatívu.",
-      "Počas jazdy porovnávajte skutočnú spotrebu s plánom a včas upravte nabíjaciu zastávku, ak rezerva klesá."
+      "Pred cestou si určte trasu, plánované diaľničné tempo, predpoveď počasia a spotrebu vozidla pri podobných podmienkach.",
+      "Vyberte nabíjacie zastávky podľa konektora, výkonu, aktuálnej prevádzky a platobnej možnosti; pripravte alternatívnu stanicu.",
+      "Plánujte rezervu energie pri príchode na každú zastávku aj do cieľa; pri chlade, vetre alebo obchádzke ju primerane zvýšte.",
+      "Pred odchodom skontrolujte stav batérie, funkčnosť nabíjacej aplikácie a dostupnosť nabíjania v cieli; počas cesty plán priebežne upravujte."
     ],
     "source": {
       "label": "MH SR – stratégia elektromobility a nabíjania",
@@ -2231,10 +2232,10 @@
     "category": "auto",
     "description": "Kontrolný zoznam pred STK: osvetlenie, pneumatiky, sklá, brzdy, doklady a prípadná emisná kontrola.",
     "steps": [
-      "Overte si platnosť technickej kontroly a podľa typu vozidla aj emisnej kontroly; na vybranom pracovisku zistite termín a možnosti rezervácie.",
-      "Skontrolujte funkčnosť osvetlenia, stav pneumatík a skiel, čitateľnosť evidenčného čísla a viditeľné úniky kvapalín.",
-      "Pripravte doklady požadované pracoviskom, overte cenu kontroly a spôsob úhrady.",
-      "Ak spozorujete problémy s brzdami, riadením alebo podvozkom, nechajte vozidlo pred STK preveriť v servise."
+      "Pred objednaním technickej kontroly skontrolujte termín platnosti dokladov a zistite, aký druh kontroly vaše vozidlo potrebuje.",
+      "Vyskúšajte osvetlenie, smerovky, stierače, ostrekovače, klaksón a skontrolujte pneumatiky vrátane rozmerov a viditeľného poškodenia.",
+      "Overte čitateľnosť identifikačných údajov vozidla a pripravte doklady vyžadované konkrétnym pracoviskom; pri prestavbách skontrolujte príslušné zápisy.",
+      "Ak vozidlo vykazuje zjavné technické nedostatky, nechajte ich pred kontrolou odborne odstrániť; výsledok kontroly nepredpokladajte vopred."
     ],
     "source": {
       "label": "Ministerstvo dopravy – technické kontroly vozidiel",
