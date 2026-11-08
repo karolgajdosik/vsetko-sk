@@ -29,3 +29,9 @@ PR #224 starts actual mobile Lighthouse measurements against production and pres
 The first source job checked all 29 distinct source URLs for 40 guides: 28 reachable, one unresolved endpoint for ID cards. Follow-up replacements use verified, topic-specific official pages for two ID-card guides, inheritance, household expenses and winter driving. HTTP availability is distinguished from full factual/legal review.
 
 The first axe invocation exposed an audit-harness issue (`browser.newPage()` creates an owned context incompatible with axe's cross-frame operation). It was corrected to explicit `browser.newContext()` and will be rerun. An execution error is never counted as a passing accessibility result. Automated findings, incomplete/manual checks and keyboard execution errors are reported separately. Full screen-reader and usability assessment remains manual work.
+
+## Results after the first complete axe scan
+
+The corrected audit completed 125 pages / 151 display variants without execution or skip-link errors. It found 448 repeated rule instances in five rule types: contrast, visible-name mismatch, link distinction, target size and prohibited ARIA attributes. Shared corrections darken insufficient light text, underline prose links, enlarge list targets, align visible A+/A− and assistant labels, and give the map/budget graphics valid roles. These changes are undergoing a complete rerun; no axe rule or page was excluded to obtain a pass.
+
+The availability audit was extended beyond primary source fields to all external HTTPS URLs nested in the guides, including screen-navigation links. The primary-source-only pass is not misrepresented as a check of every nested destination.
