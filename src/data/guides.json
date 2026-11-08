@@ -56,8 +56,8 @@
       "Započítajte všetky poplatky a vedľajšie náklady."
     ],
     "source": {
-      "label": "Národná banka Slovenska",
-      "url": "https://nbs.sk/dohlad-nad-financnym-trhom/ofs/financne-produkty/financne-sluzby-v-eu/financne-produkty-dostupne-v-eu/"
+      "label": "Národná banka Slovenska – refinancovanie úveru",
+      "url": "https://nbs.sk/dohlad-nad-financnym-trhom/ofs/zivotne-situacie/ako-zmenit-uver/"
     },
     "updated": "8. 11. 2026",
     "keywords": "refinancovanie uveru",
@@ -67,7 +67,7 @@
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
     "verification": "Obsah a uvedený oficiálny zdroj boli vecne skontrolované 8. 11. 2026; individuálne podmienky, sadzby a poplatky sa môžu meniť.",
-    "sourceNote": "NBS vysvetľuje porovnateľné predzmluvné informácie o úveroch na bývanie; individuálne poplatky za refinancovanie treba overiť u veriteľa.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "practical": [
       {
         "title": "Zistite skutočný zostatok",
@@ -200,8 +200,8 @@
       "Uložte si doklady a kontakty poisťovne."
     ],
     "source": {
-      "label": "Slovenská kancelária poisťovateľov",
-      "url": "https://www.skp.sk/"
+      "label": "Slovenská kancelária poisťovateľov – PZP",
+      "url": "https://www.skp.sk/povinne-zmluvne-poistenie/"
     },
     "updated": "22. 10. 2026",
     "keywords": "povinne zmluvne poistenie",
@@ -211,7 +211,7 @@
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "practical": [
       {
         "title": "Overte poistné údaje",
@@ -373,8 +373,8 @@
       "Skontrolujte evidenčné číslo a platnosť."
     ],
     "source": {
-      "label": "Oficiálny portál eZnamka",
-      "url": "https://eznamka.sk/"
+      "label": "eZnamka – najčastejšie otázky",
+      "url": "https://eznamka.sk/sk/dialnicne-znamky/najcastejsie-otazky"
     },
     "updated": "22. 10. 2026",
     "keywords": "dialnicna znamka",
@@ -384,7 +384,7 @@
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "practical": [
       {
         "title": "Skontrolujte údaje pred platbou",
@@ -403,8 +403,8 @@
       "Skontrolujte podmienky a termíny vydania."
     ],
     "source": {
-      "label": "Slovensko.sk",
-      "url": "https://www.slovensko.sk/"
+      "label": "Ministerstvo vnútra SR – občianske preukazy FAQ",
+      "url": "https://pes.minv.sk/wps/wcm/connect/sk/site/main/casto-kladene-otazky/obcianske-preukazy/FAQ-obcianske-preukazy"
     },
     "updated": "22. 10. 2026",
     "keywords": "strata obcianskeho preukazu",
@@ -414,7 +414,7 @@
       "Dokumenty súvisiace s konkrétnou žiadosťou"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "detail": {
       "summary": "Pri strate alebo krádeži občianskeho preukazu je prioritou nahlásenie neplatného dokladu a následné vybavenie nového. Ak máš aktivované elektronické funkcie, rieš aj ochranu prístupových údajov.",
       "before": [
@@ -500,8 +500,8 @@
       "Overte podmienky vstupu do cieľovej krajiny."
     ],
     "source": {
-      "label": "Ministerstvo vnútra SR",
-      "url": "https://www.minv.sk/"
+      "label": "Slovensko.sk – cestovné doklady",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_cestovne-doklady-a-nahradne-ce"
     },
     "updated": "22. 10. 2026",
     "keywords": "vymena cestovneho pasu",
@@ -512,7 +512,7 @@
       "Zistite, či potrebujete štandardnú alebo zrýchlenú lehotu."
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "detail": {
       "summary": "Nový cestovný pas sa vybavuje osobne na oddelení dokladov. Pred cestou si skontrolujte požiadavky cieľovej krajiny, pretože niektoré štáty požadujú platnosť pasu aj po plánovanom návrate.",
       "before": [
@@ -577,8 +577,8 @@
       "Skontrolujte, ktorým inštitúciám treba zmenu oznámiť."
     ],
     "source": {
-      "label": "Slovensko.sk",
-      "url": "https://www.slovensko.sk/"
+      "label": "Slovensko.sk – oznamovacie povinnosti pri zmene pobytu",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_oznamovacie-povinnosti-pri-zme"
     },
     "updated": "22. 10. 2026",
     "keywords": "zmena trvaleho pobytu",
@@ -589,7 +589,7 @@
       "Zistite príslušnú ohlasovňu v obci alebo mestskej časti."
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "detail": {
       "summary": "Pri sťahovaní na novú adresu treba ohlásiť zmenu trvalého pobytu príslušnej ohlasovni. Následne skontrolujte občiansky preukaz a inštitúcie, ktorým treba novú adresu oznámiť.",
       "before": [
@@ -650,8 +650,8 @@
       "Skontrolujte daňové a odvodové povinnosti."
     ],
     "source": {
-      "label": "Slovensko.sk",
-      "url": "https://www.slovensko.sk/"
+      "label": "Slovensko.sk – doklady potrebné k začatiu podnikania",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_doklady-potrebne-k-zacatiu-pod"
     },
     "updated": "22. 10. 2026",
     "keywords": "zacatie podnikania",
@@ -662,7 +662,7 @@
       "Overte odbornú spôsobilosť pri remeselnej alebo viazanej živnosti."
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "detail": {
       "summary": "Pred založením živnosti si overte, či ide o voľnú, remeselnú alebo viazanú činnosť, podmienky odbornej spôsobilosti a následné daňové a odvodové povinnosti.",
       "before": [
@@ -805,8 +805,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Ministerstvo vnútra SR",
-      "url": "https://www.minv.sk/"
+      "label": "Ministerstvo vnútra SR – občianske preukazy FAQ",
+      "url": "https://pes.minv.sk/wps/wcm/connect/sk/site/main/casto-kladene-otazky/obcianske-preukazy/FAQ-obcianske-preukazy"
     },
     "updated": "22. 10. 2026",
     "keywords": "ako vybaviť občiansky preukaz",
@@ -817,7 +817,7 @@
       "Overte dostupnosť rezervácie termínu."
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "detail": {
       "summary": "Občiansky preukaz vybavíte na pracovisku dokladov. Konkrétny postup závisí od toho, či ide o prvé vydanie, skončenie platnosti, zmenu údajov alebo poškodenie.",
       "before": [
@@ -883,8 +883,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Ministerstvo vnútra SR",
-      "url": "https://www.minv.sk/"
+      "label": "Slovensko.sk – cestovné doklady",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_cestovne-doklady-a-nahradne-ce"
     },
     "updated": "22. 10. 2026",
     "keywords": "cestovný pas pre dieťa",
@@ -895,7 +895,7 @@
       "Skontrolujte požiadavky cieľovej krajiny a plánovaný termín odchodu."
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "detail": {
       "summary": "Aj dieťa potrebuje na cestu vlastný cestovný doklad, ak ho vyžaduje cieľová krajina. Pri podaní žiadosti sa uplatňujú pravidlá zastúpenia zákonným zástupcom a biometrie podľa veku.",
       "before": [
@@ -957,8 +957,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Ministerstvo vnútra SR",
-      "url": "https://www.minv.sk/"
+      "label": "Slovensko.sk – cestovné doklady a náhradné doklady",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_cestovne-doklady-a-nahradne-ce"
     },
     "updated": "22. 10. 2026",
     "keywords": "strata cestovného pasu",
@@ -968,7 +968,7 @@
       "Dokumenty súvisiace s konkrétnou žiadosťou"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "practical": [
       {
         "title": "Riešte aj cestu domov",
@@ -1019,8 +1019,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Slovensko.sk",
-      "url": "https://www.slovensko.sk/"
+      "label": "Slovensko.sk – rodný list",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_rodny-list"
     },
     "updated": "22. 10. 2026",
     "keywords": "vybavenie rodného listu",
@@ -1031,7 +1031,7 @@
       "Ak žiadate za inú osobu, overte oprávnenie a prípadné splnomocnenie."
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "detail": {
       "summary": "Rodný list je matričný doklad o narodení. Postup pri prvom vydaní a pri vyžiadaní druhopisu sa líši; kompetentná je matrika podľa pravidiel vedenia matričných záznamov.",
       "before": [
@@ -1935,8 +1935,8 @@
       "Informujte poisťovňu a uchovajte dokumentáciu."
     ],
     "source": {
-      "label": "Ministerstvo vnútra SR",
-      "url": "https://www.minv.sk/"
+      "label": "Slovenská kancelária poisťovateľov – postup pri nehode",
+      "url": "https://www.skp.sk/povinne-zmluvne-poistenie/"
     },
     "updated": "22. 10. 2026",
     "keywords": "postup pri dopravnej nehode",
@@ -1946,7 +1946,7 @@
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "practical": [
       {
         "title": "Zdokumentujte situáciu bezpečne",
@@ -1966,8 +1966,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Slovenská kancelária poisťovateľov",
-      "url": "https://www.skp.sk/"
+      "label": "Slovenská kancelária poisťovateľov – PZP",
+      "url": "https://www.skp.sk/povinne-zmluvne-poistenie/"
     },
     "updated": "22. 10. 2026",
     "keywords": "pzp pri kúpe auta",
@@ -1977,7 +1977,7 @@
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "practical": [
       {
         "title": "Predíďte medzere v krytí",
@@ -2059,8 +2059,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "eZnamka",
-      "url": "https://eznamka.sk/"
+      "label": "eZnamka – nákup a kontrola údajov",
+      "url": "https://eznamka.sk/sk/dialnicne-znamky/najcastejsie-otazky"
     },
     "updated": "22. 10. 2026",
     "keywords": "kúpa diaľničnej známky",
@@ -2070,7 +2070,7 @@
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "practical": [
       {
         "title": "Uložte si potvrdenie o úhrade",
