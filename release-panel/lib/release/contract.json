@@ -1,0 +1,12 @@
+[
+  {"path":"/faq/","name":"Časté otázky","h1":"Časté otázky","icon":"help"},
+  {"path":"/generator-reklamacie/","name":"Generátor reklamácie","h1":"Generátor reklamačného listu","icon":"document"},
+  {"path":"/kupa-nehnutelnosti/","name":"Kúpa nehnuteľnosti","h1":"Kúpa nehnuteľnosti: na čo nezabudnúť","icon":"house"},
+  {"path":"/zalozenie-zivnosti/","name":"Založenie živnosti","h1":"Založenie živnosti: kontrolný zoznam","icon":"briefcase"},
+  {"path":"/umrtie-v-rodine/","name":"Úmrtie v rodine","h1":"Úmrtie v rodine: čo treba vybaviť","icon":"people"},
+  {"path":"/strata-dokladov/","name":"Strata dokladov","h1":"Strata dokladov: čo urobiť ako prvé","icon":"card"},
+  {"path":"/kalkulacky/naklady-na-byvanie/","name":"Náklady na bývanie","h1":"Koľko vás skutočne stojí bývanie?","icon":"calculator"},
+  {"path":"/","name":"Úvodná stránka","h1":null,"icon":"house"},
+  {"path":"/byvanie/","name":"Bývanie","h1":"Bývanie a nehnuteľnosti","icon":"house"},
+  {"path":"/zivot-a-vzdelavanie/","name":"Život a vzdelávanie","h1":"Práca, rodina a vzdelávanie","icon":"people"}
+]
