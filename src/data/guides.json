@@ -139,9 +139,10 @@
     "title": "Finančná rezerva",
     "description": "Rezerva pomáha zvládať nečakané výdavky bez ďalšieho zadlžovania.",
     "steps": [
-      "Spíšte pravidelné nevyhnutné výdavky.",
-      "Stanovte si realistický cieľ rezervy.",
-      "Odkladajte pravidelnú sumu a priebežne plán upravujte."
+      "Spočítajte nevyhnutné mesačné výdavky na bývanie, potraviny, dopravu, splátky a poistenie.",
+      "Určte cieľ rezervy podľa stability príjmu, záväzkov a počtu osôb v domácnosti; nepreberajte univerzálnu sumu bez posúdenia situácie.",
+      "Vyčleňte rezervu oddelene od peňazí na bežnú spotrebu a overte dostupnosť prostriedkov pri nečakanom výdavku.",
+      "Nastavte pravidelný prevod a po použití rezervy si naplánujte jej postupné doplnenie."
     ],
     "source": {
       "label": "NBS – sporenie a investovanie",
@@ -181,9 +182,10 @@
     "title": "Kontrola rodinných výdavkov",
     "description": "Jednoduchý postup na zmapovanie príjmov a pravidelných platieb.",
     "steps": [
-      "Rozdeľte výdavky na nevyhnutné a voliteľné.",
-      "Skontrolujte predplatné a opakované platby.",
-      "Vyskúšajte kalkulačku rodinného rozpočtu."
+      "Zozbierajte výpisy a doklady za niekoľko mesiacov; rozdeľte platby na nevyhnutné, voliteľné a nepravidelné.",
+      "Pri opakovaných platbách vyznačte predplatné, poplatky a služby, ktoré nevyužívate.",
+      "Rozpočítajte ročné poistky, servis a ďalšie nepravidelné náklady na mesačnú rezervu.",
+      "Stanovte si realistické limity pre jednotlivé kategórie a raz mesačne porovnajte plán so skutočnými výdavkami."
     ],
     "source": {
       "label": "NBS – zostavenie osobného a rodinného rozpočtu",
@@ -1900,10 +1902,10 @@
     "category": "financie",
     "description": "Ciele, rezerva a pravidelný vklad",
     "steps": [
-      "Zistite, či sa téma „ako plánovať sporenie“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Pomenujte cieľ sporenia, termín použitia peňazí a sumu, ktorú viete pravidelne odkladať.",
+      "Porovnajte dostupnosť peňazí, úročenie, poplatky a podmienky zmeny alebo ukončenia produktu.",
+      "Pred rozhodnutím si overte, kto je poskytovateľom produktu a aké riziká či ochranné mechanizmy sa naň vzťahujú.",
+      "Nastavte pravidelný prevod a priebežne kontrolujte, či produkt stále vyhovuje termínu a účelu sporenia."
     ],
     "source": {
       "label": "NBS – sporenie a ochrana vkladov",
@@ -1943,10 +1945,10 @@
     "category": "financie",
     "description": "Ako si rozdeliť príjmy a výdavky",
     "steps": [
-      "Zistite, či sa téma „rodinný finančný plán“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Spíšte všetky čisté príjmy domácnosti, pravidelné splátky a nevyhnutné mesačné výdavky.",
+      "Samostatne naplánujte nepravidelné náklady, núdzovú rezervu a krátkodobé i dlhodobé ciele.",
+      "Pri každom cieli určte potrebnú sumu, termín a mesačný príspevok; nepoužívajte rovnaké peniaze na viac cieľov.",
+      "Plán prehodnoťte pri zmene príjmu, bývania alebo záväzkov a priebežne sledujte skutočné výdavky."
     ],
     "source": {
       "label": "NBS – prebytok finančných prostriedkov",
@@ -2076,10 +2078,10 @@
     "category": "auto",
     "description": "Dojazd, prestávky a alternatívne stanice",
     "steps": [
-      "Zistite, či sa téma „plánovanie cesty elektromobilom“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Pred cestou si odhadnite spotrebu podľa dĺžky trasy, diaľničného tempa, počasia a prevýšenia.",
+      "Vyberte vhodné nabíjacie zastávky podľa konektora, výkonu podporovaného vozidlom a predpokladanej rezervy batérie.",
+      "Overte aktuálnu dostupnosť staníc, spôsob platby a cenu u prevádzkovateľa; pre každú dôležitú zastávku si určte alternatívu.",
+      "Počas jazdy porovnávajte skutočnú spotrebu s plánom a včas upravte nabíjaciu zastávku, ak rezerva klesá."
     ],
     "source": {
       "label": "MH SR – stratégia elektromobility a nabíjania",
