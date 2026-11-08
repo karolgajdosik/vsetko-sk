@@ -1,5 +1,6 @@
 import {readFile, mkdir, writeFile, appendFile} from 'node:fs/promises';
 const guides = JSON.parse(await readFile('src/data/guides.json', 'utf8'));
+const supplements = JSON.parse(await readFile('src/data/guide-details.json', 'utf8'));
 const references = new Map();
 function collect(value, slug) {
   if (Array.isArray(value)) { for (const child of value) collect(child, slug); }
@@ -11,7 +12,7 @@ function collect(value, slug) {
     references.get(value).add(slug);
   }
 }
-for (const guide of guides) collect(guide, guide.slug);
+for (const guide of guides) { collect(guide, guide.slug); collect(supplements[guide.slug], guide.slug); }
 const urls = [...references.keys()].sort();
 async function probe(url) {
   const linkedGuides = [...references.get(url)];

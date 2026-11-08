@@ -35,3 +35,19 @@ The first axe invocation exposed an audit-harness issue (`browser.newPage()` cre
 The corrected audit completed 125 pages / 151 display variants without execution or skip-link errors. It found 448 repeated rule instances in five rule types: contrast, visible-name mismatch, link distinction, target size and prohibited ARIA attributes. Shared corrections darken insufficient light text, underline prose links, enlarge list targets, align visible A+/A− and assistant labels, and give the map/budget graphics valid roles. These changes are undergoing a complete rerun; no axe rule or page was excluded to obtain a pass.
 
 The availability audit was extended beyond primary source fields to all external HTTPS URLs nested in the guides, including screen-navigation links. The primary-source-only pass is not misrepresented as a check of every nested destination.
+
+## Verified completion and remaining handover
+
+PR #224 passed the complete rerun: 125 pages / 151 variants, zero axe violations, zero execution/skip-link errors. Availability: 43/48 nested URLs reachable, zero confirmed 404/410, five unresolved; all 28 primary URLs reachable. Production monitor and main CI passed for `1288fbc49957ba8fe783daf074317a3b845374dd`. These results supersede the first-scan paragraphs above.
+
+All 40 guides now have structured detailed procedures (25 newly completed; 100 new steps). New text avoids invented screenshots, current fee promises and unverified deadlines. Source availability does not certify the complete editorial/legal accuracy.
+
+Privacy contact is now rendered from `src/data/site-operations.json` through `PrivacyContact.astro`. Keep `privacyEmailActive` false and `privacyEmailVerifiedAt` null until actual delivery is verified. Never put the private forwarding destination into public source configuration.
+
+Email activation procedure (existing Websupport MX):
+1. Owner signs into Websupport WebAdmin for vsetko24.sk and confirms an owned forwarding destination. No password is supplied in chat.
+2. Follow the provider's alias/forwarder guide: https://www.websupport.sk/podpora/kb/aliasy-a-presmerovania-e-mailov/ . Create only `sukromie`; do not replace domain MX or other aliases.
+3. Obtain explicit destination verification and perform an owner-authorized inbound delivery test. Confirm message reception, spam handling and replies.
+4. Set active true and the real verification timestamp in the public configuration; CI/build and both contact/privacy production pages must pass.
+
+Unresolved interactive destinations remain genuine official links, not silently removed to produce a green report: portal.minv.sk, zrsr.sk, mzv.sk, kataster.vugk.sk, kataster.skgeodesy.sk/eskn-portal/. Each affected guide retains its topic-specific primary informational source as a fallback. Recheck in an ordinary browser; report network/bot limits separately from confirmed broken links.

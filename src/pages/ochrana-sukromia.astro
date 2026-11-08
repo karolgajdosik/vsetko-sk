@@ -1,13 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
+import PrivacyContact from '../components/PrivacyContact.astro';
 ---
 <Base title="Ochrana súkromia" description="Kto prevádzkuje VŠETKO24.sk, ktoré údaje zostávajú vo vašom zariadení a kedy sa údaje posielajú mimo prehliadača.">
   <main id="obsah" class="wrap main privacy-info">
     <h1>Ochrana súkromia</h1>
     <section class="panel">
       <h2>Prevádzkovateľ a kontakt</h2>
-      <p>Prevádzkovateľom portálu VŠETKO24.sk je <strong>Karol Gajdošík</strong>.</p>
-      <p>Adresa pre otázky a žiadosti o ochranu osobných údajov je <strong>sukromie@vsetko24.sk</strong>. Presmerovanie pripravujeme. S odoslaním žiadosti na túto adresu počkajte do potvrdenia aktivácie.</p>
+      <PrivacyContact />
     </section>
     <section class="panel">
       <h2>Údaje vo vašom zariadení</h2>
@@ -39,3 +39,4 @@ import Base from '../layouts/Base.astro';
     .privacy-info h2 {margin-top: 0}
   </style>
 </Base>
+
