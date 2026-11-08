@@ -20,7 +20,7 @@ const searchInput=document.querySelector<HTMLInputElement>('#knowledge-query');
 const searchResults=document.querySelector<HTMLElement>('#knowledge-results');
 const norm=(x:string)=>x.toLocaleLowerCase('sk-SK').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 const ignored=new Set(['ako','kde','kedy','co','som','bol','mam','chcem','potrebujem','prosim','robit','postupovat','postup','moja','moje','moj','ked','pri','pre','som','mozete','mam','sa','ci','tie','toto','aky','aka','ake']);
-const tokens=(s:string)=>norm(s).split(/[^a-z0-9]+/).filter(t=>t.length>=3&&!ignored.has(t)).slice(0,14);
+const tokens=(s:string)=>norm(s).split(/\s+/).flatMap(part=>part.split(/[^a-z0-9]+/)).filter(t=>t.length>=3&&!ignored.has(t)).slice(0,14);
 const isInternal=(url:unknown):url is string => typeof url==='string'&&url.startsWith('/')&&!url.startsWith('//')&&!/[^\x20-\x7e]/.test(url);
 const library=catalog.filter(x=>isInternal(x.url)).map(x=>({
   x,title:norm(x.title),keywords:norm(x.keywords??''),description:norm(x.description??''),category:norm(x.category??'')
@@ -110,10 +110,10 @@ form.addEventListener('submit',async e=>{
       const official=document.createElement('div');official.className='ai-sources';
       const title=document.createElement('strong');title.textContent='Odkazy na oficiálne zdroje:';official.append(title);
       let count=0;
-      for(const item of data.officialSources){
-        const trustedUrl=trustedOfficialUrl(item?.url);if(!trustedUrl)continue;
+      for(const source of data.officialSources){
+        const trustedUrl=trustedOfficialUrl(source?.url);if(!trustedUrl)continue;
         const a=document.createElement('a');a.href=trustedUrl;a.target='_blank';a.rel='noopener noreferrer';
-        a.textContent=String(item.title||'Oficiálny portál')+' ↗';official.append(a);count++;
+        a.textContent=String(source.title||'Oficiálny portál')+' ↗';official.append(a);count++;
       }
       if(count)response.append(official);
     }
