@@ -21,7 +21,8 @@ const searchResults=document.querySelector<HTMLElement>('#knowledge-results');
 const norm=(x:string)=>x.toLocaleLowerCase('sk-SK').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 const ignored=new Set(['ako','kde','kedy','co','som','bol','mam','chcem','potrebujem','prosim','robit','postupovat','postup','moja','moje','moj','ked','pri','pre','som','mozete','mam','sa','ci','tie','toto','aky','aka','ake']);
 const tokens=(s:string)=>norm(s).split(/\s+/).flatMap(part=>part.split(/[^a-z0-9]+/)).filter(t=>t.length>=3&&!ignored.has(t)).slice(0,14);
-const isInternal=(url:unknown):url is string => typeof url==='string'&&url.startsWith('/')&&!url.startsWith('//')&&!/[^\x20-\x7e]/.test(url);
+const isInternal=(url:unknown):url is string => typeof url==='string'&&/^\/(?!\/)[a-zA-Z0-9/_#?=&.%-]*$/.test(url)&&!/%(?:2f|5c|00|0d|0a)/i.test(url)&&!url.includes('..')&&!url.includes('\\');
+const knownSourceUrls=new Set(catalog.filter(x=>isInternal(x.url)).map(x=>x.url));
 const library=catalog.filter(x=>isInternal(x.url)).map(x=>({
   x,title:norm(x.title),keywords:norm(x.keywords??''),description:norm(x.description??''),category:norm(x.category??'')
 }));
@@ -98,15 +99,15 @@ form.addEventListener('submit',async e=>{
     try{
       result=await fetch('/api/assistant',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question}),signal:controller.signal});
     }finally{clearTimeout(timer);}
-    const data=await result.json();
+    const data=await result.json().catch(()=>null);
     const answer=typeof data?.answer==='string'?data.answer.trim():'';
-    response.textContent=result.ok&&answer?answer:(typeof data?.error==='string'?data.error:'Služba asistenta momentálne nemá overiteľnú odpoveď.');
+    response.textContent=result.ok&&answer?answer:'Asistent teraz neposkytol overiteľnú odpoveď. Nižšie nájdete iba tematicky súvisiace stránky portálu; ich obsah si overte v oficiálnych zdrojoch.';
     if(result.ok&&Array.isArray(data.sources)){
       const links=document.createElement('div');links.className='ai-sources';
       const label=document.createElement('strong');label.textContent='Odkazy uvedené v odpovedi:';links.append(label);
       let count=0;
       for(const item of data.sources){
-        if(typeof item?.url!=='string'||!/^\/(?:navody|kalkulacky|sprievodca|financie|auto|moje-centrum|kalendar|dokumenty)\//.test(item.url))continue;
+        if(!isInternal(item?.url)||!knownSourceUrls.has(item.url))continue;
         const a=document.createElement('a');a.href=item.url;a.textContent=String(item.title||'Súvisiaci zdroj')+' ↗';
         links.append(a);count++;
       }
