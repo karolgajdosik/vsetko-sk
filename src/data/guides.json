@@ -151,11 +151,23 @@
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne. Praktické odporúčania sú všeobecné a nepredstavujú individuálne finančné poradenstvo.",
     "practical": [
       {
         "title": "Oddeľte rezervu od bežných peňazí",
         "body": "Zvoľte účet s dostupnými prostriedkami a nastavte trvalý príkaz; výšku rezervy odvoďte od vlastných nevyhnutných výdavkov."
+      },
+      {
+        "title": "Stanovte cieľ podľa výdavkov",
+        "body": "Spočítajte nevyhnutné mesačné výdavky na bývanie, jedlo, dopravu a splátky. Rezervu plánujte podľa reálnych nákladov a stability príjmu, nie podľa ľubovoľného univerzálneho čísla."
+      },
+      {
+        "title": "Oddeľte rezervu od investícií",
+        "body": "Peniaze určené na nečakané výdavky držte dostupné a s primeraným rizikom. Pri výbere účtu alebo vkladu overte podmienky výberu, úročenie a prípadné poplatky."
+      },
+      {
+        "title": "Dopĺňajte ju pravidelne",
+        "body": "Nastavte si prevod po výplate a po použití rezervy upravte ďalšie odklady. Raz za čas prepočítajte cieľ podľa nových výdavkov domácnosti."
       }
     ]
   },
@@ -181,11 +193,23 @@
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne. Praktické odporúčania sú všeobecné a nepredstavujú individuálne finančné poradenstvo.",
     "practical": [
       {
         "title": "Vyhodnoťte posledné tri mesiace",
         "body": "Z výpisov z účtu si rozdeľte platby na bývanie, dopravu, potraviny, splátky a voliteľné nákupy; jednorazové výdavky sledujte zvlášť."
+      },
+      {
+        "title": "Rozdeľte výdavky podľa účelu",
+        "body": "Prejdite si výpisy za niekoľko mesiacov a oddeľte bývanie, potraviny, dopravu, dlhy, voľný čas a nepravidelné platby. Jednorazové výdavky rozpočítajte na mesiace."
+      },
+      {
+        "title": "Hľadajte opakované malé platby",
+        "body": "Skontrolujte predplatné, bankové poplatky a služby, ktoré už nepoužívate. Pri rušení služby najprv overte viazanosť a možné náklady na ukončenie."
+      },
+      {
+        "title": "Porovnávajte plán so skutočnosťou",
+        "body": "Každý mesiac porovnajte plánované a skutočné sumy. Ak sa výdavky opakovane odlišujú, upravte rozpočet namiesto nerealistického cieľa."
       }
     ]
   },
@@ -1559,11 +1583,23 @@
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
+    "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá. Praktické odporúčania sú všeobecné a nepredstavujú individuálne finančné poradenstvo.",
     "practical": [
       {
         "title": "Vytvorte si kalendár fixácie",
         "body": "Zapíšte dátum konca fixácie, termín oznámenia novej sadzby a čas potrebný na porovnanie konkurenčných ponúk."
+      },
+      {
+        "title": "Poznačte si dátum konca fixácie",
+        "body": "V zmluve a oznámeniach banky si overte termín zmeny úrokovej sadzby a podmienky ďalšieho obdobia. Nenechávajte porovnávanie ponúk na posledné dni."
+      },
+      {
+        "title": "Porovnajte viac než novú sadzbu",
+        "body": "Pri novej ponuke porovnajte splátku, celkovú zostávajúcu sumu, poplatky a podmienky doplnkových produktov. Zohľadnite aj zmenu dĺžky splácania."
+      },
+      {
+        "title": "Pýtajte sa na alternatívy písomne",
+        "body": "Overte možnosti novej fixácie, zmeny banky alebo mimoriadnej splátky podľa aktuálnej zmluvy. Prípadné lehoty a náklady si nechajte potvrdiť bankou."
       }
     ]
   },
@@ -1629,11 +1665,23 @@
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne. Praktické odporúčania sú všeobecné a nepredstavujú individuálne finančné poradenstvo.",
     "practical": [
       {
         "title": "Porovnajte dostupnosť úspor",
         "body": "Rozlišujte okamžite dostupnú rezervu a dlhodobé sporenie; overte podmienky výberu a ochrany vkladov."
+      },
+      {
+        "title": "Rozlišujte vklad a investíciu",
+        "body": "Pred rozhodnutím zistite, či ide o bankový vklad, investičný produkt alebo iný nástroj. Ich riziká, dostupnosť peňazí a prípadná ochrana sa môžu zásadne líšiť."
+      },
+      {
+        "title": "Preverte podmienky prístupu k peniazom",
+        "body": "Zistite, či je možné prostriedky vybrať predčasne a aký je prípadný dôsledok pre úrok alebo poplatky. Podmienky si overte v dokumentácii konkrétneho produktu."
+      },
+      {
+        "title": "Nespoliehajte sa iba na reklamovaný výnos",
+        "body": "Porovnajte čistý výnos po poplatkoch a prípadnom zdanení, riziko straty a dobu viazanosti. Nejasné sľuby zaručeného vysokého zisku považujte za varovný signál."
       }
     ]
   },
@@ -1660,11 +1708,23 @@
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne. Praktické odporúčania sú všeobecné a nepredstavujú individuálne finančné poradenstvo.",
     "practical": [
       {
         "title": "Rozdeľte ciele podľa termínu",
         "body": "Osobitne plánujte rezervu, ročné výdavky, splácanie dlhov a dlhodobé ciele; plán aktualizujte pri zmene príjmu."
+      },
+      {
+        "title": "Zmapujte záväzky aj nepravidelné výdavky",
+        "body": "Spíšte pravidelné príjmy, splátky, ročné poistky, opravy a plánované väčšie nákupy. Nepravidelné náklady rozpočítajte tak, aby neprekvapili v mesiaci úhrady."
+      },
+      {
+        "title": "Určte poradie finančných cieľov",
+        "body": "Oddeľte krátkodobé potreby, núdzovú rezervu a dlhodobé ciele. Pri každom cieli stanovte sumu, termín a mieru rizika, ktorú si môžete dovoliť."
+      },
+      {
+        "title": "Plán kontrolujte pri životných zmenách",
+        "body": "Pri zmene príjmu, bývania alebo výšky splátok aktualizujte rozpočet. Pri rozhodovaní o úvere posudzujte celkové náklady a schopnosť splácať aj pri horšom scenári."
       }
     ]
   },
