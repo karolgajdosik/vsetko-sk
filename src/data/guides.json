@@ -11,17 +11,17 @@
     ],
     "source": {
       "label": "Národná banka Slovenska",
-      "url": "https://nbs.sk/"
+      "url": "https://nbs.sk/dohlad-nad-financnym-trhom/ofs/financne-produkty/financne-sluzby-v-eu/financne-produkty-dostupne-v-eu/"
     },
-    "updated": "22. 10. 2026",
+    "updated": "8. 11. 2026",
     "keywords": "porovnanie hypotek",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "verification": "Obsah a uvedený oficiálny zdroj boli vecne skontrolované 8. 11. 2026; individuálne podmienky, sadzby a poplatky sa môžu meniť.",
+    "sourceNote": "NBS vysvetľuje formulár ESIS a porovnateľné predzmluvné informácie o úveroch na bývanie.",
     "practical": [
       {
         "title": "Porovnávajte rovnaký scenár",
@@ -38,6 +38,10 @@
       {
         "title": "Urobte si vlastný prehľad",
         "body": "Do jednej tabuľky si zapíšte úrok, RPMN, mesačnú splátku, celkové náklady, poplatky a podmienky zmeny sadzby po fixácii."
+      },
+      {
+        "title": "Vyžiadajte si formulár ESIS",
+        "body": "Pri každej ponuke si vyžiadajte európsky štandardizovaný informačný formulár ESIS. Porovnajte údaje pri rovnakom úvere, nie iba reklamovanú úrokovú sadzbu."
       }
     ]
   },
@@ -53,17 +57,17 @@
     ],
     "source": {
       "label": "Národná banka Slovenska",
-      "url": "https://nbs.sk/"
+      "url": "https://nbs.sk/dohlad-nad-financnym-trhom/ofs/financne-produkty/financne-sluzby-v-eu/financne-produkty-dostupne-v-eu/"
     },
-    "updated": "22. 10. 2026",
+    "updated": "8. 11. 2026",
     "keywords": "refinancovanie uveru",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "verification": "Obsah a uvedený oficiálny zdroj boli vecne skontrolované 8. 11. 2026; individuálne podmienky, sadzby a poplatky sa môžu meniť.",
+    "sourceNote": "NBS vysvetľuje porovnateľné predzmluvné informácie o úveroch na bývanie; individuálne poplatky za refinancovanie treba overiť u veriteľa.",
     "practical": [
       {
         "title": "Zistite skutočný zostatok",
@@ -80,6 +84,10 @@
       {
         "title": "Pripravte si termíny",
         "body": "Zistite, dokedy platí ponuka novej banky, kedy končí fixácia a aké dokumenty sú potrebné na splatenie pôvodného úveru."
+      },
+      {
+        "title": "Rozlišujte hypotéku a spotrebiteľský úver",
+        "body": "Pri úvere na bývanie porovnajte nové podmienky aj vo formulári ESIS. Pri inom úvere si vyžiadajte príslušné predzmluvné informácie; pravidlá a náklady sa môžu líšiť."
       }
     ]
   },
@@ -95,17 +103,31 @@
     ],
     "source": {
       "label": "Národná banka Slovenska",
-      "url": "https://nbs.sk/"
+      "url": "https://nbs.sk/dohlad-nad-financnym-trhom/dohlad/veritelia/spotrebitelske-uvery/"
     },
-    "updated": "22. 10. 2026",
+    "updated": "8. 11. 2026",
     "keywords": "spotrebny uver",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Obsah a uvedený oficiálny zdroj boli vecne skontrolované 8. 11. 2026; individuálne podmienky, sadzby a poplatky sa môžu meniť.",
+    "sourceNote": "Oficiálna stránka NBS vysvetľuje právny rámec spotrebiteľských úverov. Na informatívny kontrolný prepočet RPMN slúži rpmn.nbs.sk.",
+    "practical": [
+      {
+        "title": "Porovnajte celkovú cenu",
+        "body": "Pri rovnakej výške a splatnosti porovnajte RPMN, celkovú sumu na zaplatenie a všetky podmienené doplnkové produkty."
+      },
+      {
+        "title": "Skontrolujte poskytovateľa",
+        "body": "Pred podpisom si overte identitu a oprávnenie veriteľa v oficiálnych registroch NBS. Neposielajte peniaze vopred neoverenej osobe s prísľubom úveru."
+      },
+      {
+        "title": "Preverte splátku vo vlastnom rozpočte",
+        "body": "Okrem pravidelnej splátky počítajte s rezervou na výpadok príjmu a nečakané výdavky. Schválenie úveru samo osebe neznamená, že splácanie bude pohodlné."
+      }
+    ]
   },
   {
     "slug": "financna-rezerva",
@@ -1304,17 +1326,17 @@
     ],
     "source": {
       "label": "Národná banka Slovenska",
-      "url": "https://nbs.sk/"
+      "url": "https://nbs.sk/financna-stabilita/nastroje-fs/dsti/"
     },
-    "updated": "22. 10. 2026",
+    "updated": "8. 11. 2026",
     "keywords": "prvá žiadosť o hypotéku",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "verification": "Obsah a uvedený oficiálny zdroj boli vecne skontrolované 8. 11. 2026; individuálne podmienky, sadzby a poplatky sa môžu meniť.",
+    "sourceNote": "NBS opisuje ukazovateľ schopnosti splácať DSTI vrátane zohľadnenia existujúcich dlhov a životného minima; konečné posúdenie vykonáva veriteľ.",
     "detail": {
       "summary": "Hypotéku porovnávaj podľa celkových nákladov a schopnosti splácať, nie iba podľa reklamného úroku. Rozhodujúce sú príjmy, existujúce záväzky, vlastné zdroje a hodnota zabezpečenia.",
       "before": [
@@ -1366,7 +1388,21 @@
           "url": "https://vsetko24.sk/financie/#hypoteka"
         }
       ]
-    }
+    },
+    "practical": [
+      {
+        "title": "Započítajte všetky existujúce záväzky",
+        "body": "Pripravte prehľad splátok úverov, lízingu, kreditných kariet a povolených prečerpaní. Banka posudzuje celkové zaťaženie domácnosti, nielen novú hypotéku."
+      },
+      {
+        "title": "Pripravte si rezervu na zmenu úroku",
+        "body": "Vyskúšajte si splátku aj pri vyššej úrokovej sadzbe. NBS pri hodnotení schopnosti splácať zohľadňuje aj rezervu na rast sadzieb."
+      },
+      {
+        "title": "Oddeľte schválenie úveru od kúpy",
+        "body": "Pred podpisom rezervačnej alebo kúpnej zmluvy si vyjasnite podmienky financovania, vlastné zdroje a čo sa stane, ak banka úver neschváli."
+      }
+    ]
   },
   {
     "slug": "fixacia-hypoteky",
@@ -1406,17 +1442,31 @@
     ],
     "source": {
       "label": "Národná banka Slovenska",
-      "url": "https://nbs.sk/"
+      "url": "https://rpmn.nbs.sk/"
     },
-    "updated": "22. 10. 2026",
+    "updated": "8. 11. 2026",
     "keywords": "úrok a rpmn – rozdiel",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Obsah a uvedený oficiálny zdroj boli vecne skontrolované 8. 11. 2026; individuálne podmienky, sadzby a poplatky sa môžu meniť.",
+    "sourceNote": "Oficiálna informatívna kalkulačka NBS je určená len pre podporované typy spotrebiteľských úverov a zmluvy podľa podmienok uvedených na stránke; nejde o univerzálnu kalkulačku hypoték.",
+    "practical": [
+      {
+        "title": "Rozlišujte úrok a RPMN",
+        "body": "Úrok vyjadruje cenu požičaných peňazí; RPMN zohľadňuje aj relevantné náklady podľa pravidiel výpočtu. Preto pri porovnaní spotrebiteľských úverov sledujte oba údaje."
+      },
+      {
+        "title": "Prepočet má obmedzenia",
+        "body": "Kalkulačka NBS slúži na informatívny kontrolný výpočet pri podporovaných úverových produktoch. Pred zadávaním údajov si prečítajte podmienky jej použitia."
+      },
+      {
+        "title": "Porovnávajte rovnaké parametre",
+        "body": "Zvoľte rovnakú istinu, dobu splácania a obdobné podmienky. Inak rozdiel v RPMN nemusí vyjadrovať rozdiel medzi porovnateľnými ponukami."
+      }
+    ]
   },
   {
     "slug": "bezpecne-sporenie",
