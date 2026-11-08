@@ -34,7 +34,7 @@ export function getPracticalGuideRoutes(guides){
  return practicalGuideSlugs.map(slug=>{
   const guide=bySlug.get(slug);
   if(!guide)throw new Error('Missing practical guide: '+slug);
-  if(!Array.isArray(guide.practical)||guide.practical.length!==4||guide.practical.some(tip=>!tip.title?.trim()||!tip.body?.trim())){
+  if(!Array.isArray(guide.practical)||guide.practical.length<5||guide.practical.some(tip=>!tip.title?.trim()||!tip.body?.trim())){
    throw new Error('Missing practical advice for '+slug);
   }
   return {path:'/navody/'+slug+'/',markers:[{heading:guide.title},{practicalTitles:guide.practical.map(tip=>tip.title)}]};
