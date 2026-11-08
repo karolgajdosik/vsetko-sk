@@ -4,7 +4,8 @@ const read=async path=>JSON.parse(await readFile(path,'utf8'));
 const guides=await read('src/data/guides.json'),details=await read('src/data/guide-details.json'),operations=await read('src/data/site-operations.json');
 const origin='https://vsetko24.sk';
 const checks=guides.map(g=>({route:'/navody/'+g.slug+'/',title:g.title,markers:['id="podrobne"','id="pozor"',...(details[g.slug]?.detailed.map(s=>s.body)??[])]}));
-for(const [route,title] of [['/kontakt/','Kontakt a spätná väzba'],['/ochrana-sukromia/','Ochrana súkromia'],['/pristupnost/','Prístupnosť a európske pravidlá']])checks.push({route,title,markers:[operations.privacyEmail,...(operations.privacyEmailActive?['mailto:'+operations.privacyEmail]:['čaká na aktiváciu'])]});
+// Cloudflare may obfuscate email literals in delivered HTML. The production browser step verifies the exact rendered alias.
+for(const [route,title] of [['/kontakt/','Kontakt a spätná väzba'],['/ochrana-sukromia/','Ochrana súkromia'],['/pristupnost/','Prístupnosť a európske pravidlá']])checks.push({route,title,markers:[operations.operator,...(operations.privacyEmailActive?[]:['čaká na aktiváciu'])]});
 async function check(item){
  for(let attempt=1;attempt<=3;attempt++){
   try{
