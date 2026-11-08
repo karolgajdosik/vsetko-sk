@@ -1,0 +1,902 @@
+{
+  "porovnanie-hypotek": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Rovnaká požadovaná výška úveru, splatnosť a fixácia pre všetky ponuky.",
+      "Čisté príjmy, pravidelné záväzky a vlastné peniaze na kúpu.",
+      "Písomné ponuky vrátane poplatkov a podmienok zľavy."
+    ],
+    "detailed": [
+      {
+        "title": "Zjednoťte zadanie",
+        "body": "Požiadajte banky o ponuku pre rovnaký úver a rovnaký scenár čerpania. Zaznamenajte si aj dokedy ponuka platí.",
+        "where": "Banka alebo oprávnený finančný sprostredkovateľ."
+      },
+      {
+        "title": "Zostavte porovnanie",
+        "body": "Vedľa splátky zapíšte RPMN, celkovú sumu na zaplatenie, poplatky a povinné doplnkové produkty. Rozlišujte jednorazové a opakované náklady.",
+        "where": "Ponuky, zmluvné podmienky a vlastná porovnávacia tabuľka."
+      },
+      {
+        "title": "Preverte podmienky v čase",
+        "body": "Vyžiadajte si formulár ESIS a vysvetlenie fixácie, čerpania, mimoriadnych splátok a situácie po skončení zvýhodnenia. Nejasné položky si nechajte vysvetliť písomne.",
+        "where": "Pracovník banky a predzmluvné dokumenty."
+      },
+      {
+        "title": "Otestujte rezervu rozpočtu",
+        "body": "Zvážte aj vyššiu budúcu splátku a nečakané výdavky. Rozhodnutie porovnajte s vlastným rozpočtom vrátane nákladov nového bývania.",
+        "where": "Kalkulačka splátky a rodinný rozpočet."
+      }
+    ],
+    "pitfalls": [
+      "Nižšia splátka môže súvisieť s dlhšou splatnosťou.",
+      "Reklamná sadzba nemusí zodpovedať vašej schválenej ponuke.",
+      "Poplatky za účet a poistenie môžu zmeniť celkové náklady."
+    ],
+    "outcome": "Máte porovnateľné písomné ponuky a poznáte ich náklady, podmienky aj dopad na rozpočet."
+  },
+  "refinancovanie-uveru": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Aktuálny zostatok, sadzba, splátka a zostávajúca splatnosť.",
+      "Termín zmeny sadzby a podmienky vyplatenia existujúceho úveru.",
+      "Nová ponuka so všetkými nákladmi prevodu."
+    ],
+    "detailed": [
+      {
+        "title": "Vyžiadajte presné vyčíslenie",
+        "body": "Zistite sumu na vyplatenie k plánovanému dátumu a prípadné náklady. Neporovnávajte novú ponuku iba s pôvodnou výškou úveru.",
+        "where": "Súčasný veriteľ."
+      },
+      {
+        "title": "Porovnajte rovnakú zostávajúcu dobu",
+        "body": "Najskôr porovnajte nové podmienky pri rovnakej splatnosti. Predĺženie úveru vyhodnoťte ako samostatný scenár.",
+        "where": "Nový veriteľ a kalkulačka refinancovania."
+      },
+      {
+        "title": "Spočítajte presun aj mesačné zmeny",
+        "body": "Zahrňte poplatky, požadované účty, poistenie a náklady potrebné na presun zabezpečenia. Odhadnite, kedy úspora pokryje vstupné náklady.",
+        "where": "Zmluvy, cenníky a písomná ponuka."
+      },
+      {
+        "title": "Dohodnite nadväznosť",
+        "body": "Pred podpisom si potvrďte termíny čerpania, vyplatenia a zrušenia pôvodných povinností. Zrušenie inkasa riešte až po potvrdení vyrovnania.",
+        "where": "Obaja veritelia podľa konkrétneho postupu."
+      }
+    ],
+    "pitfalls": [
+      "Dlhšia splatnosť môže prekryť drahší celkový výsledok.",
+      "Ústny prísľub poplatku alebo zľavy si nechajte potvrdiť.",
+      "Nové čerpanie nemusí prebehnúť v deň podpisu."
+    ],
+    "outcome": "Poznáte čistý ekonomický prínos presunu a máte dohodnutý postup vyplatenia pôvodného úveru."
+  },
+  "spotrebny-uver": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Účel a nevyhnutná výška pôžičky.",
+      "Mesačný rozpočet vrátane existujúcich splátok.",
+      "Úplná ponuka veriteľa a návrh zmluvy."
+    ],
+    "detailed": [
+      {
+        "title": "Spresnite potrebu",
+        "body": "Oddeľte nevyhnutný výdavok od voliteľného nákupu a stanovte najvyššiu sumu, ktorú potrebujete financovať.",
+        "where": "Vlastný rozpočet a cena nákupu."
+      },
+      {
+        "title": "Preverte poskytovateľa",
+        "body": "Overte si identitu veriteľa a jeho oprávnenie v oficiálnych registroch NBS. Neposielajte platbu ani údaje neoverenému kontaktu.",
+        "where": "Oficiálne registre a informácie NBS."
+      },
+      {
+        "title": "Porovnajte celkové náklady",
+        "body": "Pre rovnakú sumu a dobu splácania porovnajte RPMN, splátku a celkovú sumu. Vyžiadajte si vysvetlenie poistenia a ďalších podmienok.",
+        "where": "Predzmluvné informácie a zmluva."
+      },
+      {
+        "title": "Skontrolujte zvládnuteľnosť",
+        "body": "V rozpočte si ponechajte priestor na nečakané výdavky a overte postup pri omeškaní či predčasnom splatení ešte pred podpisom.",
+        "where": "Vlastný rozpočet a podmienky veriteľa."
+      }
+    ],
+    "pitfalls": [
+      "Sadzba bez poplatkov nestačí na porovnanie.",
+      "Nízka splátka nemusí znamenať lacný úver.",
+      "Vopred platené poplatky neznámemu sprostredkovateľovi sú dôvodom na zvýšenú opatrnosť."
+    ],
+    "outcome": "Viete, kto úver poskytuje, koľko celkom zaplatíte a či splácanie zodpovedá vášmu rozpočtu."
+  },
+  "financna-rezerva": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Prehľad nevyhnutných mesačných výdavkov.",
+      "Výška skutočne dostupných úspor.",
+      "Príjmy, splátky a možné nepravidelné výdavky."
+    ],
+    "detailed": [
+      {
+        "title": "Spočítajte nevyhnutnú prevádzku",
+        "body": "Zhrňte bývanie, stravu, dopravu a záväzky, ktoré treba platiť aj pri poklese príjmu. Jednorazové plánované nákupy zapíšte osobitne.",
+        "where": "Výpisy a rodinný rozpočet."
+      },
+      {
+        "title": "Určte vlastný cieľ",
+        "body": "Zvoľte rozsah rezervy podľa stability príjmu a potrieb domácnosti. Rezerva na bývanie je iba časťou celkovej pohotovostnej rezervy.",
+        "where": "Kalkulačka finančnej rezervy a vlastný scenár."
+      },
+      {
+        "title": "Nastavte tvorbu rezervy",
+        "body": "Od cieľa odpočítajte dostupné úspory a určte realistickú pravidelnú sumu. Nezapočítavajte peniaze, ktoré už majú iný záväzný účel.",
+        "where": "Rozpočet a nastavenie pravidelného prevodu."
+      },
+      {
+        "title": "Dohodnite použitie a doplnenie",
+        "body": "Určte, na aké nečakané situácie rezervu použijete a ako ju po výbere obnovíte. Pravidelne porovnávajte cieľ so zmenou výdavkov.",
+        "where": "Dohoda členov domácnosti a dostupný účet."
+      }
+    ],
+    "pitfalls": [
+      "Investícia s kolísavou hodnotou nemusí byť pohotovostnou rezervou.",
+      "Úverový limit nie je vlastná úspora.",
+      "Predvídateľný ročný výdavok má mať vlastný plán."
+    ],
+    "outcome": "Máte určený cieľ, pravidlo používania rezervy a zvládnuteľný plán jej vytvárania."
+  },
+  "kontrola-rodinnych-vydavkov": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Výpisy účtov a evidované platby v hotovosti.",
+      "Zoznam zmlúv, predplatných a ročných platieb.",
+      "Príjmy všetkých členov domácnosti, ktorí prispievajú na spoločné výdavky."
+    ],
+    "detailed": [
+      {
+        "title": "Zachyťte skutočné platby",
+        "body": "Roztrieďte transakcie za niekoľko bežných mesiacov. Započítajte aj hotovosť, malé nákupy a opakované automatické platby.",
+        "where": "Bankové výpisy, účtenky a prehľad hotovosti."
+      },
+      {
+        "title": "Rozpočítajte nepravidelné položky",
+        "body": "Poistenie, servis či školské výdavky zahrňte do mesačného plánu primeranou rezervou. Presuny medzi vlastnými účtami nepočítajte ako nový výdavok dvakrát.",
+        "where": "Ročný kalendár platieb a vlastná tabuľka."
+      },
+      {
+        "title": "Vyberte konkrétne zmeny",
+        "body": "Pri každej upraviteľnej položke určte novú sumu, termín a zodpovednú osobu. Pri zmene zmluvy overte výpoveď a možné náklady.",
+        "where": "Zmluvy s poskytovateľmi a dohoda domácnosti."
+      },
+      {
+        "title": "Vyhodnoťte ďalší mesiac",
+        "body": "Porovnajte plán so skutočnosťou a vysvetlite rozdiely. Nastavte dosiahnuteľné limity namiesto rozpočtu, ktorý sa pravidelne nedá dodržať.",
+        "where": "Rodinný rozpočet a pravidelná krátka kontrola."
+      }
+    ],
+    "pitfalls": [
+      "Samotná zmena bankového účtu neznižuje spotrebu.",
+      "Ročné platby nezmiznú tým, že ich v bežnom mesiaci nevidíte.",
+      "Všeobecné rozhodnutie míňať menej potrebuje konkrétne kroky."
+    ],
+    "outcome": "Viete, kam peniaze odchádzajú, a máte merateľné zmeny pre ďalšie obdobie."
+  },
+  "povinne-zmluvne-poistenie": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Doklady a identifikačné údaje vozidla.",
+      "Požadovaný začiatok poistenia a údaje poistníka.",
+      "Existujúca zmluva, ak porovnávate obnovu."
+    ],
+    "detailed": [
+      {
+        "title": "Skontrolujte predmet poistenia",
+        "body": "Porovnajte údaje z ponuky s dokladmi vozidla a odlíšte PZP od dobrovoľného havarijného poistenia.",
+        "where": "Ponuka a osvedčenie o evidencii."
+      },
+      {
+        "title": "Porovnajte krytie a služby",
+        "body": "Vedľa ceny sledujte limity, výluky, asistenciu a doplnkové služby. Žiadajte vysvetlenie rozdielov, ktoré sú pre vaše používanie vozidla dôležité.",
+        "where": "Poistné podmienky a informácie poisťovne."
+      },
+      {
+        "title": "Potvrďte vznik a platenie",
+        "body": "Overte dátum účinnosti, podmienky úhrady a presnú identifikáciu platby. Pri zmene poistky si potvrďte nadväznosť krytia.",
+        "where": "Zmluva, platobný predpis a potvrdenie poisťovne."
+      },
+      {
+        "title": "Uložte kontakty pre prípad škody",
+        "body": "Majte dostupné číslo zmluvy, asistenciu a postup nahlásenia udalosti. Overenie evidencie poistenia hľadajte v oficiálnych službách SKP.",
+        "where": "Poisťovňa a Slovenská kancelária poisťovateľov."
+      }
+    ],
+    "pitfalls": [
+      "Porovnanie iba podľa ceny môže vynechať dôležité výluky.",
+      "Objednávka nie je automaticky potvrdením účinného krytia.",
+      "Povinnosti pri ukončení pôvodnej zmluvy sa riešia samostatne."
+    ],
+    "outcome": "Máte správne identifikované vozidlo, potvrdené podmienky krytia a dostupný postup pri škode."
+  },
+  "kontrola-vozidla-pred-kupou": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "VIN, evidenčné doklady a identita predávajúceho.",
+      "Servisná história a dostupné doklady o opravách.",
+      "Možnosť nezávislej prehliadky pred zaplatením."
+    ],
+    "detailed": [
+      {
+        "title": "Overte identitu a oprávnenie predávať",
+        "body": "Porovnajte VIN na vozidle s dokladmi a zistite, kto je vlastníkom a kto môže uzatvoriť zmluvu. Nevysvetlené rozdiely vyriešte vopred.",
+        "where": "Predávajúci a doklady k vozidlu."
+      },
+      {
+        "title": "Preskúmajte históriu",
+        "body": "Vyžiadajte servisné záznamy, údaje o poškodeniach a dostupné overenia. Chýbajúca história je neistota, nie dôkaz bezchybného stavu.",
+        "where": "Servisné doklady a oficiálne evidenčné služby."
+      },
+      {
+        "title": "Zabezpečte technickú prehliadku",
+        "body": "Dohodnite skúšobnú jazdu a nezávislé preverenie technického stavu. Pri elektromobile si vyžiadajte aj informácie o trakčnej batérii a záruke.",
+        "where": "Nezávislý servis podľa typu vozidla."
+      },
+      {
+        "title": "Premietnite zistenia do dohody",
+        "body": "Zaznamenajte známe vady, dohodnuté príslušenstvo a spôsob odovzdania. Pri právnych neistotách dajte zmluvu preveriť pred úhradou.",
+        "where": "Kúpna zmluva a odovzdávací protokol."
+      }
+    ],
+    "pitfalls": [
+      "Platná kontrola nenahrádza predkúpnu prehliadku.",
+      "Fotografie a krátka jazda nemusia odhaliť skryté problémy.",
+      "Zálohu neplaťte bez jasnej identity príjemcu a podmienok vrátenia."
+    ],
+    "outcome": "Poznáte zistený stav vozidla, otvorené neistoty a podmienky bezpečného prevzatia."
+  },
+  "predaj-vozidla": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Doklady vozidla a zoznam odovzdávaného príslušenstva.",
+      "Pravdivý opis známych vád a servisných zásahov.",
+      "Dohodnutá cena, platba a termín odovzdania."
+    ],
+    "detailed": [
+      {
+        "title": "Pripravte podklady a opis",
+        "body": "Zhrňte technický stav, známe vady a dostupnú históriu. Pri skúšobnej jazde si vopred dohodnite pravidlá a overte identitu záujemcu.",
+        "where": "Dokumenty a komunikácia s kupujúcim."
+      },
+      {
+        "title": "Dohodnite písomné podmienky",
+        "body": "Do zmluvy uveďte identifikáciu strán a vozidla, cenu, známe vady a spôsob splnenia dohody. Nejasné právne podmienky riešte s odborníkom.",
+        "where": "Kúpna zmluva."
+      },
+      {
+        "title": "Overte platbu a spíšte odovzdanie",
+        "body": "Nespoliehajte sa iba na obrázok platobného príkazu. Zaznamenajte dátum, stav kilometrov, kľúče, doklady a príslušenstvo.",
+        "where": "Vlastný účet a odovzdávací protokol."
+      },
+      {
+        "title": "Dokončite evidenčné a zmluvné úkony",
+        "body": "S kupujúcim si potvrďte postup zmeny držiteľa a splnenie podmienok poistenia. Odhláste osobné účty a údaje z infotainmentu.",
+        "where": "Oficiálne evidenčné služby, poisťovňa a vozidlo."
+      }
+    ],
+    "pitfalls": [
+      "Podpis bez jasného odovzdania ponecháva sporné dátumy.",
+      "Fotografia platby nepotvrdzuje pripísanie peňazí.",
+      "Osobné digitálne účty nemajú zostať vo vozidle."
+    ],
+    "outcome": "Máte doloženú platbu, odovzdanie a dohodnuté dokončenie evidencie aj súvisiacich služieb."
+  },
+  "dialnicna-znamka": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Evidenčné číslo a krajina registrácie vozidla.",
+      "Trasa, plánovaný dátum jazdy a potrebné obdobie.",
+      "Údaje o kategórii vozidla alebo prípadnej výnimke."
+    ],
+    "detailed": [
+      {
+        "title": "Overte potrebu známky",
+        "body": "Na oficiálnom portáli skontrolujte spoplatnenie plánovanej trasy a pravidlá pre konkrétny typ vozidla či súpravy.",
+        "where": "Oficiálna stránka eZnamka."
+      },
+      {
+        "title": "Zvoľte správny produkt",
+        "body": "Porovnajte obdobie platnosti s plánovanými jazdami. Ak sa na vás môže vzťahovať oslobodenie, najskôr overte jeho podmienky a evidenciu.",
+        "where": "Oficiálne informácie a časté otázky eZnamka."
+      },
+      {
+        "title": "Skontrolujte údaje pred úhradou",
+        "body": "Overte EČV, krajinu registrácie a začiatok platnosti. Skontrolujte, či platíte oficiálnemu predajcovi a aká je konečná suma.",
+        "where": "Objednávka v oficiálnom predajnom kanáli."
+      },
+      {
+        "title": "Overte výsledok",
+        "body": "Uschovajte potvrdenie a pred vstupom na spoplatnený úsek skontrolujte platnosť pre správne vozidlo. Chyby riešte podľa aktuálneho postupu predajcu.",
+        "where": "Potvrdenie a overenie platnosti eZnamka."
+      }
+    ],
+    "pitfalls": [
+      "Predvolený dátum nemusí byť vaším požadovaným začiatkom.",
+      "Potvrdenie treba porovnať so skutočnými údajmi vozidla.",
+      "Zahraničné štáty môžu mať odlišný systém úhrady."
+    ],
+    "outcome": "Máte overený správny produkt a údaje o platnosti pre plánovanú jazdu."
+  },
+  "strata-cestovneho-pasu": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Informácia, či sa nachádzate na Slovensku alebo v zahraničí.",
+      "Dostupné doklady totožnosti a údaje o strate.",
+      "Termín ďalšej cesty a kontakty na príslušné orgány."
+    ],
+    "detailed": [
+      {
+        "title": "Ohláste stratu alebo odcudzenie",
+        "body": "Obráťte sa na príslušný policajný útvar alebo zastupiteľský úrad podľa miesta pobytu. Vyžiadajte si informáciu o ďalšom postupe a potvrdení udalosti.",
+        "where": "Polícia alebo zastupiteľský úrad SR."
+      },
+      {
+        "title": "Zistite možnosti dokončenia cesty",
+        "body": "V zahraničí si so zastupiteľským úradom overte možnosti náhradného cestovného dokladu pre konkrétnu cestu. Podmienky dopravcu skontrolujte osobitne.",
+        "where": "Zastupiteľský úrad a dopravca."
+      },
+      {
+        "title": "Pripravte žiadosť o nový doklad",
+        "body": "Overte požadované podklady, osobnú účasť, poplatky a dostupné lehoty na oficiálnych stránkach. Nezamieňajte pas s iným dokladom bez overenia podmienok cesty.",
+        "where": "Pracovisko dokladov alebo zastupiteľský úrad."
+      },
+      {
+        "title": "Dokončite prevzatie a aktualizáciu údajov",
+        "body": "Po vydaní nového dokladu skontrolujte údaje v rezerváciách a súvisiacich službách. Pri neskoršom nájdení starého dokladu si overte postup jeho odovzdania.",
+        "where": "Vydávajúci orgán a poskytovatelia rezervácií."
+      }
+    ],
+    "pitfalls": [
+      "Fotografia pasu sama nenahrádza platný cestovný doklad.",
+      "Náhradný doklad nemusí umožňovať ľubovoľnú ďalšiu cestu.",
+      "Zmenu čísla dokladu môžu potrebovať dopravcovia či ubytovatelia."
+    ],
+    "outcome": "Máte ohlásenú udalosť a potvrdený postup náhradného alebo nového dokladu."
+  },
+  "zmena-mena-a-priezviska": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Dôvod zmeny a doklady, ktoré ho preukazujú.",
+      "Informácia o občianstve, pobyte a prípadnej zahraničnej listine.",
+      "Zoznam dokladov a zmlúv, v ktorých bude treba aktualizovať údaje."
+    ],
+    "detailed": [
+      {
+        "title": "Určte príslušný postup",
+        "body": "Rozlišujte zmenu súvisiacu s matričnou udalosťou a samostatnú žiadosť o povolenie zmeny. Príslušnosť a potrebné listiny si potvrďte na matrike alebo úrade.",
+        "where": "Matrika, príslušný okresný úrad alebo zastupiteľský úrad."
+      },
+      {
+        "title": "Pripravte podklady",
+        "body": "Vyžiadajte si presný zoznam dokumentov vrátane podmienok pre cudzozemské listiny. Overte potrebu prekladu alebo osvedčenia podľa vášho prípadu.",
+        "where": "Príslušný orgán a oficiálne informácie."
+      },
+      {
+        "title": "Podajte žiadosť alebo oznámenie",
+        "body": "Pred odoslaním skontrolujte požadované údaje, prílohy a spôsob úhrady. Uschovajte potvrdenie o podaní a sledujte prípadné výzvy.",
+        "where": "Podateľňa alebo príslušná elektronická služba."
+      },
+      {
+        "title": "Aktualizujte doklady a služby",
+        "body": "Po potvrdení zmeny si zostavte poradie vybavenia nových dokladov a oznámení banke, zamestnávateľovi či poisťovni. Postup a lehoty overte osobitne.",
+        "where": "Vydávajúce orgány a jednotliví poskytovatelia."
+      }
+    ],
+    "pitfalls": [
+      "Jeden typ zmeny nemusí mať rovnaký postup ako iný.",
+      "Zahraničná listina môže vyžadovať ďalšie overenie.",
+      "Zmena v jednej evidencii neznamená aktualizáciu všetkých súkromných zmlúv."
+    ],
+    "outcome": "Máte určený správny postup a plán nadväzujúcich zmien dokladov a údajov."
+  },
+  "predaj-bytu": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Aktuálny list vlastníctva a informácie o ťarchách.",
+      "Podklady o byte, správe domu, nákladoch a známych vadách.",
+      "Predstava o cene a spôsobe vyplatenia existujúceho financovania."
+    ],
+    "detailed": [
+      {
+        "title": "Preverte pripravenosť na prevod",
+        "body": "Overte vlastníkov, spoluvlastnícke podiely, zápisy a oprávnenie byt previesť. Pri hypotéke si zistite podmienky vyplatenia a výmazu zabezpečenia.",
+        "where": "Kataster, banka a právnik."
+      },
+      {
+        "title": "Pripravte transparentnú ponuku",
+        "body": "Zhrňte technický stav, mesačné platby a odovzdávané vybavenie. Známe vady nezamlčujte a podstatné dohody zachyťte písomne.",
+        "where": "Podklady bytu a komunikácia so záujemcom."
+      },
+      {
+        "title": "Dohodnite zmluvy a platbu",
+        "body": "Nechajte preveriť rezervačnú aj kúpnu zmluvu a nadväznosť úhrady na vklad do katastra. Bezpečný mechanizmus platby dohodnite s odborníkom.",
+        "where": "Nezávislý právnik, notár alebo banka."
+      },
+      {
+        "title": "Uzavrite odovzdanie a oznámenia",
+        "body": "Spíšte protokol so stavmi meračov, kľúčmi a dokumentáciou. So správcom a dodávateľmi dohodnite ukončenie či prepis služieb a overte prípadné daňové povinnosti.",
+        "where": "Odovzdanie, správca, poskytovatelia a príslušné úrady."
+      }
+    ],
+    "pitfalls": [
+      "Rezervačná platba potrebuje jasné podmienky.",
+      "Predaj bytu a zrušenie záložného práva sú nadväzujúce úkony.",
+      "Daňové dôsledky závisia od konkrétneho nadobudnutia a okolností."
+    ],
+    "outcome": "Máte pripravený právne preverovaný prevod, úhradu a zdokumentované odovzdanie bytu."
+  },
+  "fixacia-hypoteky": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Dátum skončenia fixácie a oznámenie novej sadzby.",
+      "Aktuálny zostatok a zostávajúca doba úveru.",
+      "Ponuka súčasnej banky a porovnateľné alternatívy."
+    ],
+    "detailed": [
+      {
+        "title": "Zachyťte termíny",
+        "body": "Odložte oznámenie banky a zapíšte si lehoty na reakciu. Presné možnosti a náklady zmeny si nechajte potvrdiť podľa aktuálnej zmluvy.",
+        "where": "Súčasná banka a úverová zmluva."
+      },
+      {
+        "title": "Vyžiadajte si úplnú ponuku",
+        "body": "Neostaňte iba pri novej sadzbe. Zistite splátku, fixáciu, požadované doplnkové produkty a prípadné individuálne možnosti.",
+        "where": "Pracovník banky a písomná ponuka."
+      },
+      {
+        "title": "Porovnajte zotrvanie a presun",
+        "body": "Alternatívy počítajte s rovnakým zostatkom a splatnosťou. Zahrňte všetky náklady presunu aj dlhodobé podmienky.",
+        "where": "Ponuky bánk a kalkulačka refinancovania."
+      },
+      {
+        "title": "Potvrďte zvolený postup",
+        "body": "Dohodnite nadväzujúce termíny a skontrolujte konečné zmluvné dokumenty. Pri presune si potvrďte vyrovnanie pôvodného úveru.",
+        "where": "Zvolená banka a dokumenty k zmene."
+      }
+    ],
+    "pitfalls": [
+      "Nová sadzba sama nehovorí o všetkých nákladoch.",
+      "Odklad rozhodnutia môže skrátiť čas na vybavenie presunu.",
+      "Predĺženie splatnosti hodnotíte osobitne od zmeny sadzby."
+    ],
+    "outcome": "Máte porovnané možnosti a dohodnutý postup pred skončením fixácie."
+  },
+  "urok-a-rpmn": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Výška úveru, doba splácania a počet splátok.",
+      "Sadzba, poplatky a podmienky povinných služieb.",
+      "Údaj o celkovej sume, ktorú má dlžník zaplatiť."
+    ],
+    "detailed": [
+      {
+        "title": "Oddeľte jednotlivé ukazovatele",
+        "body": "Úrokovú sadzbu, RPMN a splátku si zapíšte osobitne. Každý ukazovateľ opisuje inú časť ponuky.",
+        "where": "Predzmluvné informácie."
+      },
+      {
+        "title": "Zjednoťte porovnávané ponuky",
+        "body": "Použite rovnakú sumu, dobu a načasovanie čerpania. Rozdielny scenár môže viesť k odlišnému výsledku aj pri podobnej sadzbe.",
+        "where": "Porovnávacia tabuľka."
+      },
+      {
+        "title": "Overte zahrnuté náklady",
+        "body": "Pýtajte sa, ktoré poplatky a služby sú vo výpočte zahrnuté a za akých predpokladov. Prípadné voliteľné náklady si dopočítajte osobitne.",
+        "where": "Veriteľ, zmluva a kalkulačka RPMN NBS."
+      },
+      {
+        "title": "Porovnajte výsledok s rozpočtom",
+        "body": "Pozrite sa na celkovú sumu aj splátkový plán. Overte, ako by sa prejavila zmena podmienok alebo sadzby.",
+        "where": "Splátkový kalendár a rodinný rozpočet."
+      }
+    ],
+    "pitfalls": [
+      "Nulový úrok nemusí znamenať nulové celkové náklady.",
+      "RPMN bez porovnateľného zadania môže zavádzať.",
+      "Reklama nemusí zobrazovať vašu individuálnu ponuku."
+    ],
+    "outcome": "Rozumiete rozdielu ukazovateľov a viete si vyžiadať úplné náklady ponuky."
+  },
+  "bezpecne-sporenie": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Konkrétny cieľ a čas, keď budete peniaze potrebovať.",
+      "Dostupná rezerva a pravidelný mesačný prebytok.",
+      "Podmienky produktu, dostupnosť peňazí a poplatky."
+    ],
+    "detailed": [
+      {
+        "title": "Rozdeľte ciele podľa času",
+        "body": "Oddeľte pohotovostnú rezervu od plánovaných výdavkov a dlhodobých cieľov. Pri každom zapíšte potrebnú sumu a termín.",
+        "where": "Vlastný finančný plán."
+      },
+      {
+        "title": "Skontrolujte produkt a poskytovateľa",
+        "body": "Overte, komu peniaze zverujete, aké sú riziká a aký režim ochrany sa na konkrétny produkt vzťahuje. Marketingový názov sporenie sám nestačí.",
+        "where": "Zmluvné informácie a oficiálne zdroje NBS."
+      },
+      {
+        "title": "Porovnajte dostupnosť a čistý výsledok",
+        "body": "Pozrite sa na poplatky, podmienky výberu, zmenu výnosu a relevantné zdanenie. Nepočítajte s výnosom, ktorý nie je zaručený.",
+        "where": "Podmienky produktu a vlastný výpočet."
+      },
+      {
+        "title": "Nastavte pravidelnosť a kontrolu",
+        "body": "Zvoľte udržateľnú sumu a pravidelnú revíziu cieľa. Pri zmene príjmu alebo výdavkov plán upravte.",
+        "where": "Rozpočet a nastavenie prevodu."
+      }
+    ],
+    "pitfalls": [
+      "Vyšší uvádzaný výnos môže znamenať vyššie riziko alebo obmedzenie výberu.",
+      "Podmienky zvýhodnenej sadzby nemusia trvať celé obdobie.",
+      "Pohotovostné peniaze majú byť dostupné v čase potreby."
+    ],
+    "outcome": "Máte oddelené ciele a sporiaci plán zodpovedajúci času, dostupnosti a riziku."
+  },
+  "rodinny-financny-plan": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Mesačné príjmy a realistické výdavky domácnosti.",
+      "Prehľad dlhov, rezervy a dostupného majetku.",
+      "Spoločné krátkodobé aj dlhodobé ciele."
+    ],
+    "detailed": [
+      {
+        "title": "Vytvorte východiskový prehľad",
+        "body": "Zaznamenajte príjmy, výdavky, záväzky a rezervu. Oddeľte pravidelné platby od sezónnych a jednorazových výdavkov.",
+        "where": "Výpisy, zmluvy a rodinný rozpočet."
+      },
+      {
+        "title": "Dohodnite priority",
+        "body": "Ku každému cieľu priraďte sumu, termín a dôležitosť. Zvážte, ktoré ciele musia počkať, ak rozpočet nestačí na všetko.",
+        "where": "Dohoda členov domácnosti."
+      },
+      {
+        "title": "Priraďte konkrétne kroky",
+        "body": "Nastavte sumy na rezervu, plánované výdavky a záväzky. Pri produktoch odlišujte krátkodobú dostupnosť od dlhodobého rizika.",
+        "where": "Vlastný mesačný plán a zmluvné podmienky."
+      },
+      {
+        "title": "Pripravte záložný scenár",
+        "body": "Prepočítajte výpadok príjmu alebo vyššie nevyhnutné výdavky. Plán pravidelne upravujte podľa skutočnosti.",
+        "where": "Rozpočet, kontrola výdavkov a termíny revízie."
+      }
+    ],
+    "pitfalls": [
+      "Optimistický príjem a podhodnotené výdavky vytvoria nereálny plán.",
+      "Spoločné ciele potrebujú dohodnuté priority.",
+      "Plán bez pravidelnej kontroly rýchlo prestane zodpovedať skutočnosti."
+    ],
+    "outcome": "Máte spoločný plán s konkrétnymi sumami, termínmi a záložným scenárom."
+  },
+  "kupa-elektromobilu": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Typické denné aj dlhé trasy a zimné používanie.",
+      "Možnosti nabíjania doma, v práci a na cestách.",
+      "Rozpočet na kúpu, prevádzku a prípadné príslušenstvo."
+    ],
+    "detailed": [
+      {
+        "title": "Porovnajte auto so svojím používaním",
+        "body": "Posudzujte bežné trasy aj náročnejšie cesty. Dojazd a nabíjanie si overte pre konkrétny model, podmienky a výbavu.",
+        "where": "Technické údaje výrobcu a skúšobná jazda."
+      },
+      {
+        "title": "Preverte nabíjanie",
+        "body": "Zistite dostupný konektor, možnosti AC/DC nabíjania a reálne lokality, ktoré môžete používať. Cenu domáceho nabíjania nezamieňajte s verejným cenníkom.",
+        "where": "Výrobca, operátori staníc a vlastné miesto parkovania."
+      },
+      {
+        "title": "Spočítajte vlastníctvo",
+        "body": "Porovnajte energiu, poistenie, servis, pneumatiky a predpokladanú stratu hodnoty. Pri jazdenom aute zistite stav batérie a podmienky záruky.",
+        "where": "Ponuky, servisné podklady a porovnávač nákladov vozidiel."
+      },
+      {
+        "title": "Potvrďte dodanie a podmienky",
+        "body": "Do dohody zahrňte konkrétnu výbavu, káble, záruky a spôsob odovzdania. Domáce nabíjanie si nechajte posúdiť pred definitívnym rozhodnutím.",
+        "where": "Predajca a odborne spôsobilý dodávateľ nabíjania."
+      }
+    ],
+    "pitfalls": [
+      "Jeden údaj o dojazde nevystihuje všetky podmienky.",
+      "Maximálny výkon stojana nie je trvalý výkon nabíjania auta.",
+      "Predvolená modelová cena energie nemusí zodpovedať vašej tarife."
+    ],
+    "outcome": "Máte vybraný scenár používania, nabíjania a celkových nákladov pre konkrétny elektromobil."
+  },
+  "domace-nabijanie": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Miesto parkovania a oprávnenie robiť potrebné úpravy.",
+      "Informácie o existujúcej elektrickej prípojke.",
+      "Potreba doplnenia energie a spôsob používania auta."
+    ],
+    "detailed": [
+      {
+        "title": "Definujte potrebu",
+        "body": "Zhrňte denný nájazd a čas, keď môže byť auto pripojené. Maximálny dostupný výkon nemusí byť potrebný pre váš bežný režim.",
+        "where": "Vlastný plán používania vozidla."
+      },
+      {
+        "title": "Nechajte posúdiť inštaláciu",
+        "body": "Odborne spôsobilému dodávateľovi predložte dostupné podklady a požiadajte o posúdenie prípojky, vedenia, ochrany a ďalších súvislostí konkrétneho miesta.",
+        "where": "Kvalifikovaný elektrikár alebo dodávateľ nabíjania."
+      },
+      {
+        "title": "Porovnajte celé riešenie",
+        "body": "Vyžiadajte si ponuku vrátane montáže, potrebných úprav, dokumentácie a prevádzkových možností. Pri spoločnom parkovaní overte súhlasy a účtovanie energie.",
+        "where": "Dodávateľ, správca objektu a prípadne distribučná spoločnosť."
+      },
+      {
+        "title": "Prevezmite a nastavte prevádzku",
+        "body": "Vyžiadajte si potrebné doklady a vysvetlenie bezpečného používania. Nabíjanie nastavte podľa možností auta, tarify a odporúčaní výrobcu zariadenia.",
+        "where": "Dokumentácia a odborné odovzdanie."
+      }
+    ],
+    "pitfalls": [
+      "Použiteľnosť existujúcej zásuvky sa nemá odhadovať bez odborného posúdenia.",
+      "Cena samotného zariadenia nemusí zahŕňať celú montáž.",
+      "V spoločnom objekte treba vyriešiť oprávnenia a meranie spotreby."
+    ],
+    "outcome": "Máte odborne posúdené riešenie, úplnú ponuku a podklady na bezpečnú prevádzku."
+  },
+  "cesta-elektromobilom": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Počiatočný stav batérie a spotreba pre plánované podmienky.",
+      "Funkčné prístupy k operátorom nabíjania a spôsob platby.",
+      "Trasa, časový plán a požadovaná rezerva."
+    ],
+    "detailed": [
+      {
+        "title": "Naplánujte realistické úseky",
+        "body": "Vychádzajte zo spotreby konkrétneho auta pri vašej rýchlosti, počasí a zaťažení. Každému úseku priraďte plánovaný príchod s rezervou.",
+        "where": "Navigácia vozidla a vlastné údaje o spotrebe."
+      },
+      {
+        "title": "Overte hlavné zastávky",
+        "body": "Skontrolujte konektor, výkon, prístup, prevádzkové podmienky a cenu. Mapový bod sám nepotvrdzuje živú dostupnosť stojana.",
+        "where": "Aktuálna aplikácia prevádzkovateľa a mapa staníc."
+      },
+      {
+        "title": "Vyberte zálohu",
+        "body": "Ku kľúčovým zastávkam určte alternatívu dosiahnuteľnú s rezervou. Pripravte si aj možnosti pri probléme s aplikáciou alebo platbou.",
+        "where": "Druhý operátor alebo iná lokalita podľa trasy."
+      },
+      {
+        "title": "Prispôsobujte plán cestou",
+        "body": "Sledujte skutočnú spotrebu a aktualizujte zastávky včas. Pri zmene počasia alebo čakaní nehľadajte náhradnú stanicu až pri minimálnej batérii.",
+        "where": "Palubná navigácia a aktuálne informácie operátorov."
+      }
+    ],
+    "pitfalls": [
+      "Údaj o výkone nemusí vyjadrovať priemerný výkon celej relácie.",
+      "Roamingová cena sa môže líšiť od priameho cenníka operátora.",
+      "Záložná lokalita má byť dosiahnuteľná s plánovanou rezervou."
+    ],
+    "outcome": "Máte hlavné aj záložné nabíjanie a priebežne prispôsobovaný plán trasy."
+  },
+  "stk-priprava": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Doklady vozidla a termín platnosti príslušných kontrol.",
+      "Informácie o kategórii vozidla, palive a vykonaných úpravách.",
+      "Dostupné protokoly z predchádzajúcich kontrol."
+    ],
+    "detailed": [
+      {
+        "title": "Overte požadované kontroly",
+        "body": "Podľa konkrétneho vozidla si potvrďte druh kontroly, termíny a potrebné doklady. Podmienky pre odlišné pohony a úpravy môžu byť rozdielne.",
+        "where": "Oficiálne informácie a zvolená oprávnená stanica."
+      },
+      {
+        "title": "Skontrolujte bežné funkcie",
+        "body": "Pred termínom vyskúšajte svetlá, stierače, ostrekovače, bezpečnostné pásy a stav pneumatík. Upozornenia na prístrojovej doske riešte so servisom.",
+        "where": "Vozidlo a servis podľa potreby."
+      },
+      {
+        "title": "Pripravte vozidlo a podklady",
+        "body": "Zabezpečte čitateľnosť identifikačných údajov a dostupnosť povinných podkladov. Pri osobitnej výbave si vyžiadajte pokyny stanice vopred.",
+        "where": "Doklady a komunikácia so stanicou."
+      },
+      {
+        "title": "Prevezmite a vyhodnoťte protokol",
+        "body": "Skontrolujte výsledok a vysvetlenie zistených nedostatkov. Ak treba ďalší postup, riaďte sa uvedenými podmienkami a overte ďalšie kroky.",
+        "where": "Kontrolná stanica a servis."
+      }
+    ],
+    "pitfalls": [
+      "Univerzálny internetový termín nemusí platiť pre vaše vozidlo.",
+      "Zhasnutie upozornenia bez opravy neodstraňuje príčinu.",
+      "Nejasný výsledok protokolu si nechajte vysvetliť pred ďalšou jazdou."
+    ],
+    "outcome": "Máte pripravené vozidlo a doklady a rozumiete výsledku kontroly."
+  },
+  "nehoda-na-ceste": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Kontakt na tiesňovú a asistenčnú službu.",
+      "Doklady vozidla a údaje o poistení.",
+      "Možnosť zaznamenať udalosť, keď je to bezpečné."
+    ],
+    "detailed": [
+      {
+        "title": "Riešte bezpečnosť a pomoc",
+        "body": "Najskôr chráňte zdravie a predchádzajte ďalšiemu nebezpečenstvu. V núdzi volajte 112 a riaďte sa pokynmi príslušných zložiek.",
+        "where": "Miesto udalosti a tiesňová linka podľa situácie."
+      },
+      {
+        "title": "Overte ďalší postup",
+        "body": "Privolanie polície a postup posudzujte podľa okolností a aktuálnych pravidiel. Pri nejasnosti alebo spore si vyžiadajte pokyny príslušných orgánov.",
+        "where": "Polícia a oficiálne informácie."
+      },
+      {
+        "title": "Zaznamenajte overiteľné okolnosti",
+        "body": "Keď je to bezpečné, zaznamenajte účastníkov, vozidlá, miesto, poškodenia a dostupných svedkov. V dokumentoch odlišujte zistené fakty od domnienok.",
+        "where": "Spoločný záznam o udalosti a vlastná dokumentácia."
+      },
+      {
+        "title": "Kontaktujte poisťovňu a uchovajte podklady",
+        "body": "Vyžiadajte si pokyny k nahláseniu, obhliadke, odťahu a ďalšiemu postupu. Uschovajte dokumentáciu, potvrdenia a súvisiace výdavky.",
+        "where": "Poisťovňa alebo asistenčná služba."
+      }
+    ],
+    "pitfalls": [
+      "Dokumentovanie nesmie ohroziť osoby na mieste.",
+      "Nepodpisujte tvrdenie, ktorému nerozumiete alebo s ktorým nesúhlasíte.",
+      "Postup pri škode v zahraničí môže vyžadovať ďalšie kontakty a doklady."
+    ],
+    "outcome": "Máte zabezpečený ďalší postup podľa okolností a podklady na oznámenie poistnej udalosti."
+  },
+  "pzp-pri-kupe-auta": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "VIN a evidenčné údaje kupovaného vozidla.",
+      "Dátum prevzatia a plán zmeny držiteľa.",
+      "Údaje potrebné na uzavretie poistenia."
+    ],
+    "detailed": [
+      {
+        "title": "Zosúlaďte termíny s predávajúcim",
+        "body": "Dohodnite prevzatie, evidenčné úkony a zodpovednosť za príslušné kroky. Neodhadujte nadväznosť poistenia len podľa ústneho vyjadrenia.",
+        "where": "Kúpna dohoda a komunikácia oboch strán."
+      },
+      {
+        "title": "Vyžiadajte ponuku pre správne vozidlo",
+        "body": "Porovnajte údaje v ponuke s dokladmi a overte potrebný začiatok krytia podľa konkrétneho postupu prevodu.",
+        "where": "Poisťovňa a doklady vozidla."
+      },
+      {
+        "title": "Potvrďte účinnosť a úhradu",
+        "body": "Skontrolujte podmienky vzniku poistenia, platobný predpis a potvrdenie. Prípadné doplnenie alebo zmenu údajov riešte s poisťovňou.",
+        "where": "Zmluva a poisťovňa."
+      },
+      {
+        "title": "Uložte potvrdenie a kontakty",
+        "body": "Pri prevzatí majte dostupné doklady a postup pre prípad škody. Po evidenčnej zmene skontrolujte zhodu údajov v zmluve.",
+        "where": "Doklady a zákaznícke služby poisťovne."
+      }
+    ],
+    "pitfalls": [
+      "Poistenie predávajúceho nepovažujte automaticky za svoje potvrdené krytie.",
+      "Nesprávne VIN alebo údaje držiteľa opravte včas.",
+      "Zaplatená objednávka potrebuje potvrdenie splnenia podmienok vzniku poistenia."
+    ],
+    "outcome": "Máte zosúladené prevzatie vozidla, evidenčný postup a potvrdené poistné podmienky."
+  },
+  "leasing-alebo-uver": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Cena vozidla a dostupná prvá platba.",
+      "Porovnateľná doba financovania a plán používania vozidla.",
+      "Úplné ponuky vrátane poistenia, poplatkov a konečnej platby."
+    ],
+    "detailed": [
+      {
+        "title": "Porovnajte vlastníctvo a obmedzenia",
+        "body": "Zistite, kto je počas financovania vlastníkom a aké podmienky platia pre používanie, zmeny, predaj či ukončenie. Rozlišujte aj druh leasingu.",
+        "where": "Zmluvy a vysvetlenie poskytovateľa."
+      },
+      {
+        "title": "Zjednoťte finančný scenár",
+        "body": "Použite rovnakú cenu auta, prvú platbu a obdobie. Samostatne zapíšte prípadnú zvýšenú poslednú splátku alebo odkupnú cenu.",
+        "where": "Písomné ponuky."
+      },
+      {
+        "title": "Spočítajte všetky platby",
+        "body": "Zahrňte prvú platbu, splátky, konečné vyrovnanie, poplatky a požadované poistenia. Neporovnávajte iba reklamovanú mesačnú sumu.",
+        "where": "Splátkový plán a cenníky."
+      },
+      {
+        "title": "Preverte neštandardné situácie",
+        "body": "Vyžiadajte si postup pri predčasnom ukončení, krádeži alebo totálnej škode. Daňové súvislosti podnikania preberte s účtovníkom.",
+        "where": "Poskytovateľ financovania, poisťovňa a odborný poradca."
+      }
+    ],
+    "pitfalls": [
+      "Dva produkty s rovnakou splátkou môžu mať odlišnú konečnú platbu.",
+      "Odkup alebo vrátenie vozidla sa riadia konkrétnou zmluvou.",
+      "Poistná udalosť nemusí automaticky vyrovnať všetky finančné záväzky."
+    ],
+    "outcome": "Poznáte celkové platby, vlastníctvo vozidla aj podmienky ukončenia oboch možností."
+  },
+  "zimne-pneumatiky": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Požadované rozmery a indexy pneumatík pre vozidlo.",
+      "Plánované zimné trasy vrátane zahraničia.",
+      "Aktuálny stav pneumatík, svetiel a prevádzkových kvapalín."
+    ],
+    "detailed": [
+      {
+        "title": "Overte vhodnosť a pravidlá trasy",
+        "body": "Porovnajte pneumatiky s požiadavkami vozidla a aktuálnymi pravidlami krajín na trase. Posúďte aj očakávané podmienky.",
+        "where": "Dokumentácia výrobcu a oficiálne pravidlá premávky."
+      },
+      {
+        "title": "Skontrolujte stav vozidla",
+        "body": "Nechajte preveriť poškodenie a opotrebenie pneumatík. Tlak kontrolujte podľa odporúčania výrobcu a podmienok merania.",
+        "where": "Vozidlo a pneuservis."
+      },
+      {
+        "title": "Pripravte viditeľnosť a výbavu",
+        "body": "Vyskúšajte svetlá, stierače, ostrekovanie a odmrazovanie. Výbavu a kvapaliny zvoľte pre očakávané podmienky podľa dokumentácie vozidla.",
+        "where": "Návod vozidla a servis."
+      },
+      {
+        "title": "Upravte plán jazdy",
+        "body": "Počítajte s rezervou času a pri elektromobile aj energie. Pred cestou overte predpoveď, stav trasy a možnosti bezpečnej prestávky.",
+        "where": "Dopravné informácie a vlastný plán trasy."
+      }
+    ],
+    "pitfalls": [
+      "Univerzálny dátum z internetu nemusí vystihovať pravidlá vašej trasy.",
+      "Vhodný rozmer nestačí bez správneho stavu pneumatiky.",
+      "Technická príprava nenahrádza prispôsobenie jazdy podmienkam."
+    ],
+    "outcome": "Máte skontrolované základné prvky vozidla a plán jazdy pre očakávané zimné podmienky."
+  },
+  "dialnicna-znamka-kupa": {
+    "reviewed": "8. 11. 2026",
+    "before": [
+      "Presné EČV a krajina registrácie.",
+      "Požadovaný druh a začiatok platnosti.",
+      "Platobný prostriedok a kontakt na doručenie potvrdenia."
+    ],
+    "detailed": [
+      {
+        "title": "Otvorte oficiálny predajný kanál",
+        "body": "Skontrolujte doménu, identitu predajcu a konečnú cenu. Pred nákupom si potvrďte, či známku pre svoj prípad potrebujete.",
+        "where": "Oficiálny portál eZnamka."
+      },
+      {
+        "title": "Vyplňte a skontrolujte zadanie",
+        "body": "Porovnajte EČV znak po znaku s dokladom. Overte krajinu registrácie, druh produktu a požadovaný začiatok platnosti.",
+        "where": "Objednávkový formulár a doklady vozidla."
+      },
+      {
+        "title": "Dokončite úhradu",
+        "body": "Sledujte potvrdenie výsledku platby a objednávky. Pri nejasnom stave najskôr overte výsledok, než nákup zopakujete.",
+        "where": "Predajný portál a vlastná platobná evidencia."
+      },
+      {
+        "title": "Overte platnosť a uložte doklad",
+        "body": "Porovnajte potvrdenie so zadaním a použite oficiálne overenie platnosti. Pri chybe kontaktujte predajcu podľa aktuálnych pravidiel opravy alebo reklamácie.",
+        "where": "Potvrdenie a služby eZnamka."
+      }
+    ],
+    "pitfalls": [
+      "Automaticky predvolený začiatok nemusí zodpovedať vašej ceste.",
+      "Opakovaná platba môže vytvoriť zbytočný druhý nákup.",
+      "Doklad si odložte aj po úspešnom overení platnosti."
+    ],
+    "outcome": "Máte overenú platnosť správne zadanej známky a uložené potvrdenie o nákupe."
+  }
+}
