@@ -267,3 +267,16 @@ html:not([data-theme=dark]) .feature-dots{color:#505c72}
 .calculator-panel .result{overflow-wrap:anywhere}
 .calculator-panel .result strong{font-size:clamp(1.5rem,5vw,2.25rem);line-height:1.35;overflow-wrap:anywhere}
 @media(max-width:760px){.calculator-panel .budget{grid-template-columns:minmax(0,1fr)}.calculator-panel .result{padding:clamp(14px,4vw,22px)}}
+
+
+/* WCAG findings from the full V3 audit: contrast, visible links and touch targets. */
+html:not([data-theme=dark]){--accent:#5845cd;--muted:#53677f}
+html:not([data-theme=dark]) .main .eyebrow{color:#08716d}
+html:not([data-theme=dark]) :is(.footer,.note,.status,.feature-link small,.feature-bottom,.section-heading>p,.live-data-card small){color:#52657a}
+html:not([data-theme=dark]) .main :is(.panel p,.notice,.notice p,.result p){color:#4c6076}
+html[data-theme=dark] .paycheck .crumbs{color:#c7d3e6}
+html[data-theme=dark] #paycheck-net{color:#a2f3dd}
+main p a:not(.primary),main .notice a,.trust a,main li>a,main li small a{ text-decoration:underline;text-underline-offset:.16em }
+main :is(ul,ol)>li>a{display:inline-flex;align-items:center;min-height:32px;padding-block:4px}
+main nav.panel li{margin-block:4px}
+@media(max-width:760px){main :is(ul,ol)>li>a{min-height:44px}}
