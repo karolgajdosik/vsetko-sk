@@ -3,6 +3,10 @@ on:
   push:
     branches: [main]
     paths:
+      - 'src/**'
+      - 'public/**'
+      - 'functions/**'
+      - 'scripts/check-production-content.mjs'
       - '.github/workflows/production-api-health.yml'
       - 'scripts/check-production-apis.mjs'
       - 'scripts/check-production-assistant.mjs'
@@ -44,6 +48,16 @@ jobs:
         id: coreRoutes
         continue-on-error: true
         run: node scripts/check-production-core-routes.mjs
+      - name: Check all live guides and operational contact pages
+        id: content
+        continue-on-error: true
+        run: node scripts/check-production-content.mjs
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: production-content-report
+          path: quality-reports/production-content.json
+          if-no-files-found: warn
       - name: Check four live production APIs
         id: health
         continue-on-error: true
@@ -96,7 +110,7 @@ jobs:
       - name: Create or resolve production UI outage issue
         uses: actions/github-script@v8
         env:
-          UI_OUTCOME: ${{ (steps.ui.outcome == 'failure' || steps.coreRoutes.outcome == 'failure' || steps.mobile.outcome == 'failure' || steps.assistantBrowser.outcome == 'failure') && 'failure' || 'success' }}
+          UI_OUTCOME: ${{ (steps.ui.outcome == 'failure' || steps.coreRoutes.outcome == 'failure' || steps.content.outcome == 'failure' || steps.mobile.outcome == 'failure' || steps.assistantBrowser.outcome == 'failure') && 'failure' || 'success' }}
         with:
           script: |
             const owner=context.repo.owner,repo=context.repo.repo;
@@ -118,8 +132,9 @@ jobs:
               await github.rest.issues.update({owner,repo,issue_number:existing.number,state:'closed'});
             }
       - name: Mark workflow failed when UI check fails
-        if: ${{ steps.ui.outcome == 'failure' || steps.coreRoutes.outcome == 'failure' || steps.mobile.outcome == 'failure' || steps.assistantBrowser.outcome == 'failure' }}
+        if: ${{ steps.ui.outcome == 'failure' || steps.coreRoutes.outcome == 'failure' || steps.content.outcome == 'failure' || steps.mobile.outcome == 'failure' || steps.assistantBrowser.outcome == 'failure' }}
         run: exit 1
       - name: Mark workflow failed when API check fails
         if: ${{ steps.health.outcome == 'failure' || steps.assistant.outcome == 'failure' }}
         run: exit 1
+
