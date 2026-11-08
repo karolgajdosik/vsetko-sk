@@ -446,23 +446,23 @@
     "title": "Diaľničná známka",
     "description": "Pred cestou overte, či vozidlo potrebuje diaľničnú známku.",
     "steps": [
-      "Overte, či plánovaný úsek cesty a kategória vozidla vyžadujú diaľničnú známku; podmienky skontrolujte na oficiálnom portáli.",
+      "Pred cestou overte kategóriu vozidla a spoplatnenie plánovaného úseku; nie všetky diaľničné úseky podliehajú úhrade známky.",
       "Pred úhradou starostlivo zadajte evidenčné číslo, krajinu registrácie a začiatok platnosti; údaje skontrolujte ešte pred potvrdením platby.",
       "Po nákupe si uložte potvrdenie a overte evidovanú platnosť známky cez oficiálnu službu; pri chybe postupujte podľa jej aktuálnych pokynov."
     ],
     "source": {
-      "label": "eZnamka – najčastejšie otázky",
-      "url": "https://eznamka.sk/sk/dialnicne-znamky/najcastejsie-otazky"
+      "label": "eZnamka – výber a evidencia úhrady",
+      "url": "https://eznamka.sk/sk/dialnicne-znamky/vyber-a-evidencia"
     },
-    "updated": "22. 10. 2026",
+    "updated": "8. 11. 2026",
     "keywords": "dialnicna znamka",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Praktické redakčné odporúčania; aktuálne právne povinnosti, lehoty a poplatky neboli pri tomto rozšírení samostatne právne overené. Pred úkonom overte aktuálne pravidlá v uvedenom oficiálnom zdroji.",
-    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
+    "verification": "Redakčné postupy k nákupu a platnosti boli porovnané s uvedeným oficiálnym zdrojom eZnamka 8. 11. 2026. Konkrétne ceny, výnimky a individuálne prípady neboli úplne právne auditované.",
+    "sourceNote": "Oficiálny prehľad systému eZnamka opisuje druhy známok a evidenciu úhrady; spoplatnenie konkrétnej trasy a aktuálne ceny overte pred cestou.",
     "practical": [
       {
         "title": "Skontrolujte údaje pred platbou",
@@ -479,6 +479,10 @@
       {
         "title": "Pred cestou skontrolujte platnosť",
         "body": "Potvrdenie o platbe nie je náhradou za kontrolu zadaného EČV a dátumu platnosti. Údaje skontrolujte ešte pred vstupom na spoplatnený úsek."
+      },
+      {
+        "title": "Jednodňová známka nie je 24-hodinová",
+        "body": "Jednodňová známka platí iba vo zvolený kalendárny deň, nie 24 hodín od zakúpenia. Pri ceste cez polnoc skontrolujte, či potrebujete ďalšiu známku."
       }
     ]
   },
@@ -2451,24 +2455,24 @@
     "category": "auto",
     "description": "Ako bezpečne kúpiť známku",
     "steps": [
-      "Zistite, či sa téma „kúpa diaľničnej známky“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Pred nákupom skontrolujte spoplatnenie trasy, kategóriu vozidla a vyberte vhodnú dĺžku platnosti známky.",
+      "Použite oficiálny predajný kanál eZnamka; pred platbou skontrolujte EČV, krajinu registrácie a dátum začiatku platnosti.",
+      "Po zaplatení vyčkajte na potvrdenie o úhrade. Samotné odoslanie platby ešte nemusí znamenať úspešne dokončený nákup.",
+      "V oficiálnej službe overenia platnosti skontrolujte evidenciu známky pre svoje vozidlo; potvrdenie si odložte."
     ],
     "source": {
-      "label": "eZnamka – nákup a kontrola údajov",
-      "url": "https://eznamka.sk/sk/dialnicne-znamky/najcastejsie-otazky"
+      "label": "eZnamka – spôsob úhrady a kontrola platnosti",
+      "url": "https://eznamka.sk/sk/zakaznicke-sluzby/sposob-uhrady"
     },
-    "updated": "22. 10. 2026",
+    "updated": "8. 11. 2026",
     "keywords": "kúpa diaľničnej známky",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Praktické redakčné odporúčania; aktuálne právne povinnosti, lehoty a poplatky neboli pri tomto rozšírení samostatne právne overené. Pred úkonom overte aktuálne pravidlá v uvedenom oficiálnom zdroji.",
-    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
+    "verification": "Redakčné postupy k nákupu a platnosti boli porovnané s uvedeným oficiálnym zdrojom eZnamka 8. 11. 2026. Konkrétne ceny, výnimky a individuálne prípady neboli úplne právne auditované.",
+    "sourceNote": "Oficiálna stránka eZnamka vysvetľuje, že nákup je úspešne ukončený vystavením potvrdenia o úhrade, a odporúča kontrolu platnosti.",
     "practical": [
       {
         "title": "Uložte si potvrdenie o úhrade",
@@ -2485,6 +2489,10 @@
       {
         "title": "Po nákupe nezabudnite na kontrolu",
         "body": "Potvrdenie uschovajte a overte platnosť cez oficiálnu službu. Pri chybe v údajoch postupujte podľa aktuálnych reklamačných pravidiel."
+      },
+      {
+        "title": "Ak potvrdenie nepríde, overte nákup",
+        "body": "Ak nedostanete potvrdenie o úhrade, nespoliehajte sa iba na bankovú notifikáciu. Overte evidovanú platnosť v oficiálnej službe eZnamka a pri nezrovnalosti kontaktujte jej zákaznícku podporu."
       }
     ]
   }
