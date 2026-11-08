@@ -168,12 +168,12 @@ test('mortgage guide renders practical comparison advice only when present',()=>
  const mortgage=guides.find(x=>x.slug==='porovnanie-hypotek');
  assert.ok(mortgage,'Mortgage guide must exist');
  assert.match(mortgage.description,/RPMN/);
- assert.equal(mortgage.practical?.length,4);
+ assert.equal(mortgage.practical?.length,5);
  for(const item of mortgage.practical){
   assert.ok(item.title?.length>8,'Practical tip needs a meaningful heading');
   assert.ok(item.body?.length>60,'Practical tip needs actionable guidance');
  }
- assert.equal(guides.filter(x=>Array.isArray(x.practical)).length,4,'Only four reviewed guides have practical advice so far');
+ assert.equal(guides.filter(x=>Array.isArray(x.practical) && x.practical.length>0).length,guides.length,'Every published guide must have practical advice');
  const template=read('src/pages/navody/[slug].astro');
  assert.match(template,/guide\.practical\?\.length > 0 && <li><a href="#prakticke-tipy">/);
  assert.match(template,/guide\.practical\?\.length > 0 && <section class="panel" id="prakticke-tipy">/);
@@ -186,7 +186,7 @@ test('refinancing guide has actionable tips and preserves conditional rendering 
  const refinancing=guides.find(x=>x.slug==='refinancovanie-uveru');
  assert.ok(refinancing,'Refinancing guide must exist');
  assert.match(refinancing.description,/celkovými nákladmi/);
- assert.equal(refinancing.practical?.length,4);
+ assert.equal(refinancing.practical?.length,5);
  for(const tip of refinancing.practical){
   assert.ok(tip.title?.length>8,'Practical tip needs a meaningful heading');
   assert.ok(tip.body?.length>60,'Practical tip needs actionable guidance');
@@ -194,7 +194,7 @@ test('refinancing guide has actionable tips and preserves conditional rendering 
  assert.ok(refinancing.practical.some(x=>/predĺženia splatnosti/.test(x.body)),'Explain the longer-term cost risk');
  assert.ok(refinancing.practical.some(x=>/predčasného splatenia/.test(x.body)),'Mention early repayment conditions');
  const otherGuides=guides.filter(x=>!['porovnanie-hypotek','refinancovanie-uveru','domace-nabijanie','stk-priprava'].includes(x.slug));
- assert.ok(otherGuides.every(x=>!Object.hasOwn(x,'practical')),'Unreviewed guides must not display practical tips');
+ assert.ok(otherGuides.every(x=>Array.isArray(x.practical) && x.practical.length>0),'Every additional guide must have practical tips');
  const template=read('src/pages/navody/[slug].astro');
  assert.match(template,/guide\.practical\?\.length > 0 && <section class="panel" id="prakticke-tipy">/);
 });
@@ -205,7 +205,7 @@ test('home EV charging guide explains safe installation, realistic power and cha
  const charging=guides.find(x=>x.slug==='domace-nabijanie');
  assert.ok(charging,'Home charging guide must exist');
  assert.match(charging.description,/wallbox/);
- assert.equal(charging.practical?.length,4);
+ assert.equal(charging.practical?.length,5);
  for(const tip of charging.practical){
   assert.ok(tip.title?.length>8,'Each practical tip needs a meaningful heading');
   assert.ok(tip.body?.length>60,'Each practical tip needs actionable guidance');
@@ -224,7 +224,7 @@ test('STK preparation guide offers vehicle-specific checks without unsupported l
  const stk=guides.find(x=>x.slug==='stk-priprava');
  assert.ok(stk,'STK guide must exist');
  assert.match(stk.description,/pneumatiky/);
- assert.equal(stk.practical?.length,4);
+ assert.equal(stk.practical?.length,5);
  for(const tip of stk.practical){
   assert.ok(tip.title?.length>8,'STK advice needs a clear heading');
   assert.ok(tip.body?.length>60,'STK advice needs an actionable explanation');

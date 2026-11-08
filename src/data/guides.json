@@ -10,18 +10,18 @@
       "Overte, čo sa stane po skončení fixácie."
     ],
     "source": {
-      "label": "Národná banka Slovenska",
-      "url": "https://nbs.sk/"
+      "label": "NBS – ako porovnávať hypotéky",
+      "url": "https://nbs.sk/dohlad-nad-financnym-trhom/ofs/zivotne-situacie/chceme-byvat-sami/"
     },
-    "updated": "22. 10. 2026",
+    "updated": "8. 11. 2026",
     "keywords": "porovnanie hypotek",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "verification": "Obsah a uvedený oficiálny zdroj boli vecne skontrolované 8. 11. 2026; individuálne podmienky, sadzby a poplatky sa môžu meniť.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "practical": [
       {
         "title": "Porovnávajte rovnaký scenár",
@@ -38,6 +38,10 @@
       {
         "title": "Urobte si vlastný prehľad",
         "body": "Do jednej tabuľky si zapíšte úrok, RPMN, mesačnú splátku, celkové náklady, poplatky a podmienky zmeny sadzby po fixácii."
+      },
+      {
+        "title": "Vyžiadajte si formulár ESIS",
+        "body": "Pri každej ponuke si vyžiadajte európsky štandardizovaný informačný formulár ESIS. Porovnajte údaje pri rovnakom úvere, nie iba reklamovanú úrokovú sadzbu."
       }
     ]
   },
@@ -52,18 +56,18 @@
       "Započítajte všetky poplatky a vedľajšie náklady."
     ],
     "source": {
-      "label": "Národná banka Slovenska",
-      "url": "https://nbs.sk/"
+      "label": "Národná banka Slovenska – refinancovanie úveru",
+      "url": "https://nbs.sk/dohlad-nad-financnym-trhom/ofs/zivotne-situacie/ako-zmenit-uver/"
     },
-    "updated": "22. 10. 2026",
+    "updated": "8. 11. 2026",
     "keywords": "refinancovanie uveru",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "verification": "Obsah a uvedený oficiálny zdroj boli vecne skontrolované 8. 11. 2026; individuálne podmienky, sadzby a poplatky sa môžu meniť.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "practical": [
       {
         "title": "Zistite skutočný zostatok",
@@ -80,6 +84,10 @@
       {
         "title": "Pripravte si termíny",
         "body": "Zistite, dokedy platí ponuka novej banky, kedy končí fixácia a aké dokumenty sú potrebné na splatenie pôvodného úveru."
+      },
+      {
+        "title": "Rozlišujte hypotéku a spotrebiteľský úver",
+        "body": "Pri úvere na bývanie porovnajte nové podmienky aj vo formulári ESIS. Pri inom úvere si vyžiadajte príslušné predzmluvné informácie; pravidlá a náklady sa môžu líšiť."
       }
     ]
   },
@@ -95,17 +103,31 @@
     ],
     "source": {
       "label": "Národná banka Slovenska",
-      "url": "https://nbs.sk/"
+      "url": "https://nbs.sk/dohlad-nad-financnym-trhom/dohlad/veritelia/spotrebitelske-uvery/"
     },
-    "updated": "22. 10. 2026",
+    "updated": "8. 11. 2026",
     "keywords": "spotrebny uver",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Obsah a uvedený oficiálny zdroj boli vecne skontrolované 8. 11. 2026; individuálne podmienky, sadzby a poplatky sa môžu meniť.",
+    "sourceNote": "Oficiálna stránka NBS vysvetľuje právny rámec spotrebiteľských úverov. Na informatívny kontrolný prepočet RPMN slúži rpmn.nbs.sk.",
+    "practical": [
+      {
+        "title": "Porovnajte celkovú cenu",
+        "body": "Pri rovnakej výške a splatnosti porovnajte RPMN, celkovú sumu na zaplatenie a všetky podmienené doplnkové produkty."
+      },
+      {
+        "title": "Skontrolujte poskytovateľa",
+        "body": "Pred podpisom si overte identitu a oprávnenie veriteľa v oficiálnych registroch NBS. Neposielajte peniaze vopred neoverenej osobe s prísľubom úveru."
+      },
+      {
+        "title": "Preverte splátku vo vlastnom rozpočte",
+        "body": "Okrem pravidelnej splátky počítajte s rezervou na výpadok príjmu a nečakané výdavky. Schválenie úveru samo osebe neznamená, že splácanie bude pohodlné."
+      }
+    ]
   },
   {
     "slug": "financna-rezerva",
@@ -118,8 +140,8 @@
       "Odkladajte pravidelnú sumu a priebežne plán upravujte."
     ],
     "source": {
-      "label": "Národná banka Slovenska",
-      "url": "https://nbs.sk/"
+      "label": "NBS – sporenie a investovanie",
+      "url": "https://nbs.sk/dohlad-nad-financnym-trhom/ofs/financne-produkty/sporenie-a-investovanie/"
     },
     "updated": "22. 10. 2026",
     "keywords": "financna rezerva",
@@ -128,8 +150,26 @@
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne. Praktické odporúčania sú všeobecné a nepredstavujú individuálne finančné poradenstvo.",
+    "practical": [
+      {
+        "title": "Oddeľte rezervu od bežných peňazí",
+        "body": "Zvoľte účet s dostupnými prostriedkami a nastavte trvalý príkaz; výšku rezervy odvoďte od vlastných nevyhnutných výdavkov."
+      },
+      {
+        "title": "Stanovte cieľ podľa výdavkov",
+        "body": "Spočítajte nevyhnutné mesačné výdavky na bývanie, jedlo, dopravu a splátky. Rezervu plánujte podľa reálnych nákladov a stability príjmu, nie podľa ľubovoľného univerzálneho čísla."
+      },
+      {
+        "title": "Oddeľte rezervu od investícií",
+        "body": "Peniaze určené na nečakané výdavky držte dostupné a s primeraným rizikom. Pri výbere účtu alebo vkladu overte podmienky výberu, úročenie a prípadné poplatky."
+      },
+      {
+        "title": "Dopĺňajte ju pravidelne",
+        "body": "Nastavte si prevod po výplate a po použití rezervy upravte ďalšie odklady. Raz za čas prepočítajte cieľ podľa nových výdavkov domácnosti."
+      }
+    ]
   },
   {
     "slug": "kontrola-rodinnych-vydavkov",
@@ -142,8 +182,8 @@
       "Vyskúšajte kalkulačku rodinného rozpočtu."
     ],
     "source": {
-      "label": "Národná banka Slovenska",
-      "url": "https://nbs.sk/"
+      "label": "NBS – rodinný rozpočet a finančné rozhodnutia",
+      "url": "https://nbs.sk/dohlad-nad-financnym-trhom/ofs/financne-produkty/sporenie-a-investovanie/investovanie/"
     },
     "updated": "22. 10. 2026",
     "keywords": "kontrola rodinnych vydavkov",
@@ -152,8 +192,26 @@
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne. Praktické odporúčania sú všeobecné a nepredstavujú individuálne finančné poradenstvo.",
+    "practical": [
+      {
+        "title": "Vyhodnoťte posledné tri mesiace",
+        "body": "Z výpisov z účtu si rozdeľte platby na bývanie, dopravu, potraviny, splátky a voliteľné nákupy; jednorazové výdavky sledujte zvlášť."
+      },
+      {
+        "title": "Rozdeľte výdavky podľa účelu",
+        "body": "Prejdite si výpisy za niekoľko mesiacov a oddeľte bývanie, potraviny, dopravu, dlhy, voľný čas a nepravidelné platby. Jednorazové výdavky rozpočítajte na mesiace."
+      },
+      {
+        "title": "Hľadajte opakované malé platby",
+        "body": "Skontrolujte predplatné, bankové poplatky a služby, ktoré už nepoužívate. Pri rušení služby najprv overte viazanosť a možné náklady na ukončenie."
+      },
+      {
+        "title": "Porovnávajte plán so skutočnosťou",
+        "body": "Každý mesiac porovnajte plánované a skutočné sumy. Ak sa výdavky opakovane odlišujú, upravte rozpočet namiesto nerealistického cieľa."
+      }
+    ]
   },
   {
     "slug": "povinne-zmluvne-poistenie",
@@ -166,8 +224,8 @@
       "Uložte si doklady a kontakty poisťovne."
     ],
     "source": {
-      "label": "Slovenská kancelária poisťovateľov",
-      "url": "https://www.skp.sk/"
+      "label": "Slovenská kancelária poisťovateľov – PZP",
+      "url": "https://www.skp.sk/povinne-zmluvne-poistenie/"
     },
     "updated": "22. 10. 2026",
     "keywords": "povinne zmluvne poistenie",
@@ -176,8 +234,14 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
+    "practical": [
+      {
+        "title": "Overte poistné údaje",
+        "body": "Pred uzavretím alebo obnovou PZP porovnajte identifikáciu vozidla, začiatok krytia, limity a kontakty na nahlásenie škody."
+      }
+    ]
   },
   {
     "slug": "kontrola-vozidla-pred-kupou",
@@ -190,8 +254,8 @@
       "Zmluvu podpisujte až po kontrole údajov."
     ],
     "source": {
-      "label": "Ministerstvo vnútra SR",
-      "url": "https://www.minv.sk/"
+      "label": "Slovensko.sk – overenie vozidla",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_elektronicke-sluzby-evidencie"
     },
     "updated": "22. 10. 2026",
     "keywords": "kontrola vozidla pred kupou",
@@ -200,8 +264,14 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
+    "practical": [
+      {
+        "title": "Zaznamenajte výsledok obhliadky",
+        "body": "Vyžiadajte VIN, servisné záznamy, informácie o poškodeniach a nezávislú kontrolu; nezrovnalosti spíšte ešte pred úhradou zálohy."
+      }
+    ]
   },
   {
     "slug": "predaj-vozidla",
@@ -214,8 +284,8 @@
       "Overte aktuálny postup zmeny držiteľa."
     ],
     "source": {
-      "label": "Ministerstvo vnútra SR",
-      "url": "https://www.minv.sk/"
+      "label": "Slovensko.sk – prevod držby vozidla",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_ziadost-o-prevod-drzby-vozidla"
     },
     "updated": "22. 10. 2026",
     "keywords": "predaj vozidla",
@@ -224,8 +294,14 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
+    "practical": [
+      {
+        "title": "Spíšte odovzdávací protokol",
+        "body": "Zaznamenajte VIN, dátum a čas odovzdania, stav kilometrov, počet kľúčov a prevzaté doklady; odložte si podpísanú kópiu."
+      }
+    ]
   },
   {
     "slug": "nabijanie-elektromobilu",
@@ -238,8 +314,8 @@
       "Naplánujte alternatívnu zastávku."
     ],
     "source": {
-      "label": "Ministerstvo hospodárstva SR",
-      "url": "https://www.mhsr.sk/"
+      "label": "MH SR – elektromobilita a nabíjacia infraštruktúra",
+      "url": "https://www.mhsr.sk/priemysel/e-mobilita-a-alternativne-paliva/strategie-a-politiky-archiv"
     },
     "updated": "22. 10. 2026",
     "keywords": "nabijanie elektromobilu",
@@ -248,8 +324,8 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "detail": {
       "summary": "Pri nabíjaní sleduj typ konektora, skutočný výkon auta aj stanice, spôsob platby a cenu za kWh. Deklarovaný výkon stanice nie je zárukou rovnako rýchleho nabíjania.",
       "before": [
@@ -302,7 +378,13 @@
           "url": "https://vsetko24.sk/kalkulacky/cena-nabijania/"
         }
       ]
-    }
+    },
+    "practical": [
+      {
+        "title": "Pripravte záložnú nabíjačku",
+        "body": "Pred odjazdom skontrolujte aktuálny stav a platbu na dvoch alternatívnych staniciach; deklarovaný výkon nie je garantovaný výkon auta."
+      }
+    ]
   },
   {
     "slug": "dialnicna-znamka",
@@ -315,8 +397,8 @@
       "Skontrolujte evidenčné číslo a platnosť."
     ],
     "source": {
-      "label": "Oficiálny portál eZnamka",
-      "url": "https://eznamka.sk/"
+      "label": "eZnamka – najčastejšie otázky",
+      "url": "https://eznamka.sk/sk/dialnicne-znamky/najcastejsie-otazky"
     },
     "updated": "22. 10. 2026",
     "keywords": "dialnicna znamka",
@@ -325,8 +407,14 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
+    "practical": [
+      {
+        "title": "Skontrolujte údaje pred platbou",
+        "body": "Overte evidenčné číslo, krajinu registrácie, typ známky a požadovaný začiatok platnosti na oficiálnom predajnom kanáli."
+      }
+    ]
   },
   {
     "slug": "strata-obcianskeho-preukazu",
@@ -339,8 +427,8 @@
       "Skontrolujte podmienky a termíny vydania."
     ],
     "source": {
-      "label": "Slovensko.sk",
-      "url": "https://www.slovensko.sk/"
+      "label": "Ministerstvo vnútra SR – občianske preukazy FAQ",
+      "url": "https://pes.minv.sk/wps/wcm/connect/sk/site/main/casto-kladene-otazky/obcianske-preukazy/FAQ-obcianske-preukazy"
     },
     "updated": "22. 10. 2026",
     "keywords": "strata obcianskeho preukazu",
@@ -349,8 +437,8 @@
       "Identifikačné doklady podľa požiadaviek príslušného úradu",
       "Dokumenty súvisiace s konkrétnou žiadosťou"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "detail": {
       "summary": "Pri strate alebo krádeži občianskeho preukazu je prioritou nahlásenie neplatného dokladu a následné vybavenie nového. Ak máš aktivované elektronické funkcie, rieš aj ochranu prístupových údajov.",
       "before": [
@@ -417,7 +505,25 @@
           "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_co-robit-pri-strate-alebo-odcu/"
         }
       ]
-    }
+    },
+    "practical": [
+      {
+        "title": "Chráňte svoju identitu",
+        "body": "Po zistení straty si zaznamenajte okolnosti, overte oficiálny postup nahlásenia a zabezpečte prístup k účtom a elektronickým službám."
+      },
+      {
+        "title": "Nahláste stratu bez odkladu",
+        "body": "Pri strate alebo krádeži občianskeho preukazu použite oficiálny postup nahlásenia; zistite, či treba osobnú návštevu a ktoré doklady môžete predložiť."
+      },
+      {
+        "title": "Skontrolujte elektronickú identitu",
+        "body": "Ak ste používali elektronické funkcie preukazu, overte stav certifikátov a možnosti ich zneplatnenia podľa pokynov príslušného úradu."
+      },
+      {
+        "title": "Pripravte si náhradnú identifikáciu",
+        "body": "Pred návštevou pracoviska si overte, aký iný doklad totožnosti alebo potvrdenie bude akceptované a ako sa preukáže vaša totožnosť."
+      }
+    ]
   },
   {
     "slug": "vymena-cestovneho-pasu",
@@ -430,8 +536,8 @@
       "Overte podmienky vstupu do cieľovej krajiny."
     ],
     "source": {
-      "label": "Ministerstvo vnútra SR",
-      "url": "https://www.minv.sk/"
+      "label": "Slovensko.sk – cestovné doklady",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_cestovne-doklady-a-nahradne-ce"
     },
     "updated": "22. 10. 2026",
     "keywords": "vymena cestovneho pasu",
@@ -441,8 +547,8 @@
       "Pripravte občiansky preukaz alebo iný uznávaný doklad a starý pas, ak ho máte.",
       "Zistite, či potrebujete štandardnú alebo zrýchlenú lehotu."
     ],
-    "verification": "Redakčne spracovaný orientačný postup. Aktuálne poplatky, zákonné lehoty a podmienky konkrétnej služby overte na príslušnom oficiálnom portáli.",
-    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "detail": {
       "summary": "Nový cestovný pas sa vybavuje osobne na oddelení dokladov. Pred cestou si skontrolujte požiadavky cieľovej krajiny, pretože niektoré štáty požadujú platnosť pasu aj po plánovanom návrate.",
       "before": [
@@ -488,7 +594,13 @@
           "url": "https://www.mzv.sk/"
         }
       ]
-    }
+    },
+    "practical": [
+      {
+        "title": "Skontrolujte cestovné podmienky",
+        "body": "Pred objednaním termínu overte platnosť pasu vyžadovanú cieľovou krajinou a potrebné doklady podľa veku žiadateľa."
+      }
+    ]
   },
   {
     "slug": "zmena-trvaleho-pobytu",
@@ -501,8 +613,8 @@
       "Skontrolujte, ktorým inštitúciám treba zmenu oznámiť."
     ],
     "source": {
-      "label": "Slovensko.sk",
-      "url": "https://www.slovensko.sk/"
+      "label": "Slovensko.sk – oznamovacie povinnosti pri zmene pobytu",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_oznamovacie-povinnosti-pri-zme"
     },
     "updated": "22. 10. 2026",
     "keywords": "zmena trvaleho pobytu",
@@ -512,8 +624,8 @@
       "Overte, kto je vlastníkom nehnuteľnosti a či je potrebný súhlas vlastníka alebo spoluvlastníkov.",
       "Zistite príslušnú ohlasovňu v obci alebo mestskej časti."
     ],
-    "verification": "Redakčne spracovaný orientačný postup. Aktuálne poplatky, zákonné lehoty a podmienky konkrétnej služby overte na príslušnom oficiálnom portáli.",
-    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "detail": {
       "summary": "Pri sťahovaní na novú adresu treba ohlásiť zmenu trvalého pobytu príslušnej ohlasovni. Následne skontrolujte občiansky preukaz a inštitúcie, ktorým treba novú adresu oznámiť.",
       "before": [
@@ -555,7 +667,13 @@
           "url": "https://www.minv.sk/"
         }
       ]
-    }
+    },
+    "practical": [
+      {
+        "title": "Pripravte následné oznámenia",
+        "body": "Po vybavení zmeny si vytvorte zoznam bánk, poisťovní, zamestnávateľa a ďalších subjektov, ktorým treba aktualizovať adresu."
+      }
+    ]
   },
   {
     "slug": "zacatie-podnikania",
@@ -568,8 +686,8 @@
       "Skontrolujte daňové a odvodové povinnosti."
     ],
     "source": {
-      "label": "Slovensko.sk",
-      "url": "https://www.slovensko.sk/"
+      "label": "Slovensko.sk – doklady potrebné k začatiu podnikania",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_doklady-potrebne-k-zacatiu-pod"
     },
     "updated": "22. 10. 2026",
     "keywords": "zacatie podnikania",
@@ -579,8 +697,8 @@
       "Vyberte predmety podnikania a adresu miesta podnikania.",
       "Overte odbornú spôsobilosť pri remeselnej alebo viazanej živnosti."
     ],
-    "verification": "Redakčne spracovaný orientačný postup. Aktuálne poplatky, zákonné lehoty a podmienky konkrétnej služby overte na príslušnom oficiálnom portáli.",
-    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "detail": {
       "summary": "Pred založením živnosti si overte, či ide o voľnú, remeselnú alebo viazanú činnosť, podmienky odbornej spôsobilosti a následné daňové a odvodové povinnosti.",
       "before": [
@@ -630,7 +748,13 @@
           "url": "https://www.socpoist.sk/"
         }
       ]
-    }
+    },
+    "practical": [
+      {
+        "title": "Overte predmet činnosti",
+        "body": "Pred podaním si spíšte činnosti, miesto podnikania, oprávnenia a možné osobitné podmienky; následne skontrolujte potvrdenie registrácie."
+      }
+    ]
   },
   {
     "slug": "dedicske-konanie",
@@ -643,8 +767,8 @@
       "Pred právnymi rozhodnutiami si overte aktuálny postup."
     ],
     "source": {
-      "label": "Ministerstvo spravodlivosti SR",
-      "url": "https://www.justice.gov.sk/"
+      "label": "Ministerstvo spravodlivosti SR – dedičské konanie",
+      "url": "https://www.justice.gov.sk/tlacovespravy/tlacova-sprava-3385/"
     },
     "updated": "22. 10. 2026",
     "keywords": "dedicske konanie",
@@ -654,8 +778,8 @@
       "Spíšte známy majetok, účty, nehnuteľnosti, úvery a ďalšie záväzky.",
       "Ak existuje závet alebo dôležité listiny, oznámte to notárovi."
     ],
-    "verification": "Redakčne spracovaný orientačný postup. Aktuálne poplatky, zákonné lehoty a podmienky konkrétnej služby overte na príslušnom oficiálnom portáli.",
-    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
     "detail": {
       "summary": "Dedičské konanie sa spravidla začne po oznámení úmrtia súdu; súd poverí notára ako súdneho komisára. Dedičia si pripravia informácie o majetku, záväzkoch a prípadnom závete.",
       "before": [
@@ -697,7 +821,25 @@
           "url": "https://www.slovensko.sk/"
         }
       ]
-    }
+    },
+    "practical": [
+      {
+        "title": "Usporiadajte podklady pre notára",
+        "body": "Pripravte zoznam známeho majetku, dlhov, zmlúv a kontaktov; nepredpokladajte, že všetky záväzky zanikajú úmrtím."
+      },
+      {
+        "title": "Zostavte inventár bez odhadov",
+        "body": "Spíšte známy majetok a záväzky, identifikujte vlastnícke dokumenty a označte položky, ktorých stav alebo hodnotu ešte neviete doložiť."
+      },
+      {
+        "title": "Oddeľte osobný a dedičský majetok",
+        "body": "Pri spoločnom vlastníctve alebo majetku manželov si poznamenajte právny titul a pripravte podklady, aby notár vedel posúdiť rozsah dedičstva."
+      },
+      {
+        "title": "Zaznamenávajte komunikáciu",
+        "body": "Uchovajte si kontakty na povereného notára, doručené výzvy a potvrdenia; pri nejasnostiach si vyžiadajte vysvetlenie ešte pred právnym úkonom."
+      }
+    ]
   },
   {
     "slug": "ako-vybavit-obciansky-preukaz",
@@ -711,8 +853,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Ministerstvo vnútra SR",
-      "url": "https://www.minv.sk/"
+      "label": "Ministerstvo vnútra SR – občianske preukazy FAQ",
+      "url": "https://pes.minv.sk/wps/wcm/connect/sk/site/main/casto-kladene-otazky/obcianske-preukazy/FAQ-obcianske-preukazy"
     },
     "updated": "22. 10. 2026",
     "keywords": "ako vybaviť občiansky preukaz",
@@ -722,8 +864,8 @@
       "Zistite dôvod vydania a potrebné podklady k zmene údajov.",
       "Overte dostupnosť rezervácie termínu."
     ],
-    "verification": "Redakčne spracovaný orientačný postup. Aktuálne poplatky, zákonné lehoty a podmienky konkrétnej služby overte na príslušnom oficiálnom portáli.",
-    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "detail": {
       "summary": "Občiansky preukaz vybavíte na pracovisku dokladov. Konkrétny postup závisí od toho, či ide o prvé vydanie, skončenie platnosti, zmenu údajov alebo poškodenie.",
       "before": [
@@ -769,7 +911,13 @@
           "url": "https://www.slovensko.sk/"
         }
       ]
-    }
+    },
+    "practical": [
+      {
+        "title": "Overte dôvod vydania",
+        "body": "Rozlišujte prvé vydanie, koniec platnosti, zmenu údajov a stratu; požadované doklady a lehoty sa môžu líšiť."
+      }
+    ]
   },
   {
     "slug": "cestovny-pas-pre-dieta",
@@ -783,8 +931,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Ministerstvo vnútra SR",
-      "url": "https://www.minv.sk/"
+      "label": "Slovensko.sk – cestovné doklady",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_cestovne-doklady-a-nahradne-ce"
     },
     "updated": "22. 10. 2026",
     "keywords": "cestovný pas pre dieťa",
@@ -794,8 +942,8 @@
       "Overte účasť dieťaťa na pracovisku a podmienky súhlasu alebo zastupovania.",
       "Skontrolujte požiadavky cieľovej krajiny a plánovaný termín odchodu."
     ],
-    "verification": "Redakčne spracovaný orientačný postup. Aktuálne poplatky, zákonné lehoty a podmienky konkrétnej služby overte na príslušnom oficiálnom portáli.",
-    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "detail": {
       "summary": "Aj dieťa potrebuje na cestu vlastný cestovný doklad, ak ho vyžaduje cieľová krajina. Pri podaní žiadosti sa uplatňujú pravidlá zastúpenia zákonným zástupcom a biometrie podľa veku.",
       "before": [
@@ -837,7 +985,13 @@
           "url": "https://www.mzv.sk/"
         }
       ]
-    }
+    },
+    "practical": [
+      {
+        "title": "Pripravte doklady dieťaťa",
+        "body": "Overte pravidlá osobnej účasti dieťaťa a zákonného zástupcu aj požiadavky cieľovej krajiny pred cestou."
+      }
+    ]
   },
   {
     "slug": "strata-cestovneho-pasu",
@@ -851,8 +1005,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Ministerstvo vnútra SR",
-      "url": "https://www.minv.sk/"
+      "label": "Slovensko.sk – cestovné doklady a náhradné doklady",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_cestovne-doklady-a-nahradne-ce"
     },
     "updated": "22. 10. 2026",
     "keywords": "strata cestovného pasu",
@@ -861,8 +1015,14 @@
       "Identifikačné doklady podľa požiadaviek príslušného úradu",
       "Dokumenty súvisiace s konkrétnou žiadosťou"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
+    "practical": [
+      {
+        "title": "Riešte aj cestu domov",
+        "body": "Ak sa pas stratí v zahraničí, kontaktujte príslušný zastupiteľský úrad a dopravcu; odložte si záznam o oznámení straty."
+      }
+    ]
   },
   {
     "slug": "zmena-mena-a-priezviska",
@@ -876,8 +1036,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Ministerstvo vnútra SR",
-      "url": "https://www.minv.sk/"
+      "label": "Slovensko.sk – žiadosť o zmenu mena a priezviska",
+      "url": "https://www.slovensko.sk/static/eForm/dataset/MZV.RequestNameChange/2.2/Content/form.1014.html"
     },
     "updated": "22. 10. 2026",
     "keywords": "zmena mena alebo priezviska",
@@ -886,8 +1046,26 @@
       "Identifikačné doklady podľa požiadaviek príslušného úradu",
       "Dokumenty súvisiace s konkrétnou žiadosťou"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
+    "practical": [
+      {
+        "title": "Zmapujte doklady na výmenu",
+        "body": "Po rozhodnutí si spíšte všetky identifikačné, cestovné, bankové a poistné dokumenty s pôvodným menom."
+      },
+      {
+        "title": "Overte príslušný postup",
+        "body": "Rozlišujte zmenu po sobáši, administratívnu zmenu mena a opravu údajov; požadované podklady a kompetentný úrad sa môžu líšiť."
+      },
+      {
+        "title": "Pripravte konzistentné údaje",
+        "body": "Skontrolujte zápis mena a priezviska vo všetkých podkladoch vrátane diakritiky a údajov o narodení, aby nevznikli rozdiely v evidenciách."
+      },
+      {
+        "title": "Naplánujte následné oznámenia",
+        "body": "Po právoplatnej zmene si vytvorte zoznam dokladov a inštitúcií, ktorým treba aktualizované údaje oznámiť; lehoty overte u každej osobitne."
+      }
+    ]
   },
   {
     "slug": "rodny-list",
@@ -901,8 +1079,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Slovensko.sk",
-      "url": "https://www.slovensko.sk/"
+      "label": "Slovensko.sk – rodný list",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_rodny-list"
     },
     "updated": "22. 10. 2026",
     "keywords": "vybavenie rodného listu",
@@ -912,8 +1090,8 @@
       "Pripravte doklad totožnosti a údaje o osobe, ktorej sa rodný list týka.",
       "Ak žiadate za inú osobu, overte oprávnenie a prípadné splnomocnenie."
     ],
-    "verification": "Redakčne spracovaný orientačný postup. Aktuálne poplatky, zákonné lehoty a podmienky konkrétnej služby overte na príslušnom oficiálnom portáli.",
-    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "detail": {
       "summary": "Rodný list je matričný doklad o narodení. Postup pri prvom vydaní a pri vyžiadaní druhopisu sa líši; kompetentná je matrika podľa pravidiel vedenia matričných záznamov.",
       "before": [
@@ -955,7 +1133,25 @@
           "url": "https://www.minv.sk/"
         }
       ]
-    }
+    },
+    "practical": [
+      {
+        "title": "Rozlišujte prvopis a duplikát",
+        "body": "Pred podaním overte, či potrebujete nový matričný doklad, výpis alebo dokument na použitie v zahraničí."
+      },
+      {
+        "title": "Určte účel použitia",
+        "body": "Rozlišujte doklad pre slovenský úrad, zahraničný úrad a vlastnú evidenciu; vopred zistite, či je potrebný ďalší spôsob overenia alebo preklad."
+      },
+      {
+        "title": "Overte oprávnenie žiadateľa",
+        "body": "Pred objednaním výpisu si overte, kto môže o konkrétny matričný doklad požiadať a ako sa preukazuje vzťah k zapísanej osobe."
+      },
+      {
+        "title": "Skontrolujte údaje na doklade",
+        "body": "Pri prevzatí porovnajte meno, dátum a miesto narodenia s ostatnými dokladmi; prípadné nezhody riešte priamo s matrikou."
+      }
+    ]
   },
   {
     "slug": "sobas-na-slovensku",
@@ -969,8 +1165,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Slovensko.sk",
-      "url": "https://www.slovensko.sk/"
+      "label": "Slovensko.sk – uzavretie manželstva",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_uzavretie-manzelstva-rozvod-m"
     },
     "updated": "22. 10. 2026",
     "keywords": "sobáš na slovensku",
@@ -980,8 +1176,8 @@
       "Pripravte doklady totožnosti a informácie o osobnom stave.",
       "Ak je jeden zo snúbencov cudzinec, včas overte požiadavky na zahraničné doklady a preklady."
     ],
-    "verification": "Redakčne spracovaný orientačný postup. Aktuálne poplatky a doklady overte na príslušnej matrike.",
-    "sourceNote": "Oficiálne zdroje sú uvedené v podrobných informáciách.",
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "detail": {
       "summary": "Pri uzavretí manželstva sa najprv dohodnite s príslušným matričným úradom alebo oprávneným cirkevným orgánom. Doklady, termíny a podmienky sa líšia podľa štátneho občianstva snúbencov a miesta sobáša.",
       "before": [
@@ -1023,7 +1219,25 @@
           "url": "https://www.minv.sk/"
         }
       ]
-    }
+    },
+    "practical": [
+      {
+        "title": "Dohodnite postup s matrikou",
+        "body": "Pred rezerváciou termínu overte požadované doklady oboch snúbencov a osobitné podmienky pri cudzincovi."
+      },
+      {
+        "title": "Skontrolujte údaje oboch snúbencov",
+        "body": "Pred podaním žiadosti porovnajte identifikačné údaje a prípadné predchádzajúce zmeny priezviska s matričnými dokumentmi."
+      },
+      {
+        "title": "Overte osobitné okolnosti",
+        "body": "Ak je jeden zo snúbencov cudzincom alebo bol v minulosti ženatý či vydatá, požiadajte matriku o aktuálny individuálny zoznam podkladov."
+      },
+      {
+        "title": "Naplánujte zmeny po sobáši",
+        "body": "Pri plánovanej zmene priezviska si pripravte zoznam dokladov, zamestnávateľa a poskytovateľov služieb, ktorým budete údaje aktualizovať."
+      }
+    ]
   },
   {
     "slug": "vybavenie-po-umrti",
@@ -1037,8 +1251,8 @@
       "Preverte možné dávky a zmluvné povinnosti; nevyberajte peniaze z účtu zosnulého bez oprávnenia."
     ],
     "source": {
-      "label": "Slovensko.sk",
-      "url": "https://www.slovensko.sk/"
+      "label": "Slovensko.sk – úmrtie a povinnosti pozostalých",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_umrtie2"
     },
     "updated": "22. 10. 2026",
     "keywords": "čo vybaviť po úmrtí blízkeho",
@@ -1048,8 +1262,8 @@
       "Pripravte doklady zosnulého a kontakt na pohrebnú službu.",
       "Zaznamenajte kontakty na nemocnicu, matriku a ďalšie dotknuté inštitúcie."
     ],
-    "verification": "Redakčne spracovaný orientačný postup. Aktuálne poplatky, zákonné lehoty a podmienky konkrétnej služby overte na príslušnom oficiálnom portáli.",
-    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "detail": {
       "summary": "Po úmrtí blízkej osoby sa rieši lekárske potvrdenie, matrika, pohreb, oznámenia inštitúciám a neskôr dedičské konanie. Konkrétny postup závisí od toho, či úmrtie nastalo doma, v nemocnici alebo v zahraničí.",
       "before": [
@@ -1095,7 +1309,25 @@
           "url": "https://www.socpoist.sk/"
         }
       ]
-    }
+    },
+    "practical": [
+      {
+        "title": "Veďte prehľad vybavených krokov",
+        "body": "Oddeľte pohrebné záležitosti, matriku, poisťovne, banky a dedičské konanie; ku každému kroku si uložte potvrdenie."
+      },
+      {
+        "title": "Oddeľte okamžité a neskoršie úlohy",
+        "body": "Najprv zabezpečte nevyhnutné úkony spojené s úmrtím a pohrebom; ostatné zmluvné, majetkové a administratívne otázky evidujte na samostatnom zozname."
+      },
+      {
+        "title": "Chráňte dokumenty a prístupy",
+        "body": "Uložte si originály matričných dokladov, faktúry a dôležité oznámenia; s účtami a majetkom zosnulého nakladajte len v rozsahu oprávnenia."
+      },
+      {
+        "title": "Komunikujte s inštitúciami preukázateľne",
+        "body": "Pri bankách, poisťovniach a úradoch si zapisujte dátum kontaktu, požadované doklady a spôsob vybavenia; nespájajte ich postupy s dedičským rozhodnutím automaticky."
+      }
+    ]
   },
   {
     "slug": "kataster-vlastnictvo",
@@ -1109,8 +1341,8 @@
       "Pri nejasnostiach požiadajte príslušný katastrálny odbor alebo právnika o vysvetlenie."
     ],
     "source": {
-      "label": "Úrad geodézie, kartografie a katastra",
-      "url": "https://www.skgeodesy.sk/"
+      "label": "Slovensko.sk – kataster a list vlastníctva",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_kataster-nehnutelnosti"
     },
     "updated": "22. 10. 2026",
     "keywords": "list vlastníctva a kataster",
@@ -1120,8 +1352,8 @@
       "Overte identitu predávajúceho a jeho oprávnenie nakladať s nehnuteľnosťou.",
       "Rozlišujte informatívny náhľad od úradne použiteľného výpisu."
     ],
-    "verification": "Redakčne spracovaný orientačný postup. Aktuálne poplatky, zákonné lehoty a podmienky konkrétnej služby overte na príslušnom oficiálnom portáli.",
-    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "detail": {
       "summary": "List vlastníctva slúži na overenie vlastníka, podielov a evidovaných práv k nehnuteľnosti. Pred kúpou si vždy skontrolujte aktuálny stav vrátane tiarch a plomb.",
       "before": [
@@ -1167,7 +1399,13 @@
           "url": "https://kataster.skgeodesy.sk/eskn-portal/"
         }
       ]
-    }
+    },
+    "practical": [
+      {
+        "title": "Overte právny stav nehnuteľnosti",
+        "body": "Pred podpisom zmluvy porovnajte vlastníkov, parcelu, ťarchy a prípadné poznámky na aktuálnom liste vlastníctva."
+      }
+    ]
   },
   {
     "slug": "kupa-bytu",
@@ -1181,8 +1419,8 @@
       "Dohodnite odovzdanie bytu, stavy meračov a prepis energií; odložte si protokol."
     ],
     "source": {
-      "label": "Národná banka Slovenska",
-      "url": "https://nbs.sk/"
+      "label": "Slovensko.sk – postup pri prevode nehnuteľnosti",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_postup-pri-prevode-nehnutelnos"
     },
     "updated": "22. 10. 2026",
     "keywords": "kúpa bytu krok za krokom",
@@ -1191,8 +1429,8 @@
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "detail": {
       "summary": "Pri kúpe bytu postupuj od overenia právneho stavu cez financovanie až po bezpečnú úhradu a prevzatie. Najväčšie riziká bývajú v zmluvách, ťarchách a načasovaní peňazí.",
       "before": [
@@ -1264,7 +1502,13 @@
           "url": "https://beta.skgeodesy.sk/sk/kataster/eskn-portal/"
         }
       ]
-    }
+    },
+    "practical": [
+      {
+        "title": "Overte celý obchodný postup",
+        "body": "Pred zálohou preverujte vlastníctvo, financovanie, technický stav, ťarchy a bezpečný spôsob úhrady kúpnej ceny."
+      }
+    ]
   },
   {
     "slug": "predaj-bytu",
@@ -1278,8 +1522,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Úrad geodézie, kartografie a katastra",
-      "url": "https://www.skgeodesy.sk/"
+      "label": "Slovensko.sk – katastrálne konanie",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/__katastralne-konanie"
     },
     "updated": "22. 10. 2026",
     "keywords": "predaj bytu",
@@ -1288,8 +1532,14 @@
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
+    "practical": [
+      {
+        "title": "Pripravte doklady o byte",
+        "body": "Zostavte list vlastníctva, podklady k správe domu, energetické informácie a prehľad prípadných záväzkov."
+      }
+    ]
   },
   {
     "slug": "hypoteka-prva-ziadost",
@@ -1303,18 +1553,18 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Národná banka Slovenska",
-      "url": "https://nbs.sk/"
+      "label": "NBS – schopnosť splácať úver (DSTI)",
+      "url": "https://nbs.sk/financna-stabilita/nastroje-fs/dsti/"
     },
-    "updated": "22. 10. 2026",
+    "updated": "8. 11. 2026",
     "keywords": "prvá žiadosť o hypotéku",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "verification": "Obsah a uvedený oficiálny zdroj boli vecne skontrolované 8. 11. 2026; individuálne podmienky, sadzby a poplatky sa môžu meniť.",
+    "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
     "detail": {
       "summary": "Hypotéku porovnávaj podľa celkových nákladov a schopnosti splácať, nie iba podľa reklamného úroku. Rozhodujúce sú príjmy, existujúce záväzky, vlastné zdroje a hodnota zabezpečenia.",
       "before": [
@@ -1366,7 +1616,21 @@
           "url": "https://vsetko24.sk/financie/#hypoteka"
         }
       ]
-    }
+    },
+    "practical": [
+      {
+        "title": "Započítajte všetky existujúce záväzky",
+        "body": "Pripravte prehľad splátok úverov, lízingu, kreditných kariet a povolených prečerpaní. Banka posudzuje celkové zaťaženie domácnosti, nielen novú hypotéku."
+      },
+      {
+        "title": "Pripravte si rezervu na zmenu úroku",
+        "body": "Vyskúšajte si splátku aj pri vyššej úrokovej sadzbe. NBS pri hodnotení schopnosti splácať zohľadňuje aj rezervu na rast sadzieb."
+      },
+      {
+        "title": "Oddeľte schválenie úveru od kúpy",
+        "body": "Pred podpisom rezervačnej alebo kúpnej zmluvy si vyjasnite podmienky financovania, vlastné zdroje a čo sa stane, ak banka úver neschváli."
+      }
+    ]
   },
   {
     "slug": "fixacia-hypoteky",
@@ -1380,8 +1644,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Národná banka Slovenska",
-      "url": "https://nbs.sk/"
+      "label": "NBS – refinancovanie a zmena podmienok hypotéky",
+      "url": "https://nbs.sk/aktuality/viete-aky-je-rozdiel-medzi-uvermi-znovu-prerokovanymi-a-refinancovanymi/"
     },
     "updated": "22. 10. 2026",
     "keywords": "koniec fixácie hypotéky",
@@ -1390,8 +1654,26 @@
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá. Praktické odporúčania sú všeobecné a nepredstavujú individuálne finančné poradenstvo.",
+    "practical": [
+      {
+        "title": "Vytvorte si kalendár fixácie",
+        "body": "Zapíšte dátum konca fixácie, termín oznámenia novej sadzby a čas potrebný na porovnanie konkurenčných ponúk."
+      },
+      {
+        "title": "Poznačte si dátum konca fixácie",
+        "body": "V zmluve a oznámeniach banky si overte termín zmeny úrokovej sadzby a podmienky ďalšieho obdobia. Nenechávajte porovnávanie ponúk na posledné dni."
+      },
+      {
+        "title": "Porovnajte viac než novú sadzbu",
+        "body": "Pri novej ponuke porovnajte splátku, celkovú zostávajúcu sumu, poplatky a podmienky doplnkových produktov. Zohľadnite aj zmenu dĺžky splácania."
+      },
+      {
+        "title": "Pýtajte sa na alternatívy písomne",
+        "body": "Overte možnosti novej fixácie, zmeny banky alebo mimoriadnej splátky podľa aktuálnej zmluvy. Prípadné lehoty a náklady si nechajte potvrdiť bankou."
+      }
+    ]
   },
   {
     "slug": "urok-a-rpmn",
@@ -1406,17 +1688,31 @@
     ],
     "source": {
       "label": "Národná banka Slovenska",
-      "url": "https://nbs.sk/"
+      "url": "https://rpmn.nbs.sk/"
     },
-    "updated": "22. 10. 2026",
+    "updated": "8. 11. 2026",
     "keywords": "úrok a rpmn – rozdiel",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Obsah a uvedený oficiálny zdroj boli vecne skontrolované 8. 11. 2026; individuálne podmienky, sadzby a poplatky sa môžu meniť.",
+    "sourceNote": "Oficiálna informatívna kalkulačka NBS je určená len pre podporované typy spotrebiteľských úverov a zmluvy podľa podmienok uvedených na stránke; nejde o univerzálnu kalkulačku hypoték.",
+    "practical": [
+      {
+        "title": "Rozlišujte úrok a RPMN",
+        "body": "Úrok vyjadruje cenu požičaných peňazí; RPMN zohľadňuje aj relevantné náklady podľa pravidiel výpočtu. Preto pri porovnaní spotrebiteľských úverov sledujte oba údaje."
+      },
+      {
+        "title": "Prepočet má obmedzenia",
+        "body": "Kalkulačka NBS slúži na informatívny kontrolný výpočet pri podporovaných úverových produktoch. Pred zadávaním údajov si prečítajte podmienky jej použitia."
+      },
+      {
+        "title": "Porovnávajte rovnaké parametre",
+        "body": "Zvoľte rovnakú istinu, dobu splácania a obdobné podmienky. Inak rozdiel v RPMN nemusí vyjadrovať rozdiel medzi porovnateľnými ponukami."
+      }
+    ]
   },
   {
     "slug": "bezpecne-sporenie",
@@ -1430,8 +1726,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Národná banka Slovenska",
-      "url": "https://nbs.sk/"
+      "label": "NBS – sporenie a ochrana vkladov",
+      "url": "https://nbs.sk/dohlad-nad-financnym-trhom/ofs/financne-produkty/sporenie-a-investovanie/sporenie/"
     },
     "updated": "22. 10. 2026",
     "keywords": "ako plánovať sporenie",
@@ -1440,8 +1736,26 @@
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne. Praktické odporúčania sú všeobecné a nepredstavujú individuálne finančné poradenstvo.",
+    "practical": [
+      {
+        "title": "Porovnajte dostupnosť úspor",
+        "body": "Rozlišujte okamžite dostupnú rezervu a dlhodobé sporenie; overte podmienky výberu a ochrany vkladov."
+      },
+      {
+        "title": "Rozlišujte vklad a investíciu",
+        "body": "Pred rozhodnutím zistite, či ide o bankový vklad, investičný produkt alebo iný nástroj. Ich riziká, dostupnosť peňazí a prípadná ochrana sa môžu zásadne líšiť."
+      },
+      {
+        "title": "Preverte podmienky prístupu k peniazom",
+        "body": "Zistite, či je možné prostriedky vybrať predčasne a aký je prípadný dôsledok pre úrok alebo poplatky. Podmienky si overte v dokumentácii konkrétneho produktu."
+      },
+      {
+        "title": "Nespoliehajte sa iba na reklamovaný výnos",
+        "body": "Porovnajte čistý výnos po poplatkoch a prípadnom zdanení, riziko straty a dobu viazanosti. Nejasné sľuby zaručeného vysokého zisku považujte za varovný signál."
+      }
+    ]
   },
   {
     "slug": "rodinny-financny-plan",
@@ -1455,8 +1769,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Národná banka Slovenska",
-      "url": "https://nbs.sk/"
+      "label": "NBS – prebytok finančných prostriedkov",
+      "url": "https://nbs.sk/dohlad-nad-financnym-trhom/ofs/zivotne-situacie/prebytok-financnych-prostriedkov/"
     },
     "updated": "22. 10. 2026",
     "keywords": "rodinný finančný plán",
@@ -1465,8 +1779,26 @@
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne. Praktické odporúčania sú všeobecné a nepredstavujú individuálne finančné poradenstvo.",
+    "practical": [
+      {
+        "title": "Rozdeľte ciele podľa termínu",
+        "body": "Osobitne plánujte rezervu, ročné výdavky, splácanie dlhov a dlhodobé ciele; plán aktualizujte pri zmene príjmu."
+      },
+      {
+        "title": "Zmapujte záväzky aj nepravidelné výdavky",
+        "body": "Spíšte pravidelné príjmy, splátky, ročné poistky, opravy a plánované väčšie nákupy. Nepravidelné náklady rozpočítajte tak, aby neprekvapili v mesiaci úhrady."
+      },
+      {
+        "title": "Určte poradie finančných cieľov",
+        "body": "Oddeľte krátkodobé potreby, núdzovú rezervu a dlhodobé ciele. Pri každom cieli stanovte sumu, termín a mieru rizika, ktorú si môžete dovoliť."
+      },
+      {
+        "title": "Plán kontrolujte pri životných zmenách",
+        "body": "Pri zmene príjmu, bývania alebo výšky splátok aktualizujte rozpočet. Pri rozhodovaní o úvere posudzujte celkové náklady a schopnosť splácať aj pri horšom scenári."
+      }
+    ]
   },
   {
     "slug": "kupa-elektromobilu",
@@ -1480,8 +1812,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Ministerstvo dopravy SR",
-      "url": "https://www.mindop.sk/"
+      "label": "MH SR – politika elektromobility",
+      "url": "https://www.mhsr.sk/priemysel/e-mobilita-a-alternativne-paliva/strategie-a-politiky-archiv"
     },
     "updated": "22. 10. 2026",
     "keywords": "kúpa elektromobilu",
@@ -1490,8 +1822,14 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
+    "practical": [
+      {
+        "title": "Prepočítajte náklady vlastníctva",
+        "body": "Porovnajte reálnu spotrebu, domáce a verejné nabíjanie, poistenie, pneumatiky a očakávané trasy."
+      }
+    ]
   },
   {
     "slug": "domace-nabijanie",
@@ -1505,8 +1843,8 @@
       "Po inštalácii sledujte bezpečnostné pokyny výrobcu a cenu elektriny."
     ],
     "source": {
-      "label": "Ministerstvo dopravy SR",
-      "url": "https://www.mindop.sk/"
+      "label": "MH SR – stratégia nabíjacej infraštruktúry",
+      "url": "https://www.mhsr.sk/priemysel/e-mobilita-a-alternativne-paliva/strategie-a-politiky-archiv"
     },
     "updated": "22. 10. 2026",
     "keywords": "domáce nabíjanie elektromobilu",
@@ -1515,8 +1853,8 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "practical": [
       {
         "title": "Overte elektrický prívod",
@@ -1533,6 +1871,10 @@
       {
         "title": "Porovnajte prevádzkové náklady",
         "body": "Pri odhade ceny používajte skutočnú cenu elektriny za kWh vrátane relevantných poplatkov a počítajte aj so stratami pri nabíjaní."
+      },
+      {
+        "title": "Zabezpečte odborné posúdenie",
+        "body": "Pred inštaláciou wallboxu nechajte preveriť elektrické rozvody, istenie, kapacitu prípojky a potrebné súhlasy."
       }
     ]
   },
@@ -1548,8 +1890,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Ministerstvo dopravy SR",
-      "url": "https://www.mindop.sk/"
+      "label": "MH SR – stratégia elektromobility a nabíjania",
+      "url": "https://www.mhsr.sk/priemysel/e-mobilita-a-alternativne-paliva/strategie-a-politiky-archiv"
     },
     "updated": "22. 10. 2026",
     "keywords": "plánovanie cesty elektromobilom",
@@ -1558,8 +1900,14 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
+    "practical": [
+      {
+        "title": "Plánujte podľa reálnej spotreby",
+        "body": "Počítajte s diaľničnou rýchlosťou, počasím, prevýšením a rezervou pri príjazde; vyberte aj náhradnú stanicu."
+      }
+    ]
   },
   {
     "slug": "prepis-auta",
@@ -1573,8 +1921,8 @@
       "Po zmene držiteľa skontrolujte nové doklady a potvrdenia."
     ],
     "source": {
-      "label": "Ministerstvo vnútra SR",
-      "url": "https://www.minv.sk/"
+      "label": "Slovensko.sk – prevod držby vozidla",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_ziadost-o-prevod-drzby-vozidla"
     },
     "updated": "22. 10. 2026",
     "keywords": "prepis auta na slovensku",
@@ -1583,8 +1931,8 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
     "detail": {
       "summary": "Pri zmene držiteľa alebo vlastníka vozidla si najskôr ujasni typ prevodu, údaje strán a poistenie. Podrobnosti sa môžu líšiť podľa toho, či ide o predaj, darovanie, leasing alebo dovoz.",
       "before": [
@@ -1651,7 +1999,13 @@
           "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_predaj-auta/"
         }
       ]
-    }
+    },
+    "practical": [
+      {
+        "title": "Dohodnite si poradie úkonov",
+        "body": "Pred odovzdaním vozidla overte doklady, splnomocnenia, poistenie a aktuálny spôsob evidenčného úkonu."
+      }
+    ]
   },
   {
     "slug": "stk-priprava",
@@ -1665,8 +2019,8 @@
       "Ak spozorujete problémy s brzdami, riadením alebo podvozkom, nechajte vozidlo pred STK preveriť v servise."
     ],
     "source": {
-      "label": "Ministerstvo dopravy SR",
-      "url": "https://www.mindop.sk/"
+      "label": "Ministerstvo dopravy – technické kontroly vozidiel",
+      "url": "https://www.mindop.sk/ministerstvo/statny-dopravny-urad/kontroly-vozidiel/technicke-kontroly-vozidiel"
     },
     "updated": "22. 10. 2026",
     "keywords": "príprava na stk",
@@ -1676,8 +2030,8 @@
       "Informácie o termíne, rezervácii a úhrade kontroly",
       "Záznam o predchádzajúcej kontrole, ak je relevantný"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "practical": [
       {
         "title": "Skontrolujte svetlá a signalizáciu",
@@ -1694,6 +2048,10 @@
       {
         "title": "Pripravte doklady",
         "body": "Pred návštevou pracoviska si overte jeho aktuálne požiadavky na doklady, rezerváciu a rozsah kontroly vrátane prípadnej emisnej kontroly."
+      },
+      {
+        "title": "Spravte predkontrolu vozidla",
+        "body": "Skontrolujte osvetlenie, pneumatiky, čelné sklo, kontrolky a povinné doklady; termín si overte vopred."
       }
     ]
   },
@@ -1709,8 +2067,8 @@
       "Informujte poisťovňu a uchovajte dokumentáciu."
     ],
     "source": {
-      "label": "Ministerstvo vnútra SR",
-      "url": "https://www.minv.sk/"
+      "label": "Slovenská kancelária poisťovateľov – postup pri nehode",
+      "url": "https://www.skp.sk/povinne-zmluvne-poistenie/"
     },
     "updated": "22. 10. 2026",
     "keywords": "postup pri dopravnej nehode",
@@ -1719,8 +2077,14 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
+    "practical": [
+      {
+        "title": "Zdokumentujte situáciu bezpečne",
+        "body": "Najprv zaistite bezpečnosť osôb, potom podľa situácie privolajte pomoc a zaznamenajte účastníkov, miesto a poškodenia."
+      }
+    ]
   },
   {
     "slug": "pzp-pri-kupe-auta",
@@ -1734,8 +2098,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Slovenská kancelária poisťovateľov",
-      "url": "https://www.skp.sk/"
+      "label": "Slovenská kancelária poisťovateľov – PZP",
+      "url": "https://www.skp.sk/povinne-zmluvne-poistenie/"
     },
     "updated": "22. 10. 2026",
     "keywords": "pzp pri kúpe auta",
@@ -1744,8 +2108,14 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
+    "practical": [
+      {
+        "title": "Predíďte medzere v krytí",
+        "body": "Pred prevzatím auta si overte vznik a trvanie PZP, údaje vozidla a potvrdenie o poistení."
+      }
+    ]
   },
   {
     "slug": "leasing-alebo-uver",
@@ -1759,8 +2129,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Národná banka Slovenska",
-      "url": "https://nbs.sk/"
+      "label": "NBS – RPMN a porovnanie financovania",
+      "url": "https://rpmn.nbs.sk/"
     },
     "updated": "22. 10. 2026",
     "keywords": "leasing alebo úver na auto",
@@ -1769,8 +2139,14 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
+    "practical": [
+      {
+        "title": "Porovnajte celkové náklady",
+        "body": "Pri rovnakom vozidle spočítajte akontáciu, splátky, poistenie, poplatky a podmienky predčasného ukončenia."
+      }
+    ]
   },
   {
     "slug": "zimne-pneumatiky",
@@ -1784,8 +2160,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Ministerstvo dopravy SR",
-      "url": "https://www.mindop.sk/"
+      "label": "Ministerstvo dopravy – kontrola pneumatík",
+      "url": "https://www.mindop.sk/ministerstvo/statny-dopravny-urad/kontroly-vozidiel/cestne-technicke-kontroly-vozidiel/cestne-technicke-kontroly-vozidiel"
     },
     "updated": "22. 10. 2026",
     "keywords": "príprava auta na zimu",
@@ -1794,8 +2170,14 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
+    "practical": [
+      {
+        "title": "Overte vhodnosť pneumatík",
+        "body": "Skontrolujte rozmery a indexy podľa vozidla, stav dezénu a vhodnosť pneumatík pre očakávané podmienky."
+      }
+    ]
   },
   {
     "slug": "dialnicna-znamka-kupa",
@@ -1809,8 +2191,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "eZnamka",
-      "url": "https://eznamka.sk/"
+      "label": "eZnamka – nákup a kontrola údajov",
+      "url": "https://eznamka.sk/sk/dialnicne-znamky/najcastejsie-otazky"
     },
     "updated": "22. 10. 2026",
     "keywords": "kúpa diaľničnej známky",
@@ -1819,7 +2201,13 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Orientačný obsah; konkrétne právne podmienky a lehoty zatiaľ neboli individuálne overené.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup."
+    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
+    "practical": [
+      {
+        "title": "Uložte si potvrdenie o úhrade",
+        "body": "Po kúpe overte EČV, krajinu registrácie a obdobie platnosti; potvrdenie si odložte pre prípad reklamácie."
+      }
+    ]
   }
 ]

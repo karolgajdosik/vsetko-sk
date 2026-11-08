@@ -42,7 +42,7 @@ test('production smoke covers all four merged backlog practical guides',()=>{
  assert.deepEqual(routes.map(route=>route.path),practicalGuideSlugs.map(slug=>'/navody/'+slug+'/'));
  for(const route of routes){
   assert.equal(route.markers.length,2);
-  assert.equal(route.markers[1].practicalTitles.length,4);
+  assert.equal(route.markers[1].practicalTitles.length,5);
   assert.ok(route.markers[1].practicalTitles.every(title=>title.length>8));
  }
  assert.throws(()=>getPracticalGuideRoutes(guides.filter(guide=>guide.slug!=='domace-nabijanie')),/Missing practical guide/);
