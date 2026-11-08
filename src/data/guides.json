@@ -510,6 +510,18 @@
       {
         "title": "Chráňte svoju identitu",
         "body": "Po zistení straty si zaznamenajte okolnosti, overte oficiálny postup nahlásenia a zabezpečte prístup k účtom a elektronickým službám."
+      },
+      {
+        "title": "Nahláste stratu bez odkladu",
+        "body": "Pri strate alebo krádeži občianskeho preukazu použite oficiálny postup nahlásenia; zistite, či treba osobnú návštevu a ktoré doklady môžete predložiť."
+      },
+      {
+        "title": "Skontrolujte elektronickú identitu",
+        "body": "Ak ste používali elektronické funkcie preukazu, overte stav certifikátov a možnosti ich zneplatnenia podľa pokynov príslušného úradu."
+      },
+      {
+        "title": "Pripravte si náhradnú identifikáciu",
+        "body": "Pred návštevou pracoviska si overte, aký iný doklad totožnosti alebo potvrdenie bude akceptované a ako sa preukáže vaša totožnosť."
       }
     ]
   },
@@ -814,6 +826,18 @@
       {
         "title": "Usporiadajte podklady pre notára",
         "body": "Pripravte zoznam známeho majetku, dlhov, zmlúv a kontaktov; nepredpokladajte, že všetky záväzky zanikajú úmrtím."
+      },
+      {
+        "title": "Zostavte inventár bez odhadov",
+        "body": "Spíšte známy majetok a záväzky, identifikujte vlastnícke dokumenty a označte položky, ktorých stav alebo hodnotu ešte neviete doložiť."
+      },
+      {
+        "title": "Oddeľte osobný a dedičský majetok",
+        "body": "Pri spoločnom vlastníctve alebo majetku manželov si poznamenajte právny titul a pripravte podklady, aby notár vedel posúdiť rozsah dedičstva."
+      },
+      {
+        "title": "Zaznamenávajte komunikáciu",
+        "body": "Uchovajte si kontakty na povereného notára, doručené výzvy a potvrdenia; pri nejasnostiach si vyžiadajte vysvetlenie ešte pred právnym úkonom."
       }
     ]
   },
@@ -1028,6 +1052,18 @@
       {
         "title": "Zmapujte doklady na výmenu",
         "body": "Po rozhodnutí si spíšte všetky identifikačné, cestovné, bankové a poistné dokumenty s pôvodným menom."
+      },
+      {
+        "title": "Overte príslušný postup",
+        "body": "Rozlišujte zmenu po sobáši, administratívnu zmenu mena a opravu údajov; požadované podklady a kompetentný úrad sa môžu líšiť."
+      },
+      {
+        "title": "Pripravte konzistentné údaje",
+        "body": "Skontrolujte zápis mena a priezviska vo všetkých podkladoch vrátane diakritiky a údajov o narodení, aby nevznikli rozdiely v evidenciách."
+      },
+      {
+        "title": "Naplánujte následné oznámenia",
+        "body": "Po právoplatnej zmene si vytvorte zoznam dokladov a inštitúcií, ktorým treba aktualizované údaje oznámiť; lehoty overte u každej osobitne."
       }
     ]
   },
@@ -1102,6 +1138,18 @@
       {
         "title": "Rozlišujte prvopis a duplikát",
         "body": "Pred podaním overte, či potrebujete nový matričný doklad, výpis alebo dokument na použitie v zahraničí."
+      },
+      {
+        "title": "Určte účel použitia",
+        "body": "Rozlišujte doklad pre slovenský úrad, zahraničný úrad a vlastnú evidenciu; vopred zistite, či je potrebný ďalší spôsob overenia alebo preklad."
+      },
+      {
+        "title": "Overte oprávnenie žiadateľa",
+        "body": "Pred objednaním výpisu si overte, kto môže o konkrétny matričný doklad požiadať a ako sa preukazuje vzťah k zapísanej osobe."
+      },
+      {
+        "title": "Skontrolujte údaje na doklade",
+        "body": "Pri prevzatí porovnajte meno, dátum a miesto narodenia s ostatnými dokladmi; prípadné nezhody riešte priamo s matrikou."
       }
     ]
   },
@@ -1176,6 +1224,18 @@
       {
         "title": "Dohodnite postup s matrikou",
         "body": "Pred rezerváciou termínu overte požadované doklady oboch snúbencov a osobitné podmienky pri cudzincovi."
+      },
+      {
+        "title": "Skontrolujte údaje oboch snúbencov",
+        "body": "Pred podaním žiadosti porovnajte identifikačné údaje a prípadné predchádzajúce zmeny priezviska s matričnými dokumentmi."
+      },
+      {
+        "title": "Overte osobitné okolnosti",
+        "body": "Ak je jeden zo snúbencov cudzincom alebo bol v minulosti ženatý či vydatá, požiadajte matriku o aktuálny individuálny zoznam podkladov."
+      },
+      {
+        "title": "Naplánujte zmeny po sobáši",
+        "body": "Pri plánovanej zmene priezviska si pripravte zoznam dokladov, zamestnávateľa a poskytovateľov služieb, ktorým budete údaje aktualizovať."
       }
     ]
   },
@@ -1254,6 +1314,18 @@
       {
         "title": "Veďte prehľad vybavených krokov",
         "body": "Oddeľte pohrebné záležitosti, matriku, poisťovne, banky a dedičské konanie; ku každému kroku si uložte potvrdenie."
+      },
+      {
+        "title": "Oddeľte okamžité a neskoršie úlohy",
+        "body": "Najprv zabezpečte nevyhnutné úkony spojené s úmrtím a pohrebom; ostatné zmluvné, majetkové a administratívne otázky evidujte na samostatnom zozname."
+      },
+      {
+        "title": "Chráňte dokumenty a prístupy",
+        "body": "Uložte si originály matričných dokladov, faktúry a dôležité oznámenia; s účtami a majetkom zosnulého nakladajte len v rozsahu oprávnenia."
+      },
+      {
+        "title": "Komunikujte s inštitúciami preukázateľne",
+        "body": "Pri bankách, poisťovniach a úradoch si zapisujte dátum kontaktu, požadované doklady a spôsob vybavenia; nespájajte ich postupy s dedičským rozhodnutím automaticky."
       }
     ]
   },
