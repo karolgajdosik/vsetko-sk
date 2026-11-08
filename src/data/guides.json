@@ -492,9 +492,9 @@
     "title": "Strata občianskeho preukazu",
     "description": "Pri strate dokladu riešte nahlásenie a vydanie nového dokladu.",
     "steps": [
-      "Overte spôsob nahlásenia straty.",
-      "Pripravte si dostupné identifikačné doklady.",
-      "Skontrolujte podmienky a termíny vydania."
+      "Zistite, či ide o stratu alebo odcudzenie; pripravte si údaje o doklade a okolnostiach udalosti.",
+      "Na oficiálnej stránke overte, či môžete stratu nahlásiť elektronicky, alebo treba navštíviť oddelenie dokladov; nepoužívajte neoficiálne formuláre.",
+      "Po nahlásení si uschovajte potvrdenie, overte zneplatnenie elektronických certifikátov a dohodnite si postup vydania nového preukazu."
     ],
     "source": {
       "label": "Slovensko.sk – strata alebo odcudzenie občianskeho preukazu",
@@ -601,9 +601,9 @@
     "title": "Výmena cestovného pasu",
     "description": "Pred cestou skontrolujte platnosť pasu a požiadavky cieľovej krajiny.",
     "steps": [
-      "Skontrolujte platnosť súčasného pasu.",
-      "Overte spôsob podania žiadosti.",
-      "Overte podmienky vstupu do cieľovej krajiny."
+      "Porovnajte dátum skončenia platnosti pasu s požiadavkami cieľovej a tranzitnej krajiny; nespoliehajte sa iba na dátum odletu.",
+      "Na oficiálnom portáli si overte dostupné pracovisko, rezerváciu, doklady, aktuálny poplatok a lehotu; podľa toho naplánujte podanie.",
+      "Pri prevzatí skontrolujte osobné údaje a platnosť nového pasu a aktualizujte číslo dokladu v rezerváciách, ak je to potrebné."
     ],
     "source": {
       "label": "Slovensko.sk – cestovné doklady",
@@ -690,9 +690,9 @@
     "title": "Zmena trvalého pobytu",
     "description": "Pri zmene adresy si pripravte potrebné podklady a následné oznámenia.",
     "steps": [
-      "Overte požiadavky príslušnej ohlasovne.",
-      "Pripravte doklady k adrese.",
-      "Skontrolujte, ktorým inštitúciám treba zmenu oznámiť."
+      "Zistite príslušnú ohlasovňu novej adresy a overte, aký doklad o vlastníctve alebo súhlas vlastníka sa vyžaduje vo vašej situácii.",
+      "Pripravte doklad totožnosti a podklady k adrese; na oficiálnom portáli overte možnosť elektronického podania alebo osobného ohlásenia.",
+      "Po zaevidovaní adresy overte výmenu občianskeho preukazu a zostavte zoznam bánk, poisťovní a zmluvných partnerov, ktorým treba zmenu oznámiť."
     ],
     "source": {
       "label": "Slovensko.sk – oznamovacie povinnosti pri zmene pobytu",
@@ -775,9 +775,9 @@
     "title": "Začatie podnikania",
     "description": "Pri zakladaní živnosti si overte predmet činnosti a povinnosti podnikateľa.",
     "steps": [
-      "Vyberte vhodné predmety podnikania.",
-      "Overte podmienky ohlásenia živnosti.",
-      "Skontrolujte daňové a odvodové povinnosti."
+      "Spíšte zamýšľané činnosti a v oficiálnom zozname overte, či ide o voľnú, remeselnú alebo viazanú živnosť a aké doklady treba.",
+      "Pripravte identifikačné údaje, adresu podnikania a prípadné doklady o odbornej spôsobilosti; overte aktuálny spôsob a poplatok ohlásenia.",
+      "Po potvrdení ohlásenia skontrolujte pridelené identifikátory a povinnosti voči daňovému úradu, zdravotnej a Sociálnej poisťovni podľa svojej situácie."
     ],
     "source": {
       "label": "Slovensko.sk – doklady potrebné k začatiu podnikania",
@@ -868,9 +868,9 @@
     "title": "Dedičské konanie",
     "description": "Po úmrtí blízkeho si pripravte základné dokumenty a informácie o majetku.",
     "steps": [
-      "Zozbierajte dostupné doklady a informácie o majetku.",
-      "Komunikujte s povereným notárom.",
-      "Pred právnymi rozhodnutiami si overte aktuálny postup."
+      "Zabezpečte úmrtný list a pripravte dostupné informácie o majetku, dlhoch a prípadnom závete; nezamlčujte známe záväzky.",
+      "Zistite, ktorý notár bol poverený konaním, a pripravte si doklady o príbuzenskom vzťahu a podklady k jednotlivým položkám dedičstva.",
+      "Pred podpisom rozhodnutia si nechajte vysvetliť rozsah dedičstva, dlhy, prípadné náklady a možnosti postupu; pri spore vyhľadajte právnu pomoc."
     ],
     "source": {
       "label": "Slovensko.sk – úmrtie a dedičské konanie",
