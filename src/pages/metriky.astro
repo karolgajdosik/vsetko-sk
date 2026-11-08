@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import guides from '../data/guides.json';
+import calculators from '../data/calculators.json';
+import scenarios from '../data/scenarios.json';
+const stats = [['Praktické návody', guides.length, '/navody/'], ['Kalkulačky', calculators.length + 3, '/kalkulacky/'], ['Životné situácie', scenarios.length, '/sprievodca/']];
+---
+<Base title="Prehľad portálu a meranie používania" description="Rozsah obsahu VŠETKO24.sk, zdroje merania návštevnosti a jasné rozlíšenie nameraných a zatiaľ nedostupných údajov.">
+  <main id="obsah" class="wrap main metrics">
+    <p class="eyebrow">Transparentnosť</p>
+    <h1>Prehľad portálu a meranie používania</h1>
+    <p>Počty nižšie sa vytvárajú z katalógov portálu pri zostavení stránky.</p>
+    <div class="metrics-grid">
+      {stats.map(([label, value, href]) => <section class="panel"><h2>{label}</h2><p class="metric-value">{value}</p><a href={href}>Otvoriť katalóg</a></section>)}
+    </div>
+    <section class="panel">
+      <h2>Návštevnosť a používanie</h2>
+      <p>Produkčný portál používa Cloudflare Web Analytics. Správca nájde počty návštev a zobrazení, navštevované stránky a dostupné údaje o výkone v <a href="https://dash.cloudflare.com/">prehľade Cloudflare Web Analytics</a>. Prístup vyžaduje prihlásenie do príslušného účtu.</p>
+      <p><strong>Verejné počty návštev zatiaľ nie sú pripojené.</strong> Táto stránka nezobrazuje odhadované ani vymyslené čísla návštevnosti. Prístupové údaje do analytiky sa nesprístupňujú v prehliadači.</p>
+    </section>
+    <section class="panel">
+      <h2>Výkon a Core Web Vitals</h2>
+      <p>Skutočné používateľské merania a laboratórny test sú dva odlišné zdroje. Výsledok automatického testu jednej návštevy nepotvrdzuje Core Web Vitals za celé obdobie. Kým nie je doložené meranie LCP, INP a CLS s obdobím a rozsahom dát, stav zostáva <strong>nevyhodnotený</strong>.</p>
+    </section>
+    <p><a href="/ochrana-sukromia/">Ako portál spracúva údaje</a> · <a href="/pristupnost/">Stav prístupnosti</a></p>
+  </main>
+  <style>
+    .metrics{max-width:70rem;padding-block:2rem}.metrics-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.metrics .panel{padding:1.4rem;margin-block:1rem;overflow-wrap:anywhere}.metrics h2{margin-top:0}.metric-value{font-size:2.5rem;font-weight:800;margin-block:.5rem}@media(max-width:700px){.metrics-grid{grid-template-columns:1fr}}
+  </style>
+</Base>
