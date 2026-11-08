@@ -50,5 +50,51 @@ const timeline = [
       <p>Nie každé sťahovanie znamená zmenu trvalého pobytu. Ak ho meníte, overte si konkrétny postup a následné povinnosti na <a href="https://www.slovensko.sk/" rel="noopener noreferrer">slovensko.sk</a> alebo príslušnej ohlasovni. Osobitne si skontrolujte kontaktnú adresu pri zmluvách a službách.</p>
       <p><strong>Aktualizované:</strong> 7. 11. 2026. Informácie nie sú právnym poradenstvom.</p>
     </section>
+    <section class="panel" aria-labelledby="formular-odovzdania">
+      <h2 id="formular-odovzdania">Vyplniteľný odovzdávací protokol na vytlačenie</h2>
+      <p>Vyplňte údaje a vytlačte si protokol pre obe strany. Údaje sa neposielajú na server a formulár sa neukladá; pred zatvorením stránky si vytlačte alebo uložte PDF cez tlač prehliadača.</p>
+      <form id="odovzdanie-form" class="handover-form" autocomplete="off">
+        <div class="handover-grid">
+          <label>Adresa nehnuteľnosti <input name="adresa" type="text" placeholder="Ulica, číslo, obec" /></label>
+          <label>Dátum a čas odovzdania <input name="datum" type="datetime-local" /></label>
+          <label>Odovzdávajúci <input name="odovzdavajuci" type="text" placeholder="Meno a priezvisko" /></label>
+          <label>Preberajúci <input name="preberajuci" type="text" placeholder="Meno a priezvisko" /></label>
+          <label>Elektromer (stav a jednotka) <input name="elektrina" type="text" placeholder="napr. 12345 kWh" /></label>
+          <label>Plynomer (stav a jednotka) <input name="plyn" type="text" placeholder="ak sa používa" /></label>
+          <label>Vodomer studená voda <input name="voda-studena" type="text" placeholder="stav v m³" /></label>
+          <label>Vodomer teplá voda <input name="voda-tepla" type="text" placeholder="stav v m³" /></label>
+          <label>Počet odovzdaných kľúčov <input name="kluce" type="text" placeholder="počet a typ" /></label>
+          <label>Ďalšie odovzdané veci <input name="inventar" type="text" placeholder="čipy, ovládače, vybavenie" /></label>
+        </div>
+        <label class="handover-notes">Stav priestorov, vady a prílohy (fotografie)
+          <textarea name="stav" rows="4" placeholder="Opíšte zistenia a označte priložené fotografie."></textarea>
+        </label>
+        <div class="handover-signatures">
+          <p>Podpis odovzdávajúceho: __________________________</p>
+          <p>Podpis preberajúceho: __________________________</p>
+        </div>
+        <div class="handover-actions"><button type="button" onclick="window.print()">Vytlačiť / uložiť ako PDF</button> <button type="reset">Vymazať vyplnené údaje</button></div>
+      </form>
+      <p><small>Vzor slúži ako praktická pomôcka; pri spore alebo osobitných zmluvných podmienkach použite zmluvne dohodnutý protokol.</small></p>
+    </section>
   </main>
+  <style>
+    .handover-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); gap: 1rem; margin: 1rem 0; }
+    .handover-form label { display: flex; flex-direction: column; gap: .35rem; font-weight: 600; }
+    .handover-form input, .handover-form textarea { width: 100%; box-sizing: border-box; padding: .65rem; border: 1px solid #8995a4; border-radius: .4rem; background: var(--surface,#fff); color: inherit; font: inherit; }
+    .handover-notes { margin-bottom: 1rem; }
+    .handover-signatures { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin: 2rem 0 1rem; }
+    .handover-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .handover-actions button { padding: .65rem 1rem; cursor: pointer; }
+    @media print {
+      body * { visibility: hidden !important; }
+      #formular-odovzdania, #formular-odovzdania * { visibility: visible !important; }
+      #formular-odovzdania { position: absolute; inset: 0 auto auto 0; width: 100%; padding: 0 !important; border: 0 !important; box-shadow: none !important; color: #000 !important; background: #fff !important; }
+      #formular-odovzdania .handover-actions, #formular-odovzdania > p:last-child { display: none !important; }
+      .handover-grid { grid-template-columns: 1fr 1fr; gap: .6rem; }
+      .handover-form input, .handover-form textarea { border: 0; border-bottom: 1px solid #555; border-radius: 0; color: #000; background: #fff; }
+      .handover-form label { break-inside: avoid; }
+      @page { size: A4; margin: 14mm; }
+    }
+  </style>
 </Base>
