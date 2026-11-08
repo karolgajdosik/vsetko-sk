@@ -9,6 +9,7 @@ on:
       - 'scripts/production-api-health-utils.mjs'
       - 'scripts/rpo-upstream-probe.mjs'
       - 'scripts/check-production-ui.mjs'
+      - 'scripts/check-production-core-routes.mjs'
       - 'scripts/production-guide-routes.mjs'
       - 'scripts/production-ui-markers.mjs'
       - 'src/data/search.json'
@@ -39,6 +40,10 @@ jobs:
         id: ui
         continue-on-error: true
         run: node scripts/check-production-ui.mjs
+      - name: Check live core category routes
+        id: coreRoutes
+        continue-on-error: true
+        run: node scripts/check-production-core-routes.mjs
       - name: Check four live production APIs
         id: health
         continue-on-error: true
@@ -91,7 +96,7 @@ jobs:
       - name: Create or resolve production UI outage issue
         uses: actions/github-script@v8
         env:
-          UI_OUTCOME: ${{ (steps.ui.outcome == 'failure' || steps.mobile.outcome == 'failure' || steps.assistantBrowser.outcome == 'failure') && 'failure' || 'success' }}
+          UI_OUTCOME: ${{ (steps.ui.outcome == 'failure' || steps.coreRoutes.outcome == 'failure' || steps.mobile.outcome == 'failure' || steps.assistantBrowser.outcome == 'failure') && 'failure' || 'success' }}
         with:
           script: |
             const owner=context.repo.owner,repo=context.repo.repo;
@@ -113,7 +118,7 @@ jobs:
               await github.rest.issues.update({owner,repo,issue_number:existing.number,state:'closed'});
             }
       - name: Mark workflow failed when UI check fails
-        if: ${{ steps.ui.outcome == 'failure' || steps.mobile.outcome == 'failure' || steps.assistantBrowser.outcome == 'failure' }}
+        if: ${{ steps.ui.outcome == 'failure' || steps.coreRoutes.outcome == 'failure' || steps.mobile.outcome == 'failure' || steps.assistantBrowser.outcome == 'failure' }}
         run: exit 1
       - name: Mark workflow failed when API check fails
         if: ${{ steps.health.outcome == 'failure' || steps.assistant.outcome == 'failure' }}
