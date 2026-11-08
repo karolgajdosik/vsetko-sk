@@ -5,9 +5,9 @@
     "title": "Porovnanie hypoték",
     "description": "Porovnajte hypotéky podľa RPMN, celkovej sumy na zaplatenie, fixácie, poplatkov a podmienok čerpania. Praktický kontrolný zoznam pred podpisom.",
     "steps": [
-      "Porovnajte RPMN, nielen úrokovú sadzbu.",
-      "Zistite podmienky fixácie a poplatky.",
-      "Overte, čo sa stane po skončení fixácie."
+      "Pripravte rovnakú výšku úveru, dobu splatnosti a fixáciu pre všetky porovnávané ponuky.",
+      "Pri každej ponuke si zapíšte RPMN, celkovú splatnú sumu, poplatky a podmienky prípadnej úrokovej zľavy.",
+      "Overte podmienky čerpania, zmeny sadzby po fixácii a predčasného splatenia; vyžiadajte si písomné predzmluvné informácie."
     ],
     "source": {
       "label": "NBS – ako porovnávať hypotéky",
@@ -51,9 +51,9 @@
     "title": "Refinancovanie úveru",
     "description": "Kedy sa oplatí refinancovať úver? Porovnajte úsporu na splátke s poplatkami, novou splatnosťou a celkovými nákladmi.",
     "steps": [
-      "Získajte aktuálny zostatok úveru.",
-      "Porovnajte novú ponuku s pôvodnou.",
-      "Započítajte všetky poplatky a vedľajšie náklady."
+      "Vyžiadajte si aktuálne vyčíslenie zostatku pôvodného úveru a podmienky jeho splatenia k plánovanému dátumu.",
+      "Porovnajte zostávajúce celkové náklady pôvodného úveru s novou ponukou pri zohľadnení odlišnej splatnosti.",
+      "Započítajte jednorazové náklady, prípadné doplnkové produkty a termíny čerpania nového úveru."
     ],
     "source": {
       "label": "Národná banka Slovenska – refinancovanie úveru",
@@ -97,9 +97,9 @@
     "title": "Spotrebný úver",
     "description": "Pred podpisom zmluvy porovnajte celkovú sumu, ktorú zaplatíte.",
     "steps": [
-      "Určite, akú splátku zvládne rozpočet.",
-      "Porovnajte RPMN a celkovú splatnú sumu.",
-      "Prečítajte si podmienky omeškania a predčasného splatenia."
+      "Z rozpočtu určte splátku, ktorú zvládnete aj s rezervou na nečakané výdavky.",
+      "Pri porovnateľnej výške a splatnosti úveru porovnajte RPMN, celkovú sumu na zaplatenie a povinné doplnkové služby.",
+      "Overte poskytovateľa, prečítajte si podmienky omeškania a predčasného splatenia a vyžiadajte si predzmluvné informácie."
     ],
     "source": {
       "label": "Národná banka Slovenska",
@@ -267,9 +267,9 @@
     "title": "Kontrola vozidla pred kúpou",
     "description": "Pred kúpou ojazdeného auta preverujte technický aj právny stav.",
     "steps": [
-      "Porovnajte VIN na vozidle, v dokladoch a v dostupnej servisnej dokumentácii; nezrovnalosti si nechajte vysvetliť pred zaplatením zálohy.",
-      "Dohodnite nezávislú prehliadku technického stavu a diagnostiku; pri elektromobile žiadajte aj dostupné informácie o stave trakčnej batérie.",
-      "Skontrolujte identitu predávajúceho, oprávnenie vozidlo predať a súlad údajov v zmluve s dokladmi; cenu a odovzdanie zaznamenajte písomne."
+      "Porovnajte VIN na vozidle, v dokladoch a v ponuke; nezhody si nechajte vysvetliť pred platbou.",
+      "Overte servisné záznamy, stav kilometrov, možné poškodenia a zhodu výbavy s inzerátom.",
+      "Dohodnite nezávislú technickú kontrolu a skúšobnú jazdu; výsledky a zistené nedostatky zaznamenajte pred podpisom."
     ],
     "source": {
       "label": "Slovensko.sk – overenie vozidla",
@@ -309,9 +309,9 @@
     "title": "Predaj vozidla",
     "description": "Pri predaji si vopred pripravte zmluvu a overte evidenčné povinnosti.",
     "steps": [
-      "Pripravte doklady k vozidlu, servisnú históriu a údaje potrebné na kúpnu zmluvu; upozornite kupujúceho na známe vady.",
-      "Do zmluvy uveďte správne identifikačné údaje strán a vozidla, cenu, spôsob úhrady a dohodnutý čas odovzdania.",
-      "Pred odovzdaním kľúčov potvrďte prijatie dohodnutej platby, spíšte odovzdávací protokol a dohodnite postup pri zmene držby a poistenia."
+      "Pripravte doklady vozidla, servisné podklady a pravdivý opis jeho stavu vrátane známych nedostatkov.",
+      "V kúpnej zmluve jednoznačne identifikujte vozidlo, strany, cenu, spôsob úhrady a okamih odovzdania.",
+      "Pred odovzdaním overte prijatie platby, spíšte odovzdávací protokol a skontrolujte postup zmeny držby a poistenia."
     ],
     "source": {
       "label": "Slovensko.sk – prevod držby vozidla",
