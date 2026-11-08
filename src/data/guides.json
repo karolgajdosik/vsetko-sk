@@ -234,12 +234,24 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktické redakčné odporúčania; aktuálne právne povinnosti, lehoty a poplatky neboli pri tomto rozšírení samostatne právne overené. Pred úkonom overte aktuálne pravidlá v uvedenom oficiálnom zdroji.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "practical": [
       {
         "title": "Overte poistné údaje",
         "body": "Pred uzavretím alebo obnovou PZP porovnajte identifikáciu vozidla, začiatok krytia, limity a kontakty na nahlásenie škody."
+      },
+      {
+        "title": "Porovnajte rozsah krytia",
+        "body": "Okrem ročnej ceny si porovnajte limity krytia, asistenciu, výluky a možnosti komunikácie pri škode. Zvážte, čo reálne potrebujete."
+      },
+      {
+        "title": "Skontrolujte správnosť zmluvy",
+        "body": "Pred potvrdením poistky porovnajte evidenčné číslo, VIN, údaje držiteľa a dátum začiatku poistenia s dokladmi vozidla."
+      },
+      {
+        "title": "Pripravte si postup pri škode",
+        "body": "Uložte si kontakt na asistenčnú službu, číslo poistnej zmluvy a postup nahlasovania poistnej udalosti, aby ste ich našli aj bez internetu."
       }
     ]
   },
@@ -443,12 +455,24 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktické redakčné odporúčania; aktuálne právne povinnosti, lehoty a poplatky neboli pri tomto rozšírení samostatne právne overené. Pred úkonom overte aktuálne pravidlá v uvedenom oficiálnom zdroji.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "practical": [
       {
         "title": "Skontrolujte údaje pred platbou",
         "body": "Overte evidenčné číslo, krajinu registrácie, typ známky a požadovaný začiatok platnosti na oficiálnom predajnom kanáli."
+      },
+      {
+        "title": "Vyhnite sa sprostredkovateľským príplatkom",
+        "body": "Pred nákupom skontrolujte adresu oficiálneho predajného portálu a celkovú cenu; niektoré sprostredkovateľské weby účtujú ďalšie služby."
+      },
+      {
+        "title": "Overte kategóriu a prípadnú výnimku",
+        "body": "Pri neobvyklom vozidle alebo nároku na oslobodenie si najprv overte aktuálne pravidlá u prevádzkovateľa systému, až potom vykonajte platbu."
+      },
+      {
+        "title": "Pred cestou skontrolujte platnosť",
+        "body": "Potvrdenie o platbe nie je náhradou za kontrolu zadaného EČV a dátumu platnosti. Údaje skontrolujte ešte pred vstupom na spoplatnený úsek."
       }
     ]
   },
@@ -2149,12 +2173,24 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktické redakčné odporúčania; aktuálne právne povinnosti, lehoty a poplatky neboli pri tomto rozšírení samostatne právne overené. Pred úkonom overte aktuálne pravidlá v uvedenom oficiálnom zdroji.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "practical": [
       {
         "title": "Zdokumentujte situáciu bezpečne",
         "body": "Najprv zaistite bezpečnosť osôb, potom podľa situácie privolajte pomoc a zaznamenajte účastníkov, miesto a poškodenia."
+      },
+      {
+        "title": "Zdravie má prednosť pred fotografiami",
+        "body": "Ak hrozí ďalšie nebezpečenstvo alebo je niekto zranený, zabezpečte pomoc a riaďte sa pokynmi záchranných zložiek. Dokumentujte až keď je to bezpečné."
+      },
+      {
+        "title": "Zachyťte súvislosti nehody",
+        "body": "Ak to podmienky umožňujú, odfoťte celkovú situáciu, dopravné značenie, poškodenia a kontaktné údaje svedkov bez zbytočného zverejňovania osobných údajov."
+      },
+      {
+        "title": "Neodhadujte povinnosť volať políciu",
+        "body": "Pri nejasnom priebehu, spore, zranení alebo ďalších okolnostiach si overte aktuálne pravidlá a postupujte podľa pokynov príslušných orgánov a poisťovne."
       }
     ]
   },
@@ -2180,12 +2216,24 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktické redakčné odporúčania; aktuálne právne povinnosti, lehoty a poplatky neboli pri tomto rozšírení samostatne právne overené. Pred úkonom overte aktuálne pravidlá v uvedenom oficiálnom zdroji.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "practical": [
       {
         "title": "Predíďte medzere v krytí",
         "body": "Pred prevzatím auta si overte vznik a trvanie PZP, údaje vozidla a potvrdenie o poistení."
+      },
+      {
+        "title": "Dohodnite dátum odovzdania vozidla",
+        "body": "Ešte pred prevzatím vozidla si s predávajúcim ujasnite termín odovzdania, zmenu držiteľa a nadväznosť poistného krytia."
+      },
+      {
+        "title": "Overte VIN a identifikáciu",
+        "body": "Údaje použité pri uzatvorení PZP porovnajte s osvedčením o evidencii a kúpnou zmluvou. Nejasnosti opravte pred potvrdením poistky."
+      },
+      {
+        "title": "Odložte si potvrdenie o krytí",
+        "body": "Majte dostupné potvrdenie o poistení a kontakt na poisťovňu. Nezamieňajte zaplatenie objednávky za potvrdený vznik poistného krytia."
       }
     ]
   },
@@ -2242,12 +2290,24 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktické redakčné odporúčania; aktuálne právne povinnosti, lehoty a poplatky neboli pri tomto rozšírení samostatne právne overené. Pred úkonom overte aktuálne pravidlá v uvedenom oficiálnom zdroji.",
     "sourceNote": "Zdrojový odkaz bol 8. 11. 2026 overený na dostupnosť a tematickú zhodu. Aktuálne právne lehoty, poplatky a individuálne podmienky overte v platných predpisoch; nejde o úplnú právnu revíziu návodu.",
     "practical": [
       {
         "title": "Overte vhodnosť pneumatík",
         "body": "Skontrolujte rozmery a indexy podľa vozidla, stav dezénu a vhodnosť pneumatík pre očakávané podmienky."
+      },
+      {
+        "title": "Kontrolujte tlak za studena",
+        "body": "Tlak pneumatík merajte podľa odporúčaní výrobcu vozidla a po výraznej zmene teploty ho znovu overte. Nezabudnite na snímače tlaku."
+      },
+      {
+        "title": "Skontrolujte viditeľnosť a kvapaliny",
+        "body": "Pred zimnou jazdou vyskúšajte stierače, ostrekovače, svetlá a odmrazovanie okien. Použite kvapalinu vhodnú na očakávané teploty."
+      },
+      {
+        "title": "Pripravte výbavu na zdržanie",
+        "body": "Na dlhšiu cestu si vezmite nabitý telefón, teplé oblečenie a základnú výbavu podľa podmienok trasy. Pri elektromobile plánujte aj energetickú rezervu."
       }
     ]
   },
@@ -2273,12 +2333,24 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktické redakčné odporúčania; aktuálne právne povinnosti, lehoty a poplatky neboli pri tomto rozšírení samostatne právne overené. Pred úkonom overte aktuálne pravidlá v uvedenom oficiálnom zdroji.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "practical": [
       {
         "title": "Uložte si potvrdenie o úhrade",
         "body": "Po kúpe overte EČV, krajinu registrácie a obdobie platnosti; potvrdenie si odložte pre prípad reklamácie."
+      },
+      {
+        "title": "Použite oficiálny predajný kanál",
+        "body": "Pred zadaním platobných údajov skontrolujte doménu predajcu, typ služby a konečnú sumu. Vyhnite sa nejasným sprostredkovateľským poplatkom."
+      },
+      {
+        "title": "Zvoľte správny začiatok platnosti",
+        "body": "Pred zaplatením si skontrolujte zvolený druh známky, obdobie a krajinu registrácie vozidla. Nespoliehajte sa na automaticky predvolený dátum."
+      },
+      {
+        "title": "Po nákupe nezabudnite na kontrolu",
+        "body": "Potvrdenie uschovajte a overte platnosť cez oficiálnu službu. Pri chybe v údajoch postupujte podľa aktuálnych reklamačných pravidiel."
       }
     ]
   }
