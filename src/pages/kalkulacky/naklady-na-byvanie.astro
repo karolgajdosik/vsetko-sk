@@ -50,6 +50,22 @@ const fields = [
           <div class="housing-result"><small>Zostatok príjmu po +20 %</small><strong id="housing-buffer">—</strong><small>Po odpočítaní pravidelných nákladov na bývanie, pred ostatnými životnými výdavkami.</small></div>
         </div>
       </section>
+      <section class="panel" aria-labelledby="housing-reserve-title">
+        <h3 id="housing-reserve-title">Plán finančnej rezervy na bývanie</h3>
+        <p>Vypočítajte rezervu na 3 alebo 6 mesiacov pravidelných nákladov na bývanie. Ide iba o rezervu na bývanie; celková pohotovostná rezerva domácnosti musí zohľadniť aj stravu, dopravu a ďalšie nevyhnutné výdavky.</p>
+        <div class="housing-fields">
+          <div class="housing-field"><label for="reserve-savings">Aktuálne dostupná rezerva (€)</label><input id="reserve-savings" type="number" min="0" max="5000000" step="0.01" value="1000" inputmode="decimal"/></div>
+          <div class="housing-field"><label for="reserve-monthly">Koľko môžete mesačne odkladať (€)</label><input id="reserve-monthly" type="number" min="0" max="5000000" step="0.01" value="150" inputmode="decimal"/></div>
+        </div>
+        <p id="reserve-error" role="alert" hidden>Rezerva a mesačné sporenie musia byť platné nezáporné čísla.</p>
+        <div class="housing-results-grid" aria-live="polite">
+          <div class="housing-result"><small>Cieľ na 3 mesiace bývania</small><strong id="reserve-three">—</strong></div>
+          <div class="housing-result"><small>Cieľ na 6 mesiacov bývania</small><strong id="reserve-six">—</strong></div>
+          <div class="housing-result"><small>Chýba do 6-mesačnej rezervy</small><strong id="reserve-gap">—</strong></div>
+          <div class="housing-result"><small>Čas do cieľa pri zvolenom sporení</small><strong id="reserve-time">—</strong></div>
+        </div>
+        <p class="housing-note">Výpočet predpokladá nemenné náklady a pravidelné sporenie bez úrokov. Jednorazové náklady sa do mesačnej rezervy nezapočítavajú.</p>
+      </section>
       <p class="housing-note">Mesačný priemer rozpočítava jednorazové výdavky rovnomerne počas zvoleného obdobia. Ročný priemer zodpovedá dvanástim takýmto priemerným mesiacom. Ak nezadáte príjem, podiel z príjmu sa nevypočíta.</p>
     </section>
     <button type="button" id="housing-print" class="housing-reset">Vytlačiť alebo uložiť výsledky ako PDF</button>
@@ -108,6 +124,24 @@ const fields = [
     }
     output('housing-buffer').textContent=income>0?euro(income-result.monthlyRecurring*1.2):'Nezadané';
   }
+  function updateReserve(){
+    const savings=el('reserve-savings').valueAsNumber;
+    const monthly=el('reserve-monthly').valueAsNumber;
+    const result=calculateHousingCosts(Object.fromEntries(ids.map(id=>[id,id==='income' && el(id).value.trim()==='' ? 0 : el(id).valueAsNumber])));
+    const valid=Boolean(result)&&Number.isFinite(savings)&&Number.isFinite(monthly)&&savings>=0&&monthly>=0&&savings<=5000000&&monthly<=5000000;
+    output('reserve-error').hidden=valid;
+    if(!valid){for(const id of ['reserve-three','reserve-six','reserve-gap','reserve-time'])output(id).textContent='—';return;}
+    const regular=result!.monthlyRecurring;
+    const gap=Math.max(0,regular*6-savings);
+    output('reserve-three').textContent=euro(regular*3);
+    output('reserve-six').textContent=euro(regular*6);
+    output('reserve-gap').textContent=euro(gap);
+    output('reserve-time').textContent=gap===0?'Cieľ splnený':monthly===0?'Bez sporenia nedosiahnuteľné':Math.ceil(gap/monthly).toLocaleString('sk-SK')+' mesiacov';
+  }
+  document.getElementById('housing-form')?.addEventListener('input',updateReserve);
+  document.getElementById('housing-form')?.addEventListener('reset',()=>requestAnimationFrame(updateReserve));
+  document.getElementById('reserve-savings')?.addEventListener('input',updateReserve);
+  document.getElementById('reserve-monthly')?.addEventListener('input',updateReserve);
   document.getElementById('housing-form')?.addEventListener('input',update);
   document.getElementById('housing-form')?.addEventListener('reset',()=>requestAnimationFrame(update));
   document.getElementById("housing-print")?.addEventListener("click",()=>window.print());
@@ -120,4 +154,5 @@ const fields = [
     catch{status.textContent="Kopírovanie nie je dostupné. Použite tlač alebo uloženie do PDF.";}
   });
   update();
+  updateReserve();
 </script>
