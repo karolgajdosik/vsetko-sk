@@ -126,6 +126,10 @@
       {
         "title": "Preverte splátku vo vlastnom rozpočte",
         "body": "Okrem pravidelnej splátky počítajte s rezervou na výpadok príjmu a nečakané výdavky. Schválenie úveru samo osebe neznamená, že splácanie bude pohodlné."
+      },
+      {
+        "title": "Skontrolujte podmienky predčasného splatenia",
+        "body": "Pred podpisom si v zmluve vyhľadajte postup a možné náklady pri predčasnom splatení. Požiadajte veriteľa o vysvetlenie, ako sa zmení celková splatná suma, ak úver splatíte skôr."
       }
     ]
   },
@@ -1715,10 +1719,10 @@
     "category": "financie",
     "description": "Podklady a porovnávanie bankových ponúk",
     "steps": [
-      "Zistite, či sa téma „prvá žiadosť o hypotéku“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Zostavte prehľad čistých príjmov, pravidelných výdavkov a všetkých existujúcich úverových záväzkov.",
+      "Zistite dostupné vlastné zdroje, vytvorte rezervu a požiadajte banku o zoznam dokladov podľa typu príjmu a nehnuteľnosti.",
+      "Porovnajte písomné ponuky bánk pri rovnakej výške úveru a splatnosti; sledujte RPMN, fixáciu, poplatky aj podmienky čerpania.",
+      "Pred podpisom rezervačnej a úverovej dokumentácie overte termíny, financovanie, zabezpečenie a následky prípadného neschválenia úveru."
     ],
     "source": {
       "label": "NBS – schopnosť splácať úver (DSTI)",
@@ -1797,6 +1801,10 @@
       {
         "title": "Oddeľte schválenie úveru od kúpy",
         "body": "Pred podpisom rezervačnej alebo kúpnej zmluvy si vyjasnite podmienky financovania, vlastné zdroje a čo sa stane, ak banka úver neschváli."
+      },
+      {
+        "title": "Preverte podmienky čerpania vopred",
+        "body": "Overte si, kedy banka skutočne uvoľní peniaze, aké doklady a zabezpečenie vyžaduje a či termíny zodpovedajú kúpnej zmluve. Samotné schválenie hypotéky ešte neznamená čerpanie."
       }
     ]
   },
@@ -1849,10 +1857,10 @@
     "category": "financie",
     "description": "Na čo sa zamerať pri porovnávaní úverov",
     "steps": [
-      "Zistite, či sa téma „úrok a rpmn – rozdiel“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Pri každej ponuke si zapíšte úrokovú sadzbu, RPMN, výšku úveru, dobu splácania a celkovú splatnú sumu.",
+      "Skontrolujte, ktoré poplatky a doplnkové služby sú zahrnuté v RPMN a ktoré výdavky môžu vzniknúť samostatne.",
+      "Porovnávajte ponuky s rovnakou istinou, splatnosťou a porovnateľnými podmienkami; pri odlišných parametroch neposudzujte iba jedno percento.",
+      "Pri spotrebiteľskom úvere môžete použiť informatívnu kalkulačku NBS, najprv však overte, či podporuje daný typ zmluvy."
     ],
     "source": {
       "label": "Národná banka Slovenska",
@@ -1879,6 +1887,10 @@
       {
         "title": "Porovnávajte rovnaké parametre",
         "body": "Zvoľte rovnakú istinu, dobu splácania a obdobné podmienky. Inak rozdiel v RPMN nemusí vyjadrovať rozdiel medzi porovnateľnými ponukami."
+      },
+      {
+        "title": "Pýtajte si celkovú splatnú sumu",
+        "body": "Ak má jedna ponuka nižší úrok, ale vyššie poplatky alebo povinné doplnkové služby, nemusí byť lacnejšia. Požiadajte o rozpis splátok a celkovej sumy, ktorú zaplatíte za celé obdobie."
       }
     ]
   },
