@@ -510,5 +510,96 @@
     "description": "Doklady a technická príprava.",
     "keywords": "stk technicka kontrola"
   },
-  {"title":"Čistá mzda 2026","category":"Financie","url":"/kalkulacky/cista-mzda/","description":"Výpočet čistej mzdy zamestnanca: odvody, daň a nezdaniteľná časť na rok 2026.","keywords":"cista mzda vypocet hruba cista zamestnanec odvody dan 2026 vyplata"}
+  {"title":"Čistá mzda 2026","category":"Financie","url":"/kalkulacky/cista-mzda/","description":"Výpočet čistej mzdy zamestnanca: odvody, daň a nezdaniteľná časť na rok 2026.","keywords":"cista mzda vypocet hruba cista zamestnanec odvody dan 2026 vyplata"},
+  {
+    "title": "Bývanie a nehnuteľnosti",
+    "category": "Bývanie",
+    "url": "/byvanie/",
+    "description": "Nástroje na kúpu, financovanie a prevádzku domácnosti.",
+    "keywords": "byt dom najom nehnutelnosti hypoteka"
+  },
+  {
+    "title": "Práca, rodina a vzdelávanie",
+    "category": "Sprievodca",
+    "url": "/zivot-a-vzdelavanie/",
+    "description": "Rozcestník k životným situáciám v práci, podnikaní a rodine.",
+    "keywords": "zivot skola praca rodina podnikanie vzdelavanie"
+  },
+  {
+    "title": "Časté otázky",
+    "category": "Sprievodca",
+    "url": "/faq/",
+    "description": "Odpovede a odkazy k výpočtom, dokladom a kontrolným zoznamom.",
+    "keywords": "faq pomoc otazky"
+  },
+  {
+    "title": "Generátor reklamačného listu",
+    "category": "Nástroje",
+    "url": "/generator-reklamacie/",
+    "description": "Pripravte si reklamačný list priamo v prehliadači.",
+    "keywords": "reklamacia reklamovat vzor list"
+  },
+  {
+    "title": "Kúpa nehnuteľnosti",
+    "category": "Bývanie",
+    "url": "/kupa-nehnutelnosti/",
+    "description": "Skontrolujte rozpočet, dokumenty a odovzdanie kupovanej nehnuteľnosti.",
+    "keywords": "kupa bytu domu kataster kontrolny zoznam"
+  },
+  {
+    "title": "Založenie živnosti",
+    "category": "Úrady",
+    "url": "/zalozenie-zivnosti/",
+    "description": "Kontrolný zoznam na prípravu a ohlásenie živnosti.",
+    "keywords": "ohlasenie zivnost zivnostnik zacat podnikat"
+  },
+  {
+    "title": "Úmrtie v rodine",
+    "category": "Úrady",
+    "url": "/umrtie-v-rodine/",
+    "description": "Postup pri vybavovaní úmrtia a príprave na dedičské konanie.",
+    "keywords": "umrtie dedicstvo pohreb pozostalost zosnuly"
+  },
+  {
+    "title": "Strata dokladov",
+    "category": "Úrady",
+    "url": "/strata-dokladov/",
+    "description": "Čo urobiť po strate dokladu a ako vybaviť náhradu.",
+    "keywords": "strata kradez dokladov obciansky pas"
+  },
+  {
+    "title": "Celkové náklady na bývanie",
+    "category": "Financie",
+    "url": "/kalkulacky/naklady-na-byvanie/",
+    "description": "Spočítajte mesačné, ročné a jednorazové výdavky domácnosti.",
+    "keywords": "naklady byvanie vydavky najom energie rozpocet"
+  },
+  {
+    "title": "Moje kontrolné zoznamy",
+    "category": "Nástroje",
+    "url": "/moje-kontrolne-zoznamy/",
+    "description": "Otvorte rozpracované zoznamy a preneste uložený postup.",
+    "keywords": "moje kontrolne zoznamy postup zaloha"
+  },
+  {
+    "title": "Sťahovanie a odovzdanie bytu",
+    "category": "Bývanie",
+    "url": "/stahovanie/",
+    "description": "Naplánujte si sťahovanie, náklady a odovzdávací protokol.",
+    "keywords": "stahovanie bytu dom protokol odovzdanie rozpocet"
+  },
+  {
+    "title": "EV vs. benzín vs. diesel",
+    "category": "Auto",
+    "url": "/auto/porovnanie-nakladov/",
+    "description": "Porovnajte celkové náklady vozidiel vrátane energie a straty hodnoty.",
+    "keywords": "porovnanie ev elektromobil benzin nafta diesel energia auto"
+  },
+  {
+    "title": "Porovnanie troch hypoték",
+    "category": "Financie",
+    "url": "/financie/porovnanie-hypotek/",
+    "description": "Porovnajte tri ponuky podľa splátok, úrokov a poplatkov.",
+    "keywords": "porovnanie ponuk hypoteka hypoteky kalkulacka banka"
+  }
 ]
