@@ -230,7 +230,7 @@ try {
   await page.goto(base+'/kontakt/',{waitUntil:'load'});
   assert.ok(await page.getByRole('heading',{name:'Kontakt a spätná väzba'}).isVisible());
   assert.ok(await page.getByRole('link',{name:'Nahlásiť chybu na GitHube'}).isVisible(),'Feedback channel must be discoverable');
-  assert.ok(await page.getByText('Hlásenie bude verejne viditeľné.',{exact:false}).isVisible(),'Public feedback privacy warning must be visible');
+  assert.ok(await page.getByText('Hlásenie uvidia ľudia s prístupom do repozitára.',{exact:false}).isVisible(),'Private repository feedback visibility warning must be visible');
   await page.close();
  }
  console.log('Browser layout and mobile interaction checks passed across 7 widths and 10 sections');
