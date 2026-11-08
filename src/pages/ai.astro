@@ -104,8 +104,10 @@ form.addEventListener('submit',async e=>{
     const validSources=result.ok&&Array.isArray(data?.sources)?data.sources.filter((item:unknown):item is {url:string}=>typeof item==='object'&&item!==null&&isInternal((item as {url?:unknown}).url)&&knownSourceUrls.has((item as {url:string}).url)):[];
     const hasGrounding=validSources.length>0;
     const isGenerated=data?.mode==='ai';
+    // Never present API-provided links as evidence when its answer was rejected.
+    const acceptedAnswer=result.ok&&Boolean(answer)&&(!isGenerated||hasGrounding);
     response.textContent=!result.ok||!answer?'Asistent teraz neposkytol overiteľnú odpoveď. Nižšie nájdete iba tematicky súvisiace stránky portálu; ich obsah si overte v oficiálnych zdrojoch.':isGenerated&&!hasGrounding?'Model neposkytol odpoveď s dohľadateľným podkladom v katalógu portálu. Z bezpečnostných dôvodov ju nezobrazujem. Pozrite si súvisiace návody nižšie.':isGenerated?'Orientačná odpoveď AI (nie overený úradný postup):\n'+answer+'\n\nUvedené odkazy sú tematické podklady, nie potvrdenie každej vety odpovede.':answer;
-    if(result.ok&&hasGrounding){
+    if(acceptedAnswer&&hasGrounding){
       const links=document.createElement('div');links.className='ai-sources';
       const label=document.createElement('strong');label.textContent='Odkazy uvedené v odpovedi:';links.append(label);
       let count=0;
@@ -115,7 +117,7 @@ form.addEventListener('submit',async e=>{
       }
       if(count)response.append(links);
     }
-    if(result.ok&&Array.isArray(data.officialSources)){
+    if(acceptedAnswer&&Array.isArray(data.officialSources)){
       const official=document.createElement('div');official.className='ai-sources';
       const title=document.createElement('strong');title.textContent='Odkazy na oficiálne zdroje:';official.append(title);
       let count=0;
