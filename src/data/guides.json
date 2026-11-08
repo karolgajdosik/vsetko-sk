@@ -1651,6 +1651,18 @@
       {
         "title": "Overte celý obchodný postup",
         "body": "Pred zálohou preverujte vlastníctvo, financovanie, technický stav, ťarchy a bezpečný spôsob úhrady kúpnej ceny."
+      },
+      {
+        "title": "Skontrolujte podmienky rezervačnej platby",
+        "body": "Pred zaplatením zálohy si nechajte písomne vysvetliť, komu peniaze idú, za akých podmienok sa vracajú a čo sa stane, ak banka financovanie neschváli."
+      },
+      {
+        "title": "Zlaďte úschovu s katastrálnym konaním",
+        "body": "S právnikom alebo bankou nastavte uvoľnenie kúpnej ceny až po splnení dohodnutých podmienok; osobitne riešte existujúce záložné práva a výmaz tiarch."
+      },
+      {
+        "title": "Spíšte presný odovzdávací protokol",
+        "body": "Pri prevzatí odfoťte stavy meračov, zapíšte počet kľúčov a čipov, vady a odovzdané dokumenty. Kópiu protokolu si ponechajte pre správcu aj dodávateľov energií."
       }
     ]
   },
@@ -1660,10 +1672,10 @@
     "category": "financie",
     "description": "Príprava dokumentov a prevodu nehnuteľnosti",
     "steps": [
-      "Zistite, či sa téma „predaj bytu“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Overte aktuálny list vlastníctva, spoluvlastníkov, záložné práva, vecné bremená a prípadné plomby; pripravte informácie o byte a správe domu.",
+      "Zistite zostatok hypotéky a podmienky vyplatenia či výmazu záložného práva, ak sa bytu týkajú.",
+      "S nezávislým právnikom pripravte rezervačnú a kúpnu zmluvu, spôsob bezpečnej úhrady a pravidlá odovzdania bytu.",
+      "Dohodnite, kto podá návrh na vklad a kto sleduje konanie; po splnení zmluvných podmienok podpíšte odovzdávací protokol a oznámte zmenu správcovi."
     ],
     "source": {
       "label": "Slovensko.sk – katastrálne konanie",
@@ -1682,6 +1694,18 @@
       {
         "title": "Pripravte doklady o byte",
         "body": "Zostavte list vlastníctva, podklady k správe domu, energetické informácie a prehľad prípadných záväzkov."
+      },
+      {
+        "title": "Vyjasnite vlastníkov a súhlasy",
+        "body": "Porovnajte údaje v zmluve s listom vlastníctva a vopred riešte spoluvlastníkov či ďalšie osoby, ktorých práva môžu ovplyvniť prevod. Nejasnosti nech preverí právnik."
+      },
+      {
+        "title": "Bezpečne nastavte vyplatenie kúpnej ceny",
+        "body": "V zmluve presne určte, kedy sa peniaze uvoľnia a ako sa vyplatí prípadná hypotéka. Zvážte bankovú alebo notársku úschovu namiesto priamej platby vopred."
+      },
+      {
+        "title": "Zaznamenajte stav pri odovzdaní",
+        "body": "Spíšte dátum prevzatia, stavy meračov, počet kľúčov, známe vady a odovzdané dokumenty. Uchovajte si podpísaný protokol a potvrdenia o oznámení zmeny správcovi."
       }
     ]
   },
@@ -2327,10 +2351,10 @@
     "category": "auto",
     "description": "Porovnanie financovania auta",
     "steps": [
-      "Zistite, či sa téma „leasing alebo úver na auto“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Vyžiadajte si na rovnaké vozidlo porovnateľné písomné ponuky úveru a leasingu vrátane akontácie, splátok, poplatkov a zostatkovej hodnoty.",
+      "Overte, kto bude vlastníkom vozidla počas financovania a aké sú pravidlá poistenia, servisu, nájazdu a úprav vozidla.",
+      "Vypočítajte celkovú sumu zaplatenú počas zmluvy vrátane povinného poistenia, prípadnej poslednej splátky a nákladov pri predčasnom ukončení.",
+      "Pred podpisom si prečítajte sankcie, podmienky predčasného splatenia či odkúpenia vozidla a postup pri škodovej udalosti."
     ],
     "source": {
       "label": "NBS – RPMN a porovnanie financovania",
@@ -2349,6 +2373,18 @@
       {
         "title": "Porovnajte celkové náklady",
         "body": "Pri rovnakom vozidle spočítajte akontáciu, splátky, poistenie, poplatky a podmienky predčasného ukončenia."
+      },
+      {
+        "title": "Nepozerajte len na mesačnú splátku",
+        "body": "Pri porovnaní použite rovnakú cenu auta, dĺžku financovania a akontáciu. Zahrňte aj jednorazové poplatky, konečné odkúpenie a náklady na poistenie."
+      },
+      {
+        "title": "Overte vlastníctvo a obmedzenia",
+        "body": "Pri leasingu si vyžiadajte pravidlá používania vozidla, limity nájazdu, servisné povinnosti a podmienky predaja či prevodu. Pri úvere si overte prípadné zabezpečenie."
+      },
+      {
+        "title": "Premyslite si predčasné ukončenie a škodu",
+        "body": "Požiadajte poskytovateľa o modelový výpočet predčasného vyrovnania a vysvetlenie postupu pri totálnej škode. Skontrolujte, komu poisťovňa vypláca poistné plnenie."
       }
     ]
   },
