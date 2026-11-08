@@ -260,8 +260,8 @@
       "Overte aktuálny postup zmeny držiteľa."
     ],
     "source": {
-      "label": "Ministerstvo vnútra SR",
-      "url": "https://www.minv.sk/"
+      "label": "Slovensko.sk – prevod držby vozidla",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_ziadost-o-prevod-drzby-vozidla"
     },
     "updated": "22. 10. 2026",
     "keywords": "predaj vozidla",
@@ -271,7 +271,7 @@
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
     "practical": [
       {
         "title": "Spíšte odovzdávací protokol",
@@ -731,8 +731,8 @@
       "Pred právnymi rozhodnutiami si overte aktuálny postup."
     ],
     "source": {
-      "label": "Ministerstvo spravodlivosti SR",
-      "url": "https://www.justice.gov.sk/"
+      "label": "Ministerstvo spravodlivosti SR – dedičské konanie",
+      "url": "https://www.justice.gov.sk/tlacovespravy/tlacova-sprava-3385/"
     },
     "updated": "22. 10. 2026",
     "keywords": "dedicske konanie",
@@ -743,7 +743,7 @@
       "Ak existuje závet alebo dôležité listiny, oznámte to notárovi."
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
     "detail": {
       "summary": "Dedičské konanie sa spravidla začne po oznámení úmrtia súdu; súd poverí notára ako súdneho komisára. Dedičia si pripravia informácie o majetku, záväzkoch a prípadnom závete.",
       "before": [
@@ -988,8 +988,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Ministerstvo vnútra SR",
-      "url": "https://www.minv.sk/"
+      "label": "Slovensko.sk – žiadosť o zmenu mena a priezviska",
+      "url": "https://www.slovensko.sk/static/eForm/dataset/MZV.RequestNameChange/2.2/Content/form.1014.html"
     },
     "updated": "22. 10. 2026",
     "keywords": "zmena mena alebo priezviska",
@@ -999,7 +999,7 @@
       "Dokumenty súvisiace s konkrétnou žiadosťou"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
     "practical": [
       {
         "title": "Zmapujte doklady na výmenu",
@@ -1245,8 +1245,8 @@
       "Pri nejasnostiach požiadajte príslušný katastrálny odbor alebo právnika o vysvetlenie."
     ],
     "source": {
-      "label": "Úrad geodézie, kartografie a katastra",
-      "url": "https://www.skgeodesy.sk/"
+      "label": "ÚGKK SR – overenie vlastníctva",
+      "url": "https://www.skgeodesy.sk/sk/"
     },
     "updated": "22. 10. 2026",
     "keywords": "list vlastníctva a kataster",
@@ -1257,7 +1257,7 @@
       "Rozlišujte informatívny náhľad od úradne použiteľného výpisu."
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Oficiálne zdroje a nadväzujúce služby sú uvedené v časti Podrobné informácie.",
+    "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
     "detail": {
       "summary": "List vlastníctva slúži na overenie vlastníka, podielov a evidovaných práv k nehnuteľnosti. Pred kúpou si vždy skontrolujte aktuálny stav vrátane tiarch a plomb.",
       "before": [
@@ -1426,8 +1426,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Úrad geodézie, kartografie a katastra",
-      "url": "https://www.skgeodesy.sk/"
+      "label": "ÚGKK SR – kataster a vlastníctvo",
+      "url": "https://www.skgeodesy.sk/sk/"
     },
     "updated": "22. 10. 2026",
     "keywords": "predaj bytu",
@@ -1437,7 +1437,7 @@
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
     "practical": [
       {
         "title": "Pripravte doklady o byte",
@@ -1457,7 +1457,7 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Národná banka Slovenska",
+      "label": "NBS – schopnosť splácať úver (DSTI)",
       "url": "https://nbs.sk/financna-stabilita/nastroje-fs/dsti/"
     },
     "updated": "8. 11. 2026",
@@ -1468,7 +1468,7 @@
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
     "verification": "Obsah a uvedený oficiálny zdroj boli vecne skontrolované 8. 11. 2026; individuálne podmienky, sadzby a poplatky sa môžu meniť.",
-    "sourceNote": "NBS opisuje ukazovateľ schopnosti splácať DSTI vrátane zohľadnenia existujúcich dlhov a životného minima; konečné posúdenie vykonáva veriteľ.",
+    "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
     "detail": {
       "summary": "Hypotéku porovnávaj podľa celkových nákladov a schopnosti splácať, nie iba podľa reklamného úroku. Rozhodujúce sú príjmy, existujúce záväzky, vlastné zdroje a hodnota zabezpečenia.",
       "before": [
@@ -1548,8 +1548,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Národná banka Slovenska",
-      "url": "https://nbs.sk/"
+      "label": "NBS – refinancovanie a zmena podmienok hypotéky",
+      "url": "https://nbs.sk/aktuality/viete-aky-je-rozdiel-medzi-uvermi-znovu-prerokovanymi-a-refinancovanymi/"
     },
     "updated": "22. 10. 2026",
     "keywords": "koniec fixácie hypotéky",
@@ -1559,7 +1559,7 @@
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
     "practical": [
       {
         "title": "Vytvorte si kalendár fixácie",
@@ -1789,8 +1789,8 @@
       "Po zmene držiteľa skontrolujte nové doklady a potvrdenia."
     ],
     "source": {
-      "label": "Ministerstvo vnútra SR",
-      "url": "https://www.minv.sk/"
+      "label": "Slovensko.sk – prevod držby vozidla",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_ziadost-o-prevod-drzby-vozidla"
     },
     "updated": "22. 10. 2026",
     "keywords": "prepis auta na slovensku",
@@ -1800,7 +1800,7 @@
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Odkaz smeruje na oficiálny portál organizácie, nie nevyhnutne na konkrétny postup.",
+    "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
     "detail": {
       "summary": "Pri zmene držiteľa alebo vlastníka vozidla si najskôr ujasni typ prevodu, údaje strán a poistenie. Podrobnosti sa môžu líšiť podľa toho, či ide o predaj, darovanie, leasing alebo dovoz.",
       "before": [
