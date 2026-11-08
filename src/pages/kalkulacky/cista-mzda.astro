@@ -1,0 +1,143 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const socialItems = [
+  { id: 'sick', label: 'Nemocenské poistenie', percent: 1.4 },
+  { id: 'oldAge', label: 'Starobné poistenie', percent: 4 },
+  { id: 'invalidity', label: 'Invalidné poistenie', percent: 3 },
+  { id: 'unemployment', label: 'Poistenie v nezamestnanosti', percent: 1 },
+];
+---
+<Base title="Čistá mzda 2026 – kalkulačka na Slovensku" description="Orientačný výpočet čistej mesačnej a ročnej mzdy na Slovensku v roku 2026. Zobrazuje odvody, nezdaniteľnú časť a progresívnu daň.">
+  <main class="wrap main paycheck" id="obsah">
+    <nav class="crumbs" aria-label="Navigácia"><a href="/kalkulacky/">Kalkulačky</a> / Čistá mzda</nav>
+    <p class="eyebrow">Financie · pravidlá roku 2026 · bezplatne</p>
+    <h1>Koľko dostanete na účet z hrubej mzdy?</h1>
+    <p class="intro">Vypočítajte orientačnú čistú mzdu bežného zamestnanca na Slovensku v roku 2026. Získate prehľad odvodov, preddavku na daň aj ročný súhrn. Výpočet prebieha len vo vašom prehliadači.</p>
+
+    <div class="paycheck-layout">
+      <section class="panel" aria-labelledby="paycheck-input-heading">
+        <h2 id="paycheck-input-heading">Zadajte mesačnú hrubú mzdu</h2>
+        <form id="paycheck-form" novalidate>
+          <label class="input-label" for="paycheck-gross">Hrubá mesačná mzda (€)</label>
+          <input id="paycheck-gross" type="number" min="0" max="100000" step="0.01" value="1500" inputmode="decimal" required />
+          <label class="paycheck-choice"><input id="paycheck-allowance" type="checkbox" checked /> Uplatňujem mesačnú nezdaniteľnú časť na daňovníka (497,23 €)</label>
+          <p class="muted">Zaškrtnite, ak ste zamestnávateľovi podpísali vyhlásenie na mesačné uplatnenie nezdaniteľnej časti. Bez vyhlásenia sa môže uplatniť až v ročnom zúčtovaní.</p>
+          <button type="reset" class="reset-btn">Obnoviť hodnoty</button>
+          <p role="alert" id="paycheck-error" hidden>Zadajte platnú nezápornú hrubú mzdu najviac 100 000 €.</p>
+        </form>
+        <p class="limitation"><strong>Model:</strong> bežný zamestnanec bez zdravotného postihnutia a bez osobitných odvodových výnimiek, s jedným pravidelným mesačným príjmom. Nie sú započítané daňový bonus na dieťa, dávky, exekúcie, dohody ani zmeny počas roka. Konečná ročná daň sa môže líšiť, najmä pre krátenie ročnej nezdaniteľnej časti pri vyšších príjmoch.</p>
+      </section>
+
+      <section class="panel paycheck-results" aria-labelledby="paycheck-result-heading">
+        <h2 id="paycheck-result-heading">Výsledok výpočtu</h2>
+        <p class="result-label">Orientačná čistá mesačná mzda</p>
+        <output id="paycheck-net" class="net" aria-live="polite">—</output>
+        <div class="stats">
+          <div><span>Hrubá mzda</span><strong id="paycheck-gross-out">—</strong></div>
+          <div><span>Sociálne poistenie (spolu 9,4 %)</span><strong id="paycheck-social">—</strong></div>
+          <div><span>Zdravotné poistenie (5 %)</span><strong id="paycheck-health">—</strong></div>
+          <div><span>Uplatnená nezdaniteľná časť</span><strong id="paycheck-allowance-out">—</strong></div>
+          <div><span>Základ pre mesačný preddavok</span><strong id="paycheck-taxbase">—</strong></div>
+          <div><span>Preddavok na daň (19–35 %)</span><strong id="paycheck-tax">—</strong></div>
+        </div>
+        <h3>Rozpis sociálneho poistenia</h3>
+        <div class="stats minor">
+          {socialItems.map(item => <div><span>{item.label} ({item.percent} %)</span><strong id={'paycheck-' + item.id}>—</strong></div>)}
+        </div>
+        <h3>Ročný orientačný prehľad</h3>
+        <div class="stats">
+          <div><span>Hrubý príjem za 12 mesiacov</span><strong id="paycheck-year-gross">—</strong></div>
+          <div><span>Čistý príjem pri rovnakom mesačnom zárobku</span><strong id="paycheck-year-net">—</strong></div>
+        </div>
+        <div class="actions">
+          <button id="paycheck-print" type="button">Vytlačiť / uložiť PDF</button>
+          <button id="paycheck-copy" type="button" class="secondary">Kopírovať súhrn</button>
+        </div>
+        <p id="paycheck-copy-status" role="status" aria-live="polite"></p>
+      </section>
+    </div>
+
+    <section class="panel" aria-labelledby="paycheck-method-heading">
+      <h2 id="paycheck-method-heading">Ako sa výpočet počíta</h2>
+      <p>Pre štandardného zamestnanca sa v roku 2026 používa sociálne poistenie 1,4 % + 4 % + 3 % + 1 % (najviac z mesačného vymeriavacieho základu 16 764 €) a zdravotné poistenie 5 %. Voliteľná mesačná nezdaniteľná časť je 497,23 €. Mesačný zdaniteľný základ sa zdaňuje postupne sadzbami 19 %, 25 %, 30 % a 35 % pri hraniciach 3 665,28 €, 5 029,10 € a 6 250,86 €. Zobrazené hodnoty sú informatívne a jednotlivé zložky sa zaokrúhľujú na centy.</p>
+      <p>Pri veľmi nízkych príjmoch, zdravotnom postihnutí, dôchodkoch, viacerých zamestnaniach alebo špecifickom právnom režime môžu platiť ďalšie pravidlá. Táto kalkulačka nie je mzdovým softvérom a nepredstavuje potvrdenie nároku na daňový bonus.</p>
+      <h3>Overiteľné zdroje a platnosť</h3>
+      <ul>
+        <li><a href="https://www.financnasprava.sk/sk/podnikatelia/dane/dan-z-prijmov/zamestnavatelia/info-dp-zamestnavatel" target="_blank" rel="noopener noreferrer">Finančná správa SR – zdaniteľná mzda, mesačné pásma a nezdaniteľná časť</a></li>
+        <li><a href="https://www.socpoist.sk/socialne-poistenie/platenie-poistneho/tabulky-platenia-poistneho/tabulky-platenia-poistneho-od-1-6" target="_blank" rel="noopener noreferrer">Sociálna poisťovňa – sadzby a maximálny vymeriavací základ v roku 2026</a></li>
+        <li><a href="https://cms.vszp.sk/showdoc.do?docid=942&forceBrowserDetector=blind" target="_blank" rel="noopener noreferrer">VšZP – sadzby zdravotného poistenia od 1. januára 2026</a></li>
+      </ul>
+      <p class="muted">Platnosť parametrov: rok 2026. Zdroje skontrolované 8. 11. 2026. Pri legislatívnej zmene alebo v ďalšom roku je potrebné parametre aktualizovať.</p>
+      <p><a href="/kalkulacky/">← Späť na všetky kalkulačky</a></p>
+    </section>
+  </main>
+  <style>
+    .paycheck{padding-block:1.5rem 3rem}.crumbs{font-size:.9rem;margin-bottom:1rem;color:var(--muted,#667085)}.intro{max-width:65rem;line-height:1.65}.paycheck-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:1.2rem;margin:1.5rem 0}.panel{padding:1.3rem;border:1px solid #8290a544;border-radius:1rem}.panel h2{margin-top:0}.input-label{font-weight:700;display:block;margin:.5rem 0}.paycheck input[type=number]{font:inherit;font-size:1.2rem;max-width:100%;width:100%;border:1px solid #94a3b8;border-radius:.6rem;padding:.75rem}.paycheck-choice{display:flex;align-items:flex-start;gap:.65rem;margin:1rem 0;font-weight:600}.paycheck-choice input{width:1.2rem;height:1.2rem;margin-top:.15rem}.muted,.limitation{font-size:.9rem;line-height:1.6;color:var(--muted,#667085)}.limitation{margin-top:1.5rem}.result-label{margin-bottom:0}.net{display:block;font-size:clamp(2rem,5vw,3.3rem);font-weight:800;margin:.3rem 0 1rem;color:var(--primary,#087b83)}.stats{display:grid;gap:0}.stats>div{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.65rem 0;border-bottom:1px solid #94a3b844}.stats span{flex:1}.stats strong{white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums}.minor{font-size:.91rem}.actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.2rem}.actions button,.reset-btn{border-radius:.6rem;border:1px solid #8290a588;padding:.7rem 1rem;cursor:pointer;font:inherit;font-weight:600}.actions button:first-child{background:var(--primary,#087b83);color:white}.secondary{background:transparent;color:inherit}#paycheck-error{color:#a11b27;font-weight:600}.panel ul{padding-left:1.3rem;line-height:1.85;overflow-wrap:anywhere}@media(max-width:810px){.paycheck-layout{grid-template-columns:1fr}.panel{padding:1rem}}@media print{.paycheck-layout{display:block}.paycheck-layout .panel{break-inside:avoid;margin-bottom:1rem}.paycheck .actions,.paycheck .reset-btn,.paycheck .crumbs{display:none!important}.paycheck .panel{box-shadow:none!important}}
+  </style>
+  <script>
+    const money = new Intl.NumberFormat('sk-SK', { style:'currency', currency:'EUR' });
+    const input = (id: string) => document.getElementById(id) as HTMLInputElement;
+    const out = (id: string) => document.getElementById(id) as HTMLElement;
+    const round = (number: number) => Math.round((number + Number.EPSILON) * 100) / 100;
+    const down = (number: number) => Math.floor((number + 1e-9) * 100) / 100;
+    const bands = [[3665.28, .19], [5029.10, .25], [6250.86, .30], [Infinity, .35]] as const;
+    function monthlyTax(base: number) {
+      let rest = Math.max(0, base), lower = 0, total = 0;
+      for (const [upper, rate] of bands) {
+        const slice = Math.min(rest, upper - lower);
+        if (slice <= 0) break;
+        total += slice * rate;
+        rest -= slice;
+        lower = upper;
+      }
+      return round(total);
+    }
+    function calculate() {
+      const gross = input('paycheck-gross').valueAsNumber;
+      const valid = Number.isFinite(gross) && gross >= 0 && gross <= 100000;
+      out('paycheck-error').hidden = valid;
+      const ids = ['net','gross-out','social','health','allowance-out','taxbase','tax','year-gross','year-net','sick','oldAge','invalidity','unemployment'];
+      if (!valid) {
+        for (const id of ids) out('paycheck-' + id).textContent = '—';
+        return;
+      }
+      const base = Math.min(gross, 16764);
+      const sick = down(base * .014), oldAge = down(base * .04);
+      const invalidity = down(base * .03), unemployment = down(base * .01);
+      const social = round(sick + oldAge + invalidity + unemployment);
+      const health = round(gross * .05);
+      const allowance = input('paycheck-allowance').checked ? 497.23 : 0;
+      const taxable = Math.max(0, round(gross - social - health - allowance));
+      const tax = monthlyTax(taxable);
+      const net = round(gross - social - health - tax);
+      const values: Record<string,number> = {
+        net, 'gross-out': gross, social, health, 'allowance-out': Math.min(allowance,Math.max(0,gross-social-health)),
+        taxbase: taxable, tax, 'year-gross': round(gross*12), 'year-net': round(net*12), sick, oldAge, invalidity, unemployment
+      };
+      for (const [id, value] of Object.entries(values)) out('paycheck-' + id).textContent = money.format(value);
+    }
+    const form = document.getElementById('paycheck-form') as HTMLFormElement;
+    form.addEventListener('input', calculate);
+    form.addEventListener('change', calculate);
+    form.addEventListener('reset', () => requestAnimationFrame(calculate));
+    document.getElementById('paycheck-print')?.addEventListener('click', () => window.print());
+    document.getElementById('paycheck-copy')?.addEventListener('click', async () => {
+      const status = out('paycheck-copy-status');
+      if (!out('paycheck-error').hidden) { status.textContent = 'Najprv opravte vstupné údaje.'; return; }
+      const lines = [
+        'Čistá mzda – orientačný výpočet 2026',
+        'Hrubá mesačná mzda: ' + out('paycheck-gross-out').textContent,
+        'Sociálne poistenie: ' + out('paycheck-social').textContent,
+        'Zdravotné poistenie: ' + out('paycheck-health').textContent,
+        'Preddavok na daň: ' + out('paycheck-tax').textContent,
+        'Čistá mesačná mzda: ' + out('paycheck-net').textContent,
+        'Ročný orientačný čistý príjem: ' + out('paycheck-year-net').textContent,
+        'Nezohľadňuje daňový bonus ani konečné ročné zúčtovanie.'
+      ];
+      try { await navigator.clipboard.writeText(lines.join('\n')); status.textContent='Súhrn bol skopírovaný.'; }
+      catch { status.textContent='Kopírovanie nie je dostupné; použite tlač alebo uloženie do PDF.'; }
+    });
+    calculate();
+  </script>
+</Base>
