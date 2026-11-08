@@ -1215,10 +1215,10 @@
     "category": "urady",
     "description": "Ako postupovať pri žiadosti o matričný doklad",
     "steps": [
-      "Zistite, či sa téma „vybavenie rodného listu“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Zistite, či riešite prvé vystavenie rodného listu po narodení alebo vydanie ďalšieho úradného výpisu; postup sa môže líšiť.",
+      "Na príslušnom matričnom úrade alebo oficiálnom portáli overte spôsob podania, oprávnenú osobu a požadované doklady.",
+      "Pri žiadosti skontrolujte správnosť identifikačných údajov a zistite aktuálny spôsob prevzatia dokumentu.",
+      "Po prevzatí porovnajte údaje s ostatnými dokladmi; prípadné nezrovnalosti riešte priamo s matrikou."
     ],
     "source": {
       "label": "Slovensko.sk – rodný list",
@@ -1232,7 +1232,7 @@
       "Pripravte doklad totožnosti a údaje o osobe, ktorej sa rodný list týka.",
       "Ak žiadate za inú osobu, overte oprávnenie a prípadné splnomocnenie."
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktické kroky boli redakčne spresnené 8. 11. 2026 bez úplného právneho overenia. Konkrétne lehoty, poplatky a povinnosti overte na uvedenom oficiálnom zdroji alebo príslušnom úrade; pôvodný dátum aktualizácie sa nemení.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "detail": {
       "summary": "Rodný list je matričný doklad o narodení. Postup pri prvom vydaní a pri vyžiadaní druhopisu sa líši; kompetentná je matrika podľa pravidiel vedenia matričných záznamov.",
@@ -1301,10 +1301,10 @@
     "category": "urady",
     "description": "Príprava na civilný alebo cirkevný sobáš",
     "steps": [
-      "Zistite, či sa téma „sobáš na slovensku“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "S partnerom si vyberte predpokladaný termín a miesto sobáša a overte dostupnosť príslušnej matriky alebo cirkevného orgánu.",
+      "Podľa osobnej situácie oboch snúbencov si vyžiadajte aktuálny zoznam dokladov; pri cudzincoch a zahraničných listinách overte osobitné požiadavky.",
+      "Pred podaním žiadosti si overte lehoty, spôsob podania a prípadné poplatky priamo u príslušnej matriky.",
+      "Pred obradom skontrolujte údaje v dokumentoch a po sobáši si overte vydanie sobášneho listu a následné zmeny dokladov, ak sa vás týkajú."
     ],
     "source": {
       "label": "Slovensko.sk – uzavretie manželstva",
@@ -1318,7 +1318,7 @@
       "Pripravte doklady totožnosti a informácie o osobnom stave.",
       "Ak je jeden zo snúbencov cudzinec, včas overte požiadavky na zahraničné doklady a preklady."
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktické kroky boli redakčne spresnené 8. 11. 2026 bez úplného právneho overenia. Konkrétne lehoty, poplatky a povinnosti overte na uvedenom oficiálnom zdroji alebo príslušnom úrade; pôvodný dátum aktualizácie sa nemení.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "detail": {
       "summary": "Pri uzavretí manželstva sa najprv dohodnite s príslušným matričným úradom alebo oprávneným cirkevným orgánom. Doklady, termíny a podmienky sa líšia podľa štátneho občianstva snúbencov a miesta sobáša.",
@@ -1820,10 +1820,10 @@
     "category": "financie",
     "description": "Ako sa pripraviť na zmenu úrokovej sadzby",
     "steps": [
-      "Zistite, či sa téma „koniec fixácie hypotéky“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Z úverovej zmluvy a oznámenia banky si zistite dátum konca fixácie, aktuálnu splátku a podmienky ďalšieho obdobia.",
+      "Vyžiadajte si písomnú ponuku svojej banky a porovnateľné ponuky ďalších bánk pri rovnakej zostávajúcej istine a splatnosti.",
+      "Pri každej možnosti porovnajte novú splátku, celkové zostávajúce náklady, poplatky, doplnkové produkty a podmienky predčasného splatenia.",
+      "Pred rozhodnutím si nechajte potvrdiť termíny, postup prijatia ponuky a prípadné kroky pri refinancovaní; overte ich priamo v banke."
     ],
     "source": {
       "label": "NBS – refinancovanie a zmena podmienok hypotéky",
@@ -1836,7 +1836,7 @@
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktické kroky boli redakčne spresnené 8. 11. 2026 bez úplného právneho overenia. Konkrétne lehoty, poplatky a povinnosti overte na uvedenom oficiálnom zdroji alebo príslušnom úrade; pôvodný dátum aktualizácie sa nemení.",
     "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá. Praktické odporúčania sú všeobecné a nepredstavujú individuálne finančné poradenstvo.",
     "practical": [
       {
@@ -2326,10 +2326,10 @@
     "category": "auto",
     "description": "Na čo nezabudnúť pri poistení vozidla",
     "steps": [
-      "Zistite, či sa téma „pzp pri kúpe auta“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Pred prevzatím vozidla si pripravte VIN, evidenčné číslo, údaje o držiteľovi a dátum plánovaného prevzatia.",
+      "Vyžiadajte si ponuky PZP a porovnajte začiatok krytia, limity, výluky, asistenciu a postup pri poistnej udalosti.",
+      "S poisťovňou si potvrďte, odkedy je nové vozidlo kryté, a zosúlaďte začiatok poistenia s odovzdaním a evidenčnými úkonmi.",
+      "Uložte si potvrdenie o poistení a kontakty na poisťovňu; po evidenčnej zmene skontrolujte správnosť údajov v zmluve."
     ],
     "source": {
       "label": "Slovenská kancelária poisťovateľov – PZP",
@@ -2342,7 +2342,7 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Praktické redakčné odporúčania; aktuálne právne povinnosti, lehoty a poplatky neboli pri tomto rozšírení samostatne právne overené. Pred úkonom overte aktuálne pravidlá v uvedenom oficiálnom zdroji.",
+    "verification": "Praktické kroky boli redakčne spresnené 8. 11. 2026 bez úplného právneho overenia. Konkrétne lehoty, poplatky a povinnosti overte na uvedenom oficiálnom zdroji alebo príslušnom úrade; pôvodný dátum aktualizácie sa nemení.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "practical": [
       {
@@ -2412,10 +2412,10 @@
     "category": "auto",
     "description": "Kontrola pneumatík a výbavy",
     "steps": [
-      "Zistite, či sa téma „príprava auta na zimu“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Pred zimnou sezónou skontrolujte rozmery a indexy pneumatík povolené pre vozidlo a ich technický stav.",
+      "Skontrolujte hĺbku dezénu, tlak podľa odporúčania výrobcu a prípadné poškodenia; pri pochybnostiach využite pneuservis.",
+      "Pred cestou sledujte predpoveď počasia a stav vozovky; aktuálne zákonné požiadavky na zimné pneumatiky overte v platnom predpise.",
+      "Skontrolujte ostrekovače, stierače, osvetlenie, stav batérie a výbavu potrebnú na plánovanú trasu."
     ],
     "source": {
       "label": "Slov-Lex – zákon o cestnej premávke",
@@ -2428,7 +2428,7 @@
       "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
-    "verification": "Praktické redakčné odporúčania; aktuálne právne povinnosti, lehoty a poplatky neboli pri tomto rozšírení samostatne právne overené. Pred úkonom overte aktuálne pravidlá v uvedenom oficiálnom zdroji.",
+    "verification": "Praktické kroky boli redakčne spresnené 8. 11. 2026 bez úplného právneho overenia. Konkrétne lehoty, poplatky a povinnosti overte na uvedenom oficiálnom zdroji alebo príslušnom úrade; pôvodný dátum aktualizácie sa nemení.",
     "sourceNote": "Zdrojový odkaz bol 8. 11. 2026 overený na dostupnosť a tematickú zhodu. Aktuálne právne lehoty, poplatky a individuálne podmienky overte v platných predpisoch; nejde o úplnú právnu revíziu návodu.",
     "practical": [
       {
