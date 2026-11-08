@@ -40,6 +40,30 @@ const timeline = [
       </ul>
       <p><a href="/kalkulacky/naklady-na-byvanie/">Prepočítať mesačné náklady na nové bývanie →</a></p>
     </section>
+    <section class="panel" aria-labelledby="stahovanie-kalkulacka">
+      <h2 id="stahovanie-kalkulacka">Kalkulačka jednorazových nákladov na sťahovanie</h2>
+      <p>Vyplňte odhady v eurách. Výsledok sa prepočítava priamo v prehliadači; žiadne sumy neposielame na server. Mesačné náklady nového bývania sa počítajú samostatne.</p>
+      <form id="moving-budget" class="moving-budget">
+        <div class="handover-grid">
+          <label>Sťahovacia služba a doprava (€)<input name="doprava" type="number" min="0" max="1000000" step="0.01" inputmode="decimal" value="0" /></label>
+          <label>Krabice a obaly (€)<input name="obaly" type="number" min="0" max="1000000" step="0.01" inputmode="decimal" value="0" /></label>
+          <label>Skladovanie (€)<input name="sklad" type="number" min="0" max="1000000" step="0.01" inputmode="decimal" value="0" /></label>
+          <label>Upratovanie a opravy (€)<input name="upratovanie" type="number" min="0" max="1000000" step="0.01" inputmode="decimal" value="0" /></label>
+          <label>Pripojenie internetu a služieb (€)<input name="sluzby" type="number" min="0" max="1000000" step="0.01" inputmode="decimal" value="0" /></label>
+          <label>Nové vybavenie (€)<input name="vybavenie" type="number" min="0" max="1000000" step="0.01" inputmode="decimal" value="0" /></label>
+          <label>Vratná zábezpeka – potrebná hotovosť (€)<input name="zabezpeka" type="number" min="0" max="1000000" step="0.01" inputmode="decimal" value="0" /></label>
+          <label>Rezerva na nečakané výdavky (%)<input name="rezerva" type="number" min="0" max="100" step="1" inputmode="numeric" value="15" /></label>
+        </div>
+        <p id="moving-budget-error" role="alert" hidden>Skontrolujte hodnoty: všetky sumy musia byť nezáporné a rezerva medzi 0 a 100 %.</p>
+        <div class="moving-budget-result" aria-live="polite">
+          <p>Odhad nákladov bez vratnej zábezpeky: <strong id="moving-costs">0,00 €</strong></p>
+          <p>Rezerva: <strong id="moving-reserve">0,00 €</strong></p>
+          <p>Potrebná hotovosť vrátane zábezpeky: <strong id="moving-total">0,00 €</strong></p>
+        </div>
+        <button type="reset">Vynulovať odhady</button>
+      </form>
+      <p><small>Zábezpeka je uvedená osobitne, pretože sa môže podľa zmluvy vrátiť. Rezerva sa počíta iba z jednorazových výdavkov bez zábezpeky. Ide o orientačný výpočet.</small></p>
+    </section>
     <section class="panel" aria-labelledby="protokol">
       <h2 id="protokol">Odovzdávací protokol: čo zaznamenať</h2>
       <p>Do protokolu uveďte adresu, dátum, zúčastnené osoby, stavy elektromera, plynomera a vodomerov (ak sa používajú), počet odovzdaných kľúčov, inventár a stav priestorov. Priložte fotografie a podpisy. Nezabudnite si ponechať kópiu.</p>
@@ -78,7 +102,36 @@ const timeline = [
       <p><small>Vzor slúži ako praktická pomôcka; pri spore alebo osobitných zmluvných podmienkach použite zmluvne dohodnutý protokol.</small></p>
     </section>
   </main>
+  <script is:inline>
+    (() => {
+      const form = document.getElementById('moving-budget');
+      if (!form) return;
+      const keys = ['doprava', 'obaly', 'sklad', 'upratovanie', 'sluzby', 'vybavenie'];
+      const money = new Intl.NumberFormat('sk-SK', { style: 'currency', currency: 'EUR' });
+      const error = document.getElementById('moving-budget-error');
+      function recalculate() {
+        const values = [...keys, 'zabezpeka', 'rezerva'].map(key => Number(form.elements.namedItem(key).value));
+        const valid = values.every((v, i) => Number.isFinite(v) && v >= 0 && v <= (i === 7 ? 100 : 1000000));
+        error.hidden = valid;
+        if (!valid) {
+          ['moving-costs', 'moving-reserve', 'moving-total'].forEach(id => { document.getElementById(id).textContent = '—'; });
+          return;
+        }
+        const cost = values.slice(0, 6).reduce((a, b) => a + b, 0);
+        const reserve = cost * values[7] / 100;
+        document.getElementById('moving-costs').textContent = money.format(cost);
+        document.getElementById('moving-reserve').textContent = money.format(reserve);
+        document.getElementById('moving-total').textContent = money.format(cost + reserve + values[6]);
+      }
+      form.addEventListener('input', recalculate);
+      form.addEventListener('reset', () => setTimeout(recalculate, 0));
+      recalculate();
+    })();
+  </script>
   <style>
+    .moving-budget label { display: flex; flex-direction: column; gap: .35rem; font-weight: 600; }
+    .moving-budget input { padding: .65rem; border: 1px solid #8995a4; border-radius: .4rem; max-width: 100%; }
+    .moving-budget-result { padding: .7rem 1rem; border: 1px solid #8995a4; border-radius: .5rem; margin-bottom: 1rem; }
     .handover-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); gap: 1rem; margin: 1rem 0; }
     .handover-form label { display: flex; flex-direction: column; gap: .35rem; font-weight: 600; }
     .handover-form input, .handover-form textarea { width: 100%; box-sizing: border-box; padding: .65rem; border: 1px solid #8995a4; border-radius: .4rem; background: var(--surface,#fff); color: inherit; font: inherit; }
