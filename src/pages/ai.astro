@@ -9,14 +9,67 @@ import Base from '../layouts/Base.astro';
 <section class="panel ai-quick" aria-label="Rýchle otázky"><h2>Čo potrebujete vyriešiť?</h2><div class="quick-grid"><button type="button" data-question="Ako postupovať pri kúpe bytu a porovnaní hypoték?">🏠 Kúpa bytu</button><button type="button" data-question="Čo potrebujem na prepis auta?">🚗 Prepis auta</button><button type="button" data-question="Čo robiť pri strate občianskeho preukazu?">🪪 Strata dokladu</button><button type="button" data-question="Ako si vytvoriť finančnú rezervu?">💶 Finančná rezerva</button></div><p class="note">Asistent pracuje s vybranými témami portálu. Nie je pripojený na všetky aktuálne úradné registre.</p></section>
 <section class="panel ai-box" aria-label="Konverzácia s AI asistentom">
 <div id="ai-conversation" class="ai-conversation" aria-live="polite"><div class="ai-message ai-bot">Dobrý deň! S čím vám môžem pomôcť? Napríklad s občianskym preukazom, hypotékou alebo prepisom auta.</div></div>
-<form id="ai-form"><label for="ai-question">Vaša otázka</label><div class="ai-input"><textarea id="ai-question" maxlength="600" rows="2" required placeholder="Napríklad: Čo robiť, keď stratím občiansky preukaz?"></textarea><button id="ai-submit" type="submit">Odoslať</button></div><p class="note">Nepíšte rodné čísla, adresy, zdravotné ani iné citlivé údaje. Otázka sa odošle AI službe Cloudflare len v prípade aktivovaného modelu. Bez aktivácie použite <a href="/hladat/">fulltext</a>.</p></form>
+<form id="ai-form"><label for="ai-question">Vaša otázka</label><div class="ai-input"><textarea id="ai-question" maxlength="600" rows="2" required placeholder="Napríklad: Čo robiť, keď stratím občiansky preukaz?"></textarea><button id="ai-submit" type="submit">Odoslať</button></div><label class="ai-local-choice" for="ai-local-only"><input id="ai-local-only" type="checkbox" /> Vyhľadávať iba v návodoch portálu (otázka sa neodošle službe AI)</label><p class="note">Nepíšte rodné čísla, adresy, zdravotné ani iné citlivé údaje. Pri vypnutom lokálnom režime sa otázka odosiela do API asistenta; pri zapnutom sa spracuje iba v tomto prehliadači. <a href="/ochrana-sukromia/">Ochrana súkromia</a>.</p></form>
 </section>
 <p class="note">AI môže robiť chyby. Vždy si overte aktuálne postupy v odkazovaných oficiálnych zdrojoch. Táto verzia neuchováva históriu konverzácie na portáli.</p>
 </main>
 <script>
 import catalog from '../data/search.json';
 import {trustedOfficialUrl} from '../lib/official-sources.mjs';
-const searchInput=document.querySelector<HTMLInputElement>('#knowledge-query');const searchResults=document.querySelector<HTMLElement>('#knowledge-results');const norm=(x:string)=>x.toLocaleLowerCase('sk-SK').normalize('NFD').replace(/[\u0300-\u036f]/g,'');searchInput?.addEventListener('input',()=>{if(!searchResults)return;searchResults.replaceChildren();const q=norm(searchInput.value.trim());if(q.length<2)return;const terms=q.split(/\s+/).filter(Boolean);const hits=catalog.map(x=>({x,hay:norm([x.title,x.description,x.keywords,x.category].join(' '))})).filter(({hay})=>terms.every(t=>hay.includes(t))).slice(0,8);if(!hits.length){searchResults.textContent='Nenašli sa zodpovedajúce výsledky.';return}for(const {x} of hits){const a=document.createElement('a');a.href=x.url;a.textContent=x.title+' — '+x.category+' →';searchResults.append(a)}});
+const searchInput=document.querySelector<HTMLInputElement>('#knowledge-query');
+const searchResults=document.querySelector<HTMLElement>('#knowledge-results');
+const norm=(x:string)=>x.toLocaleLowerCase('sk-SK').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+const ignored=new Set(['ako','kde','kedy','co','som','bol','mam','chcem','potrebujem','prosim','robit','postupovat','postup','moja','moje','moj','ked','pri','pre','som','mozete','mam','sa','ci','tie','toto','aky','aka','ake']);
+const tokens=(s:string)=>norm(s).split(/\s+/).flatMap(part=>part.split(/[^a-z0-9]+/)).filter(t=>t.length>=3&&!ignored.has(t)).slice(0,14);
+const isInternal=(url:unknown):url is string => typeof url==='string'&&url.startsWith('/')&&!url.startsWith('//')&&!/[^\x20-\x7e]/.test(url);
+const library=catalog.filter(x=>isInternal(x.url)).map(x=>({
+  x,title:norm(x.title),keywords:norm(x.keywords??''),description:norm(x.description??''),category:norm(x.category??'')
+}));
+function findLocal(question:string,max=6){
+  const terms=[...new Set(tokens(question))];if(!terms.length)return [];
+  return library.map(item=>{
+    let score=0,matched=0;
+    for(const t of terms){
+      const hitsTitle=item.title.includes(t),hitsKeywords=item.keywords.includes(t),hitsDescription=item.description.includes(t),hitsCategory=item.category.includes(t);
+      if(hitsTitle||hitsKeywords||hitsDescription||hitsCategory)matched++;
+      if(hitsTitle)score+=7;
+      if(hitsKeywords)score+=4;
+      if(hitsDescription)score+=2;
+      if(hitsCategory)score+=1;
+    }
+    if(item.title.includes(norm(question.trim())))score+=8;
+    return {x:item.x,score,matched};
+  }).filter(item=>item.matched>0 && item.matched>=Math.max(1,Math.ceil(terms.length*.4)))
+    .sort((a,b)=>b.score-a.score||a.x.title.localeCompare(b.x.title,'sk'))
+    .slice(0,max).map(item=>item.x);
+}
+function renderLocalLinks(parent:HTMLElement,question:string,label='Súvisiace návody a nástroje:', showEmpty=false){
+  const linked = new Set(Array.from(parent.querySelectorAll('a'), anchor => anchor.href));
+  const hits = findLocal(question).filter(item => {
+    const href = new URL(item.url, location.origin).href;
+    if (linked.has(href)) return false;
+    linked.add(href);
+    return true;
+  });
+  if(!hits.length){if(showEmpty){const p=document.createElement('p');p.textContent='V databáze portálu som nenašiel dostatočne súvisiace stránky. Skúste kratšiu otázku alebo fulltext.';parent.append(p);}return;}
+  const block=document.createElement('div');block.className='ai-sources';
+  const heading=document.createElement('strong');heading.textContent=label;block.append(heading);
+  for(const item of hits){const a=document.createElement('a');a.href=item.url;a.textContent=item.title+' — '+item.category+' →';block.append(a);}
+  parent.append(block);
+}
+searchInput?.addEventListener('input',()=>{
+  if(!searchResults)return;
+  searchResults.replaceChildren();
+  const q=searchInput.value.trim();if(q.length<2)return;
+  const hits=findLocal(q,8);
+  if(!hits.length){searchResults.textContent='Pre túto otázku sa nenašli zodpovedajúce výsledky. Skúste kratší výraz.';return;}
+  for(const item of hits){
+    const a=document.createElement('a');a.href=item.url;
+    const name=document.createElement('strong');name.textContent=item.title;
+    const desc=document.createElement('span');desc.textContent=' — '+item.category+': '+item.description;
+    a.append(name,desc);searchResults.append(a);
+  }
+});
 const goal=document.querySelector<HTMLSelectElement>('#ai-goal');const pathLinks=document.querySelector<HTMLElement>('#ai-path-links');const paths:Record<string,{label:string,url:string}[]>={home:[{label:'Sprievodca kúpou bytu',url:'/sprievodca/kupa-bytu/'},{label:'Porovnanie hypoték',url:'/financie/porovnanie-hypotek/'},{label:'Môj rozpočet',url:'/moje-centrum/#rozpocet'}],car:[{label:'Sprievodca kúpou auta',url:'/sprievodca/nove-auto/'},{label:'Porovnanie nákladov vozidiel',url:'/auto/porovnanie-nakladov/'}],documents:[{label:'Strata občianskeho preukazu',url:'/sprievodca/strata-obcianskeho/'},{label:'Kalendár termínov',url:'/kalendar/'}],business:[{label:'Začatie podnikania',url:'/sprievodca/zivnost/'},{label:'Overenie firmy',url:'/data/firmy/'}]};
 goal?.addEventListener('change',()=>{if(!pathLinks)return;pathLinks.replaceChildren();for(const item of paths[goal.value]||[]){const a=document.createElement('a');a.href=item.url;a.textContent=item.label+' →';pathLinks.append(a);}});
 const form=document.querySelector<HTMLFormElement>('#ai-form')!;
@@ -25,9 +78,63 @@ const button=document.querySelector<HTMLButtonElement>('#ai-submit')!;
 const conversation=document.querySelector<HTMLElement>('#ai-conversation')!;
 function bubble(message:string,role:'ai-user'|'ai-bot'){const div=document.createElement('div');div.className='ai-message '+role;div.textContent=message;conversation.append(div);return div;}
 document.querySelectorAll<HTMLButtonElement>('[data-question]').forEach(b=>b.addEventListener('click',()=>{field.value=b.dataset.question||'';field.focus();form.requestSubmit();}));
-form.addEventListener('submit',async e=>{e.preventDefault();const question=field.value.trim();if(question.length<3)return;button.disabled=true;field.disabled=true;bubble(question,'ai-user');field.value='';const response=bubble('Pripravujem odpoveď…','ai-bot');try{const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),18000);let r:Response;try{r=await fetch('/api/assistant',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question}),signal:controller.signal});}finally{clearTimeout(timer);}const data=await r.json();response.textContent=r.ok?data.answer:(data.error||'Služba je nedostupná.');if(r.ok&&Array.isArray(data.sources)&&data.sources.length){const links=document.createElement('div');links.className='ai-sources';const label=document.createElement('strong');label.textContent='Súvisiace zdroje a nástroje:';links.append(label);for(const item of data.sources){if(typeof item.url!=='string'||!/^\/(?:navody|kalkulacky|sprievodca|financie|auto|moje-centrum|kalendar|dokumenty)\//.test(item.url))continue;const a=document.createElement('a');a.href=item.url;a.textContent=item.title+' ↗';links.append(a);}response.append(links);}if(r.ok&&Array.isArray(data.officialSources)&&data.officialSources.length){const official=document.createElement('div');official.className='ai-sources';const title=document.createElement('strong');title.textContent='Oficiálny zdroj:';official.append(title);for(const source of data.officialSources){const trustedUrl=trustedOfficialUrl(source?.url);if(!trustedUrl)continue;const a=document.createElement('a');a.href=trustedUrl;a.target='_blank';a.rel='noopener noreferrer';a.textContent=source.title+' ↗';official.append(a);}response.append(official);}}catch{response.textContent='Spojenie sa nepodarilo. Skúste to neskôr alebo použite fulltext.';}finally{button.disabled=false;field.disabled=false;field.focus();response.scrollIntoView({block:'nearest',behavior:'smooth'});}});
+const localOnly=document.querySelector<HTMLInputElement>('#ai-local-only');
+form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const question=field.value.trim();
+  if(question.length<3)return;
+  button.disabled=true;field.disabled=true;
+  bubble(question,'ai-user');field.value='';
+  const response=bubble('Hľadám vhodné zdroje…','ai-bot');
+  try{
+    if(localOnly?.checked){
+      response.textContent='Toto je lokálne vyhľadávanie v obsahu portálu, nie AI odpoveď. Otázka nebola odoslaná na server. Vyberte si súvisiaci postup a overte aktuálne podmienky na oficiálnom zdroji.';
+      renderLocalLinks(response,question,'Nájdené návody a nástroje:',true);
+      return;
+    }
+    const controller=new AbortController();
+    const timer=setTimeout(()=>controller.abort(),18000);
+    let result:Response;
+    try{
+      result=await fetch('/api/assistant',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question}),signal:controller.signal});
+    }finally{clearTimeout(timer);}
+    const data=await result.json();
+    const answer=typeof data?.answer==='string'?data.answer.trim():'';
+    response.textContent=result.ok&&answer?answer:(typeof data?.error==='string'?data.error:'Služba asistenta momentálne nemá overiteľnú odpoveď.');
+    if(result.ok&&Array.isArray(data.sources)){
+      const links=document.createElement('div');links.className='ai-sources';
+      const label=document.createElement('strong');label.textContent='Odkazy uvedené v odpovedi:';links.append(label);
+      let count=0;
+      for(const item of data.sources){
+        if(typeof item?.url!=='string'||!/^\/(?:navody|kalkulacky|sprievodca|financie|auto|moje-centrum|kalendar|dokumenty)\//.test(item.url))continue;
+        const a=document.createElement('a');a.href=item.url;a.textContent=String(item.title||'Súvisiaci zdroj')+' ↗';
+        links.append(a);count++;
+      }
+      if(count)response.append(links);
+    }
+    if(result.ok&&Array.isArray(data.officialSources)){
+      const official=document.createElement('div');official.className='ai-sources';
+      const title=document.createElement('strong');title.textContent='Odkazy na oficiálne zdroje:';official.append(title);
+      let count=0;
+      for(const source of data.officialSources){
+        const trustedUrl=trustedOfficialUrl(source?.url);if(!trustedUrl)continue;
+        const a=document.createElement('a');a.href=trustedUrl;a.target='_blank';a.rel='noopener noreferrer';
+        a.textContent=String(source.title||'Oficiálny portál')+' ↗';official.append(a);count++;
+      }
+      if(count)response.append(official);
+    }
+    renderLocalLinks(response,question,'Ďalšie relevantné stránky portálu:');
+  }catch{
+    response.textContent='Službu AI sa teraz nepodarilo načítať. Nižšie sú len výsledky vyhľadávania v obsahu portálu; nejde o generovanú odpoveď.';
+    renderLocalLinks(response,question,'Dostupné návody a nástroje:',true);
+  }finally{
+    button.disabled=false;field.disabled=false;field.focus();
+    response.scrollIntoView({block:'nearest',behavior:'smooth'});
+  }
+});
 </script>
 <style>
 .ai-page{max-width:900px}.ai-box{padding:1.4rem;background:var(--surface)}.ai-conversation{display:flex;flex-direction:column;gap:1rem;min-height:180px;margin-bottom:2rem}:global(.ai-message){max-width:92%;border-radius:16px;padding:1rem 1.2rem;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere}:global(.ai-bot){align-self:flex-start;background:var(--surface);border:1px solid #7c8ca5;color:var(--ink)}:global(.ai-user){align-self:flex-end;background:#5145d8;color:white;border:2px solid #8177ed}.ai-input{display:flex;gap:.7rem}.ai-input textarea{flex:1;min-width:0;padding:.9rem;border:1px solid #8a9bb4;border-radius:12px;background:var(--surface);color:var(--ink);font:inherit}.ai-input button{background:#5145d8;color:#fff;border:0;border-radius:12px;padding:1rem}.ai-input button:disabled{opacity:.5;cursor:wait}:global(.ai-sources){display:flex;flex-direction:column;gap:.6rem;margin-top:1.1rem;padding-top:.9rem;border-top:1px solid #8794aa;white-space:normal}:global(.ai-sources strong){display:block}:global(.ai-sources a){display:block;overflow-wrap:anywhere}.ai-sources a{text-decoration:underline}.ai-page label{display:block;font-weight:700;margin-bottom:.6rem}@media(max-width:550px){.ai-input{flex-direction:column}:global(.ai-message){max-width:100%}}
-.ai-quick{padding:1.2rem;margin:1.2rem 0}.quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}.quick-grid button{padding:.9rem;text-align:left;border:1px solid #8794aa;border-radius:12px;background:var(--surface);color:var(--ink);font:inherit;cursor:pointer}@media(max-width:550px){.quick-grid{grid-template-columns:1fr}}.ai-path{padding:1.4rem;margin:1.2rem 0}.ai-path select{display:block;width:100%;padding:.8rem;background:var(--surface);color:var(--ink);border:1px solid #8290a5;border-radius:10px}.ai-path :global(#knowledge-query){width:100%;padding:.8rem;border:1px solid #8290a5;border-radius:10px;background:var(--surface);color:var(--ink)}.ai-path :global(#knowledge-results){display:grid;gap:.6rem;margin-top:1rem}.ai-path :global(#knowledge-results a){padding:.7rem;border:1px solid #8290a5;border-radius:9px;text-decoration:none}.ai-path :global(#ai-path-links){display:grid;gap:.7rem;margin-top:1rem}.ai-path :global(#ai-path-links a){padding:.7rem;border:1px solid #8290a5;border-radius:9px;text-decoration:none}</style>
+.ai-quick{padding:1.2rem;margin:1.2rem 0}.quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}.quick-grid button{padding:.9rem;text-align:left;border:1px solid #8794aa;border-radius:12px;background:var(--surface);color:var(--ink);font:inherit;cursor:pointer}@media(max-width:550px){.quick-grid{grid-template-columns:1fr}}.ai-path{padding:1.4rem;margin:1.2rem 0}.ai-path select{display:block;width:100%;padding:.8rem;background:var(--surface);color:var(--ink);border:1px solid #8290a5;border-radius:10px}.ai-path :global(#knowledge-query){width:100%;padding:.8rem;border:1px solid #8290a5;border-radius:10px;background:var(--surface);color:var(--ink)}.ai-path :global(#knowledge-results){display:grid;gap:.6rem;margin-top:1rem}.ai-path :global(#knowledge-results a){padding:.7rem;border:1px solid #8290a5;border-radius:9px;text-decoration:none}.ai-path :global(#ai-path-links){display:grid;gap:.7rem;margin-top:1rem}.ai-path :global(#ai-path-links a){padding:.7rem;border:1px solid #8290a5;border-radius:9px;text-decoration:none}.ai-local-choice{display:flex!important;align-items:flex-start;gap:.65rem;margin:1rem 0;font-weight:600!important}.ai-local-choice input{flex:0 0 auto;width:1.2rem;height:1.2rem;margin-top:.2rem}.ai-path :global(#knowledge-results a){display:block;overflow-wrap:anywhere}.ai-path :global(#knowledge-results a span){font-size:.9rem;opacity:.85}
+</style>
 </Base>
