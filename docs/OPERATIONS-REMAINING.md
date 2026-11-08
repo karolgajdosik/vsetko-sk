@@ -51,3 +51,5 @@ Email activation procedure (existing Websupport MX):
 4. Set active true and the real verification timestamp in the public configuration; CI/build and both contact/privacy production pages must pass.
 
 Unresolved interactive destinations remain genuine official links, not silently removed to produce a green report: portal.minv.sk, zrsr.sk, mzv.sk, kataster.vugk.sk, kataster.skgeodesy.sk/eskn-portal/. Each affected guide retains its topic-specific primary informational source as a fallback. Recheck in an ordinary browser; report network/bot limits separately from confirmed broken links.
+
+Independent public retrieval on 8 November successfully opened CICA and ESKN, including the official provider identity and portal content. This is supplementary availability evidence, not a successful CI-runner fetch or a submitted transaction. The other three interactive destinations still timed out or returned gateway errors.
