@@ -659,6 +659,18 @@
       {
         "title": "Skontrolujte cestovné podmienky",
         "body": "Pred objednaním termínu overte platnosť pasu vyžadovanú cieľovou krajinou a potrebné doklady podľa veku žiadateľa."
+      },
+      {
+        "title": "Rezervujte si časovú rezervu",
+        "body": "Pri plánovanej ceste porovnajte dátum odchodu s dostupným termínom podania a prevzatia dokladu. Nespoliehajte sa na to, že zrýchlené vybavenie bude vždy možné."
+      },
+      {
+        "title": "Skontrolujte údaje pri prevzatí",
+        "body": "Pri prevzatí porovnajte meno, dátum narodenia a platnosť nového pasu s ostatnými cestovnými dokumentmi. Nezrovnalosť riešte hneď na pracovisku."
+      },
+      {
+        "title": "Overte víza a tranzit",
+        "body": "Pred nákupom letenky si pozrite oficiálne podmienky vstupu a tranzitu všetkých krajín na trase; niektoré vyžadujú dlhšiu zostávajúcu platnosť pasu."
       }
     ]
   },
@@ -732,6 +744,18 @@
       {
         "title": "Pripravte následné oznámenia",
         "body": "Po vybavení zmeny si vytvorte zoznam bánk, poisťovní, zamestnávateľa a ďalších subjektov, ktorým treba aktualizovať adresu."
+      },
+      {
+        "title": "Overte súhlas k adrese",
+        "body": "Ak nie ste vlastníkom nehnuteľnosti, vopred sa na ohlasovni informujte, aký súhlas a akú formu podpisu potrebujete. Samotná nájomná zmluva nemusí postačovať."
+      },
+      {
+        "title": "Skontrolujte nadväzujúce doklady",
+        "body": "Po zaevidovaní adresy si na príslušnom pracovisku overte postup výmeny občianskeho preukazu a prípadnú aktualizáciu údajov o vozidle."
+      },
+      {
+        "title": "Rozdeľte oznámenia podľa príjemcu",
+        "body": "Pripravte si kontrolný zoznam pre banku, zamestnávateľa, poisťovne a poskytovateľov služieb. Pri každom overte, či adresu získava automaticky alebo vyžaduje oznámenie."
       }
     ]
   },
@@ -813,6 +837,18 @@
       {
         "title": "Overte predmet činnosti",
         "body": "Pred podaním si spíšte činnosti, miesto podnikania, oprávnenia a možné osobitné podmienky; následne skontrolujte potvrdenie registrácie."
+      },
+      {
+        "title": "Oddeľte živnosti od regulovaných činností",
+        "body": "Pred ohlásením si pri každej plánovanej službe overte, či ide o voľnú, remeselnú alebo viazanú živnosť a či sa vyžaduje odborná spôsobilosť."
+      },
+      {
+        "title": "Naplánujte evidenciu dokladov",
+        "body": "Od začiatku oddeľte podnikateľské príjmy a výdavky a bezpečne uchovávajte faktúry, zmluvy a potvrdenia. Konkrétny režim evidencie konzultujte podľa spôsobu zdaňovania."
+      },
+      {
+        "title": "Overte registrácie po založení",
+        "body": "Po ohlásení skontrolujte správnosť zapísaných údajov a na oficiálnych portáloch finančnej správy a poisťovní overte svoje aktuálne oznamovacie a odvodové povinnosti."
       }
     ]
   },
@@ -976,6 +1012,18 @@
       {
         "title": "Overte dôvod vydania",
         "body": "Rozlišujte prvé vydanie, koniec platnosti, zmenu údajov a stratu; požadované doklady a lehoty sa môžu líšiť."
+      },
+      {
+        "title": "Rozlíšte dôvod vydania dokladu",
+        "body": "Pred rezerváciou termínu určte, či ide o prvý preukaz, koniec platnosti, zmenu údajov alebo poškodenie. Od dôvodu závisí potrebná dokumentácia."
+      },
+      {
+        "title": "Pripravte podklady k zmene údajov",
+        "body": "Ak sa zmenilo meno alebo iný údaj, overte, ktorú úradnú listinu treba predložiť. Na pracovisko vezmite aj doterajší doklad, ak ho máte."
+      },
+      {
+        "title": "Bezpečne nastavte elektronické funkcie",
+        "body": "Pri prevzatí skontrolujte vytlačené údaje a spôsob aktivácie elektronických funkcií. Bezpečnostné kódy si neukladajte spolu s občianskym preukazom."
       }
     ]
   },
@@ -1050,6 +1098,18 @@
       {
         "title": "Pripravte doklady dieťaťa",
         "body": "Overte pravidlá osobnej účasti dieťaťa a zákonného zástupcu aj požiadavky cieľovej krajiny pred cestou."
+      },
+      {
+        "title": "Overte osobnú účasť dieťaťa",
+        "body": "Pred návštevou oddelenia dokladov si overte podmienky osobnej prítomnosti dieťaťa a oprávnenie osoby, ktorá žiadosť podáva. Pravidlá sa môžu líšiť podľa veku."
+      },
+      {
+        "title": "Porovnajte platnosť s termínom cesty",
+        "body": "Skontrolujte platnosť detského pasu samostatne, nie podľa pasu rodiča. Overte aj vstupné a tranzitné podmienky krajiny, kam dieťa cestuje."
+      },
+      {
+        "title": "Pripravte súhlas pri ceste bez rodičov",
+        "body": "Ak dieťa cestuje s inou osobou alebo len s jedným rodičom, zistite si na oficiálnych stránkach cieľovej krajiny prípadné požiadavky na súhlas a jeho formu."
       }
     ]
   },
@@ -1081,6 +1141,18 @@
       {
         "title": "Riešte aj cestu domov",
         "body": "Ak sa pas stratí v zahraničí, kontaktujte príslušný zastupiteľský úrad a dopravcu; odložte si záznam o oznámení straty."
+      },
+      {
+        "title": "Zaznamenajte okolnosti straty",
+        "body": "Poznačte si miesto a približný čas straty, posledné použitie dokladu a dostupné identifikačné údaje. Pomôže to pri oznámení udalosti príslušnému orgánu."
+      },
+      {
+        "title": "V zahraničí kontaktujte zastupiteľský úrad",
+        "body": "Ak ste bez dokladu v cudzine, vyhľadajte oficiálny kontakt slovenského zastupiteľského úradu a overte postup získania náhradného cestovného dokladu."
+      },
+      {
+        "title": "Zabráňte ďalšiemu používaniu strateného dokladu",
+        "body": "Po nahlásení straty sa informujte o platnosti pôvodného dokladu a ďalšom postupe, aj keď ho neskôr nájdete. Na cestu používajte len platný uznaný doklad."
       }
     ]
   },
@@ -1464,6 +1536,18 @@
       {
         "title": "Overte právny stav nehnuteľnosti",
         "body": "Pred podpisom zmluvy porovnajte vlastníkov, parcelu, ťarchy a prípadné poznámky na aktuálnom liste vlastníctva."
+      },
+      {
+        "title": "Overte aktuálny list vlastníctva",
+        "body": "Pri kontrole nehnuteľnosti porovnajte parcelu, súpisné číslo, vlastníkov a podiely s dokumentmi k plánovanej transakcii. Starší výpis nemusí zachytávať nové zmeny."
+      },
+      {
+        "title": "Skontrolujte ťarchy a poznámky",
+        "body": "Pred podpisom zmluvy venujte pozornosť časti listu vlastníctva s ťarchami, poznámkami a plombami. Pri nejasnostiach požiadajte o vysvetlenie odborníka."
+      },
+      {
+        "title": "Rozlišujte informatívny výpis od úradného",
+        "body": "Zistite, či na svoj účel potrebujete iba online informatívny údaj alebo úradne použiteľný výpis. Podmienky vydania a použitia overte na príslušnom portáli."
       }
     ]
   },
