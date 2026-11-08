@@ -1,0 +1,76 @@
+name: V3 accessibility sources and performance audit
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/v3-quality-audit.yml'
+      - 'scripts/audit-accessibility.mjs'
+      - 'scripts/audit-official-sources.mjs'
+      - 'scripts/audit-performance.mjs'
+      - 'src/**'
+      - 'public/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  accessibility:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - run: npm install --no-audit --no-fund
+      - run: npm run build
+      - run: npm install --no-save playwright@1.56.1 @axe-core/playwright@4.14.0 --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - name: Audit every built page and representative display states
+        run: |
+          python3 -m http.server 4321 --bind 127.0.0.1 --directory dist > /tmp/v3-audit-preview.log 2>&1 &
+          for i in $(seq 1 30); do if curl -fsS http://127.0.0.1:4321/ > /dev/null; then break; fi; sleep 1; done
+          curl -fsS http://127.0.0.1:4321/ > /dev/null
+          node scripts/audit-accessibility.mjs
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: v3-accessibility-report
+          path: quality-reports/accessibility*
+          if-no-files-found: warn
+  official-sources:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - run: node scripts/audit-official-sources.mjs
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: v3-official-source-report
+          path: quality-reports/official-sources*
+          if-no-files-found: warn
+  performance:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - run: npm install --no-save playwright@1.56.1 lighthouse@13.6.0 --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - run: node scripts/audit-performance.mjs
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: v3-performance-report
+          path: quality-reports/performance*
+          if-no-files-found: warn
