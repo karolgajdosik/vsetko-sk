@@ -8,22 +8,48 @@ export function getStaticPaths() {
 const {guide}=Astro.props;
 const labels={financie:'Financie',auto:'Auto',urady:'Úrady'};
 const categoryLabel=labels[guide.category] ?? guide.category;
+const categoryUrl = '/' + guide.category + '/';
+const tokenize = (text) => (text ?? '').toLocaleLowerCase('sk').split(/[^0-9a-záäčďéíĺľňóôŕšťúýž]+/i).filter(token => token.length >= 4);
+const currentTerms = new Set(tokenize(guide.title + ' ' + (guide.keywords ?? '')));
+const relatedGuides = guides
+ .filter(item => item.slug !== guide.slug && item.category === guide.category)
+ .map(item => ({
+  guide:item,
+  similarity:tokenize(item.title + ' ' + (item.keywords ?? '')).filter(token => currentTerms.has(token)).length
+ }))
+ .sort((a,b) => b.similarity-a.similarity || a.guide.title.localeCompare(b.guide.title,'sk'))
+ .slice(0,4)
+ .map(item=>item.guide);
+const updatedMatch = /^(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})$/.exec(guide.updated ?? '');
+const updatedIso = updatedMatch ? [updatedMatch[3],updatedMatch[2].padStart(2,'0'),updatedMatch[1].padStart(2,'0')].join('-') : undefined;
+const breadcrumbLd = {
+ '@context':'https://schema.org',
+ '@type':'BreadcrumbList',
+ itemListElement:[
+  {'@type':'ListItem',position:1,name:'Domov',item:'https://vsetko24.sk/'},
+  {'@type':'ListItem',position:2,name:'Praktické návody',item:'https://vsetko24.sk/navody/'},
+  {'@type':'ListItem',position:3,name:guide.title,item:new URL(Astro.url.pathname,Astro.site ?? 'https://vsetko24.sk').href}
+ ]
+};
 const jsonLd={
  '@context':'https://schema.org',
  '@type':'Article',
  headline:guide.title,
  description:guide.description,
  inLanguage:'sk',
- dateModified:'2026-10-22',
+ dateModified:updatedIso,
  mainEntityOfPage:new URL(Astro.url.pathname,Astro.site ?? 'https://vsetko24.sk').href,
  publisher:{'@type':'Organization',name:'VŠETKO24.sk',url:'https://vsetko24.sk/'}
 };
 ---
 <Base title={guide.title} description={guide.description} updated={guide.updated} sourceLinks={[guide.source]}>
 <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
 <main class="wrap main" id="obsah">
-<p class="eyebrow"><a href={`/${guide.category}/`}>{categoryLabel}</a> / Praktický návod</p>
+<nav class="guide-breadcrumbs" aria-label="Drobečková navigácia"><a href="/">Domov</a> / <a href="/navody/">Návody</a> / <a href={categoryUrl}>{categoryLabel}</a> / <span aria-current="page">{guide.title}</span></nav>
+<p class="eyebrow">Praktický návod · {categoryLabel}</p>
 <h1>{guide.title}</h1><p class="intro">{guide.description}</p>
+<p class="guide-update"><strong>Posledná evidovaná úprava obsahu:</strong> {guide.updated}. Aktuálne poplatky, lehoty a podmienky si skontrolujte na oficiálnom zdroji.</p>
 <img class="detail-photo" src={photoFor(guide)} alt="" width="1400" height="420" loading="lazy" decoding="async" /><nav class="panel" aria-label="Obsah návodu"><strong>V tomto návode</strong><ol><li><a href="#priprava">Čo si pripraviť</a></li><li><a href="#postup">Postup krok za krokom</a></li>{guide.practical?.length > 0 && <li><a href="#prakticke-tipy">Praktické rady</a></li>}{guide.detail && <li><a href="#podrobne">Podrobný postup</a></li>}{guide.detail?.screenGuide && <li><a href="#online">Navigácia na oficiálnom portáli</a></li>}{guide.detail && <li><a href="#pozor">Na čo si dať pozor</a></li>}<li><a href="#overenie">Overenie a oficiálny zdroj</a></li></ol></nav>
 <section class="panel" id="priprava"><h2>Pre koho je návod určený</h2><p>{guide.audience}</p><h2>Čo si pripraviť</h2><ul>{guide.preparation.map(item=><li>{item}</li>)}</ul></section>
 <section class="panel" id="postup"><h2>Postup krok za krokom</h2><p>Jednotlivé kroky si môžete odškrtávať. Pred odoslaním žiadosti si vždy skontrolujte aktuálne podmienky na oficiálnom portáli.</p><ol class="guide-steps">{guide.steps.map((step,i)=><li><label class="guide-step"><input type="checkbox" aria-label={'Dokončený krok '+(i+1)} /><span><strong>Krok {i+1}</strong><span>{step}</span></span></label></li>)}</ol><p id="guide-progress" aria-live="polite"></p></section>
@@ -32,8 +58,18 @@ const jsonLd={
 {guide.detail && <section class="panel" id="pozor"><h2>Najčastejšie chyby a upozornenia</h2><ul>{guide.detail.pitfalls.map(x=><li>{x}</li>)}</ul><p class="muted">Obrazové návody doplníme až po overení aktuálnej podoby oficiálnych obrazoviek. Nezobrazujeme fiktívne screenshoty.</p></section>}
 {guide.practical?.length > 0 && <section class="panel" id="prakticke-tipy"><h2>Praktické rady pred rozhodnutím</h2>{guide.practical.map(item=><article><h3>{item.title}</h3><p>{item.body}</p></article>)}</section>}
 <section class="notice" id="overenie"><strong>Dôležité:</strong> {guide.verification} {guide.sourceNote}  Ide o orientačný kontrolný zoznam, nie o právne alebo finančné poradenstvo. Pred vybavovaním overte aktuálne požiadavky na oficiálnom zdroji: <a href={guide.source.url} target="_blank" rel="noopener noreferrer">{guide.source.label} ↗</a>.</section>
-<p><a href="/sprievodca/">← Životné situácie</a> · <a href="/kalkulacky/">Kalkulačky</a> · <a href="/">Domov</a></p>
+{relatedGuides.length > 0 && <section class="panel" id="suvisiace-navody" aria-labelledby="suvisiace-navody-heading">
+  <h2 id="suvisiace-navody-heading">Súvisiace praktické návody</h2>
+  <p>Ďalšie postupy z rovnakej oblasti zoradené podľa podobných tém.</p>
+  <div class="grid guide-related-grid">{relatedGuides.map(item=>
+    <a class="card" href={'/navody/' + item.slug + '/'}>
+      <span class="tag">{categoryLabel}</span>
+      <h3>{item.title} →</h3><p>{item.description}</p>
+    </a>
+  )}</div>
+</section>}
+<p><a href="/navody/">← Všetky praktické návody</a> · <a href="/sprievodca/">Životné situácie</a> · <a href="/kalkulacky/">Kalkulačky</a></p>
 </main>
-<style>.guide-online li{padding:1rem 0;border-bottom:1px solid #cbd5e1}.guide-detail-steps{display:grid;gap:1rem}.guide-detail-step{border:1px solid #cbd5e1;border-radius:.8rem;padding:1.25rem}.guide-detail-step h3{margin:.7rem 0}.guide-steps{padding-left:1.5rem}.guide-steps li{margin:0 0 .8rem}.guide-step{display:flex;align-items:flex-start;gap:.9rem;padding:1rem;border:1px solid #cbd5e1;border-radius:.75rem;cursor:pointer}.guide-step input{margin-top:.25rem;width:1.15rem;height:1.15rem;flex-shrink:0}.guide-step span span{display:block;margin-top:.35rem}.guide-step:has(input:checked){background:#f0fdf4}.guide-step:has(input:checked) span span{text-decoration:line-through;opacity:.7}</style>
+<style>.guide-breadcrumbs{font-size:.9rem;margin-bottom:1rem;line-height:1.6;overflow-wrap:anywhere}.guide-update{font-size:.9rem;opacity:.85;margin-bottom:1rem}.guide-related-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}.guide-related-grid .card{padding:1rem}.guide-related-grid h3{margin:.5rem 0}.guide-online li{padding:1rem 0;border-bottom:1px solid #cbd5e1}.guide-detail-steps{display:grid;gap:1rem}.guide-detail-step{border:1px solid #cbd5e1;border-radius:.8rem;padding:1.25rem}.guide-detail-step h3{margin:.7rem 0}.guide-steps{padding-left:1.5rem}.guide-steps li{margin:0 0 .8rem}.guide-step{display:flex;align-items:flex-start;gap:.9rem;padding:1rem;border:1px solid #cbd5e1;border-radius:.75rem;cursor:pointer}.guide-step input{margin-top:.25rem;width:1.15rem;height:1.15rem;flex-shrink:0}.guide-step span span{display:block;margin-top:.35rem}.guide-step:has(input:checked){background:#f0fdf4}.guide-step:has(input:checked) span span{text-decoration:line-through;opacity:.7}</style>
 <script>const checks=[...document.querySelectorAll<HTMLInputElement>('.guide-step input')];const progress=document.querySelector('#guide-progress');function refresh(){if(progress)progress.textContent='Hotové kroky: '+checks.filter(c=>c.checked).length+' z '+checks.length;}checks.forEach(c=>c.addEventListener('change',refresh));refresh();</script>
 </Base>
