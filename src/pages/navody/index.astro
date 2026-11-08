@@ -10,7 +10,7 @@ const categories = [
 ];
 const names = {financie:'Financie', auto:'Auto a doprava', urady:'Úrady a doklady'};
 ---
-<Base title="Praktické návody – financie, auto a úrady" description="Vyhľadávajte a filtrujte 40 praktických slovenských návodov. Postupy krok za krokom, príprava dokladov a odkazy na pôvodné zdroje.">
+<Base title="Praktické návody – financie, auto a úrady" description="Vyhľadávajte a filtrujte praktické slovenské návody. Postupy krok za krokom, príprava dokladov a odkazy na pôvodné zdroje.">
   <main class="wrap main guides-hub" id="obsah">
     <nav class="breadcrumbs" aria-label="Drobečková navigácia"><a href="/">Domov</a> / Návody</nav>
     <p class="eyebrow">Jednoducho a krok za krokom</p>
@@ -32,7 +32,7 @@ const names = {financie:'Financie', auto:'Auto a doprava', urady:'Úrady a dokla
 
     <div class="grid guide-grid" id="guides-list">
       {guides.map(g =>
-        <a class="card guide-item" href={'/navody/' + g.slug + '/'} data-category={g.category} data-search={[g.title,g.description,g.keywords ?? '',names[g.category] ?? g.category].join(' ').toLocaleLowerCase('sk')}>
+        <a class="card guide-item" href={'/navody/' + g.slug + '/'} data-category={g.category} data-search={[g.title,g.description,g.keywords ?? '',names[g.category] ?? g.category].join(' ').toLocaleLowerCase('sk').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ł/g, 'l')}>
           <span class="tag">{names[g.category] ?? g.category}</span>
           <h2>{g.title} →</h2>
           <p>{g.description}</p>
@@ -69,8 +69,10 @@ const names = {financie:'Financie', auto:'Auto a doprava', urady:'Úrady a dokla
     const empty = document.querySelector<HTMLElement>('#guide-empty');
     let category = 'all';
 
+    const normalizeSearch = (value: string) => value.toLocaleLowerCase('sk').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ł/g, 'l');
+
     function filterGuides(){
-      const query = (input?.value ?? '').trim().toLocaleLowerCase('sk');
+      const query = normalizeSearch((input?.value ?? '').trim());
       let visible = 0;
       for(const item of items){
         const matchesCategory = category === 'all' || item.dataset.category === category;
