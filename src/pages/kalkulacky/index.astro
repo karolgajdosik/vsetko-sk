@@ -2,6 +2,8 @@
 import Base from '../../layouts/Base.astro';
 import catalog from '../../data/calculators.json';
 const all=[{slug:'cista-mzda',title:'Čistá mzda 2026',category:'Financie',description:'Vypočítajte čistú mzdu, sociálne a zdravotné odvody a daň podľa pravidiel roku 2026.',url:'/kalkulacky/cista-mzda/'},{slug:'porovnanie-nakladov',title:'EV vs. benzín vs. diesel – celkové náklady',category:'Auto',description:'Porovnanie poklesu hodnoty, energie, servisu a poistenia.',url:'/auto/porovnanie-nakladov/'},{slug:'porovnanie-hypotek',title:'Porovnanie troch hypoték',category:'Financie',description:'Porovnajte splátky, úroky a poplatky troch ponúk.',url:'/financie/porovnanie-hypotek/'},{slug:'naklady-na-byvanie',title:'Celkové náklady na bývanie',category:'Financie',description:'Spočítajte mesačné, ročné a jednorazové výdavky domácnosti.',url:'/kalkulacky/naklady-na-byvanie/'},{slug:'hypoteka',title:'Hypotekárna kalkulačka',category:'Financie',description:'Splátka hypotéky',url:'/financie/#hypoteka'},{slug:'rozpocet',title:'Rodinný rozpočet',category:'Financie',description:'Mesačné príjmy a výdavky',url:'/financie/#rozpocet'},{slug:'naklady-na-auto',title:'Náklady na auto',category:'Auto',description:'Celkové prevádzkové náklady',url:'/kalkulacky/naklady-na-auto/'},...catalog.map(t=>({...t,url:'/kalkulacky/'+t.slug+'/'}))];
+const unique=new Map(all.map(item=>[item.url,item]));
+const calculators=[...unique.values()];
 const groups=[{id:'all',label:'Všetky'},{id:'financie',label:'Financie a bývanie'},{id:'auto',label:'Auto a elektromobilita'}];
 ---
 <Base title="Kalkulačky podľa témy" description="Nájdite správnu kalkulačku pomocou kategórií a vyhľadávania.">
@@ -10,12 +12,13 @@ const groups=[{id:'all',label:'Všetky'},{id:'financie',label:'Financie a bývan
 <p class="intro">Nemusíte prechádzať celý zoznam. Vyberte oblasť alebo napíšte, čo chcete vypočítať. Výpočty prebiehajú vo vašom prehliadači.</p>
 <section class="panel" aria-label="Filtrovanie kalkulačiek">
 <label for="calc-search">Čo potrebujete vypočítať?</label>
-<input id="calc-search" type="search" placeholder="Napríklad hypotéka, nabíjanie, sporenie…" autocomplete="off" style="width:100%;max-width:38rem;padding:.8rem;margin:.5rem 0 1rem;border:1px solid #94a3b8;border-radius:.65rem" />
+<input id="calc-search" type="search" placeholder="Napríklad cista mzda, hypoteka, nabijanie…" autocomplete="off" style="width:100%;max-width:38rem;padding:.8rem;margin:.5rem 0 1rem;border:1px solid #94a3b8;border-radius:.65rem" />
+<button type="button" id="calc-reset" class="filter-button">Zrušiť filtre</button>
 <div role="group" aria-label="Kategória kalkulačiek" class="filter-buttons">
 {groups.map((g,i)=><button type="button" class="filter-button" data-category={g.id} aria-pressed={i===0?'true':'false'}>{g.label}</button>)}
-</div><p id="calc-count" class="muted" aria-live="polite">Zobrazených {all.length} kalkulačiek</p>
+</div><p id="calc-count" class="muted" aria-live="polite">Zobrazených {calculators.length} kalkulačiek</p>
 </section>
-<div class="grid" id="calc-list">{all.map(t=><a class="card calc-item" data-group={t.category.toLowerCase()} data-search={[t.title,t.description,t.keywords??''].join(' ').toLocaleLowerCase('sk')} href={t.url}><span class="tag">{t.category}</span><h2>{t.title} →</h2><p>{t.description}</p></a>)}</div>
+<div class="grid" id="calc-list">{calculators.map(t=><a class="card calc-item" data-group={t.category.toLowerCase()} data-search={[t.title,t.description,t.keywords??''].join(' ').toLocaleLowerCase('sk')} href={t.url}><span class="tag">{t.category}</span><h2>{t.title} →</h2><p>{t.description}</p></a>)}</div>
 <p id="calc-empty" hidden role="status">Pre tento výber sme nenašli kalkulačku. Skúste iné slovo alebo kategóriu.</p>
 </main>
 <style>
@@ -28,7 +31,9 @@ const items=[...document.querySelectorAll<HTMLElement>('.calc-item')];
 const count=document.querySelector<HTMLElement>('#calc-count');
 const empty=document.querySelector<HTMLElement>('#calc-empty');
 let category='all';
-function filter(){const query=(input?.value||'').toLocaleLowerCase('sk').trim();let visible=0;for(const item of items){const match=(category==='all'||item.dataset.group===category)&&(!query||(item.dataset.search||'').includes(query));item.hidden=!match;if(match)visible++;}if(count)count.textContent='Zobrazených '+visible+' z '+items.length+' kalkulačiek';if(empty)empty.hidden=visible!==0;}
+const normalize=(value:string)=>value.toLocaleLowerCase('sk').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();
+function filter(){const terms=normalize(input?.value||'').split(/\s+/).filter(Boolean);let visible=0;for(const item of items){const haystack=normalize(item.dataset.search||'');const match=(category==='all'||item.dataset.group===category)&&terms.every(term=>haystack.includes(term));item.hidden=!match;if(match)visible++;}if(count)count.textContent='Zobrazených '+visible+' z '+items.length+' kalkulačiek';if(empty)empty.hidden=visible!==0;}
 buttons.forEach(button=>button.addEventListener('click',()=>{category=button.dataset.category||'all';buttons.forEach(b=>b.setAttribute('aria-pressed',String(b===button)));filter();}));input?.addEventListener('input',filter);
+document.querySelector<HTMLButtonElement>('#calc-reset')?.addEventListener('click',()=>{if(input)input.value='';category='all';buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.category==='all')));filter();input?.focus();});
 </script>
 </Base>
