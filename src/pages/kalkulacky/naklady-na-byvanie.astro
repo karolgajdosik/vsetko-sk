@@ -41,6 +41,15 @@ const fields = [
         <div class="housing-result"><small>Celkom za plánované obdobie</small><strong id="housing-total">—</strong></div>
         <div class="housing-result"><small>Podiel z čistého príjmu domácnosti</small><strong id="housing-share">—</strong></div>
       </div>
+      <section class="panel" aria-labelledby="housing-resilience-title">
+        <h3 id="housing-resilience-title">Odolnosť rozpočtu pri zdražení bývania</h3>
+        <p>Porovnajte, čo sa stane, ak sa vaše pravidelné mesačné výdavky na bývanie zvýšia. Jednorazové výdavky a príjem zostávajú nezmenené; ide o scenár, nie predpoveď.</p>
+        <div class="housing-results-grid" aria-live="polite">
+          <div class="housing-result"><small>Pravidelné náklady pri +10 %</small><strong id="housing-stress10">—</strong><small id="housing-stress10-share"></small></div>
+          <div class="housing-result"><small>Pravidelné náklady pri +20 %</small><strong id="housing-stress20">—</strong><small id="housing-stress20-share"></small></div>
+          <div class="housing-result"><small>Zostatok príjmu po +20 %</small><strong id="housing-buffer">—</strong><small>Po odpočítaní pravidelných nákladov na bývanie, pred ostatnými životnými výdavkami.</small></div>
+        </div>
+      </section>
       <p class="housing-note">Mesačný priemer rozpočítava jednorazové výdavky rovnomerne počas zvoleného obdobia. Ročný priemer zodpovedá dvanástim takýmto priemerným mesiacom. Ak nezadáte príjem, podiel z príjmu sa nevypočíta.</p>
     </section>
     <button type="button" id="housing-print" class="housing-reset">Vytlačiť alebo uložiť výsledky ako PDF</button>
@@ -83,7 +92,7 @@ const fields = [
     const error=output('housing-error');
     error.hidden=Boolean(result);
     if(!result){
-      for(const id of ['housing-regular','housing-monthly','housing-annual','housing-total','housing-share'])output(id).textContent='—';
+      for(const id of ['housing-regular','housing-monthly','housing-annual','housing-total','housing-share','housing-stress10','housing-stress20','housing-buffer','housing-stress10-share','housing-stress20-share'])output(id).textContent='—';
       return;
     }
     output('housing-regular').textContent=euro(result.monthlyRecurring);
@@ -91,6 +100,13 @@ const fields = [
     output('housing-annual').textContent=euro(result.annualAverage);
     output('housing-total').textContent=euro(result.horizonTotal);
     output('housing-share').textContent=result.shareOfIncome===null?'Nezadané':new Intl.NumberFormat('sk-SK',{maximumFractionDigits:1}).format(result.shareOfIncome)+' %';
+    const income=Number(inputs.income);
+    for(const [percent,id] of [[10,'housing-stress10'],[20,'housing-stress20']] as const){
+      const monthly=result.monthlyRecurring*(1+percent/100);
+      output(id).textContent=euro(monthly);
+      output(id+'-share').textContent=income>0?'Podiel z príjmu: '+new Intl.NumberFormat('sk-SK',{maximumFractionDigits:1}).format(monthly/income*100)+' %':'Zadajte príjem na výpočet podielu.';
+    }
+    output('housing-buffer').textContent=income>0?euro(income-result.monthlyRecurring*1.2):'Nezadané';
   }
   document.getElementById('housing-form')?.addEventListener('input',update);
   document.getElementById('housing-form')?.addEventListener('reset',()=>requestAnimationFrame(update));
