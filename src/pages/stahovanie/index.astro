@@ -50,7 +50,7 @@ const timeline = [
       <p>Nie každé sťahovanie znamená zmenu trvalého pobytu. Ak ho meníte, overte si konkrétny postup a následné povinnosti na <a href="https://www.slovensko.sk/" rel="noopener noreferrer">slovensko.sk</a> alebo príslušnej ohlasovni. Osobitne si skontrolujte kontaktnú adresu pri zmluvách a službách.</p>
       <p><strong>Aktualizované:</strong> 7. 11. 2026. Informácie nie sú právnym poradenstvom.</p>
     </section>
-    <section class="panel" aria-labelledby="formular-odovzdania">
+    <section class="panel" id="formular-odovzdania-panel" aria-labelledby="formular-odovzdania">
       <h2 id="formular-odovzdania">Vyplniteľný odovzdávací protokol na vytlačenie</h2>
       <p>Vyplňte údaje a vytlačte si protokol pre obe strany. Údaje sa neposielajú na server a formulár sa neukladá; pred zatvorením stránky si vytlačte alebo uložte PDF cez tlač prehliadača.</p>
       <form id="odovzdanie-form" class="handover-form" autocomplete="off">
@@ -87,10 +87,9 @@ const timeline = [
     .handover-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
     .handover-actions button { padding: .65rem 1rem; cursor: pointer; }
     @media print {
-      body * { visibility: hidden !important; }
-      #formular-odovzdania, #formular-odovzdania * { visibility: visible !important; }
-      #formular-odovzdania { position: absolute; inset: 0 auto auto 0; width: 100%; padding: 0 !important; border: 0 !important; box-shadow: none !important; color: #000 !important; background: #fff !important; }
-      #formular-odovzdania .handover-actions, #formular-odovzdania > p:last-child { display: none !important; }
+      .main > :not(#formular-odovzdania-panel) { display: none !important; }
+      #formular-odovzdania-panel { padding: 0 !important; border: 0 !important; box-shadow: none !important; color: #000 !important; background: #fff !important; }
+      #formular-odovzdania-panel .handover-actions, #formular-odovzdania-panel > p:last-child { display: none !important; }
       .handover-grid { grid-template-columns: 1fr 1fr; gap: .6rem; }
       .handover-form input, .handover-form textarea { border: 0; border-bottom: 1px solid #555; border-radius: 0; color: #000; background: #fff; }
       .handover-form label { break-inside: avoid; }
