@@ -182,8 +182,8 @@
       "Vyskúšajte kalkulačku rodinného rozpočtu."
     ],
     "source": {
-      "label": "NBS – rodinný rozpočet a finančné rozhodnutia",
-      "url": "https://nbs.sk/dohlad-nad-financnym-trhom/ofs/financne-produkty/sporenie-a-investovanie/investovanie/"
+      "label": "NBS – zostavenie osobného a rodinného rozpočtu",
+      "url": "https://nbs.sk/dohlad-nad-financnym-trhom/ofs/zivotne-situacie/prebytok-financnych-prostriedkov/"
     },
     "updated": "22. 10. 2026",
     "keywords": "kontrola rodinnych vydavkov",
@@ -193,7 +193,7 @@
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne. Praktické odporúčania sú všeobecné a nepredstavujú individuálne finančné poradenstvo.",
+    "sourceNote": "Zdrojový odkaz bol 8. 11. 2026 overený na dostupnosť a tematickú zhodu. Aktuálne právne lehoty, poplatky a individuálne podmienky overte v platných predpisoch; nejde o úplnú právnu revíziu návodu.",
     "practical": [
       {
         "title": "Vyhodnoťte posledné tri mesiace",
@@ -463,8 +463,8 @@
       "Skontrolujte podmienky a termíny vydania."
     ],
     "source": {
-      "label": "Ministerstvo vnútra SR – občianske preukazy FAQ",
-      "url": "https://pes.minv.sk/wps/wcm/connect/sk/site/main/casto-kladene-otazky/obcianske-preukazy/FAQ-obcianske-preukazy"
+      "label": "Slovensko.sk – strata alebo odcudzenie občianskeho preukazu",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_co-robit-pri-strate-alebo-odcu"
     },
     "updated": "22. 10. 2026",
     "keywords": "strata obcianskeho preukazu",
@@ -474,7 +474,7 @@
       "Dokumenty súvisiace s konkrétnou žiadosťou"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
+    "sourceNote": "Zdrojový odkaz bol 8. 11. 2026 overený na dostupnosť a tematickú zhodu. Aktuálne právne lehoty, poplatky a individuálne podmienky overte v platných predpisoch; nejde o úplnú právnu revíziu návodu.",
     "detail": {
       "summary": "Pri strate alebo krádeži občianskeho preukazu je prioritou nahlásenie neplatného dokladu a následné vybavenie nového. Ak máš aktivované elektronické funkcie, rieš aj ochranu prístupových údajov.",
       "before": [
@@ -803,8 +803,8 @@
       "Pred právnymi rozhodnutiami si overte aktuálny postup."
     ],
     "source": {
-      "label": "Ministerstvo spravodlivosti SR – dedičské konanie",
-      "url": "https://www.justice.gov.sk/tlacovespravy/tlacova-sprava-3385/"
+      "label": "Slovensko.sk – úmrtie a dedičské konanie",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_umrtie2"
     },
     "updated": "22. 10. 2026",
     "keywords": "dedicske konanie",
@@ -815,7 +815,7 @@
       "Ak existuje závet alebo dôležité listiny, oznámte to notárovi."
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
+    "sourceNote": "Zdrojový odkaz bol 8. 11. 2026 overený na dostupnosť a tematickú zhodu. Aktuálne právne lehoty, poplatky a individuálne podmienky overte v platných predpisoch; nejde o úplnú právnu revíziu návodu.",
     "detail": {
       "summary": "Dedičské konanie sa spravidla začne po oznámení úmrtia súdu; súd poverí notára ako súdneho komisára. Dedičia si pripravia informácie o majetku, záväzkoch a prípadnom závete.",
       "before": [
@@ -889,8 +889,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Ministerstvo vnútra SR – občianske preukazy FAQ",
-      "url": "https://pes.minv.sk/wps/wcm/connect/sk/site/main/casto-kladene-otazky/obcianske-preukazy/FAQ-obcianske-preukazy"
+      "label": "Slovensko.sk – vybavenie občianskeho preukazu",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_vybavujem-obciansky-preukaz-s"
     },
     "updated": "22. 10. 2026",
     "keywords": "ako vybaviť občiansky preukaz",
@@ -901,7 +901,7 @@
       "Overte dostupnosť rezervácie termínu."
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
+    "sourceNote": "Zdrojový odkaz bol 8. 11. 2026 overený na dostupnosť a tematickú zhodu. Aktuálne právne lehoty, poplatky a individuálne podmienky overte v platných predpisoch; nejde o úplnú právnu revíziu návodu.",
     "detail": {
       "summary": "Občiansky preukaz vybavíte na pracovisku dokladov. Konkrétny postup závisí od toho, či ide o prvé vydanie, skončenie platnosti, zmenu údajov alebo poškodenie.",
       "before": [
@@ -2232,8 +2232,8 @@
       "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
     ],
     "source": {
-      "label": "Ministerstvo dopravy – kontrola pneumatík",
-      "url": "https://www.mindop.sk/ministerstvo/statny-dopravny-urad/kontroly-vozidiel/cestne-technicke-kontroly-vozidiel/cestne-technicke-kontroly-vozidiel"
+      "label": "Slov-Lex – zákon o cestnej premávke",
+      "url": "https://www.slov-lex.sk/ezbierky/pravne-predpisy/SK/ZZ/2009/8/"
     },
     "updated": "22. 10. 2026",
     "keywords": "príprava auta na zimu",
@@ -2243,7 +2243,7 @@
       "Zmluvy, potvrdenia alebo kontakty podľa situácie"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
+    "sourceNote": "Zdrojový odkaz bol 8. 11. 2026 overený na dostupnosť a tematickú zhodu. Aktuálne právne lehoty, poplatky a individuálne podmienky overte v platných predpisoch; nejde o úplnú právnu revíziu návodu.",
     "practical": [
       {
         "title": "Overte vhodnosť pneumatík",

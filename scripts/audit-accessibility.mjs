@@ -18,7 +18,8 @@ await mkdir('quality-reports', {recursive: true});
 const browser = await chromium.launch({headless: true});
 try {
   for (const variant of variants) {
-    const page = await browser.newPage({viewport: {width: variant.width, height: 900}, colorScheme: variant.theme});
+    const context = await browser.newContext({viewport: {width: variant.width, height: 900}, colorScheme: variant.theme});
+    const page = await context.newPage();
     try {
       const response = await page.goto('http://127.0.0.1:4321' + variant.route, {waitUntil: 'load', timeout: 20000});
       if (response.status() !== 200) throw new Error('HTTP ' + response.status());
@@ -32,7 +33,7 @@ try {
         if (!item.skipLinkFocused) item.keyboardError = 'First keyboard stop is not the skip link';
       }
     } catch (error) { report.results.push({...variant, error: error.message}); }
-    finally { await page.close(); }
+    finally { await context.close(); }
   }
 } finally { await browser.close(); }
 report.variants = report.results.length;
