@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import guides from '../data/guides.json';
 import calculators from '../data/calculators.json';
 import scenarios from '../data/scenarios.json';
+import performance from '../data/performance-audit.json';
 const stats = [['Praktické návody', guides.length, '/navody/'], ['Kalkulačky', calculators.length + 3, '/kalkulacky/'], ['Životné situácie', scenarios.length, '/sprievodca/']];
 ---
 <Base title="Prehľad portálu a meranie používania" description="Rozsah obsahu VŠETKO24.sk, zdroje merania návštevnosti a jasné rozlíšenie nameraných a zatiaľ nedostupných údajov.">
@@ -20,11 +21,14 @@ const stats = [['Praktické návody', guides.length, '/navody/'], ['Kalkulačky'
     </section>
     <section class="panel">
       <h2>Výkon a Core Web Vitals</h2>
-      <p>Skutočné používateľské merania a laboratórny test sú dva odlišné zdroje. Výsledok automatického testu jednej návštevy nepotvrdzuje Core Web Vitals za celé obdobie. Kým nie je doložené meranie LCP, INP a CLS s obdobím a rozsahom dát, stav zostáva <strong>nevyhodnotený</strong>.</p>
+      <p>Zverejnená laboratórna snímka: <time datetime={performance.checkedAt}>8. novembra 2026</time>. {performance.method}. Výsledky sú snímkou produkcie v čase merania, nie priebežným meraním všetkých návštevníkov.</p>
+      <div class="table-scroll"><table><caption>Mobilný laboratórny výkon – jeden beh pre každú stránku</caption><thead><tr><th scope="col">Stránka</th><th scope="col">Skóre</th><th scope="col">LCP</th><th scope="col">CLS</th><th scope="col">TBT</th></tr></thead><tbody>{performance.routes.map(row=><tr><th scope="row"><a href={row.path}>{row.label}</a></th><td>{row.score}/100</td><td>{(row.lcpMs/1000).toLocaleString('sk-SK',{maximumFractionDigits:2})} s</td><td>{row.cls}</td><td>{row.tbtMs} ms</td></tr>)}</tbody></table></div>
+      <p>LCP opisuje načítanie najväčšieho prvku, CLS posuny rozloženia a TBT blokovanie hlavného vlákna v laboratóriu. TBT nie je používateľská metrika INP.</p>
+      <p>Skutočné používateľské merania a laboratórny test sú dva odlišné zdroje. Výsledok automatického testu jednej návštevy nepotvrdzuje Core Web Vitals za celé obdobie. Kým nie je doložené meranie LCP, INP a CLS s obdobím a rozsahom dát od návštevníkov, stav terénneho merania zostáva <strong>nevyhodnotený</strong>.</p>
     </section>
     <p><a href="/ochrana-sukromia/">Ako portál spracúva údaje</a> · <a href="/pristupnost/">Stav prístupnosti</a></p>
   </main>
   <style>
-    .metrics{max-width:70rem;padding-block:2rem}.metrics-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.metrics .panel{padding:1.4rem;margin-block:1rem;overflow-wrap:anywhere}.metrics h2{margin-top:0}.metric-value{font-size:2.5rem;font-weight:800;margin-block:.5rem}@media(max-width:700px){.metrics-grid{grid-template-columns:1fr}}
+    .metrics{max-width:70rem;padding-block:2rem}.metrics-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.metrics .panel{padding:1.4rem;margin-block:1rem;overflow-wrap:anywhere}.metrics h2{margin-top:0}.metric-value{font-size:2.5rem;font-weight:800;margin-block:.5rem}.table-scroll{max-width:100%;overflow-x:auto}.metrics table{width:100%;border-collapse:collapse}.metrics caption{text-align:left;font-weight:700;margin-bottom:.7rem}.metrics th,.metrics td{text-align:left;padding:.65rem;border-bottom:1px solid var(--line,#8290a5)}@media(max-width:700px){.metrics-grid{grid-template-columns:1fr}.metrics th,.metrics td{padding:.4rem;font-size:.85rem}}
   </style>
 </Base>

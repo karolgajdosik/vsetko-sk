@@ -1,0 +1,11 @@
+{
+  "checkedAt": "2026-11-08T10:28:10Z",
+  "method": "Lighthouse 13.6.0, jeden mobilný laboratórny beh na produkcii",
+  "samplesPerRoute": 1,
+  "fieldDataAvailable": false,
+  "routes": [
+    {"path": "/", "label": "Úvodná stránka", "score": 99, "lcpMs": 1651, "cls": 0, "tbtMs": 0},
+    {"path": "/ai/", "label": "Asistent", "score": 99, "lcpMs": 1998, "cls": 0, "tbtMs": 0},
+    {"path": "/kalkulacky/naklady-na-byvanie/", "label": "Náklady na bývanie", "score": 99, "lcpMs": 1997, "cls": 0, "tbtMs": 0}
+  ]
+}
