@@ -270,6 +270,18 @@
       {
         "title": "Zaznamenajte výsledok obhliadky",
         "body": "Vyžiadajte VIN, servisné záznamy, informácie o poškodeniach a nezávislú kontrolu; nezrovnalosti spíšte ešte pred úhradou zálohy."
+      },
+      {
+        "title": "Overte identifikáciu vozidla",
+        "body": "Porovnajte VIN na vozidle, v dokladoch a v dostupnej histórii. Nezhoda alebo nečitateľné označenie je dôvodom pozastaviť kúpu a žiadať vysvetlenie."
+      },
+      {
+        "title": "Objednajte nezávislú prehliadku",
+        "body": "Pred podpisom zmluvy požiadajte nezávislý servis o diagnostiku, kontrolu podvozka, poškodení a stavu opotrebovaných dielov. Výsledok si nechajte zaznamenať."
+      },
+      {
+        "title": "Zaznamenajte stav pri prevzatí",
+        "body": "Do odovzdávacieho protokolu uveďte stav kilometrov, počet kľúčov, známe vady, príslušenstvo a dátum odovzdania. Uschovajte si kópie dokumentov."
       }
     ]
   },
@@ -300,6 +312,18 @@
       {
         "title": "Spíšte odovzdávací protokol",
         "body": "Zaznamenajte VIN, dátum a čas odovzdania, stav kilometrov, počet kľúčov a prevzaté doklady; odložte si podpísanú kópiu."
+      },
+      {
+        "title": "Pripravte pravdivý opis stavu",
+        "body": "Spíšte známe poškodenia, servisnú históriu a aktuálny stav kilometrov. Pri predaji sa vyhnite neovereným tvrdeniam o nehavarovanosti."
+      },
+      {
+        "title": "Dohodnite bezpečnú úhradu",
+        "body": "Pred odovzdaním kľúčov si potvrďte prijatie platby na vlastnom účte. Nespoliehajte sa iba na fotografiu potvrdenia o prevode."
+      },
+      {
+        "title": "Zaznamenajte odovzdanie",
+        "body": "V protokole potvrďte dátum, čas, stav kilometrov, doklady, počet kľúčov a prevzaté vybavenie. Kópiu si ponechajte pre prípad neskorších sporov."
       }
     ]
   },
@@ -383,6 +407,18 @@
       {
         "title": "Pripravte záložnú nabíjačku",
         "body": "Pred odjazdom skontrolujte aktuálny stav a platbu na dvoch alternatívnych staniciach; deklarovaný výkon nie je garantovaný výkon auta."
+      },
+      {
+        "title": "Skontrolujte konektor a výkon",
+        "body": "Pred cestou porovnajte konektor nabíjačky s vozidlom a overte maximálny výkon, ktorý vozidlo podporuje. Deklarovaný výkon stojana nemusí byť dosiahnuteľný."
+      },
+      {
+        "title": "Overte cenu pred spustením",
+        "body": "Pozrite si tarifu, prípadné časové poplatky a podmienky roamingu v aplikácii alebo na stojane. Cena sa môže líšiť podľa spôsobu autorizácie."
+      },
+      {
+        "title": "Majte náhradnú stanicu",
+        "body": "Pri dlhšej trase vyberte aj alternatívnu stanicu a nechajte rezervu energie na presun. Dostupnosť nabíjačky sa môže počas jazdy zmeniť."
       }
     ]
   },
@@ -1828,6 +1864,18 @@
       {
         "title": "Prepočítajte náklady vlastníctva",
         "body": "Porovnajte reálnu spotrebu, domáce a verejné nabíjanie, poistenie, pneumatiky a očakávané trasy."
+      },
+      {
+        "title": "Porovnajte reálny dojazd",
+        "body": "Okrem katalógovej hodnoty zistite spotrebu pri vašom typickom tempe, v zime a na diaľnici. Do rozpočtu zahrňte aj čas strávený nabíjaním."
+      },
+      {
+        "title": "Preverte stav batérie",
+        "body": "Pri jazdenom vozidle žiadajte dostupný diagnostický report batérie a informácie o zostávajúcej záruke. Samotný údaj o dojazde nie je spoľahlivým meraním stavu batérie."
+      },
+      {
+        "title": "Spočítajte celkové náklady",
+        "body": "Porovnajte obstarávaciu cenu, poistenie, pneumatiky, servis, domáce a verejné nabíjanie. Počítajte aj s možnou stratou hodnoty vozidla."
       }
     ]
   },
@@ -1906,6 +1954,18 @@
       {
         "title": "Plánujte podľa reálnej spotreby",
         "body": "Počítajte s diaľničnou rýchlosťou, počasím, prevýšením a rezervou pri príjazde; vyberte aj náhradnú stanicu."
+      },
+      {
+        "title": "Plánujte podľa spotreby",
+        "body": "Pri odhade dojazdu zohľadnite rýchlosť, počasie, prevýšenie a zaťaženie. Orientačný dojazd z palubného počítača nie je garanciou."
+      },
+      {
+        "title": "Nabíjajte s časovou rezervou",
+        "body": "Pred odchodom overte obsadenosť staníc a dostupnosť platby. Naplánujte záložné miesto nabíjania mimo hlavnej trasy."
+      },
+      {
+        "title": "Pripravte batériu na rýchlonabíjanie",
+        "body": "Ak to vozidlo podporuje, nastavte rýchlonabíjačku ako cieľ navigácie, aby mohlo upraviť teplotu batérie. Riaďte sa návodom výrobcu."
       }
     ]
   },
@@ -2004,6 +2064,18 @@
       {
         "title": "Dohodnite si poradie úkonov",
         "body": "Pred odovzdaním vozidla overte doklady, splnomocnenia, poistenie a aktuálny spôsob evidenčného úkonu."
+      },
+      {
+        "title": "Overte údaje v dokladoch",
+        "body": "Pred podaním žiadosti skontrolujte VIN, evidenčné číslo a osobné údaje zúčastnených. Nezhody riešte pred podpisom dokumentov."
+      },
+      {
+        "title": "Dohodnite zodpovednosť za úkony",
+        "body": "Predávajúci a kupujúci by si mali vopred určiť, kto zabezpečí evidenčné úkony a aké dokumenty predloží. Aktuálny postup overte na oficiálnom portáli."
+      },
+      {
+        "title": "Uschovajte doklad o odovzdaní",
+        "body": "Zaznamenajte čas odovzdania vozidla, kľúčov a dokladov. Po dokončení zmeny si overte správnosť údajov v evidencii."
       }
     ]
   },
