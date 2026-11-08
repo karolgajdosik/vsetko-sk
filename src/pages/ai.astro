@@ -101,13 +101,15 @@ form.addEventListener('submit',async e=>{
     }finally{clearTimeout(timer);}
     const data=await result.json().catch(()=>null);
     const answer=typeof data?.answer==='string'?data.answer.trim():'';
-    response.textContent=result.ok&&answer?answer:'Asistent teraz neposkytol overiteľnú odpoveď. Nižšie nájdete iba tematicky súvisiace stránky portálu; ich obsah si overte v oficiálnych zdrojoch.';
-    if(result.ok&&Array.isArray(data.sources)){
+    const validSources=result.ok&&Array.isArray(data?.sources)?data.sources.filter((item:unknown):item is {url:string}=>typeof item==='object'&&item!==null&&isInternal((item as {url?:unknown}).url)&&knownSourceUrls.has((item as {url:string}).url)):[];
+    const hasGrounding=validSources.length>0;
+    const isGenerated=data?.mode==='ai';
+    response.textContent=!result.ok||!answer?'Asistent teraz neposkytol overiteľnú odpoveď. Nižšie nájdete iba tematicky súvisiace stránky portálu; ich obsah si overte v oficiálnych zdrojoch.':isGenerated&&!hasGrounding?'Model neposkytol odpoveď s dohľadateľným podkladom v katalógu portálu. Z bezpečnostných dôvodov ju nezobrazujem. Pozrite si súvisiace návody nižšie.':isGenerated?'Orientačná odpoveď AI (nie overený úradný postup):\n'+answer+'\n\nUvedené odkazy sú tematické podklady, nie potvrdenie každej vety odpovede.':answer;
+    if(result.ok&&hasGrounding){
       const links=document.createElement('div');links.className='ai-sources';
       const label=document.createElement('strong');label.textContent='Odkazy uvedené v odpovedi:';links.append(label);
       let count=0;
-      for(const item of data.sources){
-        if(!isInternal(item?.url)||!knownSourceUrls.has(item.url))continue;
+      for(const item of validSources){
         const a=document.createElement('a');a.href=item.url;a.textContent=String(item.title||'Súvisiaci zdroj')+' ↗';
         links.append(a);count++;
       }
