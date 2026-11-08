@@ -225,9 +225,9 @@
     "title": "Povinné zmluvné poistenie",
     "description": "Pri PZP si overte krytie, výluky a postup pri poistnej udalosti.",
     "steps": [
-      "Pripravte údaje o vozidle.",
-      "Porovnajte podmienky, nielen cenu.",
-      "Uložte si doklady a kontakty poisťovne."
+      "Pripravte technický preukaz alebo údaje o vozidle a skontrolujte VIN, evidenčné číslo a údaje držiteľa.",
+      "Porovnajte nielen poistné, ale aj limity krytia, výluky, asistenčné služby a spôsob nahlásenia škody.",
+      "Pred potvrdením zmluvy overte dátum začiatku krytia; potvrdenie o poistení a kontakty poisťovne uložte tak, aby boli dostupné aj na cestách."
     ],
     "source": {
       "label": "Slovenská kancelária poisťovateľov – PZP",
@@ -267,9 +267,9 @@
     "title": "Kontrola vozidla pred kúpou",
     "description": "Pred kúpou ojazdeného auta preverujte technický aj právny stav.",
     "steps": [
-      "Porovnajte VIN na vozidle a v dokladoch.",
-      "Skontrolujte servisnú históriu a technický stav.",
-      "Zmluvu podpisujte až po kontrole údajov."
+      "Porovnajte VIN na vozidle, v dokladoch a v dostupnej servisnej dokumentácii; nezrovnalosti si nechajte vysvetliť pred zaplatením zálohy.",
+      "Dohodnite nezávislú prehliadku technického stavu a diagnostiku; pri elektromobile žiadajte aj dostupné informácie o stave trakčnej batérie.",
+      "Skontrolujte identitu predávajúceho, oprávnenie vozidlo predať a súlad údajov v zmluve s dokladmi; cenu a odovzdanie zaznamenajte písomne."
     ],
     "source": {
       "label": "Slovensko.sk – overenie vozidla",
@@ -309,9 +309,9 @@
     "title": "Predaj vozidla",
     "description": "Pri predaji si vopred pripravte zmluvu a overte evidenčné povinnosti.",
     "steps": [
-      "Skontrolujte údaje predávajúceho a kupujúceho.",
-      "Zaznamenajte stav kilometrov a odovzdanie.",
-      "Overte aktuálny postup zmeny držiteľa."
+      "Pripravte doklady k vozidlu, servisnú históriu a údaje potrebné na kúpnu zmluvu; upozornite kupujúceho na známe vady.",
+      "Do zmluvy uveďte správne identifikačné údaje strán a vozidla, cenu, spôsob úhrady a dohodnutý čas odovzdania.",
+      "Pred odovzdaním kľúčov potvrďte prijatie dohodnutej platby, spíšte odovzdávací protokol a dohodnite postup pri zmene držby a poistenia."
     ],
     "source": {
       "label": "Slovensko.sk – prevod držby vozidla",
@@ -351,9 +351,9 @@
     "title": "Nabíjanie elektromobilu",
     "description": "Pri plánovaní cesty sledujte kompatibilitu konektorov a dostupnosť staníc.",
     "steps": [
-      "Skontrolujte nabíjací výkon svojho vozidla.",
-      "Porovnajte ceny a podmienky operátorov.",
-      "Naplánujte alternatívnu zastávku."
+      "Zistite maximálny AC a DC nabíjací výkon vozidla a porovnajte ho s konektorom a výkonom vybranej stanice.",
+      "Pred cestou si overte aktuálnu dostupnosť stanice, cenu za kWh, prípadné časové poplatky a spôsob autorizácie platby.",
+      "Pri rýchlom nabíjaní sledujte priebeh výkonu a stav batérie; plánujte aj alternatívnu stanicu pre prípad obsadenia alebo poruchy."
     ],
     "source": {
       "label": "MH SR – elektromobilita a nabíjacia infraštruktúra",
@@ -446,9 +446,9 @@
     "title": "Diaľničná známka",
     "description": "Pred cestou overte, či vozidlo potrebuje diaľničnú známku.",
     "steps": [
-      "Overte kategóriu vozidla.",
-      "Použite oficiálny predajný portál.",
-      "Skontrolujte evidenčné číslo a platnosť."
+      "Overte, či plánovaný úsek cesty a kategória vozidla vyžadujú diaľničnú známku; podmienky skontrolujte na oficiálnom portáli.",
+      "Pred úhradou starostlivo zadajte evidenčné číslo, krajinu registrácie a začiatok platnosti; údaje skontrolujte ešte pred potvrdením platby.",
+      "Po nákupe si uložte potvrdenie a overte evidovanú platnosť známky cez oficiálnu službu; pri chybe postupujte podľa jej aktuálnych pokynov."
     ],
     "source": {
       "label": "eZnamka – najčastejšie otázky",
