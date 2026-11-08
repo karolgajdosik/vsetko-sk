@@ -20,6 +20,7 @@ const names = {financie:'Financie', auto:'Auto a doprava', urady:'Úrady a dokla
     <section class="panel guide-search" aria-label="Hľadanie a filtrovanie návodov">
       <label for="guide-search-input">Čo potrebujete vybaviť?</label>
       <input id="guide-search-input" type="search" placeholder="Napr. hypotéka, občiansky preukaz, elektromobil…" autocomplete="off" />
+      <button type="button" id="guide-reset" class="guide-reset" hidden>Vymazať hľadanie a filtre</button>
       <div class="guide-filters" role="group" aria-label="Oblasť návodov">
         {categories.map((category,index) =>
           <button type="button" class="guide-filter" data-category={category.id} aria-pressed={index === 0 ? 'true' : 'false'}>
@@ -51,6 +52,8 @@ const names = {financie:'Financie', auto:'Auto a doprava', urady:'Úrady a dokla
     .guide-search{margin:1.5rem 0;padding:1.2rem;border:1px solid #94a3b855;border-radius:.9rem}
     .guide-search label{display:block;font-weight:700;margin-bottom:.45rem}
     #guide-search-input{box-sizing:border-box;width:100%;max-width:43rem;padding:.8rem;border:1px solid #94a3b8;border-radius:.6rem;font:inherit}
+    .guide-reset{margin-top:.6rem;padding:.45rem .7rem;border:1px solid #94a3b8;border-radius:.5rem;background:transparent;color:inherit;cursor:pointer;font:inherit}
+    .guide-reset[hidden]{display:none!important}
     .guide-filters{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.1rem 0 .8rem}
     .guide-filter{font:inherit;cursor:pointer;padding:.5rem .9rem;border:1px solid #94a3b8;border-radius:999px;background:transparent;color:inherit}
     .guide-filter[aria-pressed=true]{background:#064f56;color:white;border-color:#064f56}
@@ -67,21 +70,24 @@ const names = {financie:'Financie', auto:'Auto a doprava', urady:'Úrady a dokla
     const items = [...document.querySelectorAll<HTMLElement>('.guide-item')];
     const count = document.querySelector<HTMLElement>('#guide-count');
     const empty = document.querySelector<HTMLElement>('#guide-empty');
+    const reset = document.querySelector<HTMLButtonElement>('#guide-reset');
     let category = 'all';
 
     const normalizeSearch = (value: string) => value.toLocaleLowerCase('sk').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ł/g, 'l');
 
     function filterGuides(){
-      const query = normalizeSearch((input?.value ?? '').trim());
+      const terms = normalizeSearch((input?.value ?? '').trim()).split(/\s+/).filter(Boolean);
       let visible = 0;
       for(const item of items){
         const matchesCategory = category === 'all' || item.dataset.category === category;
-        const matchesQuery = !query || (item.dataset.search ?? '').includes(query);
+        const searchable = item.dataset.search ?? '';
+        const matchesQuery = terms.every(term => searchable.includes(term));
         item.hidden = !(matchesCategory && matchesQuery);
         if(!item.hidden) visible++;
       }
       if(count) count.textContent = 'Zobrazených ' + visible + ' z ' + items.length + ' návodov';
       if(empty) empty.hidden = visible > 0;
+      if(reset) reset.hidden = terms.length === 0 && category === 'all';
     }
     buttons.forEach(button => button.addEventListener('click',()=>{
       category = button.dataset.category || 'all';
@@ -89,5 +95,12 @@ const names = {financie:'Financie', auto:'Auto a doprava', urady:'Úrady a dokla
       filterGuides();
     }));
     input?.addEventListener('input',filterGuides);
+    reset?.addEventListener('click',()=>{
+      if(input) input.value = '';
+      category = 'all';
+      buttons.forEach(b => b.setAttribute('aria-pressed',String(b.dataset.category === 'all')));
+      filterGuides();
+      input?.focus();
+    });
   </script>
 </Base>
