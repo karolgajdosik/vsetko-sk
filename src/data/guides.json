@@ -1149,8 +1149,9 @@
     "keywords": "strata cestovného pasu",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
-      "Identifikačné doklady podľa požiadaviek príslušného úradu",
-      "Dokumenty súvisiace s konkrétnou žiadosťou"
+      "Dostupný ďalší doklad totožnosti alebo jeho kópia a identifikačné údaje strateného pasu, ak ich poznáte",
+      "Miesto a približný čas straty či odcudzenia; prípadné potvrdenie polície, ak bolo vydané",
+      "Kontakty na zastupiteľský úrad a údaje o plánovanej trase a odchode pri strate v zahraničí"
     ],
     "verification": "Praktické kroky boli redakčne spresnené 9. 11. 2026 bez úplného právneho overenia. Konkrétne povinnosti, lehoty a poplatky pred úkonom overte u príslušného úradu; dátum pôvodnej aktualizácie zostáva nezmenený.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
@@ -1192,8 +1193,9 @@
     "keywords": "zmena mena alebo priezviska",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
-      "Identifikačné doklady podľa požiadaviek príslušného úradu",
-      "Dokumenty súvisiace s konkrétnou žiadosťou"
+      "Doklad totožnosti a dokumenty preukazujúce doterajšie osobné údaje",
+      "Listiny súvisiace s dôvodom zmeny (napríklad matričné doklady), podľa pokynov príslušného úradu",
+      "Zoznam dokladov, registrov a zmluvných vzťahov, v ktorých bude po schválení potrebné údaje aktualizovať"
     ],
     "verification": "Praktické kroky boli redakčne spresnené 9. 11. 2026 bez úplného právneho overenia. Konkrétne povinnosti, lehoty a poplatky pred úkonom overte u príslušného úradu; dátum pôvodnej aktualizácie zostáva nezmenený.",
     "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
@@ -1407,9 +1409,9 @@
     "keywords": "čo vybaviť po úmrtí blízkeho",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
-      "Úmrtný list alebo informácia o tom, kde a kedy bude vydaný",
-      "Zoznam zmlúv, účtov, poistiek a pravidelných platieb zosnulého na následné preverenie",
-      "Kontakty na pohrebnú službu, matriku a ďalšie inštitúcie, s ktorými už prebehla komunikácia"
+      "Úmrtný list alebo informácia o postupe jeho získania od príslušnej matriky",
+      "Dostupné identifikačné údaje zosnulého a doklady potrebné na konkrétne oznámenia",
+      "Zoznam známych bánk, poisťovní, zmlúv a záväzkov na následné preverenie oprávneného postupu"
     ],
     "verification": "Praktické kroky boli redakčne spresnené 9. 11. 2026 bez úplného právneho overenia. Konkrétne povinnosti, lehoty a poplatky pred úkonom overte u príslušného úradu; dátum pôvodnej aktualizácie zostáva nezmenený.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
@@ -1497,9 +1499,9 @@
     "keywords": "list vlastníctva a kataster",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
-      "Pripravte adresu, katastrálne územie alebo číslo parcely či listu vlastníctva.",
-      "Overte identitu predávajúceho a jeho oprávnenie nakladať s nehnuteľnosťou.",
-      "Rozlišujte informatívny náhľad od úradne použiteľného výpisu."
+      "Presná adresa alebo katastrálne územie a identifikácia parcely či stavby, ak sú známe",
+      "Číslo listu vlastníctva, ak ho máte, a účel, na ktorý výpis potrebujete",
+      "Údaje na porovnanie vlastníkov, podielov, tiarch a prípadných plomb s podkladmi k nehnuteľnosti"
     ],
     "verification": "Praktické odporúčania boli redakčne spresnené 9. 11. 2026; nejde o nové úplné právne ani zdrojové overenie. Pred transakciou overte aktuálne podmienky u príslušnej inštitúcie.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
@@ -1702,8 +1704,9 @@
     "keywords": "predaj bytu",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
-      "Vlastné finančné údaje a relevantné zmluvy",
-      "Ponuky alebo doklady potrebné na porovnanie"
+      "Aktuálne údaje z listu vlastníctva a dokumenty preukazujúce oprávnenie nakladať s bytom",
+      "Podklady o ťarchách, správe domu a prípadných záväzkoch, ktoré bude potrebné preveriť",
+      "Návrh bezpečného spôsobu úhrady kúpnej ceny a zoznam vecí pre odovzdávací protokol"
     ],
     "verification": "Praktické odporúčania boli redakčne spresnené 9. 11. 2026; nejde o nové úplné právne ani zdrojové overenie. Pred transakciou overte aktuálne podmienky u príslušnej inštitúcie.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
