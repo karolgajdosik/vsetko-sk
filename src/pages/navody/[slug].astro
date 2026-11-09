@@ -8,7 +8,7 @@ export function getStaticPaths() {
 }
 const {guide: sourceGuide}=Astro.props;
 const supplement=guideDetails[sourceGuide.slug];
-const guide={...sourceGuide,preparation:supplement?.before??sourceGuide.preparation,steps:supplement?.detailed.map(step=>step.title)??sourceGuide.steps,updated:supplement?.reviewed??sourceGuide.updated,detail:sourceGuide.detail??(supplement?{...supplement,summary:sourceGuide.description,links:[sourceGuide.source]}:undefined)};
+const guide={...sourceGuide,preparation:sourceGuide.preparation?.length ? sourceGuide.preparation : (supplement?.before ?? []),steps:sourceGuide.steps?.length ? sourceGuide.steps : (supplement?.detailed.map(step=>step.title) ?? []),updated:sourceGuide.updated,detail:sourceGuide.detail??(supplement?{...supplement,summary:sourceGuide.description,links:[sourceGuide.source]}:undefined)};
 const labels={financie:'Financie',auto:'Auto',urady:'Úrady'};
 const categoryLabel=labels[guide.category] ?? guide.category;
 const categoryUrl = '/' + guide.category + '/';
