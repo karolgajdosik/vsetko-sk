@@ -1009,10 +1009,10 @@
     "category": "urady",
     "description": "Doklady a postup pred návštevou pracoviska",
     "steps": [
-      "Zistite, či sa téma „ako vybaviť občiansky preukaz“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Určite dôvod žiadosti: Prvé vydanie, koniec platnosti, zmena mena alebo adresy a poškodenie dokladu môžu mať odlišné pravidlá.",
+      "Pripravte doklady: Podľa situácie môže byť potrebný rodný list, pôvodný doklad alebo listina preukazujúca zmenu údajov.",
+      "Podajte žiadosť na oddelení dokladov: Overí sa totožnosť a podľa podmienok sa spracuje fotografia, podpis a elektronické funkcie.",
+      "Prevezmite doklad a nastavte eID: Skontrolujte údaje a platnosť; pri využívaní elektronických služieb si bezpečne nastavte potrebné prístupové prvky."
     ],
     "source": {
       "label": "Slovensko.sk – vybavenie občianskeho preukazu",
@@ -2078,16 +2078,16 @@
     "category": "auto",
     "description": "Čo overiť pred nákupom elektrického auta",
     "steps": [
-      "Zistite, či sa téma „kúpa elektromobilu“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Porovnajte auto so svojím používaním: Posudzujte bežné trasy aj náročnejšie cesty. Dojazd a nabíjanie si overte pre konkrétny model, podmienky a výbavu.",
+      "Preverte nabíjanie: Zistite dostupný konektor, možnosti AC/DC nabíjania a reálne lokality, ktoré môžete používať. Cenu domáceho nabíjania nezamieňajte s verejným cenníkom.",
+      "Spočítajte vlastníctvo: Porovnajte energiu, poistenie, servis, pneumatiky a predpokladanú stratu hodnoty. Pri jazdenom aute zistite stav batérie a podmienky záruky.",
+      "Potvrďte dodanie a podmienky: Do dohody zahrňte konkrétnu výbavu, káble, záruky a spôsob odovzdania. Domáce nabíjanie si nechajte posúdiť pred definitívnym rozhodnutím."
     ],
     "source": {
       "label": "MH SR – politika elektromobility",
       "url": "https://www.mhsr.sk/priemysel/e-mobilita-a-alternativne-paliva/strategie-a-politiky-archiv"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "kúpa elektromobilu",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
