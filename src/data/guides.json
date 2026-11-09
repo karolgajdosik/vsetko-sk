@@ -240,8 +240,9 @@
     "keywords": "povinne zmluvne poistenie",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
-      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
-      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+      "Osvedčenie o evidencii vozidla alebo presné VIN a evidenčné číslo",
+      "Údaje poistníka a plánovaný dátum začiatku krytia",
+      "Dve porovnateľné ponuky vrátane limitov, výluk, asistencie a spôsobu hlásenia škody"
     ],
     "verification": "Praktické redakčné odporúčania; aktuálne právne povinnosti, lehoty a poplatky neboli pri tomto rozšírení samostatne právne overené. Pred úkonom overte aktuálne pravidlá v uvedenom oficiálnom zdroji.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
@@ -282,8 +283,9 @@
     "keywords": "kontrola vozidla pred kupou",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
-      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
-      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+      "VIN a fotografia identifikačných údajov vozidla na porovnanie s dokladmi",
+      "Servisná história, informácie o opravách a dostupné záznamy o kilometroch",
+      "Termín nezávislej prehliadky a zoznam otázok na predávajúceho"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
@@ -324,8 +326,9 @@
     "keywords": "predaj vozidla",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
-      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
-      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+      "Osvedčenie o evidencii, VIN, servisné podklady a zoznam známych vád",
+      "Návrh kúpnej zmluvy s cenou, spôsobom úhrady a termínom odovzdania",
+      "Odovzdávací protokol s miestom na čas, kilometre, kľúče a prevzaté doklady"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
     "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
@@ -2145,8 +2148,9 @@
     "keywords": "prepis auta na slovensku",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
-      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
-      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+      "Údaje oboch strán, VIN a osvedčenie o evidencii na vzájomnú kontrolu",
+      "Kúpna zmluva a prípadné splnomocnenie podľa aktuálnych požiadaviek úradu",
+      "Dohoda o termíne evidenčného úkonu, odovzdaní vozidla a nadväznosti poistenia"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
     "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
@@ -2303,8 +2307,9 @@
     "keywords": "postup pri dopravnej nehode",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
-      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
-      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+      "Kontakt na tiesňové služby (112), poisťovňu a asistenčnú službu uložený aj offline",
+      "Dostupné údaje o poistení vozidla a formulár na záznam o nehode, ak ho máte",
+      "Bezpečný spôsob zaznamenania miesta, účastníkov, svedkov a poškodení až po zabezpečení osôb"
     ],
     "verification": "Praktické redakčné odporúčania; aktuálne právne povinnosti, lehoty a poplatky neboli pri tomto rozšírení samostatne právne overené. Pred úkonom overte aktuálne pravidlá v uvedenom oficiálnom zdroji.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
