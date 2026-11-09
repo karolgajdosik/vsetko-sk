@@ -1043,10 +1043,10 @@
     "category": "urady",
     "description": "Čo si overiť pri vybavovaní dokladu dieťaťa",
     "steps": [
-      "Zistite, či sa téma „cestovný pas pre dieťa“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Overte platnosť cestovného dokladu dieťaťa a požiadavky cieľovej aj tranzitnej krajiny; skontrolujte, či dieťa potrebuje vlastný pas.",
+      "Pred návštevou oddelenia dokladov si na oficiálnom portáli overte, kto môže podať žiadosť za maloletého a či je potrebná osobná prítomnosť dieťaťa.",
+      "Pripravte doklad totožnosti zákonného zástupcu, dostupné doklady dieťaťa a prípadné ďalšie podklady podľa pokynov príslušného pracoviska.",
+      "Pri podaní skontrolujte osobné údaje a možnosti prevzatia; po vydaní porovnajte údaje v pase a uložte si informáciu o jeho platnosti."
     ],
     "source": {
       "label": "Slovensko.sk – cestovné doklady",
@@ -1060,7 +1060,7 @@
       "Overte účasť dieťaťa na pracovisku a podmienky súhlasu alebo zastupovania.",
       "Skontrolujte požiadavky cieľovej krajiny a plánovaný termín odchodu."
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktické kroky boli redakčne spresnené 9. 11. 2026 bez úplného právneho overenia. Konkrétne povinnosti, lehoty a poplatky pred úkonom overte u príslušného úradu; dátum pôvodnej aktualizácie zostáva nezmenený.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "detail": {
       "summary": "Aj dieťa potrebuje na cestu vlastný cestovný doklad, ak ho vyžaduje cieľová krajina. Pri podaní žiadosti sa uplatňujú pravidlá zastúpenia zákonným zástupcom a biometrie podľa veku.",
@@ -1129,10 +1129,10 @@
     "category": "urady",
     "description": "Prvé kroky pri strate cestovného dokladu",
     "steps": [
-      "Zistite, či sa téma „strata cestovného pasu“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Zistite, kde došlo k strate alebo odcudzeniu pasu; ak ste v zahraničí, vyhľadajte kontakt na slovenský zastupiteľský úrad.",
+      "Bezodkladne si na oficiálnom portáli alebo u príslušného úradu overte spôsob nahlásenia neplatného dokladu a postup získania náhradného cestovného dokladu.",
+      "Pripravte dostupný iný doklad totožnosti, údaje strateného pasu a informácie o plánovanej ceste; pri odcudzení si odložte prípadné potvrdenie od polície.",
+      "Pred cestou si potvrďte, či vydaný náhradný doklad akceptujú dopravcovia a štáty na trase; po vybavení uchovajte potvrdenia."
     ],
     "source": {
       "label": "Slovensko.sk – cestovné doklady a náhradné doklady",
@@ -1145,7 +1145,7 @@
       "Identifikačné doklady podľa požiadaviek príslušného úradu",
       "Dokumenty súvisiace s konkrétnou žiadosťou"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktické kroky boli redakčne spresnené 9. 11. 2026 bez úplného právneho overenia. Konkrétne povinnosti, lehoty a poplatky pred úkonom overte u príslušného úradu; dátum pôvodnej aktualizácie zostáva nezmenený.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "practical": [
       {
@@ -1172,10 +1172,10 @@
     "category": "urady",
     "description": "Základná orientácia v matričnom postupe",
     "steps": [
-      "Zistite, či sa téma „zmena mena alebo priezviska“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Rozlíšte, či ide o zmenu mena alebo priezviska na žiadosť, alebo o zápis zmeny vyplývajúcej z inej životnej udalosti; príslušný postup sa môže líšiť.",
+      "Na matrike alebo príslušnom úrade si overte oprávnenosť žiadosti, požadované prílohy a aktuálny formulár; samotný odkaz na elektronické tlačivo nemusí pokrývať váš prípad.",
+      "Pripravte identifikačné doklady a listiny preukazujúce dôvod či právny základ zmeny podľa individuálnych pokynov úradu.",
+      "Po rozhodnutí alebo zápise skontrolujte správnosť údajov a zostavte si zoznam dokladov a zmluvných vzťahov, v ktorých treba zmenu oznámiť."
     ],
     "source": {
       "label": "Slovensko.sk – žiadosť o zmenu mena a priezviska",
@@ -1188,7 +1188,7 @@
       "Identifikačné doklady podľa požiadaviek príslušného úradu",
       "Dokumenty súvisiace s konkrétnou žiadosťou"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktické kroky boli redakčne spresnené 9. 11. 2026 bez úplného právneho overenia. Konkrétne povinnosti, lehoty a poplatky pred úkonom overte u príslušného úradu; dátum pôvodnej aktualizácie zostáva nezmenený.",
     "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
     "practical": [
       {
@@ -1387,10 +1387,10 @@
     "category": "urady",
     "description": "Praktický zoznam úkonov a dokumentov",
     "steps": [
-      "Zabezpečte potvrdenie o úmrtí a komunikáciu s pohrebnou službou; podľa okolností získajte úmrtný list.",
-      "Odložte si faktúry, doklady zosnulého a kontakty na banky, poisťovne či zamestnávateľa.",
-      "Overte postup pri dedičskom konaní a počkajte na informáciu o poverenom notárovi.",
-      "Preverte možné dávky a zmluvné povinnosti; nevyberajte peniaze z účtu zosnulého bez oprávnenia."
+      "Podľa okolností úmrtia zabezpečte potrebné potvrdenie a dohodnite postup s pohrebnou službou; overte, ktorá matrika vydá úmrtný list.",
+      "Na jedno miesto uložte úmrtný list, faktúry za pohreb, základné zmluvy a kontakty na banky, poisťovne či zamestnávateľa zosnulého.",
+      "Zostavte orientačný prehľad majetku a dlhov pre dedičské konanie; pri otázkach k účtom a dispozíciám kontaktujte banku alebo povereného notára.",
+      "Overte u príslušných inštitúcií, ktoré oznámenia a dávky sa týkajú konkrétnej situácie; zaznamenajte si dátumy kontaktovania a potvrdenia."
     ],
     "source": {
       "label": "Slovensko.sk – úmrtie a povinnosti pozostalých",
@@ -1404,7 +1404,7 @@
       "Pripravte doklady zosnulého a kontakt na pohrebnú službu.",
       "Zaznamenajte kontakty na nemocnicu, matriku a ďalšie dotknuté inštitúcie."
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktické kroky boli redakčne spresnené 9. 11. 2026 bez úplného právneho overenia. Konkrétne povinnosti, lehoty a poplatky pred úkonom overte u príslušného úradu; dátum pôvodnej aktualizácie zostáva nezmenený.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "detail": {
       "summary": "Po úmrtí blízkej osoby sa rieši lekárske potvrdenie, matrika, pohreb, oznámenia inštitúciám a neskôr dedičské konanie. Konkrétny postup závisí od toho, či úmrtie nastalo doma, v nemocnici alebo v zahraničí.",
@@ -1477,10 +1477,10 @@
     "category": "urady",
     "description": "Ako overovať údaje o nehnuteľnosti",
     "steps": [
-      "Vyhľadajte nehnuteľnosť podľa obce, katastrálneho územia a identifikátora parcely alebo stavby.",
-      "Skontrolujte vlastníkov, podiely a zapísané ťarchy; porovnajte údaje so zmluvou.",
-      "Pri právnom úkone si overte, či potrebujete úradný výpis alebo ďalšie listiny.",
-      "Pri nejasnostiach požiadajte príslušný katastrálny odbor alebo právnika o vysvetlenie."
+      "Na oficiálnom katastrálnom portáli identifikujte nehnuteľnosť podľa katastrálneho územia, čísla parcely, súpisného čísla alebo čísla listu vlastníctva.",
+      "Na liste vlastníctva porovnajte vlastníkov, podiely a označenie nehnuteľnosti s pripravovanou zmluvou; osobitne skontrolujte časť s ťarchami a prípadné plomby.",
+      "Rozlíšte informatívne údaje z online zobrazenia od úradného výpisu potrebného na konkrétny právny úkon; požiadavku si overte u prijímateľa dokumentu.",
+      "Ak sú údaje nejasné alebo sa líšia od zmluvy, pred podpisom požiadajte o vysvetlenie príslušný katastrálny odbor alebo právnika."
     ],
     "source": {
       "label": "Slovensko.sk – kataster a list vlastníctva",
@@ -1494,7 +1494,7 @@
       "Overte identitu predávajúceho a jeho oprávnenie nakladať s nehnuteľnosťou.",
       "Rozlišujte informatívny náhľad od úradne použiteľného výpisu."
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktické kroky boli redakčne spresnené 9. 11. 2026 bez úplného právneho overenia. Konkrétne povinnosti, lehoty a poplatky pred úkonom overte u príslušného úradu; dátum pôvodnej aktualizácie zostáva nezmenený.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "detail": {
       "summary": "List vlastníctva slúži na overenie vlastníka, podielov a evidovaných práv k nehnuteľnosti. Pred kúpou si vždy skontrolujte aktuálny stav vrátane tiarch a plomb.",
