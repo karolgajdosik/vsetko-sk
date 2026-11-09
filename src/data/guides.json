@@ -17,8 +17,9 @@
     "keywords": "porovnanie hypotek",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
-      "Vlastné finančné údaje a relevantné zmluvy",
-      "Ponuky alebo doklady potrebné na porovnanie"
+      "Písomné ponuky s rovnakou výškou úveru, splatnosťou a obdobím fixácie",
+      "Prehľad úrokov, RPMN, poplatkov a podmienok zľavy pre každú banku",
+      "Vlastný rozpočet vrátane rezervy a všetkých existujúcich splátok"
     ],
     "verification": "Obsah a uvedený oficiálny zdroj boli vecne skontrolované 8. 11. 2026; individuálne podmienky, sadzby a poplatky sa môžu meniť.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
@@ -63,8 +64,9 @@
     "keywords": "refinancovanie uveru",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
-      "Vlastné finančné údaje a relevantné zmluvy",
-      "Ponuky alebo doklady potrebné na porovnanie"
+      "Aktuálne vyčíslenie zostatku a dátum plánovaného splatenia pôvodného úveru",
+      "Pôvodná zmluva a splátkový kalendár, vrátane zostávajúcej splatnosti",
+      "Písomná nová ponuka a zoznam jednorazových aj pravidelných nákladov zmeny"
     ],
     "verification": "Obsah a uvedený oficiálny zdroj boli vecne skontrolované 8. 11. 2026; individuálne podmienky, sadzby a poplatky sa môžu meniť.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
@@ -109,8 +111,9 @@
     "keywords": "spotrebny uver",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
-      "Vlastné finančné údaje a relevantné zmluvy",
-      "Ponuky alebo doklady potrebné na porovnanie"
+      "Prehľad čistého príjmu, nevyhnutných výdavkov a existujúcich splátok",
+      "Aspoň dve písomné ponuky na rovnakú výšku úveru a dobu splácania",
+      "Predzmluvné informácie a návrh zmluvy vrátane podmienok omeškania a predčasného splatenia"
     ],
     "verification": "Obsah a uvedený oficiálny zdroj boli vecne skontrolované 8. 11. 2026; individuálne podmienky, sadzby a poplatky sa môžu meniť.",
     "sourceNote": "Oficiálna stránka NBS vysvetľuje právny rámec spotrebiteľských úverov. Na informatívny kontrolný prepočet RPMN slúži rpmn.nbs.sk.",
@@ -1738,8 +1741,10 @@
     "keywords": "prvá žiadosť o hypotéku",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
-      "Vlastné finančné údaje a relevantné zmluvy",
-      "Ponuky alebo doklady potrebné na porovnanie"
+      "Prehľad čistých príjmov a všetkých záväzkov vrátane lízingu a úverových limitov",
+      "Doklady o príjme a podklady k nehnuteľnosti podľa konkrétneho zoznamu banky",
+      "Rozpis vlastných zdrojov, vedľajších nákladov kúpy a pohotovostnej rezervy",
+      "Termíny rezervácie, podpisu zmlúv a plánovaného čerpania úveru"
     ],
     "verification": "Praktické odporúčania boli redakčne spresnené 9. 11. 2026; nejde o nové úplné právne ani zdrojové overenie. Pred transakciou overte aktuálne podmienky u príslušnej inštitúcie.",
     "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
@@ -1833,8 +1838,10 @@
     "keywords": "koniec fixácie hypotéky",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
-      "Vlastné finančné údaje a relevantné zmluvy",
-      "Ponuky alebo doklady potrebné na porovnanie"
+      "Úverová zmluva a oznámenie banky s dátumom konca fixácie",
+      "Aktuálny zostatok istiny, zostávajúca splatnosť a výška splátky",
+      "Písomné ponuky pri porovnateľnej splatnosti vrátane poplatkov a doplnkových produktov",
+      "Časový plán prijatia ponuky alebo refinancovania potvrdený bankou"
     ],
     "verification": "Praktické odporúčania boli redakčne spresnené 9. 11. 2026; nejde o nové úplné právne ani zdrojové overenie. Pred transakciou overte aktuálne podmienky u príslušnej inštitúcie.",
     "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá. Praktické odporúčania sú všeobecné a nepredstavujú individuálne finančné poradenstvo.",
