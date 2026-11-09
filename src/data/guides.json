@@ -611,6 +611,10 @@
       {
         "title": "Pripravte si náhradnú identifikáciu",
         "body": "Pred návštevou pracoviska si overte, aký iný doklad totožnosti alebo potvrdenie bude akceptované a ako sa preukáže vaša totožnosť."
+      },
+      {
+        "title": "Zaznamenajte si priebeh vybavovania",
+        "body": "Poznačte si dátum oznámenia straty, miesto podania a identifikátor potvrdenia, ak ho dostanete. Uľahčí to ďalšiu komunikáciu s úradom."
       }
     ]
   },
@@ -700,6 +704,10 @@
       {
         "title": "Overte víza a tranzit",
         "body": "Pred nákupom letenky si pozrite oficiálne podmienky vstupu a tranzitu všetkých krajín na trase; niektoré vyžadujú dlhšiu zostávajúcu platnosť pasu."
+      },
+      {
+        "title": "Skontrolujte plánované cesty ešte pred podaním",
+        "body": "Porovnajte termín odchodu s očakávaným vybavením dokladu a požiadavkami cieľovej krajiny na platnosť pasu. Nepredpokladajte, že pravidlá sú vo všetkých krajinách rovnaké."
       }
     ]
   },
@@ -789,6 +797,10 @@
       {
         "title": "Uložte potvrdenie a skontrolujte adresu",
         "body": "Po vybavení si odložte dostupné potvrdenie alebo číslo podania. Pri následnej aktualizácii údajov používajte presne tú adresu, ktorú zaevidovala ohlasovňa; pri nezhode žiadajte opravu."
+      },
+      {
+        "title": "Vytvorte si zoznam údajov na aktualizáciu",
+        "body": "Po zmene adresy prejdite vlastné zmluvy, bankové a poistné kontakty, doručovacie adresy a zákaznícke účty. Pri každom subjekte si poznačte, či zmenu vybavíte sami alebo automaticky."
       }
     ]
   },
@@ -886,6 +898,10 @@
       {
         "title": "Oddeľte prípravu od začiatku fakturácie",
         "body": "Vytvorte si jednoduchý zoznam: potvrdenie oprávnenia, overenie registračných údajov, spôsob vystavovania dokladov a evidencie platieb. Pri nejasnostiach si pred prvou faktúrou overte požiadavky na príslušnom úrade."
+      },
+      {
+        "title": "Oddeľte osobné a podnikateľské dokumenty",
+        "body": "Založte si priečinok na potvrdenia, zmluvy, faktúry a komunikáciu s úradmi. Ukladajte aj dátumy podaní a doručenia, aby ste vedeli spätne doložiť vykonané kroky."
       }
     ]
   },
@@ -1509,6 +1525,10 @@
       {
         "title": "Komunikujte s inštitúciami preukázateľne",
         "body": "Pri bankách, poisťovniach a úradoch si zapisujte dátum kontaktu, požadované doklady a spôsob vybavenia; nespájajte ich postupy s dedičským rozhodnutím automaticky."
+      },
+      {
+        "title": "Zostavte prehľad otvorených záväzkov",
+        "body": "Zhromaždite dostupné zmluvy, pravidelné platby a kontakty na poskytovateľov služieb. Pred rušením služieb alebo nakladaním s majetkom si overte svoje oprávnenie a postup u príslušnej inštitúcie."
       }
     ]
   },
