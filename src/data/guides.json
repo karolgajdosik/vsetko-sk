@@ -371,10 +371,11 @@
     "keywords": "nabijanie elektromobilu",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
-      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
-      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+      "Typ konektora vozidla, maximálny AC/DC nabíjací výkon a plánovaný stav batérie pri príchode",
+      "Aktuálna tarifa vrátane roamingu, spôsob autorizácie a prípadné časové či parkovacie poplatky",
+      "Vybraná stanica a záložná lokalita s dostatočnou energetickou rezervou"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "detail": {
       "summary": "Pri nabíjaní sleduj typ konektora, skutočný výkon auta aj stanice, spôsob platby a cenu za kWh. Deklarovaný výkon stanice nie je zárukou rovnako rýchleho nabíjania.",
@@ -466,10 +467,11 @@
     "keywords": "dialnicna znamka",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
-      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
-      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+      "Evidenčné číslo vozidla a krajina registrácie na presný zápis pri úhrade",
+      "Plánovaná trasa a dátum začiatku platnosti známky",
+      "Potvrdenie o nákupe a možnosť kontroly platnosti v oficiálnej evidencii"
     ],
-    "verification": "Redakčné postupy k nákupu a platnosti boli porovnané s uvedeným oficiálnym zdrojom eZnamka 8. 11. 2026. Konkrétne ceny, výnimky a individuálne prípady neboli úplne právne auditované.",
+    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji.",
     "sourceNote": "Oficiálny prehľad systému eZnamka opisuje druhy známok a evidenciu úhrady; spoplatnenie konkrétnej trasy a aktuálne ceny overte pred cestou.",
     "practical": [
       {
@@ -2043,10 +2045,11 @@
     "keywords": "kúpa elektromobilu",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
-      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
-      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+      "Reálne denné a dlhšie trasy, možnosť nabíjania doma alebo v práci",
+      "Údaje o kapacite batérie, spotrebe, záruke a stave vozidla vrátane dostupnej histórie",
+      "Porovnanie obstarávacej ceny, poistenia, nabíjania a predpokladaných prevádzkových nákladov"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "practical": [
       {
@@ -2086,10 +2089,11 @@
     "keywords": "domáce nabíjanie elektromobilu",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
-      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
-      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+      "Technické údaje vozidla a plánovaný nabíjací výkon",
+      "Informácie o elektrickej prípojke, rozvádzači a možnosti bezpečného vedenia kábla",
+      "Podklady pre posúdenie kvalifikovaným elektrikárom a prípadné súhlasy vlastníka či správcu"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "practical": [
       {
@@ -2133,10 +2137,11 @@
     "keywords": "plánovanie cesty elektromobilom",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
-      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
-      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+      "Plán trasy s predpokladanou spotrebou a rezervou energie pri príchode",
+      "Kompatibilné nabíjacie stanice a aspoň jedna alternatíva pre kritické zastávky",
+      "Aktuálne ceny, spôsob platby a prístup k aplikáciám alebo kartám operátorov"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "practical": [
       {
@@ -2379,10 +2384,11 @@
     "keywords": "pzp pri kúpe auta",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
-      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
-      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+      "VIN, evidenčné číslo a údaje nového držiteľa podľa dokladov",
+      "Ponuky PZP s dátumom začiatku krytia, limitmi a výlukami",
+      "Kontakty poisťovne a doklad o uzavretí poistenia dostupný pri prevzatí vozidla"
     ],
-    "verification": "Praktické kroky boli redakčne spresnené 8. 11. 2026 bez úplného právneho overenia. Konkrétne lehoty, poplatky a povinnosti overte na uvedenom oficiálnom zdroji alebo príslušnom úrade; pôvodný dátum aktualizácie sa nemení.",
+    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "practical": [
       {
@@ -2466,10 +2472,11 @@
     "keywords": "príprava auta na zimu",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
-      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
-      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+      "Rozmery pneumatík a požadované indexy z dokumentácie vozidla",
+      "Stav dezénu, vek a prípadné poškodenie súčasnej sady",
+      "Termín prezutia a kontrola tlaku podľa odporúčaní výrobcu vozidla"
     ],
-    "verification": "Praktické kroky boli redakčne spresnené 8. 11. 2026 bez úplného právneho overenia. Konkrétne lehoty, poplatky a povinnosti overte na uvedenom oficiálnom zdroji alebo príslušnom úrade; pôvodný dátum aktualizácie sa nemení.",
+    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji.",
     "sourceNote": "Zdrojový odkaz bol 8. 11. 2026 overený na dostupnosť a tematickú zhodu. Aktuálne právne lehoty, poplatky a individuálne podmienky overte v platných predpisoch; nejde o úplnú právnu revíziu návodu.",
     "practical": [
       {
@@ -2509,10 +2516,11 @@
     "keywords": "kúpa diaľničnej známky",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
-      "Doklady a základné údaje o vozidle, ak sa týkajú postupu",
-      "Zmluvy, potvrdenia alebo kontakty podľa situácie"
+      "Evidenčné číslo a krajina registrácie presne podľa dokladov vozidla",
+      "Požadovaný druh známky a dátum začiatku jej platnosti",
+      "Spôsob úhrady a uloženie potvrdenia na následnú kontrolu evidovanej platnosti"
     ],
-    "verification": "Redakčné postupy k nákupu a platnosti boli porovnané s uvedeným oficiálnym zdrojom eZnamka 8. 11. 2026. Konkrétne ceny, výnimky a individuálne prípady neboli úplne právne auditované.",
+    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji.",
     "sourceNote": "Oficiálna stránka eZnamka vysvetľuje, že nákup je úspešne ukončený vystavením potvrdenia o úhrade, a odporúča kontrolu platnosti.",
     "practical": [
       {
