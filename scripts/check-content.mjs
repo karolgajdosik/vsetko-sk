@@ -13,3 +13,5 @@ const operations=read('src/data/site-operations.json');
 assert.match(operations.privacyEmail,/^[^\s@]+@vsetko24\.sk$/,'privacy contact must use the project domain');
 assert.equal(typeof operations.privacyEmailActive,'boolean');
 if(operations.privacyEmailActive)assert.ok(operations.privacyEmailVerifiedAt && Number.isFinite(Date.parse(operations.privacyEmailVerifiedAt)),'active privacy email requires a real verification timestamp');
+
+for(const guide of guides)for(const step of guide.steps)assert.ok(!step.includes('Zistite, či sa téma'),'generic placeholder in maintained guide steps: '+guide.slug);
