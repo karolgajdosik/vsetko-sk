@@ -1494,7 +1494,7 @@
       "Overte identitu predávajúceho a jeho oprávnenie nakladať s nehnuteľnosťou.",
       "Rozlišujte informatívny náhľad od úradne použiteľného výpisu."
     ],
-    "verification": "Praktické kroky boli redakčne spresnené 9. 11. 2026 bez úplného právneho overenia. Konkrétne povinnosti, lehoty a poplatky pred úkonom overte u príslušného úradu; dátum pôvodnej aktualizácie zostáva nezmenený.",
+    "verification": "Praktické odporúčania boli redakčne spresnené 9. 11. 2026; nejde o nové úplné právne ani zdrojové overenie. Pred transakciou overte aktuálne podmienky u príslušnej inštitúcie.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "detail": {
       "summary": "List vlastníctva slúži na overenie vlastníka, podielov a evidovaných práv k nehnuteľnosti. Pred kúpou si vždy skontrolujte aktuálny stav vrátane tiarch a plomb.",
@@ -1544,20 +1544,20 @@
     },
     "practical": [
       {
-        "title": "Overte právny stav nehnuteľnosti",
-        "body": "Pred podpisom zmluvy porovnajte vlastníkov, parcelu, ťarchy a prípadné poznámky na aktuálnom liste vlastníctva."
+        "title": "Skontrolujte dátum a identifikáciu výpisu",
+        "body": "Pri každom výpise si poznačte dátum získania, katastrálne územie, číslo listu vlastníctva a parcelu. Pri viacerých podobných nehnuteľnostiach tak predídete zámene."
       },
       {
-        "title": "Overte aktuálny list vlastníctva",
-        "body": "Pri kontrole nehnuteľnosti porovnajte parcelu, súpisné číslo, vlastníkov a podiely s dokumentmi k plánovanej transakcii. Starší výpis nemusí zachytávať nové zmeny."
+        "title": "Porovnajte všetky časti listu vlastníctva",
+        "body": "Skontrolujte identifikáciu nehnuteľnosti, vlastníkov a podiely aj ťarchy. Údaje porovnajte s návrhom zmluvy a neprehliadnite prípadnú plombu."
       },
       {
-        "title": "Skontrolujte ťarchy a poznámky",
-        "body": "Pred podpisom zmluvy venujte pozornosť časti listu vlastníctva s ťarchami, poznámkami a plombami. Pri nejasnostiach požiadajte o vysvetlenie odborníka."
+        "title": "Zachyťte nezrovnalosti pred podpisom",
+        "body": "Ak nesedí parcela, podiel alebo meno, zapíšte konkrétny rozdiel a vyžiadajte si vysvetlenie. Nespoliehajte sa iba na starý výpis zaslaný predávajúcim."
       },
       {
-        "title": "Rozlišujte informatívny výpis od úradného",
-        "body": "Zistite, či na svoj účel potrebujete iba online informatívny údaj alebo úradne použiteľný výpis. Podmienky vydania a použitia overte na príslušnom portáli."
+        "title": "Zistite požadovaný typ výpisu",
+        "body": "Vopred sa opýtajte banky, notára alebo úradu, či akceptuje informatívne online zobrazenie alebo potrebuje úradne použiteľný dokument."
       }
     ]
   },
@@ -1583,7 +1583,7 @@
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktické odporúčania boli redakčne spresnené 9. 11. 2026; nejde o nové úplné právne ani zdrojové overenie. Pred transakciou overte aktuálne podmienky u príslušnej inštitúcie.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "detail": {
       "summary": "Pri kúpe bytu postupuj od overenia právneho stavu cez financovanie až po bezpečnú úhradu a prevzatie. Najväčšie riziká bývajú v zmluvách, ťarchách a načasovaní peňazí.",
@@ -1659,20 +1659,20 @@
     },
     "practical": [
       {
-        "title": "Overte celý obchodný postup",
-        "body": "Pred zálohou preverujte vlastníctvo, financovanie, technický stav, ťarchy a bezpečný spôsob úhrady kúpnej ceny."
+        "title": "Overte byt aj bytový dom",
+        "body": "Okrem listu vlastníctva skontrolujte stav spoločných častí domu, plánované opravy, správu domu a dostupné informácie o nákladoch na prevádzku."
       },
       {
-        "title": "Skontrolujte podmienky rezervačnej platby",
-        "body": "Pred zaplatením zálohy si nechajte písomne vysvetliť, komu peniaze idú, za akých podmienok sa vracajú a čo sa stane, ak banka financovanie neschváli."
+        "title": "Preverte rezervačnú zmluvu pred platbou",
+        "body": "Zapíšte si príjemcu rezervačného poplatku, podmienky jeho vrátenia a scenár, keď banka hypotéku neschváli. Nejasnosti vyriešte písomne."
       },
       {
-        "title": "Zlaďte úschovu s katastrálnym konaním",
-        "body": "S právnikom alebo bankou nastavte uvoľnenie kúpnej ceny až po splnení dohodnutých podmienok; osobitne riešte existujúce záložné práva a výmaz tiarch."
+        "title": "Zlaďte financovanie a úschovu",
+        "body": "S bankou a právnikom zosúlaďte podmienky čerpania úveru, uvoľnenia kúpnej ceny a prípadného vymazania existujúceho záložného práva."
       },
       {
-        "title": "Spíšte presný odovzdávací protokol",
-        "body": "Pri prevzatí odfoťte stavy meračov, zapíšte počet kľúčov a čipov, vady a odovzdané dokumenty. Kópiu protokolu si ponechajte pre správcu aj dodávateľov energií."
+        "title": "Odovzdanie zdokumentujte",
+        "body": "Pri prevzatí urobte fotografie stavu bytu a meračov, spočítajte kľúče a čipy a spíšte vady. Obe strany si ponechajú podpísaný protokol."
       }
     ]
   },
@@ -1698,24 +1698,24 @@
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktické odporúčania boli redakčne spresnené 9. 11. 2026; nejde o nové úplné právne ani zdrojové overenie. Pred transakciou overte aktuálne podmienky u príslušnej inštitúcie.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "practical": [
       {
-        "title": "Pripravte doklady o byte",
-        "body": "Zostavte list vlastníctva, podklady k správe domu, energetické informácie a prehľad prípadných záväzkov."
+        "title": "Pripravte podklady pre kupujúceho",
+        "body": "Zhromaždite aktuálny list vlastníctva, informácie od správcu domu, dostupné vyúčtovania a podklady k známym vadám či plánovaným opravám."
       },
       {
-        "title": "Vyjasnite vlastníkov a súhlasy",
-        "body": "Porovnajte údaje v zmluve s listom vlastníctva a vopred riešte spoluvlastníkov či ďalšie osoby, ktorých práva môžu ovplyvniť prevod. Nejasnosti nech preverí právnik."
+        "title": "Vyjasnite práva ďalších osôb",
+        "body": "Pred zverejnením ponuky skontrolujte spoluvlastníctvo, záložné práva a ďalšie obmedzenia. Potrebné súhlasy alebo vysporiadanie nech posúdi právnik."
       },
       {
-        "title": "Bezpečne nastavte vyplatenie kúpnej ceny",
-        "body": "V zmluve presne určte, kedy sa peniaze uvoľnia a ako sa vyplatí prípadná hypotéka. Zvážte bankovú alebo notársku úschovu namiesto priamej platby vopred."
+        "title": "Naplánujte tok peňazí",
+        "body": "V zmluve jasne rozlíšte platbu kupujúceho, prípadné splatenie hypotéky a podmienky uvoľnenia zvyšnej ceny. Postup si potvrďte s bankou a právnikom."
       },
       {
-        "title": "Zaznamenajte stav pri odovzdaní",
-        "body": "Spíšte dátum prevzatia, stavy meračov, počet kľúčov, známe vady a odovzdané dokumenty. Uchovajte si podpísaný protokol a potvrdenia o oznámení zmeny správcovi."
+        "title": "Zaznamenajte odovzdanie a oznámenia",
+        "body": "Do protokolu uveďte merače, kľúče, vady a odovzdané dokumenty. Dohodnite, kto a kedy informuje správcu a dodávateľov služieb."
       }
     ]
   },
@@ -1741,7 +1741,7 @@
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Obsah a uvedený oficiálny zdroj boli vecne skontrolované 8. 11. 2026; individuálne podmienky, sadzby a poplatky sa môžu meniť.",
+    "verification": "Praktické odporúčania boli redakčne spresnené 9. 11. 2026; nejde o nové úplné právne ani zdrojové overenie. Pred transakciou overte aktuálne podmienky u príslušnej inštitúcie.",
     "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
     "detail": {
       "summary": "Hypotéku porovnávaj podľa celkových nákladov a schopnosti splácať, nie iba podľa reklamného úroku. Rozhodujúce sú príjmy, existujúce záväzky, vlastné zdroje a hodnota zabezpečenia.",
@@ -1797,20 +1797,20 @@
     },
     "practical": [
       {
-        "title": "Započítajte všetky existujúce záväzky",
-        "body": "Pripravte prehľad splátok úverov, lízingu, kreditných kariet a povolených prečerpaní. Banka posudzuje celkové zaťaženie domácnosti, nielen novú hypotéku."
+        "title": "Zostavte kompletný obraz záväzkov",
+        "body": "Do prehľadu zahrňte splátky úverov, lízing, kreditné limity aj povolené prečerpanie. Pripravte doklady k príjmom podľa požiadaviek banky."
       },
       {
-        "title": "Pripravte si rezervu na zmenu úroku",
-        "body": "Vyskúšajte si splátku aj pri vyššej úrokovej sadzbe. NBS pri hodnotení schopnosti splácať zohľadňuje aj rezervu na rast sadzieb."
+        "title": "Vyskúšajte nepriaznivý scenár",
+        "body": "Prepočítajte rodinný rozpočet pri vyššej splátke alebo dočasnom poklese príjmu. Oddelte vlastné zdroje na kúpu od pohotovostnej rezervy."
       },
       {
-        "title": "Oddeľte schválenie úveru od kúpy",
-        "body": "Pred podpisom rezervačnej alebo kúpnej zmluvy si vyjasnite podmienky financovania, vlastné zdroje a čo sa stane, ak banka úver neschváli."
+        "title": "Porovnávajte písomné ponuky",
+        "body": "Vyžiadajte si porovnateľné podmienky pri rovnakej výške a splatnosti úveru; sledujte RPMN, doplnkové produkty a celkovú sumu na zaplatenie."
       },
       {
-        "title": "Preverte podmienky čerpania vopred",
-        "body": "Overte si, kedy banka skutočne uvoľní peniaze, aké doklady a zabezpečenie vyžaduje a či termíny zodpovedajú kúpnej zmluve. Samotné schválenie hypotéky ešte neznamená čerpanie."
+        "title": "Skontrolujte časový plán kúpy",
+        "body": "Pred podpisom rezervácie zosúlaďte termín schválenia, zabezpečenia a čerpania úveru s termínmi v kúpnej zmluve. Zaznamenajte si aj scenár zamietnutia."
       }
     ]
   },
@@ -1836,24 +1836,24 @@
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Praktické kroky boli redakčne spresnené 8. 11. 2026 bez úplného právneho overenia. Konkrétne lehoty, poplatky a povinnosti overte na uvedenom oficiálnom zdroji alebo príslušnom úrade; pôvodný dátum aktualizácie sa nemení.",
+    "verification": "Praktické odporúčania boli redakčne spresnené 9. 11. 2026; nejde o nové úplné právne ani zdrojové overenie. Pred transakciou overte aktuálne podmienky u príslušnej inštitúcie.",
     "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá. Praktické odporúčania sú všeobecné a nepredstavujú individuálne finančné poradenstvo.",
     "practical": [
       {
-        "title": "Vytvorte si kalendár fixácie",
-        "body": "Zapíšte dátum konca fixácie, termín oznámenia novej sadzby a čas potrebný na porovnanie konkurenčných ponúk."
+        "title": "Založte si časový plán",
+        "body": "Z úverovej zmluvy a oznámenia banky zapíšte dátum konca fixácie a všetky termíny na reakciu. Nastavte si pripomienku s rezervou na získanie ponúk."
       },
       {
-        "title": "Poznačte si dátum konca fixácie",
-        "body": "V zmluve a oznámeniach banky si overte termín zmeny úrokovej sadzby a podmienky ďalšieho obdobia. Nenechávajte porovnávanie ponúk na posledné dni."
+        "title": "Vyžiadajte si ponuky na rovnaký zostatok",
+        "body": "Pri každej banke používajte rovnakú zostávajúcu istinu a splatnosť, aby nižšia splátka nevznikla iba predĺžením úveru."
       },
       {
-        "title": "Porovnajte viac než novú sadzbu",
-        "body": "Pri novej ponuke porovnajte splátku, celkovú zostávajúcu sumu, poplatky a podmienky doplnkových produktov. Zohľadnite aj zmenu dĺžky splácania."
+        "title": "Spočítajte celkový dopad zmeny",
+        "body": "Porovnajte splátku, zostávajúce náklady, jednorazové poplatky a cenu povinných doplnkových produktov. Výsledok si uložte do jednej tabuľky."
       },
       {
-        "title": "Pýtajte sa na alternatívy písomne",
-        "body": "Overte možnosti novej fixácie, zmeny banky alebo mimoriadnej splátky podľa aktuálnej zmluvy. Prípadné lehoty a náklady si nechajte potvrdiť bankou."
+        "title": "Potvrďte postup pred rozhodnutím",
+        "body": "Od banky si písomne vyžiadajte termíny prijatia novej sadzby, mimoriadnej splátky alebo refinancovania a podmienky ich realizácie."
       }
     ]
   },
