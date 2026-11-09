@@ -9,8 +9,32 @@ const categories = [
   {id:'urady', label:'Úrady a doklady'}
 ];
 const names = {financie:'Financie', auto:'Auto a doprava', urady:'Úrady a doklady'};
+const canonical = 'https://vsetko24.sk/navody/';
+const breadcrumbLd = {
+  '@context':'https://schema.org',
+  '@type':'BreadcrumbList',
+  itemListElement:[
+    {'@type':'ListItem',position:1,name:'Domov',item:'https://vsetko24.sk/'},
+    {'@type':'ListItem',position:2,name:'Praktické návody',item:canonical}
+  ]
+};
+const guideListLd = {
+  '@context':'https://schema.org',
+  '@type':'ItemList',
+  name:'Praktické návody VŠETKO24.sk',
+  inLanguage:'sk',
+  numberOfItems:guides.length,
+  itemListElement:guides.map((guide,index)=>({
+    '@type':'ListItem',
+    position:index+1,
+    name:guide.title,
+    url:new URL(encodeURIComponent(guide.slug)+'/',canonical).href
+  }))
+};
 ---
 <Base title="Praktické návody – financie, auto a úrady" description="Vyhľadávajte a filtrujte praktické slovenské návody. Postupy krok za krokom, príprava dokladov a odkazy na pôvodné zdroje.">
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(guideListLd)} />
   <main class="wrap main guides-hub" id="obsah">
     <nav class="breadcrumbs" aria-label="Drobečková navigácia"><a href="/">Domov</a> / Návody</nav>
     <p class="eyebrow">Jednoducho a krok za krokom</p>
