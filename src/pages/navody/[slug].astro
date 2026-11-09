@@ -14,15 +14,44 @@ const categoryLabel=labels[guide.category] ?? guide.category;
 const categoryUrl = '/' + guide.category + '/';
 const tokenize = (text) => (text ?? '').toLocaleLowerCase('sk').split(/[^0-9a-záäčďéíĺľňóôŕšťúýž]+/i).filter(token => token.length >= 4);
 const currentTerms = new Set(tokenize(guide.title + ' ' + (guide.keywords ?? '')));
-const relatedGuides = guides
- .filter(item => item.slug !== guide.slug && item.category === guide.category)
- .map(item => ({
-  guide:item,
-  similarity:tokenize(item.title + ' ' + (item.keywords ?? '')).filter(token => currentTerms.has(token)).length
- }))
- .sort((a,b) => b.similarity-a.similarity || a.guide.title.localeCompare(b.guide.title,'sk'))
- .slice(0,4)
- .map(item=>item.guide);
+// Curated next steps for connected life events; fallback retains thematic discovery.
+const curatedRelated = {
+ 'porovnanie-hypotek':['hypoteka-prva-ziadost','urok-a-rpmn','fixacia-hypoteky','refinancovanie-uveru'],
+ 'hypoteka-prva-ziadost':['porovnanie-hypotek','kupa-bytu','urok-a-rpmn','financna-rezerva'],
+ 'fixacia-hypoteky':['refinancovanie-uveru','porovnanie-hypotek','urok-a-rpmn'],
+ 'refinancovanie-uveru':['fixacia-hypoteky','porovnanie-hypotek','urok-a-rpmn'],
+ 'kupa-bytu':['kataster-vlastnictvo','hypoteka-prva-ziadost','porovnanie-hypotek'],
+ 'predaj-bytu':['kataster-vlastnictvo','kupa-bytu'],
+ 'kataster-vlastnictvo':['kupa-bytu','predaj-bytu','dedicske-konanie'],
+ 'kontrola-vozidla-pred-kupou':['prepis-auta','pzp-pri-kupe-auta','predaj-vozidla'],
+ 'predaj-vozidla':['prepis-auta','povinne-zmluvne-poistenie','kontrola-vozidla-pred-kupou'],
+ 'prepis-auta':['pzp-pri-kupe-auta','predaj-vozidla','kontrola-vozidla-pred-kupou'],
+ 'pzp-pri-kupe-auta':['prepis-auta','povinne-zmluvne-poistenie','kontrola-vozidla-pred-kupou'],
+ 'kupa-elektromobilu':['domace-nabijanie','nabijanie-elektromobilu','cesta-elektromobilom'],
+ 'domace-nabijanie':['kupa-elektromobilu','nabijanie-elektromobilu','cesta-elektromobilom'],
+ 'cesta-elektromobilom':['nabijanie-elektromobilu','dialnicna-znamka','domace-nabijanie'],
+ 'dialnicna-znamka':['dialnicna-znamka-kupa','cesta-elektromobilom'],
+ 'dialnicna-znamka-kupa':['dialnicna-znamka','cesta-elektromobilom'],
+ 'vybavenie-po-umrti':['dedicske-konanie','rodny-list','kataster-vlastnictvo'],
+ 'dedicske-konanie':['vybavenie-po-umrti','kataster-vlastnictvo'],
+ 'strata-cestovneho-pasu':['vymena-cestovneho-pasu','cestovny-pas-pre-dieta'],
+ 'strata-obcianskeho-preukazu':['ako-vybavit-obciansky-preukaz','zmena-trvaleho-pobytu']
+};
+const curatedSlugs = curatedRelated[guide.slug] ?? [];
+const curatedGuides = curatedSlugs
+ .map(slug => guides.find(item => item.slug === slug))
+ .filter((item): item is (typeof guides)[number] => Boolean(item) && item.slug !== guide.slug);
+const relatedGuides = [
+ ...curatedGuides,
+ ...guides
+  .filter(item => item.slug !== guide.slug && item.category === guide.category && !curatedSlugs.includes(item.slug))
+  .map(item => ({
+   guide:item,
+   similarity:tokenize(item.title + ' ' + (item.keywords ?? '')).filter(token => currentTerms.has(token)).length
+  }))
+  .sort((a,b) => b.similarity-a.similarity || a.guide.title.localeCompare(b.guide.title,'sk'))
+  .map(item => item.guide)
+].slice(0,4);
 const updatedMatch = /^(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})$/.exec(guide.updated ?? '');
 const updatedIso = updatedMatch ? [updatedMatch[3],updatedMatch[2].padStart(2,'0'),updatedMatch[1].padStart(2,'0')].join('-') : undefined;
 const breadcrumbLd = {
@@ -64,10 +93,10 @@ const jsonLd={
 <section class="notice" id="overenie"><strong>Dôležité:</strong> {guide.verification} {guide.sourceNote}  Ide o orientačný kontrolný zoznam, nie o právne alebo finančné poradenstvo. Pred vybavovaním overte aktuálne požiadavky na oficiálnom zdroji: <a href={guide.source.url} target="_blank" rel="noopener noreferrer">{guide.source.label} ↗</a>.</section>
 {relatedGuides.length > 0 && <section class="panel" id="suvisiace-navody" aria-labelledby="suvisiace-navody-heading">
   <h2 id="suvisiace-navody-heading">Súvisiace praktické návody</h2>
-  <p>Ďalšie postupy z rovnakej oblasti zoradené podľa podobných tém.</p>
+  <p>Odporúčané nadväzujúce postupy a ďalšie tematicky súvisiace návody.</p>
   <div class="grid guide-related-grid">{relatedGuides.map(item=>
     <a class="card" href={'/navody/' + item.slug + '/'}>
-      <span class="tag">{categoryLabel}</span>
+      <span class="tag">{labels[item.category] ?? item.category}</span>
       <h3>{item.title} →</h3><p>{item.description}</p>
     </a>
   )}</div>
