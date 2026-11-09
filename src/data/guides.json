@@ -43,6 +43,10 @@
       {
         "title": "Vyžiadajte si formulár ESIS",
         "body": "Pri každej ponuke si vyžiadajte európsky štandardizovaný informačný formulár ESIS. Porovnajte údaje pri rovnakom úvere, nie iba reklamovanú úrokovú sadzbu."
+      },
+      {
+        "title": "Skontrolujte scenár po skončení fixácie",
+        "body": "Pri každej ponuke si urobte aj orientačný rozpočet s vyššou mesačnou splátkou po skončení fixácie. Nejde o predpoveď budúcej sadzby; cieľom je overiť, či domácnosti zostane priestor na nevyhnutné výdavky."
       }
     ]
   },
@@ -90,6 +94,10 @@
       {
         "title": "Rozlišujte hypotéku a spotrebiteľský úver",
         "body": "Pri úvere na bývanie porovnajte nové podmienky aj vo formulári ESIS. Pri inom úvere si vyžiadajte príslušné predzmluvné informácie; pravidlá a náklady sa môžu líšiť."
+      },
+      {
+        "title": "Zabezpečte nadväznosť splatenia a čerpania",
+        "body": "Spíšte si, kto a kedy pošle vyčíslenie zostatku, doklady k zabezpečeniu a potvrdenie o splatení. S oboma bankami si písomne potvrďte poradie krokov, aby ste sa nespoliehali iba na predbežný termín."
       }
     ]
   },
@@ -133,6 +141,10 @@
       {
         "title": "Skontrolujte podmienky predčasného splatenia",
         "body": "Pred podpisom si v zmluve vyhľadajte postup a možné náklady pri predčasnom splatení. Požiadajte veriteľa o vysvetlenie, ako sa zmení celková splatná suma, ak úver splatíte skôr."
+      },
+      {
+        "title": "Uložte si porovnateľné podklady pred podpisom",
+        "body": "Odložte si datované ponuky, predzmluvné informácie a návrh zmluvy. Pri telefonickej ponuke si vyžiadajte podmienky písomne a skontrolujte, či sa suma na zaplatenie nezmenila medzi ponukou a podpisom."
       }
     ]
   },
@@ -177,6 +189,10 @@
       {
         "title": "Dopĺňajte ju pravidelne",
         "body": "Nastavte si prevod po výplate a po použití rezervy upravte ďalšie odklady. Raz za čas prepočítajte cieľ podľa nových výdavkov domácnosti."
+      },
+      {
+        "title": "Pripravte plán použitia pri núdzi",
+        "body": "Vopred si určte, na ktoré nevyhnutné situácie rezervu použijete a z akého účtu ju viete vybrať. Ak máte spoločný rozpočet, dohodnite sa, kto má k prostriedkom prístup aj v čase neprítomnosti druhého člena domácnosti."
       }
     ]
   },
@@ -221,6 +237,10 @@
       {
         "title": "Porovnávajte plán so skutočnosťou",
         "body": "Každý mesiac porovnajte plánované a skutočné sumy. Ak sa výdavky opakovane odlišujú, upravte rozpočet namiesto nerealistického cieľa."
+      },
+      {
+        "title": "Oddeľte úsporu od presunutého výdavku",
+        "body": "Pri každej navrhovanej úspore skontrolujte, či sa platba iba neposúva do ďalšieho mesiaca alebo nenahrádza drahšou službou. Zapíšte si čistý mesačný rozdiel a dátum, odkedy sa má prejaviť."
       }
     ]
   },
