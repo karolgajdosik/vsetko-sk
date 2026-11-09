@@ -1,6 +1,7 @@
 import { chromium } from 'playwright';
 import assert from 'node:assert/strict';
 import { checkV3Acceptance } from './v3-acceptance.mjs';
+import { checkKeyboardAudit } from './keyboard-audit.mjs';
 const browser=await chromium.launch({headless:true});
 const base='http://127.0.0.1:4321';
 try {
@@ -235,6 +236,7 @@ try {
   await page.close();
  }
  await checkV3Acceptance(browser, base);
+ await checkKeyboardAudit(browser, base);
  console.log('Browser layout and mobile interaction checks passed across 7 widths and 10 sections');
 } finally {await browser.close()}
 
