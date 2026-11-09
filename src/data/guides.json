@@ -510,8 +510,9 @@
     "keywords": "strata obcianskeho preukazu",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
-      "Identifikačné doklady podľa požiadaviek príslušného úradu",
-      "Dokumenty súvisiace s konkrétnou žiadosťou"
+      "Zoznam miest, kde bol stratený doklad naposledy použitý, a približný čas zistenia straty",
+      "Iný dostupný doklad totožnosti alebo identifikačné údaje na komunikáciu s príslušným pracoviskom",
+      "Zoznam služieb, pri ktorých sa používal elektronický podpis alebo prihlasovanie strateným dokladom"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
     "sourceNote": "Zdrojový odkaz bol 8. 11. 2026 overený na dostupnosť a tematickú zhodu. Aktuálne právne lehoty, poplatky a individuálne podmienky overte v platných predpisoch; nejde o úplnú právnu revíziu návodu.",
@@ -708,9 +709,9 @@
     "keywords": "zmena trvaleho pobytu",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
-      "Pripravte doklad totožnosti.",
-      "Overte, kto je vlastníkom nehnuteľnosti a či je potrebný súhlas vlastníka alebo spoluvlastníkov.",
-      "Zistite príslušnú ohlasovňu v obci alebo mestskej časti."
+      "Presná adresa nového pobytu vrátane čísla bytu, ak je pridelené",
+      "Doklad alebo informácie preukazujúce vzťah k nehnuteľnosti; podmienky súhlasu vlastníka si overte na ohlasovni",
+      "Zoznam bánk, poisťovní, zamestnávateľa a ďalších služieb, kde bude potrebné aktualizovať adresu"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
@@ -793,9 +794,9 @@
     "keywords": "zacatie podnikania",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
-      "Pripravte občiansky preukaz a identifikačné údaje.",
-      "Vyberte predmety podnikania a adresu miesta podnikania.",
-      "Overte odbornú spôsobilosť pri remeselnej alebo viazanej živnosti."
+      "Zvolený predmet činnosti a preverenie, či ide o voľnú, remeselnú alebo viazanú živnosť",
+      "Adresa miesta podnikania a prípadné podklady k oprávneniu užívať priestory",
+      "Prehľad plánovaných príjmov a nákladov a otázok na daňové a odvodové povinnosti pre odborné overenie"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
@@ -886,9 +887,9 @@
     "keywords": "dedicske konanie",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
-      "Zhromaždite dostupné doklady o príbuzenskom vzťahu.",
-      "Spíšte známy majetok, účty, nehnuteľnosti, úvery a ďalšie záväzky.",
-      "Ak existuje závet alebo dôležité listiny, oznámte to notárovi."
+      "Úmrtný list, ak je už k dispozícii, a dostupné údaje o poručiteľovi",
+      "Prehľad známeho majetku, bankových účtov, nehnuteľností a záväzkov bez odhadovania neznámych položiek",
+      "Kontaktné údaje možných dedičov a dostupné listiny týkajúce sa majetku alebo závetu"
     ],
     "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
     "sourceNote": "Zdrojový odkaz bol 8. 11. 2026 overený na dostupnosť a tematickú zhodu. Aktuálne právne lehoty, poplatky a individuálne podmienky overte v platných predpisoch; nejde o úplnú právnu revíziu návodu.",
@@ -1406,9 +1407,9 @@
     "keywords": "čo vybaviť po úmrtí blízkeho",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
-      "Zistite, kto vystavil potrebnú dokumentáciu o úmrtí.",
-      "Pripravte doklady zosnulého a kontakt na pohrebnú službu.",
-      "Zaznamenajte kontakty na nemocnicu, matriku a ďalšie dotknuté inštitúcie."
+      "Úmrtný list alebo informácia o tom, kde a kedy bude vydaný",
+      "Zoznam zmlúv, účtov, poistiek a pravidelných platieb zosnulého na následné preverenie",
+      "Kontakty na pohrebnú službu, matriku a ďalšie inštitúcie, s ktorými už prebehla komunikácia"
     ],
     "verification": "Praktické kroky boli redakčne spresnené 9. 11. 2026 bez úplného právneho overenia. Konkrétne povinnosti, lehoty a poplatky pred úkonom overte u príslušného úradu; dátum pôvodnej aktualizácie zostáva nezmenený.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
