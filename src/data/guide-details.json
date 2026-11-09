@@ -213,7 +213,13 @@
       "Objednávka nie je automaticky potvrdením účinného krytia.",
       "Povinnosti pri ukončení pôvodnej zmluvy sa riešia samostatne."
     ],
-    "outcome": "Máte správne identifikované vozidlo, potvrdené podmienky krytia a dostupný postup pri škode."
+    "outcome": "Máte správne identifikované vozidlo, potvrdené podmienky krytia a dostupný postup pri škode.",
+    "links": [
+      {
+        "label": "MD SR – automatická kontrola PZP pri STK od októbra 2026",
+        "url": "https://www.mindop.sk/media/tlacove-spravy/detail/od-oktobra-sa-bude-na-stk-kontrolovat-aj-povinne-zmluvne-poistenie"
+      }
+    ]
   },
   "kontrola-vozidla-pred-kupou": {
     "reviewed": "8. 11. 2026",
@@ -333,7 +339,7 @@
     "detailed": [
       {
         "title": "Ohláste stratu alebo odcudzenie",
-        "body": "Obráťte sa na príslušný policajný útvar alebo zastupiteľský úrad podľa miesta pobytu. Vyžiadajte si informáciu o ďalšom postupe a potvrdení udalosti.",
+        "body": "Stratu alebo odcudzenie oznámte bezodkladne. Na Slovensku kontaktujte Policajný zbor; v zahraničí aj príslušný zastupiteľský úrad SR a miestnu políciu podľa miestnych pravidiel. Vyžiadajte si potvrdenie a ďalší postup.",
         "where": "Polícia alebo zastupiteľský úrad SR."
       },
       {
@@ -357,7 +363,13 @@
       "Náhradný doklad nemusí umožňovať ľubovoľnú ďalšiu cestu.",
       "Zmenu čísla dokladu môžu potrebovať dopravcovia či ubytovatelia."
     ],
-    "outcome": "Máte ohlásenú udalosť a potvrdený postup náhradného alebo nového dokladu."
+    "outcome": "Máte ohlásenú udalosť a potvrdený postup náhradného alebo nového dokladu.",
+    "links": [
+      {
+        "label": "MZVEZ SR – strata dokladov v zahraničí",
+        "url": "https://www.mzv.sk/sk/web/sk/sluzby/ak-cestujete-do-zahranicia/strata-alebo-odcudzenie-dokladov"
+      }
+    ]
   },
   "zmena-mena-a-priezviska": {
     "reviewed": "8. 11. 2026",
@@ -609,7 +621,13 @@
       "Maximálny výkon stojana nie je trvalý výkon nabíjania auta.",
       "Predvolená modelová cena energie nemusí zodpovedať vašej tarife."
     ],
-    "outcome": "Máte vybraný scenár používania, nabíjania a celkových nákladov pre konkrétny elektromobil."
+    "outcome": "Máte vybraný scenár používania, nabíjania a celkových nákladov pre konkrétny elektromobil.",
+    "links": [
+      {
+        "label": "ZSE Drive – praktické otázky nabíjania (podmienky konkrétneho operátora)",
+        "url": "https://zsedrive.sk/najcastejsie-otazky"
+      }
+    ]
   },
   "domace-nabijanie": {
     "reviewed": "8. 11. 2026",
@@ -645,7 +663,13 @@
       "Cena samotného zariadenia nemusí zahŕňať celú montáž.",
       "V spoločnom objekte treba vyriešiť oprávnenia a meranie spotreby."
     ],
-    "outcome": "Máte odborne posúdené riešenie, úplnú ponuku a podklady na bezpečnú prevádzku."
+    "outcome": "Máte odborne posúdené riešenie, úplnú ponuku a podklady na bezpečnú prevádzku.",
+    "links": [
+      {
+        "label": "ZSE Drive – praktické otázky nabíjania (podmienky konkrétneho operátora)",
+        "url": "https://zsedrive.sk/najcastejsie-otazky"
+      }
+    ]
   },
   "cesta-elektromobilom": {
     "reviewed": "8. 11. 2026",
@@ -681,7 +705,13 @@
       "Roamingová cena sa môže líšiť od priameho cenníka operátora.",
       "Záložná lokalita má byť dosiahnuteľná s plánovanou rezervou."
     ],
-    "outcome": "Máte hlavné aj záložné nabíjanie a priebežne prispôsobovaný plán trasy."
+    "outcome": "Máte hlavné aj záložné nabíjanie a priebežne prispôsobovaný plán trasy.",
+    "links": [
+      {
+        "label": "ZSE Drive – praktické otázky nabíjania (podmienky konkrétneho operátora)",
+        "url": "https://zsedrive.sk/najcastejsie-otazky"
+      }
+    ]
   },
   "stk-priprava": {
     "reviewed": "8. 11. 2026",
@@ -717,7 +747,13 @@
       "Zhasnutie upozornenia bez opravy neodstraňuje príčinu.",
       "Nejasný výsledok protokolu si nechajte vysvetliť pred ďalšou jazdou."
     ],
-    "outcome": "Máte pripravené vozidlo a doklady a rozumiete výsledku kontroly."
+    "outcome": "Máte pripravené vozidlo a doklady a rozumiete výsledku kontroly.",
+    "links": [
+      {
+        "label": "MD SR – automatická kontrola PZP pri STK od októbra 2026",
+        "url": "https://www.mindop.sk/media/tlacove-spravy/detail/od-oktobra-sa-bude-na-stk-kontrolovat-aj-povinne-zmluvne-poistenie"
+      }
+    ]
   },
   "nehoda-na-ceste": {
     "reviewed": "8. 11. 2026",
@@ -789,7 +825,13 @@
       "Nesprávne VIN alebo údaje držiteľa opravte včas.",
       "Zaplatená objednávka potrebuje potvrdenie splnenia podmienok vzniku poistenia."
     ],
-    "outcome": "Máte zosúladené prevzatie vozidla, evidenčný postup a potvrdené poistné podmienky."
+    "outcome": "Máte zosúladené prevzatie vozidla, evidenčný postup a potvrdené poistné podmienky.",
+    "links": [
+      {
+        "label": "MD SR – automatická kontrola PZP pri STK od októbra 2026",
+        "url": "https://www.mindop.sk/media/tlacove-spravy/detail/od-oktobra-sa-bude-na-stk-kontrolovat-aj-povinne-zmluvne-poistenie"
+      }
+    ]
   },
   "leasing-alebo-uver": {
     "reviewed": "8. 11. 2026",

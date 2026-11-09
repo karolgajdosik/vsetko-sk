@@ -280,3 +280,8 @@ main p a:not(.primary),main .notice a,.trust a,main li>a,main li small a{ text-d
 main :is(ul,ol)>li>a{display:inline-flex;align-items:center;min-height:32px;padding-block:4px}
 main nav.panel li{margin-block:4px}
 @media(max-width:760px){main :is(ul,ol)>li>a{min-height:44px}}
+
+/* Manual keyboard/400% zoom review: keep the entire mobile menu reachable. */
+@media(max-width:760px){.topinner #site-nav.nav-open{max-height:calc(100vh - 150px - env(safe-area-inset-bottom));max-height:calc(100dvh - 150px - env(safe-area-inset-bottom));overflow-y:auto;overscroll-behavior:contain;scroll-padding-block:8px}}
+:where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid #1764aa;outline-offset:3px}
+html[data-theme=dark] :where(a,button,input,select,textarea,summary):focus-visible{outline-color:#9edcff}

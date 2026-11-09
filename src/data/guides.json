@@ -375,7 +375,7 @@
       "label": "MH SR – elektromobilita a nabíjacia infraštruktúra",
       "url": "https://www.mhsr.sk/priemysel/e-mobilita-a-alternativne-paliva/strategie-a-politiky-archiv"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "nabijanie elektromobilu",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
@@ -435,6 +435,10 @@
         {
           "label": "Kalkulačka ceny nabíjania",
           "url": "https://vsetko24.sk/kalkulacky/cena-nabijania/"
+        },
+        {
+          "label": "ZSE Drive – praktické otázky nabíjania (podmienky konkrétneho operátora)",
+          "url": "https://zsedrive.sk/najcastejsie-otazky"
         }
       ]
     },
@@ -632,7 +636,7 @@
       "label": "Slovensko.sk – cestovné doklady",
       "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_cestovne-doklady-a-nahradne-ce"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "vymena cestovneho pasu",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
@@ -679,12 +683,12 @@
           "url": "https://www.minv.sk/"
         },
         {
-          "label": "Rezervačný portál MV SR",
-          "url": "https://portal.minv.sk/"
+          "label": "MV SR – návod a vstup do rezervačného systému",
+          "url": "https://pes.minv.sk/wps/wcm/connect/sk/site/main/Rezervacny-system/"
         },
         {
-          "label": "Ministerstvo zahraničných vecí SR",
-          "url": "https://www.mzv.sk/"
+          "label": "MZVEZ SR – podmienky cestovania a doklady",
+          "url": "https://www.mzv.sk/cestovanie"
         }
       ]
     },
@@ -818,7 +822,7 @@
       "label": "Slovensko.sk – doklady potrebné k začatiu podnikania",
       "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_doklady-potrebne-k-zacatiu-pod"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "zacatie podnikania",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
@@ -856,7 +860,8 @@
       "pitfalls": [
         "Živnosť nemusí byť vhodná pre každú činnosť; niektoré profesie majú osobitný režim.",
         "Daňové a odvodové povinnosti sa môžu meniť podľa príjmu a dátumu začatia.",
-        "Nespoliehajte sa na univerzálnu sumu odvodov bez posúdenia situácie."
+        "Nespoliehajte sa na univerzálnu sumu odvodov bez posúdenia situácie.",
+        "Vyhľadávanie v živnostenskom registri môže vyžadovať overenie používateľa. Ak sa register nenačíta, overte postup cez oficiálne informácie DIVES alebo živnostenský úrad; informačná stránka nepotvrdzuje konkrétny zápis."
       ],
       "outcome": "Živnostenské oprávnenie je riadne ohlásené a máte plán následných povinností.",
       "links": [
@@ -875,6 +880,10 @@
         {
           "label": "Sociálna poisťovňa",
           "url": "https://www.socpoist.sk/"
+        },
+        {
+          "label": "DIVES – oficiálne informácie o registri a elektronických službách",
+          "url": "https://www.ives.sk/portal/apv/cezir"
         }
       ]
     },
@@ -919,7 +928,7 @@
       "label": "Slovensko.sk – úmrtie a dedičské konanie",
       "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_umrtie2"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "dedicske konanie",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
@@ -968,6 +977,10 @@
         {
           "label": "Slovensko.sk",
           "url": "https://www.slovensko.sk/"
+        },
+        {
+          "label": "Slov-Lex – Občiansky zákonník, pravidlá odmietnutia a zodpovednosti dedičov",
+          "url": "https://www.slov-lex.sk/ezbierky/pravne-predpisy/SK/ZZ/1964/40/"
         }
       ]
     },
@@ -1005,7 +1018,7 @@
       "label": "Slovensko.sk – vybavenie občianskeho preukazu",
       "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_vybavujem-obciansky-preukaz-s"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "ako vybaviť občiansky preukaz",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
@@ -1052,8 +1065,8 @@
           "url": "https://www.minv.sk/"
         },
         {
-          "label": "Rezervácie MV SR",
-          "url": "https://portal.minv.sk/"
+          "label": "MV SR – návod a vstup do rezervačného systému",
+          "url": "https://pes.minv.sk/wps/wcm/connect/sk/site/main/Rezervacny-system/"
         },
         {
           "label": "Slovensko.sk – eID",
@@ -1087,7 +1100,7 @@
     "description": "Čo si overiť pri vybavovaní dokladu dieťaťa",
     "steps": [
       "Overte platnosť cestovného dokladu dieťaťa a požiadavky cieľovej aj tranzitnej krajiny; skontrolujte, či dieťa potrebuje vlastný pas.",
-      "Pred návštevou oddelenia dokladov si na oficiálnom portáli overte, kto môže podať žiadosť za maloletého a či je potrebná osobná prítomnosť dieťaťa.",
+      "Pri bežnom podaní žiadosti musí byť dieťa prítomné na zosnímanie podoby tváre; výnimočný postup pri zdravotnej prekážke overte s pracoviskom. Za dieťa mladšie ako 15 rokov podáva žiadosť zákonný zástupca.",
       "Pripravte doklad totožnosti zákonného zástupcu, dostupné doklady dieťaťa a prípadné ďalšie podklady podľa pokynov príslušného pracoviska.",
       "Pri podaní skontrolujte osobné údaje a možnosti prevzatia; po vydaní porovnajte údaje v pase a uložte si informáciu o jeho platnosti."
     ],
@@ -1095,21 +1108,21 @@
       "label": "Slovensko.sk – cestovné doklady",
       "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_cestovne-doklady-a-nahradne-ce"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "cestovný pas pre dieťa",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
       "Pripravte rodný list dieťaťa a doklad zákonného zástupcu.",
-      "Overte účasť dieťaťa na pracovisku a podmienky súhlasu alebo zastupovania.",
+      "Počítajte s osobnou prítomnosťou dieťaťa; overte oprávnenie zákonného zástupcu a prípadné osobitné okolnosti.",
       "Skontrolujte požiadavky cieľovej krajiny a plánovaný termín odchodu."
     ],
-    "verification": "Praktické kroky boli redakčne spresnené 9. 11. 2026 bez úplného právneho overenia. Konkrétne povinnosti, lehoty a poplatky pred úkonom overte u príslušného úradu; dátum pôvodnej aktualizácie zostáva nezmenený.",
+    "verification": "Podmienka osobnej prítomnosti pri bežnom podaní a zastúpenia dieťaťa mladšieho ako 15 rokov bola porovnaná s oficiálnym návodom Slovensko.sk 9. 11. 2026. Osobitné zdravotné prípady, vstupné pravidlá krajín a poplatky overte samostatne.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "detail": {
       "summary": "Aj dieťa potrebuje na cestu vlastný cestovný doklad, ak ho vyžaduje cieľová krajina. Pri podaní žiadosti sa uplatňujú pravidlá zastúpenia zákonným zástupcom a biometrie podľa veku.",
       "before": [
         "Pripravte rodný list dieťaťa a doklad zákonného zástupcu.",
-        "Overte účasť dieťaťa na pracovisku a podmienky súhlasu alebo zastupovania.",
+        "Počítajte s osobnou prítomnosťou dieťaťa; overte oprávnenie zákonného zástupcu a prípadné osobitné okolnosti.",
         "Skontrolujte požiadavky cieľovej krajiny a plánovaný termín odchodu."
       ],
       "detailed": [
@@ -1123,7 +1136,7 @@
         },
         {
           "title": "Podajte žiadosť s oprávnenou osobou",
-          "body": "Na pracovisku dokladov predložte doklady a overte, či je potrebná osobná účasť dieťaťa."
+          "body": "Pri bežnom podaní sa dostavte aj s dieťaťom, ktorého podobu tváre pracovisko zosníma. Za dieťa mladšie ako 15 rokov žiada zákonný zástupca; pri starších maloletých overte súhlas zástupcu. Pri zdravotnej prekážke si dohodnite osobitný postup."
         },
         {
           "title": "Prevezmite pas a skontrolujte údaje",
@@ -1142,8 +1155,8 @@
           "url": "https://www.minv.sk/"
         },
         {
-          "label": "Ministerstvo zahraničných vecí SR",
-          "url": "https://www.mzv.sk/"
+          "label": "MZVEZ SR – podmienky cestovania a doklady",
+          "url": "https://www.mzv.sk/cestovanie"
         }
       ]
     },
@@ -1154,7 +1167,7 @@
       },
       {
         "title": "Overte osobnú účasť dieťaťa",
-        "body": "Pred návštevou oddelenia dokladov si overte podmienky osobnej prítomnosti dieťaťa a oprávnenie osoby, ktorá žiadosť podáva. Pravidlá sa môžu líšiť podľa veku."
+        "body": "Bežné podanie vyžaduje prítomnosť dieťaťa na zosnímanie podoby tváre. Vek ovplyvňuje zastupovanie a ďalšie biometrické úkony; nepredpokladajte, že malé dieťa môže zostať doma."
       },
       {
         "title": "Porovnajte platnosť s termínom cesty",
@@ -1453,7 +1466,7 @@
       "label": "Slovensko.sk – úmrtie a povinnosti pozostalých",
       "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_umrtie2"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "čo vybaviť po úmrtí blízkeho",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
@@ -1491,7 +1504,8 @@
       "pitfalls": [
         "Nezabudnite na zrušenie alebo prepis zmlúv a služieb podľa oprávnenia.",
         "S účtami a majetkom zosnulého nenakladajte bez právneho titulu.",
-        "Pri úmrtí v zahraničí platí osobitný konzulárny a matričný postup."
+        "Pri úmrtí v zahraničí platí osobitný konzulárny a matričný postup.",
+        "Staršie všeobecné prehľady môžu uvádzať neaktuálnu sumu príspevku na pohreb. Výšku a podmienky overte priamo v aktuálnych informáciách MPSVR SR; nárok nie je automatický."
       ],
       "outcome": "Máte vybavené základné matričné a pohrebné úkony a pripravené podklady pre dedičstvo.",
       "links": [
@@ -1506,6 +1520,10 @@
         {
           "label": "Sociálna poisťovňa",
           "url": "https://www.socpoist.sk/"
+        },
+        {
+          "label": "MPSVR SR – aktuálne podmienky príspevku na pohreb",
+          "url": "https://www.employment.gov.sk/sk/rodina-socialna-pomoc/prispevok-pohreb/"
         }
       ]
     },
@@ -1634,10 +1652,10 @@
       "Dohodnite odovzdanie bytu, stavy meračov a prepis energií; odložte si protokol."
     ],
     "source": {
-      "label": "Slovensko.sk – postup pri prevode nehnuteľnosti",
-      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_postup-pri-prevode-nehnutelnos"
+      "label": "Slovensko.sk – katastrálne konanie a vklad práv",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/__katastralne-konanie"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "kúpa bytu krok za krokom",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
@@ -2365,10 +2383,10 @@
       "Informujte poisťovňu a uchovajte dokumentáciu."
     ],
     "source": {
-      "label": "Slovenská kancelária poisťovateľov – postup pri nehode",
-      "url": "https://www.skp.sk/povinne-zmluvne-poistenie/"
+      "label": "SKP – nahlásenie škodovej udalosti a postup podľa situácie",
+      "url": "https://www.skp.sk/ako-nahlasit-skodovu-udalost/"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "postup pri dopravnej nehode",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
@@ -2461,10 +2479,10 @@
       "Pred podpisom si prečítajte sankcie, podmienky predčasného splatenia či odkúpenia vozidla a postup pri škodovej udalosti."
     ],
     "source": {
-      "label": "NBS – RPMN a porovnanie financovania",
-      "url": "https://rpmn.nbs.sk/"
+      "label": "NBS – rozdiel medzi finančným a operatívnym lízingom",
+      "url": "https://nbs.sk/dohlad-nad-financnym-trhom/ofs/financne-produkty/uvery/lizing/"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "leasing alebo úver na auto",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
