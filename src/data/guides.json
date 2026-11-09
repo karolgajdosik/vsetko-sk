@@ -289,7 +289,7 @@
       "Servisná história, informácie o opravách a dostupné záznamy o kilometroch",
       "Termín nezávislej prehliadky a zoznam otázok na predávajúceho"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktický kontrolný bod bol redakčne doplnený 9. 11. 2026. Nejde o nové overenie externého zdroja ani úplnú právnu revíziu; aktuálne úradné postupy, povinnosti a lehoty overte pred úkonom.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "practical": [
       {
@@ -307,6 +307,10 @@
       {
         "title": "Zaznamenajte stav pri prevzatí",
         "body": "Do odovzdávacieho protokolu uveďte stav kilometrov, počet kľúčov, známe vady, príslušenstvo a dátum odovzdania. Uschovajte si kópie dokumentov."
+      },
+      {
+        "title": "Overte aj dokumenty predávajúceho",
+        "body": "Pred zálohou si overte, kto je uvedený v dokladoch ako držiteľ či vlastník a či osoba podpisujúca zmluvu môže vozidlo predať. Pri zastupovaní si vyžiadajte preukázateľné oprávnenie; nezrovnalosti riešte pred platbou."
       }
     ]
   },
@@ -332,7 +336,7 @@
       "Návrh kúpnej zmluvy s cenou, spôsobom úhrady a termínom odovzdania",
       "Odovzdávací protokol s miestom na čas, kilometre, kľúče a prevzaté doklady"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktický kontrolný bod bol redakčne doplnený 9. 11. 2026. Nejde o nové overenie externého zdroja ani úplnú právnu revíziu; aktuálne úradné postupy, povinnosti a lehoty overte pred úkonom.",
     "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
     "practical": [
       {
@@ -350,6 +354,10 @@
       {
         "title": "Zaznamenajte odovzdanie",
         "body": "V protokole potvrďte dátum, čas, stav kilometrov, doklady, počet kľúčov a prevzaté vybavenie. Kópiu si ponechajte pre prípad neskorších sporov."
+      },
+      {
+        "title": "Pred odovzdaním si odložte dôkazy",
+        "body": "Uchovajte podpísanú zmluvu, odovzdávací protokol, potvrdenie o prijatej platbe a komunikáciu o známych vadách. Zaznamenajte presný čas prevzatia vozidla."
       }
     ]
   },
@@ -607,6 +615,10 @@
       {
         "title": "Pripravte si náhradnú identifikáciu",
         "body": "Pred návštevou pracoviska si overte, aký iný doklad totožnosti alebo potvrdenie bude akceptované a ako sa preukáže vaša totožnosť."
+      },
+      {
+        "title": "Zaznamenajte si priebeh vybavovania",
+        "body": "Poznačte si dátum oznámenia straty, miesto podania a identifikátor potvrdenia, ak ho dostanete. Uľahčí to ďalšiu komunikáciu s úradom."
       }
     ]
   },
@@ -696,6 +708,10 @@
       {
         "title": "Overte víza a tranzit",
         "body": "Pred nákupom letenky si pozrite oficiálne podmienky vstupu a tranzitu všetkých krajín na trase; niektoré vyžadujú dlhšiu zostávajúcu platnosť pasu."
+      },
+      {
+        "title": "Skontrolujte plánované cesty ešte pred podaním",
+        "body": "Porovnajte termín odchodu s očakávaným vybavením dokladu a požiadavkami cieľovej krajiny na platnosť pasu. Nepredpokladajte, že pravidlá sú vo všetkých krajinách rovnaké."
       }
     ]
   },
@@ -785,6 +801,10 @@
       {
         "title": "Uložte potvrdenie a skontrolujte adresu",
         "body": "Po vybavení si odložte dostupné potvrdenie alebo číslo podania. Pri následnej aktualizácii údajov používajte presne tú adresu, ktorú zaevidovala ohlasovňa; pri nezhode žiadajte opravu."
+      },
+      {
+        "title": "Vytvorte si zoznam údajov na aktualizáciu",
+        "body": "Po zmene adresy prejdite vlastné zmluvy, bankové a poistné kontakty, doručovacie adresy a zákaznícke účty. Pri každom subjekte si poznačte, či zmenu vybavíte sami alebo automaticky."
       }
     ]
   },
@@ -887,6 +907,10 @@
       {
         "title": "Oddeľte prípravu od začiatku fakturácie",
         "body": "Vytvorte si jednoduchý zoznam: potvrdenie oprávnenia, overenie registračných údajov, spôsob vystavovania dokladov a evidencie platieb. Pri nejasnostiach si pred prvou faktúrou overte požiadavky na príslušnom úrade."
+      },
+      {
+        "title": "Oddeľte osobné a podnikateľské dokumenty",
+        "body": "Založte si priečinok na potvrdenia, zmluvy, faktúry a komunikáciu s úradmi. Ukladajte aj dátumy podaní a doručenia, aby ste vedeli spätne doložiť vykonané kroky."
       }
     ]
   },
@@ -1519,6 +1543,10 @@
       {
         "title": "Komunikujte s inštitúciami preukázateľne",
         "body": "Pri bankách, poisťovniach a úradoch si zapisujte dátum kontaktu, požadované doklady a spôsob vybavenia; nespájajte ich postupy s dedičským rozhodnutím automaticky."
+      },
+      {
+        "title": "Zostavte prehľad otvorených záväzkov",
+        "body": "Zhromaždite dostupné zmluvy, pravidelné platby a kontakty na poskytovateľov služieb. Pred rušením služieb alebo nakladaním s majetkom si overte svoje oprávnenie a postup u príslušnej inštitúcie."
       }
     ]
   },
@@ -2203,7 +2231,7 @@
       "Kúpna zmluva a prípadné splnomocnenie podľa aktuálnych požiadaviek úradu",
       "Dohoda o termíne evidenčného úkonu, odovzdaní vozidla a nadväznosti poistenia"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktický kontrolný bod bol redakčne doplnený 9. 11. 2026. Nejde o nové overenie externého zdroja ani úplnú právnu revíziu; aktuálne úradné postupy, povinnosti a lehoty overte pred úkonom.",
     "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
     "detail": {
       "summary": "Pri zmene držiteľa alebo vlastníka vozidla si najskôr ujasni typ prevodu, údaje strán a poistenie. Podrobnosti sa môžu líšiť podľa toho, či ide o predaj, darovanie, leasing alebo dovoz.",
@@ -2288,6 +2316,10 @@
       {
         "title": "Uschovajte doklad o odovzdaní",
         "body": "Zaznamenajte čas odovzdania vozidla, kľúčov a dokladov. Po dokončení zmeny si overte správnosť údajov v evidencii."
+      },
+      {
+        "title": "Rozdeľte úlohy medzi kupujúceho a predávajúceho",
+        "body": "Ešte pred podpisom si spíšte, kto zabezpečí podanie, doklady, poistenie a odovzdanie vozidla. Aktuálny úradný postup a prípadné zastupovanie overte podľa konkrétnej situácie."
       }
     ]
   },
@@ -2362,7 +2394,7 @@
       "Dostupné údaje o poistení vozidla a formulár na záznam o nehode, ak ho máte",
       "Bezpečný spôsob zaznamenania miesta, účastníkov, svedkov a poškodení až po zabezpečení osôb"
     ],
-    "verification": "Praktické redakčné odporúčania; aktuálne právne povinnosti, lehoty a poplatky neboli pri tomto rozšírení samostatne právne overené. Pred úkonom overte aktuálne pravidlá v uvedenom oficiálnom zdroji.",
+    "verification": "Praktický kontrolný bod bol redakčne doplnený 9. 11. 2026. Nejde o nové overenie externého zdroja ani úplnú právnu revíziu; aktuálne úradné postupy, povinnosti a lehoty overte pred úkonom.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "practical": [
       {
@@ -2380,6 +2412,10 @@
       {
         "title": "Neodhadujte povinnosť volať políciu",
         "body": "Pri nejasnom priebehu, spore, zranení alebo ďalších okolnostiach si overte aktuálne pravidlá a postupujte podľa pokynov príslušných orgánov a poisťovne."
+      },
+      {
+        "title": "Zachovajte podklady o udalosti",
+        "body": "Ak je to bezpečné, zaznamenajte miesto, čas, evidenčné čísla, kontakty účastníkov a fotografie poškodení. Uchovajte si kópie spísaných dokumentov a číslo poistnej udalosti."
       }
     ]
   },
@@ -2406,7 +2442,7 @@
       "Ponuky PZP s dátumom začiatku krytia, limitmi a výlukami",
       "Kontakty poisťovne a doklad o uzavretí poistenia dostupný pri prevzatí vozidla"
     ],
-    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji.",
+    "verification": "Praktický kontrolný bod bol redakčne doplnený 9. 11. 2026. Nejde o nové overenie externého zdroja ani úplnú právnu revíziu; aktuálne úradné postupy, povinnosti a lehoty overte pred úkonom.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "practical": [
       {
@@ -2424,6 +2460,10 @@
       {
         "title": "Overte krytie aj evidenciu",
         "body": "Majte dostupné potvrdenie o poistení a kontakt na poisťovňu. Nezamieňajte zaplatenie objednávky za potvrdený vznik krytia. Pred následnou STK skontrolujte aj evidenciu PZP v registri SKP; od 1. 10. 2026 sa platnosť overuje automaticky."
+      },
+      {
+        "title": "Skontrolujte kontinuitu krytia",
+        "body": "Ešte pred prevzatím vozidla si s poisťovňou potvrďte začiatok krytia pre konkrétne vozidlo. Uschovajte potvrdenie a kontakty na asistenčnú službu; nespoliehajte sa iba na ústnu dohodu."
       }
     ]
   },
