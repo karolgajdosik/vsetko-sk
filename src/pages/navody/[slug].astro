@@ -16,6 +16,22 @@ const tokenize = (text) => (text ?? '').toLocaleLowerCase('sk').split(/[^0-9a-z√
 const currentTerms = new Set(tokenize(guide.title + ' ' + (guide.keywords ?? '')));
 // Curated next steps for connected life events; fallback retains thematic discovery.
 const curatedRelated = {
+ 'financna-rezerva':['kontrola-rodinnych-vydavkov','rodinny-financny-plan','bezpecne-sporenie'],
+ 'kontrola-rodinnych-vydavkov':['rodinny-financny-plan','financna-rezerva','bezpecne-sporenie'],
+ 'rodinny-financny-plan':['financna-rezerva','kontrola-rodinnych-vydavkov','bezpecne-sporenie'],
+ 'bezpecne-sporenie':['financna-rezerva','rodinny-financny-plan','urok-a-rpmn'],
+ 'spotrebny-uver':['urok-a-rpmn','refinancovanie-uveru','financna-rezerva'],
+ 'leasing-alebo-uver':['spotrebny-uver','urok-a-rpmn','kontrola-vozidla-pred-kupou'],
+ 'nehoda-na-ceste':['povinne-zmluvne-poistenie','pzp-pri-kupe-auta','prepis-auta'],
+ 'stk-priprava':['zimne-pneumatiky','kontrola-vozidla-pred-kupou','predaj-vozidla'],
+ 'zimne-pneumatiky':['stk-priprava','cesta-elektromobilom','kontrola-vozidla-pred-kupou'],
+ 'zmena-trvaleho-pobytu':['ako-vybavit-obciansky-preukaz','strata-obcianskeho-preukazu'],
+ 'rodny-list':['sobas-na-slovensku','cestovny-pas-pre-dieta','vybavenie-po-umrti'],
+ 'sobas-na-slovensku':['zmena-mena-a-priezviska','zmena-trvaleho-pobytu','rodny-list'],
+ 'zmena-mena-a-priezviska':['sobas-na-slovensku','ako-vybavit-obciansky-preukaz','vymena-cestovneho-pasu'],
+ 'vymena-cestovneho-pasu':['strata-cestovneho-pasu','cestovny-pas-pre-dieta'],
+ 'cestovny-pas-pre-dieta':['rodny-list','vymena-cestovneho-pasu','strata-cestovneho-pasu'],
+ 'zacatie-podnikania':['kontrola-rodinnych-vydavkov','financna-rezerva'],
  'porovnanie-hypotek':['hypoteka-prva-ziadost','urok-a-rpmn','fixacia-hypoteky','refinancovanie-uveru'],
  'hypoteka-prva-ziadost':['porovnanie-hypotek','kupa-bytu','urok-a-rpmn','financna-rezerva'],
  'fixacia-hypoteky':['refinancovanie-uveru','porovnanie-hypotek','urok-a-rpmn'],
