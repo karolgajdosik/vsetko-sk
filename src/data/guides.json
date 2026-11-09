@@ -1202,8 +1202,8 @@
       "Po rozhodnutí alebo zápise skontrolujte správnosť údajov a zostavte si zoznam dokladov a zmluvných vzťahov, v ktorých treba zmenu oznámiť."
     ],
     "source": {
-      "label": "Slovensko.sk – žiadosť o zmenu mena a priezviska",
-      "url": "https://www.slovensko.sk/static/eForm/dataset/MZV.RequestNameChange/2.2/Content/form.1014.html"
+      "label": "Slovensko.sk – služby súvisiace so zmenou mena a priezviska",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_sluzby-suvisiace-so-zmenou-men"
     },
     "updated": "22. 10. 2026",
     "keywords": "zmena mena alebo priezviska",
@@ -1213,8 +1213,8 @@
       "Listiny súvisiace s dôvodom zmeny (napríklad matričné doklady), podľa pokynov príslušného úradu",
       "Zoznam dokladov, registrov a zmluvných vzťahov, v ktorých bude po schválení potrebné údaje aktualizovať"
     ],
-    "verification": "Praktické kroky boli redakčne spresnené 9. 11. 2026 bez úplného právneho overenia. Konkrétne povinnosti, lehoty a poplatky pred úkonom overte u príslušného úradu; dátum pôvodnej aktualizácie zostáva nezmenený.",
-    "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
+    "verification": "Dňa 9. 11. 2026 bol redakčne overený predmet a rozsah oficiálnej tematickej stránky Slovensko.sk a opravený nesprávne zúžený odkaz na formulár MZV. Úplná právna aktuálnosť, poplatky a lehoty neboli overené; dátum pôvodnej aktualizácie návodu zostáva nezmenený.",
+    "sourceNote": "Oficiálna tematická stránka Slovensko.sk uvádza viacero odlišných elektronických postupov (napríklad žiadosť na okresný úrad, matričné zmeny a úkony po rozvode). Pôvodný odkaz smeroval na špecifický formulár MZV určený na podanie cez zastupiteľský úrad, nie na všeobecný postup na Slovensku. Stránka uvádza starší dátum publikovania; aktuálne požiadavky, lehoty a poplatky overte na príslušnom úrade.",
     "practical": [
       {
         "title": "Zmapujte doklady na výmenu",
