@@ -775,6 +775,10 @@
       {
         "title": "Rozdeľte oznámenia podľa príjemcu",
         "body": "Pripravte si kontrolný zoznam pre banku, zamestnávateľa, poisťovne a poskytovateľov služieb. Pri každom overte, či adresu získava automaticky alebo vyžaduje oznámenie."
+      },
+      {
+        "title": "Uložte potvrdenie a skontrolujte adresu",
+        "body": "Po vybavení si odložte dostupné potvrdenie alebo číslo podania. Pri následnej aktualizácii údajov používajte presne tú adresu, ktorú zaevidovala ohlasovňa; pri nezhode žiadajte opravu."
       }
     ]
   },
@@ -868,6 +872,10 @@
       {
         "title": "Overte registrácie po založení",
         "body": "Po ohlásení skontrolujte správnosť zapísaných údajov a na oficiálnych portáloch finančnej správy a poisťovní overte svoje aktuálne oznamovacie a odvodové povinnosti."
+      },
+      {
+        "title": "Oddeľte prípravu od začiatku fakturácie",
+        "body": "Vytvorte si jednoduchý zoznam: potvrdenie oprávnenia, overenie registračných údajov, spôsob vystavovania dokladov a evidencie platieb. Pri nejasnostiach si pred prvou faktúrou overte požiadavky na príslušnom úrade."
       }
     ]
   },
@@ -1129,6 +1137,10 @@
       {
         "title": "Pripravte súhlas pri ceste bez rodičov",
         "body": "Ak dieťa cestuje s inou osobou alebo len s jedným rodičom, zistite si na oficiálnych stránkach cieľovej krajiny prípadné požiadavky na súhlas a jeho formu."
+      },
+      {
+        "title": "Urobte kontrolu pred odchodom",
+        "body": "Pred cestou porovnajte meno dieťaťa v rezervácii s pasom, skontrolujte fyzický stav dokladu a uložte si kontakty na zastupiteľský úrad pre prípad jeho straty v zahraničí."
       }
     ]
   },
@@ -1303,6 +1315,10 @@
       {
         "title": "Skontrolujte údaje na doklade",
         "body": "Pri prevzatí porovnajte meno, dátum a miesto narodenia s ostatnými dokladmi; prípadné nezhody riešte priamo s matrikou."
+      },
+      {
+        "title": "Pripravte si údaje pre komunikáciu s matrikou",
+        "body": "Pred kontaktovaním matriky si zapíšte celé meno osoby, dátum a miesto narodenia a účel požadovaného dokladu. Citlivé osobné údaje posielajte len cez oficiálny bezpečný kanál."
       }
     ]
   },
@@ -1389,6 +1405,10 @@
       {
         "title": "Naplánujte zmeny po sobáši",
         "body": "Pri plánovanej zmene priezviska si pripravte zoznam dokladov, zamestnávateľa a poskytovateľov služieb, ktorým budete údaje aktualizovať."
+      },
+      {
+        "title": "Potvrďte si termín a spôsob prevzatia dokladu",
+        "body": "Pred obradom si u matriky potvrďte termín, miesto, potrebnú prítomnosť osôb a spôsob následného prevzatia sobášneho listu. Pri zmene priezviska si pripravte vlastný zoznam nadväzujúcich aktualizácií."
       }
     ]
   },
