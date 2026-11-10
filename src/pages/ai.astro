@@ -31,7 +31,8 @@ function findLocal(question:string,max=6){
   return library.map(item=>{
     let score=0,matched=0;
     for(const t of terms){
-      const hitsTitle=item.title.includes(t),hitsKeywords=item.keywords.includes(t),hitsDescription=item.description.includes(t),hitsCategory=item.category.includes(t);
+      const matches=(text:string)=>text.split(/[^a-z0-9]+/).some(word=>word===t||(t.length>=5&&word.startsWith(t)&&word.length-t.length<=5));
+      const hitsTitle=matches(item.title),hitsKeywords=matches(item.keywords),hitsDescription=matches(item.description),hitsCategory=matches(item.category);
       if(hitsTitle||hitsKeywords||hitsDescription||hitsCategory)matched++;
       if(hitsTitle)score+=7;
       if(hitsKeywords)score+=4;
