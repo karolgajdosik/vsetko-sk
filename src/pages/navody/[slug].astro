@@ -51,7 +51,11 @@ const curatedRelated = {
  'vybavenie-po-umrti':['dedicske-konanie','rodny-list','kataster-vlastnictvo'],
  'dedicske-konanie':['vybavenie-po-umrti','kataster-vlastnictvo'],
  'strata-cestovneho-pasu':['vymena-cestovneho-pasu','cestovny-pas-pre-dieta'],
- 'strata-obcianskeho-preukazu':['ako-vybavit-obciansky-preukaz','zmena-trvaleho-pobytu']
+ 'strata-obcianskeho-preukazu':['ako-vybavit-obciansky-preukaz','zmena-trvaleho-pobytu'],
+ 'ako-vybavit-obciansky-preukaz':['strata-obcianskeho-preukazu','zmena-trvaleho-pobytu','zmena-mena-a-priezviska'],
+ 'nabijanie-elektromobilu':['domace-nabijanie','cesta-elektromobilom','kupa-elektromobilu'],
+ 'povinne-zmluvne-poistenie':['pzp-pri-kupe-auta','nehoda-na-ceste','prepis-auta'],
+ 'urok-a-rpmn':['porovnanie-hypotek','spotrebny-uver','leasing-alebo-uver']
 };
 const curatedSlugs = curatedRelated[guide.slug] ?? [];
 const curatedGuides = curatedSlugs
