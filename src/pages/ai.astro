@@ -28,7 +28,7 @@ const library=catalog.filter(x=>isInternal(x.url)).map(x=>({
 }));
 function findLocal(question:string,max=6){
   const terms=[...new Set(tokens(question))];if(!terms.length)return [];
-  return library.map(item=>{
+  const ranked=library.map(item=>{
     let score=0,matched=0;
     for(const t of terms){
       const matches=(text:string)=>text.split(/[^a-z0-9]+/).some(word=>word===t||(t.length>=5&&word.startsWith(t)&&word.length-t.length<=5));
@@ -41,8 +41,14 @@ function findLocal(question:string,max=6){
     }
     if(item.title.includes(norm(question.trim())))score+=8;
     return {x:item.x,score,matched};
-  }).filter(item=>item.matched>0 && item.matched>=Math.max(1,Math.ceil(terms.length*.4)))
-    .sort((a,b)=>b.score-a.score||a.x.title.localeCompare(b.x.title,'sk'))
+  });
+  // Long, multi-topic questions rarely match 40% of their terms in one guide.
+  // Prefer high-coverage matches, but do not hide useful partial sources when none qualify.
+  const strictMinimum=Math.max(1,Math.ceil(terms.length*.4));
+  const strict=ranked.filter(item=>item.matched>=strictMinimum);
+  const minimum=strict.length?strictMinimum:(terms.length>=5?2:1);
+  return (strict.length?strict:ranked.filter(item=>item.matched>=minimum))
+    .sort((a,b)=>b.score-a.score||b.matched-a.matched||a.x.title.localeCompare(b.x.title,'sk'))
     .slice(0,max).map(item=>item.x);
 }
 function renderLocalLinks(parent:HTMLElement,question:string,label='Súvisiace návody a nástroje:', showEmpty=false){
