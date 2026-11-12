@@ -117,10 +117,13 @@ form.addEventListener('submit',async e=>{
     const answer=typeof data?.answer==='string'?data.answer.trim():'';
     const validSources=result.ok&&Array.isArray(data?.sources)?data.sources.filter((item:unknown):item is {url:string}=>typeof item==='object'&&item!==null&&isInternal((item as {url?:unknown}).url)&&knownSourceUrls.has((item as {url:string}).url)):[];
     const hasGrounding=validSources.length>0;
-    const isGenerated=data?.mode==='ai';
-    // Never present API-provided links as evidence when its answer was rejected.
-    const acceptedAnswer=result.ok&&Boolean(answer)&&(!isGenerated||hasGrounding);
-    response.textContent=!result.ok||!answer?'Asistent teraz neposkytol overiteľnú odpoveď. Nižšie nájdete iba tematicky súvisiace stránky portálu; ich obsah si overte v oficiálnych zdrojoch.':isGenerated&&!hasGrounding?'Model neposkytol odpoveď s dohľadateľným podkladom v katalógu portálu. Z bezpečnostných dôvodov ju nezobrazujem. Pozrite si súvisiace návody nižšie.':isGenerated?'Orientačná odpoveď AI (nie overený úradný postup):\n'+answer+'\n\nUvedené odkazy sú tematické podklady, nie potvrdenie každej vety odpovede.':answer;
+    const mode=data?.mode;
+    const isGenerated=mode==='ai';
+    const isGroundedMode=isGenerated||mode==='verified-guide'||mode==='guide-navigation';
+    // Unknown modes and source-free responses must never display arbitrary API text.
+    // The server's grounded mode is a no-answer signal, not an answer to display.
+    const acceptedAnswer=result.ok&&Boolean(answer)&&isGroundedMode&&hasGrounding;
+    response.textContent=!acceptedAnswer?'Asistent neposkytol overiteľnú odpoveď s dohľadateľným podkladom v katalógu portálu. Nižšie nájdete iba tematicky súvisiace stránky; ich obsah si overte v oficiálnych zdrojoch.':isGenerated?'Orientačná odpoveď AI (nie overený úradný postup):\n'+answer+'\n\nUvedené odkazy sú tematické podklady, nie potvrdenie každej vety odpovede.':answer;
     if(acceptedAnswer&&hasGrounding){
       const links=document.createElement('div');links.className='ai-sources';
       const label=document.createElement('strong');label.textContent='Odkazy uvedené v odpovedi:';links.append(label);
@@ -142,7 +145,7 @@ form.addEventListener('submit',async e=>{
       }
       if(count)response.append(official);
     }
-    renderLocalLinks(response,question,'Ďalšie relevantné stránky portálu:');
+    renderLocalLinks(response,question,'Ďalšie relevantné stránky portálu:',!acceptedAnswer);
   }catch{
     response.textContent='Službu AI sa teraz nepodarilo načítať. Nižšie sú len výsledky vyhľadávania v obsahu portálu; nejde o generovanú odpoveď.';
     renderLocalLinks(response,question,'Dostupné návody a nástroje:',true);
