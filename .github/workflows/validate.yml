@@ -26,6 +26,7 @@ jobs:
           python3 -m http.server 4321 --bind 127.0.0.1 --directory dist > /tmp/vsetko-preview.log 2>&1 &
           for i in $(seq 1 30); do if curl -fsS http://127.0.0.1:4321/ > /dev/null; then break; fi; sleep 1; done
           curl -fsS http://127.0.0.1:4321/ >/dev/null || { cat /tmp/vsetko-preview.log; exit 1; }
+          VSETKO_ORIGIN=http://127.0.0.1:4321 node scripts/check-production-content.mjs
           node tests/browser-layout.mjs
           node tests/browser-assistant.mjs
           VSETKO_ORIGIN=http://127.0.0.1:4321 node tests/production-contact.mjs
