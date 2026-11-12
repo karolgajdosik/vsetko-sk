@@ -1690,8 +1690,8 @@
       "Pred podpisom zmluvy si uložte dátum kontroly listu vlastníctva, identifikátory nehnuteľnosti a zistené nezrovnalosti. Pri plombe, ťarche alebo nezhode údajov si vyžiadajte vysvetlenie a overte stav znovu bezprostredne pred rozhodujúcim úkonom."
     ],
     "source": {
-      "label": "ÚGKK SR – oficiálny portál ESKN",
-      "url": "https://kataster.skgeodesy.sk/eskn-portal/"
+      "label": "ÚGKK SR – overenie vlastníctva nehnuteľnosti",
+      "url": "https://beta.skgeodesy.sk/sk/situacie/overenie-vlastnictva/"
     },
     "updated": "22. 10. 2026",
     "keywords": "list vlastníctva a kataster",
@@ -1701,7 +1701,7 @@
       "Číslo listu vlastníctva, ak ho máte, a účel, na ktorý výpis potrebujete",
       "Údaje na porovnanie vlastníkov, podielov, tiarch a prípadných plomb s podkladmi k nehnuteľnosti"
     ],
-    "verification": "Dňa 11. 11. 2026 boli podľa oficiálnych oznámení ÚGKK SR overené adresy portálov ESKN a CICA a ich základné určenie. Nejde o individuálnu právnu kontrolu celého návodu ani o potvrdenie dostupnosti každej elektronickej služby.",
+    "verification": "12. 11. 2026: Overené tematické stránky ÚGKK SR o CICA, ESKN a overení vlastníctva; rozlíšenie informatívneho náhľadu, úradného výpisu a plomby. Priame prihlásenie, poplatky a úplná právna revízia neboli overené.",
     "sourceNote": "Oficiálny portál ESKN je určený na katastrálne údaje a elektronické služby. Na informatívne overenie listu vlastníctva možno použiť aj CICA (https://kataster.vugk.sk/). Informatívny náhľad nezamieňajte s úradným výpisom. ÚGKK upozorňuje na neoficiálne napodobeniny portálov; overujte doménu. Konkrétne poplatky a dostupnosť jednotlivých služieb treba preveriť pred použitím.",
     "detail": {
       "summary": "List vlastníctva slúži na overenie vlastníka, podielov a evidovaných práv k nehnuteľnosti. Pred kúpou si vždy skontrolujte aktuálny stav vrátane tiarch a plomb.",
@@ -1798,7 +1798,7 @@
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Praktické odporúčania boli redakčne spresnené 9. 11. 2026; nejde o nové úplné právne ani zdrojové overenie. Pred transakciou overte aktuálne podmienky u príslušnej inštitúcie.",
+    "verification": "12. 11. 2026: Overený postup prevodu na Slovensko.sk a tematické stránky ÚGKK SR o CICA a ESKN. Overené rozlíšenie informatívnej kontroly a podania na vklad; poplatky, lehoty a individuálne zmluvy neboli právne revidované.",
     "sourceNote": "Slovensko.sk opisuje postup pri prevode nehnuteľnosti, nie právnu kontrolu konkrétnej kúpnej zmluvy. Pred podpisom si informatívne overte vlastníka, podiely, ťarchy a plomby na oficiálnom portáli CICA (https://kataster.vugk.sk/); pri potrebe úradného dokumentu zvoľte príslušnú službu katastra. Zmluvu a bezpečné vyplatenie ceny posúďte individuálne.",
     "detail": {
       "summary": "Pri kúpe bytu postupuj od overenia právneho stavu cez financovanie až po bezpečnú úhradu a prevzatie. Najväčšie riziká bývajú v zmluvách, ťarchách a načasovaní peňazí.",
@@ -1926,7 +1926,7 @@
       "Podklady o ťarchách, správe domu a prípadných záväzkoch, ktoré bude potrebné preveriť",
       "Návrh bezpečného spôsobu úhrady kúpnej ceny a zoznam vecí pre odovzdávací protokol"
     ],
-    "verification": "Praktické odporúčania boli redakčne spresnené 9. 11. 2026; nejde o nové úplné právne ani zdrojové overenie. Pred transakciou overte aktuálne podmienky u príslušnej inštitúcie.",
+    "verification": "12. 11. 2026: Overený postup prevodu na Slovensko.sk a informácie ÚGKK SR o podaní a sledovaní vkladu. Poplatky, lehoty, daňové povinnosti a individuálne zmluvy neboli právne revidované.",
     "sourceNote": "Postup na Slovensko.sk poskytuje všeobecný rámec prevodu, nie overenie konkrétnej zmluvy alebo úschovy kúpnej ceny. Pred prevodom skontrolujte aktuálny list vlastníctva a prípadné plomby cez oficiálny portál CICA (https://kataster.vugk.sk/). Podmienky podania, poplatky a lehoty overte podľa aktuálneho konania.",
     "practical": [
       {
@@ -2605,8 +2605,8 @@
       "Informácie o termíne, rezervácii a úhrade kontroly",
       "Záznam o predchádzajúcej kontrole, ak je relevantný"
     ],
-    "verification": "Dňa 12. 11. 2026 overené oznámenie Ministerstva dopravy SR z 29. 9. 2026 o automatickej kontrole PZP pri TK a EK. Ostatné zákonné intervaly, doklady a ceny pracoviska neboli pri tejto úprave úplne overené.",
-    "sourceNote": "Oficiálny zdroj ministerstva sa týka technických kontrol. Nie je potvrdením aktuálneho cenníka konkrétnej STK ani individuálneho termínu kontroly vozidla. Termín overte podľa dokladov a platných pravidiel; cenu priamo u prevádzkovateľa. Rozsah zdroja redakčne posúdený 11. 11. 2026 bez úplnej právnej revízie.",
+    "verification": "12. 11. 2026: Overená stránka technických kontrol MD SR a oznámenie z 29. 9. 2026 o automatickej kontrole PZP pri TK a EK. Individuálne intervaly, doklady a ceny pracoviska neboli úplne overené.",
+    "sourceNote": "Ministerstvo dopravy zverejňuje informácie o technických kontrolách a samostatné oznámenie o PZP: https://www.mindop.sk/media/tlacove-spravy/detail/od-oktobra-sa-bude-na-stk-kontrolovat-aj-povinne-zmluvne-poistenie . Termín a doklady overte podľa vozidla, cenu u prevádzkovateľa.",
     "practical": [
       {
         "title": "Skontrolujte svetlá a signalizáciu",
@@ -2818,8 +2818,8 @@
       "Stav dezénu, vek a prípadné poškodenie súčasnej sady",
       "Termín prezutia a kontrola tlaku podľa odporúčaní výrobcu vozidla"
     ],
-    "verification": "Praktické odporúčania boli redakčne spresnené 9. 11. 2026; aktuálnosť externého zdroja a právnych povinností nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji.",
-    "sourceNote": "Citovaný Slov-Lex je právny predpis; samotný odkaz bez kontroly aktuálneho konsolidovaného znenia nepotvrdzuje presné povinnosti v deň cesty ani pravidlá v zahraničí. Pred cestou overte platné znenie, podmienky konkrétnej krajiny a odporúčania výrobcu vozidla. V tejto úprave nebola vykonaná nezávislá právna verifikácia.",
+    "verification": "12. 11. 2026: Overený § 38 zákona č. 8/2009 Z. z. v časovej verzii účinnej od 1. 10. do 30. 11. 2026. Rozsah kontroly: zimné podmienky a rozdiely podľa kategórie vozidla; zahraničné pravidlá a technické limity dezénu neboli overené.",
+    "sourceNote": "Na Slov-Lexe vyhľadajte § 38 a časovú verziu účinnú v deň jazdy. Pravidlá sa líšia podľa kategórie vozidla a podmienok na trase; pred cestou do zahraničia overte miestne predpisy. Úplná nezávislá právna revízia nebola vykonaná.",
     "practical": [
       {
         "title": "Kontrolujte tlak za studena",
