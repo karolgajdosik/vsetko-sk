@@ -2235,7 +2235,7 @@
       "Pred objednaním technickej kontroly skontrolujte termín platnosti dokladov a zistite, aký druh kontroly vaše vozidlo potrebuje; podľa typu vozidla overte aj potrebu emisnej kontroly.",
       "Vyskúšajte osvetlenie, smerovky, stierače, ostrekovače, klaksón a skontrolujte pneumatiky vrátane rozmerov a viditeľného poškodenia.",
       "Overte čitateľnosť identifikačných údajov vozidla a pripravte doklady vyžadované konkrétnym pracoviskom; pri prestavbách skontrolujte príslušné zápisy.",
-      "Ak vozidlo vykazuje zjavné technické nedostatky, nechajte ich pred kontrolou odborne odstrániť; výsledok kontroly nepredpokladajte vopred."
+      "Ak vozidlo vykazuje nedostatky bŕzd, riadenia alebo podvozka, nechajte ich pred kontrolou odborne preveriť. Pred STK si overte aj platnosť PZP v registri SKP."
     ],
     "source": {
       "label": "Ministerstvo dopravy – technické kontroly vozidiel",
@@ -2249,8 +2249,8 @@
       "Informácie o termíne, rezervácii a úhrade kontroly",
       "Záznam o predchádzajúcej kontrole, ak je relevantný"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
+    "verification": "Dňa 12. 11. 2026 bola podľa tlačovej správy MD SR overená informácia o automatickej kontrole PZP. Ostatné právne lehoty, poplatky a individuálne povinnosti neboli v tomto kroku samostatne overené.",
+    "sourceNote": "Všeobecný podklad k technickým kontrolám; informáciu o automatickom overovaní PZP potvrdzuje aj tlačová správa MD SR z 29. 9. 2026: https://www.mindop.sk/media/tlacove-spravy/detail/od-oktobra-sa-bude-na-stk-kontrolovat-aj-povinne-zmluvne-poistenie",
     "practical": [
       {
         "title": "Skontrolujte svetlá a signalizáciu",
@@ -2269,8 +2269,8 @@
         "body": "Pred návštevou pracoviska si overte jeho aktuálne požiadavky na doklady, rezerváciu a rozsah kontroly vrátane prípadnej emisnej kontroly."
       },
       {
-        "title": "Spravte predkontrolu vozidla",
-        "body": "Skontrolujte osvetlenie, pneumatiky, čelné sklo, kontrolky a povinné doklady; termín si overte vopred."
+        "title": "Overte evidenciu PZP pred STK",
+        "body": "Podľa Ministerstva dopravy sa od 1. októbra 2026 pri technickej a emisnej kontrole automaticky preveruje platnosť PZP. Ak register SKP nezobrazuje platné poistenie, kontaktujte poisťovňu ešte pred návštevou pracoviska."
       }
     ]
   },
