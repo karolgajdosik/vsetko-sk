@@ -2232,7 +2232,7 @@
     "category": "auto",
     "description": "Kontrolný zoznam pred STK: osvetlenie, pneumatiky, sklá, brzdy, doklady a prípadná emisná kontrola.",
     "steps": [
-      "Pred objednaním technickej kontroly skontrolujte termín platnosti dokladov a zistite, aký druh kontroly vaše vozidlo potrebuje.",
+      "Pred objednaním technickej kontroly skontrolujte termín platnosti dokladov a zistite, aký druh kontroly vaše vozidlo potrebuje; podľa typu vozidla overte aj potrebu emisnej kontroly.",
       "Vyskúšajte osvetlenie, smerovky, stierače, ostrekovače, klaksón a skontrolujte pneumatiky vrátane rozmerov a viditeľného poškodenia.",
       "Overte čitateľnosť identifikačných údajov vozidla a pripravte doklady vyžadované konkrétnym pracoviskom; pri prestavbách skontrolujte príslušné zápisy.",
       "Ak vozidlo vykazuje zjavné technické nedostatky, nechajte ich pred kontrolou odborne odstrániť; výsledok kontroly nepredpokladajte vopred."
