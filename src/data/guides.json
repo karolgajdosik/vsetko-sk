@@ -407,8 +407,8 @@
       "Po skončení relácie skontrolujte ukončenie účtovania, odpojte kábel podľa pokynov stanice a uvoľnite miesto ďalšiemu vozidlu."
     ],
     "source": {
-      "label": "MH SR – identifikácia prevádzkovateľov nabíjacích bodov (8. 5. 2026)",
-      "url": "https://www.mhsr.sk/aktuality/spustenie-registracie-identifikacii-poskytovatelov-sluzieb-mobility-a-prevadzkovatelov-nabijacich-bodov-a-cerpacich-miest-pre-alternativne-paliva"
+      "label": "EAFO – ceny nabíjania elektromobilov",
+      "url": "https://alternative-fuels-observatory.ec.europa.eu/markets-and-policy/market-and-consumer-insights/electric-vehicle-recharging-prices"
     },
     "updated": "9. 11. 2026",
     "keywords": "nabijanie elektromobilu",
@@ -418,8 +418,8 @@
       "Aktuálna tarifa vrátane roamingu, spôsob autorizácie a prípadné časové či parkovacie poplatky",
       "Vybraná stanica a záložná lokalita s dostatočnou energetickou rezervou"
     ],
-    "verification": "Praktický postup bol redakčne upravený 9.–10. 11. 2026. Nejde o úplné overenie externého zdroja, cien, dostupnosti nabíjacích staníc ani právnych podmienok. Pred použitím skontrolujte aktuálne údaje prevádzkovateľa.",
-    "sourceNote": "Úradný zdroj opisuje identifikáciu prevádzkovateľov a poskytovateľov služieb, NIE ceny, dostupnosť staníc ani postup reklamácie. Tieto údaje treba overiť priamo u konkrétneho prevádzkovateľa. Odkaz a jeho tematický rozsah skontrolované 11. 11. 2026; celý návod neprešiel úplnou právnou revíziou.",
+    "verification": "12. 11. 2026: overený prehľad EAFO o domácom a verejnom AC/DC nabíjaní a cenových faktoroch. Nejde o úplnú právnu ani individuálnu technickú revíziu.",
+    "sourceNote": "Európske observatórium alternatívnych palív vysvetľuje rozdiely medzi spôsobmi nabíjania a cenami. Konkrétnu tarifu, dostupnosť a reklamáciu overte u operátora.",
     "detail": {
       "summary": "Pri nabíjaní sleduj typ konektora, skutočný výkon auta aj stanice, spôsob platby a cenu za kWh. Deklarovaný výkon stanice nie je zárukou rovnako rýchleho nabíjania.",
       "before": [
@@ -2299,8 +2299,8 @@
       "Pred podpisom dohody potvrďte výbavu, káble, záruky a spôsob odovzdania vozidla."
     ],
     "source": {
-      "label": "MH SR – politika elektromobility",
-      "url": "https://www.mhsr.sk/priemysel/e-mobilita-a-alternativne-paliva/strategie-a-politiky-archiv"
+      "label": "EAFO – spotrebiteľský portál elektromobility",
+      "url": "https://alternative-fuels-observatory.ec.europa.eu/consumer-portal"
     },
     "updated": "9. 11. 2026",
     "keywords": "kúpa elektromobilu",
@@ -2310,8 +2310,8 @@
       "Údaje o kapacite batérie, spotrebe, záruke a stave vozidla vrátane dostupnej histórie",
       "Porovnanie obstarávacej ceny, poistenia, nabíjania a predpokladaných prevádzkových nákladov"
     ],
-    "verification": "Praktický postup bol redakčne upravený 9.–10. 11. 2026. Archívny strategický zdroj MH SR nebol použitý na overenie aktuálnych technických parametrov, záruky ani ceny konkrétneho vozidla.",
-    "sourceNote": "Citovaný dokument MH SR je ARCHÍVNY strategický podklad, nie aktuálna príručka kupujúceho. Nepotvrdzuje stav batérie, záruku, ceny ani technické parametre konkrétneho auta; tie overte v dokumentácii výrobcu a nezávislou diagnostikou. Obmedzenie zdroja redakčne vyhodnotené 11. 11. 2026; celý návod neprešiel úplnou právnou revíziou.",
+    "verification": "12. 11. 2026: overený spotrebiteľský portál EAFO s prehľadom modelov a nástrojom celkových nákladov. Nejde o úplnú právnu ani individuálnu technickú revíziu.",
+    "sourceNote": "Portál EAFO pomáha porovnať modely a náklady vlastníctva; nepotvrdzuje stav batérie, záruku ani cenu konkrétneho auta. Vyžiadajte si dokumentáciu výrobcu a nezávislú diagnostiku.",
     "practical": [
       {
         "title": "Porovnajte reálny dojazd",
@@ -2353,14 +2353,14 @@
     "category": "auto",
     "description": "Domáce nabíjanie elektromobilu: ako preveriť elektroinštaláciu, vhodný wallbox, výkon, bezpečnosť a cenu nabíjania.",
     "steps": [
-      "Zistite, či máte vlastné parkovacie miesto, aký je dostupný elektrický príkon a kto musí schváliť stavebný alebo elektroinštalačný zásah.",
+      "Zistite, či máte vlastné parkovacie miesto, aký je dostupný elektrický príkon a kto musí schváliť stavebný alebo elektroinštalačný zásah. Pri existujúcom dome posúďte s elektrikárom aj súbeh spotrebičov a potrebu zmeny hlavného ističa u svojho distribútora.",
       "Požiadajte kvalifikovaného elektrikára o posúdenie rozvádzača, istenia, ochranných prvkov a spôsobu vedenia kábla; nezapájajte nabíjačku svojpomocne.",
       "Porovnajte nabíjanie z vhodne navrhnutého wallboxu s existujúcim pripojením a overte možnosti riadenia výkonu pri súbehu domácich spotrebičov.",
       "Pred používaním si vyžiadajte potrebnú dokumentáciu a výsledky príslušných odborných kontrol; vyskúšajte nastavenie nabíjacieho limitu vozidla."
     ],
     "source": {
-      "label": "MH SR – stratégia nabíjacej infraštruktúry",
-      "url": "https://www.mhsr.sk/priemysel/e-mobilita-a-alternativne-paliva/strategie-a-politiky-archiv"
+      "label": "Západoslovenská distribučná – E-mobilita",
+      "url": "https://www.zsdis.sk/Uvod/E-mobilita"
     },
     "updated": "22. 10. 2026",
     "keywords": "domáce nabíjanie elektromobilu",
@@ -2370,8 +2370,8 @@
       "Informácie o elektrickej prípojke, rozvádzači a možnosti bezpečného vedenia kábla",
       "Podklady pre posúdenie kvalifikovaným elektrikárom a prípadné súhlasy vlastníka či správcu"
     ],
-    "verification": "Praktický postup bol redakčne upravený 9.–10. 11. 2026. Archívny zdroj MH SR neoveruje bezpečnosť konkrétnej elektroinštalácie, požiadavky distribútora ani aktuálne právne povinnosti.",
-    "sourceNote": "Citovaný dokument MH SR je ARCHÍVNY strategický podklad, nie návod na elektroinštaláciu. Nepotvrdzuje vhodnosť rozvodov, revízne požiadavky ani podmienky pripojenia konkrétnej nehnuteľnosti. Pred realizáciou žiadajte posúdenie kvalifikovaného odborníka a podmienky distribútora. Obmedzenie zdroja redakčne vyhodnotené 11. 11. 2026; celý návod neprešiel úplnou právnou revíziou.",
+    "verification": "12. 11. 2026: overený postup distribútora pri novom a existujúcom odbernom mieste a posudzovaní kapacity. Nejde o úplnú právnu ani individuálnu technickú revíziu.",
+    "sourceNote": "Zdroj opisuje postup v distribučnom území ZSD. Pri potrebe zmeny kapacity sa obráťte na svojho distribútora; vhodnosť inštalácie musí posúdiť kvalifikovaný odborník.",
     "practical": [
       {
         "title": "Overte elektrický prívod",
@@ -2407,8 +2407,8 @@
       "Pred odchodom skontrolujte stav batérie, funkčnosť nabíjacej aplikácie a dostupnosť nabíjania v cieli; počas cesty plán priebežne upravujte."
     ],
     "source": {
-      "label": "MH SR – rozvoj verejnej nabíjacej infraštruktúry (5. 6. 2026)",
-      "url": "https://www.mhsr.sk/aktuality/mh-sr-vyhlasilo-vyzvu-z-planu-obnovy-a-odolnosti-sr-zameranu-na-budovanie-nabijacej-infrastruktury-pre-elektricke-vozidla"
+      "label": "EAFO – ceny nabíjania elektromobilov",
+      "url": "https://alternative-fuels-observatory.ec.europa.eu/markets-and-policy/market-and-consumer-insights/electric-vehicle-recharging-prices"
     },
     "updated": "22. 10. 2026",
     "keywords": "plánovanie cesty elektromobilom",
@@ -2418,8 +2418,8 @@
       "Kompatibilné nabíjacie stanice a aspoň jedna alternatíva pre kritické zastávky",
       "Aktuálne ceny, spôsob platby a prístup k aplikáciám alebo kartám operátorov"
     ],
-    "verification": "Praktický postup bol redakčne upravený 9.–10. 11. 2026. Externý zdroj o podpore infraštruktúry nepotvrdzuje aktuálnu dostupnosť, cenu, výkon ani funkčnosť nabíjacích staníc.",
-    "sourceNote": "Úradný zdroj dokumentuje program podpory nabíjacej infraštruktúry, NIE aktuálnu prevádzku alebo obsadenosť konkrétnych nabíjačiek. Trasu, kompatibilitu, cenu a dostupnosť overte v aktuálnych údajoch prevádzkovateľov. Odkaz a jeho tematický rozsah skontrolované 11. 11. 2026; celý návod neprešiel úplnou právnou revíziou.",
+    "verification": "12. 11. 2026: overený európsky prehľad rozdielov medzi domácim a verejným nabíjaním. Nejde o úplnú právnu ani individuálnu technickú revíziu.",
+    "sourceNote": "EAFO poskytuje cenový kontext, nie živé údaje o obsadenosti staníc. Pred cestou overte konektor, cenu a prevádzku priamo u operátora.",
     "practical": [
       {
         "title": "Plánujte podľa spotreby",
@@ -2639,11 +2639,11 @@
       "Najskôr zabezpečte miesto udalosti a zdravie osôb; v núdzi volajte 112.",
       "Zdokumentujte polohu vozidiel, poškodenia, kontakty účastníkov a svedkov, ak je to bezpečné.",
       "Overte, či situácia vyžaduje privolanie polície; nepredpokladajte, že každá udalosť sa rieši rovnako.",
-      "Informujte poisťovňu a uchovajte dokumentáciu."
+      "Informujte poisťovňu a uchovajte dokumentáciu. Vopred si pripravte tlačivo Správa o nehode a kontakt na asistenčnú službu."
     ],
     "source": {
-      "label": "SKP – nahlásenie škodovej udalosti a postup podľa situácie",
-      "url": "https://www.skp.sk/ako-nahlasit-skodovu-udalost/"
+      "label": "SKP – Ako postupovať pri dopravnej nehode",
+      "url": "https://www.skp.sk/ako-postupovat-pri-dopravnej-nehode/"
     },
     "updated": "9. 11. 2026",
     "keywords": "postup pri dopravnej nehode",
@@ -2653,8 +2653,8 @@
       "Dostupné údaje o poistení vozidla a formulár na záznam o nehode, ak ho máte",
       "Bezpečný spôsob zaznamenania miesta, účastníkov, svedkov a poškodení až po zabezpečení osôb"
     ],
-    "verification": "Rozsah a limity citovaného zdroja redakčne spresnené 10. 11. 2026; externá dostupnosť URL ani aktuálnosť právnych podmienok neboli pri tejto úprave znovu overené.",
-    "sourceNote": "Zdroj SKP sa týka nahlasovania škodovej udalosti poisťovni. Sám osebe nepotvrdzuje zákonné podmienky privolania polície, postup záchranných zložiek ani povinnosti v každej dopravnej situácii.",
+    "verification": "12. 11. 2026: overený návod SKP k dokumentovaniu udalosti, formuláru a asistencii; zákonné podmienky privolania polície a lehoty neboli právne revidované. Nejde o úplnú právnu ani individuálnu technickú revíziu.",
+    "sourceNote": "SKP vysvetľuje vyplnenie Správy o nehode, dokumentovanie a kontaktovanie asistencie. Pri povinnostiach účastníka sa riaďte aktuálnym zákonom a pokynmi príslušných orgánov.",
     "practical": [
       {
         "title": "Zdravie má prednosť pred fotografiami",
@@ -2762,8 +2762,8 @@
       "Rozpis akontácie, splátok, poistenia, poplatkov a prípadnej odkúpnej ceny",
       "Podmienky vlastníctva vozidla, predčasného ukončenia a jeho odovzdania po skončení zmluvy"
     ],
-    "verification": "Praktický zoznam podkladov redakčne spresnený 9. 11. 2026. Externý zdroj, právne pravidlá a aktuálne poplatky neboli pri tejto zmene opätovne úplne overené; konkrétne podmienky si overte u poskytovateľa.",
-    "sourceNote": "Tematický zdroj NBS opisuje lízing, nie aktuálne porovnanie konkrétnych ponúk lízingu a úveru. Overte vlastníctvo vozidla, poistenie, poplatky, predčasné ukončenie a celkové náklady v oboch zmluvách.",
+    "verification": "12. 11. 2026: overený výklad NBS o vlastníctve a rozdiele medzi finančným a operatívnym lízingom. Nejde o úplnú právnu ani individuálnu technickú revíziu.",
+    "sourceNote": "NBS vysvetľuje základné formy lízingu. Konkrétne odkúpenie, vlastníctvo, poistenie a náklady pri ukončení overte v zmluve; nejde o porovnanie aktuálnych ponúk.",
     "practical": [
       {
         "title": "Rozlišujte vlastníctvo a poslednú splátku",
