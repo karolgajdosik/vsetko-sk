@@ -875,7 +875,7 @@
     "description": "Pri zakladaní živnosti si overte predmet činnosti a povinnosti podnikateľa.",
     "steps": [
       "Spíšte zamýšľané činnosti a v oficiálnom zozname overte, či ide o voľnú, remeselnú alebo viazanú živnosť a aké doklady treba.",
-      "Pripravte identifikačné údaje, adresu podnikania a prípadné doklady o odbornej spôsobilosti; overte aktuálny spôsob a poplatok ohlásenia.",
+      "Pripravte identifikačné údaje, adresu podnikania a prípadné doklady o odbornej spôsobilosti; overte aktuálny spôsob a poplatok ohlásenia. Ak sa miesto podnikania líši od bydliska, overte aj doklad o oprávnení užívať priestor.",
       "Po potvrdení ohlásenia skontrolujte pridelené identifikátory a povinnosti voči daňovému úradu, zdravotnej a Sociálnej poisťovni podľa svojej situácie."
     ],
     "source": {
@@ -890,7 +890,7 @@
       "Adresa miesta podnikania a prípadné podklady k oprávneniu užívať priestory",
       "Prehľad plánovaných príjmov a nákladov a otázok na daňové a odvodové povinnosti pre odborné overenie"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "12. 11. 2026: Overené podklady k ohláseniu živnosti, odborná spôsobilosť a úloha jednotného kontaktného miesta. Úplná právna revízia, individuálne podmienky, poplatky a lehoty neboli samostatne overené.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "detail": {
       "summary": "Pred založením živnosti si overte, či ide o voľnú, remeselnú alebo viazanú činnosť, podmienky odbornej spôsobilosti a následné daňové a odvodové povinnosti.",
@@ -1001,8 +1001,8 @@
       "Prehľad známeho majetku, bankových účtov, nehnuteľností a záväzkov bez odhadovania neznámych položiek",
       "Kontaktné údaje možných dedičov a dostupné listiny týkajúce sa majetku alebo závetu"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
-    "sourceNote": "Úradný sprievodca na Slovensko.sk opisuje životnú situáciu po úmrtí; nenahrádza postup notára v konkrétnom dedičskom konaní. Pri zdedenej nehnuteľnosti po skončení konania skontrolujte zápis vlastníctva na oficiálnom portáli CICA (https://kataster.vugk.sk/). Informatívny náhľad nie je úradný výpis.",
+    "verification": "12. 11. 2026: Overené poverenie notára súdom a základný postup predbežného šetrenia. Úplná právna revízia, individuálne podmienky, poplatky a lehoty neboli samostatne overené.",
+    "sourceNote": "Úradný sprievodca na Slovensko.sk opisuje životnú situáciu po úmrtí; nenahrádza postup notára v konkrétnom dedičskom konaní. Pri zdedenej nehnuteľnosti po skončení konania skontrolujte zápis vlastníctva na oficiálnom portáli CICA (https://kataster.vugk.sk/). Informatívny náhľad nie je úradný výpis. Časť zdroja o pohrebnom obsahuje historickú sumu; na dávky používajte aktuálne pokyny ÚPSVaR.",
     "detail": {
       "summary": "Dedičské konanie sa spravidla začne po oznámení úmrtia súdu; súd poverí notára ako súdneho komisára. Dedičia si pripravia informácie o majetku, záväzkoch a prípadnom závete.",
       "before": [
@@ -1335,7 +1335,7 @@
     "description": "Základná orientácia v matričnom postupe",
     "steps": [
       "Rozlíšte, či ide o zmenu mena alebo priezviska na žiadosť, alebo o zápis zmeny vyplývajúcej z inej životnej udalosti; príslušný postup sa môže líšiť.",
-      "Na matrike alebo príslušnom úrade si overte oprávnenosť žiadosti, požadované prílohy a aktuálny formulár; samotný odkaz na elektronické tlačivo nemusí pokrývať váš prípad.",
+      "Na matrike alebo príslušnom úrade si overte oprávnenosť žiadosti, požadované prílohy a aktuálny formulár; samotný odkaz na elektronické tlačivo nemusí pokrývať váš prípad. Pri zmene na žiadosť si overte príslušnosť okresného úradu, pri matričnom oznámení príslušnosť matriky.",
       "Pripravte identifikačné doklady a listiny preukazujúce dôvod či právny základ zmeny podľa individuálnych pokynov úradu.",
       "Po rozhodnutí alebo zápise skontrolujte správnosť údajov a zostavte si zoznam dokladov a zmluvných vzťahov, v ktorých treba zmenu oznámiť."
     ],
@@ -1351,7 +1351,7 @@
       "Listiny súvisiace s dôvodom zmeny (napríklad matričné doklady), podľa pokynov príslušného úradu",
       "Zoznam dokladov, registrov a zmluvných vzťahov, v ktorých bude po schválení potrebné údaje aktualizovať"
     ],
-    "verification": "Dňa 9. 11. 2026 bol redakčne overený predmet a rozsah oficiálnej tematickej stránky Slovensko.sk a opravený nesprávne zúžený odkaz na formulár MZV. Úplná právna aktuálnosť, poplatky a lehoty neboli overené; dátum pôvodnej aktualizácie návodu zostáva nezmenený.",
+    "verification": "12. 11. 2026: Overené rozlíšenie žiadosti na okresný úrad a matričných oznámení. Úplná právna revízia, individuálne podmienky, poplatky a lehoty neboli samostatne overené.",
     "sourceNote": "Oficiálna tematická stránka Slovensko.sk uvádza viacero odlišných elektronických postupov (napríklad žiadosť na okresný úrad, matričné zmeny a úkony po rozvode). Pôvodný odkaz smeroval na špecifický formulár MZV určený na podanie cez zastupiteľský úrad, nie na všeobecný postup na Slovensku. Stránka uvádza starší dátum publikovania; aktuálne požiadavky, lehoty a poplatky overte na príslušnom úrade.",
     "practical": [
       {
@@ -1386,7 +1386,7 @@
     "category": "urady",
     "description": "Ako postupovať pri žiadosti o matričný doklad",
     "steps": [
-      "Zistite, či riešite prvé vystavenie rodného listu po narodení alebo vydanie ďalšieho úradného výpisu; postup sa môže líšiť.",
+      "Zistite, či riešite prvé vystavenie rodného listu po narodení alebo vydanie ďalšieho úradného výpisu; postup sa môže líšiť. Pri prvom vydaní si overte, či matrika dostala dohodu rodičov o mene a priezvisku.",
       "Na príslušnom matričnom úrade alebo oficiálnom portáli overte spôsob podania, oprávnenú osobu a požadované doklady.",
       "Pri žiadosti skontrolujte správnosť identifikačných údajov a zistite aktuálny spôsob prevzatia dokumentu.",
       "Po prevzatí porovnajte údaje s ostatnými dokladmi; prípadné nezrovnalosti riešte priamo s matrikou."
@@ -1403,7 +1403,7 @@
       "Pripravte doklad totožnosti a údaje o osobe, ktorej sa rodný list týka.",
       "Ak žiadate za inú osobu, overte oprávnenie a prípadné splnomocnenie."
     ],
-    "verification": "Praktické kroky boli redakčne spresnené 8. 11. 2026 bez úplného právneho overenia. Konkrétne lehoty, poplatky a povinnosti overte na uvedenom oficiálnom zdroji alebo príslušnom úrade; pôvodný dátum aktualizácie sa nemení.",
+    "verification": "12. 11. 2026: Overený postup prvého vydania po narodení a dohoda rodičov o mene dieťaťa. Úplná právna revízia, individuálne podmienky, poplatky a lehoty neboli samostatne overené.",
     "sourceNote": "Zdroj poskytuje všeobecné informácie o rodnom liste. Oprávnenie žiadateľa, typ výpisu a požiadavky na použitie v zahraničí overte na príslušnej matrike a u prijímajúceho orgánu.",
     "detail": {
       "summary": "Rodný list je matričný doklad o narodení. Postup pri prvom vydaní a pri vyžiadaní druhopisu sa líši; kompetentná je matrika podľa pravidiel vedenia matričných záznamov.",
@@ -1502,7 +1502,7 @@
       "Pripravte doklady totožnosti a informácie o osobnom stave.",
       "Ak je jeden zo snúbencov cudzinec, včas overte požiadavky na zahraničné doklady a preklady."
     ],
-    "verification": "Praktické kroky boli redakčne spresnené 8. 11. 2026 bez úplného právneho overenia. Konkrétne lehoty, poplatky a povinnosti overte na uvedenom oficiálnom zdroji alebo príslušnom úrade; pôvodný dátum aktualizácie sa nemení.",
+    "verification": "12. 11. 2026: Overené rozlíšenie civilného a cirkevného obradu a predkladanie dokladov. Úplná právna revízia, individuálne podmienky, poplatky a lehoty neboli samostatne overené.",
     "sourceNote": "Zdroj sa venuje uzavretiu manželstva; individuálne požiadavky na doklady, cudzinecké listiny a termín obradu si overte priamo na matrike. Následný zoznam aktualizácií je praktické redakčné odporúčanie.",
     "detail": {
       "summary": "Pri uzavretí manželstva sa najprv dohodnite s príslušným matričným úradom alebo oprávneným cirkevným orgánom. Doklady, termíny a podmienky sa líšia podľa štátneho občianstva snúbencov a miesta sobáša.",
@@ -1597,8 +1597,8 @@
       "Dostupné identifikačné údaje zosnulého a doklady potrebné na konkrétne oznámenia",
       "Zoznam známych bánk, poisťovní, zmlúv a záväzkov na následné preverenie oprávneného postupu"
     ],
-    "verification": "Praktické kroky boli redakčne spresnené 9. 11. 2026 bez úplného právneho overenia. Konkrétne povinnosti, lehoty a poplatky pred úkonom overte u príslušného úradu; dátum pôvodnej aktualizácie zostáva nezmenený.",
-    "sourceNote": "Stránka Slovensko.sk poskytuje orientáciu pri vybavovaní po úmrtí, nie úplný zoznam individuálnych povinností. Ak pozostalosť zahŕňa nehnuteľnosti, pripravte pre notára identifikáciu listov vlastníctva a katastrálnych území; informatívne údaje možno preveriť cez oficiálny portál CICA (https://kataster.vugk.sk/). Konkrétne právne úkony riešte s príslušnou inštitúciou.",
+    "verification": "12. 11. 2026: Overená orientácia pri úmrtí a samostatný aktuálnejší zdroj ÚPSVaR k príspevku na pohreb. Úplná právna revízia, individuálne podmienky, poplatky a lehoty neboli samostatne overené.",
+    "sourceNote": "Stránka Slovensko.sk poskytuje orientáciu pri vybavovaní po úmrtí, nie úplný zoznam individuálnych povinností. Ak pozostalosť zahŕňa nehnuteľnosti, pripravte pre notára identifikáciu listov vlastníctva a katastrálnych území; informatívne údaje možno preveriť cez oficiálny portál CICA (https://kataster.vugk.sk/). Konkrétne právne úkony riešte s príslušnou inštitúciou. Pozor: tematická stránka Slovensko.sk obsahuje historickú sumu príspevku na pohreb. Aktuálne podmienky a tlačivo overte priamo na ÚPSVaR: https://www.upsvr.gov.sk/vzory-ziadosti-v-slovenskom-jazyku-a-inych-jazykoch/vzory-ziadosti-pre-oblast-socialnych-veci-a-rodiny/prispevok-na-pohreb.html?lang=sk&page_id=268776.",
     "detail": {
       "summary": "Po úmrtí blízkej osoby sa rieši lekárske potvrdenie, matrika, pohreb, oznámenia inštitúciám a neskôr dedičské konanie. Konkrétny postup závisí od toho, či úmrtie nastalo doma, v nemocnici alebo v zahraničí.",
       "before": [
