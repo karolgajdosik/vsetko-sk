@@ -581,8 +581,8 @@
       "Iný dostupný doklad totožnosti alebo identifikačné údaje na komunikáciu s príslušným pracoviskom",
       "Zoznam služieb, pri ktorých sa používal elektronický podpis alebo prihlasovanie strateným dokladom"
     ],
-    "verification": "Redakčná deduplikácia praktických odporúčaní 11. 11. 2026; právne lehoty, poplatky ani aktuálna dostupnosť úradných služieb neboli pri tejto úprave nanovo overené. Pred úkonom overte podmienky na uvedenom oficiálnom zdroji.",
-    "sourceNote": "Oficiálny odkaz smeruje na postup pri strate alebo odcudzení dokladu. Pred podaním žiadosti si na uvedenej stránke overte aktuálny spôsob nahlásenia, príslušné pracovisko a podmienky vydania nového dokladu; tento návod nepotvrdzuje aktuálny poplatok ani lehotu.",
+    "verification": "12. 11. 2026: Overený postup hlásenia straty, zneplatnenia dokladu a žiadosti o nový preukaz. Úplná právna revízia, aktuálne poplatky a lehoty neboli samostatne overené.",
+    "sourceNote": "Slovensko.sk opisuje osobné aj elektronické hlásenie; dostupnosť konkrétnej elektronickej služby a podmienky poplatkov overte pred podaním.",
     "detail": {
       "summary": "Pri strate alebo krádeži občianskeho preukazu je prioritou nahlásenie neplatného dokladu a následné vybavenie nového. Ak máš aktivované elektronické funkcie, rieš aj ochranu prístupových údajov.",
       "before": [
@@ -684,7 +684,7 @@
     "description": "Pred cestou skontrolujte platnosť pasu a požiadavky cieľovej krajiny.",
     "steps": [
       "Porovnajte dátum skončenia platnosti pasu s požiadavkami cieľovej a tranzitnej krajiny; nespoliehajte sa iba na dátum odletu.",
-      "Na oficiálnom portáli si overte dostupné pracovisko, rezerváciu, doklady, aktuálny poplatok a lehotu; podľa toho naplánujte podanie.",
+      "Na oficiálnom portáli si overte dostupné pracovisko, rezerváciu, doklady, aktuálny poplatok a lehotu; podľa toho naplánujte podanie. Na osobné podanie si pripravte aj predchádzajúci pas, ak ho máte.",
       "Pri prevzatí skontrolujte osobné údaje a platnosť nového pasu a aktualizujte číslo dokladu v rezerváciách, ak je to potrebné."
     ],
     "source": {
@@ -699,8 +699,8 @@
       "Pripravte občiansky preukaz alebo iný uznávaný doklad a starý pas, ak ho máte.",
       "Zistite, či potrebujete štandardnú alebo zrýchlenú lehotu."
     ],
-    "verification": "Redakčná deduplikácia praktických odporúčaní 11. 11. 2026; právne lehoty, poplatky ani aktuálna dostupnosť úradných služieb neboli pri tejto úprave nanovo overené. Pred úkonom overte podmienky na uvedenom oficiálnom zdroji.",
-    "sourceNote": "Zdroj slovensko.sk pokrýva cestovné a náhradné cestovné doklady všeobecne. Pred výmenou pasu overte konkrétne podmienky pre svoj vek a situáciu; požiadavky cieľovej krajiny na platnosť pasu overte osobitne.",
+    "verification": "12. 11. 2026: Overený postup osobného podania, rezervácie termínu a predloženia pôvodného pasu. Úplná právna revízia, aktuálne poplatky a lehoty neboli samostatne overené.",
+    "sourceNote": "Slovensko.sk opisuje vydanie a prevzatie pasu; vstupné podmienky cieľovej krajiny overte samostatne.",
     "detail": {
       "summary": "Nový cestovný pas sa vybavuje osobne na oddelení dokladov. Pred cestou si skontrolujte požiadavky cieľovej krajiny, pretože niektoré štáty požadujú platnosť pasu aj po plánovanom návrate.",
       "before": [
@@ -780,7 +780,7 @@
     "title": "Zmena trvalého pobytu",
     "description": "Pri zmene adresy si pripravte potrebné podklady a následné oznámenia.",
     "steps": [
-      "Zistite príslušnú ohlasovňu novej adresy a overte, aký doklad o vlastníctve alebo súhlas vlastníka sa vyžaduje vo vašej situácii.",
+      "Zistite príslušnú ohlasovňu novej adresy a overte, aký doklad o vlastníctve alebo súhlas vlastníka sa vyžaduje vo vašej situácii. Pripravte identifikátory nehnuteľnosti, aby ohlasovňa mohla preveriť vlastníctvo.",
       "Pripravte doklad totožnosti a podklady k adrese; na oficiálnom portáli overte možnosť elektronického podania alebo osobného ohlásenia.",
       "Po zaevidovaní adresy overte výmenu občianskeho preukazu a zostavte zoznam bánk, poisťovní a zmluvných partnerov, ktorým treba zmenu oznámiť.",
       "Po zmene adresy si vytvorte kontrolný zoznam dotknutých zmlúv a služieb. Pri každej položke si zaznačte, či poskytovateľ vyžaduje samostatné oznámenie, akým kanálom ho prijíma a či ste dostali potvrdenie; nespoliehajte sa na automatický prenos údajov."
@@ -797,8 +797,8 @@
       "Doklad alebo informácie preukazujúce vzťah k nehnuteľnosti; podmienky súhlasu vlastníka si overte na ohlasovni",
       "Zoznam bánk, poisťovní, zamestnávateľa a ďalších služieb, kde bude potrebné aktualizovať adresu"
     ],
-    "verification": "Redakčná deduplikácia praktických odporúčaní 11. 11. 2026; právne lehoty, poplatky ani aktuálna dostupnosť úradných služieb neboli pri tejto úprave nanovo overené. Pred úkonom overte podmienky na uvedenom oficiálnom zdroji.",
-    "sourceNote": "Oficiálny odkaz sa týka oznamovacích povinností pri zmene pobytu. Rozlišujte ohlásenie pobytu od následných aktualizácií údajov v jednotlivých inštitúciách; aktuálne lehoty a výnimky si overte na príslušných úradných stránkach.",
+    "verification": "12. 11. 2026: Overené možnosti osobného a elektronického ohlásenia a podklady k vlastníctvu. Úplná právna revízia, aktuálne poplatky a lehoty neboli samostatne overené.",
+    "sourceNote": "Slovensko.sk opisuje ohlasovňu a oznamovanie zmeny; dostupnosť elektronickej služby, výnimky a individuálne povinnosti overte osobitne.",
     "detail": {
       "summary": "Pri sťahovaní na novú adresu treba ohlásiť zmenu trvalého pobytu príslušnej ohlasovni. Následne skontrolujte občiansky preukaz a inštitúcie, ktorým treba novú adresu oznámiť.",
       "before": [
@@ -1099,8 +1099,8 @@
       "Zistite dôvod vydania a potrebné podklady k zmene údajov.",
       "Overte dostupnosť rezervácie termínu."
     ],
-    "verification": "Redakčná deduplikácia praktických odporúčaní 11. 11. 2026; právne lehoty, poplatky ani aktuálna dostupnosť úradných služieb neboli pri tejto úprave nanovo overené. Pred úkonom overte podmienky na uvedenom oficiálnom zdroji.",
-    "sourceNote": "Zdrojový odkaz bol 8. 11. 2026 overený na dostupnosť a tematickú zhodu. Aktuálne právne lehoty, poplatky a individuálne podmienky overte v platných predpisoch; nejde o úplnú právnu revíziu návodu.",
+    "verification": "12. 11. 2026: Overený postup podania na oddelení dokladov, zoznam podkladov a možnosti prevzatia. Úplná právna revízia, aktuálne poplatky a lehoty neboli samostatne overené.",
+    "sourceNote": "Tematická stránka obsahuje aj historické informácie o zavádzaní eID; pri osobitných prípadoch a poplatkoch si vyžiadajte aktuálne pokyny pracoviska.",
     "detail": {
       "summary": "Občiansky preukaz vybavíte na pracovisku dokladov. Konkrétny postup závisí od toho, či ide o prvé vydanie, skončenie platnosti, zmenu údajov alebo poškodenie.",
       "before": [
@@ -1197,8 +1197,8 @@
       "Počítajte s osobnou prítomnosťou dieťaťa; overte oprávnenie zákonného zástupcu a prípadné osobitné okolnosti.",
       "Skontrolujte požiadavky cieľovej krajiny a plánovaný termín odchodu."
     ],
-    "verification": "Podmienka osobnej prítomnosti pri bežnom podaní a zastúpenia dieťaťa mladšieho ako 15 rokov bola porovnaná s oficiálnym návodom Slovensko.sk 9. 11. 2026. Osobitné zdravotné prípady, vstupné pravidlá krajín a poplatky overte samostatne.",
-    "sourceNote": "Oficiálny zdroj opisuje cestovné doklady všeobecne, nie všetky individuálne prípady maloletých. Pred návštevou pracoviska overte aktuálne požiadavky na prítomnosť dieťaťa, zákonného zástupcu a predkladané doklady.",
+    "verification": "12. 11. 2026: Opätovne porovnaný postup osobného podania a zastúpenia dieťaťa mladšieho ako 15 rokov s úradným návodom. Úplná právna revízia, aktuálne poplatky a lehoty neboli samostatne overené.",
+    "sourceNote": "Zdroj opisuje aj osobitné prípady zastupovania; pri súdnych obmedzeniach alebo zdravotnej prekážke kontaktujte pracovisko.",
     "detail": {
       "summary": "Aj dieťa potrebuje na cestu vlastný cestovný doklad, ak ho vyžaduje cieľová krajina. Pri podaní žiadosti sa uplatňujú pravidlá zastúpenia zákonným zástupcom a biometrie podľa veku.",
       "before": [
@@ -1295,8 +1295,8 @@
       "Miesto a približný čas straty či odcudzenia; prípadné potvrdenie polície, ak bolo vydané",
       "Kontakty na zastupiteľský úrad a údaje o plánovanej trase a odchode pri strate v zahraničí"
     ],
-    "verification": "Redakčná deduplikácia praktických odporúčaní 11. 11. 2026; právne lehoty, poplatky ani aktuálna dostupnosť úradných služieb neboli pri tejto úprave nanovo overené. Pred úkonom overte podmienky na uvedenom oficiálnom zdroji.",
-    "sourceNote": "Odkaz slovensko.sk je všeobecným podkladom k cestovným a náhradným dokladom. Pri strate v zahraničí si postup a dostupnosť náhradného dokladu overte aj u príslušného slovenského zastupiteľského úradu; podmienky návratu závisia od krajiny.",
+    "verification": "12. 11. 2026: Overený postup hlásenia straty a vybavenia náhradného cestovného dokladu v zahraničí. Úplná právna revízia, aktuálne poplatky a lehoty neboli samostatne overené.",
+    "sourceNote": "Zdroj vysvetľuje úlohu zastupiteľského úradu; konkrétnu trasu, uznávanie náhradného dokladu a poplatky potvrďte s úradom.",
     "practical": [
       {
         "title": "Zaznamenajte okolnosti straty",
