@@ -29,6 +29,7 @@ on:
     - cron: '20 6 * * *'
 permissions:
   contents: read
+  checks: read
   issues: write
 jobs:
   check:
@@ -41,6 +42,41 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: '22'
+      - name: Identify checked-out release
+        id: release
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - name: Wait for Cloudflare deployment of checked-out release
+        uses: actions/github-script@v8
+        env:
+          DEPLOYMENT_SHA: ${{ steps.release.outputs.sha }}
+        with:
+          script: |
+            const sha = process.env.DEPLOYMENT_SHA;
+            if (!/^[0-9a-f]{40}$/.test(sha ?? '')) {
+              throw new Error('Missing checked-out release SHA');
+            }
+            const deadline = Date.now() + 300000;
+            while (Date.now() < deadline) {
+              const {data} = await github.rest.checks.listForRef({
+                owner: context.repo.owner, repo: context.repo.repo,
+                ref: sha, per_page: 100
+              });
+              const deployment = data.check_runs
+                .filter(check => check.name === 'Cloudflare Pages' &&
+                  check.app?.slug === 'cloudflare-workers-and-pages')
+                .sort((a, b) => b.id - a.id)[0];
+              if (deployment?.status === 'completed') {
+                if (deployment.conclusion !== 'success') {
+                  throw new Error('Cloudflare deployment failed for ' + sha +
+                    ': ' + deployment.conclusion);
+                }
+                core.info('Cloudflare deployed checked-out release ' + sha);
+                return;
+              }
+              core.info('Waiting for Cloudflare deployment of ' + sha);
+              await new Promise(resolve => setTimeout(resolve, 10000));
+            }
+            throw new Error('Timed out waiting for Cloudflare deployment of ' + sha);
       - name: Check public production pages and release markers
         id: ui
         continue-on-error: true

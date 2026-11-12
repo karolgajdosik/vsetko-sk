@@ -309,7 +309,7 @@
       "Servisná história, informácie o opravách a dostupné záznamy o kilometroch",
       "Termín nezávislej prehliadky a zoznam otázok na predávajúceho"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktický kontrolný bod bol redakčne doplnený 9. 11. 2026. Nejde o nové overenie externého zdroja ani úplnú právnu revíziu; aktuálne úradné postupy, povinnosti a lehoty overte pred úkonom.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "practical": [
       {
@@ -327,6 +327,10 @@
       {
         "title": "Zaznamenajte stav pri prevzatí",
         "body": "Do odovzdávacieho protokolu uveďte stav kilometrov, počet kľúčov, známe vady, príslušenstvo a dátum odovzdania. Uschovajte si kópie dokumentov."
+      },
+      {
+        "title": "Overte aj dokumenty predávajúceho",
+        "body": "Pred zálohou si overte, kto je uvedený v dokladoch ako držiteľ či vlastník a či osoba podpisujúca zmluvu môže vozidlo predať. Pri zastupovaní si vyžiadajte preukázateľné oprávnenie; nezrovnalosti riešte pred platbou."
       }
     ]
   },
@@ -352,7 +356,7 @@
       "Návrh kúpnej zmluvy s cenou, spôsobom úhrady a termínom odovzdania",
       "Odovzdávací protokol s miestom na čas, kilometre, kľúče a prevzaté doklady"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktický kontrolný bod bol redakčne doplnený 9. 11. 2026. Nejde o nové overenie externého zdroja ani úplnú právnu revíziu; aktuálne úradné postupy, povinnosti a lehoty overte pred úkonom.",
     "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
     "practical": [
       {
@@ -370,6 +374,10 @@
       {
         "title": "Zaznamenajte odovzdanie",
         "body": "V protokole potvrďte dátum, čas, stav kilometrov, doklady, počet kľúčov a prevzaté vybavenie. Kópiu si ponechajte pre prípad neskorších sporov."
+      },
+      {
+        "title": "Pred odovzdaním si odložte dôkazy",
+        "body": "Uchovajte podpísanú zmluvu, odovzdávací protokol, potvrdenie o prijatej platbe a komunikáciu o známych vadách. Zaznamenajte presný čas prevzatia vozidla."
       }
     ]
   },
@@ -379,15 +387,16 @@
     "title": "Nabíjanie elektromobilu",
     "description": "Pri plánovaní cesty sledujte kompatibilitu konektorov a dostupnosť staníc.",
     "steps": [
-      "Zistite maximálny AC a DC nabíjací výkon vozidla a porovnajte ho s konektorom a výkonom vybranej stanice.",
-      "Pred cestou si overte aktuálnu dostupnosť stanice, cenu za kWh, prípadné časové poplatky a spôsob autorizácie platby.",
-      "Pri rýchlom nabíjaní sledujte priebeh výkonu a stav batérie; plánujte aj alternatívnu stanicu pre prípad obsadenia alebo poruchy."
+      "Pred pripojením skontrolujte typ konektora vozidla, maximálny prijímaný výkon a podporované spôsoby autorizácie platby.",
+      "V aplikácii prevádzkovateľa si overte cenu, prípadné časové poplatky a dostupnosť stanice; roaming môže mať odlišný cenník.",
+      "Pri rýchlom nabíjaní sledujte priebeh výkonu a podľa potreby ukončite nabíjanie, keď ďalšie percentá pribúdajú neúmerne pomaly.",
+      "Po skončení relácie skontrolujte ukončenie účtovania, odpojte kábel podľa pokynov stanice a uvoľnite miesto ďalšiemu vozidlu."
     ],
     "source": {
       "label": "MH SR – elektromobilita a nabíjacia infraštruktúra",
       "url": "https://www.mhsr.sk/priemysel/e-mobilita-a-alternativne-paliva/strategie-a-politiky-archiv"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "nabijanie elektromobilu",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
@@ -395,7 +404,7 @@
       "Aktuálna tarifa vrátane roamingu, spôsob autorizácie a prípadné časové či parkovacie poplatky",
       "Vybraná stanica a záložná lokalita s dostatočnou energetickou rezervou"
     ],
-    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji.",
+    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji. Praktické tipy boli redakčne upravené 9. 11. 2026; nejde o nové overenie externého zdroja.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "detail": {
       "summary": "Pri nabíjaní sleduj typ konektora, skutočný výkon auta aj stanice, spôsob platby a cenu za kWh. Deklarovaný výkon stanice nie je zárukou rovnako rýchleho nabíjania.",
@@ -447,14 +456,14 @@
         {
           "label": "Kalkulačka ceny nabíjania",
           "url": "https://vsetko24.sk/kalkulacky/cena-nabijania/"
+        },
+        {
+          "label": "ZSE Drive – praktické otázky nabíjania (podmienky konkrétneho operátora)",
+          "url": "https://zsedrive.sk/najcastejsie-otazky"
         }
       ]
     },
     "practical": [
-      {
-        "title": "Pripravte záložnú nabíjačku",
-        "body": "Pred odjazdom skontrolujte aktuálny stav a platbu na dvoch alternatívnych staniciach; deklarovaný výkon nie je garantovaný výkon auta."
-      },
       {
         "title": "Skontrolujte konektor a výkon",
         "body": "Pred cestou porovnajte konektor nabíjačky s vozidlom a overte maximálny výkon, ktorý vozidlo podporuje. Deklarovaný výkon stojana nemusí byť dosiahnuteľný."
@@ -466,6 +475,10 @@
       {
         "title": "Majte náhradnú stanicu",
         "body": "Pri dlhšej trase vyberte aj alternatívnu stanicu a nechajte rezervu energie na presun. Dostupnosť nabíjačky sa môže počas jazdy zmeniť."
+      },
+      {
+        "title": "Skontrolujte ukončenie relácie",
+        "body": "Po nabíjaní skontrolujte v aplikácii alebo na stojane, či sa relácia naozaj ukončila, a odložte si potvrdenie o účtovanej energii a cene. Pri reklamácii porovnajte čas, množstvo kWh a tarifu."
       }
     ]
   },
@@ -623,6 +636,10 @@
       {
         "title": "Pripravte si náhradnú identifikáciu",
         "body": "Pred návštevou pracoviska si overte, aký iný doklad totožnosti alebo potvrdenie bude akceptované a ako sa preukáže vaša totožnosť."
+      },
+      {
+        "title": "Zaznamenajte si priebeh vybavovania",
+        "body": "Poznačte si dátum oznámenia straty, miesto podania a identifikátor potvrdenia, ak ho dostanete. Uľahčí to ďalšiu komunikáciu s úradom."
       }
     ]
   },
@@ -640,7 +657,7 @@
       "label": "Slovensko.sk – cestovné doklady",
       "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_cestovne-doklady-a-nahradne-ce"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "vymena cestovneho pasu",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
@@ -687,12 +704,12 @@
           "url": "https://www.minv.sk/"
         },
         {
-          "label": "Rezervačný portál MV SR",
-          "url": "https://portal.minv.sk/"
+          "label": "MV SR – návod a vstup do rezervačného systému",
+          "url": "https://pes.minv.sk/wps/wcm/connect/sk/site/main/Rezervacny-system/"
         },
         {
-          "label": "Ministerstvo zahraničných vecí SR",
-          "url": "https://www.mzv.sk/"
+          "label": "MZVEZ SR – podmienky cestovania a doklady",
+          "url": "https://www.mzv.sk/cestovanie"
         }
       ]
     },
@@ -712,6 +729,10 @@
       {
         "title": "Overte víza a tranzit",
         "body": "Pred nákupom letenky si pozrite oficiálne podmienky vstupu a tranzitu všetkých krajín na trase; niektoré vyžadujú dlhšiu zostávajúcu platnosť pasu."
+      },
+      {
+        "title": "Skontrolujte plánované cesty ešte pred podaním",
+        "body": "Porovnajte termín odchodu s očakávaným vybavením dokladu a požiadavkami cieľovej krajiny na platnosť pasu. Nepredpokladajte, že pravidlá sú vo všetkých krajinách rovnaké."
       }
     ]
   },
@@ -783,10 +804,6 @@
     },
     "practical": [
       {
-        "title": "Pripravte následné oznámenia",
-        "body": "Po vybavení zmeny si vytvorte zoznam bánk, poisťovní, zamestnávateľa a ďalších subjektov, ktorým treba aktualizovať adresu."
-      },
-      {
         "title": "Overte súhlas k adrese",
         "body": "Ak nie ste vlastníkom nehnuteľnosti, vopred sa na ohlasovni informujte, aký súhlas a akú formu podpisu potrebujete. Samotná nájomná zmluva nemusí postačovať."
       },
@@ -801,6 +818,10 @@
       {
         "title": "Uložte potvrdenie a skontrolujte adresu",
         "body": "Po vybavení si odložte dostupné potvrdenie alebo číslo podania. Pri následnej aktualizácii údajov používajte presne tú adresu, ktorú zaevidovala ohlasovňa; pri nezhode žiadajte opravu."
+      },
+      {
+        "title": "Overte adresu na novom doklade",
+        "body": "Po prevzatí nového dokladu porovnajte zápis ulice, orientačného a súpisného čísla a obce s potvrdením o pobyte. Nezrovnalosti riešte s príslušným úradom."
       }
     ]
   },
@@ -818,7 +839,7 @@
       "label": "Slovensko.sk – doklady potrebné k začatiu podnikania",
       "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_doklady-potrebne-k-zacatiu-pod"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "zacatie podnikania",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
@@ -856,7 +877,8 @@
       "pitfalls": [
         "Živnosť nemusí byť vhodná pre každú činnosť; niektoré profesie majú osobitný režim.",
         "Daňové a odvodové povinnosti sa môžu meniť podľa príjmu a dátumu začatia.",
-        "Nespoliehajte sa na univerzálnu sumu odvodov bez posúdenia situácie."
+        "Nespoliehajte sa na univerzálnu sumu odvodov bez posúdenia situácie.",
+        "Vyhľadávanie v živnostenskom registri môže vyžadovať overenie používateľa. Ak sa register nenačíta, overte postup cez oficiálne informácie DIVES alebo živnostenský úrad; informačná stránka nepotvrdzuje konkrétny zápis."
       ],
       "outcome": "Živnostenské oprávnenie je riadne ohlásené a máte plán následných povinností.",
       "links": [
@@ -875,6 +897,10 @@
         {
           "label": "Sociálna poisťovňa",
           "url": "https://www.socpoist.sk/"
+        },
+        {
+          "label": "DIVES – oficiálne informácie o registri a elektronických službách",
+          "url": "https://www.ives.sk/portal/apv/cezir"
         }
       ]
     },
@@ -898,6 +924,10 @@
       {
         "title": "Oddeľte prípravu od začiatku fakturácie",
         "body": "Vytvorte si jednoduchý zoznam: potvrdenie oprávnenia, overenie registračných údajov, spôsob vystavovania dokladov a evidencie platieb. Pri nejasnostiach si pred prvou faktúrou overte požiadavky na príslušnom úrade."
+      },
+      {
+        "title": "Oddeľte osobné a podnikateľské dokumenty",
+        "body": "Založte si priečinok na potvrdenia, zmluvy, faktúry a komunikáciu s úradmi. Ukladajte aj dátumy podaní a doručenia, aby ste vedeli spätne doložiť vykonané kroky."
       }
     ]
   },
@@ -915,7 +945,7 @@
       "label": "Slovensko.sk – úmrtie a dedičské konanie",
       "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_umrtie2"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "dedicske konanie",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
@@ -964,6 +994,10 @@
         {
           "label": "Slovensko.sk",
           "url": "https://www.slovensko.sk/"
+        },
+        {
+          "label": "Slov-Lex – Občiansky zákonník, pravidlá odmietnutia a zodpovednosti dedičov",
+          "url": "https://www.slov-lex.sk/ezbierky/pravne-predpisy/SK/ZZ/1964/40/"
         }
       ]
     },
@@ -973,16 +1007,16 @@
         "body": "Pripravte zoznam známeho majetku, dlhov, zmlúv a kontaktov; nepredpokladajte, že všetky záväzky zanikajú úmrtím."
       },
       {
-        "title": "Zostavte inventár bez odhadov",
-        "body": "Spíšte známy majetok a záväzky, identifikujte vlastnícke dokumenty a označte položky, ktorých stav alebo hodnotu ešte neviete doložiť."
-      },
-      {
         "title": "Oddeľte osobný a dedičský majetok",
         "body": "Pri spoločnom vlastníctve alebo majetku manželov si poznamenajte právny titul a pripravte podklady, aby notár vedel posúdiť rozsah dedičstva."
       },
       {
         "title": "Zaznamenávajte komunikáciu",
         "body": "Uchovajte si kontakty na povereného notára, doručené výzvy a potvrdenia; pri nejasnostiach si vyžiadajte vysvetlenie ešte pred právnym úkonom."
+      },
+      {
+        "title": "Oddelte doložené údaje od odhadov",
+        "body": "Pri každej položke majetku alebo dlhu si poznačte, či máte listinu, výpis alebo len predbežnú informáciu. Neúplné údaje označte ako neoverené a preberte ich s notárom."
       }
     ]
   },
@@ -992,16 +1026,16 @@
     "category": "urady",
     "description": "Doklady a postup pred návštevou pracoviska",
     "steps": [
-      "Zistite, či sa téma „ako vybaviť občiansky preukaz“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Určite dôvod žiadosti: Prvé vydanie, koniec platnosti, zmena mena alebo adresy a poškodenie dokladu môžu mať odlišné pravidlá.",
+      "Pripravte doklady: Podľa situácie môže byť potrebný rodný list, pôvodný doklad alebo listina preukazujúca zmenu údajov.",
+      "Podajte žiadosť na oddelení dokladov: Overí sa totožnosť a podľa podmienok sa spracuje fotografia, podpis a elektronické funkcie.",
+      "Prevezmite doklad a nastavte eID: Skontrolujte údaje a platnosť; pri využívaní elektronických služieb si bezpečne nastavte potrebné prístupové prvky."
     ],
     "source": {
       "label": "Slovensko.sk – vybavenie občianskeho preukazu",
       "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_vybavujem-obciansky-preukaz-s"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "ako vybaviť občiansky preukaz",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
@@ -1048,8 +1082,8 @@
           "url": "https://www.minv.sk/"
         },
         {
-          "label": "Rezervácie MV SR",
-          "url": "https://portal.minv.sk/"
+          "label": "MV SR – návod a vstup do rezervačného systému",
+          "url": "https://pes.minv.sk/wps/wcm/connect/sk/site/main/Rezervacny-system/"
         },
         {
           "label": "Slovensko.sk – eID",
@@ -1058,10 +1092,6 @@
       ]
     },
     "practical": [
-      {
-        "title": "Overte dôvod vydania",
-        "body": "Rozlišujte prvé vydanie, koniec platnosti, zmenu údajov a stratu; požadované doklady a lehoty sa môžu líšiť."
-      },
       {
         "title": "Rozlíšte dôvod vydania dokladu",
         "body": "Pred rezerváciou termínu určte, či ide o prvý preukaz, koniec platnosti, zmenu údajov alebo poškodenie. Od dôvodu závisí potrebná dokumentácia."
@@ -1073,6 +1103,10 @@
       {
         "title": "Bezpečne nastavte elektronické funkcie",
         "body": "Pri prevzatí skontrolujte vytlačené údaje a spôsob aktivácie elektronických funkcií. Bezpečnostné kódy si neukladajte spolu s občianskym preukazom."
+      },
+      {
+        "title": "Skontrolujte údaje pri prevzatí",
+        "body": "Ešte pri prevzatí porovnajte meno, priezvisko, adresu a dátum platnosti s podanou žiadosťou. Prípadný nesúlad oznámte priamo pracovisku."
       }
     ]
   },
@@ -1083,7 +1117,7 @@
     "description": "Čo si overiť pri vybavovaní dokladu dieťaťa",
     "steps": [
       "Overte platnosť cestovného dokladu dieťaťa a požiadavky cieľovej aj tranzitnej krajiny; skontrolujte, či dieťa potrebuje vlastný pas.",
-      "Pred návštevou oddelenia dokladov si na oficiálnom portáli overte, kto môže podať žiadosť za maloletého a či je potrebná osobná prítomnosť dieťaťa.",
+      "Pri bežnom podaní žiadosti musí byť dieťa prítomné na zosnímanie podoby tváre; výnimočný postup pri zdravotnej prekážke overte s pracoviskom. Za dieťa mladšie ako 15 rokov podáva žiadosť zákonný zástupca.",
       "Pripravte doklad totožnosti zákonného zástupcu, dostupné doklady dieťaťa a prípadné ďalšie podklady podľa pokynov príslušného pracoviska.",
       "Pri podaní skontrolujte osobné údaje a možnosti prevzatia; po vydaní porovnajte údaje v pase a uložte si informáciu o jeho platnosti."
     ],
@@ -1091,21 +1125,21 @@
       "label": "Slovensko.sk – cestovné doklady",
       "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_cestovne-doklady-a-nahradne-ce"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "cestovný pas pre dieťa",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
       "Pripravte rodný list dieťaťa a doklad zákonného zástupcu.",
-      "Overte účasť dieťaťa na pracovisku a podmienky súhlasu alebo zastupovania.",
+      "Počítajte s osobnou prítomnosťou dieťaťa; overte oprávnenie zákonného zástupcu a prípadné osobitné okolnosti.",
       "Skontrolujte požiadavky cieľovej krajiny a plánovaný termín odchodu."
     ],
-    "verification": "Praktické kroky boli redakčne spresnené 9. 11. 2026 bez úplného právneho overenia. Konkrétne povinnosti, lehoty a poplatky pred úkonom overte u príslušného úradu; dátum pôvodnej aktualizácie zostáva nezmenený.",
+    "verification": "Podmienka osobnej prítomnosti pri bežnom podaní a zastúpenia dieťaťa mladšieho ako 15 rokov bola porovnaná s oficiálnym návodom Slovensko.sk 9. 11. 2026. Osobitné zdravotné prípady, vstupné pravidlá krajín a poplatky overte samostatne.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "detail": {
       "summary": "Aj dieťa potrebuje na cestu vlastný cestovný doklad, ak ho vyžaduje cieľová krajina. Pri podaní žiadosti sa uplatňujú pravidlá zastúpenia zákonným zástupcom a biometrie podľa veku.",
       "before": [
         "Pripravte rodný list dieťaťa a doklad zákonného zástupcu.",
-        "Overte účasť dieťaťa na pracovisku a podmienky súhlasu alebo zastupovania.",
+        "Počítajte s osobnou prítomnosťou dieťaťa; overte oprávnenie zákonného zástupcu a prípadné osobitné okolnosti.",
         "Skontrolujte požiadavky cieľovej krajiny a plánovaný termín odchodu."
       ],
       "detailed": [
@@ -1119,7 +1153,7 @@
         },
         {
           "title": "Podajte žiadosť s oprávnenou osobou",
-          "body": "Na pracovisku dokladov predložte doklady a overte, či je potrebná osobná účasť dieťaťa."
+          "body": "Pri bežnom podaní sa dostavte aj s dieťaťom, ktorého podobu tváre pracovisko zosníma. Za dieťa mladšie ako 15 rokov žiada zákonný zástupca; pri starších maloletých overte súhlas zástupcu. Pri zdravotnej prekážke si dohodnite osobitný postup."
         },
         {
           "title": "Prevezmite pas a skontrolujte údaje",
@@ -1138,8 +1172,8 @@
           "url": "https://www.minv.sk/"
         },
         {
-          "label": "Ministerstvo zahraničných vecí SR",
-          "url": "https://www.mzv.sk/"
+          "label": "MZVEZ SR – podmienky cestovania a doklady",
+          "url": "https://www.mzv.sk/cestovanie"
         }
       ]
     },
@@ -1150,7 +1184,7 @@
       },
       {
         "title": "Overte osobnú účasť dieťaťa",
-        "body": "Pred návštevou oddelenia dokladov si overte podmienky osobnej prítomnosti dieťaťa a oprávnenie osoby, ktorá žiadosť podáva. Pravidlá sa môžu líšiť podľa veku."
+        "body": "Bežné podanie vyžaduje prítomnosť dieťaťa na zosnímanie podoby tváre. Vek ovplyvňuje zastupovanie a ďalšie biometrické úkony; nepredpokladajte, že malé dieťa môže zostať doma."
       },
       {
         "title": "Porovnajte platnosť s termínom cesty",
@@ -1449,7 +1483,7 @@
       "label": "Slovensko.sk – úmrtie a povinnosti pozostalých",
       "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_umrtie2"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "čo vybaviť po úmrtí blízkeho",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
@@ -1487,7 +1521,8 @@
       "pitfalls": [
         "Nezabudnite na zrušenie alebo prepis zmlúv a služieb podľa oprávnenia.",
         "S účtami a majetkom zosnulého nenakladajte bez právneho titulu.",
-        "Pri úmrtí v zahraničí platí osobitný konzulárny a matričný postup."
+        "Pri úmrtí v zahraničí platí osobitný konzulárny a matričný postup.",
+        "Staršie všeobecné prehľady môžu uvádzať neaktuálnu sumu príspevku na pohreb. Výšku a podmienky overte priamo v aktuálnych informáciách MPSVR SR; nárok nie je automatický."
       ],
       "outcome": "Máte vybavené základné matričné a pohrebné úkony a pripravené podklady pre dedičstvo.",
       "links": [
@@ -1502,14 +1537,14 @@
         {
           "label": "Sociálna poisťovňa",
           "url": "https://www.socpoist.sk/"
+        },
+        {
+          "label": "MPSVR SR – aktuálne podmienky príspevku na pohreb",
+          "url": "https://www.employment.gov.sk/sk/rodina-socialna-pomoc/prispevok-pohreb/"
         }
       ]
     },
     "practical": [
-      {
-        "title": "Veďte prehľad vybavených krokov",
-        "body": "Oddeľte pohrebné záležitosti, matriku, poisťovne, banky a dedičské konanie; ku každému kroku si uložte potvrdenie."
-      },
       {
         "title": "Oddeľte okamžité a neskoršie úlohy",
         "body": "Najprv zabezpečte nevyhnutné úkony spojené s úmrtím a pohrebom; ostatné zmluvné, majetkové a administratívne otázky evidujte na samostatnom zozname."
@@ -1521,6 +1556,14 @@
       {
         "title": "Komunikujte s inštitúciami preukázateľne",
         "body": "Pri bankách, poisťovniach a úradoch si zapisujte dátum kontaktu, požadované doklady a spôsob vybavenia; nespájajte ich postupy s dedičským rozhodnutím automaticky."
+      },
+      {
+        "title": "Zostavte prehľad otvorených záväzkov",
+        "body": "Zhromaždite dostupné zmluvy, pravidelné platby a kontakty na poskytovateľov služieb. Pred rušením služieb alebo nakladaním s majetkom si overte svoje oprávnenie a postup u príslušnej inštitúcie."
+      },
+      {
+        "title": "Uchovajte potvrdenia o úhradách",
+        "body": "Odložte si doklady o pohrebných výdavkoch a potvrdenia o komunikácii s inštitúciami. Pri nejasnostiach o oprávnení nakladať s majetkom počkajte na pokyn notára alebo právnika."
       }
     ]
   },
@@ -1597,10 +1640,6 @@
     },
     "practical": [
       {
-        "title": "Skontrolujte dátum a identifikáciu výpisu",
-        "body": "Pri každom výpise si poznačte dátum získania, katastrálne územie, číslo listu vlastníctva a parcelu. Pri viacerých podobných nehnuteľnostiach tak predídete zámene."
-      },
-      {
         "title": "Porovnajte všetky časti listu vlastníctva",
         "body": "Skontrolujte identifikáciu nehnuteľnosti, vlastníkov a podiely aj ťarchy. Údaje porovnajte s návrhom zmluvy a neprehliadnite prípadnú plombu."
       },
@@ -1611,6 +1650,10 @@
       {
         "title": "Zistite požadovaný typ výpisu",
         "body": "Vopred sa opýtajte banky, notára alebo úradu, či akceptuje informatívne online zobrazenie alebo potrebuje úradne použiteľný dokument."
+      },
+      {
+        "title": "Porovnajte parcely aj druh pozemku",
+        "body": "Pri viacerých parcelách skontrolujte každé parcelné číslo, katastrálne územie a druh pozemku. Údaje porovnajte s návrhom zmluvy ešte pred podpisom."
       }
     ]
   },
@@ -1626,10 +1669,10 @@
       "Dohodnite odovzdanie bytu, stavy meračov a prepis energií; odložte si protokol."
     ],
     "source": {
-      "label": "Slovensko.sk – postup pri prevode nehnuteľnosti",
-      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_postup-pri-prevode-nehnutelnos"
+      "label": "Slovensko.sk – katastrálne konanie a vklad práv",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/__katastralne-konanie"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "kúpa bytu krok za krokom",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
@@ -2052,16 +2095,17 @@
     "category": "auto",
     "description": "Čo overiť pred nákupom elektrického auta",
     "steps": [
-      "Zistite, či sa téma „kúpa elektromobilu“ vzťahuje na vašu situáciu a aké sú aktuálne podmienky.",
-      "Na oficiálnom portáli si overte potrebné doklady, poplatky a možnosti elektronického vybavenia.",
-      "Pripravte si doklady a podklady pred podaním žiadosti alebo podpisom zmluvy.",
-      "Pred dokončením skontrolujte údaje, prípadné lehoty a potvrdenia; uschovajte si kópie."
+      "Zistite typické denné a dlhé trasy, dostupnosť domáceho nabíjania a reálnu spotrebu pri vašom diaľničnom tempe.",
+      "Pri konkrétnom vozidle si vyžiadajte informácie o využiteľnej kapacite batérie, nabíjacej krivke, záruke na batériu a kompatibilite konektorov.",
+      "Pri jazdenom vozidle porovnajte servisnú históriu, stav batérie z dôveryhodnej diagnostiky a podmienky zostávajúcej záruky.",
+      "Vypočítajte celkové náklady vrátane poistenia, pneumatík, domáceho či verejného nabíjania a prípadnej inštalácie nabíjačky.",
+      "Pred podpisom dohody potvrďte výbavu, káble, záruky a spôsob odovzdania vozidla."
     ],
     "source": {
       "label": "MH SR – politika elektromobility",
       "url": "https://www.mhsr.sk/priemysel/e-mobilita-a-alternativne-paliva/strategie-a-politiky-archiv"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "kúpa elektromobilu",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
@@ -2069,13 +2113,9 @@
       "Údaje o kapacite batérie, spotrebe, záruke a stave vozidla vrátane dostupnej histórie",
       "Porovnanie obstarávacej ceny, poistenia, nabíjania a predpokladaných prevádzkových nákladov"
     ],
-    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji.",
+    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji. Praktické tipy boli redakčne upravené 9. 11. 2026; nejde o nové overenie externého zdroja.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "practical": [
-      {
-        "title": "Prepočítajte náklady vlastníctva",
-        "body": "Porovnajte reálnu spotrebu, domáce a verejné nabíjanie, poistenie, pneumatiky a očakávané trasy."
-      },
       {
         "title": "Porovnajte reálny dojazd",
         "body": "Okrem katalógovej hodnoty zistite spotrebu pri vašom typickom tempe, v zime a na diaľnici. Do rozpočtu zahrňte aj čas strávený nabíjaním."
@@ -2087,6 +2127,10 @@
       {
         "title": "Spočítajte celkové náklady",
         "body": "Porovnajte obstarávaciu cenu, poistenie, pneumatiky, servis, domáce a verejné nabíjanie. Počítajte aj s možnou stratou hodnoty vozidla."
+      },
+      {
+        "title": "Vyskúšajte nabíjanie pred kúpou",
+        "body": "Pri skúšobnej jazde alebo obhliadke jazdeného elektromobilu overte funkčnosť nabíjacieho portu, AC nabíjania a podľa možností aj DC nabíjania. Skontrolujte dostupnosť nabíjacích káblov a adaptéra iba tam, kde ich výrobca povoľuje."
       }
     ]
   },
@@ -2096,10 +2140,10 @@
     "category": "auto",
     "description": "Domáce nabíjanie elektromobilu: ako preveriť elektroinštaláciu, vhodný wallbox, výkon, bezpečnosť a cenu nabíjania.",
     "steps": [
-      "Overte kapacitu elektroinštalácie, istenie a možnosti parkovacieho miesta.",
-      "Výber wallboxu a montáž zverte kvalifikovanému odborníkovi.",
-      "Pri bytovom dome vopred riešte súhlas a pravidlá správcu či vlastníkov.",
-      "Po inštalácii sledujte bezpečnostné pokyny výrobcu a cenu elektriny."
+      "Zistite, či máte vlastné parkovacie miesto, aký je dostupný elektrický príkon a kto musí schváliť stavebný alebo elektroinštalačný zásah.",
+      "Požiadajte kvalifikovaného elektrikára o posúdenie rozvádzača, istenia, ochranných prvkov a spôsobu vedenia kábla; nezapájajte nabíjačku svojpomocne.",
+      "Porovnajte nabíjanie z vhodne navrhnutého wallboxu s existujúcim pripojením a overte možnosti riadenia výkonu pri súbehu domácich spotrebičov.",
+      "Pred používaním si vyžiadajte potrebnú dokumentáciu a výsledky príslušných odborných kontrol; vyskúšajte nastavenie nabíjacieho limitu vozidla."
     ],
     "source": {
       "label": "MH SR – stratégia nabíjacej infraštruktúry",
@@ -2113,7 +2157,7 @@
       "Informácie o elektrickej prípojke, rozvádzači a možnosti bezpečného vedenia kábla",
       "Podklady pre posúdenie kvalifikovaným elektrikárom a prípadné súhlasy vlastníka či správcu"
     ],
-    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji.",
+    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji. Praktické tipy boli redakčne upravené 9. 11. 2026; nejde o nové overenie externého zdroja.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "practical": [
       {
@@ -2133,8 +2177,8 @@
         "body": "Pri odhade ceny používajte skutočnú cenu elektriny za kWh vrátane relevantných poplatkov a počítajte aj so stratami pri nabíjaní."
       },
       {
-        "title": "Zabezpečte odborné posúdenie",
-        "body": "Pred inštaláciou wallboxu nechajte preveriť elektrické rozvody, istenie, kapacitu prípojky a potrebné súhlasy."
+        "title": "Dohodnite spôsob merania spotreby",
+        "body": "Ak sa o elektrinu delíte s ďalšími osobami, vopred si dohodnite meranie a vyúčtovanie spotreby wallboxu. Pri dynamickom riadení výkonu si nechajte vysvetliť, ako reaguje na ostatné spotrebiče."
       }
     ]
   },
@@ -2144,10 +2188,10 @@
     "category": "auto",
     "description": "Dojazd, prestávky a alternatívne stanice",
     "steps": [
-      "Pred cestou si odhadnite spotrebu podľa dĺžky trasy, diaľničného tempa, počasia a prevýšenia.",
-      "Vyberte vhodné nabíjacie zastávky podľa konektora, výkonu podporovaného vozidlom a predpokladanej rezervy batérie.",
-      "Overte aktuálnu dostupnosť staníc, spôsob platby a cenu u prevádzkovateľa; pre každú dôležitú zastávku si určte alternatívu.",
-      "Počas jazdy porovnávajte skutočnú spotrebu s plánom a včas upravte nabíjaciu zastávku, ak rezerva klesá."
+      "Pred cestou si určte trasu, plánované diaľničné tempo, predpoveď počasia a spotrebu vozidla pri podobných podmienkach.",
+      "Vyberte nabíjacie zastávky podľa konektora, výkonu, aktuálnej prevádzky a platobnej možnosti; pripravte alternatívnu stanicu.",
+      "Plánujte rezervu energie pri príchode na každú zastávku aj do cieľa; pri chlade, vetre alebo obchádzke ju primerane zvýšte.",
+      "Pred odchodom skontrolujte stav batérie, funkčnosť nabíjacej aplikácie a dostupnosť nabíjania v cieli; počas cesty plán priebežne upravujte."
     ],
     "source": {
       "label": "MH SR – stratégia elektromobility a nabíjania",
@@ -2161,13 +2205,9 @@
       "Kompatibilné nabíjacie stanice a aspoň jedna alternatíva pre kritické zastávky",
       "Aktuálne ceny, spôsob platby a prístup k aplikáciám alebo kartám operátorov"
     ],
-    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji.",
+    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji. Praktické tipy boli redakčne upravené 9. 11. 2026; nejde o nové overenie externého zdroja.",
     "sourceNote": "Tematický oficiálny podklad; nemusí pokrývať všetky aspekty návodu. Aktuálne lehoty a povinnosti overte samostatne.",
     "practical": [
-      {
-        "title": "Plánujte podľa reálnej spotreby",
-        "body": "Počítajte s diaľničnou rýchlosťou, počasím, prevýšením a rezervou pri príjazde; vyberte aj náhradnú stanicu."
-      },
       {
         "title": "Plánujte podľa spotreby",
         "body": "Pri odhade dojazdu zohľadnite rýchlosť, počasie, prevýšenie a zaťaženie. Orientačný dojazd z palubného počítača nie je garanciou."
@@ -2179,6 +2219,10 @@
       {
         "title": "Pripravte batériu na rýchlonabíjanie",
         "body": "Ak to vozidlo podporuje, nastavte rýchlonabíjačku ako cieľ navigácie, aby mohlo upraviť teplotu batérie. Riaďte sa návodom výrobcu."
+      },
+      {
+        "title": "Prispôsobte prestávky nabíjacej krivke",
+        "body": "Pri plánovaní zastávok nepočítajte s maximálnym výkonom stojana počas celého nabíjania. Rýchlosť závisí od stavu nabitia, teploty batérie a možností vozidla; dlhé nabíjanie do vysokého percenta môže predĺžiť cestu."
       }
     ]
   },
@@ -2205,7 +2249,7 @@
       "Kúpna zmluva a prípadné splnomocnenie podľa aktuálnych požiadaviek úradu",
       "Dohoda o termíne evidenčného úkonu, odovzdaní vozidla a nadväznosti poistenia"
     ],
-    "verification": "Praktický redakčný postup; aktuálne právne lehoty, poplatky a individuálne povinnosti neboli pri tejto úprave samostatne overené. Pred úkonom overte konkrétne pravidlá u príslušného úradu alebo poskytovateľa.",
+    "verification": "Praktický kontrolný bod bol redakčne doplnený 9. 11. 2026. Nejde o nové overenie externého zdroja ani úplnú právnu revíziu; aktuálne úradné postupy, povinnosti a lehoty overte pred úkonom.",
     "sourceNote": "Tematický zdroj príslušnej autority; obsah môže byť starší alebo informatívny. Pred podaním si overte aktuálne pravidlá.",
     "detail": {
       "summary": "Pri zmene držiteľa alebo vlastníka vozidla si najskôr ujasni typ prevodu, údaje strán a poistenie. Podrobnosti sa môžu líšiť podľa toho, či ide o predaj, darovanie, leasing alebo dovoz.",
@@ -2290,6 +2334,10 @@
       {
         "title": "Uschovajte doklad o odovzdaní",
         "body": "Zaznamenajte čas odovzdania vozidla, kľúčov a dokladov. Po dokončení zmeny si overte správnosť údajov v evidencii."
+      },
+      {
+        "title": "Rozdeľte úlohy medzi kupujúceho a predávajúceho",
+        "body": "Ešte pred podpisom si spíšte, kto zabezpečí podanie, doklady, poistenie a odovzdanie vozidla. Aktuálny úradný postup a prípadné zastupovanie overte podľa konkrétnej situácie."
       }
     ]
   },
@@ -2299,9 +2347,9 @@
     "category": "auto",
     "description": "Kontrolný zoznam pred STK: osvetlenie, pneumatiky, sklá, brzdy, doklady a prípadná emisná kontrola.",
     "steps": [
-      "Overte si platnosť technickej kontroly a podľa typu vozidla aj emisnej kontroly; na vybranom pracovisku zistite termín a možnosti rezervácie.",
-      "Skontrolujte funkčnosť osvetlenia, stav pneumatík a skiel, čitateľnosť evidenčného čísla a viditeľné úniky kvapalín.",
-      "Pripravte doklady požadované pracoviskom, overte cenu kontroly a spôsob úhrady.",
+      "Pred objednaním technickej kontroly skontrolujte termín platnosti dokladov a zistite, aký druh kontroly vaše vozidlo potrebuje; podľa typu vozidla overte aj potrebu emisnej kontroly.",
+      "Vyskúšajte osvetlenie, smerovky, stierače, ostrekovače, klaksón a skontrolujte pneumatiky vrátane rozmerov a viditeľného poškodenia.",
+      "Overte čitateľnosť identifikačných údajov vozidla a pripravte doklady vyžadované konkrétnym pracoviskom; pri prestavbách skontrolujte príslušné zápisy.",
       "Ak spozorujete problémy s brzdami, riadením alebo podvozkom, nechajte vozidlo pred STK preveriť v servise. Pred kontrolou si zároveň overte platnosť PZP v registri SKP; od 1. 10. 2026 sa podľa Ministerstva dopravy kontroluje automaticky."
     ],
     "source": {
@@ -2353,10 +2401,10 @@
       "Informujte poisťovňu a uchovajte dokumentáciu."
     ],
     "source": {
-      "label": "Slovenská kancelária poisťovateľov – postup pri nehode",
-      "url": "https://www.skp.sk/povinne-zmluvne-poistenie/"
+      "label": "SKP – nahlásenie škodovej udalosti a postup podľa situácie",
+      "url": "https://www.skp.sk/ako-nahlasit-skodovu-udalost/"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "postup pri dopravnej nehode",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
@@ -2364,7 +2412,7 @@
       "Dostupné údaje o poistení vozidla a formulár na záznam o nehode, ak ho máte",
       "Bezpečný spôsob zaznamenania miesta, účastníkov, svedkov a poškodení až po zabezpečení osôb"
     ],
-    "verification": "Praktické redakčné odporúčania; aktuálne právne povinnosti, lehoty a poplatky neboli pri tomto rozšírení samostatne právne overené. Pred úkonom overte aktuálne pravidlá v uvedenom oficiálnom zdroji.",
+    "verification": "Praktický kontrolný bod bol redakčne doplnený 9. 11. 2026. Nejde o nové overenie externého zdroja ani úplnú právnu revíziu; aktuálne úradné postupy, povinnosti a lehoty overte pred úkonom.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "practical": [
       {
@@ -2382,6 +2430,10 @@
       {
         "title": "Neodhadujte povinnosť volať políciu",
         "body": "Pri nejasnom priebehu, spore, zranení alebo ďalších okolnostiach si overte aktuálne pravidlá a postupujte podľa pokynov príslušných orgánov a poisťovne."
+      },
+      {
+        "title": "Zachovajte podklady o udalosti",
+        "body": "Ak je to bezpečné, zaznamenajte miesto, čas, evidenčné čísla, kontakty účastníkov a fotografie poškodení. Uchovajte si kópie spísaných dokumentov a číslo poistnej udalosti."
       }
     ]
   },
@@ -2408,7 +2460,7 @@
       "Ponuky PZP s dátumom začiatku krytia, limitmi a výlukami",
       "Kontakty poisťovne a doklad o uzavretí poistenia dostupný pri prevzatí vozidla"
     ],
-    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji.",
+    "verification": "Praktický kontrolný bod bol redakčne doplnený 9. 11. 2026. Nejde o nové overenie externého zdroja ani úplnú právnu revíziu; aktuálne úradné postupy, povinnosti a lehoty overte pred úkonom.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "practical": [
       {
@@ -2426,6 +2478,10 @@
       {
         "title": "Overte krytie aj evidenciu",
         "body": "Majte dostupné potvrdenie o poistení a kontakt na poisťovňu. Nezamieňajte zaplatenie objednávky za potvrdený vznik krytia. Pred následnou STK skontrolujte aj evidenciu PZP v registri SKP; od 1. 10. 2026 sa platnosť overuje automaticky."
+      },
+      {
+        "title": "Skontrolujte kontinuitu krytia",
+        "body": "Ešte pred prevzatím vozidla si s poisťovňou potvrďte začiatok krytia pre konkrétne vozidlo. Uschovajte potvrdenie a kontakty na asistenčnú službu; nespoliehajte sa iba na ústnu dohodu."
       }
     ]
   },
@@ -2441,10 +2497,10 @@
       "Pred podpisom si prečítajte sankcie, podmienky predčasného splatenia či odkúpenia vozidla a postup pri škodovej udalosti."
     ],
     "source": {
-      "label": "NBS – RPMN a porovnanie financovania",
-      "url": "https://rpmn.nbs.sk/"
+      "label": "NBS – rozdiel medzi finančným a operatívnym lízingom",
+      "url": "https://nbs.sk/dohlad-nad-financnym-trhom/ofs/financne-produkty/uvery/lizing/"
     },
-    "updated": "22. 10. 2026",
+    "updated": "9. 11. 2026",
     "keywords": "leasing alebo úver na auto",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
@@ -2496,7 +2552,7 @@
       "Stav dezénu, vek a prípadné poškodenie súčasnej sady",
       "Termín prezutia a kontrola tlaku podľa odporúčaní výrobcu vozidla"
     ],
-    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji.",
+    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji. Praktické tipy boli redakčne upravené 9. 11. 2026; nejde o nové overenie externého zdroja.",
     "sourceNote": "Zdrojový odkaz bol 8. 11. 2026 overený na dostupnosť a tematickú zhodu. Aktuálne právne lehoty, poplatky a individuálne podmienky overte v platných predpisoch; nejde o úplnú právnu revíziu návodu.",
     "practical": [
       {
@@ -2514,6 +2570,10 @@
       {
         "title": "Pripravte výbavu na zdržanie",
         "body": "Na dlhšiu cestu si vezmite nabitý telefón, teplé oblečenie a základnú výbavu podľa podmienok trasy. Pri elektromobile plánujte aj energetickú rezervu."
+      },
+      {
+        "title": "Po výmene skontrolujte nastavenia auta",
+        "body": "Po prezutí skontrolujte odporúčaný tlak pri aktuálnom zaťažení, správne upevnenie kolies podľa pokynov servisu a prípadnú kalibráciu systému sledovania tlaku podľa návodu vozidla."
       }
     ]
   },
