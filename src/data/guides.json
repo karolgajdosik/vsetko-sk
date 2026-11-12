@@ -1983,7 +1983,7 @@
       "Rozpis vlastných zdrojov, vedľajších nákladov kúpy a pohotovostnej rezervy",
       "Termíny rezervácie, podpisu zmlúv a plánovaného čerpania úveru"
     ],
-    "verification": "Redakčne spresnený rozsah použitia citovaného zdroja 11. 11. 2026. Dostupnosť URL, aktuálne bankové sadzby, poplatky, právne pravidlá a individuálne podmienky neboli týmto krokom nezávisle overené.",
+    "verification": "Overené 12. 11. 2026: NBS pri DSTI vysvetľuje zohľadnenie existujúcich záväzkov, čistého príjmu, životného minima a rezervy na rast sadzby. Ostatné podmienky schválenia a konkrétne bankové ponuky neboli samostatne overené.",
     "sourceNote": "Zdroj NBS vysvetľuje ukazovateľ DSTI; sám osebe nepotvrdzuje všetky podmienky schválenia hypotéky ani aktuálnu ponuku banky.",
     "detail": {
       "summary": "Hypotéku porovnávaj podľa celkových nákladov a schopnosti splácať, nie iba podľa reklamného úroku. Rozhodujúce sú príjmy, existujúce záväzky, vlastné zdroje a hodnota zabezpečenia.",
@@ -2028,8 +2028,8 @@
       "outcome": "Máš porovnateľné ponuky, rozumieš nákladom aj rizikám a poznáš podmienky schválenia a čerpania.",
       "links": [
         {
-          "label": "Národná banka Slovenska – finančný spotrebiteľ",
-          "url": "https://nbs.sk/"
+          "label": "NBS – úver na bývanie",
+          "url": "https://nbs.sk/dohlad-nad-financnym-trhom/ofs/financne-produkty/uvery/uver-na-byvanie/"
         },
         {
           "label": "Hypotekárna kalkulačka VŠETKO24.sk",
@@ -2092,7 +2092,7 @@
       "Písomné ponuky pri porovnateľnej splatnosti vrátane poplatkov a doplnkových produktov",
       "Časový plán prijatia ponuky alebo refinancovania potvrdený bankou"
     ],
-    "verification": "Praktické odporúčania boli redakčne spresnené 9. 11. 2026; nejde o nové úplné právne ani zdrojové overenie. Pred transakciou overte aktuálne podmienky u príslušnej inštitúcie.",
+    "verification": "Overené 12. 11. 2026: článok NBS rozlišuje refinancovanie a zmenu podmienok existujúcej zmluvy vrátane fixácie. Historické trhové údaje článku nepoužívame ako aktuálne sadzby; právne lehoty a poplatky neboli samostatne overené.",
     "sourceNote": "Článok NBS vysvetľuje rozdiel medzi opätovným prerokovaním a refinancovaním úveru. Nepokrýva všetky individuálne podmienky konca fixácie; konkrétne termíny, ponuky a náklady overte v úverovej zmluve a banke.",
     "practical": [
       {
@@ -2147,7 +2147,7 @@
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "Redakčne spresnený rozsah použitia citovaného zdroja 11. 11. 2026. Dostupnosť URL, aktuálne bankové sadzby, poplatky, právne pravidlá a individuálne podmienky neboli týmto krokom nezávisle overené.",
+    "verification": "Overené 12. 11. 2026: kalkulačka NBS uvádza informatívny charakter a obmedzenia podporovaných spotrebiteľských úverov. Právne pravidlá výpočtu ani konkrétne ponuky neboli samostatne overené.",
     "sourceNote": "Kalkulačka NBS slúži na orientačný výpočet; výsledok nenahrádza predzmluvné informácie ani kontrolu zmluvy.",
     "practical": [
       {
@@ -2156,7 +2156,7 @@
       },
       {
         "title": "Prepočet má obmedzenia",
-        "body": "Kalkulačka NBS slúži na informatívny kontrolný výpočet pri podporovaných úverových produktoch. Pred zadávaním údajov si prečítajte podmienky jej použitia."
+        "body": "Kalkulačka NBS slúži na informatívny kontrolný výpočet pri podporovaných úverových produktoch. Pred zadávaním údajov si prečítajte podmienky jej použitia. Nie je určená napríklad na kreditné karty ani povolené prečerpanie."
       },
       {
         "title": "Porovnávajte rovnaké parametre",
@@ -2200,7 +2200,7 @@
       "Porovnanie podmienok účtov a vkladov vrátane dostupnosti peňazí a prípadných poplatkov",
       "Mesačná suma, ktorú možno odkladať bez ohrozenia finančnej rezervy"
     ],
-    "verification": "Praktický zoznam podkladov redakčne spresnený 9. 11. 2026. Externý zdroj, právne pravidlá a aktuálne poplatky neboli pri tejto zmene opätovne úplne overené; konkrétne podmienky si overte u poskytovateľa.",
+    "verification": "Overené 12. 11. 2026: NBS rozlišuje bankové sporenie a investovanie a vysvetľuje ochranu bankových vkladov. Konkrétne limity ochrany, výnimky a podmienky produktu neboli samostatne overené.",
     "sourceNote": "Tematická stránka NBS vysvetľuje princípy sporenia. Neoveruje konkrétny produkt, aktuálnu úrokovú sadzbu ani individuálne podmienky výberu; tie si potvrďte v dokumentoch poskytovateľa.",
     "practical": [
       {
@@ -2246,8 +2246,8 @@
       "Pri aktualizácii plánu oddeľte jednorazové výdavky od opakovaných a skontrolujte, či po ich započítaní zostáva dostatočná rezerva."
     ],
     "source": {
-      "label": "NBS – prebytok finančných prostriedkov",
-      "url": "https://nbs.sk/dohlad-nad-financnym-trhom/ofs/zivotne-situacie/prebytok-financnych-prostriedkov/"
+      "label": "5peňazí (NBS) – Ako na domáci rozpočet",
+      "url": "https://5penazi.sk/financna-kniznica/ako-na-domaci-rozpocet/"
     },
     "updated": "22. 10. 2026",
     "keywords": "rodinný finančný plán",
@@ -2257,8 +2257,8 @@
       "Zoznam nepravidelných výdavkov a finančných cieľov podľa priority a termínu",
       "Scenár dočasného výpadku príjmu a prehľad dostupnej rezervy"
     ],
-    "verification": "Praktický zoznam podkladov redakčne spresnený 9. 11. 2026. Externý zdroj, právne pravidlá a aktuálne poplatky neboli pri tejto zmene opätovne úplne overené; konkrétne podmienky si overte u poskytovateľa.",
-    "sourceNote": "Stránka NBS o prebytku finančných prostriedkov poskytuje všeobecný kontext pre hospodárenie s peniazmi; nie je záväznou metodikou rodinného finančného plánu. Navrhované rozdelenie cieľov, rezervy a výdavkov je redakčný postup, nie individuálne finančné poradenstvo.",
+    "verification": "Overené 12. 11. 2026: vzdelávací článok 5peňazí podporuje rozdelenie výdavkov, rozpočítanie ročných platieb a tvorbu rezervy. Individuálne finančné podmienky neboli overené.",
+    "sourceNote": "Článok 5peňazí obsahuje praktický postup a šablónu domáceho rozpočtu. Rozdelenie zodpovednosti a konkrétnych cieľov domácnosti je doplňujúce redakčné odporúčanie.",
     "practical": [
       {
         "title": "Vytvorte plán pre výpadok príjmu",
