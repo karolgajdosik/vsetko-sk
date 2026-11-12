@@ -249,8 +249,8 @@
       "Pred potvrdením zmluvy overte dátum začiatku krytia; potvrdenie o poistení a kontakty poisťovne uložte tak, aby boli dostupné aj na cestách."
     ],
     "source": {
-      "label": "Slovenská kancelária poisťovateľov – PZP",
-      "url": "https://www.skp.sk/povinne-zmluvne-poistenie/"
+      "label": "SKP – Prečo je PZP dôležité",
+      "url": "https://www.skp.sk/preco-je-pzp-dolezite/"
     },
     "updated": "22. 10. 2026",
     "keywords": "povinne zmluvne poistenie",
@@ -260,7 +260,7 @@
       "Údaje poistníka a plánovaný dátum začiatku krytia",
       "Dve porovnateľné ponuky vrátane limitov, výluk, asistencie a spôsobu hlásenia škody"
     ],
-    "verification": "Rozsah a limity citovaného zdroja redakčne spresnené 10. 11. 2026; externá dostupnosť URL ani aktuálnosť právnych podmienok neboli pri tejto úprave znovu overené.",
+    "verification": "12. 11. 2026: overený tematický zdroj SKP o krytí a uzatvorení PZP; nejde o úplnú právnu revíziu ani kontrolu individuálnej zmluvy.",
     "sourceNote": "SKP poskytuje tematické informácie o PZP; individuálne krytie potvrdzuje poisťovňa. Presný režim kontroly PZP pri STK a jeho účinnosť treba osobitne overiť v aktuálnom oznámení príslušného orgánu.",
     "practical": [
       {
@@ -307,8 +307,8 @@
       "Servisná história, informácie o opravách a dostupné záznamy o kilometroch",
       "Termín nezávislej prehliadky a zoznam otázok na predávajúceho"
     ],
-    "verification": "Rozsah a limity citovaného zdroja redakčne spresnené 10. 11. 2026; externá dostupnosť URL ani aktuálnosť právnych podmienok neboli pri tejto úprave znovu overené.",
-    "sourceNote": "Odkaz na elektronické služby evidencie vozidiel vysvetľuje úradnú evidenciu, nie technický stav, pravosť servisnej histórie ani právnu bezchybnosť konkrétneho vozidla. Tieto otázky overte samostatne.",
+    "verification": "12. 11. 2026: overený úradný opis služby Overenie vozidla a podmienok prístupu; technický stav konkrétneho auta sa neoveroval.",
+    "sourceNote": "Služba Overenie vozidla na slovensko.sk uvádza dostupné evidenčné údaje vrátane histórie držby a kilometrov. Prístup je určený vlastníkovi, držiteľovi alebo elektronicky splnomocnenému zástupcovi; požiadajte predávajúceho o súčinnosť. Výpis nenahrádza nezávislú prehliadku.",
     "practical": [
       {
         "title": "Zaznamenajte výsledok obhliadky",
@@ -351,8 +351,8 @@
       "Pred odovzdaním overte prijatie platby, spíšte odovzdávací protokol a skontrolujte postup zmeny držby a poistenia."
     ],
     "source": {
-      "label": "Slovensko.sk – prevod držby vozidla",
-      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_ziadost-o-prevod-drzby-vozidla"
+      "label": "Slovensko.sk – Predaj auta",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_predaj-auta/"
     },
     "updated": "22. 10. 2026",
     "keywords": "predaj vozidla",
@@ -362,7 +362,7 @@
       "Návrh kúpnej zmluvy s cenou, spôsobom úhrady a termínom odovzdania",
       "Odovzdávací protokol s miestom na čas, kilometre, kľúče a prevzaté doklady"
     ],
-    "verification": "Rozsah a limity citovaného zdroja redakčne spresnené 10. 11. 2026; externá dostupnosť URL ani aktuálnosť právnych podmienok neboli pri tejto úprave znovu overené.",
+    "verification": "12. 11. 2026: overený úradný opis predaja a zmeny držby, aktualizovaný 4. 6. 2026; poplatky a individuálne výnimky neboli právne revidované.",
     "sourceNote": "Úradný odkaz sa venuje prevodu držby vozidla; nenahrádza individuálne právne posúdenie kúpnej zmluvy, preverenie úhrady ani kontrolu skrytých vád.",
     "practical": [
       {
@@ -523,8 +523,8 @@
       "Po nákupe si uložte potvrdenie a overte evidovanú platnosť známky cez oficiálnu službu; pri chybe postupujte podľa jej aktuálnych pokynov."
     ],
     "source": {
-      "label": "eZnamka – výber a evidencia úhrady",
-      "url": "https://eznamka.sk/sk/dialnicne-znamky/vyber-a-evidencia"
+      "label": "eZnamka – Typy a ceny diaľničných známok",
+      "url": "https://eznamka.sk/sk/dialnicne-znamky/typy-a-ceny"
     },
     "updated": "8. 11. 2026",
     "keywords": "dialnicna znamka",
@@ -534,8 +534,8 @@
       "Plánovaná trasa a dátum začiatku platnosti známky",
       "Potvrdenie o nákupe a možnosť kontroly platnosti v oficiálnej evidencii"
     ],
-    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji. Redakčný praktický tip doplnený 10. 11. 2026 bez nového overenia externého zdroja.",
-    "sourceNote": "Oficiálny prehľad systému eZnamka opisuje druhy známok a evidenciu úhrady; spoplatnenie konkrétnej trasy a aktuálne ceny overte pred cestou.",
+    "verification": "12. 11. 2026: overené oficiálne vysvetlenie druhov známok, platnosti jednodňovej známky a evidencie úhrady; ceny nie sú preberané.",
+    "sourceNote": "Oficiálny prehľad eZnamka uvádza typy, časovú platnosť a ceny podľa kategórie vozidla. Spoplatnenie konkrétnej trasy a aktuálne podmienky overte pred cestou.",
     "practical": [
       {
         "title": "Vyhnite sa sprostredkovateľským príplatkom",
@@ -2467,8 +2467,8 @@
       "Po zmene držiteľa skontrolujte nové doklady a potvrdenia."
     ],
     "source": {
-      "label": "Slovensko.sk – prevod držby vozidla",
-      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_ziadost-o-prevod-drzby-vozidla"
+      "label": "Slovensko.sk – Predaj auta",
+      "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_predaj-auta/"
     },
     "updated": "22. 10. 2026",
     "keywords": "prepis auta na slovensku",
@@ -2478,7 +2478,7 @@
       "Kúpna zmluva a prípadné splnomocnenie podľa aktuálnych požiadaviek úradu",
       "Dohoda o termíne evidenčného úkonu, odovzdaní vozidla a nadväznosti poistenia"
     ],
-    "verification": "Rozsah a limity citovaného zdroja redakčne spresnené 10. 11. 2026; externá dostupnosť URL ani aktuálnosť právnych podmienok neboli pri tejto úprave znovu overené.",
+    "verification": "12. 11. 2026: overený úradný opis predaja a elektronických služieb evidencie; starší návod na prevod uvádza odlišnú lehotu, preto konkrétnu lehotu ani poplatok neuvádzame bez právnej kontroly.",
     "sourceNote": "Úradný zdroj opisuje evidenčný úkon prevodu držby. Konkrétne doklady, spôsob zastupovania, správne poplatky a aktuálnu dostupnosť elektronickej služby treba preveriť pred podaním.",
     "detail": {
       "summary": "Pri zmene držiteľa alebo vlastníka vozidla si najskôr ujasni typ prevodu, údaje strán a poistenie. Podrobnosti sa môžu líšiť podľa toho, či ide o predaj, darovanie, leasing alebo dovoz.",
@@ -2694,8 +2694,8 @@
       "Uložte si potvrdenie o poistení a kontakty na poisťovňu; po evidenčnej zmene skontrolujte správnosť údajov v zmluve."
     ],
     "source": {
-      "label": "Slovenská kancelária poisťovateľov – PZP",
-      "url": "https://www.skp.sk/povinne-zmluvne-poistenie/"
+      "label": "SKP – Prečo je PZP dôležité",
+      "url": "https://www.skp.sk/preco-je-pzp-dolezite/"
     },
     "updated": "22. 10. 2026",
     "keywords": "pzp pri kúpe auta",
@@ -2705,7 +2705,7 @@
       "Ponuky PZP s dátumom začiatku krytia, limitmi a výlukami",
       "Kontakty poisťovne a doklad o uzavretí poistenia dostupný pri prevzatí vozidla"
     ],
-    "verification": "Praktický kontrolný bod bol redakčne doplnený 9. 11. 2026. Nejde o nové overenie externého zdroja ani úplnú právnu revíziu; aktuálne úradné postupy, povinnosti a lehoty overte pred úkonom.",
+    "verification": "12. 11. 2026: overený zdroj SKP o uzatvorení PZP a doklade o poistení; individuálny začiatok krytia a právne podmienky prevodu treba potvrdiť osobitne.",
     "sourceNote": "SKP poskytuje všeobecné informácie o PZP, nie potvrdenie začiatku konkrétneho poistného krytia ani aktuálnych pravidiel STK. Začiatok krytia overte u poisťovne.",
     "practical": [
       {
@@ -2870,7 +2870,7 @@
       "Požadovaný druh známky a dátum začiatku jej platnosti",
       "Spôsob úhrady a uloženie potvrdenia na následnú kontrolu evidovanej platnosti"
     ],
-    "verification": "Praktický kontrolný zoznam redakčne spresnený 9. 11. 2026; aktuálnosť externého zdroja, právnych povinností a poplatkov nebola pri tejto úprave opätovne úplne overená. Pred úkonom skontrolujte aktuálne podmienky na oficiálnom zdroji.",
+    "verification": "12. 11. 2026: overený oficiálny postup úhrady, vystavenia potvrdenia a kontroly platnosti; ceny ani individuálne výnimky neboli predmetom právnej revízie.",
     "sourceNote": "Oficiálna stránka eZnamka vysvetľuje, že nákup je úspešne ukončený vystavením potvrdenia o úhrade, a odporúča kontrolu platnosti.",
     "practical": [
       {
