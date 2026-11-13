@@ -2056,7 +2056,7 @@
       "label": "NBS – schopnosť splácať úver (DSTI)",
       "url": "https://nbs.sk/financna-stabilita/nastroje-fs/dsti/"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "prvá žiadosť o hypotéku",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
@@ -2137,16 +2137,12 @@
         "body": "Pred podpisom rezervácie zosúlaďte termín schválenia, zabezpečenia a čerpania úveru s termínmi v kúpnej zmluve. Zaznamenajte si aj scenár zamietnutia."
       },
       {
-        "title": "Skontrolujte úplnosť žiadosti",
-        "body": "Pred odoslaním porovnajte údaje o príjme, existujúcich záväzkoch a nehnuteľnosti so všetkými priloženými dokumentmi. Odložte si zoznam odovzdaných podkladov."
+        "title": "Skontrolujte úplnosť a platnosť žiadosti",
+        "body": "Pred odoslaním porovnajte údaje o príjme, záväzkoch a nehnuteľnosti s prílohami. Evidujte odovzdané doklady, dátumy vystavenia a lehoty akceptácie bankou; pri predĺžení schvaľovania overte, ktoré treba obnoviť."
       },
       {
         "title": "Chráňte osobné a príjmové doklady",
         "body": "Pred odoslaním výpisov, potvrdení o príjme alebo dokladov totožnosti overte totožnosť príjemcu a bezpečný spôsob doručenia. Uložte si zoznam odovzdaných podkladov a termíny ich platnosti."
-      },
-      {
-        "title": "Evidujte platnosť podkladov",
-        "body": "Pri každom dokumente si poznačte dátum vystavenia a prípadnú lehotu akceptácie uvedenú bankou. Ak sa schvaľovanie predĺži, vopred si overte, ktoré dokumenty bude treba obnoviť."
       }
     ]
   },
@@ -2165,7 +2161,7 @@
       "label": "NBS – refinancovanie a zmena podmienok hypotéky",
       "url": "https://nbs.sk/aktuality/viete-aky-je-rozdiel-medzi-uvermi-znovu-prerokovanymi-a-refinancovanymi/"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "koniec fixácie hypotéky",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
@@ -2178,8 +2174,8 @@
     "sourceNote": "Článok NBS vysvetľuje rozdiel medzi opätovným prerokovaním a refinancovaním úveru. Nepokrýva všetky individuálne podmienky konca fixácie; konkrétne termíny, ponuky a náklady overte v úverovej zmluve a banke.",
     "practical": [
       {
-        "title": "Založte si časový plán",
-        "body": "Z úverovej zmluvy a oznámenia banky zapíšte dátum konca fixácie a všetky termíny na reakciu. Nastavte si pripomienku s rezervou na získanie ponúk."
+        "title": "Založte si časový plán a evidenciu ponúk",
+        "body": "Zapíšte dátum konca fixácie, termíny na reakciu a nastavte pripomienku s rezervou. Uložte dátum doručenia ponuky, sadzbu, dĺžku fixácie a podmienky prijatia."
       },
       {
         "title": "Vyžiadajte si ponuky na rovnaký zostatok",
@@ -2192,10 +2188,6 @@
       {
         "title": "Potvrďte postup pred rozhodnutím",
         "body": "Od banky si písomne vyžiadajte termíny prijatia novej sadzby, mimoriadnej splátky alebo refinancovania a podmienky ich realizácie."
-      },
-      {
-        "title": "Zaznamenajte si ponuku banky",
-        "body": "Uložte si dátum doručenia ponuky, navrhovanú sadzbu, dĺžku fixácie a podmienky jej prijatia. Pri alternatívach porovnajte celkové náklady, nielen splátku."
       },
       {
         "title": "Potvrďte prijatie rozhodnutia bankou",
@@ -2222,7 +2214,7 @@
       "label": "Národná banka Slovenska",
       "url": "https://rpmn.nbs.sk/"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "úrok a rpmn – rozdiel",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
@@ -2242,15 +2234,11 @@
       },
       {
         "title": "Porovnávajte rovnaké parametre",
-        "body": "Zvoľte rovnakú istinu, dobu splácania a obdobné podmienky. Inak rozdiel v RPMN nemusí vyjadrovať rozdiel medzi porovnateľnými ponukami."
+        "body": "Použite rovnakú istinu, splatnosť a obdobné predpoklady; zaznamenajte, ktoré voliteľné služby sú zahrnuté v nákladoch. Inak rozdiel v RPMN nemusí vyjadrovať rozdiel medzi porovnateľnými ponukami."
       },
       {
         "title": "Pýtajte si celkovú splatnú sumu",
         "body": "Ak má jedna ponuka nižší úrok, ale vyššie poplatky alebo povinné doplnkové služby, nemusí byť lacnejšia. Požiadajte o rozpis splátok a celkovej sumy, ktorú zaplatíte za celé obdobie."
-      },
-      {
-        "title": "Porovnajte rovnaké vstupné údaje",
-        "body": "Pri porovnaní RPMN skontrolujte, či ponuky používajú rovnakú výšku úveru, splatnosť a predpoklady. Poznačte si, ktoré voliteľné služby sú zahrnuté v nákladoch."
       },
       {
         "title": "Skontrolujte predpoklady výpočtu",
@@ -2274,7 +2262,7 @@
       "label": "NBS – sporenie a ochrana vkladov",
       "url": "https://nbs.sk/dohlad-nad-financnym-trhom/ofs/financne-produkty/sporenie-a-investovanie/sporenie/"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "ako plánovať sporenie",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
@@ -2291,27 +2279,19 @@
       },
       {
         "title": "Rozlišujte vklad a investíciu",
-        "body": "Pred rozhodnutím zistite, či ide o bankový vklad, investičný produkt alebo iný nástroj. Ich riziká, dostupnosť peňazí a prípadná ochrana sa môžu zásadne líšiť."
+        "body": "Overte poskytovateľa a typ produktu: bankový vklad, investícia alebo iný nástroj. Ich riziko straty, dostupnosť peňazí a prípadná ochrana sa líšia."
       },
       {
-        "title": "Preverte podmienky prístupu k peniazom",
-        "body": "Zistite, či je možné prostriedky vybrať predčasne a aký je prípadný dôsledok pre úrok alebo poplatky. Podmienky si overte v dokumentácii konkrétneho produktu."
+        "title": "Preverte dostupnosť peňazí aj v núdzi",
+        "body": "Z dokumentácie zistite, či možno peniaze vybrať predčasne, aké obmedzenia, sankcie či dôsledky pre úrok platia a či by ste rezervu vedeli použiť pri nečakanom výdavku."
       },
       {
         "title": "Nespoliehajte sa iba na reklamovaný výnos",
         "body": "Porovnajte čistý výnos po poplatkoch a prípadnom zdanení, riziko straty a dobu viazanosti. Nejasné sľuby zaručeného vysokého zisku považujte za varovný signál."
       },
       {
-        "title": "Overte dostupnosť rezervy",
-        "body": "Pred výberom sporiaceho produktu si zaznamenajte podmienky výberu peňazí, prípadné obmedzenia a to, či by ste rezervu vedeli použiť pri nečakanom výdavku."
-      },
-      {
         "title": "Zaznamenajte podmienky zmeny produktu",
         "body": "Pred otvorením sporenia si uložte aktuálne podmienky, informáciu o dostupnosti vkladu a postup pri zmene sadzby alebo poplatkov. Pri oznámení zmeny ich porovnajte s pôvodnými dokumentmi."
-      },
-      {
-        "title": "Rozlišujte dostupnosť a riziko",
-        "body": "Pred presunom peňazí si overte, či ich môžete vybrať bez sankcie, kto produkt poskytuje a aké riziko straty nesiete. Nezamieňajte investičný produkt so sporiacim účtom."
       }
     ]
   },
@@ -2331,7 +2311,7 @@
       "label": "5peňazí (NBS) – Ako na domáci rozpočet",
       "url": "https://5penazi.sk/financna-kniznica/ako-na-domaci-rozpocet/"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "rodinný finančný plán",
     "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
     "preparation": [
@@ -2359,12 +2339,8 @@
         "body": "Pri zmene príjmu, bývania alebo výšky splátok aktualizujte rozpočet. Pri rozhodovaní o úvere posudzujte celkové náklady a schopnosť splácať aj pri horšom scenári."
       },
       {
-        "title": "Rozdeľte úlohy a termíny v domácnosti",
-        "body": "Pri pravidelných platbách a ročných obnovách si určte zodpovednú osobu, dátum kontroly a spôsob bezpečného zdieľania informácií. Nezdieľajte prihlasovacie heslá v spoločnej tabuľke."
-      },
-      {
-        "title": "Dohodnite spôsob aktualizácie plánu",
-        "body": "Určte, kde bude uložená aktuálna verzia rozpočtu a kto zapisuje zmeny. Pri spoločnom plánovaní používajte len nevyhnutné údaje a citlivé dokumenty nezdieľajte cez verejné odkazy."
+        "title": "Rozdeľte úlohy a bezpečne aktualizujte plán",
+        "body": "Určte zodpovednú osobu, termíny kontroly platieb a obnov, miesto aktuálnej verzie rozpočtu a kto zapisuje zmeny. Zdieľajte len nevyhnutné údaje; heslá ani citlivé doklady neukladajte do verejných odkazov či spoločnej tabuľky."
       }
     ]
   },
