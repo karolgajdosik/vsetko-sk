@@ -691,7 +691,7 @@
       "label": "Slovensko.sk – cestovné doklady",
       "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_cestovne-doklady-a-nahradne-ce"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "vymena cestovneho pasu",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
@@ -699,7 +699,7 @@
       "Pripravte občiansky preukaz alebo iný uznávaný doklad a starý pas, ak ho máte.",
       "Zistite, či potrebujete štandardnú alebo zrýchlenú lehotu."
     ],
-    "verification": "12. 11. 2026: Overený postup osobného podania, rezervácie termínu a predloženia pôvodného pasu. Úplná právna revízia, aktuálne poplatky a lehoty neboli samostatne overené.",
+    "verification": "12. 11. 2026: Overený postup osobného podania, rezervácie termínu a predloženia pôvodného pasu. Úplná právna revízia, aktuálne poplatky a lehoty neboli samostatne overené. Doplnené 13. 11. 2026: overený verejný obsah konkrétnych doplnkových odkazov; prihlásenie a odoslanie žiadosti neboli testované.",
     "sourceNote": "Slovensko.sk opisuje vydanie a prevzatie pasu; vstupné podmienky cieľovej krajiny overte samostatne.",
     "detail": {
       "summary": "Nový cestovný pas sa vybavuje osobne na oddelení dokladov. Pred cestou si skontrolujte požiadavky cieľovej krajiny, pretože niektoré štáty požadujú platnosť pasu aj po plánovanom návrate.",
@@ -734,8 +734,8 @@
       "outcome": "Máte platný pas a overené podmienky cesty.",
       "links": [
         {
-          "label": "Ministerstvo vnútra SR – doklady",
-          "url": "https://www.minv.sk/"
+          "label": "MV SR – najčastejšie otázky k cestovným dokladom",
+          "url": "https://pes.minv.sk/wps/wcm/connect/sk/site/main/casto-kladene-otazky/FAQ-CP/"
         },
         {
           "label": "MV SR – návod a vstup do rezervačného systému",
@@ -789,7 +789,7 @@
       "label": "Slovensko.sk – oznamovacie povinnosti pri zmene pobytu",
       "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_oznamovacie-povinnosti-pri-zme"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "zmena trvaleho pobytu",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
@@ -797,7 +797,7 @@
       "Doklad alebo informácie preukazujúce vzťah k nehnuteľnosti; podmienky súhlasu vlastníka si overte na ohlasovni",
       "Zoznam bánk, poisťovní, zamestnávateľa a ďalších služieb, kde bude potrebné aktualizovať adresu"
     ],
-    "verification": "12. 11. 2026: Overené možnosti osobného a elektronického ohlásenia a podklady k vlastníctvu. Úplná právna revízia, aktuálne poplatky a lehoty neboli samostatne overené.",
+    "verification": "12. 11. 2026: Overené možnosti osobného a elektronického ohlásenia a podklady k vlastníctvu. Úplná právna revízia, aktuálne poplatky a lehoty neboli samostatne overené. Doplnené 13. 11. 2026: overený verejný obsah konkrétnych doplnkových odkazov; prihlásenie a odoslanie žiadosti neboli testované.",
     "sourceNote": "Slovensko.sk opisuje ohlasovňu a oznamovanie zmeny; dostupnosť elektronickej služby, výnimky a individuálne povinnosti overte osobitne.",
     "detail": {
       "summary": "Pri sťahovaní na novú adresu treba ohlásiť zmenu trvalého pobytu príslušnej ohlasovni. Následne skontrolujte občiansky preukaz a inštitúcie, ktorým treba novú adresu oznámiť.",
@@ -832,12 +832,12 @@
       "outcome": "Nová adresa je zaevidovaná a nadväzujúce doklady a kontakty sú aktualizované.",
       "links": [
         {
-          "label": "Slovensko.sk – životné situácie",
-          "url": "https://www.slovensko.sk/"
+          "label": "Slovensko.sk – trvalý pobyt a sťahovanie",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_trvaly-pobyt-stahovanie"
         },
         {
-          "label": "Ministerstvo vnútra SR",
-          "url": "https://www.minv.sk/"
+          "label": "Slovensko.sk – vyžiadanie potvrdenia o trvalom pobyte",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_potvrdenie-o-trvalom-pobyte"
         }
       ]
     },
@@ -882,7 +882,7 @@
       "label": "Slovensko.sk – doklady potrebné k začatiu podnikania",
       "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_doklady-potrebne-k-zacatiu-pod"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "zacatie podnikania",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
@@ -890,7 +890,7 @@
       "Adresa miesta podnikania a prípadné podklady k oprávneniu užívať priestory",
       "Prehľad plánovaných príjmov a nákladov a otázok na daňové a odvodové povinnosti pre odborné overenie"
     ],
-    "verification": "12. 11. 2026: Overené podklady k ohláseniu živnosti, odborná spôsobilosť a úloha jednotného kontaktného miesta. Úplná právna revízia, individuálne podmienky, poplatky a lehoty neboli samostatne overené.",
+    "verification": "12. 11. 2026: Overené podklady k ohláseniu živnosti, odborná spôsobilosť a úloha jednotného kontaktného miesta. Úplná právna revízia, individuálne podmienky, poplatky a lehoty neboli samostatne overené. Doplnené 13. 11. 2026: overený verejný obsah konkrétnych doplnkových odkazov; prihlásenie a odoslanie žiadosti neboli testované.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "detail": {
       "summary": "Pred založením živnosti si overte, či ide o voľnú, remeselnú alebo viazanú činnosť, podmienky odbornej spôsobilosti a následné daňové a odvodové povinnosti.",
@@ -930,16 +930,16 @@
           "url": "https://www.zrsr.sk/"
         },
         {
-          "label": "Slovensko.sk",
-          "url": "https://www.slovensko.sk/"
+          "label": "Slovensko.sk – založenie živnosti a formuláre",
+          "url": "https://www.nove.slovensko.sk/zivotne-situacie/zacatie-podnikania/zalozenie-zivnosti"
         },
         {
-          "label": "Finančná správa",
-          "url": "https://www.financnasprava.sk/"
+          "label": "Finančná správa – registrácia na daň z príjmov fyzických osôb",
+          "url": "https://www.financnasprava.sk/sk/podnikatelia/dane/dan-z-prijmov/fyzicke-osoby/registracia-dan-prijem-fo"
         },
         {
-          "label": "Sociálna poisťovňa",
-          "url": "https://www.socpoist.sk/"
+          "label": "Sociálna poisťovňa – zmeny odvodov SZČO od júla 2026",
+          "url": "https://socpoist.sk/news/szco-odvody-pre-zivnostnikov-sa-od-1-jula-2026-zmenia-socialna-poistovna-vysvetluje-v-ktorych"
         },
         {
           "label": "DIVES – oficiálne informácie o registri a elektronických službách",
@@ -1189,7 +1189,7 @@
       "label": "Slovensko.sk – cestovné doklady",
       "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_cestovne-doklady-a-nahradne-ce"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "cestovný pas pre dieťa",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
@@ -1197,7 +1197,7 @@
       "Počítajte s osobnou prítomnosťou dieťaťa; overte oprávnenie zákonného zástupcu a prípadné osobitné okolnosti.",
       "Skontrolujte požiadavky cieľovej krajiny a plánovaný termín odchodu."
     ],
-    "verification": "12. 11. 2026: Opätovne porovnaný postup osobného podania a zastúpenia dieťaťa mladšieho ako 15 rokov s úradným návodom. Úplná právna revízia, aktuálne poplatky a lehoty neboli samostatne overené.",
+    "verification": "12. 11. 2026: Opätovne porovnaný postup osobného podania a zastúpenia dieťaťa mladšieho ako 15 rokov s úradným návodom. Úplná právna revízia, aktuálne poplatky a lehoty neboli samostatne overené. Doplnené 13. 11. 2026: overený verejný obsah konkrétnych doplnkových odkazov; prihlásenie a odoslanie žiadosti neboli testované.",
     "sourceNote": "Zdroj opisuje aj osobitné prípady zastupovania; pri súdnych obmedzeniach alebo zdravotnej prekážke kontaktujte pracovisko.",
     "detail": {
       "summary": "Aj dieťa potrebuje na cestu vlastný cestovný doklad, ak ho vyžaduje cieľová krajina. Pri podaní žiadosti sa uplatňujú pravidlá zastúpenia zákonným zástupcom a biometrie podľa veku.",
@@ -1232,8 +1232,8 @@
       "outcome": "Dieťa má vhodný cestovný doklad a overené podmienky vycestovania.",
       "links": [
         {
-          "label": "Ministerstvo vnútra SR",
-          "url": "https://www.minv.sk/"
+          "label": "MV SR – najčastejšie otázky k cestovným dokladom",
+          "url": "https://pes.minv.sk/wps/wcm/connect/sk/site/main/casto-kladene-otazky/FAQ-CP/"
         },
         {
           "label": "MZVEZ SR – podmienky cestovania a doklady",
@@ -1395,7 +1395,7 @@
       "label": "Slovensko.sk – rodný list",
       "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_rodny-list"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "vybavenie rodného listu",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
@@ -1403,7 +1403,7 @@
       "Pripravte doklad totožnosti a údaje o osobe, ktorej sa rodný list týka.",
       "Ak žiadate za inú osobu, overte oprávnenie a prípadné splnomocnenie."
     ],
-    "verification": "12. 11. 2026: Overený postup prvého vydania po narodení a dohoda rodičov o mene dieťaťa. Úplná právna revízia, individuálne podmienky, poplatky a lehoty neboli samostatne overené.",
+    "verification": "12. 11. 2026: Overený postup prvého vydania po narodení a dohoda rodičov o mene dieťaťa. Úplná právna revízia, individuálne podmienky, poplatky a lehoty neboli samostatne overené. Doplnené 13. 11. 2026: overený verejný obsah konkrétnych doplnkových odkazov; prihlásenie a odoslanie žiadosti neboli testované.",
     "sourceNote": "Zdroj poskytuje všeobecné informácie o rodnom liste. Oprávnenie žiadateľa, typ výpisu a požiadavky na použitie v zahraničí overte na príslušnej matrike a u prijímajúceho orgánu.",
     "detail": {
       "summary": "Rodný list je matričný doklad o narodení. Postup pri prvom vydaní a pri vyžiadaní druhopisu sa líši; kompetentná je matrika podľa pravidiel vedenia matričných záznamov.",
@@ -1438,12 +1438,12 @@
       "outcome": "Máte správny matričný doklad pre požadovaný účel.",
       "links": [
         {
-          "label": "Slovensko.sk",
-          "url": "https://www.slovensko.sk/"
+          "label": "Slovensko.sk – aktuálny sprievodca rodným listom",
+          "url": "https://nove.slovensko.sk/zivotne-situacie/narodenie-dietata/rodny-list"
         },
         {
-          "label": "Ministerstvo vnútra SR – matriky",
-          "url": "https://www.minv.sk/"
+          "label": "Slovensko.sk – elektronická žiadosť o duplikát rodného listu",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_vydanie-duplikatu-rodneho-list"
         }
       ]
     },
