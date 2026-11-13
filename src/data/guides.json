@@ -972,7 +972,7 @@
       "Adresa miesta podnikania a prípadné podklady k oprávneniu užívať priestory",
       "Prehľad plánovaných príjmov a nákladov a otázok na daňové a odvodové povinnosti pre odborné overenie"
     ],
-    "verification": "12. 11. 2026: Overené podklady k ohláseniu živnosti, odborná spôsobilosť a úloha jednotného kontaktného miesta. Úplná právna revízia, individuálne podmienky, poplatky a lehoty neboli samostatne overené. Doplnené 13. 11. 2026: overený verejný obsah konkrétnych doplnkových odkazov; prihlásenie a odoslanie žiadosti neboli testované.",
+    "verification": "12. 11. 2026: Overené podklady k ohláseniu živnosti, odborná spôsobilosť a úloha jednotného kontaktného miesta. Úplná právna revízia, individuálne podmienky, poplatky a lehoty neboli samostatne overené. Doplnené 13. 11. 2026: overený verejný obsah konkrétnych doplnkových odkazov; prihlásenie a odoslanie žiadosti neboli testované. Dňa 13. 11. 2026 overený opis vzniku sociálneho poistenia začínajúcej SZČO v aktuálnom sprievodcovi Sociálnej poisťovne; individuálne výnimky a sumy nie sú predmetom tejto aktualizácie.",
     "sourceNote": "Odkaz vedie na tematickú stránku príslušnej autority; konkrétne poplatky a lehoty pred podaním znovu overte.",
     "detail": {
       "summary": "Pred založením živnosti si overte, či ide o voľnú, remeselnú alebo viazanú činnosť, podmienky odbornej spôsobilosti a následné daňové a odvodové povinnosti.",
@@ -1026,6 +1026,10 @@
         {
           "label": "DIVES – oficiálne informácie o registri a elektronických službách",
           "url": "https://www.ives.sk/portal/apv/cezir"
+        },
+        {
+          "label": "Sociálna poisťovňa – vznik poistenia SZČO a mikroodvod",
+          "url": "https://www.socpoist.sk/socialne-poistenie/platenie-poistneho/poistne-szco-od-1-jula-2026-mikroodvod"
         }
       ]
     },
@@ -1056,7 +1060,7 @@
       },
       {
         "title": "Pripravte si kontrolu prvého mesiaca",
-        "body": "Po začatí činnosti si do kalendára zapíšte kontrolu doručených rozhodnutí, aktivovaných elektronických schránok a evidencie prvých dokladov. Termíny a konkrétne povinnosti overte podľa svojej formy podnikania u príslušných inštitúcií."
+        "body": "Zapíšte si dátum vzniku oprávnenia a prípadné predchádzajúce podnikanie. Podľa Sociálnej poisťovne sa od roku 2026 pri prvom podnikaní povinné sociálne poistenie spravidla začína v šiestom kalendárnom mesiaci po mesiaci začatia. Pri obnovení činnosti platia osobitné pravidlá. Konkrétny dátum, výšku poistného a zdravotné odvody overte samostatne."
       }
     ]
   },
@@ -1485,7 +1489,7 @@
       "Pripravte doklad totožnosti a údaje o osobe, ktorej sa rodný list týka.",
       "Ak žiadate za inú osobu, overte oprávnenie a prípadné splnomocnenie."
     ],
-    "verification": "12. 11. 2026: Overený postup prvého vydania po narodení a dohoda rodičov o mene dieťaťa. Úplná právna revízia, individuálne podmienky, poplatky a lehoty neboli samostatne overené. Doplnené 13. 11. 2026: overený verejný obsah konkrétnych doplnkových odkazov; prihlásenie a odoslanie žiadosti neboli testované.",
+    "verification": "12. 11. 2026: Overený postup prvého vydania po narodení a dohoda rodičov o mene dieťaťa. Úplná právna revízia, individuálne podmienky, poplatky a lehoty neboli samostatne overené. Doplnené 13. 11. 2026: overený verejný obsah konkrétnych doplnkových odkazov; prihlásenie a odoslanie žiadosti neboli testované. Dňa 13. 11. 2026 overený aj opis elektronického rodného listu a dohody rodičov na Slovensko.sk a MIRRI; praktické doručenie nebolo testované.",
     "sourceNote": "Zdroj poskytuje všeobecné informácie o rodnom liste. Oprávnenie žiadateľa, typ výpisu a požiadavky na použitie v zahraničí overte na príslušnej matrike a u prijímajúceho orgánu.",
     "detail": {
       "summary": "Rodný list je matričný doklad o narodení. Postup pri prvom vydaní a pri vyžiadaní druhopisu sa líši; kompetentná je matrika podľa pravidiel vedenia matričných záznamov.",
@@ -1505,7 +1509,7 @@
         },
         {
           "title": "Podajte žiadosť",
-          "body": "Overte osobné, písomné alebo elektronické možnosti a aktuálny správny poplatok pri druhopise."
+          "body": "Pri prvom vydaní po narodení skontrolujte elektronickú schránku rodičov: od 1. augusta 2026 sa podľa Slovensko.sk rodný list vydáva aj elektronicky. Pri druhopise použite samostatnú službu alebo kontaktujte matriku."
         },
         {
           "title": "Skontrolujte vydaný doklad",
@@ -1526,13 +1530,17 @@
         {
           "label": "Slovensko.sk – elektronická žiadosť o duplikát rodného listu",
           "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_vydanie-duplikatu-rodneho-list"
+        },
+        {
+          "label": "MIRRI – digitalizácia narodenia dieťaťa",
+          "url": "https://mirri.gov.sk/aktuality/digitalna-agenda/menej-uradov-viac-casu-pre-rodinu-modernizujeme-zivotnu-situaciu-narodenie-dietata/"
         }
       ]
     },
     "practical": [
       {
         "title": "Rozlišujte prvopis a duplikát",
-        "body": "Pred podaním overte, či potrebujete nový matričný doklad, výpis alebo dokument na použitie v zahraničí."
+        "body": "Pri prvom vydaní skontrolujte, či je dohoda rodičov podpísaná. V pôrodnici je od 1. augusta 2026 dostupný aj elektronický podpis dohody cez eID; papierová možnosť zostáva. Ak doklad nedostanete, kontaktujte matriku."
       },
       {
         "title": "Určte účel použitia",
