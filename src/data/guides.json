@@ -1663,8 +1663,8 @@
       "Dostupné identifikačné údaje zosnulého a doklady potrebné na konkrétne oznámenia",
       "Zoznam známych bánk, poisťovní, zmlúv a záväzkov na následné preverenie oprávneného postupu"
     ],
-    "verification": "12. 11. 2026: Overená orientácia pri úmrtí a samostatný aktuálnejší zdroj ÚPSVaR k príspevku na pohreb. Úplná právna revízia, individuálne podmienky, poplatky a lehoty neboli samostatne overené.",
-    "sourceNote": "Stránka Slovensko.sk poskytuje orientáciu pri vybavovaní po úmrtí, nie úplný zoznam individuálnych povinností. Ak pozostalosť zahŕňa nehnuteľnosti, pripravte pre notára identifikáciu listov vlastníctva a katastrálnych území; informatívne údaje možno preveriť cez oficiálny portál CICA (https://kataster.vugk.sk/). Konkrétne právne úkony riešte s príslušnou inštitúciou. Pozor: tematická stránka Slovensko.sk obsahuje historickú sumu príspevku na pohreb. Aktuálne podmienky a tlačivo overte priamo na ÚPSVaR: https://www.upsvr.gov.sk/vzory-ziadosti-v-slovenskom-jazyku-a-inych-jazykoch/vzory-ziadosti-pre-oblast-socialnych-veci-a-rodiny/prispevok-na-pohreb.html?lang=sk&page_id=268776.",
+    "verification": "12. 11. 2026: Overená orientácia pri úmrtí a samostatný aktuálnejší zdroj ÚPSVaR k príspevku na pohreb. Úplná právna revízia, individuálne podmienky, poplatky a lehoty neboli samostatne overené. Doplnené 12. 11. 2026: overený odkaz na príslušný predpis v Slov-Lexe; úplná právna revízia zostáva otvorená.",
+    "sourceNote": "Stránka Slovensko.sk poskytuje orientáciu pri vybavovaní po úmrtí, nie úplný zoznam individuálnych povinností. Ak pozostalosť zahŕňa nehnuteľnosti, pripravte pre notára identifikáciu listov vlastníctva a katastrálnych území; informatívne údaje možno preveriť cez oficiálny portál CICA (https://kataster.vugk.sk/). Konkrétne právne úkony riešte s príslušnou inštitúciou. Pozor: tematická stránka Slovensko.sk obsahuje historickú sumu príspevku na pohreb. Aktuálne podmienky a tlačivo overte priamo na ÚPSVaR: https://www.upsvr.gov.sk/vzory-ziadosti-v-slovenskom-jazyku-a-inych-jazykoch/vzory-ziadosti-pre-oblast-socialnych-veci-a-rodiny/prispevok-na-pohreb.html?lang=sk&page_id=268776. Pri príspevku na pohreb overte časovú verziu § 4 zákona č. 238/1998 Z. z.; novela č. 149/2026 Z. z. mení jeho znenie od 1. januára 2027.",
     "detail": {
       "summary": "Po úmrtí blízkej osoby sa rieši lekárske potvrdenie, matrika, pohreb, oznámenia inštitúciám a neskôr dedičské konanie. Konkrétny postup závisí od toho, či úmrtie nastalo doma, v nemocnici alebo v zahraničí.",
       "before": [
@@ -1713,6 +1713,10 @@
         {
           "label": "MPSVR SR – aktuálne podmienky príspevku na pohreb",
           "url": "https://www.employment.gov.sk/sk/rodina-socialna-pomoc/prispevok-pohreb/"
+        },
+        {
+          "label": "Zákon č. 238/1998 Z. z. – príspevok na pohreb",
+          "url": "https://www.slov-lex.sk/ezbierky/pravne-predpisy/SK/ZZ/1998/238/"
         }
       ]
     },
@@ -1767,8 +1771,8 @@
       "Číslo listu vlastníctva, ak ho máte, a účel, na ktorý výpis potrebujete",
       "Údaje na porovnanie vlastníkov, podielov, tiarch a prípadných plomb s podkladmi k nehnuteľnosti"
     ],
-    "verification": "12. 11. 2026: Overené tematické stránky ÚGKK SR o CICA, ESKN a overení vlastníctva; rozlíšenie informatívneho náhľadu, úradného výpisu a plomby. Priame prihlásenie, poplatky a úplná právna revízia neboli overené.",
-    "sourceNote": "Oficiálny portál ESKN je určený na katastrálne údaje a elektronické služby. Na informatívne overenie listu vlastníctva možno použiť aj CICA (https://kataster.vugk.sk/). Informatívny náhľad nezamieňajte s úradným výpisom. ÚGKK upozorňuje na neoficiálne napodobeniny portálov; overujte doménu. Konkrétne poplatky a dostupnosť jednotlivých služieb treba preveriť pred použitím.",
+    "verification": "12. 11. 2026: Overené tematické stránky ÚGKK SR o CICA, ESKN a overení vlastníctva; rozlíšenie informatívneho náhľadu, úradného výpisu a plomby. Priame prihlásenie, poplatky a úplná právna revízia neboli overené. Doplnené 12. 11. 2026: overený odkaz na príslušný predpis v Slov-Lexe; úplná právna revízia zostáva otvorená.",
+    "sourceNote": "Oficiálny portál ESKN je určený na katastrálne údaje a elektronické služby. Na informatívne overenie listu vlastníctva možno použiť aj CICA (https://kataster.vugk.sk/). Informatívny náhľad nezamieňajte s úradným výpisom. ÚGKK upozorňuje na neoficiálne napodobeniny portálov; overujte doménu. Konkrétne poplatky a dostupnosť jednotlivých služieb treba preveriť pred použitím. Poplatky za výpis a vklad rozlišujte podľa položiek 10 a 11 aktuálneho sadzobníka správnych poplatkov.",
     "detail": {
       "summary": "List vlastníctva slúži na overenie vlastníka, podielov a evidovaných práv k nehnuteľnosti. Pred kúpou si vždy skontrolujte aktuálny stav vrátane tiarch a plomb.",
       "before": [
@@ -1812,6 +1816,10 @@
         {
           "label": "ESKN – elektronické katastrálne služby",
           "url": "https://kataster.skgeodesy.sk/eskn-portal/"
+        },
+        {
+          "label": "Zákon č. 145/1995 Z. z. – položky 10 a 11",
+          "url": "https://www.slov-lex.sk/ezbierky/pravne-predpisy/SK/ZZ/1995/145/20261101"
         }
       ]
     },
@@ -1864,8 +1872,8 @@
       "Vlastné finančné údaje a relevantné zmluvy",
       "Ponuky alebo doklady potrebné na porovnanie"
     ],
-    "verification": "12. 11. 2026: Overený postup prevodu na Slovensko.sk a tematické stránky ÚGKK SR o CICA a ESKN. Overené rozlíšenie informatívnej kontroly a podania na vklad; poplatky, lehoty a individuálne zmluvy neboli právne revidované.",
-    "sourceNote": "Slovensko.sk opisuje postup pri prevode nehnuteľnosti, nie právnu kontrolu konkrétnej kúpnej zmluvy. Pred podpisom si informatívne overte vlastníka, podiely, ťarchy a plomby na oficiálnom portáli CICA (https://kataster.vugk.sk/); pri potrebe úradného dokumentu zvoľte príslušnú službu katastra. Zmluvu a bezpečné vyplatenie ceny posúďte individuálne.",
+    "verification": "12. 11. 2026: Overený postup prevodu na Slovensko.sk a tematické stránky ÚGKK SR o CICA a ESKN. Overené rozlíšenie informatívnej kontroly a podania na vklad; poplatky, lehoty a individuálne zmluvy neboli právne revidované. Doplnené 12. 11. 2026: overený odkaz na príslušný predpis v Slov-Lexe; úplná právna revízia zostáva otvorená.",
+    "sourceNote": "Slovensko.sk opisuje postup pri prevode nehnuteľnosti, nie právnu kontrolu konkrétnej kúpnej zmluvy. Pred podpisom si informatívne overte vlastníka, podiely, ťarchy a plomby na oficiálnom portáli CICA (https://kataster.vugk.sk/); pri potrebe úradného dokumentu zvoľte príslušnú službu katastra. Zmluvu a bezpečné vyplatenie ceny posúďte individuálne. Pri plánovaní nákladov na vklad použite položku 11 aktuálneho sadzobníka; rozlišujte spôsob podania, urýchlenie a prípadné zníženie poplatku.",
     "detail": {
       "summary": "Pri kúpe bytu postupuj od overenia právneho stavu cez financovanie až po bezpečnú úhradu a prevzatie. Najväčšie riziká bývajú v zmluvách, ťarchách a načasovaní peňazí.",
       "before": [
@@ -1918,6 +1926,10 @@
         {
           "label": "ESKN – návrh na vklad a elektronické podania",
           "url": "https://beta.skgeodesy.sk/sk/kataster/eskn-portal/"
+        },
+        {
+          "label": "Zákon č. 145/1995 Z. z. – položka 11",
+          "url": "https://www.slov-lex.sk/ezbierky/pravne-predpisy/SK/ZZ/1995/145/20261101"
         }
       ],
       "screenGuide": [
@@ -1992,8 +2004,8 @@
       "Podklady o ťarchách, správe domu a prípadných záväzkoch, ktoré bude potrebné preveriť",
       "Návrh bezpečného spôsobu úhrady kúpnej ceny a zoznam vecí pre odovzdávací protokol"
     ],
-    "verification": "12. 11. 2026: Overený postup prevodu na Slovensko.sk a informácie ÚGKK SR o podaní a sledovaní vkladu. Poplatky, lehoty, daňové povinnosti a individuálne zmluvy neboli právne revidované.",
-    "sourceNote": "Postup na Slovensko.sk poskytuje všeobecný rámec prevodu, nie overenie konkrétnej zmluvy alebo úschovy kúpnej ceny. Pred prevodom skontrolujte aktuálny list vlastníctva a prípadné plomby cez oficiálny portál CICA (https://kataster.vugk.sk/). Podmienky podania, poplatky a lehoty overte podľa aktuálneho konania.",
+    "verification": "12. 11. 2026: Overený postup prevodu na Slovensko.sk a informácie ÚGKK SR o podaní a sledovaní vkladu. Poplatky, lehoty, daňové povinnosti a individuálne zmluvy neboli právne revidované. Doplnené 12. 11. 2026: overený odkaz na príslušný predpis v Slov-Lexe; úplná právna revízia zostáva otvorená.",
+    "sourceNote": "Postup na Slovensko.sk poskytuje všeobecný rámec prevodu, nie overenie konkrétnej zmluvy alebo úschovy kúpnej ceny. Pred prevodom skontrolujte aktuálny list vlastníctva a prípadné plomby cez oficiálny portál CICA (https://kataster.vugk.sk/). Podmienky podania, poplatky a lehoty overte podľa aktuálneho konania. Pred úhradou poplatku za vklad porovnajte pokyny úradu s položkou 11 aktuálneho sadzobníka. https://www.slov-lex.sk/ezbierky/pravne-predpisy/SK/ZZ/1995/145/20261101",
     "practical": [
       {
         "title": "Pripravte podklady pre kupujúceho",
@@ -2508,8 +2520,8 @@
       "Kúpna zmluva a prípadné splnomocnenie podľa aktuálnych požiadaviek úradu",
       "Dohoda o termíne evidenčného úkonu, odovzdaní vozidla a nadväznosti poistenia"
     ],
-    "verification": "12. 11. 2026: overený úradný opis predaja a elektronických služieb evidencie; starší návod na prevod uvádza odlišnú lehotu, preto konkrétnu lehotu ani poplatok neuvádzame bez právnej kontroly.",
-    "sourceNote": "Úradný zdroj opisuje evidenčný úkon prevodu držby. Konkrétne doklady, spôsob zastupovania, správne poplatky a aktuálnu dostupnosť elektronickej služby treba preveriť pred podaním.",
+    "verification": "12. 11. 2026: overený úradný opis predaja a elektronických služieb evidencie; starší návod na prevod uvádza odlišnú lehotu, preto konkrétnu lehotu ani poplatok neuvádzame bez právnej kontroly. Doplnené 12. 11. 2026: overený odkaz na príslušný predpis v Slov-Lexe; úplná právna revízia zostáva otvorená.",
+    "sourceNote": "Úradný zdroj opisuje evidenčný úkon prevodu držby. Konkrétne doklady, spôsob zastupovania, správne poplatky a aktuálnu dostupnosť elektronickej služby treba preveriť pred podaním. Pri rozpore starších návodov si overte lehotu a spôsob oznámenia podľa § 116 a § 116a zákona č. 8/2009 Z. z. v časovej verzii platnej ku dňu úkonu.",
     "detail": {
       "summary": "Pri zmene držiteľa alebo vlastníka vozidla si najskôr ujasni typ prevodu, údaje strán a poistenie. Podrobnosti sa môžu líšiť podľa toho, či ide o predaj, darovanie, leasing alebo dovoz.",
       "before": [
@@ -2557,6 +2569,10 @@
         {
           "label": "Elektronické služby evidencie vozidiel",
           "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_elektronicke-sluzby-evidencie"
+        },
+        {
+          "label": "Zákon č. 8/2009 Z. z. – § 116 a § 116a",
+          "url": "https://static.slov-lex.sk/static/SK/ZZ/2009/8/20261001.print.html"
         }
       ],
       "screenGuide": [
