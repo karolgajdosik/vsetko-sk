@@ -934,19 +934,11 @@
       },
       {
         "title": "Rozdeľte oznámenia podľa príjemcu",
-        "body": "Pripravte si kontrolný zoznam pre banku, zamestnávateľa, poisťovne a poskytovateľov služieb. Pri každom overte, či adresu získava automaticky alebo vyžaduje oznámenie."
+        "body": "Pripravte si kontrolný zoznam pre banku, zamestnávateľa, poisťovne a poskytovateľov služieb. Pri každom overte, či adresu získava automaticky alebo vyžaduje oznámenie. Skontrolujte zvlášť trvalý pobyt, korešpondenčnú adresu a fakturačné údaje; aktualizácia jednej položky nemusí zmeniť ostatné."
       },
       {
         "title": "Uložte potvrdenie a skontrolujte adresu",
-        "body": "Po vybavení si odložte dostupné potvrdenie alebo číslo podania. Pri následnej aktualizácii údajov používajte presne tú adresu, ktorú zaevidovala ohlasovňa; pri nezhode žiadajte opravu."
-      },
-      {
-        "title": "Overte adresu na novom doklade",
-        "body": "Po prevzatí nového dokladu porovnajte zápis ulice, orientačného a súpisného čísla a obce s potvrdením o pobyte. Nezrovnalosti riešte s príslušným úradom."
-      },
-      {
-        "title": "Rozlišujte adresu pobytu a doručovania",
-        "body": "Pri bankách, poisťovniach a službách si skontrolujte zvlášť trvalý pobyt, korešpondenčnú adresu a fakturačné údaje. Aktualizácia jednej položky nemusí zmeniť ostatné."
+        "body": "Po vybavení si odložte potvrdenie alebo číslo podania. Pri prevzatí nového dokladu porovnajte zápis ulice, orientačného a súpisného čísla a obce s potvrdením o pobyte. Nezrovnalosti riešte s príslušným úradom."
       }
     ]
   },
@@ -1240,11 +1232,7 @@
       },
       {
         "title": "Bezpečne nastavte elektronické funkcie",
-        "body": "Pri prevzatí skontrolujte vytlačené údaje a spôsob aktivácie elektronických funkcií. Bezpečnostné kódy si neukladajte spolu s občianskym preukazom."
-      },
-      {
-        "title": "Skontrolujte údaje pri prevzatí",
-        "body": "Ešte pri prevzatí porovnajte meno, priezvisko, adresu a dátum platnosti s podanou žiadosťou. Prípadný nesúlad oznámte priamo pracovisku."
+        "body": "Pri prevzatí porovnajte meno, priezvisko, adresu a dátum platnosti s podanou žiadosťou. Nesúlad oznámte pracovisku. Overte spôsob aktivácie elektronických funkcií a bezpečnostné kódy neukladajte spolu s dokladom."
       },
       {
         "title": "Pripravte záložný spôsob prístupu k službám",
@@ -1394,15 +1382,11 @@
       },
       {
         "title": "Zabezpečte aj cestovné rezervácie",
-        "body": "Ak sa strata stala pred cestou, skontrolujte údaje dokladu uvedené v rezerváciách a podmienky dopravcu. Po vydaní nového dokladu podľa potreby aktualizujte číslo pasu v rezervácii."
+        "body": "Ak ste číslo strateného pasu použili vo vízach, cestovných povoleniach alebo rezerváciách, po vydaní nového dokladu overte potrebu aktualizácie a podmienky dopravcu. Podozrivé použitie údajov zdokumentujte."
       },
       {
         "title": "Uložte si bezpečne kontakty ešte pred cestou",
         "body": "Pred odchodom si mimo pasu poznačte kontakt na slovenský zastupiteľský úrad a číslo asistenčnej služby poistenia. Kópiu dokladu uchovávajte bezpečne; sama osebe nenahrádza platný cestovný doklad."
-      },
-      {
-        "title": "Po návrate skontrolujte ďalšie použitie údajov dokladu",
-        "body": "Ak ste číslo strateného pasu použili vo vízach, cestovných povoleniach alebo rezerváciách, po vybavení náhradného dokladu si overte, či tieto záznamy treba aktualizovať. Prípadné podozrivé použitie údajov zdokumentujte."
       },
       {
         "title": "Pripravte podklady pre konzulárnu pomoc",
@@ -1438,7 +1422,7 @@
     "practical": [
       {
         "title": "Zmapujte doklady na výmenu",
-        "body": "Po rozhodnutí si spíšte všetky identifikačné, cestovné, bankové a poistné dokumenty s pôvodným menom."
+        "body": "Po právoplatnej zmene si spíšte identifikačné, cestovné, bankové a poistné dokumenty s pôvodným menom a inštitúcie, ktorým treba zmenu oznámiť. Lehoty a postup overte u každej osobitne."
       },
       {
         "title": "Overte príslušný postup",
@@ -1447,10 +1431,6 @@
       {
         "title": "Pripravte konzistentné údaje",
         "body": "Skontrolujte zápis mena a priezviska vo všetkých podkladoch vrátane diakritiky a údajov o narodení, aby nevznikli rozdiely v evidenciách."
-      },
-      {
-        "title": "Naplánujte následné oznámenia",
-        "body": "Po právoplatnej zmene si vytvorte zoznam dokladov a inštitúcií, ktorým treba aktualizované údaje oznámiť; lehoty overte u každej osobitne."
       },
       {
         "title": "Skontrolujte nadväznosť digitálnych účtov",
@@ -1639,19 +1619,11 @@
       },
       {
         "title": "Naplánujte zmeny po sobáši",
-        "body": "Pri plánovanej zmene priezviska si pripravte zoznam dokladov, zamestnávateľa a poskytovateľov služieb, ktorým budete údaje aktualizovať."
+        "body": "Pri plánovanej zmene priezviska si pripravte zoznam dokladov, zamestnávateľa a poskytovateľov služieb. Po prevzatí sobášneho listu pri každej položke overte postup a potrebné podklady."
       },
       {
         "title": "Potvrďte si termín a spôsob prevzatia dokladu",
-        "body": "Pred obradom si u matriky potvrďte termín, miesto, potrebnú prítomnosť osôb a spôsob následného prevzatia sobášneho listu. Pri zmene priezviska si pripravte vlastný zoznam nadväzujúcich aktualizácií."
-      },
-      {
-        "title": "Zlaďte údaje pred rezerváciou termínu",
-        "body": "Pred potvrdením termínu si s príslušnou matrikou prejdite mená a priezviská snúbencov, miesto obradu, kontaktné údaje a zoznam požadovaných dokladov. Prípadné odlišnosti v dokladoch riešte vopred; konkrétne podmienky si nechajte potvrdiť matrikou."
-      },
-      {
-        "title": "Urobte si plán dokladov po obrade",
-        "body": "Po prevzatí sobášneho listu si zaznačte, ktoré doklady a zmluvné údaje treba preveriť v súvislosti so zmenou priezviska. Pre každú inštitúciu si osobitne overte postup a potrebné podklady."
+        "body": "Pred obradom si s matrikou potvrďte mená snúbencov, termín, miesto, kontaktné údaje, potrebnú prítomnosť osôb, zoznam dokladov a spôsob prevzatia sobášneho listu. Prípadné odlišnosti riešte vopred."
       }
     ]
   },
