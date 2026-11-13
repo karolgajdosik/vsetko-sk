@@ -2118,7 +2118,7 @@
       },
       {
         "title": "Skontrolujte časový plán kúpy",
-        "body": "Pred podpisom rezervácie zosúlaďte termín schválenia, zabezpečenia a čerpania úveru s termínmi v kúpnej zmluve. Zaznamenajte si aj scenár zamietnutia."
+        "body": "Pred podpisom rezervácie zosúlaďte termín schválenia, zabezpečenia a čerpania úveru s termínmi v kúpnej zmluve. Zaznamenajte si aj scenár zamietnutia. Pred zaplatením rezervačnej zálohy si v dokumentácii vyznačte, komu a za akých podmienok sa vracia; nejasnosti riešte pred podpisom."
       },
       {
         "title": "Skontrolujte úplnosť a platnosť žiadosti",
@@ -2167,7 +2167,7 @@
       },
       {
         "title": "Spočítajte celkový dopad zmeny",
-        "body": "Porovnajte splátku, zostávajúce náklady, jednorazové poplatky a cenu povinných doplnkových produktov. Výsledok si uložte do jednej tabuľky."
+        "body": "Porovnajte splátku, zostávajúce náklady, jednorazové poplatky a cenu povinných doplnkových produktov. Výsledok si uložte do jednej tabuľky. Ak porovnávate jednorazový náklad na zmenu s mesačnou úsporou, vydelte náklad úsporou a získate orientačný počet mesiacov návratnosti; pri nulovej alebo zápornej úspore tento výpočet nepoužívajte."
       },
       {
         "title": "Potvrďte postup pred rozhodnutím",
@@ -2226,7 +2226,7 @@
       },
       {
         "title": "Skontrolujte predpoklady výpočtu",
-        "body": "Pri použití kalkulačky si odložte zadanú výšku úveru, splatnosť, frekvenciu splátok a započítané náklady. Výsledok porovnajte s písomnou ponukou poskytovateľa, ktorá môže obsahovať ďalšie podmienky."
+        "body": "Pri použití kalkulačky si odložte zadanú výšku úveru, splatnosť, frekvenciu splátok a započítané náklady. Výsledok porovnajte s písomnou ponukou poskytovateľa, ktorá môže obsahovať ďalšie podmienky. Ak sa výsledky líšia, najprv skontrolujte dátum čerpania, dátumy splátok a to, či poplatok platíte vopred alebo je súčasťou úveru."
       }
     ]
   },
@@ -2259,7 +2259,7 @@
     "practical": [
       {
         "title": "Prepočítajte cieľ na pravidelný vklad",
-        "body": "Od cieľovej sumy odpočítajte už nasporené peniaze a zvyšok rozdeľte podľa počtu mesiacov do termínu. Výpočet najprv urobte bez predpokladaného úroku, aby plán nestál na neistom výnose."
+        "body": "Od cieľovej sumy odpočítajte už nasporené peniaze a zvyšok rozdeľte podľa počtu mesiacov do termínu. Výpočet najprv urobte bez predpokladaného úroku, aby plán nestál na neistom výnose. Napríklad pri cieli 1 200 eur o 12 mesiacov a už odložených 300 eur treba bez započítania výnosu odkladať 75 eur mesačne."
       },
       {
         "title": "Rozlišujte vklad a investíciu",
@@ -2312,7 +2312,7 @@
       },
       {
         "title": "Zmapujte záväzky aj nepravidelné výdavky",
-        "body": "Spíšte pravidelné príjmy, splátky, ročné poistky, opravy a plánované väčšie nákupy. Nepravidelné náklady rozpočítajte tak, aby neprekvapili v mesiaci úhrady."
+        "body": "Spíšte pravidelné príjmy, splátky, ročné poistky, opravy a plánované väčšie nákupy. Nepravidelné náklady rozpočítajte tak, aby neprekvapili v mesiaci úhrady. Pri ročnej platbe 360 eur si napríklad odkladajte 30 eur mesačne, ak začínate celý rok pred splatnosťou; pri kratšom čase rozdeľte chýbajúcu sumu podľa zostávajúcich mesiacov."
       },
       {
         "title": "Určte poradie finančných cieľov",
