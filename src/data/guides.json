@@ -38,15 +38,11 @@
       },
       {
         "title": "Urobte si vlastný prehľad",
-        "body": "Do jednej tabuľky si zapíšte úrok, RPMN, mesačnú splátku, celkové náklady, poplatky a podmienky zmeny sadzby po fixácii. Pri každej ponuke si urobte aj orientačný rozpočet s vyššou mesačnou splátkou po skončení fixácie. Nejde o predpoveď budúcej sadzby; cieľom je overiť, či domácnosti zostane priestor na nevyhnutné výdavky."
+        "body": "Do jednej tabuľky si zapíšte úrok, RPMN, mesačnú splátku, celkové náklady, poplatky a podmienky zmeny sadzby po fixácii. Pri každej ponuke si urobte aj orientačný rozpočet s vyššou mesačnou splátkou po skončení fixácie. Nejde o predpoveď budúcej sadzby; cieľom je overiť, či domácnosti zostane priestor na nevyhnutné výdavky. V tabuľke si pri každej ponuke označte, ktoré náklady sú jednorazové a ktoré mesačné. Pri porovnaní si ujasnite, či už sú zahrnuté v celkovej sume, aby ste ich nezapočítali dvakrát."
       },
       {
         "title": "Vyžiadajte si formulár ESIS",
         "body": "Pri každej ponuke si vyžiadajte európsky štandardizovaný informačný formulár ESIS. Porovnajte údaje pri rovnakom úvere, nie iba reklamovanú úrokovú sadzbu."
-      },
-      {
-        "title": "Zaznamenajte rozdiel v nákladoch",
-        "body": "V tabuľke si pri každej ponuke označte, ktoré náklady sú jednorazové a ktoré mesačné. Pri porovnaní si ujasnite, či už sú zahrnuté v celkovej sume, aby ste ich nezapočítali dvakrát."
       }
     ]
   },
@@ -81,7 +77,7 @@
       },
       {
         "title": "Nepozerajte iba na mesačnú splátku",
-        "body": "Nižšia splátka môže byť výsledkom predĺženia splatnosti. Porovnajte aj celkovú sumu, ktorú ešte zaplatíte pri starej a novej zmluve. Najprv si vyžiadajte ponuku s rovnakou zostávajúcou splatnosťou ako pri pôvodnom úvere."
+        "body": "Nižšia splátka môže byť výsledkom predĺženia splatnosti. Porovnajte aj celkovú sumu, ktorú ešte zaplatíte pri starej a novej zmluve. Najprv si vyžiadajte ponuku s rovnakou zostávajúcou splatnosťou ako pri pôvodnom úvere. Vytvorte dva stĺpce: zostávajúce platby pôvodného úveru a budúce platby nového úveru. Pridajte náklady na zmenu, ktoré ešte nie sú zahrnuté v splátkach; už zaplatené poplatky evidujte oddelene."
       },
       {
         "title": "Spočítajte jednorazové náklady",
@@ -94,10 +90,6 @@
       {
         "title": "Rozlišujte hypotéku a spotrebiteľský úver",
         "body": "Pri úvere na bývanie porovnajte nové podmienky aj vo formulári ESIS. Pri inom úvere si vyžiadajte príslušné predzmluvné informácie; pravidlá a náklady sa môžu líšiť."
-      },
-      {
-        "title": "Porovnajte úsporu od dneška",
-        "body": "Vytvorte dva stĺpce: zostávajúce platby pôvodného úveru a budúce platby nového úveru. Pridajte náklady na zmenu, ktoré ešte nie sú zahrnuté v splátkach; už zaplatené poplatky evidujte oddelene."
       }
     ]
   },
