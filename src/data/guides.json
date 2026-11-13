@@ -759,7 +759,7 @@
       },
       {
         "title": "Skontrolujte nevybavené elektronické podania",
-        "body": "Ak ste sa dokladom prihlasovali do elektronických služieb, overte prístup k rozpracovaným podaniam a doručovaným správam. Náhradný spôsob prihlásenia si overte na oficiálnom portáli."
+        "body": "Spíšte si rozpracované podania, ich termíny a dostupné potvrdenia. Pri každom si overte náhradný spôsob prístupu alebo kontakt na úrad; ak sa blíži termín, kontaktujte úrad včas."
       },
       {
         "title": "Overte stav dokladu pred ďalším použitím",
@@ -864,7 +864,7 @@
       },
       {
         "title": "Pripravte si cestovný kontrolný zoznam",
-        "body": "Na jedno miesto si zapíšte dátum odchodu, požadovanú platnosť pasu, podmienky tranzitu a stav víz či cestovných povolení. Pri každej položke uveďte, kde ste ju overili; podmienky môžu závisieť od konkrétnej krajiny."
+        "body": "Na jedno miesto si zapíšte dátum odchodu, požadovanú platnosť pasu, podmienky tranzitu a stav víz či cestovných povolení. Pri každej položke uveďte zdroj a dátum kontroly; pred odchodom si zmeniteľné podmienky overte znova."
       }
     ]
   },
@@ -1252,7 +1252,7 @@
       },
       {
         "title": "Overte prístup k elektronickej schránke",
-        "body": "Ak používate elektronickú schránku, po výmene dokladu si na oficiálnom portáli overte možnosť prihlásenia a prístup k doručeným správam. Pri probléme využite oficiálnu podporu bez prezrádzania bezpečnostných kódov."
+        "body": "Po výmene si vyskúšajte prihlásenie na oficiálnom portáli a otvorenie doručenej správy. Ak sa prihlásenie nepodarí, zaznamenajte chybové hlásenie bez osobných údajov a obráťte sa na oficiálnu podporu; bezpečnostné kódy jej neposielajte."
       }
     ]
   },
@@ -1342,7 +1342,7 @@
       },
       {
         "title": "Zjednoťte údaje dieťaťa v rezerváciách",
-        "body": "Pred cestou porovnajte zápis mena a dátumu narodenia dieťaťa v pase, letenke a ostatných cestovných dokladoch. Pri odlišnom priezvisku si vopred overte požadované sprievodné doklady u dopravcu a cieľovej krajiny."
+        "body": "Pri odlišnom priezvisku dieťaťa a sprevádzajúcej osoby si vopred overte požadované sprievodné doklady u dopravcu a príslušného orgánu cieľovej krajiny. Pripravte si ich spolu s cestovnými dokladmi, nie až pri odbavení."
       },
       {
         "title": "Pri zmene pasu upravte údaje u dopravcu včas",
@@ -1402,7 +1402,7 @@
       },
       {
         "title": "Pripravte podklady pre konzulárnu pomoc",
-        "body": "Ak ste v zahraničí, pripravte si dostupné údaje o totožnosti, kontakt, miesto pobytu a plán návratu. Na oficiálnom kontakte zastupiteľského úradu si overte, ktoré podklady potrebujú a aký doklad možno vydať pre vašu trasu."
+        "body": "Ak ste v zahraničí, pripravte si dostupné údaje o totožnosti, kontakt, miesto pobytu a plán návratu. Na oficiálnom kontakte zastupiteľského úradu si overte, ktoré podklady potrebujú a aký doklad možno vydať pre vašu trasu. Zapíšte si dohodnuté miesto a čas návštevy, kontaktnú osobu, ak bola určená, a pokyny k ďalšiemu postupu."
       }
     ]
   },
