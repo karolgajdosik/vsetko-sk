@@ -43,6 +43,10 @@
       {
         "title": "Vyžiadajte si formulár ESIS",
         "body": "Pri každej ponuke si vyžiadajte európsky štandardizovaný informačný formulár ESIS. Porovnajte údaje pri rovnakom úvere, nie iba reklamovanú úrokovú sadzbu."
+      },
+      {
+        "title": "Zaznamenajte rozdiel v nákladoch",
+        "body": "V tabuľke si pri každej ponuke označte, ktoré náklady sú jednorazové a ktoré mesačné. Pri porovnaní si ujasnite, či už sú zahrnuté v celkovej sume, aby ste ich nezapočítali dvakrát."
       }
     ]
   },
@@ -90,6 +94,10 @@
       {
         "title": "Rozlišujte hypotéku a spotrebiteľský úver",
         "body": "Pri úvere na bývanie porovnajte nové podmienky aj vo formulári ESIS. Pri inom úvere si vyžiadajte príslušné predzmluvné informácie; pravidlá a náklady sa môžu líšiť."
+      },
+      {
+        "title": "Porovnajte úsporu od dneška",
+        "body": "Vytvorte dva stĺpce: zostávajúce platby pôvodného úveru a budúce platby nového úveru. Pridajte náklady na zmenu, ktoré ešte nie sú zahrnuté v splátkach; už zaplatené poplatky evidujte oddelene."
       }
     ]
   },
@@ -137,6 +145,10 @@
       {
         "title": "Uložte si porovnateľné podklady pred podpisom",
         "body": "Odložte si datované ponuky, predzmluvné informácie a návrh zmluvy. Pri telefonickej ponuke si vyžiadajte podmienky písomne a skontrolujte, či sa suma na zaplatenie nezmenila medzi ponukou a podpisom."
+      },
+      {
+        "title": "Vyskúšajte rozpočet pred podpisom",
+        "body": "Ak to čas umožňuje, skúste si jeden mesiac odložiť plánovanú splátku bokom. Sledujte, či pritom zvládnete bežné výdavky bez čerpania rezervy; nejde o záruku budúcej schopnosti splácať."
       }
     ]
   },
@@ -186,6 +198,10 @@
       {
         "title": "Pripravte plán použitia pri núdzi",
         "body": "Vopred si určte, na ktoré nevyhnutné situácie rezervu použijete a z akého účtu ju viete vybrať. Ak máte spoločný rozpočet, dohodnite sa, kto má k prostriedkom prístup aj v čase neprítomnosti druhého člena domácnosti."
+      },
+      {
+        "title": "Prepočítajte pokrytie výdavkov",
+        "body": "Vydelte dostupnú rezervu nevyhnutnými mesačnými výdavkami. Výsledok vyjadruje orientačný počet mesiacov pri nezmenených výdavkoch; pri zmene príjmu alebo nákladov ho prepočítajte."
       }
     ]
   },
@@ -235,6 +251,10 @@
       {
         "title": "Oddeľte úsporu od presunutého výdavku",
         "body": "Pri každej navrhovanej úspore skontrolujte, či sa platba iba neposúva do ďalšieho mesiaca alebo nenahrádza drahšou službou. Zapíšte si čistý mesačný rozdiel a dátum, odkedy sa má prejaviť."
+      },
+      {
+        "title": "Zohľadnite vratky a refundácie",
+        "body": "Pri vrátenom nákupe alebo refundácii označte pôvodnú platbu a súvisiaci príjem. Pri vyhodnotení kategórie použite čistý výdavok, aby vratka neskreslila porovnanie mesiacov."
       }
     ]
   },
