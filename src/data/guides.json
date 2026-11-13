@@ -2425,7 +2425,7 @@
       },
       {
         "title": "Porovnajte prevádzkové náklady",
-        "body": "Pri odhade ceny používajte skutočnú cenu elektriny za kWh vrátane relevantných poplatkov a počítajte aj so stratami pri nabíjaní."
+        "body": "Pri odhade ceny používajte skutočnú cenu elektriny za kWh vrátane relevantných poplatkov a počítajte aj so stratami pri nabíjaní. Pri odhade mesačnej spotreby vynásobte plánované kilometre spotrebou v kWh na 100 km a vydeľte výsledok stovkou. Na vyúčtovanie používajte nameranú energiu zo siete, ktorá už zahŕňa straty; nepripočítavajte ich druhýkrát."
       },
       {
         "title": "Dohodnite spôsob merania spotreby",
@@ -2652,7 +2652,7 @@
       },
       {
         "title": "Pripravte doklady",
-        "body": "Pred návštevou pracoviska si overte jeho aktuálne požiadavky na doklady, rezerváciu a rozsah kontroly vrátane prípadnej emisnej kontroly. Po kontrole si uschovajte protokol a ďalší postup si potvrďte podľa výsledku na pracovisku."
+        "body": "Pred návštevou pracoviska si overte jeho aktuálne požiadavky na doklady, rezerváciu a rozsah kontroly vrátane prípadnej emisnej kontroly. Po kontrole si uschovajte protokol a ďalší postup si potvrďte podľa výsledku na pracovisku. Pri rezervácii si poznačte adresu pracoviska, čas, potvrdený rozsah kontroly a kontakt pre zmenu termínu. Doklady pripravte podľa potvrdeného zoznamu, nie podľa neaktuálneho univerzálneho zoznamu."
       },
       {
         "title": "Overte PZP pred STK",
@@ -2759,7 +2759,7 @@
       },
       {
         "title": "Vytvorte prehľadný spis poistnej udalosti",
-        "body": "Po zaistení bezpečnosti usporiadajte pôvodné fotografie, záznam o udalosti, kontakty svedkov a komunikáciu s poisťovňou podľa dátumu. Osobné údaje neposielajte cez verejné odkazy."
+        "body": "Po zaistení bezpečnosti usporiadajte pôvodné fotografie, záznam o udalosti, kontakty svedkov a komunikáciu s poisťovňou podľa dátumu. Osobné údaje neposielajte cez verejné odkazy. Pri každom odovzdanom dokumente si zaznamenajte dátum, príjemcu a číslo poistnej udalosti. Ak poisťovňa vyžiada doplnenie, evidujte ho oddelene od už odoslaných podkladov."
       }
     ],
     "detail": {
@@ -2946,7 +2946,7 @@
       },
       {
         "title": "Nepozerajte len na mesačnú splátku",
-        "body": "Pri porovnaní použite rovnakú cenu auta, dĺžku financovania a akontáciu. Zahrňte aj jednorazové poplatky, konečné odkúpenie a náklady na poistenie."
+        "body": "Pri porovnaní použite rovnakú cenu auta, dĺžku financovania a akontáciu. Zahrňte aj jednorazové poplatky, konečné odkúpenie a náklady na poistenie. Pri porovnaní si vytvorte dva stĺpce: suma zaplatená počas zmluvy a majetok, ktorý vám po jej skončení zostane. Ponuku s vrátením auta neporovnávajte s odkúpením iba podľa súčtu splátok."
       },
       {
         "title": "Overte vlastníctvo a obmedzenia",
@@ -3018,7 +3018,7 @@
       },
       {
         "title": "Založte si záznam o sezónnej kontrole",
-        "body": "Poznačte rozmery a označenie pneumatík, nameraný tlak podľa odporúčania výrobcu, zistené poškodenia a dátum prezutia. Nejasnosti v označení riešte s pneuservisom."
+        "body": "Poznačte rozmery a označenie pneumatík, nameraný tlak podľa odporúčania výrobcu, zistené poškodenia a dátum prezutia. Nejasnosti v označení riešte s pneuservisom. Pri uskladnení si označte pôvodnú pozíciu kolies a zaznamenajte nerovnomerné opotrebenie; vhodnosť ďalšieho použitia a prípadnej zmeny pozície nechajte posúdiť pneuservisom."
       }
     ]
   },
