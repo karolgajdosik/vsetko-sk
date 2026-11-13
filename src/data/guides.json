@@ -573,7 +573,7 @@
       "label": "Slovensko.sk – strata alebo odcudzenie občianskeho preukazu",
       "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_co-robit-pri-strate-alebo-odcu"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "strata obcianskeho preukazu",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
@@ -581,7 +581,7 @@
       "Iný dostupný doklad totožnosti alebo identifikačné údaje na komunikáciu s príslušným pracoviskom",
       "Zoznam služieb, pri ktorých sa používal elektronický podpis alebo prihlasovanie strateným dokladom"
     ],
-    "verification": "12. 11. 2026: Overený postup hlásenia straty, zneplatnenia dokladu a žiadosti o nový preukaz. Úplná právna revízia, aktuálne poplatky a lehoty neboli samostatne overené.",
+    "verification": "12. 11. 2026: Overený postup hlásenia straty, zneplatnenia dokladu a žiadosti o nový preukaz. Úplná právna revízia, aktuálne poplatky a lehoty neboli samostatne overené. Doplnené tematické odkazy 13. 11. 2026: overený verejný obsah nových informačných stránok; interaktívne formuláre a individuálne právne podmienky neboli testované.",
     "sourceNote": "Slovensko.sk opisuje osobné aj elektronické hlásenie; dostupnosť konkrétnej elektronickej služby a podmienky poplatkov overte pred podaním.",
     "detail": {
       "summary": "Pri strate alebo krádeži občianskeho preukazu je prioritou nahlásenie neplatného dokladu a následné vybavenie nového. Ak máš aktivované elektronické funkcie, rieš aj ochranu prístupových údajov.",
@@ -630,6 +630,10 @@
         {
           "label": "Elektronický postup a požadované údaje",
           "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_ukradli-mi-doklady-stratili"
+        },
+        {
+          "label": "MZVEZ SR – strata dokladov v zahraničí",
+          "url": "https://www.mzv.sk/web/sk/sluzby/ak-cestujete-do-zahranicia/strata-alebo-odcudzenie-dokladov"
         }
       ],
       "screenGuide": [
@@ -699,7 +703,7 @@
       "Pripravte občiansky preukaz alebo iný uznávaný doklad a starý pas, ak ho máte.",
       "Zistite, či potrebujete štandardnú alebo zrýchlenú lehotu."
     ],
-    "verification": "12. 11. 2026: Overený postup osobného podania, rezervácie termínu a predloženia pôvodného pasu. Úplná právna revízia, aktuálne poplatky a lehoty neboli samostatne overené. Doplnené 13. 11. 2026: overený verejný obsah konkrétnych doplnkových odkazov; prihlásenie a odoslanie žiadosti neboli testované.",
+    "verification": "12. 11. 2026: Overený postup osobného podania, rezervácie termínu a predloženia pôvodného pasu. Úplná právna revízia, aktuálne poplatky a lehoty neboli samostatne overené. Doplnené 13. 11. 2026: overený verejný obsah konkrétnych doplnkových odkazov; prihlásenie a odoslanie žiadosti neboli testované. Doplnené tematické odkazy 13. 11. 2026: overený verejný obsah nových informačných stránok; interaktívne formuláre a individuálne právne podmienky neboli testované.",
     "sourceNote": "Slovensko.sk opisuje vydanie a prevzatie pasu; vstupné podmienky cieľovej krajiny overte samostatne.",
     "detail": {
       "summary": "Nový cestovný pas sa vybavuje osobne na oddelení dokladov. Pred cestou si skontrolujte požiadavky cieľovej krajiny, pretože niektoré štáty požadujú platnosť pasu aj po plánovanom návrate.",
@@ -742,8 +746,8 @@
           "url": "https://pes.minv.sk/wps/wcm/connect/sk/site/main/Rezervacny-system/"
         },
         {
-          "label": "MZVEZ SR – podmienky cestovania a doklady",
-          "url": "https://www.mzv.sk/cestovanie"
+          "label": "MZVEZ SR – podmienky vstupu podľa krajiny",
+          "url": "https://www.mzv.sk/staty/podmienky-vstupu-do-krajin"
         }
       ]
     },
@@ -1091,7 +1095,7 @@
       "label": "Slovensko.sk – vybavenie občianskeho preukazu",
       "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_vybavujem-obciansky-preukaz-s"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "ako vybaviť občiansky preukaz",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
@@ -1099,7 +1103,7 @@
       "Zistite dôvod vydania a potrebné podklady k zmene údajov.",
       "Overte dostupnosť rezervácie termínu."
     ],
-    "verification": "12. 11. 2026: Overený postup podania na oddelení dokladov, zoznam podkladov a možnosti prevzatia. Úplná právna revízia, aktuálne poplatky a lehoty neboli samostatne overené.",
+    "verification": "12. 11. 2026: Overený postup podania na oddelení dokladov, zoznam podkladov a možnosti prevzatia. Úplná právna revízia, aktuálne poplatky a lehoty neboli samostatne overené. Doplnené tematické odkazy 13. 11. 2026: overený verejný obsah nových informačných stránok; interaktívne formuláre a individuálne právne podmienky neboli testované.",
     "sourceNote": "Tematická stránka obsahuje aj historické informácie o zavádzaní eID; pri osobitných prípadoch a poplatkoch si vyžiadajte aktuálne pokyny pracoviska.",
     "detail": {
       "summary": "Občiansky preukaz vybavíte na pracovisku dokladov. Konkrétny postup závisí od toho, či ide o prvé vydanie, skončenie platnosti, zmenu údajov alebo poškodenie.",
@@ -1134,16 +1138,16 @@
       "outcome": "Máte nový občiansky preukaz so správnymi údajmi.",
       "links": [
         {
-          "label": "Ministerstvo vnútra SR",
-          "url": "https://www.minv.sk/"
+          "label": "Slovensko.sk – prvý občiansky preukaz",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_prvy-obciansky-preukaz"
         },
         {
           "label": "MV SR – návod a vstup do rezervačného systému",
           "url": "https://pes.minv.sk/wps/wcm/connect/sk/site/main/Rezervacny-system/"
         },
         {
-          "label": "Slovensko.sk – eID",
-          "url": "https://www.slovensko.sk/"
+          "label": "Slovensko.sk – eID karta a elektronické funkcie",
+          "url": "https://nove.slovensko.sk/suvisiace-temy/eid-karta"
         }
       ]
     },
@@ -1197,7 +1201,7 @@
       "Počítajte s osobnou prítomnosťou dieťaťa; overte oprávnenie zákonného zástupcu a prípadné osobitné okolnosti.",
       "Skontrolujte požiadavky cieľovej krajiny a plánovaný termín odchodu."
     ],
-    "verification": "12. 11. 2026: Opätovne porovnaný postup osobného podania a zastúpenia dieťaťa mladšieho ako 15 rokov s úradným návodom. Úplná právna revízia, aktuálne poplatky a lehoty neboli samostatne overené. Doplnené 13. 11. 2026: overený verejný obsah konkrétnych doplnkových odkazov; prihlásenie a odoslanie žiadosti neboli testované.",
+    "verification": "12. 11. 2026: Opätovne porovnaný postup osobného podania a zastúpenia dieťaťa mladšieho ako 15 rokov s úradným návodom. Úplná právna revízia, aktuálne poplatky a lehoty neboli samostatne overené. Doplnené 13. 11. 2026: overený verejný obsah konkrétnych doplnkových odkazov; prihlásenie a odoslanie žiadosti neboli testované. Doplnené tematické odkazy 13. 11. 2026: overený verejný obsah nových informačných stránok; interaktívne formuláre a individuálne právne podmienky neboli testované.",
     "sourceNote": "Zdroj opisuje aj osobitné prípady zastupovania; pri súdnych obmedzeniach alebo zdravotnej prekážke kontaktujte pracovisko.",
     "detail": {
       "summary": "Aj dieťa potrebuje na cestu vlastný cestovný doklad, ak ho vyžaduje cieľová krajina. Pri podaní žiadosti sa uplatňujú pravidlá zastúpenia zákonným zástupcom a biometrie podľa veku.",
@@ -1236,8 +1240,8 @@
           "url": "https://pes.minv.sk/wps/wcm/connect/sk/site/main/casto-kladene-otazky/FAQ-CP/"
         },
         {
-          "label": "MZVEZ SR – podmienky cestovania a doklady",
-          "url": "https://www.mzv.sk/cestovanie"
+          "label": "MZVEZ SR – cestovanie s deťmi a vzory súhlasu",
+          "url": "https://www.mzv.sk/web/sk/sluzby/ak-cestujete-do-zahranicia/cestovanie-s-detmi"
         }
       ]
     },
@@ -1494,7 +1498,7 @@
       "label": "Slovensko.sk – uzavretie manželstva",
       "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_uzavretie-manzelstva-rozvod-m"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "sobáš na slovensku",
     "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
     "preparation": [
@@ -1502,7 +1506,7 @@
       "Pripravte doklady totožnosti a informácie o osobnom stave.",
       "Ak je jeden zo snúbencov cudzinec, včas overte požiadavky na zahraničné doklady a preklady."
     ],
-    "verification": "12. 11. 2026: Overené rozlíšenie civilného a cirkevného obradu a predkladanie dokladov. Úplná právna revízia, individuálne podmienky, poplatky a lehoty neboli samostatne overené.",
+    "verification": "12. 11. 2026: Overené rozlíšenie civilného a cirkevného obradu a predkladanie dokladov. Úplná právna revízia, individuálne podmienky, poplatky a lehoty neboli samostatne overené. Doplnené tematické odkazy 13. 11. 2026: overený verejný obsah nových informačných stránok; interaktívne formuláre a individuálne právne podmienky neboli testované.",
     "sourceNote": "Zdroj sa venuje uzavretiu manželstva; individuálne požiadavky na doklady, cudzinecké listiny a termín obradu si overte priamo na matrike. Následný zoznam aktualizácií je praktické redakčné odporúčanie.",
     "detail": {
       "summary": "Pri uzavretí manželstva sa najprv dohodnite s príslušným matričným úradom alebo oprávneným cirkevným orgánom. Doklady, termíny a podmienky sa líšia podľa štátneho občianstva snúbencov a miesta sobáša.",
@@ -1537,12 +1541,12 @@
       "outcome": "Manželstvo je zapísané v matrike a máte k dispozícii sobášny list.",
       "links": [
         {
-          "label": "Slovensko.sk",
-          "url": "https://www.slovensko.sk/"
+          "label": "Slovensko.sk – civilný sobáš",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_civilny-sobas1/"
         },
         {
-          "label": "Ministerstvo vnútra SR",
-          "url": "https://www.minv.sk/"
+          "label": "Slovensko.sk – cirkevný sobáš",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_cirkevny-sobas1"
         }
       ]
     },
