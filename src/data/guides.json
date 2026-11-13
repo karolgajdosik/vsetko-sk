@@ -252,7 +252,7 @@
       "label": "SKP – Prečo je PZP dôležité",
       "url": "https://www.skp.sk/preco-je-pzp-dolezite/"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "povinne zmluvne poistenie",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
@@ -260,7 +260,7 @@
       "Údaje poistníka a plánovaný dátum začiatku krytia",
       "Dve porovnateľné ponuky vrátane limitov, výluk, asistencie a spôsobu hlásenia škody"
     ],
-    "verification": "12. 11. 2026: overený tematický zdroj SKP o krytí a uzatvorení PZP; nejde o úplnú právnu revíziu ani kontrolu individuálnej zmluvy.",
+    "verification": "12. 11. 2026: overený tematický zdroj SKP o krytí a uzatvorení PZP; nejde o úplnú právnu revíziu ani kontrolu individuálnej zmluvy. Doplnené 13. 11. 2026: Doplnený verejný formulár SKP na informatívne overenie PZP; konkrétna poistka nebola vyhľadávaná.",
     "sourceNote": "SKP poskytuje tematické informácie o PZP; individuálne krytie potvrdzuje poisťovňa. Presný režim kontroly PZP pri STK a jeho účinnosť treba osobitne overiť v aktuálnom oznámení príslušného orgánu.",
     "practical": [
       {
@@ -283,7 +283,58 @@
         "title": "Zaznamenajte zmenu poistných údajov",
         "body": "Pri zmene evidenčného čísla, držiteľa alebo kontaktných údajov si od poisťovne vyžiadajte potvrdenie, že zmenu spracovala. Uložte si dátum oznámenia a číslo požiadavky."
       }
-    ]
+    ],
+    "detail": {
+      "reviewed": "8. 11. 2026",
+      "before": [
+        "Doklady a identifikačné údaje vozidla.",
+        "Požadovaný začiatok poistenia a údaje poistníka.",
+        "Existujúca zmluva, ak porovnávate obnovu."
+      ],
+      "detailed": [
+        {
+          "title": "Skontrolujte predmet poistenia",
+          "body": "Porovnajte údaje z ponuky s dokladmi vozidla a odlíšte PZP od dobrovoľného havarijného poistenia.",
+          "where": "Ponuka a osvedčenie o evidencii."
+        },
+        {
+          "title": "Porovnajte krytie a služby",
+          "body": "Vedľa ceny sledujte limity, výluky, asistenciu a doplnkové služby. Žiadajte vysvetlenie rozdielov, ktoré sú pre vaše používanie vozidla dôležité.",
+          "where": "Poistné podmienky a informácie poisťovne."
+        },
+        {
+          "title": "Potvrďte vznik a platenie",
+          "body": "Overte dátum účinnosti, podmienky úhrady a presnú identifikáciu platby. Pri zmene poistky si potvrďte nadväznosť krytia.",
+          "where": "Zmluva, platobný predpis a potvrdenie poisťovne."
+        },
+        {
+          "title": "Uložte kontakty pre prípad škody",
+          "body": "Majte dostupné číslo zmluvy, asistenciu a postup nahlásenia udalosti. Overenie evidencie poistenia hľadajte v oficiálnych službách SKP.",
+          "where": "Poisťovňa a Slovenská kancelária poisťovateľov."
+        }
+      ],
+      "pitfalls": [
+        "Porovnanie iba podľa ceny môže vynechať dôležité výluky.",
+        "Objednávka nie je automaticky potvrdením účinného krytia.",
+        "Povinnosti pri ukončení pôvodnej zmluvy sa riešia samostatne."
+      ],
+      "outcome": "Máte správne identifikované vozidlo, potvrdené podmienky krytia a dostupný postup pri škode.",
+      "links": [
+        {
+          "label": "SKP – Prečo je PZP dôležité",
+          "url": "https://www.skp.sk/preco-je-pzp-dolezite/"
+        },
+        {
+          "label": "MD SR – automatická kontrola PZP pri STK od októbra 2026",
+          "url": "https://www.mindop.sk/media/tlacove-spravy/detail/od-oktobra-sa-bude-na-stk-kontrolovat-aj-povinne-zmluvne-poistenie"
+        },
+        {
+          "label": "SKP – overenie platnosti PZP podľa EČV alebo VIN",
+          "url": "https://www.skp.sk/vyhladat-poistovatela-vozidla-a-overit-platnost-pzp/"
+        }
+      ],
+      "summary": "Pri PZP si overte krytie, výluky a postup pri poistnej udalosti."
+    }
   },
   {
     "slug": "kontrola-vozidla-pred-kupou",
@@ -299,7 +350,7 @@
       "label": "Slovensko.sk – overenie vozidla",
       "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_elektronicke-sluzby-evidencie"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "kontrola vozidla pred kupou",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
@@ -307,7 +358,7 @@
       "Servisná história, informácie o opravách a dostupné záznamy o kilometroch",
       "Termín nezávislej prehliadky a zoznam otázok na predávajúceho"
     ],
-    "verification": "12. 11. 2026: overený úradný opis služby Overenie vozidla a podmienok prístupu; technický stav konkrétneho auta sa neoveroval.",
+    "verification": "12. 11. 2026: overený úradný opis služby Overenie vozidla a podmienok prístupu; technický stav konkrétneho auta sa neoveroval. Doplnené 13. 11. 2026: Doplnený tematický návod k histórii vozidla; prihlásenie a výpis konkrétneho vozidla neboli testované.",
     "sourceNote": "Služba Overenie vozidla na slovensko.sk uvádza dostupné evidenčné údaje vrátane histórie držby a kilometrov. Prístup je určený vlastníkovi, držiteľovi alebo elektronicky splnomocnenému zástupcovi; požiadajte predávajúceho o súčinnosť. Výpis nenahrádza nezávislú prehliadku.",
     "practical": [
       {
@@ -338,7 +389,54 @@
         "title": "Overte funkčnosť výbavy pri skúšobnej jazde",
         "body": "Spíšte si výbavu, ktorú predávajúci deklaruje, a pri obhliadke osobitne vyskúšajte klimatizáciu, asistenčné systémy, nabíjanie alebo infotainment podľa typu vozidla. Neoverené funkcie zaznamenajte do protokolu."
       }
-    ]
+    ],
+    "detail": {
+      "reviewed": "8. 11. 2026",
+      "before": [
+        "VIN, evidenčné doklady a identita predávajúceho.",
+        "Servisná história a dostupné doklady o opravách.",
+        "Možnosť nezávislej prehliadky pred zaplatením."
+      ],
+      "detailed": [
+        {
+          "title": "Overte identitu a oprávnenie predávať",
+          "body": "Porovnajte VIN na vozidle s dokladmi a zistite, kto je vlastníkom a kto môže uzatvoriť zmluvu. Nevysvetlené rozdiely vyriešte vopred.",
+          "where": "Predávajúci a doklady k vozidlu."
+        },
+        {
+          "title": "Preskúmajte históriu",
+          "body": "Vyžiadajte servisné záznamy, údaje o poškodeniach a dostupné overenia. Chýbajúca história je neistota, nie dôkaz bezchybného stavu.",
+          "where": "Servisné doklady a oficiálne evidenčné služby."
+        },
+        {
+          "title": "Zabezpečte technickú prehliadku",
+          "body": "Dohodnite skúšobnú jazdu a nezávislé preverenie technického stavu. Pri elektromobile si vyžiadajte aj informácie o trakčnej batérii a záruke.",
+          "where": "Nezávislý servis podľa typu vozidla."
+        },
+        {
+          "title": "Premietnite zistenia do dohody",
+          "body": "Zaznamenajte známe vady, dohodnuté príslušenstvo a spôsob odovzdania. Pri právnych neistotách dajte zmluvu preveriť pred úhradou.",
+          "where": "Kúpna zmluva a odovzdávací protokol."
+        }
+      ],
+      "pitfalls": [
+        "Platná kontrola nenahrádza predkúpnu prehliadku.",
+        "Fotografie a krátka jazda nemusia odhaliť skryté problémy.",
+        "Zálohu neplaťte bez jasnej identity príjemcu a podmienok vrátenia."
+      ],
+      "outcome": "Poznáte zistený stav vozidla, otvorené neistoty a podmienky bezpečného prevzatia.",
+      "summary": "Pred kúpou ojazdeného auta preverujte technický aj právny stav.",
+      "links": [
+        {
+          "label": "Slovensko.sk – overenie vozidla",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_elektronicke-sluzby-evidencie"
+        },
+        {
+          "label": "Slovensko.sk – overenie histórie ojazdeného auta",
+          "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_overenie-detailov-a-historie-o"
+        }
+      ]
+    }
   },
   {
     "slug": "predaj-vozidla",
@@ -2601,7 +2699,7 @@
       "label": "Ministerstvo dopravy – technické kontroly vozidiel",
       "url": "https://www.mindop.sk/ministerstvo/statny-dopravny-urad/kontroly-vozidiel/technicke-kontroly-vozidiel"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "príprava na stk",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
@@ -2609,7 +2707,7 @@
       "Informácie o termíne, rezervácii a úhrade kontroly",
       "Záznam o predchádzajúcej kontrole, ak je relevantný"
     ],
-    "verification": "12. 11. 2026: Overená stránka technických kontrol MD SR a oznámenie z 29. 9. 2026 o automatickej kontrole PZP pri TK a EK. Individuálne intervaly, doklady a ceny pracoviska neboli úplne overené.",
+    "verification": "12. 11. 2026: Overená stránka technických kontrol MD SR a oznámenie z 29. 9. 2026 o automatickej kontrole PZP pri TK a EK. Individuálne intervaly, doklady a ceny pracoviska neboli úplne overené. Doplnené 13. 11. 2026: Doplnený verejný formulár SKP na informatívne overenie PZP; konkrétna poistka nebola vyhľadávaná.",
     "sourceNote": "Ministerstvo dopravy zverejňuje informácie o technických kontrolách a samostatné oznámenie o PZP: https://www.mindop.sk/media/tlacove-spravy/detail/od-oktobra-sa-bude-na-stk-kontrolovat-aj-povinne-zmluvne-poistenie . Termín a doklady overte podľa vozidla, cenu u prevádzkovateľa.",
     "practical": [
       {
@@ -2632,7 +2730,58 @@
         "title": "Overte PZP pred STK",
         "body": "Od 1. 10. 2026 sa podľa oznámenia Ministerstva dopravy pri technickej a emisnej kontrole platnosť PZP overuje automaticky v registri SKP. Doklad o poistení na tento účel nepredkladáte. Ak register poistenie nezobrazuje, kontaktujte poisťovňu ešte pred STK; údaje v registri opravuje poisťovňa."
       }
-    ]
+    ],
+    "detail": {
+      "reviewed": "8. 11. 2026",
+      "before": [
+        "Doklady vozidla a termín platnosti príslušných kontrol.",
+        "Informácie o kategórii vozidla, palive a vykonaných úpravách.",
+        "Dostupné protokoly z predchádzajúcich kontrol."
+      ],
+      "detailed": [
+        {
+          "title": "Overte požadované kontroly",
+          "body": "Podľa konkrétneho vozidla si potvrďte druh kontroly, termíny a potrebné doklady. Podmienky pre odlišné pohony a úpravy môžu byť rozdielne.",
+          "where": "Oficiálne informácie a zvolená oprávnená stanica."
+        },
+        {
+          "title": "Skontrolujte bežné funkcie",
+          "body": "Pred termínom vyskúšajte svetlá, stierače, ostrekovače, bezpečnostné pásy a stav pneumatík. Upozornenia na prístrojovej doske riešte so servisom.",
+          "where": "Vozidlo a servis podľa potreby."
+        },
+        {
+          "title": "Pripravte vozidlo a podklady",
+          "body": "Zabezpečte čitateľnosť identifikačných údajov a dostupnosť povinných podkladov. Pri osobitnej výbave si vyžiadajte pokyny stanice vopred.",
+          "where": "Doklady a komunikácia so stanicou."
+        },
+        {
+          "title": "Prevezmite a vyhodnoťte protokol",
+          "body": "Skontrolujte výsledok a vysvetlenie zistených nedostatkov. Ak treba ďalší postup, riaďte sa uvedenými podmienkami a overte ďalšie kroky.",
+          "where": "Kontrolná stanica a servis."
+        }
+      ],
+      "pitfalls": [
+        "Univerzálny internetový termín nemusí platiť pre vaše vozidlo.",
+        "Zhasnutie upozornenia bez opravy neodstraňuje príčinu.",
+        "Nejasný výsledok protokolu si nechajte vysvetliť pred ďalšou jazdou."
+      ],
+      "outcome": "Máte pripravené vozidlo a doklady a rozumiete výsledku kontroly.",
+      "links": [
+        {
+          "label": "Ministerstvo dopravy – technické kontroly vozidiel",
+          "url": "https://www.mindop.sk/ministerstvo/statny-dopravny-urad/kontroly-vozidiel/technicke-kontroly-vozidiel"
+        },
+        {
+          "label": "MD SR – automatická kontrola PZP pri STK od októbra 2026",
+          "url": "https://www.mindop.sk/media/tlacove-spravy/detail/od-oktobra-sa-bude-na-stk-kontrolovat-aj-povinne-zmluvne-poistenie"
+        },
+        {
+          "label": "SKP – overenie platnosti PZP podľa EČV alebo VIN",
+          "url": "https://www.skp.sk/vyhladat-poistovatela-vozidla-a-overit-platnost-pzp/"
+        }
+      ],
+      "summary": "Kontrolný zoznam pred STK: osvetlenie, pneumatiky, sklá, brzdy, doklady a prípadná emisná kontrola."
+    }
   },
   {
     "slug": "nehoda-na-ceste",
@@ -2649,7 +2798,7 @@
       "label": "SKP – Ako postupovať pri dopravnej nehode",
       "url": "https://www.skp.sk/ako-postupovat-pri-dopravnej-nehode/"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "postup pri dopravnej nehode",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
@@ -2657,7 +2806,7 @@
       "Dostupné údaje o poistení vozidla a formulár na záznam o nehode, ak ho máte",
       "Bezpečný spôsob zaznamenania miesta, účastníkov, svedkov a poškodení až po zabezpečení osôb"
     ],
-    "verification": "12. 11. 2026: overený návod SKP k dokumentovaniu udalosti, formuláru a asistencii; zákonné podmienky privolania polície a lehoty neboli právne revidované. Nejde o úplnú právnu ani individuálnu technickú revíziu.",
+    "verification": "12. 11. 2026: overený návod SKP k dokumentovaniu udalosti, formuláru a asistencii; zákonné podmienky privolania polície a lehoty neboli právne revidované. Nejde o úplnú právnu ani individuálnu technickú revíziu. Doplnené 13. 11. 2026: Doplnená verejná stránka tlačív SKP a formulár na overenie PZP; podanie ani konkrétna poistka neboli testované.",
     "sourceNote": "SKP vysvetľuje vyplnenie Správy o nehode, dokumentovanie a kontaktovanie asistencie. Pri povinnostiach účastníka sa riaďte aktuálnym zákonom a pokynmi príslušných orgánov.",
     "practical": [
       {
@@ -2684,7 +2833,58 @@
         "title": "Vytvorte prehľadný spis poistnej udalosti",
         "body": "Po zaistení bezpečnosti usporiadajte pôvodné fotografie, záznam o udalosti, kontakty svedkov a komunikáciu s poisťovňou podľa dátumu. Osobné údaje neposielajte cez verejné odkazy."
       }
-    ]
+    ],
+    "detail": {
+      "reviewed": "8. 11. 2026",
+      "before": [
+        "Kontakt na tiesňovú a asistenčnú službu.",
+        "Doklady vozidla a údaje o poistení.",
+        "Možnosť zaznamenať udalosť, keď je to bezpečné."
+      ],
+      "detailed": [
+        {
+          "title": "Riešte bezpečnosť a pomoc",
+          "body": "Najskôr chráňte zdravie a predchádzajte ďalšiemu nebezpečenstvu. V núdzi volajte 112 a riaďte sa pokynmi príslušných zložiek.",
+          "where": "Miesto udalosti a tiesňová linka podľa situácie."
+        },
+        {
+          "title": "Overte ďalší postup",
+          "body": "Privolanie polície a postup posudzujte podľa okolností a aktuálnych pravidiel. Pri nejasnosti alebo spore si vyžiadajte pokyny príslušných orgánov.",
+          "where": "Polícia a oficiálne informácie."
+        },
+        {
+          "title": "Zaznamenajte overiteľné okolnosti",
+          "body": "Keď je to bezpečné, zaznamenajte účastníkov, vozidlá, miesto, poškodenia a dostupných svedkov. V dokumentoch odlišujte zistené fakty od domnienok.",
+          "where": "Spoločný záznam o udalosti a vlastná dokumentácia."
+        },
+        {
+          "title": "Kontaktujte poisťovňu a uchovajte podklady",
+          "body": "Vyžiadajte si pokyny k nahláseniu, obhliadke, odťahu a ďalšiemu postupu. Uschovajte dokumentáciu, potvrdenia a súvisiace výdavky.",
+          "where": "Poisťovňa alebo asistenčná služba."
+        }
+      ],
+      "pitfalls": [
+        "Dokumentovanie nesmie ohroziť osoby na mieste.",
+        "Nepodpisujte tvrdenie, ktorému nerozumiete alebo s ktorým nesúhlasíte.",
+        "Postup pri škode v zahraničí môže vyžadovať ďalšie kontakty a doklady."
+      ],
+      "outcome": "Máte zabezpečený ďalší postup podľa okolností a podklady na oznámenie poistnej udalosti.",
+      "summary": "Bezpečnosť a dokumentácia udalosti",
+      "links": [
+        {
+          "label": "SKP – Ako postupovať pri dopravnej nehode",
+          "url": "https://www.skp.sk/ako-postupovat-pri-dopravnej-nehode/"
+        },
+        {
+          "label": "SKP – tlačivá vrátane Správy o nehode",
+          "url": "https://www.skp.sk/tlaciva-na-stiahnutie/"
+        },
+        {
+          "label": "SKP – overenie platnosti PZP podľa EČV alebo VIN",
+          "url": "https://www.skp.sk/vyhladat-poistovatela-vozidla-a-overit-platnost-pzp/"
+        }
+      ]
+    }
   },
   {
     "slug": "pzp-pri-kupe-auta",
@@ -2701,7 +2901,7 @@
       "label": "SKP – Prečo je PZP dôležité",
       "url": "https://www.skp.sk/preco-je-pzp-dolezite/"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "pzp pri kúpe auta",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
@@ -2709,7 +2909,7 @@
       "Ponuky PZP s dátumom začiatku krytia, limitmi a výlukami",
       "Kontakty poisťovne a doklad o uzavretí poistenia dostupný pri prevzatí vozidla"
     ],
-    "verification": "12. 11. 2026: overený zdroj SKP o uzatvorení PZP a doklade o poistení; individuálny začiatok krytia a právne podmienky prevodu treba potvrdiť osobitne.",
+    "verification": "12. 11. 2026: overený zdroj SKP o uzatvorení PZP a doklade o poistení; individuálny začiatok krytia a právne podmienky prevodu treba potvrdiť osobitne. Doplnené 13. 11. 2026: Doplnený verejný formulár SKP na informatívne overenie PZP; konkrétna poistka nebola vyhľadávaná.",
     "sourceNote": "SKP poskytuje všeobecné informácie o PZP, nie potvrdenie začiatku konkrétneho poistného krytia ani aktuálnych pravidiel STK. Začiatok krytia overte u poisťovne.",
     "practical": [
       {
@@ -2740,7 +2940,58 @@
         "title": "Skontrolujte súlad začiatku krytia a prevzatia",
         "body": "Pred prevzatím vozidla si uložte potvrdenie poisťovne o začiatku krytia a porovnajte ho s dohodnutým dátumom a časom odovzdania. Nejasnosti vyriešte s poisťovňou ešte pred jazdou."
       }
-    ]
+    ],
+    "detail": {
+      "reviewed": "8. 11. 2026",
+      "before": [
+        "VIN a evidenčné údaje kupovaného vozidla.",
+        "Dátum prevzatia a plán zmeny držiteľa.",
+        "Údaje potrebné na uzavretie poistenia."
+      ],
+      "detailed": [
+        {
+          "title": "Zosúlaďte termíny s predávajúcim",
+          "body": "Dohodnite prevzatie, evidenčné úkony a zodpovednosť za príslušné kroky. Neodhadujte nadväznosť poistenia len podľa ústneho vyjadrenia.",
+          "where": "Kúpna dohoda a komunikácia oboch strán."
+        },
+        {
+          "title": "Vyžiadajte ponuku pre správne vozidlo",
+          "body": "Porovnajte údaje v ponuke s dokladmi a overte potrebný začiatok krytia podľa konkrétneho postupu prevodu.",
+          "where": "Poisťovňa a doklady vozidla."
+        },
+        {
+          "title": "Potvrďte účinnosť a úhradu",
+          "body": "Skontrolujte podmienky vzniku poistenia, platobný predpis a potvrdenie. Prípadné doplnenie alebo zmenu údajov riešte s poisťovňou.",
+          "where": "Zmluva a poisťovňa."
+        },
+        {
+          "title": "Uložte potvrdenie a kontakty",
+          "body": "Pri prevzatí majte dostupné doklady a postup pre prípad škody. Po evidenčnej zmene skontrolujte zhodu údajov v zmluve.",
+          "where": "Doklady a zákaznícke služby poisťovne."
+        }
+      ],
+      "pitfalls": [
+        "Poistenie predávajúceho nepovažujte automaticky za svoje potvrdené krytie.",
+        "Nesprávne VIN alebo údaje držiteľa opravte včas.",
+        "Zaplatená objednávka potrebuje potvrdenie splnenia podmienok vzniku poistenia."
+      ],
+      "outcome": "Máte zosúladené prevzatie vozidla, evidenčný postup a potvrdené poistné podmienky.",
+      "links": [
+        {
+          "label": "SKP – Prečo je PZP dôležité",
+          "url": "https://www.skp.sk/preco-je-pzp-dolezite/"
+        },
+        {
+          "label": "MD SR – automatická kontrola PZP pri STK od októbra 2026",
+          "url": "https://www.mindop.sk/media/tlacove-spravy/detail/od-oktobra-sa-bude-na-stk-kontrolovat-aj-povinne-zmluvne-poistenie"
+        },
+        {
+          "label": "SKP – overenie platnosti PZP podľa EČV alebo VIN",
+          "url": "https://www.skp.sk/vyhladat-poistovatela-vozidla-a-overit-platnost-pzp/"
+        }
+      ],
+      "summary": "Na čo nezabudnúť pri poistení vozidla"
+    }
   },
   {
     "slug": "leasing-alebo-uver",
@@ -2866,7 +3117,7 @@
       "label": "eZnamka – spôsob úhrady a kontrola platnosti",
       "url": "https://eznamka.sk/sk/zakaznicke-sluzby/sposob-uhrady"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "kúpa diaľničnej známky",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
@@ -2874,7 +3125,7 @@
       "Požadovaný druh známky a dátum začiatku jej platnosti",
       "Spôsob úhrady a uloženie potvrdenia na následnú kontrolu evidovanej platnosti"
     ],
-    "verification": "12. 11. 2026: overený oficiálny postup úhrady, vystavenia potvrdenia a kontroly platnosti; ceny ani individuálne výnimky neboli predmetom právnej revízie.",
+    "verification": "12. 11. 2026: overený oficiálny postup úhrady, vystavenia potvrdenia a kontroly platnosti; ceny ani individuálne výnimky neboli predmetom právnej revízie. Doplnené 13. 11. 2026: Doplnené oficiálne návody na internetovú úhradu a opravu údajov; platba ani oprava neboli vykonané.",
     "sourceNote": "Oficiálna stránka eZnamka vysvetľuje, že nákup je úspešne ukončený vystavením potvrdenia o úhrade, a odporúča kontrolu platnosti.",
     "practical": [
       {
@@ -2897,6 +3148,57 @@
         "title": "Rozlíšte platbu od úspešnej evidencie",
         "body": "Po zaplatení si uložte potvrdenie a samostatne overte platnosť pre správne EČV a krajinu registrácie. Ak údaje nesedia, postupujte cez oficiálnu podporu eZnamka."
       }
-    ]
+    ],
+    "detail": {
+      "reviewed": "8. 11. 2026",
+      "before": [
+        "Presné EČV a krajina registrácie.",
+        "Požadovaný druh a začiatok platnosti.",
+        "Platobný prostriedok a kontakt na doručenie potvrdenia."
+      ],
+      "detailed": [
+        {
+          "title": "Otvorte oficiálny predajný kanál",
+          "body": "Skontrolujte doménu, identitu predajcu a konečnú cenu. Pred nákupom si potvrďte, či známku pre svoj prípad potrebujete.",
+          "where": "Oficiálny portál eZnamka."
+        },
+        {
+          "title": "Vyplňte a skontrolujte zadanie",
+          "body": "Porovnajte EČV znak po znaku s dokladom. Overte krajinu registrácie, druh produktu a požadovaný začiatok platnosti.",
+          "where": "Objednávkový formulár a doklady vozidla."
+        },
+        {
+          "title": "Dokončite úhradu",
+          "body": "Sledujte potvrdenie výsledku platby a objednávky. Pri nejasnom stave najskôr overte výsledok, než nákup zopakujete.",
+          "where": "Predajný portál a vlastná platobná evidencia."
+        },
+        {
+          "title": "Overte platnosť a uložte doklad",
+          "body": "Porovnajte potvrdenie so zadaním a použite oficiálne overenie platnosti. Pri chybe kontaktujte predajcu podľa aktuálnych pravidiel opravy alebo reklamácie.",
+          "where": "Potvrdenie a služby eZnamka."
+        }
+      ],
+      "pitfalls": [
+        "Automaticky predvolený začiatok nemusí zodpovedať vašej ceste.",
+        "Opakovaná platba môže vytvoriť zbytočný druhý nákup.",
+        "Doklad si odložte aj po úspešnom overení platnosti."
+      ],
+      "outcome": "Máte overenú platnosť správne zadanej známky a uložené potvrdenie o nákupe.",
+      "summary": "Ako bezpečne kúpiť známku",
+      "links": [
+        {
+          "label": "eZnamka – spôsob úhrady a kontrola platnosti",
+          "url": "https://eznamka.sk/sk/zakaznicke-sluzby/sposob-uhrady"
+        },
+        {
+          "label": "eZnamka – postup úhrady cez internet",
+          "url": "https://eznamka.sk/sk/dialnicne-znamky/rady-a-pomoc/ako-uhradit-postup"
+        },
+        {
+          "label": "eZnamka – postup opravy nesprávnych údajov",
+          "url": "https://eznamka.sk/sk/dialnicne-znamky/rady-a-pomoc/oprava-udajov-postup"
+        }
+      ]
+    }
   }
 ]
