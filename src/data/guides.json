@@ -395,7 +395,7 @@
       },
       {
         "title": "Overte funkčnosť výbavy pri skúšobnej jazde",
-        "body": "Spíšte si výbavu, ktorú predávajúci deklaruje, a pri obhliadke osobitne vyskúšajte klimatizáciu, asistenčné systémy, nabíjanie alebo infotainment podľa typu vozidla. Neoverené funkcie zaznamenajte do protokolu."
+        "body": "Spíšte si výbavu, ktorú predávajúci deklaruje, a pri obhliadke osobitne vyskúšajte klimatizáciu, asistenčné systémy, nabíjanie alebo infotainment podľa typu vozidla. Neoverené funkcie zaznamenajte do protokolu. Pri skúšobnej jazde si vopred dohodnite trasu s rôznymi povrchmi a po jazde zaznamenajte nezvyčajné zvuky či výstrahy; ich príčinu nech posúdi servis."
       }
     ],
     "detail": {
@@ -485,7 +485,7 @@
       },
       {
         "title": "Zaznamenajte odovzdanie",
-        "body": "V protokole potvrďte dátum, čas, stav kilometrov, doklady, počet kľúčov a prevzaté vybavenie. Kópiu si ponechajte pre prípad neskorších sporov."
+        "body": "V protokole potvrďte dátum, čas, stav kilometrov, doklady, počet kľúčov a prevzaté vybavenie. Kópiu si ponechajte pre prípad neskorších sporov. Pri každej položke označte, či bola skutočne prevzatá; neodovzdané príslušenstvo uveďte samostatne."
       },
       {
         "title": "Pred odovzdaním si odložte dôkazy",
@@ -586,7 +586,7 @@
     "practical": [
       {
         "title": "Skontrolujte konektor a výkon",
-        "body": "Pred cestou porovnajte konektor nabíjačky s vozidlom a overte maximálny výkon, ktorý vozidlo podporuje. Deklarovaný výkon stojana nemusí byť dosiahnuteľný."
+        "body": "Pred cestou porovnajte konektor nabíjačky s vozidlom a overte maximálny výkon, ktorý vozidlo podporuje. Deklarovaný výkon stojana nemusí byť dosiahnuteľný. Pri výbere stojana skontrolujte aj dĺžku kábla a umiestnenie nabíjacieho portu, aby ste nemuseli blokovať susedné miesto."
       },
       {
         "title": "Overte cenu pred spustením",
@@ -2365,7 +2365,7 @@
       },
       {
         "title": "Spočítajte celkové náklady",
-        "body": "Porovnajte obstarávaciu cenu, poistenie, pneumatiky, servis, domáce a verejné nabíjanie. Počítajte aj s možnou stratou hodnoty vozidla."
+        "body": "Porovnajte obstarávaciu cenu, poistenie, pneumatiky, servis, domáce a verejné nabíjanie. Počítajte aj s možnou stratou hodnoty vozidla. Pri porovnaní dvoch áut použite rovnaký ročný nájazd a obdobie vlastníctva; odhad zostatkovej ceny uvádzajte oddelene od istých výdavkov."
       },
       {
         "title": "Vyskúšajte nabíjanie pred kúpou",
@@ -2461,7 +2461,7 @@
     "practical": [
       {
         "title": "Plánujte podľa spotreby",
-        "body": "Pri odhade dojazdu zohľadnite rýchlosť, počasie, prevýšenie a zaťaženie. Orientačný dojazd z palubného počítača nie je garanciou."
+        "body": "Pri odhade dojazdu zohľadnite rýchlosť, počasie, prevýšenie a zaťaženie. Orientačný dojazd z palubného počítača nie je garanciou. Orientačne: úsek 180 km pri spotrebe 25 kWh/100 km vyžaduje 45 kWh energie z batérie, ku ktorej treba pridať plánovanú rezervu."
       },
       {
         "title": "Nabíjajte s časovou rezervou",
