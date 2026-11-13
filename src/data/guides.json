@@ -371,7 +371,7 @@
       },
       {
         "title": "Objednajte nezávislú prehliadku",
-        "body": "Pred podpisom zmluvy požiadajte nezávislý servis o diagnostiku, kontrolu podvozka, poškodení a stavu opotrebovaných dielov. Výsledok si nechajte zaznamenať."
+        "body": "Pred podpisom zmluvy si s predávajúcim dohodnite servis podľa vlastného výberu a rozsah diagnostiky vrátane podvozka, poškodení a opotrebovaných dielov. Výsledok si vyžiadajte písomne; výpis z evidencie nenahrádza fyzickú prehliadku."
       },
       {
         "title": "Overte prípadné financovanie vozidla",
@@ -380,10 +380,6 @@
       {
         "title": "Overte aj dokumenty predávajúceho",
         "body": "Pred zálohou si overte, kto je uvedený v dokladoch ako držiteľ či vlastník a či osoba podpisujúca zmluvu môže vozidlo predať. Pri zastupovaní si vyžiadajte preukázateľné oprávnenie; nezrovnalosti riešte pred platbou."
-      },
-      {
-        "title": "Skontrolujte nezávislosť diagnostiky",
-        "body": "Pred obhliadkou si s predávajúcim dohodnite servis podľa vlastného výberu a rozsah kontroly. Zistenia zo servisu si vyžiadajte písomne; samotný výpis z evidencie nenahrádza fyzickú prehliadku."
       },
       {
         "title": "Overte funkčnosť výbavy pri skúšobnej jazde",
@@ -508,7 +504,7 @@
       "label": "EAFO – ceny nabíjania elektromobilov",
       "url": "https://alternative-fuels-observatory.ec.europa.eu/markets-and-policy/market-and-consumer-insights/electric-vehicle-recharging-prices"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "nabijanie elektromobilu",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
@@ -589,24 +585,8 @@
         "body": "Pri dlhšej trase vyberte aj alternatívnu stanicu a nechajte rezervu energie na presun. Dostupnosť nabíjačky sa môže počas jazdy zmeniť."
       },
       {
-        "title": "Skontrolujte ukončenie relácie",
-        "body": "Po nabíjaní skontrolujte v aplikácii alebo na stojane, či sa relácia naozaj ukončila, a odložte si potvrdenie o účtovanej energii a cene. Pri reklamácii porovnajte čas, množstvo kWh a tarifu."
-      },
-      {
-        "title": "Zdokumentujte problém na stojane",
-        "body": "Pri reklamácii nabíjania si odložte identifikátor stojana, čas relácie, účtovanú energiu a snímku chybového hlásenia; bez týchto údajov sa incident ťažšie dohľadáva."
-      },
-      {
-        "title": "Uložte si potvrdenie o účtovaní",
-        "body": "Po skončení relácie porovnajte zobrazené kWh, čas, prípadný blokovací poplatok a konečnú cenu s potvrdením v aplikácii alebo na faktúre. Pri nezrovnalosti si odložte identifikátor stanice a relácie."
-      },
-      {
-        "title": "Skontrolujte faktúru a reálnu cenu nabíjania",
-        "body": "Po skončení nabíjania porovnajte odobraté kWh, účtovaný čas a výslednú sumu s podmienkami konkrétneho operátora. Pri rozdiele si uložte identifikátor relácie a doklad na reklamáciu."
-      },
-      {
-        "title": "Pri reklamácii uveďte identifikátor relácie",
-        "body": "Ak sa nabíjanie preruší alebo sa účtuje nesprávna suma, uložte čas, identifikátor stanice a relácie, cenu z aplikácie a potvrdenie o platbe. Pri reklamácii poskytnite iba potrebné údaje; nezverejňujte celé číslo platobnej karty."
+        "title": "Skontrolujte účtovanie a pripravte podklady na reklamáciu",
+        "body": "Po nabíjaní overte ukončenie relácie a porovnajte odobraté kWh, čas, tarifu, prípadný blokovací poplatok a konečnú cenu s potvrdením alebo faktúrou. Pri nezrovnalosti či prerušení si uložte identifikátor stojana a relácie, čas, cenu z aplikácie, doklad o platbe a snímku chybového hlásenia. Poskytnite iba potrebné údaje; nezverejňujte celé číslo platobnej karty."
       }
     ]
   },
@@ -2404,7 +2384,7 @@
       "label": "EAFO – spotrebiteľský portál elektromobility",
       "url": "https://alternative-fuels-observatory.ec.europa.eu/consumer-portal"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "kúpa elektromobilu",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
@@ -2433,11 +2413,7 @@
       },
       {
         "title": "Prevezmite digitálny prístup k vozidlu",
-        "body": "Pri jazdenom aute si pred zaplatením overte, či výrobca umožňuje prevod digitálnych služieb a aplikácie na nového majiteľa; odhlásenie predchádzajúceho účtu potvrďte pri odovzdaní."
-      },
-      {
-        "title": "Overte prenositeľnosť digitálnych služieb",
-        "body": "Pred zaplatením jazdeného auta si nechajte ukázať odpojenie účtu pôvodného vlastníka, postup registrácie nového používateľa a dostupnosť platených funkcií po prevode. Prístupové heslá si nepreberajte od predávajúceho."
+        "body": "Pred zaplatením jazdeného auta si nechajte ukázať odpojenie účtu pôvodného vlastníka, postup registrácie nového používateľa a dostupnosť platených funkcií po prevode. Prevod potvrďte pri odovzdaní; prístupové heslá si od predávajúceho nepreberajte."
       },
       {
         "title": "Zaznamenajte stav batérie pred kúpou",
@@ -2512,7 +2488,7 @@
       "label": "EAFO – ceny nabíjania elektromobilov",
       "url": "https://alternative-fuels-observatory.ec.europa.eu/markets-and-policy/market-and-consumer-insights/electric-vehicle-recharging-prices"
     },
-    "updated": "12. 11. 2026",
+    "updated": "13. 11. 2026",
     "keywords": "plánovanie cesty elektromobilom",
     "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
     "preparation": [
@@ -2544,16 +2520,8 @@
         "body": "Pri ceste do zahraničia si vopred overte dostupnosť roamingu alebo priamej platby a pripravte záložný spôsob úhrady; samotná mapa staníc nezaručuje prijatie vašej karty."
       },
       {
-        "title": "Počítajte aj s odstávkou stanice",
-        "body": "Pri každej plánovanej zastávke si uložte alternatívu, ktorá je dosiahnuteľná aj pri nižšom než očakávanom stave batérie. Pri zmene počasia alebo spotreby prepočítajte rezervu ešte pred minutím poslednej bezpečnej možnosti nabíjania."
-      },
-      {
-        "title": "Pripravte si plán pri nefunkčnej stanici",
-        "body": "Pri každom plánovanom zastavení si poznačte alternatívnu nabíjačku, dostupné spôsoby platby a minimálnu rezervu dojazdu. Dostupnosť konektora a cenu overte v aplikácii prevádzkovateľa tesne pred príchodom."
-      },
-      {
-        "title": "Pripravte si offline podklady pre výpadok siete",
-        "body": "Pred cestou si uložte adresy dvoch alternatívnych staníc, kontakty na podporu operátorov a spôsob platby nezávislý od jednej aplikácie. Overte, či je záložná možnosť použiteľná aj bez mobilných dát."
+        "title": "Pripravte záložný plán aj bez mobilných dát",
+        "body": "Pri každej kritickej zastávke si uložte adresy alternatívnych staníc, kontakty podpory, kompatibilné konektory a záložný spôsob platby použiteľný aj bez mobilných dát. Cenu a dostupnosť overte pred príchodom. Pri zmene počasia, spotreby alebo odstávke prepočítajte rezervu skôr, než miniete poslednú bezpečne dosiahnuteľnú možnosť nabíjania."
       }
     ]
   },
@@ -2913,8 +2881,8 @@
     "sourceNote": "SKP poskytuje všeobecné informácie o PZP, nie potvrdenie začiatku konkrétneho poistného krytia ani aktuálnych pravidiel STK. Začiatok krytia overte u poisťovne.",
     "practical": [
       {
-        "title": "Predíďte medzere v krytí",
-        "body": "Pred prevzatím auta si overte vznik a trvanie PZP, údaje vozidla a potvrdenie o poistení."
+        "title": "Potvrďte začiatok krytia pred prevzatím",
+        "body": "Pred prvou jazdou si od poisťovne vyžiadajte potvrdenie dátumu a času začiatku a trvania krytia, porovnajte ho s dohodnutým odovzdaním a skontrolujte VIN a údaje vozidla. Nejasnosti vyriešte s poisťovňou ešte pred jazdou. Doklad uchovajte dostupný aj bez internetu."
       },
       {
         "title": "Dohodnite dátum odovzdania vozidla",
@@ -2931,14 +2899,6 @@
       {
         "title": "Overte údaje v poistnej zmluve",
         "body": "Po vystavení zmluvy porovnajte VIN, evidenčné číslo (ak je pridelené), identifikáciu poistníka a zvolený začiatok krytia s dokladmi. Nezrovnalosti riešte priamo s poisťovňou."
-      },
-      {
-        "title": "Overte doklad o začiatku krytia",
-        "body": "Pred prvou jazdou si od poisťovne vyžiadajte potvrdenie dátumu a času začiatku poistenia a skontrolujte VIN a údaje o vozidle. Doklad uchovajte dostupný aj bez internetového pripojenia."
-      },
-      {
-        "title": "Skontrolujte súlad začiatku krytia a prevzatia",
-        "body": "Pred prevzatím vozidla si uložte potvrdenie poisťovne o začiatku krytia a porovnajte ho s dohodnutým dátumom a časom odovzdania. Nejasnosti vyriešte s poisťovňou ešte pred jazdou."
       }
     ],
     "detail": {
