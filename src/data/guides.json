@@ -2425,7 +2425,7 @@
       },
       {
         "title": "Výkon prispôsobte autu aj domu",
-        "body": "Maximálny výkon nabíjania závisí od palubnej nabíjačky vozidla, dostupného prívodu a ďalšej spotreby v domácnosti. Vyšší nominálny výkon wallboxu nemusí znamenať rýchlejšie nabíjanie."
+        "body": "Maximálny výkon nabíjania závisí od palubnej nabíjačky vozidla, dostupného prívodu a ďalšej spotreby v domácnosti. Vyšší nominálny výkon wallboxu nemusí znamenať rýchlejšie nabíjanie. Modelovo dodanie 30 kWh pri stálom odbere 3,7 kW trvá približne 8,1 hodiny, pri 11 kW približne 2,7 hodiny. Ide o ideálny výpočet energie delenej výkonom, bez strát a obmedzení; skutočný čas môže byť dlhší. Vhodný výkon musí určiť odborník podľa vozidla a elektroinštalácie."
       },
       {
         "title": "Myslite na bezpečnosť",
@@ -2438,10 +2438,6 @@
       {
         "title": "Dohodnite spôsob merania spotreby",
         "body": "Ak sa o elektrinu delíte s ďalšími osobami, vopred si dohodnite meranie a vyúčtovanie spotreby wallboxu. Pri dynamickom riadení výkonu si nechajte vysvetliť, ako reaguje na ostatné spotrebiče. Nechajte si vysvetliť správu používateľov a aktualizácie; predvolené heslá zmeňte podľa pokynov výrobcu a nezapisujte ich do protokolu."
-      },
-      {
-        "title": "Odhadnite čas nabíjania",
-        "body": "Modelovo dodanie 30 kWh pri stálom odbere 3,7 kW trvá približne 8,1 hodiny, pri 11 kW približne 2,7 hodiny. Ide o ideálny výpočet energie delenej výkonom, bez strát a obmedzení; skutočný čas môže byť dlhší. Vhodný výkon musí určiť odborník podľa vozidla a elektroinštalácie."
       }
     ]
   },
