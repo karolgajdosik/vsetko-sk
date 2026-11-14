@@ -36,7 +36,7 @@ const guideListLd = {
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(guideListLd)} />
   <main class="wrap main guides-hub" id="obsah">
-    <nav class="breadcrumbs" aria-label="Drobečková navigácia"><a href="/">Domov</a> / Návody</nav>
+    <nav class="breadcrumbs" aria-label="Drobečková navigácia"><a href="/">Domov</a> / <span aria-current="page">Návody</span></nav>
     <p class="eyebrow">Jednoducho a krok za krokom</p>
     <h1>Praktické návody</h1>
     <p class="intro">Vyberte si konkrétny postup z {guides.length} návodov. V každom nájdete prípravu, kontrolný zoznam a odkaz na oficiálny zdroj. Podmienky úradov sa môžu meniť, preto si pred podaním overte aktuálne pravidlá.</p>
@@ -96,6 +96,20 @@ const guideListLd = {
     const empty = document.querySelector<HTMLElement>('#guide-empty');
     const reset = document.querySelector<HTMLButtonElement>('#guide-reset');
     let category = 'all';
+    const initialParams = new URLSearchParams(window.location.search);
+    const initialCategory = initialParams.get('tema');
+    if(initialCategory && buttons.some(button => button.dataset.category === initialCategory)) category = initialCategory;
+    if(input) input.value = initialParams.get('q') ?? '';
+
+    function syncUrl(){
+      const url = new URL(window.location.href);
+      if(category === 'all') url.searchParams.delete('tema');
+      else url.searchParams.set('tema',category);
+      const query = (input?.value ?? '').trim();
+      if(query) url.searchParams.set('q',query);
+      else url.searchParams.delete('q');
+      if(url.href !== window.location.href) window.history.replaceState(window.history.state,'',url.href);
+    }
 
     const normalizeSearch = (value: string) => value.toLocaleLowerCase('sk').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ł/g, 'l');
 
@@ -117,13 +131,17 @@ const guideListLd = {
       category = button.dataset.category || 'all';
       buttons.forEach(b => b.setAttribute('aria-pressed',String(b === button)));
       filterGuides();
+      syncUrl();
     }));
-    input?.addEventListener('input',filterGuides);
+    buttons.forEach(button => button.setAttribute('aria-pressed',String(button.dataset.category === category)));
+    filterGuides();
+    input?.addEventListener('input',()=>{filterGuides();syncUrl();});
     reset?.addEventListener('click',()=>{
       if(input) input.value = '';
       category = 'all';
       buttons.forEach(b => b.setAttribute('aria-pressed',String(b.dataset.category === 'all')));
       filterGuides();
+      syncUrl();
       input?.focus();
     });
   </script>
