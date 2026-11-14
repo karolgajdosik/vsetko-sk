@@ -599,6 +599,10 @@
       {
         "title": "Skontrolujte účtovanie a pripravte podklady na reklamáciu",
         "body": "Po nabíjaní overte ukončenie relácie a porovnajte odobraté kWh, čas, tarifu, prípadný blokovací poplatok a konečnú cenu s potvrdením alebo faktúrou. Pri nezrovnalosti či prerušení si uložte identifikátor stojana a relácie, čas, cenu z aplikácie, doklad o platbe a snímku chybového hlásenia. Poskytnite iba potrebné údaje; nezverejňujte celé číslo platobnej karty."
+      },
+      {
+        "title": "Vypočítajte cenu konkrétnej relácie",
+        "body": "Modelový príklad: pri účtovaných 40 kWh a cene 0,45 €/kWh stojí energia 18 €. Ak sa pripočíta modelový poplatok 2 €, celková cena je 20 €. Nejde o aktuálny cenník; použite skutočné údaje operátora a nepripočítavajte straty k už vyúčtovanej energii."
       }
     ]
   },
@@ -2382,6 +2386,10 @@
       {
         "title": "Zachyťte stav vozidla pri odovzdaní",
         "body": "Do preberacieho protokolu zaznamenajte stav kilometrov, dostupné nabíjacie káble, počet kľúčov, funkčnosť nabíjania a prípadné chyby na displeji. Priložte fotografie a odložte si kópiu protokolu."
+      },
+      {
+        "title": "Porovnajte náklady na rovnaký počet kilometrov",
+        "body": "Modelovo pri 15 000 km ročne a spotrebe 20 kWh/100 km potrebuje auto 3 000 kWh z batérie. Ak nameraná energia zo siete vrátane strát predstavuje 3 300 kWh a priemerná cena je 0,25 €/kWh, ročný výdavok na elektrinu je 825 €. Pri porovnaní áut použite rovnaký nájazd a samostatne započítajte ostatné náklady."
       }
     ]
   },
@@ -2417,7 +2425,7 @@
       },
       {
         "title": "Výkon prispôsobte autu aj domu",
-        "body": "Maximálny výkon nabíjania závisí od palubnej nabíjačky vozidla, dostupného prívodu a ďalšej spotreby v domácnosti. Vyšší nominálny výkon wallboxu nemusí znamenať rýchlejšie nabíjanie."
+        "body": "Maximálny výkon nabíjania závisí od palubnej nabíjačky vozidla, dostupného prívodu a ďalšej spotreby v domácnosti. Vyšší nominálny výkon wallboxu nemusí znamenať rýchlejšie nabíjanie. Modelovo dodanie 30 kWh pri stálom odbere 3,7 kW trvá približne 8,1 hodiny, pri 11 kW približne 2,7 hodiny. Ide o ideálny výpočet energie delenej výkonom, bez strát a obmedzení; skutočný čas môže byť dlhší. Vhodný výkon musí určiť odborník podľa vozidla a elektroinštalácie."
       },
       {
         "title": "Myslite na bezpečnosť",
@@ -2482,6 +2490,10 @@
       {
         "title": "Pripravte záložný plán aj bez mobilných dát",
         "body": "Pri každej kritickej zastávke si uložte adresy alternatívnych staníc, kontakty podpory, kompatibilné konektory a záložný spôsob platby použiteľný aj bez mobilných dát. Cenu a dostupnosť overte pred príchodom. Pri zmene počasia, spotreby alebo odstávke prepočítajte rezervu skôr, než miniete poslednú bezpečne dosiahnuteľnú možnosť nabíjania."
+      },
+      {
+        "title": "Prepočítajte rezervu na percentá batérie",
+        "body": "Modelovo pri využiteľnej kapacite 75 kWh a štarte na 80 % máte 60 kWh. Ak úsek spotrebuje 45 kWh, zostáva 15 kWh, teda približne 20 %. Ak si stanovíte rezervu 15 %, plánovaná spotreba môže byť najviac 48,75 kWh. Pri zhoršení podmienok zvoľte skoršiu zastávku; percentá a spotreba sú odhady."
       }
     ]
   },
