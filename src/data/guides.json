@@ -193,7 +193,7 @@
       },
       {
         "title": "Prepočítajte pokrytie výdavkov",
-        "body": "Vydelte dostupnú rezervu nevyhnutnými mesačnými výdavkami. Výsledok vyjadruje orientačný počet mesiacov pri nezmenených výdavkoch; pri zmene príjmu alebo nákladov ho prepočítajte."
+        "body": "Vydelte dostupnú rezervu nevyhnutnými mesačnými výdavkami. Výsledok vyjadruje orientačný počet mesiacov pri nezmenených výdavkoch; pri zmene príjmu alebo nákladov ho prepočítajte. Modelovo rezerva 4 500 € pri nevyhnutných výdavkoch 1 500 € mesačne pokryje tri mesiace bez príjmu; ak výdavky stúpnu na 1 800 €, pokryje 2,5 mesiaca."
       }
     ]
   },
@@ -238,7 +238,7 @@
       },
       {
         "title": "Porovnávajte plán so skutočnosťou",
-        "body": "Každý mesiac porovnajte plánované a skutočné sumy. Ak sa výdavky opakovane odlišujú, upravte rozpočet namiesto nerealistického cieľa."
+        "body": "Každý mesiac porovnajte plánované a skutočné sumy. Ak sa výdavky opakovane odlišujú, upravte rozpočet namiesto nerealistického cieľa. Modelovo pri pláne 400 € a skutočných výdavkoch 460 € je prekročenie 60 €, teda 15 % plánu. Skontrolujte príčinu, nie iba percento."
       },
       {
         "title": "Oddeľte úsporu od presunutého výdavku",
@@ -2226,7 +2226,7 @@
       },
       {
         "title": "Pýtajte si celkovú splatnú sumu",
-        "body": "Ak má jedna ponuka nižší úrok, ale vyššie poplatky alebo povinné doplnkové služby, nemusí byť lacnejšia. Požiadajte o rozpis splátok a celkovej sumy, ktorú zaplatíte za celé obdobie."
+        "body": "Ak má jedna ponuka nižší úrok, ale vyššie poplatky alebo povinné doplnkové služby, nemusí byť lacnejšia. Požiadajte o rozpis splátok a celkovej sumy, ktorú zaplatíte za celé obdobie. Modelovo pri rovnakom čerpaní 5 000 € a rovnakej splatnosti porovnajte celkové platby 5 600 € a 5 750 €: rozdiel je 150 €. Ide o ilustráciu celkových platieb, nie výpočet RPMN ani ponuku úveru."
       },
       {
         "title": "Skontrolujte predpoklady výpočtu",
@@ -2263,7 +2263,7 @@
     "practical": [
       {
         "title": "Prepočítajte cieľ na pravidelný vklad",
-        "body": "Od cieľovej sumy odpočítajte už nasporené peniaze a zvyšok rozdeľte podľa počtu mesiacov do termínu. Výpočet najprv urobte bez predpokladaného úroku, aby plán nestál na neistom výnose. Napríklad pri cieli 1 200 eur o 12 mesiacov a už odložených 300 eur treba bez započítania výnosu odkladať 75 eur mesačne."
+        "body": "Od cieľovej sumy odpočítajte už nasporené peniaze a zvyšok rozdeľte podľa počtu mesiacov do termínu. Výpočet najprv urobte bez predpokladaného úroku, aby plán nestál na neistom výnose. Napríklad pri cieli 1 200 eur o 12 mesiacov a už odložených 300 eur treba bez započítania výnosu odkladať 75 eur mesačne. Ak po šiestich mesiacoch máte odložených iba 600 € celkovo, na pôvodný cieľ 1 200 € zostáva 600 € za šesť mesiacov, teda 100 € mesačne bez výnosu."
       },
       {
         "title": "Rozlišujte vklad a investíciu",
@@ -2312,7 +2312,7 @@
     "practical": [
       {
         "title": "Vytvorte plán pre výpadok príjmu",
-        "body": "Spočítajte, ktoré platby by bolo nutné hradiť aj pri dočasnom poklese príjmu. Pri každom voliteľnom výdavku si určte, či ho možno odložiť, a preverte, ako dlho by rezerva pokryla nevyhnutné platby."
+        "body": "Spočítajte, ktoré platby by bolo nutné hradiť aj pri dočasnom poklese príjmu. Pri každom voliteľnom výdavku si určte, či ho možno odložiť, a preverte, ako dlho by rezerva pokryla nevyhnutné platby. Modelovo pri príjme 2 000 € a nevyhnutných výdavkoch 1 600 € zostáva 400 €. Pri poklese príjmu na 1 400 € vzniká mesačný deficit 200 €; rezerva 1 200 € by pri nezmenených podmienkach pokryla šesť takýchto deficitov."
       },
       {
         "title": "Zmapujte záväzky aj nepravidelné výdavky",
