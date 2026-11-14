@@ -38,7 +38,7 @@
       },
       {
         "title": "Urobte si vlastný prehľad",
-        "body": "Do jednej tabuľky si zapíšte úrok, RPMN, mesačnú splátku, celkové náklady, poplatky a podmienky zmeny sadzby po fixácii. Pri každej ponuke si urobte aj orientačný rozpočet s vyššou mesačnou splátkou po skončení fixácie. Nejde o predpoveď budúcej sadzby; cieľom je overiť, či domácnosti zostane priestor na nevyhnutné výdavky."
+        "body": "Do jednej tabuľky si zapíšte úrok, RPMN, mesačnú splátku, celkové náklady, poplatky a podmienky zmeny sadzby po fixácii. Pri každej ponuke si urobte aj orientačný rozpočet s vyššou mesačnou splátkou po skončení fixácie. Nejde o predpoveď budúcej sadzby; cieľom je overiť, či domácnosti zostane priestor na nevyhnutné výdavky. V tabuľke si pri každej ponuke označte, ktoré náklady sú jednorazové a ktoré mesačné. Pri porovnaní si ujasnite, či už sú zahrnuté v celkovej sume, aby ste ich nezapočítali dvakrát."
       },
       {
         "title": "Vyžiadajte si formulár ESIS",
@@ -77,7 +77,7 @@
       },
       {
         "title": "Nepozerajte iba na mesačnú splátku",
-        "body": "Nižšia splátka môže byť výsledkom predĺženia splatnosti. Porovnajte aj celkovú sumu, ktorú ešte zaplatíte pri starej a novej zmluve. Najprv si vyžiadajte ponuku s rovnakou zostávajúcou splatnosťou ako pri pôvodnom úvere."
+        "body": "Nižšia splátka môže byť výsledkom predĺženia splatnosti. Porovnajte aj celkovú sumu, ktorú ešte zaplatíte pri starej a novej zmluve. Najprv si vyžiadajte ponuku s rovnakou zostávajúcou splatnosťou ako pri pôvodnom úvere. Vytvorte dva stĺpce: zostávajúce platby pôvodného úveru a budúce platby nového úveru. Pridajte náklady na zmenu, ktoré ešte nie sú zahrnuté v splátkach; už zaplatené poplatky evidujte oddelene."
       },
       {
         "title": "Spočítajte jednorazové náklady",
@@ -137,6 +137,10 @@
       {
         "title": "Uložte si porovnateľné podklady pred podpisom",
         "body": "Odložte si datované ponuky, predzmluvné informácie a návrh zmluvy. Pri telefonickej ponuke si vyžiadajte podmienky písomne a skontrolujte, či sa suma na zaplatenie nezmenila medzi ponukou a podpisom."
+      },
+      {
+        "title": "Vyskúšajte rozpočet pred podpisom",
+        "body": "Ak to čas umožňuje, skúste si jeden mesiac odložiť plánovanú splátku bokom. Sledujte, či pritom zvládnete bežné výdavky bez čerpania rezervy; nejde o záruku budúcej schopnosti splácať."
       }
     ]
   },
@@ -186,6 +190,10 @@
       {
         "title": "Pripravte plán použitia pri núdzi",
         "body": "Vopred si určte, na ktoré nevyhnutné situácie rezervu použijete a z akého účtu ju viete vybrať. Ak máte spoločný rozpočet, dohodnite sa, kto má k prostriedkom prístup aj v čase neprítomnosti druhého člena domácnosti."
+      },
+      {
+        "title": "Prepočítajte pokrytie výdavkov",
+        "body": "Vydelte dostupnú rezervu nevyhnutnými mesačnými výdavkami. Výsledok vyjadruje orientačný počet mesiacov pri nezmenených výdavkoch; pri zmene príjmu alebo nákladov ho prepočítajte."
       }
     ]
   },
@@ -235,6 +243,10 @@
       {
         "title": "Oddeľte úsporu od presunutého výdavku",
         "body": "Pri každej navrhovanej úspore skontrolujte, či sa platba iba neposúva do ďalšieho mesiaca alebo nenahrádza drahšou službou. Zapíšte si čistý mesačný rozdiel a dátum, odkedy sa má prejaviť."
+      },
+      {
+        "title": "Zohľadnite vratky a refundácie",
+        "body": "Pri vrátenom nákupe alebo refundácii označte pôvodnú platbu a súvisiaci príjem. Pri vyhodnotení kategórie použite čistý výdavok, aby vratka neskreslila porovnanie mesiacov."
       }
     ]
   },
@@ -383,7 +395,7 @@
       },
       {
         "title": "Overte funkčnosť výbavy pri skúšobnej jazde",
-        "body": "Spíšte si výbavu, ktorú predávajúci deklaruje, a pri obhliadke osobitne vyskúšajte klimatizáciu, asistenčné systémy, nabíjanie alebo infotainment podľa typu vozidla. Neoverené funkcie zaznamenajte do protokolu."
+        "body": "Spíšte si výbavu, ktorú predávajúci deklaruje, a pri obhliadke osobitne vyskúšajte klimatizáciu, asistenčné systémy, nabíjanie alebo infotainment podľa typu vozidla. Neoverené funkcie zaznamenajte do protokolu. Pri skúšobnej jazde si vopred dohodnite trasu s rôznymi povrchmi a po jazde zaznamenajte nezvyčajné zvuky či výstrahy; ich príčinu nech posúdi servis."
       }
     ],
     "detail": {
@@ -473,7 +485,7 @@
       },
       {
         "title": "Zaznamenajte odovzdanie",
-        "body": "V protokole potvrďte dátum, čas, stav kilometrov, doklady, počet kľúčov a prevzaté vybavenie. Kópiu si ponechajte pre prípad neskorších sporov."
+        "body": "V protokole potvrďte dátum, čas, stav kilometrov, doklady, počet kľúčov a prevzaté vybavenie. Kópiu si ponechajte pre prípad neskorších sporov. Pri každej položke označte, či bola skutočne prevzatá; neodovzdané príslušenstvo uveďte samostatne."
       },
       {
         "title": "Pred odovzdaním si odložte dôkazy",
@@ -574,7 +586,7 @@
     "practical": [
       {
         "title": "Skontrolujte konektor a výkon",
-        "body": "Pred cestou porovnajte konektor nabíjačky s vozidlom a overte maximálny výkon, ktorý vozidlo podporuje. Deklarovaný výkon stojana nemusí byť dosiahnuteľný."
+        "body": "Pred cestou porovnajte konektor nabíjačky s vozidlom a overte maximálny výkon, ktorý vozidlo podporuje. Deklarovaný výkon stojana nemusí byť dosiahnuteľný. Pri výbere stojana skontrolujte aj dĺžku kábla a umiestnenie nabíjacieho portu, aby ste nemuseli blokovať susedné miesto."
       },
       {
         "title": "Overte cenu pred spustením",
@@ -747,7 +759,7 @@
       },
       {
         "title": "Skontrolujte nevybavené elektronické podania",
-        "body": "Ak ste sa dokladom prihlasovali do elektronických služieb, overte prístup k rozpracovaným podaniam a doručovaným správam. Náhradný spôsob prihlásenia si overte na oficiálnom portáli."
+        "body": "Spíšte si rozpracované podania, ich termíny a dostupné potvrdenia. Pri každom si overte náhradný spôsob prístupu alebo kontakt na úrad; ak sa blíži termín, kontaktujte úrad včas."
       },
       {
         "title": "Overte stav dokladu pred ďalším použitím",
@@ -852,7 +864,7 @@
       },
       {
         "title": "Pripravte si cestovný kontrolný zoznam",
-        "body": "Na jedno miesto si zapíšte dátum odchodu, požadovanú platnosť pasu, podmienky tranzitu a stav víz či cestovných povolení. Pri každej položke uveďte, kde ste ju overili; podmienky môžu závisieť od konkrétnej krajiny."
+        "body": "Na jedno miesto si zapíšte dátum odchodu, požadovanú platnosť pasu, podmienky tranzitu a stav víz či cestovných povolení. Pri každej položke uveďte zdroj a dátum kontroly; pred odchodom si zmeniteľné podmienky overte znova."
       }
     ]
   },
@@ -934,19 +946,11 @@
       },
       {
         "title": "Rozdeľte oznámenia podľa príjemcu",
-        "body": "Pripravte si kontrolný zoznam pre banku, zamestnávateľa, poisťovne a poskytovateľov služieb. Pri každom overte, či adresu získava automaticky alebo vyžaduje oznámenie."
+        "body": "Pripravte si kontrolný zoznam pre banku, zamestnávateľa, poisťovne a poskytovateľov služieb. Pri každom overte, či adresu získava automaticky alebo vyžaduje oznámenie. Skontrolujte zvlášť trvalý pobyt, korešpondenčnú adresu a fakturačné údaje; aktualizácia jednej položky nemusí zmeniť ostatné."
       },
       {
         "title": "Uložte potvrdenie a skontrolujte adresu",
-        "body": "Po vybavení si odložte dostupné potvrdenie alebo číslo podania. Pri následnej aktualizácii údajov používajte presne tú adresu, ktorú zaevidovala ohlasovňa; pri nezhode žiadajte opravu."
-      },
-      {
-        "title": "Overte adresu na novom doklade",
-        "body": "Po prevzatí nového dokladu porovnajte zápis ulice, orientačného a súpisného čísla a obce s potvrdením o pobyte. Nezrovnalosti riešte s príslušným úradom."
-      },
-      {
-        "title": "Rozlišujte adresu pobytu a doručovania",
-        "body": "Pri bankách, poisťovniach a službách si skontrolujte zvlášť trvalý pobyt, korešpondenčnú adresu a fakturačné údaje. Aktualizácia jednej položky nemusí zmeniť ostatné."
+        "body": "Po vybavení si odložte potvrdenie alebo číslo podania. Pri prevzatí nového dokladu porovnajte zápis ulice, orientačného a súpisného čísla a obce s potvrdením o pobyte. Nezrovnalosti riešte s príslušným úradom."
       }
     ]
   },
@@ -1244,11 +1248,7 @@
       },
       {
         "title": "Bezpečne nastavte elektronické funkcie",
-        "body": "Pri prevzatí skontrolujte vytlačené údaje a spôsob aktivácie elektronických funkcií. Bezpečnostné kódy si neukladajte spolu s občianskym preukazom."
-      },
-      {
-        "title": "Skontrolujte údaje pri prevzatí",
-        "body": "Ešte pri prevzatí porovnajte meno, priezvisko, adresu a dátum platnosti s podanou žiadosťou. Prípadný nesúlad oznámte priamo pracovisku."
+        "body": "Pri prevzatí porovnajte meno, priezvisko, adresu a dátum platnosti s podanou žiadosťou. Nesúlad oznámte pracovisku. Overte spôsob aktivácie elektronických funkcií a bezpečnostné kódy neukladajte spolu s dokladom."
       },
       {
         "title": "Pripravte záložný spôsob prístupu k službám",
@@ -1256,7 +1256,7 @@
       },
       {
         "title": "Overte prístup k elektronickej schránke",
-        "body": "Ak používate elektronickú schránku, po výmene dokladu si na oficiálnom portáli overte možnosť prihlásenia a prístup k doručeným správam. Pri probléme využite oficiálnu podporu bez prezrádzania bezpečnostných kódov."
+        "body": "Po výmene si vyskúšajte prihlásenie na oficiálnom portáli a otvorenie doručenej správy. Ak sa prihlásenie nepodarí, zaznamenajte chybové hlásenie bez osobných údajov a obráťte sa na oficiálnu podporu; bezpečnostné kódy jej neposielajte."
       }
     ]
   },
@@ -1346,7 +1346,7 @@
       },
       {
         "title": "Zjednoťte údaje dieťaťa v rezerváciách",
-        "body": "Pred cestou porovnajte zápis mena a dátumu narodenia dieťaťa v pase, letenke a ostatných cestovných dokladoch. Pri odlišnom priezvisku si vopred overte požadované sprievodné doklady u dopravcu a cieľovej krajiny."
+        "body": "Pri odlišnom priezvisku dieťaťa a sprevádzajúcej osoby si vopred overte požadované sprievodné doklady u dopravcu a príslušného orgánu cieľovej krajiny. Pripravte si ich spolu s cestovnými dokladmi, nie až pri odbavení."
       },
       {
         "title": "Pri zmene pasu upravte údaje u dopravcu včas",
@@ -1398,19 +1398,15 @@
       },
       {
         "title": "Zabezpečte aj cestovné rezervácie",
-        "body": "Ak sa strata stala pred cestou, skontrolujte údaje dokladu uvedené v rezerváciách a podmienky dopravcu. Po vydaní nového dokladu podľa potreby aktualizujte číslo pasu v rezervácii."
+        "body": "Ak ste číslo strateného pasu použili vo vízach, cestovných povoleniach alebo rezerváciách, po vydaní nového dokladu overte potrebu aktualizácie a podmienky dopravcu. Podozrivé použitie údajov zdokumentujte."
       },
       {
         "title": "Uložte si bezpečne kontakty ešte pred cestou",
         "body": "Pred odchodom si mimo pasu poznačte kontakt na slovenský zastupiteľský úrad a číslo asistenčnej služby poistenia. Kópiu dokladu uchovávajte bezpečne; sama osebe nenahrádza platný cestovný doklad."
       },
       {
-        "title": "Po návrate skontrolujte ďalšie použitie údajov dokladu",
-        "body": "Ak ste číslo strateného pasu použili vo vízach, cestovných povoleniach alebo rezerváciách, po vybavení náhradného dokladu si overte, či tieto záznamy treba aktualizovať. Prípadné podozrivé použitie údajov zdokumentujte."
-      },
-      {
         "title": "Pripravte podklady pre konzulárnu pomoc",
-        "body": "Ak ste v zahraničí, pripravte si dostupné údaje o totožnosti, kontakt, miesto pobytu a plán návratu. Na oficiálnom kontakte zastupiteľského úradu si overte, ktoré podklady potrebujú a aký doklad možno vydať pre vašu trasu."
+        "body": "Ak ste v zahraničí, pripravte si dostupné údaje o totožnosti, kontakt, miesto pobytu a plán návratu. Na oficiálnom kontakte zastupiteľského úradu si overte, ktoré podklady potrebujú a aký doklad možno vydať pre vašu trasu. Zapíšte si dohodnuté miesto a čas návštevy, kontaktnú osobu, ak bola určená, a pokyny k ďalšiemu postupu."
       }
     ]
   },
@@ -1442,7 +1438,7 @@
     "practical": [
       {
         "title": "Zmapujte doklady na výmenu",
-        "body": "Po rozhodnutí si spíšte všetky identifikačné, cestovné, bankové a poistné dokumenty s pôvodným menom."
+        "body": "Po právoplatnej zmene si spíšte identifikačné, cestovné, bankové a poistné dokumenty s pôvodným menom a inštitúcie, ktorým treba zmenu oznámiť. Lehoty a postup overte u každej osobitne."
       },
       {
         "title": "Overte príslušný postup",
@@ -1451,10 +1447,6 @@
       {
         "title": "Pripravte konzistentné údaje",
         "body": "Skontrolujte zápis mena a priezviska vo všetkých podkladoch vrátane diakritiky a údajov o narodení, aby nevznikli rozdiely v evidenciách."
-      },
-      {
-        "title": "Naplánujte následné oznámenia",
-        "body": "Po právoplatnej zmene si vytvorte zoznam dokladov a inštitúcií, ktorým treba aktualizované údaje oznámiť; lehoty overte u každej osobitne."
       },
       {
         "title": "Skontrolujte nadväznosť digitálnych účtov",
@@ -1647,19 +1639,11 @@
       },
       {
         "title": "Naplánujte zmeny po sobáši",
-        "body": "Pri plánovanej zmene priezviska si pripravte zoznam dokladov, zamestnávateľa a poskytovateľov služieb, ktorým budete údaje aktualizovať."
+        "body": "Pri plánovanej zmene priezviska si pripravte zoznam dokladov, zamestnávateľa a poskytovateľov služieb. Po prevzatí sobášneho listu pri každej položke overte postup a potrebné podklady."
       },
       {
         "title": "Potvrďte si termín a spôsob prevzatia dokladu",
-        "body": "Pred obradom si u matriky potvrďte termín, miesto, potrebnú prítomnosť osôb a spôsob následného prevzatia sobášneho listu. Pri zmene priezviska si pripravte vlastný zoznam nadväzujúcich aktualizácií."
-      },
-      {
-        "title": "Zlaďte údaje pred rezerváciou termínu",
-        "body": "Pred potvrdením termínu si s príslušnou matrikou prejdite mená a priezviská snúbencov, miesto obradu, kontaktné údaje a zoznam požadovaných dokladov. Prípadné odlišnosti v dokladoch riešte vopred; konkrétne podmienky si nechajte potvrdiť matrikou."
-      },
-      {
-        "title": "Urobte si plán dokladov po obrade",
-        "body": "Po prevzatí sobášneho listu si zaznačte, ktoré doklady a zmluvné údaje treba preveriť v súvislosti so zmenou priezviska. Pre každú inštitúciu si osobitne overte postup a potrebné podklady."
+        "body": "Pred obradom si s matrikou potvrďte mená snúbencov, termín, miesto, kontaktné údaje, potrebnú prítomnosť osôb, zoznam dokladov a spôsob prevzatia sobášneho listu. Prípadné odlišnosti riešte vopred."
       }
     ]
   },
@@ -2142,7 +2126,7 @@
       },
       {
         "title": "Skontrolujte časový plán kúpy",
-        "body": "Pred podpisom rezervácie zosúlaďte termín schválenia, zabezpečenia a čerpania úveru s termínmi v kúpnej zmluve. Zaznamenajte si aj scenár zamietnutia."
+        "body": "Pred podpisom rezervácie zosúlaďte termín schválenia, zabezpečenia a čerpania úveru s termínmi v kúpnej zmluve. Zaznamenajte si aj scenár zamietnutia. Pred zaplatením rezervačnej zálohy si v dokumentácii vyznačte, komu a za akých podmienok sa vracia; nejasnosti riešte pred podpisom."
       },
       {
         "title": "Skontrolujte úplnosť a platnosť žiadosti",
@@ -2191,7 +2175,7 @@
       },
       {
         "title": "Spočítajte celkový dopad zmeny",
-        "body": "Porovnajte splátku, zostávajúce náklady, jednorazové poplatky a cenu povinných doplnkových produktov. Výsledok si uložte do jednej tabuľky."
+        "body": "Porovnajte splátku, zostávajúce náklady, jednorazové poplatky a cenu povinných doplnkových produktov. Výsledok si uložte do jednej tabuľky. Ak porovnávate jednorazový náklad na zmenu s mesačnou úsporou, vydelte náklad úsporou a získate orientačný počet mesiacov návratnosti; pri nulovej alebo zápornej úspore tento výpočet nepoužívajte."
       },
       {
         "title": "Potvrďte postup pred rozhodnutím",
@@ -2250,7 +2234,7 @@
       },
       {
         "title": "Skontrolujte predpoklady výpočtu",
-        "body": "Pri použití kalkulačky si odložte zadanú výšku úveru, splatnosť, frekvenciu splátok a započítané náklady. Výsledok porovnajte s písomnou ponukou poskytovateľa, ktorá môže obsahovať ďalšie podmienky."
+        "body": "Pri použití kalkulačky si odložte zadanú výšku úveru, splatnosť, frekvenciu splátok a započítané náklady. Výsledok porovnajte s písomnou ponukou poskytovateľa, ktorá môže obsahovať ďalšie podmienky. Ak sa výsledky líšia, najprv skontrolujte dátum čerpania, dátumy splátok a to, či poplatok platíte vopred alebo je súčasťou úveru."
       }
     ]
   },
@@ -2283,7 +2267,7 @@
     "practical": [
       {
         "title": "Prepočítajte cieľ na pravidelný vklad",
-        "body": "Od cieľovej sumy odpočítajte už nasporené peniaze a zvyšok rozdeľte podľa počtu mesiacov do termínu. Výpočet najprv urobte bez predpokladaného úroku, aby plán nestál na neistom výnose."
+        "body": "Od cieľovej sumy odpočítajte už nasporené peniaze a zvyšok rozdeľte podľa počtu mesiacov do termínu. Výpočet najprv urobte bez predpokladaného úroku, aby plán nestál na neistom výnose. Napríklad pri cieli 1 200 eur o 12 mesiacov a už odložených 300 eur treba bez započítania výnosu odkladať 75 eur mesačne."
       },
       {
         "title": "Rozlišujte vklad a investíciu",
@@ -2336,7 +2320,7 @@
       },
       {
         "title": "Zmapujte záväzky aj nepravidelné výdavky",
-        "body": "Spíšte pravidelné príjmy, splátky, ročné poistky, opravy a plánované väčšie nákupy. Nepravidelné náklady rozpočítajte tak, aby neprekvapili v mesiaci úhrady."
+        "body": "Spíšte pravidelné príjmy, splátky, ročné poistky, opravy a plánované väčšie nákupy. Nepravidelné náklady rozpočítajte tak, aby neprekvapili v mesiaci úhrady. Pri ročnej platbe 360 eur si napríklad odkladajte 30 eur mesačne, ak začínate celý rok pred splatnosťou; pri kratšom čase rozdeľte chýbajúcu sumu podľa zostávajúcich mesiacov."
       },
       {
         "title": "Určte poradie finančných cieľov",
@@ -2389,7 +2373,7 @@
       },
       {
         "title": "Spočítajte celkové náklady",
-        "body": "Porovnajte obstarávaciu cenu, poistenie, pneumatiky, servis, domáce a verejné nabíjanie. Počítajte aj s možnou stratou hodnoty vozidla."
+        "body": "Porovnajte obstarávaciu cenu, poistenie, pneumatiky, servis, domáce a verejné nabíjanie. Počítajte aj s možnou stratou hodnoty vozidla. Pri porovnaní dvoch áut použite rovnaký ročný nájazd a obdobie vlastníctva; odhad zostatkovej ceny uvádzajte oddelene od istých výdavkov."
       },
       {
         "title": "Vyskúšajte nabíjanie pred kúpou",
@@ -2449,7 +2433,7 @@
       },
       {
         "title": "Porovnajte prevádzkové náklady",
-        "body": "Pri odhade ceny používajte skutočnú cenu elektriny za kWh vrátane relevantných poplatkov a počítajte aj so stratami pri nabíjaní."
+        "body": "Pri odhade ceny používajte skutočnú cenu elektriny za kWh vrátane relevantných poplatkov a počítajte aj so stratami pri nabíjaní. Pri odhade mesačnej spotreby vynásobte plánované kilometre spotrebou v kWh na 100 km a vydeľte výsledok stovkou. Na vyúčtovanie používajte nameranú energiu zo siete, ktorá už zahŕňa straty; nepripočítavajte ich druhýkrát."
       },
       {
         "title": "Dohodnite spôsob merania spotreby",
@@ -2485,7 +2469,7 @@
     "practical": [
       {
         "title": "Plánujte podľa spotreby",
-        "body": "Pri odhade dojazdu zohľadnite rýchlosť, počasie, prevýšenie a zaťaženie. Orientačný dojazd z palubného počítača nie je garanciou."
+        "body": "Pri odhade dojazdu zohľadnite rýchlosť, počasie, prevýšenie a zaťaženie. Orientačný dojazd z palubného počítača nie je garanciou. Orientačne: úsek 180 km pri spotrebe 25 kWh/100 km vyžaduje 45 kWh energie z batérie, ku ktorej treba pridať plánovanú rezervu."
       },
       {
         "title": "Nabíjajte s časovou rezervou",
@@ -2676,7 +2660,7 @@
       },
       {
         "title": "Pripravte doklady",
-        "body": "Pred návštevou pracoviska si overte jeho aktuálne požiadavky na doklady, rezerváciu a rozsah kontroly vrátane prípadnej emisnej kontroly. Po kontrole si uschovajte protokol a ďalší postup si potvrďte podľa výsledku na pracovisku."
+        "body": "Pred návštevou pracoviska si overte jeho aktuálne požiadavky na doklady, rezerváciu a rozsah kontroly vrátane prípadnej emisnej kontroly. Po kontrole si uschovajte protokol a ďalší postup si potvrďte podľa výsledku na pracovisku. Pri rezervácii si poznačte adresu pracoviska, čas, potvrdený rozsah kontroly a kontakt pre zmenu termínu. Doklady pripravte podľa potvrdeného zoznamu, nie podľa neaktuálneho univerzálneho zoznamu."
       },
       {
         "title": "Overte PZP pred STK",
@@ -2783,7 +2767,7 @@
       },
       {
         "title": "Vytvorte prehľadný spis poistnej udalosti",
-        "body": "Po zaistení bezpečnosti usporiadajte pôvodné fotografie, záznam o udalosti, kontakty svedkov a komunikáciu s poisťovňou podľa dátumu. Osobné údaje neposielajte cez verejné odkazy."
+        "body": "Po zaistení bezpečnosti usporiadajte pôvodné fotografie, záznam o udalosti, kontakty svedkov a komunikáciu s poisťovňou podľa dátumu. Osobné údaje neposielajte cez verejné odkazy. Pri každom odovzdanom dokumente si zaznamenajte dátum, príjemcu a číslo poistnej udalosti. Ak poisťovňa vyžiada doplnenie, evidujte ho oddelene od už odoslaných podkladov."
       }
     ],
     "detail": {
@@ -2970,7 +2954,7 @@
       },
       {
         "title": "Nepozerajte len na mesačnú splátku",
-        "body": "Pri porovnaní použite rovnakú cenu auta, dĺžku financovania a akontáciu. Zahrňte aj jednorazové poplatky, konečné odkúpenie a náklady na poistenie."
+        "body": "Pri porovnaní použite rovnakú cenu auta, dĺžku financovania a akontáciu. Zahrňte aj jednorazové poplatky, konečné odkúpenie a náklady na poistenie. Pri porovnaní si vytvorte dva stĺpce: suma zaplatená počas zmluvy a majetok, ktorý vám po jej skončení zostane. Ponuku s vrátením auta neporovnávajte s odkúpením iba podľa súčtu splátok."
       },
       {
         "title": "Overte vlastníctvo a obmedzenia",
@@ -3042,7 +3026,7 @@
       },
       {
         "title": "Založte si záznam o sezónnej kontrole",
-        "body": "Poznačte rozmery a označenie pneumatík, nameraný tlak podľa odporúčania výrobcu, zistené poškodenia a dátum prezutia. Nejasnosti v označení riešte s pneuservisom."
+        "body": "Poznačte rozmery a označenie pneumatík, nameraný tlak podľa odporúčania výrobcu, zistené poškodenia a dátum prezutia. Nejasnosti v označení riešte s pneuservisom. Pri uskladnení si označte pôvodnú pozíciu kolies a zaznamenajte nerovnomerné opotrebenie; vhodnosť ďalšieho použitia a prípadnej zmeny pozície nechajte posúdiť pneuservisom."
       }
     ]
   },
