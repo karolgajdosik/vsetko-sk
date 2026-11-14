@@ -15,7 +15,7 @@
     },
     "updated": "12. 11. 2026",
     "keywords": "porovnanie hypotek",
-    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "audience": "Záujemcovia o hypotéku, ktorí porovnávajú písomné ponuky viacerých bánk pred podpisom.",
     "preparation": [
       "Písomné ponuky s rovnakou výškou úveru, splatnosťou a obdobím fixácie",
       "Prehľad úrokov, RPMN, poplatkov a podmienok zľavy pre každú banku",
@@ -62,7 +62,7 @@
     },
     "updated": "12. 11. 2026",
     "keywords": "refinancovanie uveru",
-    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "audience": "Dlžníci, ktorí zvažujú presun existujúceho úveru alebo zmenu jeho podmienok.",
     "preparation": [
       "Aktuálne vyčíslenie zostatku a dátum plánovaného splatenia pôvodného úveru",
       "Pôvodná zmluva a splátkový kalendár, vrátane zostávajúcej splatnosti",
@@ -109,7 +109,7 @@
     },
     "updated": "12. 11. 2026",
     "keywords": "spotrebny uver",
-    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "audience": "Ľudia plánujúci financovať konkrétny výdavok spotrebným úverom a posudzujúci jeho únosnosť.",
     "preparation": [
       "Prehľad čistého príjmu, nevyhnutných výdavkov a existujúcich splátok",
       "Aspoň dve písomné ponuky na rovnakú výšku úveru a dobu splácania",
@@ -2066,7 +2066,7 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "prvá žiadosť o hypotéku",
-    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "audience": "Prví žiadatelia o hypotéku, ktorí pripravujú rozpočet, doklady a harmonogram kúpy.",
     "preparation": [
       "Prehľad čistých príjmov a všetkých záväzkov vrátane lízingu a úverových limitov",
       "Doklady o príjme a podklady k nehnuteľnosti podľa konkrétneho zoznamu banky",
@@ -2171,7 +2171,7 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "koniec fixácie hypotéky",
-    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "audience": "Majitelia hypotéky pred koncom fixácie, ktorí porovnávajú novú sadzbu a možnosti zmeny banky.",
     "preparation": [
       "Úverová zmluva a oznámenie banky s dátumom konca fixácie",
       "Aktuálny zostatok istiny, zostávajúca splatnosť a výška splátky",
@@ -2224,10 +2224,10 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "úrok a rpmn – rozdiel",
-    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "audience": "Záujemcovia o úver, ktorí chcú porovnať úrok, RPMN a celkové platby na rovnakých parametroch.",
     "preparation": [
-      "Vlastné finančné údaje a relevantné zmluvy",
-      "Ponuky alebo doklady potrebné na porovnanie"
+      "Písomné ponuky s rovnakou istinou a splatnosťou vrátane úroku, RPMN a celkovej splatnej sumy",
+      "Rozpis poplatkov, doplnkových služieb, dátumu čerpania a splátkový kalendár"
     ],
     "verification": "Overené 12. 11. 2026: kalkulačka NBS uvádza informatívny charakter a obmedzenia podporovaných spotrebiteľských úverov. Právne pravidlá výpočtu ani konkrétne ponuky neboli samostatne overené.",
     "sourceNote": "Kalkulačka NBS slúži na orientačný výpočet; výsledok nenahrádza predzmluvné informácie ani kontrolu zmluvy.",
