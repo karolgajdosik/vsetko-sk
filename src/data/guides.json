@@ -763,7 +763,7 @@
       },
       {
         "title": "Skontrolujte nevybavené elektronické podania",
-        "body": "Spíšte si rozpracované podania, ich termíny a dostupné potvrdenia. Pri každom si overte náhradný spôsob prístupu alebo kontakt na úrad; ak sa blíži termín, kontaktujte úrad včas."
+        "body": "Spíšte si rozpracované podania, ich termíny a dostupné potvrdenia. Pri každom si overte náhradný spôsob prístupu alebo kontakt na úrad; ak sa blíži termín, kontaktujte úrad včas. Pri evidencii rozlišujte rozpracovaný formulár od skutočne odoslaného podania; pri odoslanom si vyhľadajte dostupné potvrdenie."
       },
       {
         "title": "Overte stav dokladu pred ďalším použitím",
@@ -852,7 +852,7 @@
       },
       {
         "title": "Skontrolujte údaje pri prevzatí",
-        "body": "Pri prevzatí porovnajte meno, dátum narodenia a platnosť nového pasu s ostatnými cestovnými dokumentmi. Nezrovnalosť riešte hneď na pracovisku."
+        "body": "Pri prevzatí porovnajte meno, dátum narodenia a platnosť nového pasu s ostatnými cestovnými dokumentmi. Nezrovnalosť riešte hneď na pracovisku. Ak máte viac rezervácií, prejdite aj samostatne zakúpené nadväzujúce lety a ubytovanie, kde ste uviedli číslo pôvodného dokladu."
       },
       {
         "title": "Overte víza a tranzit",
@@ -1256,7 +1256,7 @@
       },
       {
         "title": "Overte prístup k elektronickej schránke",
-        "body": "Po výmene si vyskúšajte prihlásenie na oficiálnom portáli a otvorenie doručenej správy. Ak sa prihlásenie nepodarí, zaznamenajte chybové hlásenie bez osobných údajov a obráťte sa na oficiálnu podporu; bezpečnostné kódy jej neposielajte."
+        "body": "Po výmene si vyskúšajte prihlásenie na oficiálnom portáli a otvorenie doručenej správy. Ak sa prihlásenie nepodarí, zaznamenajte chybové hlásenie bez osobných údajov a obráťte sa na oficiálnu podporu; bezpečnostné kódy jej neposielajte. Ak používate elektronický podpis, vyskúšajte aj podpis neškodného skúšobného dokumentu bez jeho odoslania na úrad."
       }
     ]
   },
@@ -1342,7 +1342,7 @@
       },
       {
         "title": "Urobte kontrolu pred odchodom",
-        "body": "Pred cestou porovnajte meno dieťaťa v rezervácii s pasom, skontrolujte fyzický stav dokladu a uložte si kontakty na zastupiteľský úrad pre prípad jeho straty v zahraničí."
+        "body": "Pred cestou porovnajte meno dieťaťa v rezervácii s pasom, skontrolujte fyzický stav dokladu a uložte si kontakty na zastupiteľský úrad pre prípad jeho straty v zahraničí. Pri viacerých deťoch si pripravte samostatný riadok pre každé dieťa s dátumom platnosti dokladu a stavom kontroly rezervácie."
       },
       {
         "title": "Zjednoťte údaje dieťaťa v rezerváciách",
@@ -1394,7 +1394,7 @@
       },
       {
         "title": "Overte návrat pred kúpou letenky",
-        "body": "Pred rezerváciou náhradnej cesty si u dopravcu a zastupiteľského úradu potvrďte, ktorý náhradný doklad bude akceptovaný na celej trase vrátane tranzitu."
+        "body": "Pred rezerváciou náhradnej cesty si u dopravcu a zastupiteľského úradu potvrďte, ktorý náhradný doklad bude akceptovaný na celej trase vrátane tranzitu. Pri zmene trasy si opätovne potvrďte aj podmienky prestupu; zaznamenajte si odpoveď dopravcu pred zaplatením nevratnej rezervácie."
       },
       {
         "title": "Zabezpečte aj cestovné rezervácie",
