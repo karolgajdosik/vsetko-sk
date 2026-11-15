@@ -61,7 +61,7 @@ function xmlText(text) {
 }
 
 export function createWordDocument(heading, paragraphs) {
-  const title = '<w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="320"/></w:pPr><w:r><w:rPr><w:b/><w:sz w:val="32"/></w:rPr><w:t>' + xmlText(heading) + '</w:t></w:r></w:p>';
+  const title = '<w:p><w:pPr><w:spacing w:after="320"/><w:jc w:val="center"/></w:pPr><w:r><w:rPr><w:b/><w:sz w:val="32"/></w:rPr><w:t>' + xmlText(heading) + '</w:t></w:r></w:p>';
   const body = paragraphs.flatMap(text => text.split(/\r\n?|\n/)).map(line =>
     '<w:p><w:pPr><w:spacing w:after="120"/></w:pPr><w:r><w:t xml:space="preserve">' + xmlText(line) + '</w:t></w:r></w:p>'
   ).join('');
