@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="VŠETKO24 do mobilu" description="Pridajte si VŠETKO24.sk na plochu mobilu bez obchodu s aplikáciami. Návody na inštaláciu a vysvetlenie offline režimu.">
+<main class="wrap main app-page" id="obsah">
+  <p class="eyebrow">VŠETKO24 · Mobilná aplikácia</p>
+  <h1>VŠETKO24 do mobilu</h1>
+  <p class="intro">Pridajte si portál na plochu telefónu alebo počítača. Otvoríte ho jedným dotykom bez hľadania adresy a bez registrácie.</p>
+  <section class="panel" aria-labelledby="app-install-title">
+    <h2 id="app-install-title">Pridať na plochu</h2>
+    <p id="app-install-status" role="status">Spôsob pridania závisí od vášho prehliadača. Ak sa tlačidlo inštalácie nezobrazí, použite postup nižšie.</p>
+    <button type="button" id="app-install" hidden>Pridať VŠETKO24 do zariadenia</button>
+    <h3>iPhone a iPad</h3>
+    <ol><li>Otvorte <strong>vsetko24.sk</strong> v Safari.</li><li>V ponuke zdieľania vyberte <strong>Pridať na plochu</strong>. Ak je dostupná voľba otvorenia ako webovej aplikácie, zapnite ju.</li><li>Potvrďte pridanie. Ikonu potom nájdete na ploche.</li></ol>
+    <h3>Android</h3>
+    <ol><li>Otvorte portál v Chrome alebo inom podporovanom prehliadači.</li><li>V ponuke prehliadača vyberte <strong>Inštalovať aplikáciu</strong> alebo <strong>Pridať na plochu</strong>. Názov možnosti sa môže líšiť.</li><li>Potvrďte pridanie do zariadenia.</li></ol>
+    <p class="note">Na počítači môže podporovaný prehliadač ponúknuť inštaláciu pri adresnom riadku. Ak možnosť chýba, portál môžete ďalej používať ako bežný web.</p>
+  </section>
+  <section class="panel" aria-labelledby="app-offline-title">
+    <h2 id="app-offline-title">Čo funguje bez internetu?</h2>
+    <p>Táto prvá verzia obsahuje len základnú obrazovku pri strate pripojenia. Návody, kalkulačky, vyhľadávanie ani API nie sú dostupné ako offline kópia. Osobné údaje sa do offline cache neukladajú.</p>
+    <p>Portál neposiela push upozornenia a po zatvorení aplikácie nevykonáva úlohy na pozadí. Termíny môžete z <a href="/kalendar/">kalendára povinností</a> exportovať do vlastnej kalendárovej aplikácie.</p>
+    <p class="note">Pridanie na plochu nezálohuje ani nesynchronizuje vaše lokálne záznamy. Samostatná webová aplikácia môže podľa zariadenia používať iné úložisko ako karta prehliadača.</p>
+  </section>
+  <section class="panel" aria-labelledby="app-start-title"><h2 id="app-start-title">Kam chcete pokračovať?</h2><nav class="app-links" aria-label="Hlavné nástroje aplikácie"><a href="/ai/">Asistent a vyhľadávanie</a><a href="/kalkulacky/">Kalkulačky</a><a href="/navody/">Praktické návody</a><a href="/moje-centrum/">Moje centrum</a></nav></section>
+</main>
+<script>
+type InstallPromptEvent = Event & {prompt:()=>Promise<void>;userChoice:Promise<{outcome:string}>};
+const installButton=document.querySelector<HTMLButtonElement>('#app-install');
+const installStatus=document.querySelector<HTMLElement>('#app-install-status');
+let pendingPrompt:InstallPromptEvent|null=null;
+const standalone=window.matchMedia('(display-mode: standalone)').matches||('standalone' in navigator&&navigator.standalone===true);
+if(standalone&&installStatus)installStatus.textContent='Portál je otvorený ako samostatná webová aplikácia.';
+window.addEventListener('beforeinstallprompt',event=>{
+  event.preventDefault();pendingPrompt=event as InstallPromptEvent;
+  if(installButton&&!standalone)installButton.hidden=false;
+});
+installButton?.addEventListener('click',async()=>{
+  if(!pendingPrompt)return;
+  const prompt=pendingPrompt;pendingPrompt=null;installButton.hidden=true;
+  try{
+    await prompt.prompt();const choice=await prompt.userChoice;
+    if(installStatus)installStatus.textContent=choice.outcome==='accepted'?'Pridanie bolo potvrdené. Dokončenie závisí od vášho prehliadača.':'Pridanie ste zrušili. Portál môžete ďalej používať v prehliadači.';
+  }catch{if(installStatus)installStatus.textContent='Inštaláciu sa nepodarilo otvoriť. Použite postup pre váš prehliadač uvedený nižšie.';}
+});
+window.addEventListener('appinstalled',()=>{
+  pendingPrompt=null;if(installButton)installButton.hidden=true;
+  if(installStatus)installStatus.textContent='Prehliadač potvrdil pridanie aplikácie. Nájdete ju medzi aplikáciami alebo na ploche.';
+});
+</script>
+<style>.app-page{max-width:900px}.app-page section{padding:1.4rem;margin:1.2rem 0}.app-page li{margin:.6rem 0}.app-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.app-links a{border:1px solid #8290a5;border-radius:10px;padding:.8rem;overflow-wrap:anywhere}#app-install{min-height:48px;padding:.8rem 1rem;border-radius:10px;border:1px solid #14508c;background:#14508c;color:white;font:inherit;font-weight:700;cursor:pointer}#app-install[hidden]{display:none}@media(max-width:550px){.app-links{grid-template-columns:1fr}}</style>
+</Base>

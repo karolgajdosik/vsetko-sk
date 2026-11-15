@@ -614,5 +614,47 @@
     "url": "/metriky/",
     "description": "Rozsah obsahu, prístup k analytike a stav merania výkonu.",
     "keywords": "metriky prehlad navstevnost analytika vykon"
+  },
+  {
+    "title": "Môj prehľad",
+    "category": "Služby",
+    "url": "/moj-prehlad/",
+    "description": "Lokálne preferencie, obľúbené odkazy a prehľad úloh.",
+    "keywords": "môj prehľad"
+  },
+  {
+    "title": "Financie 360 – prehľad domácnosti",
+    "category": "Financie",
+    "url": "/financie/prehlad/",
+    "description": "Rozpočet, finančná rezerva a vlastný záťažový scenár.",
+    "keywords": "financie 360 – prehľad domácnosti"
+  },
+  {
+    "title": "Moje auto – evidencia nákladov",
+    "category": "Auto",
+    "url": "/auto/moje-auto/",
+    "description": "Lokálne výdavky na auto a cena za kilometer.",
+    "keywords": "moje auto – evidencia nákladov"
+  },
+  {
+    "title": "Porovnávač nákladov služieb",
+    "category": "Služby",
+    "url": "/porovnavace/",
+    "description": "Porovnanie dvoch vlastných ponúk a poplatkov.",
+    "keywords": "porovnávač nákladov služieb"
+  },
+  {
+    "title": "Mobilná aplikácia",
+    "category": "Služby",
+    "url": "/aplikacia/",
+    "description": "Pridanie portálu na plochu a možnosti offline.",
+    "keywords": "mobilná aplikácia"
+  },
+  {
+    "title": "Nové osobné nástroje",
+    "category": "Služby",
+    "url": "/novinky/",
+    "description": "Osobný prehľad, financie, auto, dokumenty a kalendár.",
+    "keywords": "nové osobné nástroje"
   }
 ]

@@ -5,11 +5,11 @@ import Base from '../layouts/Base.astro';
 <main class="wrap main ai-page" id="obsah">
 <p class="eyebrow">VŠETKO AI · Praktický sprievodca</p><h1>Spýtajte sa asistenta</h1>
 <p class="intro">Asistent odpovedá po slovensky na základe vybraných návodov portálu. Ak nemá dostatočné podklady, prizná to. Odpovede nie sú úradným, právnym ani finančným poradenstvom.</p>
-<section class="panel ai-path"><h2>Vyhľadávanie naprieč portálom</h2><p>Vyhľadajte overiteľné návody a kalkulačky bez odosielania otázky AI modelu.</p><label for="knowledge-query">Hľadať nástroje a návody</label><input id="knowledge-query" type="search" placeholder="Napríklad hypotéka, občiansky preukaz…" autocomplete="off"/><div id="knowledge-results" aria-live="polite"></div></section><section class="panel ai-path"><h2>Vyriešte životnú situáciu</h2><p>Vyberte si cieľ a prejdite na overiteľné návody, výpočty a kontrolné zoznamy. Tento postup funguje aj bez AI modelu.</p><label for="ai-goal">Čo potrebujete vyriešiť?</label><select id="ai-goal"><option value="">Vyberte situáciu</option><option value="home">Kúpa bytu</option><option value="car">Kúpa auta</option><option value="documents">Strata dokladu</option><option value="business">Začiatok podnikania</option></select><div id="ai-path-links" aria-live="polite"></div></section>
+<section class="panel ai-path"><h2>Vyhľadávanie naprieč portálom</h2><p>Vyhľadajte overiteľné návody a kalkulačky bez odosielania otázky AI modelu.</p><label for="knowledge-query">Hľadať nástroje a návody</label><input id="knowledge-query" type="search" placeholder="Napríklad hypotéka, občiansky preukaz…" autocomplete="off"/><div class="knowledge-filters"><div><label for="knowledge-category">Oblasť</label><select id="knowledge-category"><option value="">Všetky oblasti</option></select></div><div><label for="knowledge-kind">Čo hľadáte?</label><select id="knowledge-kind"><option value="">Všetky výsledky</option><option value="guide">Návody a postupy</option><option value="calculator">Kalkulačky</option><option value="other">Ostatné nástroje a stránky</option></select></div></div><p id="knowledge-summary" class="note" role="status">Napíšte tému a podľa potreby spresnite oblasť alebo typ výsledku. Toto vyhľadávanie zostáva v prehliadači.</p><div id="knowledge-results" aria-live="polite"></div></section><section class="panel ai-path"><h2>Vyriešte životnú situáciu</h2><p>Vyberte si cieľ a prejdite na overiteľné návody, výpočty a kontrolné zoznamy. Tento postup funguje aj bez AI modelu.</p><label for="ai-goal">Čo potrebujete vyriešiť?</label><select id="ai-goal"><option value="">Vyberte situáciu</option><option value="home">Kúpa bytu</option><option value="car">Kúpa auta</option><option value="documents">Strata dokladu</option><option value="business">Začiatok podnikania</option></select><div id="ai-path-links" aria-live="polite"></div></section>
 <section class="panel ai-quick" aria-label="Rýchle otázky"><h2>Čo potrebujete vyriešiť?</h2><div class="quick-grid"><button type="button" data-question="Ako postupovať pri kúpe bytu a porovnaní hypoték?">🏠 Kúpa bytu</button><button type="button" data-question="Čo potrebujem na prepis auta?">🚗 Prepis auta</button><button type="button" data-question="Čo robiť pri strate občianskeho preukazu?">🪪 Strata dokladu</button><button type="button" data-question="Ako si vytvoriť finančnú rezervu?">💶 Finančná rezerva</button></div><p class="note">Asistent pracuje s vybranými témami portálu. Nie je pripojený na všetky aktuálne úradné registre.</p></section>
 <section class="panel ai-box" aria-label="Konverzácia s AI asistentom">
 <div id="ai-conversation" class="ai-conversation" aria-live="polite"><div class="ai-message ai-bot">Dobrý deň! S čím vám môžem pomôcť? Napríklad s občianskym preukazom, hypotékou alebo prepisom auta.</div></div>
-<form id="ai-form"><label for="ai-question">Vaša otázka</label><div class="ai-input"><textarea id="ai-question" maxlength="600" rows="2" required placeholder="Napríklad: Čo robiť, keď stratím občiansky preukaz?"></textarea><button id="ai-submit" type="submit">Odoslať</button></div><label class="ai-local-choice" for="ai-local-only"><input id="ai-local-only" type="checkbox" /> Vyhľadávať iba v návodoch portálu (otázka sa neodošle službe AI)</label><p class="note">Nepíšte rodné čísla, adresy, zdravotné ani iné citlivé údaje. Pri vypnutom lokálnom režime sa otázka odosiela do API asistenta; pri zapnutom sa spracuje iba v tomto prehliadači. <a href="/ochrana-sukromia/">Ochrana súkromia</a>.</p></form>
+<form id="ai-form"><label for="ai-question">Vaša otázka</label><p class="note" id="ai-context-note">Každú otázku posudzujem samostatne. Pri nadväzujúcej otázke uveďte aj tému; predchádzajúca konverzácia sa do API neposiela.</p><div class="ai-input"><textarea id="ai-question" maxlength="600" rows="2" required aria-describedby="ai-context-note" placeholder="Napríklad: Čo robiť, keď stratím občiansky preukaz?"></textarea><button id="ai-submit" type="submit">Odoslať</button></div><label class="ai-local-choice" for="ai-local-only"><input id="ai-local-only" type="checkbox" /> Vyhľadávať iba v návodoch portálu (otázka sa neodošle službe AI)</label><p class="note">Nepíšte rodné čísla, adresy, zdravotné ani iné citlivé údaje. Pri vypnutom lokálnom režime sa otázka odosiela do API asistenta; pri zapnutom sa spracuje iba v tomto prehliadači. <a href="/ochrana-sukromia/">Ochrana súkromia</a>.</p></form>
 </section>
 <p class="note">AI môže robiť chyby. Vždy si overte aktuálne postupy v odkazovaných oficiálnych zdrojoch. Táto verzia neuchováva históriu konverzácie na portáli.</p>
 </main>
@@ -65,19 +65,35 @@ function renderLocalLinks(parent:HTMLElement,question:string,label='Súvisiace n
   for(const item of hits){const a=document.createElement('a');a.href=item.url;a.textContent=item.title+' — '+item.category+' →';block.append(a);}
   parent.append(block);
 }
-searchInput?.addEventListener('input',()=>{
+const categoryFilter=document.querySelector<HTMLSelectElement>('#knowledge-category');
+const kindFilter=document.querySelector<HTMLSelectElement>('#knowledge-kind');
+const searchSummary=document.querySelector<HTMLElement>('#knowledge-summary');
+for(const category of [...new Set(library.map(item=>item.x.category))].filter(Boolean).sort((a,b)=>a.localeCompare(b,'sk'))){
+  const option=document.createElement('option');option.value=category;option.textContent=category;categoryFilter?.append(option);
+}
+function kindOf(url:string){
+  if(/^\/(navody|sprievodca)\//.test(url))return 'guide';
+  if(url.startsWith('/kalkulacky/')||/^\/financie\/#(hypoteka|rozpocet)/.test(url))return 'calculator';
+  return 'other';
+}
+function updateKnowledgeResults(){
   if(!searchResults)return;
   searchResults.replaceChildren();
-  const q=searchInput.value.trim();if(q.length<2)return;
-  const hits=findLocal(q,8);
-  if(!hits.length){searchResults.textContent='Pre túto otázku sa nenašli zodpovedajúce výsledky. Skúste kratší výraz.';return;}
-  for(const item of hits){
+  const q=searchInput?.value.trim()??'';
+  if(q.length<2){if(searchSummary)searchSummary.textContent='Napíšte aspoň dva znaky. Filtre nemenia ani neodosielajú otázku asistentovi.';return;}
+  // Filter the complete ranked list before limiting the visible results.
+  const hits=findLocal(q,library.length).filter(item=>(!categoryFilter?.value||item.category===categoryFilter.value)&&(!kindFilter?.value||kindOf(item.url)===kindFilter.value));
+  if(searchSummary)searchSummary.textContent=hits.length?'Nájdených stránok: '+hits.length+'. Zobrazených: '+Math.min(hits.length,8)+'. Ide o tematické výsledky katalógu, nie potvrdenie odpovede.':'Pre zvolené filtre sa nenašli výsledky. Zmeňte filter alebo skúste kratší výraz.';
+  for(const item of hits.slice(0,8)){
     const a=document.createElement('a');a.href=item.url;
     const name=document.createElement('strong');name.textContent=item.title;
     const desc=document.createElement('span');desc.textContent=' — '+item.category+': '+item.description;
     a.append(name,desc);searchResults.append(a);
   }
-});
+}
+searchInput?.addEventListener('input',updateKnowledgeResults);
+categoryFilter?.addEventListener('change',updateKnowledgeResults);
+kindFilter?.addEventListener('change',updateKnowledgeResults);
 const goal=document.querySelector<HTMLSelectElement>('#ai-goal');const pathLinks=document.querySelector<HTMLElement>('#ai-path-links');const paths:Record<string,{label:string,url:string}[]>={home:[{label:'Sprievodca kúpou bytu',url:'/sprievodca/kupa-bytu/'},{label:'Porovnanie hypoték',url:'/financie/porovnanie-hypotek/'},{label:'Môj rozpočet',url:'/moje-centrum/#rozpocet'}],car:[{label:'Sprievodca kúpou auta',url:'/sprievodca/nove-auto/'},{label:'Porovnanie nákladov vozidiel',url:'/auto/porovnanie-nakladov/'}],documents:[{label:'Strata občianskeho preukazu',url:'/sprievodca/strata-obcianskeho/'},{label:'Kalendár termínov',url:'/kalendar/'}],business:[{label:'Začatie podnikania',url:'/sprievodca/zivnost/'},{label:'Overenie firmy',url:'/data/firmy/'}]};
 goal?.addEventListener('change',()=>{if(!pathLinks)return;pathLinks.replaceChildren();for(const item of paths[goal.value]||[]){const a=document.createElement('a');a.href=item.url;a.textContent=item.label+' →';pathLinks.append(a);}});
 const form=document.querySelector<HTMLFormElement>('#ai-form')!;
@@ -89,6 +105,25 @@ const quickButtons=Array.from(document.querySelectorAll<HTMLButtonElement>('[dat
 let busy=false;
 quickButtons.forEach(b=>b.addEventListener('click',()=>{if(busy)return;field.value=b.dataset.question||'';field.focus();form.requestSubmit();}));
 const localOnly=document.querySelector<HTMLInputElement>('#ai-local-only');
+function addRefinement(response:HTMLElement,question:string){
+  const topics=findLocal(question,3);
+  if(!topics.length)return;
+  const block=document.createElement('div');block.className='ai-refinement';
+  const label=document.createElement('strong');label.textContent='Spresnite ďalšiu otázku podľa témy:';block.append(label);
+  const hint=document.createElement('p');hint.className='note';hint.textContent='Výber iba pripraví otázku. Upravte ju a odošlite, keď budete pripravení.';block.append(hint);
+  for(const topic of topics){
+    const refine=document.createElement('button');refine.type='button';refine.textContent=topic.title;
+    refine.addEventListener('click',()=>{
+      if(busy)return;
+      field.value='Téma: '+topic.title+'. Čo si potrebujem pripraviť a kde nájdem konkrétny postup?';
+      field.focus();
+      field.scrollIntoView({block:'nearest',behavior:'smooth'});
+    });
+    block.append(refine);
+  }
+  response.append(block);
+}
+
 form.addEventListener('submit',async e=>{
   e.preventDefault();
   const question=field.value.trim();
@@ -155,6 +190,7 @@ form.addEventListener('submit',async e=>{
     quickButtons.forEach(b=>b.disabled=false);
     if(localOnly)localOnly.disabled=false;
     form.removeAttribute('aria-busy');
+    addRefinement(response,question);
     field.focus();
     response.scrollIntoView({block:'nearest',behavior:'smooth'});
   }
@@ -163,5 +199,6 @@ form.addEventListener('submit',async e=>{
 <style>
 .ai-page{max-width:900px}.ai-box{padding:1.4rem;background:var(--surface)}.ai-conversation{display:flex;flex-direction:column;gap:1rem;min-height:180px;margin-bottom:2rem}:global(.ai-message){max-width:92%;border-radius:16px;padding:1rem 1.2rem;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere}:global(.ai-bot){align-self:flex-start;background:var(--surface);border:1px solid #7c8ca5;color:var(--ink)}:global(.ai-user){align-self:flex-end;background:#5145d8;color:white;border:2px solid #8177ed}.ai-input{display:flex;gap:.7rem}.ai-input textarea{flex:1;min-width:0;padding:.9rem;border:1px solid #8a9bb4;border-radius:12px;background:var(--surface);color:var(--ink);font:inherit}.ai-input button{background:#5145d8;color:#fff;border:0;border-radius:12px;padding:1rem}.ai-input button:disabled{opacity:.5;cursor:wait}:global(.ai-sources){display:flex;flex-direction:column;gap:.6rem;margin-top:1.1rem;padding-top:.9rem;border-top:1px solid #8794aa;white-space:normal}:global(.ai-sources strong){display:block}:global(.ai-sources a){display:block;overflow-wrap:anywhere}.ai-sources a{text-decoration:underline}.ai-page label{display:block;font-weight:700;margin-bottom:.6rem}@media(max-width:550px){.ai-input{flex-direction:column}:global(.ai-message){max-width:100%}}
 .ai-quick{padding:1.2rem;margin:1.2rem 0}.quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}.quick-grid button:disabled{opacity:.5;cursor:wait}.quick-grid button{padding:.9rem;text-align:left;border:1px solid #8794aa;border-radius:12px;background:var(--surface);color:var(--ink);font:inherit;cursor:pointer}@media(max-width:550px){.quick-grid{grid-template-columns:1fr}}.ai-path{padding:1.4rem;margin:1.2rem 0}.ai-path select{display:block;width:100%;padding:.8rem;background:var(--surface);color:var(--ink);border:1px solid #8290a5;border-radius:10px}.ai-path :global(#knowledge-query){width:100%;padding:.8rem;border:1px solid #8290a5;border-radius:10px;background:var(--surface);color:var(--ink)}.ai-path :global(#knowledge-results){display:grid;gap:.6rem;margin-top:1rem}.ai-path :global(#knowledge-results a){padding:.7rem;border:1px solid #8290a5;border-radius:9px;text-decoration:none}.ai-path :global(#ai-path-links){display:grid;gap:.7rem;margin-top:1rem}.ai-path :global(#ai-path-links a){padding:.7rem;border:1px solid #8290a5;border-radius:9px;text-decoration:none}.ai-local-choice{display:flex!important;align-items:flex-start;gap:.65rem;margin:1rem 0;font-weight:600!important}.ai-local-choice input{flex:0 0 auto;width:1.2rem;height:1.2rem;margin-top:.2rem}.ai-path :global(#knowledge-results a){display:block;overflow-wrap:anywhere}.ai-path :global(#knowledge-results a span){font-size:.9rem;opacity:.85}
+.knowledge-filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1rem}.knowledge-filters>div{min-width:0}.ai-page :global(.ai-refinement){display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem;padding-top:1rem;border-top:1px solid #8794aa;white-space:normal}.ai-page :global(.ai-refinement strong),.ai-page :global(.ai-refinement p){flex-basis:100%;margin:0}.ai-page :global(.ai-refinement button){min-height:44px;max-width:100%;padding:.6rem .8rem;border:1px solid #8794aa;border-radius:10px;background:var(--surface);color:var(--ink);font:inherit;overflow-wrap:anywhere;cursor:pointer}.ai-page :global(.ai-refinement button:focus-visible){outline:3px solid #8177ed;outline-offset:3px}@media(max-width:550px){.knowledge-filters{grid-template-columns:1fr}}
 </style>
 </Base>

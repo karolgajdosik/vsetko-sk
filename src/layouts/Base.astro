@@ -1,9 +1,9 @@
 ---
 const {title='VŠETKO24.sk',description='Praktické návody a kalkulačky pre Slovensko.',updated,sourceLinks=[]}=Astro.props;
 const path=Astro.url.pathname;
-const nav=[['/','Domov'],['/sluzby/','Služby'],['/financie/','Financie'],['/auto/','Auto'],['/urady/','Úrady'],['/sprievodca/','Sprievodca'],['/data/','Dáta'],['/hladat/','Hľadať'],['/ai/','VŠETKO AI'],['/moje-centrum/','Moje centrum'],['/kalendar/','Kalendár'],['/dokumenty/','Dokumenty'],['/faq/','Časté otázky']];
-const primaryNav=nav.filter(([href])=>!['/data/','/moje-centrum/','/kalendar/','/dokumenty/','/faq/'].includes(href));
-const extraNav=nav.filter(([href])=>['/data/','/moje-centrum/','/kalendar/','/dokumenty/','/faq/'].includes(href));
+const nav=[['/','Domov'],['/sluzby/','Služby'],['/financie/','Financie'],['/auto/','Auto'],['/urady/','Úrady'],['/sprievodca/','Sprievodca'],['/data/','Dáta'],['/hladat/','Hľadať'],['/ai/','VŠETKO AI'],['/moje-centrum/','Moje centrum'],['/kalendar/','Kalendár'],['/dokumenty/','Dokumenty'],['/faq/','Časté otázky'],['/novinky/','Nové nástroje']];
+const primaryNav=nav.filter(([href])=>!['/data/','/moje-centrum/','/kalendar/','/dokumenty/','/faq/','/novinky/'].includes(href));
+const extraNav=nav.filter(([href])=>['/data/','/moje-centrum/','/kalendar/','/dokumenty/','/faq/','/novinky/'].includes(href));
 const section=path.split('/').filter(Boolean)[0] ?? '';
 const activeNav=(href)=>href==='/'?path==='/':path===href||path.startsWith(href);
 const photoBySection={
@@ -42,6 +42,8 @@ const fullTitle = title === 'VŠETKO24.sk' ? title : `${title} | VŠETKO24.sk`;
 <meta name="robots" content={section==='404' ? 'noindex,follow' : 'index,follow,max-image-preview:large'} />
 <link rel="canonical" href={canonical} />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<link rel="apple-touch-icon" href="/pwa-icon-192.png" />
 <link rel="stylesheet" href="/site.css?v=4.35.0" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="sk_SK" />
@@ -86,5 +88,5 @@ const increaseFont=()=>{size=Math.min(150,size+10);save('v24-font',String(size))
 document.getElementById('font-down')?.addEventListener('click',()=>{size=Math.max(100,size-10);save('v24-font',String(size));applySize()});
 document.getElementById('font-reset')?.addEventListener('click',()=>{size=100;save('v24-font',String(size));applySize()});
 })();
-</script></body></html>
+</script><script is:inline>if('serviceWorker' in navigator && (location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1')){window.addEventListener('load',()=>{navigator.serviceWorker.register('/pwa-worker.js',{scope:'/',updateViaCache:'none'}).catch(()=>{});});}</script></body></html>
 

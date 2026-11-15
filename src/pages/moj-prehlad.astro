@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import { PROFILE_TOPICS, PROFILE_LINKS } from '../lib/profile-store.mjs';
+---
+<Base title="Môj prehľad" description="Vlastné skratky, obľúbené nástroje a prehľad úloh. Lokálny profil bez registrácie, uložený iba vo vašom prehliadači.">
+  <main class="wrap main profile" id="obsah">
+    <nav aria-label="Navigácia"><a href="/">Úvod</a> / Môj prehľad</nav>
+    <h1>Môj prehľad</h1>
+    <p class="intro">Nastavte si témy a nástroje, ku ktorým sa chcete rýchlo vracať. Úlohy a termíny preberáme z vášho existujúceho <a href="/moje-centrum/">osobného centra</a>.</p>
+    <p class="panel" role="note">Profil sa ukladá iba v tomto prehliadači. Nepotrebujete účet a vaše voľby sa neodosielajú na server. Na inom zariadení sa automaticky neobjavia; vymazaním údajov prehliadača o ne prídete. Nie je potrebné zadávať meno, e-mail ani čísla dokladov.</p>
+    <noscript><p>Na uloženie profilu je potrebný JavaScript. Všetky odkazy na nástroje nižšie zostávajú dostupné.</p></noscript>
+    <section class="panel" aria-labelledby="profile-summary-heading">
+      <h2 id="profile-summary-heading">Čo máte rozpracované</h2>
+      <p id="profile-summary" role="status">Po zapnutí JavaScriptu sa načíta počet uložených úloh a budúcich termínov.</p>
+      <p><a href="/moje-centrum/#ulohy">Otvoriť úlohy</a> · <a href="/kalendar/">Otvoriť termíny</a> · <a href="/moje-kontrolne-zoznamy/">Kontrolné zoznamy</a></p>
+    </section>
+    <section class="panel" aria-labelledby="profile-shortcuts-heading">
+      <h2 id="profile-shortcuts-heading">Moje skratky</h2>
+      <p id="profile-empty">Zatiaľ nemáte nastavené skratky. Vyberte si ich vo formulári nižšie.</p>
+      <ul id="profile-shortcuts" class="profile-links"></ul>
+    </section>
+    <section class="panel" aria-labelledby="profile-settings-heading">
+      <h2 id="profile-settings-heading">Upraviť lokálny profil</h2>
+      <form id="profile-form">
+        <fieldset><legend>Moje témy</legend><div class="profile-options">{PROFILE_TOPICS.map(topic => <label><input type="checkbox" name="topic" value={topic.id} /> {topic.title}</label>)}</div></fieldset>
+        <fieldset><legend>Obľúbené nástroje</legend><div class="profile-options">{PROFILE_LINKS.map(item => <label><input type="checkbox" name="favorite" value={item.id} /> {item.title}</label>)}</div></fieldset>
+        <div class="profile-actions"><button type="submit">Uložiť profil</button><button type="button" id="profile-clear">Vymazať lokálny profil</button></div>
+        <p id="profile-status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="muted">Vymazanie odstráni iba témy a obľúbené nástroje tohto profilu. Úlohy, termíny, rozpočet a vzhľad sa spravujú samostatne v existujúcich nástrojoch.</p>
+    </section>
+    <section class="panel" aria-labelledby="profile-tools-heading"><h2 id="profile-tools-heading">Všetky dostupné skratky</h2><ul class="profile-links">{PROFILE_LINKS.map(item => <li><a href={item.href}>{item.title}</a></li>)}</ul></section>
+  </main>
+</Base>
+<script>
+  import { PROFILE_KEY, PROFILE_TOPICS, PROFILE_LINKS, emptyProfile, readProfile, writeProfile, centerSummary } from '../lib/profile-store.mjs';
+  let profile = emptyProfile();
+  const status = document.getElementById('profile-status')!;
+  const form = document.getElementById('profile-form') as HTMLFormElement;
+  function render() {
+    form.querySelectorAll<HTMLInputElement>('input[name="topic"]').forEach(input => { input.checked = profile.topics.includes(input.value); });
+    form.querySelectorAll<HTMLInputElement>('input[name="favorite"]').forEach(input => { input.checked = profile.favorites.includes(input.value); });
+    const selected = [...PROFILE_TOPICS.filter(item => profile.topics.includes(item.id)), ...PROFILE_LINKS.filter(item => profile.favorites.includes(item.id))];
+    const list = document.getElementById('profile-shortcuts')!;
+    list.replaceChildren();
+    for (const item of selected) {
+      const li = document.createElement('li'), link = document.createElement('a');
+      link.href = item.href; link.textContent = item.title; li.append(link); list.append(li);
+    }
+    document.getElementById('profile-empty')!.hidden = selected.length > 0;
+  }
+  function renderSummary() {
+    const summary = document.getElementById('profile-summary')!;
+    try {
+      const raw = localStorage.getItem('v24-personal-center-v1');
+      const now = new Date();
+      const today = [now.getFullYear(), String(now.getMonth() + 1).padStart(2, '0'), String(now.getDate()).padStart(2, '0')].join('-');
+      const counts = centerSummary(raw === null ? null : JSON.parse(raw), today);
+      summary.textContent = `Nedokončené úlohy: ${counts.tasks}. Termíny od dneška: ${counts.deadlines}.`;
+    } catch { summary.textContent = 'Uložené úlohy a termíny sa nepodarilo načítať. Otvorte osobné centrum alebo kalendár.'; }
+  }
+  try { profile = readProfile(localStorage); } catch { status.textContent = 'Profil sa nepodarilo načítať. Výber môžete nastaviť znovu; pôvodné údaje sa automaticky neprepísali.'; }
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const next = { version: 1, topics: data.getAll('topic'), favorites: data.getAll('favorite') };
+    try { profile = writeProfile(localStorage, next); status.textContent = 'Profil je uložený iba v tomto prehliadači.'; render(); }
+    catch { status.textContent = 'Profil sa nepodarilo uložiť. Skontrolujte povolenie úložiska prehliadača; skratky neboli zmenené.'; }
+  });
+  document.getElementById('profile-clear')!.addEventListener('click', () => {
+    try { localStorage.removeItem(PROFILE_KEY); profile = emptyProfile(); render(); status.textContent = 'Lokálny profil bol vymazaný. Úlohy a termíny zostali zachované.'; }
+    catch { status.textContent = 'Profil sa nepodarilo vymazať. Skontrolujte nastavenie úložiska prehliadača.'; }
+  });
+  window.addEventListener('storage', event => {
+    if (event.key === PROFILE_KEY || event.key === null) {
+      try { profile = readProfile(localStorage); render(); } catch { status.textContent = 'Zmenu profilu z iného okna sa nepodarilo načítať.'; }
+    }
+    if (event.key === 'v24-personal-center-v1' || event.key === null) renderSummary();
+  });
+  window.addEventListener('pageshow', renderSummary);
+  render(); renderSummary();
+</script>
+<style>
+  .profile{max-width:70rem}.panel{margin-block:1.25rem}fieldset{border:1px solid var(--border,#aab9c7);border-radius:.65rem;padding:1rem;margin:1rem 0}legend{font-weight:700;padding-inline:.4rem}.profile-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:.5rem}.profile-options label{display:flex;align-items:center;gap:.6rem;padding:.65rem;border-radius:.4rem;cursor:pointer}.profile-options input{width:1.15rem;height:1.15rem;flex-shrink:0}.profile-actions{display:flex;gap:.75rem;flex-wrap:wrap}.profile-actions button{padding:.7rem 1rem;border:1px solid var(--border,#aab9c7);border-radius:.5rem;background:var(--card,#fff);color:var(--text,#123b69);cursor:pointer;font:inherit}.profile-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.65rem;list-style:none;padding:0}.profile-links a{display:block;border:1px solid var(--border,#aab9c7);border-radius:.5rem;padding:.8rem}.profile :global(:focus-visible){outline:3px solid var(--accent,#0f766e);outline-offset:3px}
+</style>
