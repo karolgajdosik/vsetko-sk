@@ -1,3 +1,4 @@
+import { checkPersonalTools } from './v4-personal-tools.mjs';
 import assert from 'node:assert/strict';
 export async function checkKeyboardAudit(browser,base){
  const page=await browser.newPage({viewport:{width:1280,height:900}});
@@ -25,4 +26,5 @@ export async function checkKeyboardAudit(browser,base){
   assert.match(await page.locator('#calendar-status').textContent(),/Termín odstránený/);
   console.log('Keyboard review regressions passed: main/skip/search, short viewport menu, Escape, form validation and delete focus');
  }finally{await page.close();}
+ await checkPersonalTools(browser,base);
 }
