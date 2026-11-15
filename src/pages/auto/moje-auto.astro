@@ -51,7 +51,21 @@ const field=(id:string)=>element(id) as HTMLInputElement;
 const euro=(value:number)=>new Intl.NumberFormat('sk-SK',{style:'currency',currency:'EUR',maximumFractionDigits:2}).format(value);
 let state:State=emptyVehicleCosts();
 let observedRaw:string|null=null, storageReadable=false, conflict=false;
-try { const saved=localStorage.getItem(VEHICLE_COST_KEY);observedRaw=saved;storageReadable=true; if(saved){const parsed=JSON.parse(saved);if(validVehicleCosts(parsed))state=parsed;else element('vehicle-storage').textContent='Uložená evidencia nie je platná. Zobrazuje sa prázdny prehľad; pôvodné údaje sa nezmenia, kým nepridáte alebo nezmeníte záznam.';} } catch {element('vehicle-storage').textContent='Uložené údaje sa nepodarilo načítať. Zmeny zostanú iba na tejto otvorenej stránke; použite export.';storageReadable=false;}
+try {
+  observedRaw = localStorage.getItem(VEHICLE_COST_KEY);
+  storageReadable = true;
+} catch {
+  element('vehicle-storage').textContent = 'Úložisko prehliadača je nedostupné. Zmeny zostanú na tejto otvorenej stránke. Na zálohovanie použite export.';
+}
+if (observedRaw !== null) {
+  try {
+    const parsed = JSON.parse(observedRaw);
+    if (!validVehicleCosts(parsed)) throw new Error('invalid');
+    state = parsed;
+  } catch {
+    element('vehicle-storage').textContent = 'Uložená evidencia je poškodená. Zobrazuje sa prázdny prehľad. Ďalšia úprava alebo obnovenie zálohy nahradí pôvodné údaje. Môžete ich tiež vymazať.';
+  }
+}
 function lockConflict(){
  conflict=true;
  element('vehicle-storage').textContent='Evidencia sa zmenila v inom okne alebo ju nemožno bezpečne overiť. Úpravy sú pozastavené, aby sa neprepísali novšie údaje. Načítajte stránku znovu; prípadne najprv exportujte tento zobrazený prehľad.';
