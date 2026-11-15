@@ -364,7 +364,7 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "kontrola vozidla pred kupou",
-    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "audience": "Kupujúci jazdeného vozidla, ktorí preverujú jeho históriu, technický stav a oprávnenie predávajúceho pred zálohou.",
     "preparation": [
       "VIN a fotografia identifikačných údajov vozidla na porovnanie s dokladmi",
       "Servisná história, informácie o opravách a dostupné záznamy o kilometroch",
@@ -518,7 +518,7 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "nabijanie elektromobilu",
-    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "audience": "Vodiči elektromobilov, ktorí vyberajú verejnú nabíjačku a porovnávajú cenu, kompatibilitu a spôsob platby.",
     "preparation": [
       "Typ konektora vozidla, maximálny AC/DC nabíjací výkon a plánovaný stav batérie pri príchode",
       "Aktuálna tarifa vrátane roamingu, spôsob autorizácie a prípadné časové či parkovacie poplatky",
@@ -2370,7 +2370,7 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "kúpa elektromobilu",
-    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "audience": "Záujemcovia o nový alebo jazdený elektromobil, ktorí posudzujú dojazd, stav batérie a celkové náklady.",
     "preparation": [
       "Reálne denné a dlhšie trasy, možnosť nabíjania doma alebo v práci",
       "Údaje o kapacite batérie, spotrebe, záruke a stave vozidla vrátane dostupnej histórie",
@@ -2430,7 +2430,7 @@
     },
     "updated": "12. 11. 2026",
     "keywords": "domáce nabíjanie elektromobilu",
-    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "audience": "Majitelia elektromobilov plánujúci odbornú inštaláciu nabíjania pri dome alebo na vlastnom parkovacom mieste.",
     "preparation": [
       "Technické údaje vozidla a plánovaný nabíjací výkon",
       "Informácie o elektrickej prípojke, rozvádzači a možnosti bezpečného vedenia kábla",
@@ -2478,7 +2478,7 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "plánovanie cesty elektromobilom",
-    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "audience": "Vodiči elektromobilov plánujúci dlhšiu trasu s nabíjacími zastávkami a energetickou rezervou.",
     "preparation": [
       "Plán trasy s predpokladanou spotrebou a rezervou energie pri príchode",
       "Kompatibilné nabíjacie stanice a aspoň jedna alternatíva pre kritické zastávky",
@@ -2967,7 +2967,7 @@
     },
     "updated": "12. 11. 2026",
     "keywords": "leasing alebo úver na auto",
-    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "audience": "Kupujúci vozidla porovnávajúci písomné ponuky financovania, vlastníctvo a celkové náklady.",
     "preparation": [
       "Písomné ponuky financovania na rovnaké vozidlo a porovnateľné obdobie",
       "Rozpis akontácie, splátok, poistenia, poplatkov a prípadnej odkúpnej ceny",
