@@ -162,7 +162,7 @@
     },
     "updated": "12. 11. 2026",
     "keywords": "financna rezerva",
-    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "audience": "Domácnosti a jednotlivci, ktorí budujú dostupnú rezervu na nečakané výdavky alebo výpadok príjmu.",
     "preparation": [
       "Výpis nevyhnutných mesačných výdavkov domácnosti vrátane splátok a poistenia",
       "Prehľad dostupných úspor a podmienok ich výberu vrátane prípadných poplatkov",
@@ -215,7 +215,7 @@
     },
     "updated": "12. 11. 2026",
     "keywords": "kontrola rodinnych vydavkov",
-    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "audience": "Domácnosti, ktoré chcú zistiť, kam odchádzajú peniaze, a porovnať plánované výdavky so skutočnými.",
     "preparation": [
       "Výpisy zo všetkých používaných účtov a záznamy hotovostných platieb za niekoľko mesiacov",
       "Zoznam opakovaných predplatných, splátok a ročných platieb",
@@ -1879,10 +1879,10 @@
     },
     "updated": "12. 11. 2026",
     "keywords": "kúpa bytu krok za krokom",
-    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "audience": "Kupujúci bytu, ktorí preverujú nehnuteľnosť, financovanie a podmienky pred rezerváciou alebo podpisom zmluvy.",
     "preparation": [
-      "Vlastné finančné údaje a relevantné zmluvy",
-      "Ponuky alebo doklady potrebné na porovnanie"
+      "Aktuálny list vlastníctva, údaje o byte a dostupné informácie od správcu domu",
+      "Rozpočet kúpy, písomná ponuka financovania a návrhy rezervačnej a kúpnej zmluvy na kontrolu"
     ],
     "verification": "12. 11. 2026: Overený postup prevodu na Slovensko.sk a tematické stránky ÚGKK SR o CICA a ESKN. Overené rozlíšenie informatívnej kontroly a podania na vklad; poplatky, lehoty a individuálne zmluvy neboli právne revidované. Doplnené 12. 11. 2026: overený odkaz na príslušný predpis v Slov-Lexe; úplná právna revízia zostáva otvorená.",
     "sourceNote": "Slovensko.sk opisuje postup pri prevode nehnuteľnosti, nie právnu kontrolu konkrétnej kúpnej zmluvy. Pred podpisom si informatívne overte vlastníka, podiely, ťarchy a plomby na oficiálnom portáli CICA (https://kataster.vugk.sk/); pri potrebe úradného dokumentu zvoľte príslušnú službu katastra. Zmluvu a bezpečné vyplatenie ceny posúďte individuálne. Pri plánovaní nákladov na vklad použite položku 11 aktuálneho sadzobníka; rozlišujte spôsob podania, urýchlenie a prípadné zníženie poplatku.",
@@ -2010,7 +2010,7 @@
     },
     "updated": "12. 11. 2026",
     "keywords": "predaj bytu",
-    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "audience": "Vlastníci bytu pripravujúci predaj, vysporiadanie financovania a odovzdanie nehnuteľnosti.",
     "preparation": [
       "Aktuálne údaje z listu vlastníctva a dokumenty preukazujúce oprávnenie nakladať s bytom",
       "Podklady o ťarchách, správe domu a prípadných záväzkoch, ktoré bude potrebné preveriť",
@@ -2272,7 +2272,7 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "ako plánovať sporenie",
-    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "audience": "Sporitelia, ktorí vyberajú produkt podľa termínu cieľa, dostupnosti peňazí a rizika.",
     "preparation": [
       "Konkrétny cieľ sporenia, cieľová suma a termín, kedy budú peniaze potrebné",
       "Porovnanie podmienok účtov a vkladov vrátane dostupnosti peňazí a prípadných poplatkov",
@@ -2321,7 +2321,7 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "rodinný finančný plán",
-    "audience": "Ľudia, ktorí plánujú finančné rozhodnutie alebo porovnávajú možnosti.",
+    "audience": "Domácnosti plánujúce spoločné výdavky, rezervu a viac finančných cieľov súčasne.",
     "preparation": [
       "Mesačný prehľad čistých príjmov, nevyhnutných výdavkov a všetkých splátok",
       "Zoznam nepravidelných výdavkov a finančných cieľov podľa priority a termínu",
