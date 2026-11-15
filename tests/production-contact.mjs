@@ -1,3 +1,4 @@
+import { checkPersonalTools } from './v4-personal-tools.mjs';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {chromium} from 'playwright';
@@ -17,4 +18,5 @@ try{
   else {assert.ok(text.includes('čaká na aktiváciu'),route+' pending state');assert.equal(await main.locator('a[href="mailto:'+operations.privacyEmail+'"]').count(),0,route+' inactive email must not invite sending');}
   console.log('PASS rendered privacy contact '+route);
  }
+ await checkPersonalTools(browser,origin);
 }finally{await browser.close();}

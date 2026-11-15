@@ -33,7 +33,7 @@ import { PROFILE_TOPICS, PROFILE_LINKS } from '../lib/profile-store.mjs';
   </main>
 </Base>
 <script>
-  import { PROFILE_KEY, PROFILE_TOPICS, PROFILE_LINKS, emptyProfile, readProfile, writeProfile, centerSummary } from '../lib/profile-store.mjs';
+  import { PROFILE_KEY, PROFILE_TOPICS, PROFILE_LINKS, emptyProfile, normalizeProfile, readProfile, writeProfile, centerSummary } from '../lib/profile-store.mjs';
   let profile = emptyProfile();
   const status = document.getElementById('profile-status')!;
   const form = document.getElementById('profile-form') as HTMLFormElement;
@@ -65,11 +65,19 @@ import { PROFILE_TOPICS, PROFILE_LINKS } from '../lib/profile-store.mjs';
     const data = new FormData(form);
     const next = { version: 1, topics: data.getAll('topic'), favorites: data.getAll('favorite') };
     try { profile = writeProfile(localStorage, next); status.textContent = 'Profil je uložený iba v tomto prehliadači.'; render(); }
-    catch { status.textContent = 'Profil sa nepodarilo uložiť. Skontrolujte povolenie úložiska prehliadača; skratky neboli zmenené.'; }
+    catch {
+      profile = normalizeProfile(next);
+      render();
+      status.textContent = 'Skratky sú dostupné na tejto otvorenej stránke. Prehliadač ich neuložil a po obnovení sa aktuálny výber stratí.';
+    }
   });
   document.getElementById('profile-clear')!.addEventListener('click', () => {
     try { localStorage.removeItem(PROFILE_KEY); profile = emptyProfile(); render(); status.textContent = 'Lokálny profil bol vymazaný. Úlohy a termíny zostali zachované.'; }
-    catch { status.textContent = 'Profil sa nepodarilo vymazať. Skontrolujte nastavenie úložiska prehliadača.'; }
+    catch {
+      profile = emptyProfile();
+      render();
+      status.textContent = 'Skratky na tejto stránke boli odstránené. Vymazanie údajov v úložisku sa nepodarilo overiť.';
+    }
   });
   window.addEventListener('storage', event => {
     if (event.key === PROFILE_KEY || event.key === null) {
