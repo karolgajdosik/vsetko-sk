@@ -35,7 +35,7 @@ const fields = [
       <p id="finance-error" role="alert" hidden>Skontrolujte všetky polia. Sumy musia byť nezáporné, najviac 10 miliónov €, cieľ celé číslo od 1 do 36 a percentá od 0 do 100.</p>
     </form>
     <section id="finance-results" class="panel" aria-labelledby="finance-results-title" hidden>
-      <h2 id="finance-results-title" tabindex="-1">Prehľad podľa vašich vstupov</h2>
+      <h2 id="finance-results-title" tabindex="-1">Orientačný prehľad podľa vašich vstupov</h2>
       <details id="finance-assumptions"><summary>Zadané hodnoty a predpoklady výpočtu</summary><dl class="finance-assumptions">{[...fields,{id:"targetMonths",label:"Cieľ rezervy (mesiace)"},{id:"incomeDrop",label:"Pokles príjmu (%)"},{id:"expenseRise",label:"Zvýšenie výdavkov (%)"}].map(field=><div><dt>{field.label}</dt><dd id={"finance-assumption-"+field.id}>—</dd></div>)}</dl></details>
       <div class="finance-metrics">
         <div><span>Priemerné mesačné výdavky</span><strong id="finance-expenses">—</strong></div>
