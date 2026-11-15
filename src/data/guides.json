@@ -266,7 +266,7 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "povinne zmluvne poistenie",
-    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "audience": "Držitelia vozidiel porovnávajúci ponuky PZP, rozsah krytia a asistenčné služby pred uzavretím alebo obnovou zmluvy.",
     "preparation": [
       "Osvedčenie o evidencii vozidla alebo presné VIN a evidenčné číslo",
       "Údaje poistníka a plánovaný dátum začiatku krytia",
@@ -462,7 +462,7 @@
     },
     "updated": "12. 11. 2026",
     "keywords": "predaj vozidla",
-    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "audience": "Predávajúci vozidla pripravujúci zmluvu, bezpečnú úhradu ceny a zdokumentované odovzdanie kupujúcemu.",
     "preparation": [
       "Osvedčenie o evidencii, VIN, servisné podklady a zoznam známych vád",
       "Návrh kúpnej zmluvy s cenou, spôsobom úhrady a termínom odovzdania",
@@ -622,7 +622,7 @@
     },
     "updated": "12. 11. 2026",
     "keywords": "dialnicna znamka",
-    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "audience": "Vodiči plánujúci trasu po slovenských diaľniciach, ktorí potrebujú preveriť spoplatnené úseky a vhodnú platnosť známky.",
     "preparation": [
       "Evidenčné číslo vozidla a krajina registrácie na presný zápis pri úhrade",
       "Plánovaná trasa a dátum začiatku platnosti známky",
@@ -2534,7 +2534,7 @@
     },
     "updated": "12. 11. 2026",
     "keywords": "prepis auta na slovensku",
-    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "audience": "Kupujúci a predávajúci vozidla pripravujúci zmenu držiteľa a kontrolu evidenčných dokladov.",
     "preparation": [
       "Údaje oboch strán, VIN a osvedčenie o evidencii na vzájomnú kontrolu",
       "Kúpna zmluva a prípadné splnomocnenie podľa aktuálnych požiadaviek úradu",
@@ -2665,7 +2665,7 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "príprava na stk",
-    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "audience": "Majitelia vozidiel pripravujúci auto a doklady na technickú kontrolu, prípadne emisnú kontrolu.",
     "preparation": [
       "Doklady k vozidlu podľa požiadaviek pracoviska STK",
       "Informácie o termíne, rezervácii a úhrade kontroly",
@@ -2764,7 +2764,7 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "postup pri dopravnej nehode",
-    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "audience": "Vodiči pripravujúci sa na bezpečný postup pri dopravnej nehode a následnú komunikáciu s poisťovňou.",
     "preparation": [
       "Kontakt na tiesňové služby (112), poisťovňu a asistenčnú službu uložený aj offline",
       "Dostupné údaje o poistení vozidla a formulár na záznam o nehode, ak ho máte",
@@ -2867,7 +2867,7 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "pzp pri kúpe auta",
-    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "audience": "Kupujúci vozidla, ktorí potrebujú zosúladiť začiatok poistného krytia s prevzatím auta a evidenčnými úkonmi.",
     "preparation": [
       "VIN, evidenčné číslo a údaje nového držiteľa podľa dokladov",
       "Ponuky PZP s dátumom začiatku krytia, limitmi a výlukami",
@@ -3023,7 +3023,7 @@
     },
     "updated": "12. 11. 2026",
     "keywords": "príprava auta na zimu",
-    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "audience": "Vodiči pripravujúci vozidlo na zimné podmienky a kontrolujúci pneumatiky, výbavu a technický stav.",
     "preparation": [
       "Rozmery pneumatík a požadované indexy z dokumentácie vozidla",
       "Stav dezénu, vek a prípadné poškodenie súčasnej sady",
@@ -3075,7 +3075,7 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "kúpa diaľničnej známky",
-    "audience": "Majitelia, kupujúci a vodiči vozidiel podľa konkrétnej situácie.",
+    "audience": "Vodiči kupujúci elektronickú diaľničnú známku, ktorí chcú pred úhradou skontrolovať údaje a následne potvrdiť jej platnosť.",
     "preparation": [
       "Evidenčné číslo a krajina registrácie presne podľa dokladov vozidla",
       "Požadovaný druh známky a dátum začiatku jej platnosti",
