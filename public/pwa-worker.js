@@ -3,9 +3,9 @@
 // Only public, immutable fallback assets enter this cache. No page responses,
 // API data, form submissions, user records or external requests are cached.
 const CACHE_PREFIX = 'vsetko24-pwa-offline-';
-const CACHE_NAME = CACHE_PREFIX + 'v1';
+const CACHE_NAME = CACHE_PREFIX + 'v2';
 const OFFLINE_PAGE = '/pwa-offline.html';
-const STATIC_ASSETS = [OFFLINE_PAGE, '/pwa-icon-192.png', '/pwa-icon-512.png'];
+const STATIC_ASSETS = [OFFLINE_PAGE, '/pwa-retry.js', '/pwa-icon-192.png', '/pwa-icon-512.png'];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(STATIC_ASSETS)));
