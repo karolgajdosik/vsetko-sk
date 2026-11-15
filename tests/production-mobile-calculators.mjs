@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { checkV4Tools } from './v4-tools-acceptance.mjs';
 import {chromium} from 'playwright';
 
 // Run against the local build in CI or the real deployed site after a merge.
@@ -59,6 +60,10 @@ try {
         await page.close();
       }
     }
+  }
+  if (new URL(origin).hostname !== '127.0.0.1' && new URL(origin).hostname !== 'localhost') {
+    await checkV4Tools(browser, origin);
+    console.log('PASS V4 mobile budget, service comparison and vehicle backup flows');
   }
 } finally {
   await browser.close();
