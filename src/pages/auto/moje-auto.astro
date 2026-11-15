@@ -35,8 +35,9 @@ import { VEHICLE_CATEGORIES } from '../../lib/vehicle-costs.mjs';
     <p class="note">Výpočet zahŕňa len pridané výdavky. Nejde o úplné náklady vlastníctva: pokles hodnoty auta, obstaranie, financovanie a nezadané výdavky nie sú automaticky započítané. Nie je to daňová evidencia ani kniha jázd.</p>
     <h3>Záznamy výdavkov</h3><ul id="vehicle-entries" class="vehicle-entries"></ul>
   </section>
-  <section class="panel"><h2>Moje údaje</h2><p>Záloha JSON obsahuje kilometre a všetky výdavky. Súbor si odložte bezpečne. Obnovenie zo zálohy zatiaľ nie je dostupné.</p>
+  <section class="panel"><h2>Moje údaje</h2><p>Záloha JSON obsahuje kilometre a všetky výdavky. Súbor si odložte bezpečne. Zálohu môžete obnoviť z platného JSON súboru. Obnovenie nahradí celú aktuálnu evidenciu až po vašom potvrdení.</p>
     <div class="vehicle-actions"><button id="vehicle-export" type="button">Stiahnuť záznamy JSON</button><button id="vehicle-delete" type="button">Vymazať evidenciu auta</button></div>
+    <div class="vehicle-import"><label for="vehicle-import">Obnoviť zálohu JSON (najviac 256 kB)</label><input id="vehicle-import" type="file" accept=".json,application/json" /><button id="vehicle-import-apply" type="button" disabled>Obnoviť vybranú zálohu</button><p id="vehicle-import-status" role="status"></p></div>
     <div id="vehicle-delete-confirm" hidden><p>Vymazať všetky výdavky a kilometre tejto evidencie? Ostatné údaje portálu zostanú zachované.</p><button id="vehicle-delete-yes" type="button">Áno, vymazať evidenciu auta</button> <button id="vehicle-delete-no" type="button">Ponechať údaje</button></div>
   </section>
   <section class="panel"><h2>Ďalšie nástroje pre auto</h2><ul><li><a href="/auto/porovnanie-nakladov/">Porovnať celkové náklady EV, benzínu a dieselu</a></li><li><a href="/kalkulacky/naklady-na-auto/">Plánované náklady na auto</a></li><li><a href="/kalkulacky/cena-nabijania/">Cena nabíjania</a></li><li><a href="/kalendar/">Zapísať vlastný termín do kalendára</a></li><li><a href="/auto/">Všetky témy pre auto</a></li></ul></section>
@@ -56,7 +57,7 @@ function lockConflict(){
  element('vehicle-storage').textContent='Evidencia sa zmenila v inom okne alebo ju nemožno bezpečne overiť. Úpravy sú pozastavené, aby sa neprepísali novšie údaje. Načítajte stránku znovu; prípadne najprv exportujte tento zobrazený prehľad.';
  element('vehicle-reload').hidden=false;
  element('vehicle-delete-confirm').hidden=true;
- document.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLButtonElement>('#vehicle-form input, #vehicle-form select, #vehicle-form button, #vehicle-distance, #vehicle-delete, #vehicle-delete-yes, #vehicle-entries button').forEach(control=>control.disabled=true);
+ document.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLButtonElement>('#vehicle-form input, #vehicle-form select, #vehicle-form button, #vehicle-distance, #vehicle-delete, #vehicle-delete-yes, #vehicle-import, #vehicle-import-apply, #vehicle-entries button').forEach(control=>control.disabled=true);
 }
 function canMutate(){
  if(conflict)return false;
@@ -89,6 +90,30 @@ const today=new Date();field('vehicle-date').value=[today.getFullYear(),String(t
 field('vehicle-distance').addEventListener('input',()=>{const input=field('vehicle-distance');const value=input.valueAsNumber;if(!input.checkValidity()||!Number.isFinite(value)){element('vehicle-distance-error').textContent='Zadajte nezáporný počet kilometrov do 10 000 000. Prehľad zatiaľ používa posledný platný nájazd.';return;}element('vehicle-distance-error').textContent='';if(!canMutate())return;state.distance=value;save();render();});
 element('vehicle-form').addEventListener('submit',event=>{event.preventDefault();const form=event.currentTarget as HTMLFormElement;if(!form.reportValidity())return;const date=field('vehicle-date').value,category=(element('vehicle-category') as HTMLSelectElement).value,amount=field('vehicle-amount').valueAsNumber;const cents=Math.round(amount*100);if(!validVehicleDate(date)||!Object.hasOwn(VEHICLE_CATEGORIES,category)||!Number.isInteger(cents)||cents<=0||cents>100000000){element('vehicle-status').textContent='Skontrolujte dátum, kategóriu a sumu.';return;}if(!canMutate())return;if(state.entries.length>=500){element('vehicle-status').textContent='Evidencia môže obsahovať najviac 500 výdavkov. Pred začatím nového obdobia si stiahnite export.';return;}state.entries.push({id:crypto.randomUUID(),date,category,cents});save();render();field('vehicle-amount').value='';field('vehicle-amount').focus();element('vehicle-status').textContent='Výdavok bol pridaný.';});
 element('vehicle-export').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='vsetko24-moje-auto.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);element('vehicle-status').textContent='Export záznamov bol pripravený na stiahnutie.';});
+const importField=field('vehicle-import');
+const importApply=element('vehicle-import-apply') as HTMLButtonElement;
+const importStatus=element('vehicle-import-status');
+let pendingImport:State|null=null;
+let importGeneration=0;
+importField.addEventListener('change',async()=>{
+ const generation=++importGeneration;pendingImport=null;importApply.disabled=true;
+ const file=importField.files?.[0];if(!file){importStatus.textContent='';return;}
+ if(file.size>262144){importStatus.textContent='Súbor je príliš veľký. Vyberte zálohu do 256 kB.';return;}
+ try{
+  const parsed=JSON.parse(await file.text());
+  if(generation!==importGeneration||conflict)return;
+  if(!validVehicleCosts(parsed))throw new Error('invalid');
+  pendingImport={version:1,distance:parsed.distance,entries:parsed.entries.map((entry:Entry)=>({id:entry.id,date:entry.date,category:entry.category,cents:entry.cents}))};
+  importStatus.textContent='Platná záloha: '+pendingImport.entries.length+' výdavkov, '+pendingImport.distance+' km. Obnovenie nahradí aktuálnu evidenciu.';
+  importApply.disabled=false;
+ }catch{if(generation===importGeneration)importStatus.textContent='Súbor nie je platná záloha evidencie auta. Aktuálne údaje zostali nezmenené.';}
+});
+importApply.addEventListener('click',()=>{
+ if(!pendingImport||!canMutate()||!confirm('Nahradiť aktuálnu evidenciu vybranou zálohou?'))return;
+ state=pendingImport;pendingImport=null;importField.value='';importApply.disabled=true;
+ field('vehicle-distance').value=String(state.distance);element('vehicle-distance-error').textContent='';
+ save();render();importStatus.textContent='Záloha bola načítaná do prehľadu. Stav uloženia je uvedený vyššie.';field('vehicle-distance').focus();
+});
 element('vehicle-delete').addEventListener('click',()=>{if(!canMutate())return;element('vehicle-delete-confirm').hidden=false;element('vehicle-delete-no').focus();});
 element('vehicle-delete-no').addEventListener('click',()=>{element('vehicle-delete-confirm').hidden=true;element('vehicle-delete').focus();});
 element('vehicle-delete-yes').addEventListener('click',()=>{if(!canMutate())return;state=emptyVehicleCosts();try{if(storageReadable){localStorage.removeItem(VEHICLE_COST_KEY);observedRaw=null;}element('vehicle-storage').textContent=storageReadable?'Evidencia auta bola vymazaná z tohto prehliadača.':'Prázdny je iba prehľad na tejto stránke. Uložené údaje sa nepodarilo overiť ani vymazať.';}catch{element('vehicle-storage').textContent='Prehliadač neumožnil vymazanie uložených údajov. Odstráňte ich v nastaveniach prehliadača.';}field('vehicle-distance').value='0';element('vehicle-distance-error').textContent='';element('vehicle-delete-confirm').hidden=true;render();element('vehicle-status').textContent='Zobrazená evidencia je prázdna.';element('vehicle-delete').focus();});
