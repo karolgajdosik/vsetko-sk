@@ -974,7 +974,7 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "zacatie podnikania",
-    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "audience": "Budúci živnostníci pripravujúci výber činností, ohlásenie živnosti a prvé kroky po začatí podnikania.",
     "preparation": [
       "Zvolený predmet činnosti a preverenie, či ide o voľnú, remeselnú alebo viazanú živnosť",
       "Adresa miesta podnikania a prípadné podklady k oprávneniu užívať priestory",
@@ -1089,7 +1089,7 @@
     },
     "updated": "12. 11. 2026",
     "keywords": "dedicske konanie",
-    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "audience": "Pozostalí pripravujúci podklady o majetku a záväzkoch na komunikáciu s notárom v dedičskom konaní.",
     "preparation": [
       "Úmrtný list, ak je už k dispozícii, a dostupné údaje o poručiteľovi",
       "Prehľad známeho majetku, bankových účtov, nehnuteľností a záväzkov bez odhadovania neznámych položiek",
@@ -1479,7 +1479,7 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "vybavenie rodného listu",
-    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "audience": "Rodičia novorodencov a žiadatelia o ďalší matričný výpis, ktorí potrebujú zistiť postup vydania rodného listu.",
     "preparation": [
       "Určite, či ide o prvé vydanie alebo druhopis.",
       "Pripravte doklad totožnosti a údaje o osobe, ktorej sa rodný list týka.",
@@ -1582,7 +1582,7 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "sobáš na slovensku",
-    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "audience": "Snúbenci plánujúci civilný alebo cirkevný sobáš na Slovensku a pripravujúci doklady a termín obradu.",
     "preparation": [
       "Vyberte termín, miesto a formu sobáša.",
       "Pripravte doklady totožnosti a informácie o osobnom stave.",
@@ -1669,7 +1669,7 @@
     },
     "updated": "12. 11. 2026",
     "keywords": "čo vybaviť po úmrtí blízkeho",
-    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "audience": "Pozostalí, ktorí potrebujú usporiadať bezprostredné úlohy po úmrtí blízkeho, dokumenty a komunikáciu s inštitúciami.",
     "preparation": [
       "Úmrtný list alebo informácia o postupe jeho získania od príslušnej matriky",
       "Dostupné identifikačné údaje zosnulého a doklady potrebné na konkrétne oznámenia",
@@ -1777,7 +1777,7 @@
     },
     "updated": "12. 11. 2026",
     "keywords": "list vlastníctva a kataster",
-    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "audience": "Kupujúci, predávajúci a vlastníci nehnuteľností, ktorí potrebujú preveriť list vlastníctva, podiely, ťarchy a prípadné nezrovnalosti.",
     "preparation": [
       "Presná adresa alebo katastrálne územie a identifikácia parcely či stavby, ak sú známe",
       "Číslo listu vlastníctva, ak ho máte, a účel, na ktorý výpis potrebujete",
