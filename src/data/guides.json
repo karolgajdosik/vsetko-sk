@@ -669,7 +669,7 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "strata obcianskeho preukazu",
-    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "audience": "Držitelia občianskeho preukazu, ktorí ho stratili alebo im bol odcudzený a potrebujú riešiť náhradný doklad a ochranu identity.",
     "preparation": [
       "Zoznam miest, kde bol stratený doklad naposledy použitý, a približný čas zistenia straty",
       "Iný dostupný doklad totožnosti alebo identifikačné údaje na komunikáciu s príslušným pracoviskom",
@@ -791,7 +791,7 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "vymena cestovneho pasu",
-    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "audience": "Cestujúci plánujúci výmenu pasu pred skončením platnosti, zmenou údajov alebo ďalšou cestou.",
     "preparation": [
       "Skontrolujte platnosť a stav doterajšieho pasu.",
       "Pripravte občiansky preukaz alebo iný uznávaný doklad a starý pas, ak ho máte.",
@@ -889,7 +889,7 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "zmena trvaleho pobytu",
-    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "audience": "Ľudia sťahujúci sa do nového bydliska, ktorí pripravujú ohlásenie pobytu a aktualizáciu kontaktných údajov.",
     "preparation": [
       "Presná adresa nového pobytu vrátane čísla bytu, ak je pridelené",
       "Doklad alebo informácie preukazujúce vzťah k nehnuteľnosti; podmienky súhlasu vlastníka si overte na ohlasovni",
@@ -1187,7 +1187,7 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "ako vybaviť občiansky preukaz",
-    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "audience": "Žiadatelia o prvý alebo nový občiansky preukaz, ktorí si pripravujú návštevu pracoviska a prevzatie dokladu.",
     "preparation": [
       "Pripravte existujúci občiansky preukaz, ak ho máte.",
       "Zistite dôvod vydania a potrebné podklady k zmene údajov.",
@@ -1281,7 +1281,7 @@
     },
     "updated": "13. 11. 2026",
     "keywords": "cestovný pas pre dieťa",
-    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "audience": "Rodičia a zákonní zástupcovia pripravujúci cestovný doklad dieťaťa pred cestou do zahraničia.",
     "preparation": [
       "Pripravte rodný list dieťaťa a doklad zákonného zástupcu.",
       "Počítajte s osobnou prítomnosťou dieťaťa; overte oprávnenie zákonného zástupcu a prípadné osobitné okolnosti.",
@@ -1379,7 +1379,7 @@
     },
     "updated": "12. 11. 2026",
     "keywords": "strata cestovného pasu",
-    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "audience": "Cestujúci, ktorí stratili pas doma alebo v zahraničí a potrebujú naplánovať ďalší postup a návrat.",
     "preparation": [
       "Dostupný ďalší doklad totožnosti alebo jeho kópia a identifikačné údaje strateného pasu, ak ich poznáte",
       "Miesto a približný čas straty či odcudzenia; prípadné potvrdenie polície, ak bolo vydané",
@@ -1431,7 +1431,7 @@
     },
     "updated": "12. 11. 2026",
     "keywords": "zmena mena alebo priezviska",
-    "audience": "Občania a rodiny riešiaci uvedenú životnú situáciu.",
+    "audience": "Ľudia plánujúci zmenu mena alebo priezviska a následnú aktualizáciu osobných dokladov.",
     "preparation": [
       "Doklad totožnosti a dokumenty preukazujúce doterajšie osobné údaje",
       "Listiny súvisiace s dôvodom zmeny (napríklad matričné doklady), podľa pokynov príslušného úradu",
