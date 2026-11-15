@@ -1,0 +1,100 @@
+---
+import Base from '../../layouts/Base.astro';
+import { VEHICLE_CATEGORIES } from '../../lib/vehicle-costs.mjs';
+---
+<Base title="Moje auto – skutočné prevádzkové náklady" description="Súkromná evidencia výdavkov na palivo, nabíjanie, servis a poistenie s nákladmi na kilometer. Bez účtu a odosielania údajov.">
+<main id="obsah" class="wrap main vehicle-log">
+  <p class="eyebrow">Auto 360° · Osobná evidencia</p>
+  <h1>Moje auto</h1>
+  <p class="intro">Zistite, koľko vás stojí prevádzka auta podľa skutočne zaplatených výdavkov.</p>
+  <p class="notice">Údaje zostávajú iba v tomto prehliadači. Nezadávajte EČV, VIN ani osobné údaje. Evidencia sa nesynchronizuje medzi zariadeniami; pred vymazaním údajov prehliadača si stiahnite zálohu.</p>
+  <noscript><p>Na výpočet a evidenciu je potrebný JavaScript. Ostatné kalkulačky a návody nájdete v odkazoch nižšie.</p></noscript>
+  <p id="vehicle-storage" role="status" aria-live="polite"></p>
+  <button id="vehicle-reload" type="button" hidden>Načítať aktuálnu evidenciu znovu</button>
+  <section class="panel"><h2>Najazdené kilometre</h2>
+    <p>Všetky záznamy tvoria jedno vami zvolené obdobie. Zadajte kilometre najazdené za to isté obdobie, za ktoré evidujete výdavky. Dátum pri výdavku slúži na evidenciu; prehľad zahŕňa všetky záznamy.</p>
+    <label for="vehicle-distance">Kilometre za evidované obdobie</label>
+    <input id="vehicle-distance" type="number" min="0" max="10000000" step="0.1" value="0" inputmode="decimal" />
+    <p id="vehicle-distance-error" role="status" aria-live="polite"></p>
+  </section>
+  <section class="panel"><h2>Pridať zaplatený výdavok</h2>
+    <form id="vehicle-form">
+      <div class="vehicle-fields">
+        <div><label for="vehicle-date">Dátum platby</label><input id="vehicle-date" type="date" required /></div>
+        <div><label for="vehicle-category">Druh výdavku</label><select id="vehicle-category">{Object.entries(VEHICLE_CATEGORIES).map(([value, label]) => <option value={value}>{label}</option>)}</select></div>
+        <div><label for="vehicle-amount">Zaplatená suma (€)</label><input id="vehicle-amount" type="number" min="0.01" max="1000000" step="0.01" inputmode="decimal" required /></div>
+      </div>
+      <button type="submit">Pridať výdavok</button>
+    </form>
+    <p id="vehicle-status" role="status" aria-live="polite"></p>
+  </section>
+  <section class="panel"><h2>Prehľad prevádzky</h2>
+    <div class="vehicle-summary"><div><span>Celkom zaplatené</span><strong id="vehicle-total">0 €</strong></div><div><span>Priemer na kilometer</span><strong id="vehicle-per-km">—</strong></div><div><span>Počet výdavkov</span><strong id="vehicle-count">0</strong></div></div>
+    <p id="vehicle-km-note">Zadajte kilometre za rovnaké obdobie na výpočet priemeru.</p>
+    <dl id="vehicle-breakdown"></dl>
+    <p class="note">Výpočet zahŕňa len pridané výdavky. Nejde o úplné náklady vlastníctva: pokles hodnoty auta, obstaranie, financovanie a nezadané výdavky nie sú automaticky započítané. Nie je to daňová evidencia ani kniha jázd.</p>
+    <h3>Záznamy výdavkov</h3><ul id="vehicle-entries" class="vehicle-entries"></ul>
+  </section>
+  <section class="panel"><h2>Moje údaje</h2><p>Záloha JSON obsahuje kilometre a všetky výdavky. Súbor si odložte bezpečne. Obnovenie zo zálohy zatiaľ nie je dostupné.</p>
+    <div class="vehicle-actions"><button id="vehicle-export" type="button">Stiahnuť záznamy JSON</button><button id="vehicle-delete" type="button">Vymazať evidenciu auta</button></div>
+    <div id="vehicle-delete-confirm" hidden><p>Vymazať všetky výdavky a kilometre tejto evidencie? Ostatné údaje portálu zostanú zachované.</p><button id="vehicle-delete-yes" type="button">Áno, vymazať evidenciu auta</button> <button id="vehicle-delete-no" type="button">Ponechať údaje</button></div>
+  </section>
+  <section class="panel"><h2>Ďalšie nástroje pre auto</h2><ul><li><a href="/auto/porovnanie-nakladov/">Porovnať celkové náklady EV, benzínu a dieselu</a></li><li><a href="/kalkulacky/naklady-na-auto/">Plánované náklady na auto</a></li><li><a href="/kalkulacky/cena-nabijania/">Cena nabíjania</a></li><li><a href="/kalendar/">Zapísať vlastný termín do kalendára</a></li><li><a href="/auto/">Všetky témy pre auto</a></li></ul></section>
+</main>
+<script>
+import { VEHICLE_COST_KEY, VEHICLE_CATEGORIES, emptyVehicleCosts, validVehicleCosts, validVehicleDate, vehicleCostSummary } from '../../lib/vehicle-costs.mjs';
+type Entry={id:string,date:string,category:string,cents:number};
+type State={version:number,distance:number,entries:Entry[]};
+const element=(id:string)=>document.getElementById(id)!;
+const field=(id:string)=>element(id) as HTMLInputElement;
+const euro=(value:number)=>new Intl.NumberFormat('sk-SK',{style:'currency',currency:'EUR',maximumFractionDigits:2}).format(value);
+let state:State=emptyVehicleCosts();
+let observedRaw:string|null=null, storageReadable=false, conflict=false;
+try { const saved=localStorage.getItem(VEHICLE_COST_KEY);observedRaw=saved;storageReadable=true; if(saved){const parsed=JSON.parse(saved);if(validVehicleCosts(parsed))state=parsed;else element('vehicle-storage').textContent='Uložená evidencia nie je platná. Zobrazuje sa prázdny prehľad; pôvodné údaje sa nezmenia, kým nepridáte alebo nezmeníte záznam.';} } catch {element('vehicle-storage').textContent='Uložené údaje sa nepodarilo načítať. Zmeny zostanú iba na tejto otvorenej stránke; použite export.';storageReadable=false;}
+function lockConflict(){
+ conflict=true;
+ element('vehicle-storage').textContent='Evidencia sa zmenila v inom okne alebo ju nemožno bezpečne overiť. Úpravy sú pozastavené, aby sa neprepísali novšie údaje. Načítajte stránku znovu; prípadne najprv exportujte tento zobrazený prehľad.';
+ element('vehicle-reload').hidden=false;
+ element('vehicle-delete-confirm').hidden=true;
+ document.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLButtonElement>('#vehicle-form input, #vehicle-form select, #vehicle-form button, #vehicle-distance, #vehicle-delete, #vehicle-delete-yes, #vehicle-entries button').forEach(control=>control.disabled=true);
+}
+function canMutate(){
+ if(conflict)return false;
+ if(!storageReadable)return true;
+ try{if(localStorage.getItem(VEHICLE_COST_KEY)!==observedRaw){lockConflict();return false;}}
+ catch{lockConflict();return false;}
+ return true;
+}
+window.addEventListener('storage',event=>{if((event.key===VEHICLE_COST_KEY||event.key===null)&&event.newValue!==observedRaw)lockConflict();});
+element('vehicle-reload').addEventListener('click',()=>location.reload());
+function save(){
+ if(!storageReadable){element('vehicle-storage').textContent='Prehliadač neumožnil načítanie uložených údajov. Evidencia zostáva iba na tejto otvorenej stránke; stiahnite si export.';return;}
+ try{const next=JSON.stringify(state);localStorage.setItem(VEHICLE_COST_KEY,next);observedRaw=next;element('vehicle-storage').textContent='Evidencia je uložená iba v tomto prehliadači.';}
+ catch{element('vehicle-storage').textContent='Prehliadač údaje neuložil. Záznamy zostávajú len na tejto otvorenej stránke; stiahnite si export.';}
+}
+function render(){
+ const summary=vehicleCostSummary(state);
+ element('vehicle-total').textContent=euro(summary.totalCents/100);
+ element('vehicle-per-km').textContent=summary.perKm===null?'—':new Intl.NumberFormat('sk-SK',{minimumFractionDigits:2,maximumFractionDigits:3}).format(summary.perKm)+' €/km';
+ element('vehicle-count').textContent=String(state.entries.length);
+ element('vehicle-km-note').textContent=state.distance>0?'Priemer zo všetkých výdavkov a '+new Intl.NumberFormat('sk-SK').format(state.distance)+' km za rovnaké obdobie.':'Zadajte kilometre za rovnaké obdobie na výpočet priemeru.';
+ const breakdown=element('vehicle-breakdown');breakdown.replaceChildren();
+ for(const [key,label] of Object.entries(VEHICLE_CATEGORIES)){const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=label;dd.textContent=euro(summary.categories[key]/100);breakdown.append(dt,dd);}
+ const list=element('vehicle-entries');list.replaceChildren();
+ if(!state.entries.length){const li=document.createElement('li');li.textContent='Zatiaľ nemáte evidované výdavky.';list.append(li);}
+ for(const entry of [...state.entries].sort((a,b)=>b.date.localeCompare(a.date))){const li=document.createElement('li'),text=document.createElement('span'),button=document.createElement('button');const label=VEHICLE_CATEGORIES[entry.category as keyof typeof VEHICLE_CATEGORIES];text.textContent=new Date(entry.date+'T12:00:00').toLocaleDateString('sk-SK')+' · '+label+' · '+euro(entry.cents/100);button.type='button';button.textContent='Odstrániť';button.setAttribute('aria-label','Odstrániť výdavok: '+text.textContent);button.addEventListener('click',()=>{if(!canMutate())return;state.entries=state.entries.filter(item=>item.id!==entry.id);save();render();element('vehicle-status').textContent='Výdavok bol odstránený.';field('vehicle-amount').focus();});li.append(text,button);list.append(li);}
+}
+field('vehicle-distance').value=String(state.distance);
+const today=new Date();field('vehicle-date').value=[today.getFullYear(),String(today.getMonth()+1).padStart(2,'0'),String(today.getDate()).padStart(2,'0')].join('-');
+field('vehicle-distance').addEventListener('input',()=>{const input=field('vehicle-distance');const value=input.valueAsNumber;if(!input.checkValidity()||!Number.isFinite(value)){element('vehicle-distance-error').textContent='Zadajte nezáporný počet kilometrov do 10 000 000. Prehľad zatiaľ používa posledný platný nájazd.';return;}element('vehicle-distance-error').textContent='';if(!canMutate())return;state.distance=value;save();render();});
+element('vehicle-form').addEventListener('submit',event=>{event.preventDefault();const form=event.currentTarget as HTMLFormElement;if(!form.reportValidity())return;const date=field('vehicle-date').value,category=(element('vehicle-category') as HTMLSelectElement).value,amount=field('vehicle-amount').valueAsNumber;const cents=Math.round(amount*100);if(!validVehicleDate(date)||!Object.hasOwn(VEHICLE_CATEGORIES,category)||!Number.isInteger(cents)||cents<=0||cents>100000000){element('vehicle-status').textContent='Skontrolujte dátum, kategóriu a sumu.';return;}if(!canMutate())return;if(state.entries.length>=500){element('vehicle-status').textContent='Evidencia môže obsahovať najviac 500 výdavkov. Pred začatím nového obdobia si stiahnite export.';return;}state.entries.push({id:crypto.randomUUID(),date,category,cents});save();render();field('vehicle-amount').value='';field('vehicle-amount').focus();element('vehicle-status').textContent='Výdavok bol pridaný.';});
+element('vehicle-export').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='vsetko24-moje-auto.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);element('vehicle-status').textContent='Export záznamov bol pripravený na stiahnutie.';});
+element('vehicle-delete').addEventListener('click',()=>{if(!canMutate())return;element('vehicle-delete-confirm').hidden=false;element('vehicle-delete-no').focus();});
+element('vehicle-delete-no').addEventListener('click',()=>{element('vehicle-delete-confirm').hidden=true;element('vehicle-delete').focus();});
+element('vehicle-delete-yes').addEventListener('click',()=>{if(!canMutate())return;state=emptyVehicleCosts();try{if(storageReadable){localStorage.removeItem(VEHICLE_COST_KEY);observedRaw=null;}element('vehicle-storage').textContent=storageReadable?'Evidencia auta bola vymazaná z tohto prehliadača.':'Prázdny je iba prehľad na tejto stránke. Uložené údaje sa nepodarilo overiť ani vymazať.';}catch{element('vehicle-storage').textContent='Prehliadač neumožnil vymazanie uložených údajov. Odstráňte ich v nastaveniach prehliadača.';}field('vehicle-distance').value='0';element('vehicle-distance-error').textContent='';element('vehicle-delete-confirm').hidden=true;render();element('vehicle-status').textContent='Zobrazená evidencia je prázdna.';element('vehicle-delete').focus();});
+render();
+</script>
+<style>
+.vehicle-log{max-width:1000px}.vehicle-log .panel{padding:1.5rem;margin:1.4rem 0}.vehicle-log label{display:block;font-weight:700;margin:.7rem 0 .3rem}.vehicle-log input,.vehicle-log select{width:100%;min-width:0;padding:.75rem;border:1px solid #8290a5;border-radius:.6rem;background:var(--surface);color:var(--ink);font:inherit}.vehicle-log button{padding:.7rem 1rem;border:1px solid #8290a5;border-radius:.6rem;background:var(--surface);color:var(--ink);font:inherit;cursor:pointer}.vehicle-log input:focus-visible,.vehicle-log select:focus-visible,.vehicle-log button:focus-visible{outline:3px solid #6366f1;outline-offset:3px}.vehicle-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-bottom:1rem}.vehicle-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.vehicle-summary>div{padding:1rem;border:1px solid #8290a5;border-radius:.6rem}.vehicle-summary span,.vehicle-summary strong{display:block}.vehicle-summary strong{font-size:1.6rem;margin-top:.5rem;overflow-wrap:anywhere}#vehicle-breakdown{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.6rem}#vehicle-breakdown dd{margin:0;font-weight:700}.vehicle-entries{padding:0;list-style:none}.vehicle-entries :global(li){display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0;border-bottom:1px solid #8290a5}.vehicle-entries :global(span){overflow-wrap:anywhere}.vehicle-actions{display:flex;gap:.7rem;flex-wrap:wrap}#vehicle-delete-confirm[hidden]{display:none}@media(max-width:650px){.vehicle-fields,.vehicle-summary{grid-template-columns:1fr}.vehicle-entries :global(li){align-items:flex-start;flex-direction:column}.vehicle-log .panel{padding:1rem}}
+</style>
+</Base>

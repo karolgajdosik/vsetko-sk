@@ -1,0 +1,98 @@
+---
+import Base from '../../layouts/Base.astro';
+const fields = [
+  {id:'income', label:'Čistý príjem domácnosti mesačne (€)'},
+  {id:'housing', label:'Bývanie vrátane energií mesačne (€)'},
+  {id:'food', label:'Strava a domácnosť mesačne (€)'},
+  {id:'transport', label:'Doprava mesačne (€)'},
+  {id:'debt', label:'Ďalšie splátky a záväzky mesačne (€)'},
+  {id:'other', label:'Ostatné pravidelné výdavky mesačne (€)'},
+  {id:'annual', label:'Nepravidelné výdavky spolu za rok (€)'},
+  {id:'reserve', label:'Dostupná finančná rezerva dnes (€)'}
+];
+---
+<Base title="Financie 360° – prehľad domácnosti" description="Mesačný rozpočet domácnosti, finančná rezerva a vlastný scenár zmeny príjmov a výdavkov v jednom prehľade.">
+  <main id="obsah" class="wrap main">
+    <p class="eyebrow">Financie 360° · Domácnosť</p>
+    <h1>Váš finančný prehľad</h1>
+    <p class="intro section-intro">Spojte príjmy, výdavky a rezervu do jedného pohľadu. Zistite mesačný zostatok a porovnajte vlastný scenár zdraženia alebo poklesu príjmu.</p>
+    <p class="note">Hodnoty spracúva iba táto stránka vo vašom prehliadači. Neukladajú sa ani neposielajú na server; po obnovení stránky ich zadáte znovu. Nezadávajte čísla účtov ani osobné identifikátory.</p>
+    <noscript><p>Na výpočet je potrebný JavaScript. Odkazy na ďalšie finančné nástroje sú dostupné aj bez neho.</p></noscript>
+    <form id="finance-overview-form" class="panel" novalidate>
+      <h2>1. Rozpočet a rezerva</h2>
+      <p>Vyplňte všetky sumy, pri nepoužitej kategórii zadajte nulu. Hypotéku zahrňte do bývania alebo ďalších splátok iba raz. Ročné poistenie či servis zahrňte do nepravidelných výdavkov iba vtedy, ak už nie sú v mesačných sumách.</p>
+      <div class="finance-inputs">
+        {fields.map(field => <div class="finance-field"><label for={'finance-' + field.id}>{field.label}</label><input id={'finance-' + field.id} type="number" min="0" max="10000000" step="0.01" inputmode="decimal" required /></div>)}
+        <div class="finance-field"><label for="finance-targetMonths">Vlastný cieľ rezervy (počet mesiacov výdavkov)</label><input id="finance-targetMonths" type="number" min="1" max="36" step="1" value="3" inputmode="numeric" required /></div>
+      </div>
+      <h2>2. Vlastný záťažový scenár</h2>
+      <p>Zvolené percentá sú modelové vstupy, nie predpoveď. Scenár zmení celý príjem a priemer všetkých výdavkov vrátane ročných platieb.</p>
+      <div class="finance-inputs">
+        <div class="finance-field"><label for="finance-incomeDrop">Pokles príjmu (%)</label><input id="finance-incomeDrop" type="number" min="0" max="100" step="0.1" value="10" inputmode="decimal" required /></div>
+        <div class="finance-field"><label for="finance-expenseRise">Zvýšenie výdavkov (%)</label><input id="finance-expenseRise" type="number" min="0" max="100" step="0.1" value="10" inputmode="decimal" required /></div>
+      </div>
+      <div class="finance-actions"><button type="submit" class="primary">Vypočítať prehľad</button><button type="reset" class="finance-button">Vymazať vstupy a výsledky</button></div>
+      <p id="finance-error" role="alert" hidden>Skontrolujte všetky polia. Sumy musia byť nezáporné, najviac 10 miliónov €, cieľ celé číslo od 1 do 36 a percentá od 0 do 100.</p>
+    </form>
+    <section id="finance-results" class="panel" aria-labelledby="finance-results-title" hidden>
+      <h2 id="finance-results-title" tabindex="-1">Prehľad podľa vašich vstupov</h2>
+      <div class="finance-metrics">
+        <div><span>Priemerné mesačné výdavky</span><strong id="finance-expenses">—</strong></div>
+        <div><span>Mesačný zostatok</span><strong id="finance-balance">—</strong></div>
+        <div><span>Zostatok za 12 rovnakých mesiacov</span><strong id="finance-annualBalance">—</strong></div>
+        <div><span>Rezerva pokryje výdavky na</span><strong id="finance-reserveMonths">—</strong></div>
+        <div><span>Zvolený cieľ rezervy</span><strong id="finance-reserveTarget">—</strong></div>
+        <div><span>Do cieľa rezervy chýba</span><strong id="finance-reserveGap">—</strong></div>
+      </div>
+      <p id="finance-plan"></p>
+      <h3>Pri zvolenom poklese príjmu a raste výdavkov</h3>
+      <div class="finance-metrics">
+        <div><span>Príjem v scenári mesačne</span><strong id="finance-scenarioIncome">—</strong></div>
+        <div><span>Výdavky v scenári mesačne</span><strong id="finance-scenarioExpenses">—</strong></div>
+        <div><span>Zostatok v scenári mesačne</span><strong id="finance-scenarioBalance">—</strong></div>
+      </div>
+      <p id="finance-scenario-note"></p>
+      <p class="note">Ročné výdavky sa delia dvanástimi. Nepravidelná platba môže prísť skôr, než si na ňu odložíte. Výpočet nerozlišuje splátku istiny od nákladu, nezahŕňa úrok zo sporenia, infláciu ani nezadané platby. Cieľ rezervy si volíte sami; nejde o posúdenie bonity ani finančné odporúčanie.</p>
+      <button type="button" id="finance-print" class="finance-button">Vytlačiť alebo uložiť prehľad ako PDF</button>
+    </section>
+    <p id="finance-status" role="status" aria-live="polite"></p>
+    <section class="panel" aria-labelledby="finance-tools-title">
+      <h2 id="finance-tools-title">Pokračujte podrobnejším výpočtom</h2>
+      <ul class="finance-tools"><li><a href="/kalkulacky/naklady-na-byvanie/">Rozpočítať náklady na bývanie</a></li><li><a href="/kalkulacky/naklady-na-auto/">Rozpočítať náklady na auto</a></li><li><a href="/kalkulacky/financna-rezerva/">Samostatná kalkulačka finančnej rezervy</a></li><li><a href="/kalkulacky/refinancovanie/">Porovnať splátky pri refinancovaní</a></li><li><a href="/financie/">Všetky finančné nástroje a návody</a></li></ul>
+    </section>
+  </main>
+</Base>
+<style>
+  .finance-inputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1rem;margin:1rem 0 1.5rem}
+  .finance-field{display:flex;flex-direction:column;gap:.45rem;min-width:0}.finance-field label{font-weight:650}
+  .finance-field input{box-sizing:border-box;width:100%;padding:.8rem;border:1px solid #8191a5;border-radius:.65rem;background:transparent;color:inherit;font:inherit}
+  .finance-actions{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}.finance-button{padding:.8rem 1rem;border:1px solid #8191a5;border-radius:.65rem;background:transparent;color:inherit;font:inherit;cursor:pointer}
+  .finance-field input:focus-visible,.finance-button:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+  .finance-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:1rem}.finance-metrics>div{display:flex;flex-direction:column;gap:.6rem;padding:1rem;border:1px solid #8191a5;border-radius:.75rem;min-width:0}.finance-metrics strong{font-size:clamp(1.2rem,3vw,1.8rem);overflow-wrap:anywhere;font-variant-numeric:tabular-nums}.finance-tools{display:grid;gap:.7rem}
+  #finance-error[hidden],#finance-results[hidden]{display:none}
+  @media print{#finance-overview-form,.finance-button,.finance-tools,#finance-status{display:none!important}.finance-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.finance-metrics>div{break-inside:avoid}}
+</style>
+<script>
+  import {calculateFinanceOverview} from '../../lib/finance-overview.mjs';
+  const form=document.getElementById('finance-overview-form') as HTMLFormElement;
+  const ids=['income','housing','food','transport','debt','other','annual','reserve','targetMonths','incomeDrop','expenseRise'];
+  const input=(key:string)=>document.getElementById('finance-'+key) as HTMLInputElement;
+  const output=(key:string)=>document.getElementById('finance-'+key) as HTMLElement;
+  const currency=(value:number)=>new Intl.NumberFormat('sk-SK',{style:'currency',currency:'EUR',maximumFractionDigits:2}).format(value);
+  const number=(value:number)=>new Intl.NumberFormat('sk-SK',{maximumFractionDigits:1}).format(value);
+  form.addEventListener('submit',event=>{
+    event.preventDefault();
+    const result=calculateFinanceOverview(Object.fromEntries(ids.map(key=>[key,input(key).valueAsNumber])));
+    const valid=Boolean(result)&&form.checkValidity();output('error').hidden=valid;
+    if(!valid){output('results').hidden=true;output('status').textContent='Výpočet sa nevykonal. Opravte označené vstupy.';form.reportValidity();return;}
+    if(!result)return;
+    for(const key of ['expenses','balance','annualBalance','reserveTarget','reserveGap','scenarioIncome','scenarioExpenses','scenarioBalance'] as const)output(key).textContent=currency(result[key]);
+    output('reserveMonths').textContent=result.reserveMonths===null?'Bez výdavkov sa neurčuje':number(result.reserveMonths)+' mesiaca';
+    output('plan').textContent=result.monthsToTarget===0?'Podľa zadaných hodnôt je váš cieľ rezervy splnený.':result.monthsToTarget===null?'Pri nulovom alebo zápornom zostatku nevzniká priestor na dopĺňanie rezervy.':'Ak odložíte celý mesačný zostatok '+currency(result.balance)+', cieľ dosiahnete približne za '+result.monthsToTarget.toLocaleString('sk-SK')+' mesiacov. Predpokladá to nemenné príjmy a výdavky a žiadne čerpanie rezervy.';
+    output('scenario-note').textContent=result.deficitCoverageMonths===null?'V zvolenom scenári nevzniká mesačný deficit.':'V scenári vzniká deficit '+currency(-result.scenarioBalance)+' mesačne. Zadaná rezerva by pri rovnakom deficite vystačila približne na '+number(result.deficitCoverageMonths)+' mesiaca; ide o priemer bez časovania jednotlivých platieb.';
+    output('results').hidden=false;output('status').textContent='Finančný prehľad bol vypočítaný. Mesačný zostatok: '+currency(result.balance)+'.';output('results-title').focus();
+  });
+  form.addEventListener('input',()=>{output('results').hidden=true;output('status').textContent='Vstupy sa zmenili. Pre aktuálny výsledok stlačte Vypočítať prehľad.';output('error').hidden=true;});
+  form.addEventListener('reset',()=>{output('results').hidden=true;output('error').hidden=true;output('status').textContent='Vstupy a výsledky boli vymazané.';requestAnimationFrame(()=>input('income').focus());});
+  document.getElementById('finance-print')?.addEventListener('click',()=>window.print());
+</script>

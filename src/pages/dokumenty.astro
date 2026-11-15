@@ -1,14 +1,34 @@
 ---
 import Base from '../layouts/Base.astro';
+import { documentCatalog } from '../lib/document-catalog.mjs';
 ---
-<Base title="Generátor dokumentov a PDF" description="Vytvorte si jednoduchú žiadosť, čestné vyhlásenie alebo odovzdávací protokol a uložte ako PDF. Bez registrácie a odosielania údajov.">
-<main class="wrap main documents" id="obsah"><p class="eyebrow">Novinka · 3.17</p><h1>Generátor dokumentov</h1><p class="intro">Vyplňte údaje a pripravte si dokument na vytlačenie alebo uloženie do PDF. Údaje sa spracujú iba vo vašom prehliadači a nikam sa neodosielajú.</p>
-<section class="panel editor"><h2>Vyberte typ dokumentu</h2><label for="doc-type">Typ dokumentu</label><select id="doc-type"><option value="request">Všeobecná žiadosť</option><option value="statement">Čestné vyhlásenie</option><option value="handover">Odovzdávací protokol</option></select>
+<Base title="Centrum dokumentov – vzory a generátory PDF" description="Vytvorte si jednoduchú žiadosť, čestné vyhlásenie alebo odovzdávací protokol a uložte ako PDF. Bez registrácie a odosielania údajov.">
+<main class="wrap main documents" id="obsah"><p class="eyebrow">Dokumenty · Bez registrácie</p><h1>Generátor dokumentov</h1><p class="intro">Vyplňte údaje a pripravte si dokument na vytlačenie alebo uloženie do PDF. Údaje sa spracujú iba vo vašom prehliadači a nikam sa neodosielajú.</p>
+<section class="panel document-catalog" aria-labelledby="catalog-heading">
+<h2 id="catalog-heading">Centrum dokumentov</h2>
+<p>Nájdite vhodný nástroj podľa situácie. Vzory vyplníte v existujúcich generátoroch; PDF uložíte cez dialóg tlače. Nejde o úložisko súborov ani elektronické podanie na úrad.</p>
+<div class="catalog-filters">
+<label for="document-search">Hľadať dokument<input id="document-search" type="search" maxlength="160" placeholder="Napr. žiadosť, kľúče, reklamácia" aria-controls="document-cards" /></label>
+<label for="document-category">Oblasť<select id="document-category" aria-controls="document-cards"><option value="all">Všetky oblasti</option><option value="urady">Úrady a osobné veci</option><option value="byvanie">Bývanie a odovzdanie</option><option value="nakupy">Nákupy a reklamácie</option></select></label>
+<button id="document-reset" type="button" hidden>Zrušiť filtre</button>
+</div>
+<p id="document-count" role="status" aria-live="polite">Počet nástrojov: {documentCatalog.length}</p>
+<ul id="document-cards" class="document-cards">
+{documentCatalog.map(item => <li class="document-card" data-category={item.category} data-search={[item.title, item.description, item.categoryLabel, item.keywords].join(' ')}>
+<p class="catalog-category">{item.categoryLabel}</p><h3>{item.title}</h3><p>{item.description}</p><p class="catalog-format">{item.format}</p>
+<a href={item.href} data-template={item.template}>{item.template ? 'Vyplniť vzor' : 'Otvoriť nástroj'}<span class="sr-only">: {item.title}</span></a>
+</li>)}
+</ul>
+<p id="document-empty" hidden>Nenašiel sa žiadny dokument. Skúste kratší výraz alebo inú oblasť.</p>
+<p class="note">Nahrávanie ani archiváciu osobných dokumentov tu neponúkame. Vyplnený obsah sa neukladá ako profil ani neposiela na náš server. Pri povinnom úradnom tlačive použite formulár príslušnej inštitúcie.</p>
+</section>
+<section class="panel editor" id="doc-editor"><h2>Vyberte typ dokumentu</h2><label for="doc-type">Typ dokumentu</label><select id="doc-type"><option value="request">Všeobecná žiadosť</option><option value="statement">Čestné vyhlásenie</option><option value="handover">Odovzdávací protokol</option></select>
 <div class="doc-fields"><label>Vaše meno a priezvisko / názov<input id="doc-sender" maxlength="120" placeholder="Meno a priezvisko"/></label><label>Adresát / druhá strana<input id="doc-recipient" maxlength="150" placeholder="Úrad alebo osoba"/></label><label>Miesto vyhotovenia<input id="doc-place" maxlength="100" placeholder="Bratislava"/></label><label>Dátum<input id="doc-date" type="date"/></label><label class="full">Predmet / názov<input id="doc-subject" maxlength="160" placeholder="Predmet dokumentu"/></label><label class="full">Text dokumentu<textarea id="doc-body" rows="7" maxlength="5000" placeholder="Uveďte vecné a presné informácie."></textarea></label></div>
 <button type="button" id="doc-print">Vytlačiť / uložiť ako PDF</button><button type="button" id="doc-clear">Vymazať formulár</button><p id="doc-status" role="status" aria-live="polite"></p>
 <p class="note">Toto sú iba všeobecné vzory. Nepoužívajte ich ako náhradu povinného úradného formulára, právneho poradenstva ani dokumentu s požadovanou formou podpisu alebo osvedčenia. Pred použitím overte náležitosti u príslušnej inštitúcie.</p></section>
 <section class="panel preview-panel"><h2>Náhľad dokumentu</h2><article id="document-preview" class="paper" aria-label="Náhľad dokumentu"><h2 id="print-heading"></h2><p id="print-sender"></p><p id="print-recipient"></p><p id="print-subject"></p><div id="print-body"></div><p id="print-date"></p><p class="signature">........................................................<br/>Podpis</p></article></section></main>
 <script>
+import { matchesDocumentSearch } from '../lib/document-catalog.mjs';
 const el=(id:string)=>document.getElementById(id)!;const input=(id:string)=>(el(id) as HTMLInputElement).value.trim();const type=el('doc-type') as HTMLSelectElement;
 const headings:Record<string,string>={request:'Žiadosť',statement:'Čestné vyhlásenie',handover:'Odovzdávací protokol'};
 function update(){const kind=type.value;el('print-heading').textContent=headings[kind]||'Dokument';el('print-sender').textContent='Vyhotovil/a: '+(input('doc-sender')||'—');el('print-recipient').textContent=(kind==='handover'?'Druhá strana: ':'Adresát: ')+(input('doc-recipient')||'—');el('print-subject').textContent='Predmet: '+(input('doc-subject')||'—');const body=el('print-body');body.replaceChildren();const p=document.createElement('p');p.textContent=(kind==='statement'?'Týmto čestne vyhlasujem, že: ':kind==='handover'?'Zmluvné strany zaznamenávajú odovzdanie: ':'Žiadam o nasledovné: ')+(input('doc-body')||'—');body.append(p);const raw=input('doc-date');const date=raw?new Date(raw+'T12:00:00'):null;el('print-date').textContent=(input('doc-place')||'Miesto neuvedené')+', '+(date&&!Number.isNaN(date.getTime())?date.toLocaleDateString('sk-SK'):'dátum neuvedený');}
@@ -16,6 +36,33 @@ document.querySelectorAll<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement
 el('doc-print').addEventListener('click',()=>{if(!input('doc-sender')||!input('doc-body')){el('doc-status').textContent='Pred tlačou vyplňte aspoň meno a text dokumentu.';return;}el('doc-status').textContent='V dialógu tlače zvoľte „Uložiť ako PDF“.';window.print();});
 el('doc-clear').addEventListener('click',()=>{if(!confirm('Vymazať všetky vyplnené údaje?'))return;document.querySelectorAll<HTMLInputElement|HTMLTextAreaElement>('.editor input,.editor textarea').forEach(x=>x.value='');type.value='request';update();el('doc-status').textContent='Formulár bol vymazaný.';});
 update();
+const catalogSearch = el('document-search') as HTMLInputElement;
+const catalogCategory = el('document-category') as HTMLSelectElement;
+const catalogCards = [...document.querySelectorAll<HTMLElement>('.document-card')];
+function filterDocuments() {
+  let visible = 0;
+  for (const card of catalogCards) {
+    const matches = (catalogCategory.value === 'all' || card.dataset.category === catalogCategory.value) && matchesDocumentSearch(card.dataset.search, catalogSearch.value);
+    card.hidden = !matches;
+    if (matches) visible++;
+  }
+  el('document-count').textContent = 'Počet nájdených nástrojov: ' + visible + ' z ' + catalogCards.length;
+  el('document-empty').hidden = visible !== 0;
+  el('document-reset').hidden = !catalogSearch.value && catalogCategory.value === 'all';
+}
+catalogSearch.addEventListener('input', filterDocuments);
+catalogCategory.addEventListener('change', filterDocuments);
+el('document-reset').addEventListener('click', () => { catalogSearch.value = ''; catalogCategory.value = 'all'; filterDocuments(); catalogSearch.focus(); });
+document.querySelectorAll<HTMLAnchorElement>('a[data-template]').forEach(link => link.addEventListener('click', () => {
+  const selected = link.dataset.template;
+  if (!selected || !Object.hasOwn(headings, selected)) return;
+  type.value = selected;
+  update();
+  el('doc-status').textContent = 'Vybraný vzor: ' + headings[selected] + '. Vyplnené údaje zostali zachované.';
+  el('doc-sender').focus({ preventScroll: true });
+}));
 </script>
-<style>.documents{max-width:1040px}.documents .panel{padding:1.5rem;margin:1.3rem 0}.doc-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1rem 0}.doc-fields .full{grid-column:1/-1}.documents label{display:block;font-weight:650}.documents input,.documents textarea,.documents select{display:block;width:100%;margin-top:.35rem;padding:.75rem;border:1px solid #8c9ab0;border-radius:9px;background:var(--surface);color:var(--ink);font:inherit}.documents button{padding:.8rem;margin:.4rem .5rem .4rem 0;border-radius:9px;cursor:pointer}.paper{background:#fff;color:#171717;border:1px solid #cbd5e1;padding:2.5rem;min-height:520px;font-family:Georgia,serif;line-height:1.7;overflow-wrap:anywhere}.paper h2{text-align:center;margin-bottom:2.5rem}.paper #print-body{margin:2rem 0;white-space:pre-wrap}.signature{text-align:right;margin-top:4rem;font-size:.85rem}@media(max-width:650px){.doc-fields{grid-template-columns:1fr}.paper{padding:1.1rem}}@media print{@page{size:A4;margin:18mm}body{background:#fff!important;color:#000!important}.top,.footer,.assistant-floating,.documents>.eyebrow,.documents>h1,.documents>.intro,.editor,.preview-panel>h2,.skip,.trust{display:none!important}.documents,.documents .preview-panel{max-width:none!important;padding:0!important;margin:0!important;border:0!important;box-shadow:none!important}.paper{border:0!important;padding:0!important;min-height:auto!important;color:#000!important;background:#fff!important;font-size:12pt}}</style>
+<style>
+.catalog-filters{display:flex;align-items:end;flex-wrap:wrap;gap:1rem}.catalog-filters label{flex:1 1 220px}.catalog-filters button{flex:0 1 auto}.document-cards{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1rem}.document-card{border:1px solid #8c9ab0;border-radius:12px;padding:1.1rem;display:flex;flex-direction:column}.document-card[hidden]{display:none}.document-card h3{margin:.35rem 0}.catalog-category,.catalog-format{font-size:.9rem}.catalog-category{margin:0}.document-card a{margin-top:auto;font-weight:700;align-self:start;padding:.45rem 0}.documents .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.documents .catalog-filters button[hidden]{display:none}#doc-editor{scroll-margin-top:7rem}
+.documents{max-width:1040px}.documents .panel{padding:1.5rem;margin:1.3rem 0}.doc-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1rem 0}.doc-fields .full{grid-column:1/-1}.documents label{display:block;font-weight:650}.documents input,.documents textarea,.documents select{display:block;width:100%;margin-top:.35rem;padding:.75rem;border:1px solid #8c9ab0;border-radius:9px;background:var(--surface);color:var(--ink);font:inherit}.documents button{padding:.8rem;margin:.4rem .5rem .4rem 0;border-radius:9px;cursor:pointer}.paper{background:#fff;color:#171717;border:1px solid #cbd5e1;padding:2.5rem;min-height:520px;font-family:Georgia,serif;line-height:1.7;overflow-wrap:anywhere}.paper h2{text-align:center;margin-bottom:2.5rem}.paper #print-body{margin:2rem 0;white-space:pre-wrap}.signature{text-align:right;margin-top:4rem;font-size:.85rem}@media(max-width:650px){.doc-fields{grid-template-columns:1fr}.paper{padding:1.1rem}}@media print{@page{size:A4;margin:18mm}body{background:#fff!important;color:#000!important}.top,.footer,.assistant-floating,.documents>.eyebrow,.documents>h1,.documents>.intro,.editor,.document-catalog,.preview-panel>h2,.skip,.trust{display:none!important}.documents,.documents .preview-panel{max-width:none!important;padding:0!important;margin:0!important;border:0!important;box-shadow:none!important}.paper{border:0!important;padding:0!important;min-height:auto!important;color:#000!important;background:#fff!important;font-size:12pt}}</style>
 </Base>

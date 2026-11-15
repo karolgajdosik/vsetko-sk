@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Porovnávač nákladov služieb" description="Porovnajte dve vlastné ponuky podľa mesačných, ročných a jednorazových poplatkov.">
+<main id="obsah" class="wrap main comparison">
+  <p class="eyebrow">Služby · Vlastné ponuky</p><h1>Porovnávač nákladov služieb</h1>
+  <p class="intro">Dve ponuky, jedno obdobie a všetky vami zadané poplatky. Použite napríklad pre internet alebo mobilný program.</p>
+  <p class="note">Nejde o cenník poskytovateľov ani trhový rebríček. Zadajte vlastné ceny vrátane daní. Vstupy zostávajú iba na tejto otvorenej stránke, neukladajú sa ani neposielajú na server.</p>
+  <form id="comparison-form" class="panel">
+    <label for="comparison-months">Porovnávané obdobie v mesiacoch (1–120)</label><input id="comparison-months" type="number" min="1" max="120" step="1" value="24" required />
+    <div class="offers">{['A','B'].map(id=><fieldset><legend>Ponuka {id}</legend>{[['monthly','Mesačný poplatok (€)'],['annual','Ročný poplatok (€)'],['setup','Jednorazový vstupný poplatok (€)']].map(([key,label])=><div><label for={`comparison-${id}-${key}`}>{label}</label><input id={`comparison-${id}-${key}`} type="number" min="0" max="1000000" step="0.01" value="0" required inputmode="decimal" /></div>)}</fieldset>)}</div>
+    <p>Ročný poplatok sa počíta na začiatku každého začatého 12-mesačného obdobia. Mesačné poplatky sa nemenia; nulový ročný alebo vstupný poplatok zadajte ako 0. Nezapočítajte rovnakú platbu dvakrát.</p>
+    <div class="actions"><button class="primary" type="submit">Porovnať ponuky</button><button type="reset">Vymazať</button></div>
+  </form>
+  <section id="comparison-results" class="panel" hidden aria-labelledby="comparison-result-title"><h2 id="comparison-result-title" tabindex="-1">Výsledok porovnania</h2><div class="table-scroll"><table><caption>Náklady za zvolené obdobie</caption><thead><tr><th scope="col">Ponuka</th><th scope="col">Spolu</th><th scope="col">Priemer mesačne</th></tr></thead><tbody id="comparison-rows"></tbody></table></div><p id="comparison-difference"></p><p class="note">Výpočet nezahŕňa zľavy po časti obdobia, valorizáciu, viazanosť, sankcie za zrušenie ani kvalitu služby. Pred rozhodnutím porovnajte aj tieto podmienky.</p></section>
+  <p id="comparison-status" role="status" aria-live="polite"></p>
+  <section class="panel"><h2>Ako pristupujeme k odporúčaniam</h2><p>Tento nástroj neobsahuje platené poradie ani partnerské ponuky. Ak neskôr pridáme reklamu alebo partnerské odkazy, označíme ich pri konkrétnej ponuke. Nižšia vypočítaná cena sama osebe neznamená vhodnejšiu službu.</p><a href="/financie/prehlad/">Zahrnúť služby do rozpočtu domácnosti</a> · <a href="/sluzby/">Prehľad služieb portálu</a></section>
+  <noscript><p>Na výpočet potrebujete JavaScript.</p></noscript>
+</main>
+</Base>
+<script>
+import {compareServiceCosts} from '../lib/comparison-costs.mjs';
+const form=document.getElementById('comparison-form') as HTMLFormElement;
+const results=document.getElementById('comparison-results')!;
+const status=document.getElementById('comparison-status')!;
+const money=(n:number)=>new Intl.NumberFormat('sk-SK',{style:'currency',currency:'EUR'}).format(n);
+form.addEventListener('input',()=>{results.hidden=true;status.textContent='Vstupy sa zmenili. Prepočítajte porovnanie.';});
+form.addEventListener('submit',event=>{event.preventDefault();if(!form.reportValidity())return;
+ try{const months=(document.getElementById('comparison-months') as HTMLInputElement).valueAsNumber;
+ const offers=['A','B'].map(id=>Object.fromEntries(['monthly','annual','setup'].map(key=>[key,(document.getElementById(`comparison-${id}-${key}`) as HTMLInputElement).valueAsNumber])));
+ const compared=compareServiceCosts(offers,months);const body=document.getElementById('comparison-rows')!;body.replaceChildren();
+ compared.forEach((offer,index)=>{const tr=document.createElement('tr');const heading=document.createElement('th');heading.scope='row';heading.textContent='Ponuka '+['A','B'][index];tr.append(heading);for(const value of [offer.total,offer.averageMonthly]){const td=document.createElement('td');td.textContent=money(value);tr.append(td);}body.append(tr);});
+ const difference=compared[0].total-compared[1].total;document.getElementById('comparison-difference')!.textContent=Math.abs(difference)<.005?'Ponuky majú rovnaké zadané náklady.':`Ponuka ${difference<0?'A':'B'} má za ${months} mesiacov nižšie zadané náklady o ${money(Math.abs(difference))}.`;
+ results.hidden=false;status.textContent='Porovnanie je pripravené.';document.getElementById('comparison-result-title')!.focus();
+ }catch{results.hidden=true;status.textContent='Skontrolujte obdobie a nezáporné sumy vo všetkých poliach.';}
+});
+form.addEventListener('reset',()=>{results.hidden=true;status.textContent='Vstupy a výsledky boli vymazané.';});
+</script>
+<style>
+.comparison{max-width:1040px}.comparison .panel{padding:1.4rem;margin:1.3rem 0}.comparison label{display:block;font-weight:650;margin:.8rem 0 .4rem}.comparison input{font:inherit;max-width:100%;width:100%;box-sizing:border-box;padding:.75rem;border:1px solid #8191a5;border-radius:.5rem;background:transparent;color:inherit}.comparison fieldset{min-width:0;border:1px solid #8191a5;border-radius:.7rem;padding:1rem}.offers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1rem 0}.actions{display:flex;gap:1rem;flex-wrap:wrap}.comparison button{font:inherit;padding:.8rem;cursor:pointer}.comparison :is(input,button):focus-visible{outline:3px solid currentColor;outline-offset:3px}.table-scroll{overflow-x:auto}.comparison table{border-collapse:collapse;width:100%}.comparison :is(td,th){padding:.8rem;text-align:left;border-bottom:1px solid #8191a5}@media(max-width:650px){.offers{grid-template-columns:1fr}}
+</style>

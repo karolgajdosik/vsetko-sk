@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+const tools=[
+['/moj-prehlad/','Môj prehľad','Vyberte si témy a obľúbené odkazy. Pozrite si počet vlastných úloh a termínov.'],
+['/ai/','Spresnite otázku asistentovi','Filtrujte lokálne výsledky podľa oblasti a typu a pokračujte súvisiacou témou.'],
+['/kalendar/','Vlastné povinnosti a termíny','Vyberte si šablónu, potvrďte vlastný dátum a exportujte termíny do kalendára.'],
+['/dokumenty/','Centrum dokumentov','Vyhľadajte vhodný nástroj a pripravte dokument v prehliadači.'],
+['/financie/prehlad/','Financie 360°','Spočítajte rozpočet, rezervu a vlastný scenár zmeny príjmov alebo výdavkov.'],
+['/auto/moje-auto/','Auto 360°','Evidujte náklady na auto a ich priemer na kilometer za vlastné obdobie.'],
+['/aplikacia/','Portál na ploche mobilu','Pridajte si web ako aplikáciu a prečítajte si jeho offline možnosti.'],
+['/porovnavace/','Porovnanie služieb','Porovnajte zadané mesačné, ročné a jednorazové poplatky dvoch ponúk.']
+];
+---
+<Base title="Nové osobné nástroje" description="Praktické nástroje pre vlastné úlohy, dokumenty, financie a auto na jednom mieste.">
+<main id="obsah" class="wrap main"><p class="eyebrow">Praktické nástroje</p><h1>Viac prehľadu, menej hľadania</h1><p class="intro">Vaše termíny, výdavky a dokumenty na jednom mieste. Vyberte si, čo potrebujete vyriešiť.</p><div class="grid">{tools.map(([url,title,description])=><a class="card" href={url}><h2>{title} →</h2><p>{description}</p></a>)}</div><section class="notice"><h2>Vaše údaje máte pod kontrolou</h2><p>Profil, kalendár a evidencia auta používajú iba tento prehliadač. Nesynchronizujú sa medzi zariadeniami. Finančný prehľad a porovnávač svoje vstupy neukladajú. Online režim asistenta spracúva otázku podľa <a href="/ochrana-sukromia/">pravidiel súkromia</a>; nevkladajte doň citlivé údaje.</p></section></main>
+</Base>
