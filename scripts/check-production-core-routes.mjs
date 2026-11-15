@@ -8,6 +8,15 @@ export const expectedHeadings = Object.freeze({
   '/umrtie-v-rodine/': 'Úmrtie v rodine: čo treba vybaviť',
   '/strata-dokladov/': 'Strata dokladov: čo urobiť ako prvé',
   '/kalkulacky/naklady-na-byvanie/': 'Koľko vás skutočne stojí bývanie?',
+  '/ai/': 'Spýtajte sa asistenta',
+  '/aplikacia/': 'VŠETKO24 do mobilu',
+  '/auto/moje-auto/': 'Moje auto',
+  '/dokumenty/': 'Generátor dokumentov',
+  '/financie/prehlad/': 'Váš finančný prehľad',
+  '/kalendar/': 'Kalendár povinností',
+  '/moj-prehlad/': 'Môj prehľad',
+  '/novinky/': 'Viac prehľadu, menej hľadania',
+  '/porovnavace/': 'Porovnávač nákladov služieb',
 });
 export const coreRoutes = ['/', ...Object.keys(expectedHeadings)];
 function pageHeading(html) {
