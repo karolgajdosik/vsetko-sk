@@ -39,6 +39,19 @@ try{
      if(attempt<3)await new Promise(resolve=>setTimeout(resolve,3000));
     }
     assert.equal(response?.status(),200,'AI chat page must return HTTP 200');
+    const localOnly = page.locator('#ai-local-only');
+    assert.equal(await localOnly.isChecked(), true, 'Local search must be the default');
+    let assistantRequests = 0;
+    page.on('request', request => {
+      if (new URL(request.url()).pathname === '/api/assistant') assistantRequests++;
+    });
+    await page.locator('#ai-question').fill(item.question);
+    await page.locator('#ai-submit').click();
+    await page.locator('#ai-conversation .ai-bot').last()
+      .filter({ hasText: 'Otázka nebola odoslaná na server.' }).waitFor({ state: 'visible' });
+    assert.equal(assistantRequests, 0, 'Local search must not contact the assistant endpoint');
+
+    await localOnly.uncheck();
     await page.locator('#ai-question').fill(item.question);
     const [apiResponse]=await Promise.all([
      page.waitForResponse(r=>r.url().includes('/api/assistant')&&r.request().method()==='POST',{timeout:25000}),

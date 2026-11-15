@@ -5,11 +5,11 @@ import Base from '../layouts/Base.astro';
 <main class="wrap main ai-page" id="obsah">
 <p class="eyebrow">VŠETKO AI · Praktický sprievodca</p><h1>Spýtajte sa asistenta</h1>
 <p class="intro">Asistent odpovedá po slovensky na základe vybraných návodov portálu. Ak nemá dostatočné podklady, prizná to. Odpovede nie sú úradným, právnym ani finančným poradenstvom.</p>
-<section class="panel ai-path"><h2>Vyhľadávanie naprieč portálom</h2><p>Vyhľadajte overiteľné návody a kalkulačky bez odosielania otázky AI modelu.</p><label for="knowledge-query">Hľadať nástroje a návody</label><input id="knowledge-query" type="search" placeholder="Napríklad hypotéka, občiansky preukaz…" autocomplete="off"/><div class="knowledge-filters"><div><label for="knowledge-category">Oblasť</label><select id="knowledge-category"><option value="">Všetky oblasti</option></select></div><div><label for="knowledge-kind">Čo hľadáte?</label><select id="knowledge-kind"><option value="">Všetky výsledky</option><option value="guide">Návody a postupy</option><option value="calculator">Kalkulačky</option><option value="other">Ostatné nástroje a stránky</option></select></div></div><p id="knowledge-summary" class="note" role="status">Napíšte tému a podľa potreby spresnite oblasť alebo typ výsledku. Toto vyhľadávanie zostáva v prehliadači.</p><div id="knowledge-results" aria-live="polite"></div></section><section class="panel ai-path"><h2>Vyriešte životnú situáciu</h2><p>Vyberte si cieľ a prejdite na overiteľné návody, výpočty a kontrolné zoznamy. Tento postup funguje aj bez AI modelu.</p><label for="ai-goal">Čo potrebujete vyriešiť?</label><select id="ai-goal"><option value="">Vyberte situáciu</option><option value="home">Kúpa bytu</option><option value="car">Kúpa auta</option><option value="documents">Strata dokladu</option><option value="business">Začiatok podnikania</option></select><div id="ai-path-links" aria-live="polite"></div></section>
+<section class="panel ai-path"><h2>Vyhľadávanie naprieč portálom</h2><p>Vyhľadajte overiteľné návody a kalkulačky bez odosielania otázky AI modelu.</p><label for="knowledge-query">Hľadať nástroje a návody</label><input id="knowledge-query" type="search" placeholder="Napríklad hypotéka, občiansky preukaz…" maxlength="600" autocomplete="off"/><div class="knowledge-filters"><div><label for="knowledge-category">Oblasť</label><select id="knowledge-category"><option value="">Všetky oblasti</option></select></div><div><label for="knowledge-kind">Čo hľadáte?</label><select id="knowledge-kind"><option value="">Všetky výsledky</option><option value="guide">Návody a postupy</option><option value="calculator">Kalkulačky</option><option value="other">Ostatné nástroje a stránky</option></select></div></div><p id="knowledge-summary" class="note" role="status">Napíšte tému a podľa potreby spresnite oblasť alebo typ výsledku. Toto vyhľadávanie zostáva v prehliadači.</p><div id="knowledge-results" aria-live="polite"></div></section><section class="panel ai-path"><h2>Vyriešte životnú situáciu</h2><p>Vyberte si cieľ a prejdite na overiteľné návody, výpočty a kontrolné zoznamy. Tento postup funguje aj bez AI modelu.</p><label for="ai-goal">Čo potrebujete vyriešiť?</label><select id="ai-goal"><option value="">Vyberte situáciu</option><option value="home">Kúpa bytu</option><option value="car">Kúpa auta</option><option value="documents">Strata dokladu</option><option value="business">Začiatok podnikania</option></select><div id="ai-path-links" aria-live="polite"></div></section>
 <section class="panel ai-quick" aria-label="Rýchle otázky"><h2>Čo potrebujete vyriešiť?</h2><div class="quick-grid"><button type="button" data-question="Ako postupovať pri kúpe bytu a porovnaní hypoték?">🏠 Kúpa bytu</button><button type="button" data-question="Čo potrebujem na prepis auta?">🚗 Prepis auta</button><button type="button" data-question="Čo robiť pri strate občianskeho preukazu?">🪪 Strata dokladu</button><button type="button" data-question="Ako si vytvoriť finančnú rezervu?">💶 Finančná rezerva</button></div><p class="note">Asistent pracuje s vybranými témami portálu. Nie je pripojený na všetky aktuálne úradné registre.</p></section>
 <section class="panel ai-box" aria-label="Konverzácia s AI asistentom">
 <div id="ai-conversation" class="ai-conversation" aria-live="polite"><div class="ai-message ai-bot">Dobrý deň! S čím vám môžem pomôcť? Napríklad s občianskym preukazom, hypotékou alebo prepisom auta.</div></div>
-<form id="ai-form"><label for="ai-question">Vaša otázka</label><p class="note" id="ai-context-note">Každú otázku posudzujem samostatne. Pri nadväzujúcej otázke uveďte aj tému; predchádzajúca konverzácia sa do API neposiela.</p><div class="ai-input"><textarea id="ai-question" maxlength="600" rows="2" required aria-describedby="ai-context-note" placeholder="Napríklad: Čo robiť, keď stratím občiansky preukaz?"></textarea><button id="ai-submit" type="submit">Odoslať</button></div><label class="ai-local-choice" for="ai-local-only"><input id="ai-local-only" type="checkbox" /> Vyhľadávať iba v návodoch portálu (otázka sa neodošle službe AI)</label><p class="note">Nepíšte rodné čísla, adresy, zdravotné ani iné citlivé údaje. Pri vypnutom lokálnom režime sa otázka odosiela do API asistenta; pri zapnutom sa spracuje iba v tomto prehliadači. <a href="/ochrana-sukromia/">Ochrana súkromia</a>.</p></form>
+<form id="ai-form"><label for="ai-question">Vaša otázka</label><p class="note" id="ai-context-note">Každú otázku posudzujem samostatne. Pri nadväzujúcej otázke uveďte aj tému; predchádzajúca konverzácia sa do API neposiela.</p><div class="ai-input"><textarea id="ai-question" maxlength="600" rows="2" required aria-describedby="ai-context-note" placeholder="Napríklad: Čo robiť, keď stratím občiansky preukaz?"></textarea><button id="ai-submit" type="submit">Odoslať</button></div><label class="ai-local-choice" for="ai-local-only"><input id="ai-local-only" type="checkbox" checked /> Vyhľadávať iba v návodoch portálu (predvolené; otázka sa neodošle službe AI)</label><p class="note">Nepíšte rodné čísla, adresy, zdravotné ani iné citlivé údaje. Pri vypnutom lokálnom režime sa otázka odosiela do API asistenta; pri zapnutom sa spracuje iba v tomto prehliadači. <a href="/ochrana-sukromia/">Ochrana súkromia</a>.</p></form>
 </section>
 <p class="note">AI môže robiť chyby. Vždy si overte aktuálne postupy v odkazovaných oficiálnych zdrojoch. Táto verzia neuchováva históriu konverzácie na portáli.</p>
 </main>
@@ -19,34 +19,39 @@ import {trustedOfficialUrl} from '../lib/official-sources.mjs';
 const searchInput=document.querySelector<HTMLInputElement>('#knowledge-query');
 const searchResults=document.querySelector<HTMLElement>('#knowledge-results');
 const norm=(x:string)=>x.toLocaleLowerCase('sk-SK').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-const ignored=new Set(['ako','kde','kedy','co','som','bol','mam','chcem','potrebujem','prosim','robit','postupovat','postup','moja','moje','moj','ked','pri','pre','som','mozete','mam','sa','ci','tie','toto','aky','aka','ake']);
+const ignored=new Set(['ako','kde','kedy','co','som','bol','mam','chcem','potrebujem','prosim','robit','postupovat','postup','moja','moje','moj','ked','pri','pre','som','mozete','mam','sa','ci','tie','toto','aky','aka','ake','vybavit','vybavim','treba','ziskat','ziskam','najdem','najst','zistit','zistim','mozem','musim','urobit','spravit']);
 const tokens=(s:string)=>norm(s).split(/\s+/).flatMap(part=>part.split(/[^a-z0-9]+/)).filter(t=>t.length>=3&&!ignored.has(t)).slice(0,14);
 const isInternal=(url:unknown):url is string => typeof url==='string'&&/^\/(?!\/)[a-zA-Z0-9/_#?=&.%-]*$/.test(url)&&!/%(?:2f|5c|00|0d|0a)/i.test(url)&&!url.includes('..')&&!url.includes('\\');
 const knownSourceUrls=new Set(catalog.filter(x=>isInternal(x.url)).map(x=>x.url));
 const library=catalog.filter(x=>isInternal(x.url)).map(x=>({
   x,title:norm(x.title),keywords:norm(x.keywords??''),description:norm(x.description??''),category:norm(x.category??'')
 }));
-function findLocal(question:string,max=6){
+// Conservative inflection matching: exact words outrank shared stems.
+const endings=['ami','ach','och','eho','emu','ova','ove','ovy','om','ou','ov','mi','ia','ie','iu','ej','am','im','a','e','i','y','u','o'];
+function relatedWord(a:string,b:string){
+  if(a.length<5||b.length<5)return false;
+  const stems=(word:string)=>[word,...endings.filter(end=>word.endsWith(end)&&word.length-end.length>=4).map(end=>word.slice(0,-end.length))];
+  const left=stems(a),right=stems(b);
+  return left.some(stem=>right.includes(stem)) || (Math.min(a.length,b.length)>=5&&Math.abs(a.length-b.length)<=4&&(a.startsWith(b)||b.startsWith(a)));
+}
+function findLocal(question:string,max=6,eligible=library){
   const terms=[...new Set(tokens(question))];if(!terms.length)return [];
-  const ranked=library.map(item=>{
+  const ranked=eligible.map(item=>{
     let score=0,matched=0;
     for(const t of terms){
-      const matches=(text:string)=>text.split(/[^a-z0-9]+/).some(word=>word===t||(t.length>=5&&word.startsWith(t)&&word.length-t.length<=5));
+      const matches=(text:string)=>text.split(/[^a-z0-9]+/).reduce((best,word)=>Math.max(best,word===t?2:relatedWord(word,t)?1:0),0);
       const hitsTitle=matches(item.title),hitsKeywords=matches(item.keywords),hitsDescription=matches(item.description),hitsCategory=matches(item.category);
       if(hitsTitle||hitsKeywords||hitsDescription||hitsCategory)matched++;
-      if(hitsTitle)score+=7;
-      if(hitsKeywords)score+=4;
-      if(hitsDescription)score+=2;
-      if(hitsCategory)score+=1;
+      score+=hitsTitle*7+hitsKeywords*4+hitsDescription*2+hitsCategory;
     }
-    if(item.title.includes(norm(question.trim())))score+=8;
+    if(item.title.includes(norm(question.trim())))score+=16;
     return {x:item.x,score,matched};
   });
   // Long, multi-topic questions rarely match 40% of their terms in one guide.
   // Prefer high-coverage matches, but do not hide useful partial sources when none qualify.
   const strictMinimum=Math.max(1,Math.ceil(terms.length*.4));
-  const strict=ranked.filter(item=>item.matched>=strictMinimum);
-  const minimum=strict.length?strictMinimum:(terms.length>=5?2:1);
+  const strict=ranked.filter(item=>item.matched>=strictMinimum && (terms.length===1||item.matched>=2));
+  const minimum=strict.length?strictMinimum:2;
   return (strict.length?strict:ranked.filter(item=>item.matched>=minimum))
     .sort((a,b)=>b.score-a.score||b.matched-a.matched||a.x.title.localeCompare(b.x.title,'sk'))
     .slice(0,max).map(item=>item.x);
@@ -80,9 +85,10 @@ function updateKnowledgeResults(){
   if(!searchResults)return;
   searchResults.replaceChildren();
   const q=searchInput?.value.trim()??'';
-  if(q.length<2){if(searchSummary)searchSummary.textContent='Napíšte aspoň dva znaky. Filtre nemenia ani neodosielajú otázku asistentovi.';return;}
+  if(q.length<3){if(searchSummary)searchSummary.textContent='Napíšte aspoň tri znaky. Filtre nemenia ani neodosielajú otázku asistentovi.';return;}
   // Filter the complete ranked list before limiting the visible results.
-  const hits=findLocal(q,library.length).filter(item=>(!categoryFilter?.value||item.category===categoryFilter.value)&&(!kindFilter?.value||kindOf(item.url)===kindFilter.value));
+  const eligible=library.filter(({x:item})=>(!categoryFilter?.value||item.category===categoryFilter.value)&&(!kindFilter?.value||kindOf(item.url)===kindFilter.value));
+  const hits=findLocal(q,eligible.length,eligible);
   if(searchSummary)searchSummary.textContent=hits.length?'Nájdených stránok: '+hits.length+'. Zobrazených: '+Math.min(hits.length,8)+'. Ide o tematické výsledky katalógu, nie potvrdenie odpovede.':'Pre zvolené filtre sa nenašli výsledky. Zmeňte filter alebo skúste kratší výraz.';
   for(const item of hits.slice(0,8)){
     const a=document.createElement('a');a.href=item.url;
@@ -105,6 +111,9 @@ const quickButtons=Array.from(document.querySelectorAll<HTMLButtonElement>('[dat
 let busy=false;
 quickButtons.forEach(b=>b.addEventListener('click',()=>{if(busy)return;field.value=b.dataset.question||'';field.focus();form.requestSubmit();}));
 const localOnly=document.querySelector<HTMLInputElement>('#ai-local-only');
+// Reset restored form state on navigation; online processing is an explicit choice.
+if(localOnly)localOnly.checked=true;
+window.addEventListener('pageshow',event=>{if(event.persisted&&localOnly)localOnly.checked=true;});
 function addRefinement(response:HTMLElement,question:string){
   const topics=findLocal(question,3);
   if(!topics.length)return;
