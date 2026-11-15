@@ -36,6 +36,7 @@ const fields = [
     </form>
     <section id="finance-results" class="panel" aria-labelledby="finance-results-title" hidden>
       <h2 id="finance-results-title" tabindex="-1">Prehľad podľa vašich vstupov</h2>
+      <details id="finance-assumptions"><summary>Zadané hodnoty a predpoklady výpočtu</summary><dl class="finance-assumptions">{[...fields,{id:"targetMonths",label:"Cieľ rezervy (mesiace)"},{id:"incomeDrop",label:"Pokles príjmu (%)"},{id:"expenseRise",label:"Zvýšenie výdavkov (%)"}].map(field=><div><dt>{field.label}</dt><dd id={"finance-assumption-"+field.id}>—</dd></div>)}</dl></details>
       <div class="finance-metrics">
         <div><span>Priemerné mesačné výdavky</span><strong id="finance-expenses">—</strong></div>
         <div><span>Mesačný zostatok</span><strong id="finance-balance">—</strong></div>
@@ -70,6 +71,7 @@ const fields = [
   .finance-field input:focus-visible,.finance-button:focus-visible{outline:3px solid currentColor;outline-offset:3px}
   .finance-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:1rem}.finance-metrics>div{display:flex;flex-direction:column;gap:.6rem;padding:1rem;border:1px solid #8191a5;border-radius:.75rem;min-width:0}.finance-metrics strong{font-size:clamp(1.2rem,3vw,1.8rem);overflow-wrap:anywhere;font-variant-numeric:tabular-nums}.finance-tools{display:grid;gap:.7rem}
   #finance-error[hidden],#finance-results[hidden]{display:none}
+  .finance-assumptions{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:.7rem}.finance-assumptions div{min-width:0}.finance-assumptions dd{margin:0;font-weight:650;overflow-wrap:anywhere}#finance-assumptions summary{cursor:pointer;margin:1rem 0}
   @media print{#finance-overview-form,.finance-button,.finance-tools,#finance-status{display:none!important}.finance-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.finance-metrics>div{break-inside:avoid}}
 </style>
 <script>
@@ -87,6 +89,7 @@ const fields = [
     if(!valid){output('results').hidden=true;output('status').textContent='Výpočet sa nevykonal. Opravte označené vstupy.';form.reportValidity();return;}
     if(!result)return;
     for(const key of ['expenses','balance','annualBalance','reserveTarget','reserveGap','scenarioIncome','scenarioExpenses','scenarioBalance'] as const)output(key).textContent=currency(result[key]);
+    for(const key of ids){const value=input(key).valueAsNumber;output('assumption-'+key).textContent=key==='targetMonths'?number(value):key==='incomeDrop'||key==='expenseRise'?number(value)+' %':currency(value);}
     output('reserveMonths').textContent=result.reserveMonths===null?'Bez výdavkov sa neurčuje':number(result.reserveMonths)+' mesiaca';
     output('plan').textContent=result.monthsToTarget===0?'Podľa zadaných hodnôt je váš cieľ rezervy splnený.':result.monthsToTarget===null?'Pri nulovom alebo zápornom zostatku nevzniká priestor na dopĺňanie rezervy.':'Ak odložíte celý mesačný zostatok '+currency(result.balance)+', cieľ dosiahnete približne za '+result.monthsToTarget.toLocaleString('sk-SK')+' mesiacov. Predpokladá to nemenné príjmy a výdavky a žiadne čerpanie rezervy.';
     output('scenario-note').textContent=result.deficitCoverageMonths===null?'V zvolenom scenári nevzniká mesačný deficit.':'V scenári vzniká deficit '+currency(-result.scenarioBalance)+' mesačne. Zadaná rezerva by pri rovnakom deficite vystačila približne na '+number(result.deficitCoverageMonths)+' mesiaca; ide o priemer bez časovania jednotlivých platieb.';
@@ -94,5 +97,5 @@ const fields = [
   });
   form.addEventListener('input',()=>{output('results').hidden=true;output('status').textContent='Vstupy sa zmenili. Pre aktuálny výsledok stlačte Vypočítať prehľad.';output('error').hidden=true;});
   form.addEventListener('reset',()=>{output('results').hidden=true;output('error').hidden=true;output('status').textContent='Vstupy a výsledky boli vymazané.';requestAnimationFrame(()=>input('income').focus());});
-  document.getElementById('finance-print')?.addEventListener('click',()=>window.print());
+  document.getElementById('finance-print')?.addEventListener('click',()=>{const details=document.getElementById('finance-assumptions') as HTMLDetailsElement;const wasOpen=details.open;details.open=true;try{window.print();}finally{details.open=wasOpen;}});
 </script>
