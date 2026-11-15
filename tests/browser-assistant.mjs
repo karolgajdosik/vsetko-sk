@@ -86,4 +86,33 @@ try{
    }finally{await page.close();}
   }
  }
+ if (!live) {
+   const page = await browser.newPage();
+   try {
+     let requests = 0;
+     await page.route('**/api/assistant', route => {
+       requests++;
+       return route.abort('failed');
+     });
+     await page.goto(new URL('/ai/', origin).href);
+     const question = page.locator('#ai-question');
+     const submit = page.locator('#ai-submit');
+     const answer = page.locator('#ai-conversation .ai-bot').last();
+     await question.fill('zxqwvv89173');
+     await submit.click();
+     await answer.filter({ hasText: 'nenašiel dostatočne súvisiace stránky' }).waitFor();
+     assert.equal(await answer.locator('.ai-sources a').count(), 0);
+     assert.equal(requests, 0);
+
+     await page.locator('#ai-local-only').uncheck();
+     await question.fill('prepis auta');
+     await submit.click();
+     await answer.filter({ hasText: 'nepodarilo načítať' }).waitFor();
+     assert.equal(requests, 1);
+     assert.ok(await answer.locator('a[href="/navody/prepis-auta/"]').isVisible());
+     assert.equal(await question.isEnabled(), true);
+   } finally {
+     await page.close();
+   }
+ }
 }finally{await browser.close();}
