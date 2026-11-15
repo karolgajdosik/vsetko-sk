@@ -20,7 +20,8 @@ const searchInput=document.querySelector<HTMLInputElement>('#knowledge-query');
 const searchResults=document.querySelector<HTMLElement>('#knowledge-results');
 const norm=(x:string)=>x.toLocaleLowerCase('sk-SK').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 const ignored=new Set(['ako','kde','kedy','co','som','bol','mam','chcem','potrebujem','prosim','robit','postupovat','postup','moja','moje','moj','ked','pri','pre','som','mozete','mam','sa','ci','tie','toto','aky','aka','ake','vybavit','vybavim','treba','ziskat','ziskam','najdem','najst','zistit','zistim','mozem','musim','urobit','spravit']);
-const tokens=(s:string)=>norm(s).split(/\s+/).flatMap(part=>part.split(/[^a-z0-9]+/)).filter(t=>t.length>=3&&!ignored.has(t)).slice(0,14);
+const shortTerms=new Set(['ev','ek']);
+const tokens=(s:string)=>norm(s).split(/\s+/).flatMap(part=>part.split(/[^a-z0-9]+/)).filter(t=>(t.length>=3||shortTerms.has(t))&&!ignored.has(t)).slice(0,14);
 const isInternal=(url:unknown):url is string => typeof url==='string'&&/^\/(?!\/)[a-zA-Z0-9/_#?=&.%-]*$/.test(url)&&!/%(?:2f|5c|00|0d|0a)/i.test(url)&&!url.includes('..')&&!url.includes('\\');
 const knownSourceUrls=new Set(catalog.filter(x=>isInternal(x.url)).map(x=>x.url));
 const library=catalog.filter(x=>isInternal(x.url)).map(x=>({
@@ -44,7 +45,7 @@ function findLocal(question:string,max=6,eligible=library){
       if(hitsTitle||hitsKeywords||hitsDescription||hitsCategory)matched++;
       score+=hitsTitle*7+hitsKeywords*4+hitsDescription*2+hitsCategory;
     }
-    if(item.title.includes(norm(question.trim())))score+=16;
+    if(question.trim().length>=3&&item.title.includes(norm(question.trim())))score+=16;
     return {x:item.x,score,matched};
   });
   // Long, multi-topic questions rarely match 40% of their terms in one guide.
@@ -85,7 +86,7 @@ function updateKnowledgeResults(){
   if(!searchResults)return;
   searchResults.replaceChildren();
   const q=searchInput?.value.trim()??'';
-  if(q.length<3){if(searchSummary)searchSummary.textContent='Napíšte aspoň tri znaky. Filtre nemenia ani neodosielajú otázku asistentovi.';return;}
+  if(q.length<3&&!shortTerms.has(norm(q))){if(searchSummary)searchSummary.textContent='Napíšte aspoň tri znaky alebo skratku EV či EK. Filtre nemenia ani neodosielajú otázku asistentovi.';return;}
   // Filter the complete ranked list before limiting the visible results.
   const eligible=library.filter(({x:item})=>(!categoryFilter?.value||item.category===categoryFilter.value)&&(!kindFilter?.value||kindOf(item.url)===kindFilter.value));
   const hits=findLocal(q,eligible.length,eligible);
@@ -142,7 +143,7 @@ form.addEventListener('submit',async e=>{
   e.preventDefault();
   const question=field.value.trim();
   if(busy)return;
-  if(question.length<3||question.length>600){field.setCustomValidity('Zadajte otázku s 3 až 600 znakmi.');field.reportValidity();return;}
+  if((question.length<3&&!(localOnly?.checked&&shortTerms.has(norm(question))))||question.length>600){field.setCustomValidity('Zadajte otázku s 3 až 600 znakmi; v lokálnom režime môžete použiť aj EV alebo EK.');field.reportValidity();return;}
   busy=true;
   button.disabled=true;field.disabled=true;
   quickButtons.forEach(b=>b.disabled=true);
