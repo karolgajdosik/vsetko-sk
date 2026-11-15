@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 
@@ -60,6 +61,39 @@ async function checkWithoutStorage(browser, origin) {
   }
 }
 
+async function checkWordDownloads(page) {
+  await page.locator('#doc-body').fill('Prvý riadok: <A> & B\nDruhý riadok');
+  for (const [kind, basename, title] of [
+    ['request', 'ziadost', 'Žiadosť'],
+    ['statement', 'cestne-vyhlasenie', 'Čestné vyhlásenie'],
+    ['handover', 'odovzdavaci-protokol', 'Odovzdávací protokol']
+  ]) {
+    await page.locator('#doc-type').selectOption(kind);
+    const [download] = await Promise.all([
+      page.waitForEvent('download'),
+      page.locator('#doc-word').click()
+    ]);
+    assert.equal(download.suggestedFilename(), basename + '.docx');
+    assert.equal(await download.failure(), null);
+    const inspected = execFileSync('python3', ['-c', [
+      'import json, sys, zipfile, xml.etree.ElementTree as ET',
+      'with zipfile.ZipFile(sys.argv[1]) as z:',
+      ' assert z.testzip() is None',
+      ' for part in ("[Content_Types].xml","_rels/.rels"): ET.fromstring(z.read(part))',
+      ' root = ET.fromstring(z.read("word/document.xml"))',
+      ' ns = {"w":"http://schemas.openxmlformats.org/wordprocessingml/2006/main"}',
+      ' print(json.dumps(["".join(n.itertext()) for n in root.findall(".//w:body/w:p",ns)]))'
+    ].join('\n'), await download.path()], { encoding: 'utf8' });
+    const paragraphs = JSON.parse(inspected);
+    assert.equal(paragraphs[0], title);
+    assert.ok(paragraphs.includes('Vyhotovil/a: Testovací odosielateľ'));
+    assert.ok(paragraphs.some(text => text.includes('Prvý riadok: <A> & B')));
+    assert.ok(paragraphs.includes('Druhý riadok'));
+    assert.ok(paragraphs.includes('Podpis'));
+  }
+  console.log('PASS three editable Word downloads, ZIP integrity and parsed document text');
+}
+
 async function checkDocumentCatalog(page, origin) {
   await page.goto(origin + '/dokumenty/');
   const cards = page.locator('#document-cards li:visible');
@@ -89,6 +123,7 @@ async function checkDocumentCatalog(page, origin) {
   await page.locator('#doc-print').click();
   assert.equal(await page.locator('html').getAttribute('data-print-called'), 'yes');
 
+  await checkWordDownloads(page);
   const targets = await cards.locator('a[href^="/"]').evaluateAll(links => links.map(link => link.href));
   assert.ok(targets.length >= 2);
   for (const target of targets) {
