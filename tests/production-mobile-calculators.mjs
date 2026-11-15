@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { checkProductionPwa } from './v4-pwa-acceptance.mjs';
 import { checkV4Tools } from './v4-tools-acceptance.mjs';
 import {chromium} from 'playwright';
 
@@ -62,6 +63,7 @@ try {
     }
   }
   if (new URL(origin).hostname !== '127.0.0.1' && new URL(origin).hostname !== 'localhost') {
+    await checkProductionPwa(browser, origin);
     await checkV4Tools(browser, origin);
     console.log('PASS V4 mobile budget, service comparison and vehicle backup flows');
   }
