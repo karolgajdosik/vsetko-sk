@@ -2,6 +2,7 @@ import { checkOfflineNavigation } from './v4-pwa-acceptance.mjs';
 import { chromium } from 'playwright';
 import assert from 'node:assert/strict';
 import { checkV3Acceptance } from './v3-acceptance.mjs';
+import { checkV4Tools } from './v4-tools-acceptance.mjs';
 import { checkKeyboardAudit } from './keyboard-audit.mjs';
 const browser=await chromium.launch({headless:true});
 const base='http://127.0.0.1:4321';
@@ -236,6 +237,7 @@ try {
   assert.ok(await page.getByText('Hlásenie uvidia ľudia s prístupom do repozitára.',{exact:false}).isVisible(),'Private repository feedback visibility warning must be visible');
   await page.close();
  }
+ await checkV4Tools(browser, base);
  await checkV3Acceptance(browser, base);
  await checkKeyboardAudit(browser, base);
  await checkOfflineNavigation(browser, base);

@@ -5,7 +5,7 @@ import Base from '../layouts/Base.astro';
 <main class="wrap main ai-page" id="obsah">
 <p class="eyebrow">VŠETKO AI · Praktický sprievodca</p><h1>Spýtajte sa asistenta</h1>
 <p class="intro">Asistent odpovedá po slovensky na základe vybraných návodov portálu. Ak nemá dostatočné podklady, prizná to. Odpovede nie sú úradným, právnym ani finančným poradenstvom.</p>
-<section class="panel ai-path"><h2>Vyhľadávanie naprieč portálom</h2><p>Vyhľadajte overiteľné návody a kalkulačky bez odosielania otázky AI modelu.</p><label for="knowledge-query">Hľadať nástroje a návody</label><input id="knowledge-query" type="search" placeholder="Napríklad hypotéka, občiansky preukaz…" maxlength="600" autocomplete="off"/><div class="knowledge-filters"><div><label for="knowledge-category">Oblasť</label><select id="knowledge-category"><option value="">Všetky oblasti</option></select></div><div><label for="knowledge-kind">Čo hľadáte?</label><select id="knowledge-kind"><option value="">Všetky výsledky</option><option value="guide">Návody a postupy</option><option value="calculator">Kalkulačky</option><option value="other">Ostatné nástroje a stránky</option></select></div></div><p id="knowledge-summary" class="note" role="status">Napíšte tému a podľa potreby spresnite oblasť alebo typ výsledku. Toto vyhľadávanie zostáva v prehliadači.</p><div id="knowledge-results" aria-live="polite"></div></section><section class="panel ai-path"><h2>Vyriešte životnú situáciu</h2><p>Vyberte si cieľ a prejdite na overiteľné návody, výpočty a kontrolné zoznamy. Tento postup funguje aj bez AI modelu.</p><label for="ai-goal">Čo potrebujete vyriešiť?</label><select id="ai-goal"><option value="">Vyberte situáciu</option><option value="home">Kúpa bytu</option><option value="car">Kúpa auta</option><option value="documents">Strata dokladu</option><option value="business">Začiatok podnikania</option></select><div id="ai-path-links" aria-live="polite"></div></section>
+<section class="panel ai-path"><h2>Vyhľadávanie naprieč portálom</h2><p>Vyhľadajte overiteľné návody a kalkulačky bez odosielania otázky AI modelu.</p><label for="knowledge-query">Hľadať nástroje a návody</label><input id="knowledge-query" type="search" placeholder="Napríklad hypotéka, občiansky preukaz…" maxlength="600" autocomplete="off"/><div class="knowledge-filters"><div><label for="knowledge-category">Oblasť</label><select id="knowledge-category"><option value="">Všetky oblasti</option></select></div><div><label for="knowledge-kind">Čo hľadáte?</label><select id="knowledge-kind"><option value="">Všetky výsledky</option><option value="guide">Návody a postupy</option><option value="calculator">Kalkulačky</option><option value="other">Ostatné nástroje a stránky</option></select></div></div><p id="knowledge-summary" class="note" role="status">Napíšte tému a podľa potreby spresnite oblasť alebo typ výsledku. Toto vyhľadávanie zostáva v prehliadači.</p><div id="knowledge-results" aria-live="polite"></div></section><section class="panel ai-path"><h2>Vyriešte životnú situáciu</h2><p>Vyberte si cieľ a prejdite na overiteľné návody, výpočty a kontrolné zoznamy. Tento postup funguje aj bez AI modelu.</p><label for="ai-goal">Čo potrebujete vyriešiť?</label><select id="ai-goal"><option value="">Vyberte situáciu</option><option value="home">Kúpa bytu</option><option value="car">Kúpa auta</option><option value="documents">Strata dokladu</option><option value="business">Začiatok podnikania</option><option value="budget">Rozpočet domácnosti</option><option value="vehicle">Prevádzka auta</option><option value="services">Porovnanie služieb</option></select><div id="ai-path-links" aria-live="polite"></div></section>
 <section class="panel ai-quick" aria-label="Rýchle otázky"><h2>Čo potrebujete vyriešiť?</h2><div class="quick-grid"><button type="button" data-question="Ako postupovať pri kúpe bytu a porovnaní hypoték?">🏠 Kúpa bytu</button><button type="button" data-question="Čo potrebujem na prepis auta?">🚗 Prepis auta</button><button type="button" data-question="Čo robiť pri strate občianskeho preukazu?">🪪 Strata dokladu</button><button type="button" data-question="Ako si vytvoriť finančnú rezervu?">💶 Finančná rezerva</button></div><p class="note">Asistent pracuje s vybranými témami portálu. Nie je pripojený na všetky aktuálne úradné registre.</p></section>
 <section class="panel ai-box" aria-label="Konverzácia s AI asistentom">
 <div id="ai-conversation" class="ai-conversation" aria-live="polite"><div class="ai-message ai-bot">Dobrý deň! S čím vám môžem pomôcť? Napríklad s občianskym preukazom, hypotékou alebo prepisom auta.</div></div>
@@ -20,7 +20,8 @@ const searchInput=document.querySelector<HTMLInputElement>('#knowledge-query');
 const searchResults=document.querySelector<HTMLElement>('#knowledge-results');
 const norm=(x:string)=>x.toLocaleLowerCase('sk-SK').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 const ignored=new Set(['ako','kde','kedy','co','som','bol','mam','chcem','potrebujem','prosim','robit','postupovat','postup','moja','moje','moj','ked','pri','pre','som','mozete','mam','sa','ci','tie','toto','aky','aka','ake','vybavit','vybavim','treba','ziskat','ziskam','najdem','najst','zistit','zistim','mozem','musim','urobit','spravit']);
-const tokens=(s:string)=>norm(s).split(/\s+/).flatMap(part=>part.split(/[^a-z0-9]+/)).filter(t=>t.length>=3&&!ignored.has(t)).slice(0,14);
+const shortTerms=new Set(['ev','ek']);
+const tokens=(s:string)=>norm(s).split(/\s+/).flatMap(part=>part.split(/[^a-z0-9]+/)).filter(t=>(t.length>=3||shortTerms.has(t))&&!ignored.has(t)).slice(0,14);
 const isInternal=(url:unknown):url is string => typeof url==='string'&&/^\/(?!\/)[a-zA-Z0-9/_#?=&.%-]*$/.test(url)&&!/%(?:2f|5c|00|0d|0a)/i.test(url)&&!url.includes('..')&&!url.includes('\\');
 const knownSourceUrls=new Set(catalog.filter(x=>isInternal(x.url)).map(x=>x.url));
 const library=catalog.filter(x=>isInternal(x.url)).map(x=>({
@@ -44,7 +45,7 @@ function findLocal(question:string,max=6,eligible=library){
       if(hitsTitle||hitsKeywords||hitsDescription||hitsCategory)matched++;
       score+=hitsTitle*7+hitsKeywords*4+hitsDescription*2+hitsCategory;
     }
-    if(item.title.includes(norm(question.trim())))score+=16;
+    if(question.trim().length>=3&&item.title.includes(norm(question.trim())))score+=16;
     return {x:item.x,score,matched};
   });
   // Long, multi-topic questions rarely match 40% of their terms in one guide.
@@ -85,7 +86,7 @@ function updateKnowledgeResults(){
   if(!searchResults)return;
   searchResults.replaceChildren();
   const q=searchInput?.value.trim()??'';
-  if(q.length<3){if(searchSummary)searchSummary.textContent='Napíšte aspoň tri znaky. Filtre nemenia ani neodosielajú otázku asistentovi.';return;}
+  if(q.length<3&&!shortTerms.has(norm(q))){if(searchSummary)searchSummary.textContent='Napíšte aspoň tri znaky alebo skratku EV či EK. Filtre nemenia ani neodosielajú otázku asistentovi.';return;}
   // Filter the complete ranked list before limiting the visible results.
   const eligible=library.filter(({x:item})=>(!categoryFilter?.value||item.category===categoryFilter.value)&&(!kindFilter?.value||kindOf(item.url)===kindFilter.value));
   const hits=findLocal(q,eligible.length,eligible);
@@ -100,8 +101,11 @@ function updateKnowledgeResults(){
 searchInput?.addEventListener('input',updateKnowledgeResults);
 categoryFilter?.addEventListener('change',updateKnowledgeResults);
 kindFilter?.addEventListener('change',updateKnowledgeResults);
-const goal=document.querySelector<HTMLSelectElement>('#ai-goal');const pathLinks=document.querySelector<HTMLElement>('#ai-path-links');const paths:Record<string,{label:string,url:string}[]>={home:[{label:'Sprievodca kúpou bytu',url:'/sprievodca/kupa-bytu/'},{label:'Porovnanie hypoték',url:'/financie/porovnanie-hypotek/'},{label:'Môj rozpočet',url:'/moje-centrum/#rozpocet'}],car:[{label:'Sprievodca kúpou auta',url:'/sprievodca/nove-auto/'},{label:'Porovnanie nákladov vozidiel',url:'/auto/porovnanie-nakladov/'}],documents:[{label:'Strata občianskeho preukazu',url:'/sprievodca/strata-obcianskeho/'},{label:'Kalendár termínov',url:'/kalendar/'}],business:[{label:'Začatie podnikania',url:'/sprievodca/zivnost/'},{label:'Overenie firmy',url:'/data/firmy/'}]};
-goal?.addEventListener('change',()=>{if(!pathLinks)return;pathLinks.replaceChildren();for(const item of paths[goal.value]||[]){const a=document.createElement('a');a.href=item.url;a.textContent=item.label+' →';pathLinks.append(a);}});
+const goal=document.querySelector<HTMLSelectElement>('#ai-goal');const pathLinks=document.querySelector<HTMLElement>('#ai-path-links');const paths:Record<string,{label:string,url:string}[]>={home:[{label:'Sprievodca kúpou bytu',url:'/sprievodca/kupa-bytu/'},{label:'Porovnanie hypoték',url:'/financie/porovnanie-hypotek/'},{label:'Môj rozpočet',url:'/moje-centrum/#rozpocet'},{label:'Celkové náklady na bývanie',url:'/kalkulacky/naklady-na-byvanie/'}],car:[{label:'Sprievodca kúpou auta',url:'/sprievodca/nove-auto/'},{label:'Porovnanie nákladov vozidiel',url:'/auto/porovnanie-nakladov/'}],documents:[{label:'Strata občianskeho preukazu',url:'/sprievodca/strata-obcianskeho/'},{label:'Kalendár termínov',url:'/kalendar/'}],business:[{label:'Začatie podnikania',url:'/sprievodca/zivnost/'},{label:'Overenie firmy',url:'/data/firmy/'}],budget:[{label:'Financie 360 – prehľad domácnosti',url:'/financie/prehlad/'},{label:'Celkové náklady na bývanie',url:'/kalkulacky/naklady-na-byvanie/'},{label:'Môj prehľad',url:'/moj-prehlad/'}],vehicle:[{label:'Moje auto – evidencia nákladov',url:'/auto/moje-auto/'},{label:'Porovnanie nákladov vozidiel',url:'/auto/porovnanie-nakladov/'}],services:[{label:'Porovnávač nákladov služieb',url:'/porovnavace/'},{label:'Financie 360 – prehľad domácnosti',url:'/financie/prehlad/'}]};
+function updateGoal(){if(!pathLinks||!goal)return;pathLinks.replaceChildren();for(const item of paths[goal.value]||[]){const a=document.createElement('a');a.href=item.url;a.textContent=item.label+' →';pathLinks.append(a);}}
+goal?.addEventListener('change',updateGoal);
+window.addEventListener('pageshow',()=>{updateGoal();updateKnowledgeResults();});
+updateGoal();updateKnowledgeResults();
 const form=document.querySelector<HTMLFormElement>('#ai-form')!;
 const field=document.querySelector<HTMLTextAreaElement>('#ai-question')!;
 const button=document.querySelector<HTMLButtonElement>('#ai-submit')!;
@@ -109,7 +113,7 @@ const conversation=document.querySelector<HTMLElement>('#ai-conversation')!;
 function bubble(message:string,role:'ai-user'|'ai-bot'){const div=document.createElement('div');div.className='ai-message '+role;div.textContent=message;conversation.append(div);return div;}
 const quickButtons=Array.from(document.querySelectorAll<HTMLButtonElement>('[data-question]'));
 let busy=false;
-quickButtons.forEach(b=>b.addEventListener('click',()=>{if(busy)return;field.value=b.dataset.question||'';field.focus();form.requestSubmit();}));
+quickButtons.forEach(b=>b.addEventListener('click',()=>{if(busy)return;field.value=b.dataset.question||'';field.setCustomValidity('');field.focus();form.requestSubmit();}));
 const localOnly=document.querySelector<HTMLInputElement>('#ai-local-only');
 // Reset restored form state on navigation; online processing is an explicit choice.
 if(localOnly)localOnly.checked=true;
@@ -125,6 +129,7 @@ function addRefinement(response:HTMLElement,question:string){
     refine.addEventListener('click',()=>{
       if(busy)return;
       field.value='Téma: '+topic.title+'. Čo si potrebujem pripraviť a kde nájdem konkrétny postup?';
+      field.setCustomValidity('');
       field.focus();
       field.scrollIntoView({block:'nearest',behavior:'smooth'});
     });
@@ -133,10 +138,12 @@ function addRefinement(response:HTMLElement,question:string){
   response.append(block);
 }
 
+field.addEventListener('input',()=>field.setCustomValidity(''));
 form.addEventListener('submit',async e=>{
   e.preventDefault();
   const question=field.value.trim();
-  if(busy||question.length<3||question.length>600)return;
+  if(busy)return;
+  if((question.length<3&&!(localOnly?.checked&&shortTerms.has(norm(question))))||question.length>600){field.setCustomValidity('Zadajte otázku s 3 až 600 znakmi; v lokálnom režime môžete použiť aj EV alebo EK.');field.reportValidity();return;}
   busy=true;
   button.disabled=true;field.disabled=true;
   quickButtons.forEach(b=>b.disabled=true);
