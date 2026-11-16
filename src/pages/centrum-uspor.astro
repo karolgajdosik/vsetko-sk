@@ -1,0 +1,158 @@
+---
+import Base from '../layouts/Base.astro';
+const offerFields = [
+  ['monthly', 'Bežná mesačná platba (€)', '0.01', '1000000'],
+  ['promoMonthly', 'Mesačná platba počas úvodnej akcie (€)', '0.01', '1000000'],
+  ['promoMonths', 'Zostávajúce akciové mesiace od dneška', '1', '120'],
+  ['annual', 'Samostatná ročná platba (€)', '0.01', '1000000'],
+  ['commitment', 'Zostávajúca / nová viazanosť v mesiacoch', '1', '120'],
+];
+---
+<Base title="Centrum úspor domácnosti" description="Porovnajte vlastné ponuky vrátane akcie, viazanosti, vstupných a výstupných poplatkov. Zistite čistú úsporu, návratnosť zmeny a dopad na rozpočet.">
+<main id="obsah" class="wrap main savings-center">
+  <p class="eyebrow">VŠETKO24 · Rozhodnutia pre domácnosť</p>
+  <h1>Centrum úspor domácnosti</h1>
+  <p class="intro">Oplatí sa zmeniť službu? Porovnajte ponechanie súčasnej ponuky s prechodom na novú. Uvidíte úsporu po poplatkoch aj mesiac, v ktorom sa náklady na zmenu vrátia.</p>
+  <p class="note">Používame iba ceny z vašich ponúk. Nejde o trhový rebríček ani odporúčanie poskytovateľa. Vstupy sa neukladajú ani neodosielajú; po obnovení stránky ich zadáte znova.</p>
+  <form id="savings-form">
+    <section class="panel" aria-labelledby="savings-scenario-heading">
+      <h2 id="savings-scenario-heading">1. Rovnaká služba, rovnaké obdobie</h2>
+      <div class="savings-grid">
+        <label for="savings-category">Oblasť<select id="savings-category"><option value="telecom">Mobil, internet a televízia</option><option value="energy">Energie domácnosti</option><option value="insurance">Poistenie</option><option value="other">Iná pravidelná služba</option></select></label>
+        <label for="savings-months">Porovnávané obdobie v mesiacoch (1–120)<input id="savings-months" type="number" min="1" max="120" step="1" value="24" required /></label>
+      </div>
+      <p id="savings-category-hint" class="notice" role="status">Porovnajte rovnaký objem dát, rýchlosť a zariadenia. Zahrňte prenájom routera a prípadné splátky zariadenia.</p>
+      <p>Pre elektromobil použite aj <a href="/kalkulacky/cena-nabijania/">výpočet ceny nabíjania</a> alebo <a href="/auto/porovnanie-nakladov/">celkové náklady vozidiel</a>. Sumu za rovnakú mesačnú spotrebu môžete porovnať ako vlastnú službu.</p>
+    </section>
+    <section class="panel" aria-labelledby="savings-offers-heading">
+      <h2 id="savings-offers-heading">2. Náklady od dneška</h2>
+      <div class="savings-grid savings-offers">
+        {['current', 'alternative'].map((id, index) => <fieldset><legend>{index === 0 ? 'Zostávam pri súčasnej službe' : 'Prechádzam na novú službu'}</legend>
+          {offerFields.map(([key, label, step, max]) => <label for={`savings-${id}-${key}`}>{label}<input id={`savings-${id}-${key}`} type="number" min="0" max={max} step={step} value="0" required inputmode={step === '1' ? 'numeric' : 'decimal'} /></label>)}
+        </fieldset>)}
+      </div>
+      <p class="note">Zadajte konečné ceny vrátane daní a porovnateľné plnenie. Akcia trvá len zadaný počet mesiacov, potom platí bežná cena. Ročná platba je splatná na začiatku každého začatého roka (mesiac 1, 13, 25…). Už uhradené a nevratné platby nezadávajte ako budúci náklad. Mesačnú a ročnú platbu nezapočítajte dvakrát.</p>
+      <div class="savings-grid">
+        <label for="savings-setup">Jednorazové náklady novej služby (€)<input id="savings-setup" type="number" min="0" max="1000000" step="0.01" value="0" required inputmode="decimal" /><span class="field-hint">Aktivácia, inštalácia, doprava alebo nevratný vstupný poplatok.</span></label>
+        <label for="savings-exit">Náklady ukončenia súčasnej služby (€)<input id="savings-exit" type="number" min="0" max="1000000" step="0.01" value="0" required inputmode="decimal" /><span class="field-hint">Použite sumu z konkrétnej zmluvy alebo potvrdenia poskytovateľa.</span></label>
+      </div>
+      <p class="note">Obe jednorazové sumy počítame pri prechode ihneď. Viazanosť slúži ako upozornenie; žiadnu sankciu z nej automaticky neodhadujeme. Výpovednú lehotu, súbeh platieb, doplatenie zariadenia a prípadné vrátenie zľavy zahrňte do nákladov ukončenia. Vratná záloha nie je náklad.</p>
+    </section>
+    <section class="panel" aria-labelledby="savings-budget-heading">
+      <h2 id="savings-budget-heading">3. Dopad na váš rozpočet <span class="optional">(voliteľné)</span></h2>
+      <p>Vyplňte aktuálny mesačný príjem a výdavky vrátane súčasnej porovnávanej služby. Výsledok ukáže priemerný dopad zmeny počas zvoleného obdobia.</p>
+      <label class="consent" for="savings-import-consent"><input id="savings-import-consent" type="checkbox" /> Chcem jednorazovo načítať príjem a výdavky z aktívnej uloženej situácie.</label>
+      <button id="savings-import" type="button">Načítať rozpočet aktívnej situácie</button>
+      <p id="savings-import-status" role="status" aria-live="polite">Údaje sa načítajú až po vašom potvrdení. Uložená situácia sa nezmení.</p>
+      <div class="savings-grid">
+        <label for="savings-income">Mesačný príjem domácnosti (€)<input id="savings-income" type="number" min="0" max="1000000" step="0.01" inputmode="decimal" /></label>
+        <label for="savings-expenses">Mesačné výdavky domácnosti (€)<input id="savings-expenses" type="number" min="0" max="1000000" step="0.01" inputmode="decimal" /></label>
+      </div>
+      <div class="savings-actions"><button class="primary" type="submit">Vypočítať čistú úsporu</button><button type="reset">Vymazať vstupy</button></div>
+    </section>
+  </form>
+  <p id="savings-status" role="status" aria-live="polite"></p>
+  <section id="savings-results" class="panel" hidden aria-labelledby="savings-result-heading">
+    <h2 id="savings-result-heading" tabindex="-1">Výsledok vášho scenára</h2>
+    <p id="savings-verdict" class="result-summary"></p>
+    <dl class="savings-metrics"><div><dt>Čistá úspora po poplatkoch</dt><dd id="savings-net">—</dd></div><div><dt>Priemerná úspora za mesiac</dt><dd id="savings-monthly">—</dd></div><div><dt>Prvá platba pri prechode</dt><dd id="savings-initial">—</dd></div></dl>
+    <div class="savings-table"><table><caption id="savings-cost-caption">Náklady za rovnaké obdobie</caption><thead><tr><th scope="col">Položka</th><th scope="col">Súčasná služba</th><th scope="col">Nová služba</th></tr></thead><tbody id="savings-cost-rows"></tbody></table></div>
+    <p id="savings-gross"></p><p id="savings-recovery"></p><p id="savings-commitment"></p><p id="savings-budget-result"></p>
+    <p class="note">Ročný ekvivalent je priemer nákladov za vybrané obdobie × 12, nie predpoveď budúcoročnej faktúry. Priemerná úspora nemusí zodpovedať úspore v každom mesiaci; jednorazové a ročné platby ukazuje mesačný rozpis. Návratnosť platí iba v rámci zadaného obdobia.</p>
+    <details><summary>Mesačný rozpis a priebežná úspora</summary><div class="savings-table"><table><caption>Záporná priebežná úspora znamená, že zmena je zatiaľ drahšia. Náklady prechodu sú započítané na začiatku.</caption><thead><tr><th scope="col">Mesiac</th><th scope="col">Súčasná služba</th><th scope="col">Nová služba bez prechodu</th><th scope="col">Úspora spolu po prechode</th></tr></thead><tbody id="savings-timeline"></tbody></table></div></details>
+    <button id="savings-export" type="button">Stiahnuť porovnanie (.csv)</button>
+    <p class="note">Súbor obsahuje vaše zadané náklady a výpočet. Pred zdieľaním skontrolujte jeho obsah.</p>
+  </section>
+  <section class="panel"><h2>Čo skontrolovať pred zmenou</h2><ul><li>Rovnakú kvalitu a rozsah služby, poistné krytie alebo spotrebu.</li><li>Viazanosť, výpovednú lehotu, konečnú cenu a všetky podmienky zľavy.</li><li>Či zvládnete prvú platbu novej služby spolu s nákladmi ukončenia.</li></ul><p>Výpočet nezahŕňa nezadané platby, budúce zmeny cien, úroky ani kvalitu služby. Konečné podmienky potvrdzuje vaša konkrétna ponuka alebo zmluva.</p><p><a href="/moje-situacie/">Moje rozpracované situácie</a> · <a href="/financie/prehlad/">Finančný prehľad</a> · <a href="/porovnavace/">Ďalšie porovnanie vlastných ponúk</a></p></section>
+  <noscript><p>Na výpočet a načítanie lokálneho rozpočtu je potrebný JavaScript.</p></noscript>
+</main>
+<script>
+import { planSavings, budgetImpact } from '../lib/savings-planner.mjs';
+import { readWorkspace } from '../lib/workspace-store.mjs';
+const form = document.querySelector<HTMLFormElement>('#savings-form')!;
+const get = (id:string) => document.getElementById('savings-' + id)!;
+const field = (id:string) => get(id) as HTMLInputElement;
+const status = get('status');
+const results = get('results');
+const money = (value:number) => new Intl.NumberFormat('sk-SK', { style:'currency', currency:'EUR' }).format(value);
+const category = get('category') as HTMLSelectElement;
+const hints:Record<string,string> = {
+  telecom:'Porovnajte rovnaký objem dát, rýchlosť a zariadenia. Zahrňte prenájom routera a prípadné splátky zariadenia.',
+  energy:'Porovnajte rovnakú spotrebu a všetky platby vrátane distribúcie, stálych poplatkov a daní. Mesačný preddavok nemusí byť skutočný konečný náklad.',
+  insurance:'Porovnajte rovnaké riziká, limity, výluky a spoluúčasť. Ročné poistné zadajte iba do ročnej platby, ak už nie je v mesačnej sume.',
+  other:'Porovnajte rovnaký rozsah služby. Zahrňte všetky pravidelné, ročné a jednorazové platby z vlastných ponúk.',
+};
+let latest:ReturnType<typeof planSavings>|null = null;
+function invalidate() { latest = null; results.hidden = true; status.textContent = 'Vstupy sa zmenili. Prepočítajte porovnanie.'; }
+category.addEventListener('change', () => { get('category-hint').textContent = hints[category.value]; });
+form.addEventListener('input', invalidate);
+get('import').addEventListener('click', () => {
+  const message = get('import-status');
+  if (!field('import-consent').checked) { message.textContent = 'Najprv potvrďte, že chcete načítať lokálny rozpočet.'; field('import-consent').focus(); return; }
+  try {
+    const state = readWorkspace(localStorage);
+    const active = state.cases.find((item:{id:string}) => item.id === state.activeCaseId);
+    if (!active || typeof active.values.monthlyIncome !== 'number' || typeof active.values.monthlyExpenses !== 'number') {
+      message.textContent = 'Aktívna situácia nemá uložený príjem a výdavky. Doplňte ich ručne alebo ich najprv uložte do situácie vo finančnom prehľade.'; return;
+    }
+    budgetImpact({ averageMonthlySavings:0 }, active.values.monthlyIncome, active.values.monthlyExpenses);
+    field('income').value = String(active.values.monthlyIncome);
+    field('expenses').value = String(active.values.monthlyExpenses);
+    message.textContent = 'Príjem a výdavky boli načítané zo situácie „' + active.title + '“. Skontrolujte ich a potvrďte výpočtom; uložené údaje sa nemenia.';
+    invalidate();
+  } catch { message.textContent = 'Lokálne údaje nie sú dostupné alebo sú neplatné. Príjem a výdavky môžete zadať ručne.'; }
+});
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  if (!form.reportValidity()) return;
+  try {
+    const parseOffer = (name:string) => Object.fromEntries(['monthly','promoMonthly','promoMonths','annual','commitment'].map(key => [key,field(name + '-' + key).valueAsNumber]));
+    const result = planSavings({ current:parseOffer('current'), alternative:parseOffer('alternative'), months:field('months').valueAsNumber, setup:field('setup').valueAsNumber, exit:field('exit').valueAsNumber });
+    const hasBudget = field('income').value !== '' || field('expenses').value !== '';
+    const budget = hasBudget ? budgetImpact(result, field('income').valueAsNumber, field('expenses').valueAsNumber) : null;
+    get('net').textContent = money(result.netSavings);
+    get('monthly').textContent = money(result.averageMonthlySavings);
+    get('initial').textContent = money(result.initialCashNeeded);
+    get('verdict').textContent = result.netSavings > 0 ? 'Nová služba má za ' + result.months + ' mesiacov nižšie zadané náklady o ' + money(result.netSavings) + '.' : result.netSavings < 0 ? 'Prechod by za ' + result.months + ' mesiacov zvýšil zadané náklady o ' + money(-result.netSavings) + '.' : 'Obe možnosti majú za zvolené obdobie rovnaké zadané náklady.';
+    get('cost-caption').textContent = 'Náklady za ' + result.months + ' mesiacov';
+    const table = get('cost-rows') as HTMLTableSectionElement;
+    table.replaceChildren();
+    for (const [label,a,b] of [
+      ['Pravidelné a ročné platby',result.currentTotal,result.alternativeRecurring],
+      ['Jednorazové náklady prechodu',0,result.transition],
+      ['Celkom',result.currentTotal,result.alternativeTotal],
+      ['Priemer za mesiac',result.currentAverage,result.alternativeAverage],
+      ['Ročný ekvivalent',result.currentAnnualized,result.alternativeAnnualized],
+    ] as [string,number,number][]) {
+      const row=table.insertRow(); const th=document.createElement('th'); th.scope='row'; th.textContent=label; row.append(th); row.insertCell().textContent=money(a); row.insertCell().textContent=money(b);
+    }
+    get('gross').textContent = 'Úspora pred nákladmi prechodu: ' + money(result.grossSavings) + '. Náklady prechodu: ' + money(result.transition) + '.';
+    get('recovery').textContent = result.transition === 0 ? 'Jednorazové náklady prechodu sú nulové; ich návratnosť sa neurčuje.' : result.stableRecovery !== null ? 'Náklady prechodu sa vrátia v mesiaci ' + result.stableRecovery + ' a do konca porovnávaného obdobia ostáva priebežná úspora nezáporná.' : result.firstRecovery !== null ? 'Náklady sa prvýkrát pokryjú v mesiaci ' + result.firstRecovery + ', neskôr sa však úspora opäť stratí. Do konca obdobia sa náklady trvalo nevrátia.' : 'Náklady prechodu sa počas zvoleného obdobia nevrátia.';
+    get('commitment').textContent = 'Súčasná zostávajúca viazanosť: ' + result.currentCommitment + ' mesiacov. Nová viazanosť: ' + result.alternativeCommitment + ' mesiacov.' + (result.extendsBeyondHorizon ? ' Pozor: nová viazanosť presahuje porovnávané obdobie. Zvážte predĺženie výpočtu.' : '') + (result.currentCommitment ? ' Skontrolujte zadané náklady predčasného ukončenia.' : '');
+    get('budget-result').textContent = budget ? 'Mesačný zostatok dnes: ' + money(budget.before) + '. Priemerný zostatok po zmene: ' + money(budget.after) + '. Ide o rozpočítaný dopad; priebeh platieb sa v jednotlivých mesiacoch líši.' : 'Dopad na rozpočet nie je vypočítaný. Voliteľne doplňte mesačný príjem a výdavky.';
+    const timeline=get('timeline') as HTMLTableSectionElement; timeline.replaceChildren();
+    for (const item of result.timeline) { const row=timeline.insertRow(); const heading=document.createElement('th'); heading.scope='row'; heading.textContent=String(item.month); row.append(heading); for (const amount of [item.current,item.alternative,item.cumulativeSavings]) row.insertCell().textContent=money(amount); }
+    latest=result; results.hidden=false; status.textContent='Porovnanie bolo vypočítané. Údaje sa neuložili.'; get('result-heading').focus();
+  } catch (error) { latest=null; results.hidden=true; status.textContent=error instanceof Error ? error.message : 'Skontrolujte sumy a obdobie.'; }
+});
+form.addEventListener('reset', () => queueMicrotask(() => {
+  latest=null; results.hidden=true; get('category-hint').textContent=hints[category.value]; status.textContent='Vstupy a výsledky boli vymazané.'; get('import-status').textContent='Údaje sa načítajú až po vašom potvrdení. Uložená situácia sa nezmení.';
+}));
+get('export').addEventListener('click', () => {
+  if (!latest) return;
+  const rows:(string|number)[][] = [
+    ['Centrum úspor domácnosti – vlastné ponuky'], ['Obdobie v mesiacoch',latest.months],
+    ['Súčasné náklady celkom',latest.currentTotal],['Nové náklady celkom vrátane prechodu',latest.alternativeTotal],
+    ['Náklady prechodu',latest.transition],['Úspora pred prechodom',latest.grossSavings],['Čistá úspora',latest.netSavings],
+    ['Priemerná mesačná úspora',latest.averageMonthlySavings],['Prvá platba pri prechode',latest.initialCashNeeded],
+    ['Mesiac návratnosti do konca obdobia',latest.stableRecovery ?? 'Neurčený'],
+    ['Mesiac','Súčasná služba','Nová služba bez prechodu','Priebežná úspora po prechode'],
+    ...latest.timeline.map(row => [row.month,row.current,row.alternative,row.cumulativeSavings]),
+  ];
+  const csv='\uFEFF'+rows.map(row=>row.map(value=>'"'+String(typeof value==='number'?Math.round(value*100)/100:value).replaceAll('"','""')+'"').join(';')).join('\r\n');
+  const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'})); const link=document.createElement('a'); link.href=url; link.download='centrum-uspor.csv'; link.click(); setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+</script>
+<style>
+.savings-center{max-width:1080px}.savings-center .panel{padding:1.4rem;margin:1.3rem 0}.savings-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.savings-center label{display:block;font-weight:650;margin:.9rem 0 .4rem}.savings-center :is(input,select){display:block;width:100%;padding:.8rem;margin-top:.4rem;border:1px solid #8290a5;border-radius:9px;background:var(--surface);color:var(--ink);font:inherit;box-sizing:border-box}.savings-center fieldset{min-width:0;border:1px solid #8290a5;border-radius:10px;padding:1rem}.savings-center legend{font-weight:750;padding:0 .3rem}.savings-center .field-hint{display:block;font-size:.9rem;font-weight:400;margin-top:.4rem}.savings-center .consent{display:flex;align-items:flex-start;gap:.7rem;font-weight:600}.savings-center .consent input{flex:0 0 1.2rem;width:1.2rem;height:1.2rem;margin-top:.2rem}.savings-center button{font:inherit;min-height:44px;padding:.8rem 1rem;border:1px solid #8290a5;border-radius:8px;cursor:pointer;background:var(--surface);color:var(--ink)}.savings-center button.primary{background:#123b69;color:#fff;border-color:#123b69}.savings-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.3rem}.optional{font-size:.9rem;font-weight:400}.savings-table{overflow-x:auto}.savings-center table{width:100%;border-collapse:collapse;margin:1rem 0}.savings-center :is(td,th){padding:.75rem;text-align:left;border-bottom:1px solid #8290a5;vertical-align:top}.savings-center caption{text-align:left;font-weight:600;padding:.5rem 0}.savings-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}.savings-metrics>div{padding:1rem;border:1px solid #8290a5;border-radius:10px}.savings-metrics dt{font-size:.95rem}.savings-metrics dd{font-size:1.5rem;font-weight:750;margin:.5rem 0 0;overflow-wrap:anywhere}.result-summary{font-size:1.2rem;font-weight:700}.savings-center summary{cursor:pointer;min-height:44px;padding:.5rem 0;font-weight:650}.savings-center :is(input,select,button,summary):focus-visible{outline:3px solid currentColor;outline-offset:3px}.savings-center .notice{padding:1rem;border-left:4px solid #8290a5}.savings-center [hidden]{display:none!important}@media(max-width:700px){.savings-grid,.savings-metrics{grid-template-columns:1fr}.savings-center .panel{padding:1rem}.savings-center :is(td,th){padding:.5rem;min-width:85px}.savings-metrics dd{font-size:1.35rem}}
+</style>

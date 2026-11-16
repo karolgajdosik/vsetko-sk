@@ -1,9 +1,9 @@
 ---
 const {title='VŠETKO24.sk',description='Praktické návody a kalkulačky pre Slovensko.',updated,sourceLinks=[]}=Astro.props;
 const path=Astro.url.pathname;
-const nav=[['/','Domov'],['/sluzby/','Služby'],['/financie/','Financie'],['/auto/','Auto'],['/urady/','Úrady'],['/sprievodca/','Sprievodca'],['/data/','Dáta'],['/hladat/','Hľadať'],['/ai/','VŠETKO AI'],['/moje-centrum/','Moje centrum'],['/kalendar/','Kalendár'],['/dokumenty/','Dokumenty'],['/faq/','Časté otázky'],['/novinky/','Nové nástroje']];
-const primaryNav=nav.filter(([href])=>!['/data/','/moje-centrum/','/kalendar/','/dokumenty/','/faq/','/novinky/'].includes(href));
-const extraNav=nav.filter(([href])=>['/data/','/moje-centrum/','/kalendar/','/dokumenty/','/faq/','/novinky/'].includes(href));
+const nav=[['/','Domov'],['/sluzby/','Služby'],['/financie/','Financie'],['/auto/','Auto'],['/urady/','Úrady'],['/sprievodca/','Sprievodca'],['/data/','Dáta'],['/hladat/','Hľadať'],['/ai/','VŠETKO AI'],['/moje-centrum/','Moje centrum'],['/kalendar/','Kalendár'],['/dokumenty/','Dokumenty'],['/faq/','Časté otázky'],['/novinky/','Nové nástroje'],['/moje-situacie/','Moje situácie'],['/centrum-uspor/','Centrum úspor'],['/zaloha/','Záloha údajov']];
+const primaryNav=nav.filter(([href])=>!['/data/','/moje-centrum/','/kalendar/','/dokumenty/','/faq/','/novinky/','/moje-situacie/','/centrum-uspor/','/zaloha/'].includes(href));
+const extraNav=nav.filter(([href])=>['/data/','/moje-centrum/','/kalendar/','/dokumenty/','/faq/','/novinky/','/moje-situacie/','/centrum-uspor/','/zaloha/'].includes(href));
 const section=path.split('/').filter(Boolean)[0] ?? '';
 const activeNav=(href)=>href==='/'?path==='/':path===href||path.startsWith(href);
 const photoBySection={

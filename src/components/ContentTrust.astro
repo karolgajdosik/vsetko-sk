@@ -1,0 +1,63 @@
+---
+import { contentSourceUrl } from '../lib/content-trust.mjs';
+import operations from '../data/site-operations.json';
+const { updated, verification, sourceNote, sources = [], steps = 0, detailedSteps = 0 } = Astro.props;
+const safeSources = sources.filter((source, i, all) => contentSourceUrl(source?.url) && all.findIndex(other => other.url === source.url) === i);
+---
+<section class="panel content-trust" id="overenie" aria-labelledby="overenie-heading" data-content-trust data-report-path={Astro.url.pathname} data-report-email={operations.privacyEmailActive && operations.privacyEmailVerifiedAt ? operations.privacyEmail : ''}>
+  <h2 id="overenie-heading">Aktuálnosť, zdroje a opravy</h2>
+  <p><strong>Posledná evidovaná redakčná úprava:</strong> {updated || 'Samostatný dátum úpravy tejto stránky nie je evidovaný.'}</p>
+  <p class="note">Dátum redakčnej úpravy nie je dátumom nového overenia zdrojov. Dostupnosť odkazu ani právnu správnosť týmto označením nepotvrdzujeme.</p>
+  {verification ? <p><strong>Rozsah evidovaného overenia:</strong> {verification}</p> : <p><strong>Overenie:</strong> Samostatné aktuálne vecné alebo právne overenie tejto stránky nie je doložené. Pozrite rozsah overenia v súvisiacich návodoch.</p>}
+  {sourceNote && <p><strong>Čo zdroj potvrdzuje a čo nie:</strong> {sourceNote}</p>}
+  <h3>Zdrojové stránky</h3>
+  {safeSources.length ? <ul>{safeSources.map(source => <li><a href={contentSourceUrl(source.url)} target="_blank" rel="noopener noreferrer">{source.label || 'Zdrojová stránka'} ↗</a></li>)}</ul> : <p>Pre túto stránku nie je uvedený podporovaný externý zdroj.</p>}
+  <p>Pred vybavovaním overte aktuálne podmienky, požadované formuláre, lehoty a poplatky priamo na príslušnom úrade alebo u poskytovateľa. Návod je orientačný a nenahrádza právne ani finančné poradenstvo.</p>
+  <details id="content-report"><summary>Navrhnúť opravu tejto stránky</summary>
+    <p>Podnet pripravíte iba vo svojom prehliadači. Neuvádzajte osobné údaje, čísla dokladov, účtov ani obsah súkromných zmlúv. Nič sa automaticky neodosiela a formulár sa neukladá.</p>
+    <form id="content-report-form">
+      <label for="report-category">Druh problému</label><select id="report-category" required><option value="outdated">Neaktuálna informácia</option><option value="broken">Nefunkčný odkaz</option><option value="other">Iná nepresnosť</option></select>
+      <label for="report-step">Miesto problému</label><select id="report-step"><option value="">Celý návod</option>{Array.from({length: steps}, (_, i) => <option value={'Krok ' + (i + 1)}>Krok {i + 1}</option>)}{Array.from({length: detailedSteps}, (_, i) => <option value={'Podrobný krok ' + (i + 1)}>Podrobný krok {i + 1}</option>)}</select>
+      <label for="report-detail">Popis bez osobných údajov (nepovinný)</label><textarea id="report-detail" maxlength="1200" rows="4" placeholder="Napríklad názov nefunkčného odkazu a čo sa po otvorení zobrazilo."></textarea>
+      <button type="submit">Pripraviť podnet</button>
+    </form>
+    <p id="report-status" role="status" aria-live="polite"></p>
+    <div id="report-result" hidden><label for="report-preview">Náhľad podnetu</label><textarea id="report-preview" readonly rows="9"></textarea><button id="report-download" type="button">Stiahnuť podnet (.txt)</button><a id="report-mail" hidden>Otvoriť návrh e-mailu</a><p class="note">Stiahnutie podnetu neznamená jeho doručenie. E-mail odošlete až sami zo svojej poštovej aplikácie.</p></div>
+  </details>
+</section>
+<script>
+import { reportText, reportMailto } from '../lib/content-trust.mjs';
+const trust = document.querySelector<HTMLElement>('[data-content-trust]');
+if (trust) {
+  const get = (id: string) => document.getElementById(id)!;
+  const input = (id: string) => (get(id) as HTMLInputElement).value;
+  let prepared = '';
+  const invalidate = () => { prepared = ''; get('report-result').hidden = true; get('report-status').textContent = ''; };
+  get('content-report-form').addEventListener('input', invalidate);
+  get('content-report-form').addEventListener('submit', event => {
+    event.preventDefault();
+    try {
+      prepared = reportText({ path: trust.dataset.reportPath, category: input('report-category'), step: input('report-step'), detail: input('report-detail') });
+      (get('report-preview') as HTMLTextAreaElement).value = prepared;
+      const mail = get('report-mail') as HTMLAnchorElement;
+      mail.hidden = !trust.dataset.reportEmail;
+      if (trust.dataset.reportEmail) mail.href = reportMailto(trust.dataset.reportEmail, prepared);
+      get('report-result').hidden = false;
+      get('report-status').textContent = 'Podnet je pripravený. Zatiaľ nebol odoslaný.';
+    } catch (error) { get('report-status').textContent = error instanceof Error ? error.message : 'Podnet sa nepodarilo pripraviť.'; }
+  });
+  get('report-download').addEventListener('click', () => {
+    if (!prepared) return;
+    const url = URL.createObjectURL(new Blob(['\ufeff' + prepared], { type: 'text/plain;charset=utf-8' }));
+    const a = document.createElement('a'); a.href = url; a.download = 'podnet-k-obsahu.txt'; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+  });
+  document.querySelectorAll<HTMLButtonElement>('[data-report-step]').forEach(button => button.addEventListener('click', () => {
+    invalidate(); (get('content-report') as HTMLDetailsElement).open = true;
+    (get('report-step') as HTMLSelectElement).value = button.dataset.reportStep || '';
+    get('report-category').focus(); get('content-report').scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }));
+}
+</script>
+<style>
+.content-trust{padding:1.4rem;margin:1.5rem 0;overflow-wrap:anywhere}.content-trust details{border-top:1px solid #8290a5;padding-top:1rem}.content-trust summary{cursor:pointer;font-weight:700;min-height:44px}.content-trust label{display:block;font-weight:650;margin:.8rem 0 .35rem}.content-trust select,.content-trust textarea{display:block;box-sizing:border-box;width:100%;max-width:100%;padding:.7rem;border:1px solid #8290a5;border-radius:8px;background:var(--surface);color:var(--ink);font:inherit}.content-trust button,.content-trust #report-mail{display:inline-flex;min-height:44px;align-items:center;margin:.7rem .7rem .2rem 0;padding:.6rem .9rem;border:1px solid #8290a5;border-radius:8px;background:var(--surface);color:var(--ink);font:inherit}.content-trust [hidden]{display:none!important}
+</style>

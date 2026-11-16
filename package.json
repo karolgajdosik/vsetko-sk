@@ -10,8 +10,9 @@
     "check:seo": "node scripts/check-seo.mjs",
     "test:calculators": "node --test tests/calculations.test.mjs",
     "test:content": "node scripts/check-content.mjs",
-    "test": "npm run test:calculators && npm run test:content && npm run check:seo && node --test tests/search.test.mjs && node --test tests/service-suite.test.mjs && node --test tests/audit-regression.test.mjs && node --test tests/internal-links.test.mjs && node --test tests/api-contract.test.mjs && node --test tests/production-guide-routes.test.mjs && node --test tests/production-health.test.mjs && node --test tests/assistant-guide-routes.test.mjs && node --test tests/assistant-production-smoke.test.mjs && node --test tests/merge-policy.test.mjs && node --test tests/merge-check-guard.test.mjs && node --test tests/production-workflow-token.test.mjs && node --test tests/scenario-integrity.test.mjs && node --test tests/v3-seo-audit.test.mjs && node --test tests/rpo-timeout-regression.test.mjs",
-    "check:links": "node scripts/check-internal-links.mjs"
+    "test": "npm run test:calculators && npm run test:content && npm run check:seo && node --test tests/search.test.mjs && node --test tests/service-suite.test.mjs && node --test tests/audit-regression.test.mjs && node --test tests/internal-links.test.mjs && node --test tests/api-contract.test.mjs && node --test tests/production-guide-routes.test.mjs && node --test tests/production-health.test.mjs && node --test tests/assistant-guide-routes.test.mjs && node --test tests/assistant-production-smoke.test.mjs && node --test tests/merge-policy.test.mjs && node --test tests/merge-check-guard.test.mjs && node --test tests/production-workflow-token.test.mjs && node --test tests/scenario-integrity.test.mjs && node --test tests/v3-seo-audit.test.mjs && node --test tests/rpo-timeout-regression.test.mjs && npm run test:v5",
+    "check:links": "node scripts/check-internal-links.mjs",
+    "test:v5": "node --test tests/v5-workspace.test.mjs tests/workspace-values.test.mjs tests/deadline-center.test.mjs tests/document-output.test.mjs tests/v5-content-trust.test.mjs tests/v5-savings.test.mjs tests/v5-backup.test.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0"
