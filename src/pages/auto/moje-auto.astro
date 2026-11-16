@@ -35,6 +35,19 @@ import { VEHICLE_CATEGORIES } from '../../lib/vehicle-costs.mjs';
     <p class="note">Výpočet zahŕňa len pridané výdavky. Nejde o úplné náklady vlastníctva: pokles hodnoty auta, obstaranie, financovanie a nezadané výdavky nie sú automaticky započítané. Nie je to daňová evidencia ani kniha jázd.</p>
     <h3>Záznamy výdavkov</h3><ul id="vehicle-entries" class="vehicle-entries"></ul>
   </section>
+  <section class="panel"><h2>Spotreba paliva alebo elektriny</h2>
+    <p>Orientačný výpočet za rovnaké obdobie. Zadajte skutočne spotrebované litre alebo kWh a príslušné kilometre. Vstupy tejto kalkulačky sa neukladajú.</p>
+    <form id="vehicle-consumption-form">
+      <div class="vehicle-fields">
+        <div><label for="vehicle-consumption-unit">Druh energie</label><select id="vehicle-consumption-unit"><option value="l">Palivo (litre)</option><option value="kWh">Elektrina (kWh)</option></select></div>
+        <div><label for="vehicle-consumption-quantity">Spotrebované množstvo (l alebo kWh)</label><input id="vehicle-consumption-quantity" type="number" min="0" max="10000000" step="0.01" required inputmode="decimal" /></div>
+        <div><label for="vehicle-consumption-distance">Vzdialenosť (km)</label><input id="vehicle-consumption-distance" type="number" min="0.1" max="10000000" step="0.1" required inputmode="decimal" /></div>
+      </div>
+      <button type="submit">Vypočítať spotrebu</button> <button type="reset">Vymazať vstupy</button>
+    </form>
+    <p id="vehicle-consumption-result" role="status" aria-live="polite"></p>
+    <p class="note">Pri elektrine používajte konzistentne energiu z batérie alebo zo stojana; straty nabíjania môžu výsledky odlišovať. Pri plug-in hybride vyhodnoťte oba druhy energie samostatne.</p>
+  </section>
   <section class="panel"><h2>Moje údaje</h2><p>Záloha JSON obsahuje kilometre a všetky výdavky. Súbor si odložte bezpečne. Zálohu môžete obnoviť z platného JSON súboru. Obnovenie nahradí celú aktuálnu evidenciu až po vašom potvrdení.</p>
     <div class="vehicle-actions"><button id="vehicle-export" type="button">Stiahnuť záznamy JSON</button><button id="vehicle-delete" type="button">Vymazať evidenciu auta</button></div>
     <div class="vehicle-import"><label for="vehicle-import">Obnoviť zálohu JSON (najviac 256 kB)</label><input id="vehicle-import" type="file" accept=".json,application/json" /><button id="vehicle-import-apply" type="button" disabled>Obnoviť vybranú zálohu</button><p id="vehicle-import-status" role="status"></p></div>
@@ -132,6 +145,22 @@ element('vehicle-delete').addEventListener('click',()=>{if(!canMutate())return;e
 element('vehicle-delete-no').addEventListener('click',()=>{element('vehicle-delete-confirm').hidden=true;element('vehicle-delete').focus();});
 element('vehicle-delete-yes').addEventListener('click',()=>{if(!canMutate())return;state=emptyVehicleCosts();try{if(storageReadable){localStorage.removeItem(VEHICLE_COST_KEY);observedRaw=null;}element('vehicle-storage').textContent=storageReadable?'Evidencia auta bola vymazaná z tohto prehliadača.':'Prázdny je iba prehľad na tejto stránke. Uložené údaje sa nepodarilo overiť ani vymazať.';}catch{element('vehicle-storage').textContent='Prehliadač neumožnil vymazanie uložených údajov. Odstráňte ich v nastaveniach prehliadača.';}field('vehicle-distance').value='0';element('vehicle-distance-error').textContent='';element('vehicle-delete-confirm').hidden=true;render();element('vehicle-status').textContent='Zobrazená evidencia je prázdna.';element('vehicle-delete').focus();});
 render();
+const consumptionForm=element('vehicle-consumption-form') as HTMLFormElement;
+const consumptionResult=element('vehicle-consumption-result');
+consumptionForm.addEventListener('input',()=>{consumptionResult.textContent='';});
+consumptionForm.addEventListener('reset',()=>{consumptionResult.textContent='';});
+consumptionForm.addEventListener('submit',event=>{
+ event.preventDefault();
+ if(!consumptionForm.reportValidity())return;
+ const quantity=field('vehicle-consumption-quantity').valueAsNumber;
+ const distance=field('vehicle-consumption-distance').valueAsNumber;
+ const unit=(element('vehicle-consumption-unit') as HTMLSelectElement).value;
+ if(!Number.isFinite(quantity)||quantity<0||quantity>10000000||!Number.isFinite(distance)||distance<0.1||distance>10000000||!['l','kWh'].includes(unit)){
+  consumptionResult.textContent='Skontrolujte množstvo energie a kladnú vzdialenosť.';return;
+ }
+ const average=quantity/distance*100;
+ consumptionResult.textContent='Priemerná spotreba: '+new Intl.NumberFormat('sk-SK',{maximumFractionDigits:2}).format(average)+' '+unit+'/100 km.';
+});
 </script>
 <style>
 .vehicle-log{max-width:1000px}.vehicle-log .panel{padding:1.5rem;margin:1.4rem 0}.vehicle-log label{display:block;font-weight:700;margin:.7rem 0 .3rem}.vehicle-log input,.vehicle-log select{width:100%;min-width:0;padding:.75rem;border:1px solid #8290a5;border-radius:.6rem;background:var(--surface);color:var(--ink);font:inherit}.vehicle-log button{padding:.7rem 1rem;border:1px solid #8290a5;border-radius:.6rem;background:var(--surface);color:var(--ink);font:inherit;cursor:pointer}.vehicle-log input:focus-visible,.vehicle-log select:focus-visible,.vehicle-log button:focus-visible{outline:3px solid #6366f1;outline-offset:3px}.vehicle-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-bottom:1rem}.vehicle-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.vehicle-summary>div{padding:1rem;border:1px solid #8290a5;border-radius:.6rem}.vehicle-summary span,.vehicle-summary strong{display:block}.vehicle-summary strong{font-size:1.6rem;margin-top:.5rem;overflow-wrap:anywhere}#vehicle-breakdown{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.6rem}#vehicle-breakdown dd{margin:0;font-weight:700}.vehicle-entries{padding:0;list-style:none}.vehicle-entries :global(li){display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0;border-bottom:1px solid #8290a5}.vehicle-entries :global(span){overflow-wrap:anywhere}.vehicle-actions{display:flex;gap:.7rem;flex-wrap:wrap}#vehicle-delete-confirm[hidden]{display:none}@media(max-width:650px){.vehicle-fields,.vehicle-summary{grid-template-columns:1fr}.vehicle-entries :global(li){align-items:flex-start;flex-direction:column}.vehicle-log .panel{padding:1rem}}
