@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { checkProductionPwa } from './v4-pwa-acceptance.mjs';
 import { checkV4Tools } from './v4-tools-acceptance.mjs';
+import { checkMobileMenu } from './mobile-menu-theme.mjs';
 import {chromium} from 'playwright';
 
 // Run against the local build in CI or the real deployed site after a merge.
@@ -12,6 +13,7 @@ const checks = [
 ];
 const browser = await chromium.launch({headless:true});
 try {
+  await checkMobileMenu(browser, origin);
   for (const width of [360,390]) {
     for (const check of checks) {
       const page = await browser.newPage({viewport:{width,height:780}});
