@@ -54,6 +54,9 @@ export async function checkV5Deadlines(browser, origin) {
     await page.locator('#calendar-filter').selectOption('all');
     await row.getByRole('button', { name: 'Odstrániť termín:', exact: false }).click();
     assert.equal(await row.count(), 0);
+    await page.evaluate(()=>{const state=JSON.parse(localStorage.getItem('v24-workspace-v5'));state.cases[0].title='A'.repeat(100);localStorage.setItem('v24-workspace-v5',JSON.stringify(state));});
+    await page.setViewportSize({width:320,height:844});await page.reload();
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,'Long case title must wrap at 320px');
     console.log('PASS V5 deadline types, preparation links, reminder edit/ICS VALARM and explicit case association/unlink and preservation of tasks/budget');
   } finally { await page.close(); }
 }
