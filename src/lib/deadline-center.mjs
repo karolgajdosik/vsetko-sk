@@ -17,7 +17,8 @@ export function validDeadlineDate(value) {
 }
 export function normalizeDeadline(value) {
   if (!value || typeof value !== 'object' || typeof value.id !== 'string' || !value.id || value.id.length > 120 || typeof value.title !== 'string' || !value.title.trim() || value.title.length > 120 || !validDeadlineDate(value.date)) return null;
-  return { id: value.id, title: value.title.trim(), date: value.date, type: Object.hasOwn(deadlineTemplates, value.type) ? value.type : '', reminderDays: REMINDER_DAYS.includes(value.reminderDays) ? value.reminderDays : 0 };
+  const association = typeof value.caseId === 'string' && /^[a-zA-Z0-9_-]{1,80}$/.test(value.caseId) ? { caseId: value.caseId } : {};
+  return { ...association, id: value.id, title: value.title.trim(), date: value.date, type: Object.hasOwn(deadlineTemplates, value.type) ? value.type : '', reminderDays: REMINDER_DAYS.includes(value.reminderDays) ? value.reminderDays : 0 };
 }
 export function deadlineTiming(date, today) {
   if (!validDeadlineDate(date) || !validDeadlineDate(today)) return null;

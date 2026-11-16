@@ -43,3 +43,10 @@ test('no reminder means no VALARM; invalid records are not exported', () => {
   assert.equal((calendar.match(/BEGIN:VEVENT/g) || []).length, 1);
   assert.ok(createDeadlineCalendar([{ ...value, date: '9999-12-31' }]).includes('DTSTART;VALUE=DATE:99991231'));
 });
+
+test('optional case association permits only workspace IDs and does not create one automatically', () => {
+  const value = { id: 'x', title: 'Termín', date: '2028-02-29' };
+  assert.equal(Object.hasOwn(normalizeDeadline(value), 'caseId'), false);
+  assert.equal(normalizeDeadline({ ...value, caseId: 'case-123_ok' }).caseId, 'case-123_ok');
+  assert.equal(Object.hasOwn(normalizeDeadline({ ...value, caseId: '<script>' }), 'caseId'), false);
+});

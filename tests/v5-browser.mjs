@@ -21,13 +21,16 @@ try {
  for(const [key,value] of Object.entries({purchasePrice:24000,downPayment:4000,annualRate:0,loanYears:4,monthlyIncome:2500,monthlyExpenses:1200,monthlyService:50,monthlyInsurance:40}))await page.locator('#case-'+key).fill(String(value));
  await page.locator('#case-values button[type=submit]').click();
  assert.match(await page.locator('#case-projection').innerText(),/416,67/);
+ await page.evaluate(()=>{const workspace=JSON.parse(localStorage.getItem('v24-workspace-v5'));localStorage.setItem('v24-personal-center-v1',JSON.stringify({version:1,tasks:[],budget:{},deadlines:[{id:'linked',title:'Poistenie prípadu',date:'2037-12-31',type:'pzp',reminderDays:14,caseId:workspace.activeCaseId}]}));});
  await page.locator('#case-steps input').first().check();
+ assert.match(await page.locator('#case-deadlines').innerText(),/Poistenie prípadu/);
  await page.reload();
  assert.equal(await page.locator('#case-steps input').first().isChecked(),true);
  assert.equal(await page.locator('#case-purchasePrice').inputValue(),'24000');
  await page.locator('#case-kind').selectOption('home');await page.locator('#case-title').fill('Bývanie');await page.locator('#case-create button').click();
  assert.equal(await page.locator('#case-steps input').first().isChecked(),false);
  assert.equal(await page.locator('#case-purchasePrice').inputValue(),'');
+ assert.ok(!(await page.locator('#case-deadlines').innerText()).includes('Poistenie prípadu'));
  await page.getByRole('button',{name:'Rodinné auto · 1/8',exact:true}).click();
  assert.equal(await page.locator('#case-steps input').first().isChecked(),true);
  const [download]=await Promise.all([page.waitForEvent('download'),page.locator('#case-export').click()]);assert.equal(download.suggestedFilename(),'moja-situacia.txt');
