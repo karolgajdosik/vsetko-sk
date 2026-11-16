@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import WorkspaceTransfer from '../../components/WorkspaceTransfer.astro';
 ---
 <Base title="Kalkulačka nákladov na auto" description="Porovnajte ročné a mesačné náklady benzínového, naftového alebo elektrického auta. Bez registrácie a odosielania údajov." updated="22. 10. 2026">
 <main id="obsah" class="wrap main">
@@ -19,7 +20,7 @@ import Base from '../../layouts/Base.astro';
 <p id="car-validation" class="note" role="status" aria-live="polite" hidden>Skontrolujte hodnoty. Polia musia obsahovať platné nezáporné čísla v uvedenom rozsahu.</p>
 <div class="result" style="margin-top:24px" aria-live="polite"><p>Celkové ročné náklady</p><strong id="annual">—</strong><p>Mesačne: <b id="monthly">—</b></p><p>Na 100 km: <b id="per100">—</b></p><p>Energia/palivo ročne: <b id="energy">—</b></p></div>
 <p class="note">Nezahŕňa obstarávaciu cenu, odpisy, financovanie, parkovanie ani mimoriadne opravy, pokiaľ ich nezahrniete do ostatných nákladov. Ceny sú vaše vstupy, nie aktuálne trhové údaje. Výsledok je orientačný.</p>
-</section></main>
+</section><WorkspaceTransfer mode="auto" /></main>
 <script>
 type Kind='petrol'|'diesel'|'ev';
 const get=(id:string)=>document.getElementById(id) as HTMLInputElement;

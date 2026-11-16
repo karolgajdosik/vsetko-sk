@@ -6,7 +6,7 @@ import { documentCatalog } from '../lib/document-catalog.mjs';
 <main class="wrap main documents" id="obsah"><p class="eyebrow">Dokumenty · Bez registrácie</p><h1>Generátor dokumentov</h1><p class="intro">Vyplňte údaje a pripravte si dokument na úpravu vo Worde, tlač alebo uloženie do PDF. Údaje sa spracujú iba vo vašom prehliadači a nikam sa neodosielajú.</p>
 <section class="panel document-catalog" aria-labelledby="catalog-heading">
 <h2 id="catalog-heading">Centrum dokumentov</h2>
-<p>Nájdite vhodný nástroj podľa situácie. Vzory vyplníte v existujúcich generátoroch; PDF uložíte cez dialóg tlače. Nejde o úložisko súborov ani elektronické podanie na úrad.</p>
+<p>Nájdite vhodný nástroj podľa situácie. Vzory vyplníte v existujúcich generátoroch; PDF aj Word stiahnete priamo; k dispozícii zostáva aj tlač. Nejde o úložisko súborov ani elektronické podanie na úrad.</p>
 <div class="catalog-filters">
 <label for="document-search">Hľadať dokument<input id="document-search" type="search" maxlength="160" placeholder="Napr. žiadosť, kľúče, reklamácia" aria-controls="document-cards" /></label>
 <label for="document-category">Oblasť<select id="document-category" aria-controls="document-cards"><option value="all">Všetky oblasti</option><option value="urady">Úrady a osobné veci</option><option value="byvanie">Bývanie a odovzdanie</option><option value="nakupy">Nákupy a reklamácie</option></select></label>
@@ -22,23 +22,31 @@ import { documentCatalog } from '../lib/document-catalog.mjs';
 <p id="document-empty" hidden>Nenašiel sa žiadny dokument. Skúste kratší výraz alebo inú oblasť.</p>
 <p class="note">Nahrávanie ani archiváciu osobných dokumentov tu neponúkame. Vyplnený obsah sa neukladá ako profil ani neposiela na náš server. Pri povinnom úradnom tlačive použite formulár príslušnej inštitúcie.</p>
 </section>
-<section class="panel editor" id="doc-editor"><h2>Vyberte typ dokumentu</h2><label for="doc-type">Typ dokumentu</label><select id="doc-type"><option value="request">Všeobecná žiadosť</option><option value="statement">Čestné vyhlásenie</option><option value="handover">Odovzdávací protokol</option></select>
-<div class="doc-fields"><label>Vaše meno a priezvisko / názov<input id="doc-sender" maxlength="120" placeholder="Meno a priezvisko"/></label><label>Adresát / druhá strana<input id="doc-recipient" maxlength="150" placeholder="Úrad alebo osoba"/></label><label>Miesto vyhotovenia<input id="doc-place" maxlength="100" placeholder="Bratislava"/></label><label>Dátum<input id="doc-date" type="date"/></label><label class="full">Predmet / názov<input id="doc-subject" maxlength="160" placeholder="Predmet dokumentu"/></label><label class="full">Text dokumentu<textarea id="doc-body" rows="7" maxlength="5000" placeholder="Uveďte vecné a presné informácie."></textarea></label></div>
-<button type="button" id="doc-print">Vytlačiť / uložiť ako PDF</button><button type="button" id="doc-word">Stiahnuť Word (.docx)</button><button type="button" id="doc-clear">Vymazať formulár</button><p id="doc-status" role="status" aria-live="polite"></p>
+<section class="panel case-draft" aria-labelledby="case-draft-title"><h2 id="case-draft-title">Pripraviť dokument zo situácie</h2><p>Vyberte uloženú situáciu. Až po potvrdení sa jej názov a vybrané hodnoty prenesú do upraviteľnej žiadosti. Meno a adresáta doplníte sami; obsah dokumentu sa neukladá.</p><label for="doc-case">Moja situácia</label><select id="doc-case"><option value="">Vyberte situáciu</option></select><button type="button" id="doc-load-case">Pripraviť návrh zo situácie</button><p id="doc-case-status" role="status"></p><a href="/moje-situacie/">Spravovať moje situácie</a></section>
+<section class="panel editor" id="doc-editor"><h2>Vyberte typ dokumentu</h2><label for="doc-type">Typ dokumentu</label><select id="doc-type"><option value="request">Všeobecná žiadosť</option><option value="statement">Čestné vyhlásenie</option><option value="handover">Odovzdávací protokol</option><option value="termination">Výpoveď služby</option><option value="complaint">Reklamácia</option></select>
+<button type="button" id="doc-load-template">Vložiť text vybraného vzoru</button><p class="note">Vloženie vzoru alebo návrhu nahradí predmet a text až po vašom potvrdení. Pred exportom doplňte vlastné údaje a skontrolujte celý náhľad.</p><div class="doc-fields"><label>Vaše meno a priezvisko / názov<input id="doc-sender" maxlength="120" placeholder="Meno a priezvisko"/></label><label>Adresát / druhá strana<input id="doc-recipient" maxlength="150" placeholder="Úrad alebo osoba"/></label><label>Miesto vyhotovenia<input id="doc-place" maxlength="100" placeholder="Bratislava"/></label><label>Dátum<input id="doc-date" type="date"/></label><label class="full">Identifikácia zmluvy / objednávky (pri výpovedi a reklamácii)<input id="doc-reference" maxlength="160" placeholder="Vlastná referencia alebo číslo zmluvy"/></label><label class="full">Predmet / názov<input id="doc-subject" maxlength="160" placeholder="Predmet dokumentu"/></label><label class="full">Text dokumentu<textarea id="doc-body" rows="7" maxlength="5000" placeholder="Uveďte vecné a presné informácie."></textarea></label></div>
+<button type="button" id="doc-print">Vytlačiť / uložiť ako PDF</button><button type="button" id="doc-pdf">Stiahnuť PDF (.pdf)</button><button type="button" id="doc-word">Stiahnuť Word (.docx)</button><button type="button" id="doc-clear">Vymazať formulár</button><p id="doc-status" role="status" aria-live="polite"></p>
 <p class="note">Toto sú iba všeobecné vzory. Nepoužívajte ich ako náhradu povinného úradného formulára, právneho poradenstva ani dokumentu s požadovanou formou podpisu alebo osvedčenia. Pred použitím overte náležitosti u príslušnej inštitúcie.</p></section>
 <section class="panel preview-panel"><h2>Náhľad dokumentu</h2><article id="document-preview" class="paper" aria-label="Náhľad dokumentu"><h2 id="print-heading"></h2><p id="print-sender"></p><p id="print-recipient"></p><p id="print-subject"></p><div id="print-body"></div><p id="print-date"></p><p class="signature">........................................................<br/>Podpis</p></article></section></main>
 <script>
 import { createWordDocument } from '../lib/document-word.mjs';
+import { createPdfDocument } from '../lib/document-pdf.mjs';
+import { caseDocumentDraft, documentHeadings, documentMissingFields, documentTemplate } from '../lib/document-case.mjs';
+import { readWorkspace } from '../lib/workspace-store.mjs';
 import { matchesDocumentSearch } from '../lib/document-catalog.mjs';
 const el=(id:string)=>document.getElementById(id)!;const input=(id:string)=>(el(id) as HTMLInputElement).value.trim();const type=el('doc-type') as HTMLSelectElement;
-const headings:Record<string,string>={request:'Žiadosť',statement:'Čestné vyhlásenie',handover:'Odovzdávací protokol'};
-function update(){const kind=type.value;el('print-heading').textContent=headings[kind]||'Dokument';el('print-sender').textContent='Vyhotovil/a: '+(input('doc-sender')||'—');el('print-recipient').textContent=(kind==='handover'?'Druhá strana: ':'Adresát: ')+(input('doc-recipient')||'—');el('print-subject').textContent='Predmet: '+(input('doc-subject')||'—');const body=el('print-body');body.replaceChildren();const p=document.createElement('p');p.textContent=(kind==='statement'?'Týmto čestne vyhlasujem, že: ':kind==='handover'?'Zmluvné strany zaznamenávajú odovzdanie: ':'Žiadam o nasledovné: ')+(input('doc-body')||'—');body.append(p);const raw=input('doc-date');const date=raw?new Date(raw+'T12:00:00'):null;el('print-date').textContent=(input('doc-place')||'Miesto neuvedené')+', '+(date&&!Number.isNaN(date.getTime())?date.toLocaleDateString('sk-SK'):'dátum neuvedený');}
+const headings:Record<string,string> = documentHeadings;
+function update(){const kind=type.value;el('print-heading').textContent=headings[kind]||'Dokument';el('print-sender').textContent='Vyhotovil/a: '+(input('doc-sender')||'—');el('print-recipient').textContent=(kind==='handover'?'Druhá strana: ':'Adresát: ')+(input('doc-recipient')||'—');el('print-subject').textContent='Predmet: '+(input('doc-subject')||'—')+(input('doc-reference')?' · Identifikácia: '+input('doc-reference'):'');const body=el('print-body');body.replaceChildren();const p=document.createElement('p');p.textContent=(kind==='statement'?'Týmto čestne vyhlasujem, že: ':kind==='handover'?'Zmluvné strany zaznamenávajú odovzdanie: ':kind==='request'?'Žiadam o nasledovné: ':'')+(input('doc-body')||'—');body.append(p);const raw=input('doc-date');const date=raw?new Date(raw+'T12:00:00'):null;el('print-date').textContent=(input('doc-place')||'Miesto neuvedené')+', '+(date&&!Number.isNaN(date.getTime())?date.toLocaleDateString('sk-SK'):'dátum neuvedený');}
 document.querySelectorAll<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>('.editor input,.editor textarea,.editor select').forEach(x=>x.addEventListener('input',update));
 function prepareOutput() {
-  const missing = !input('doc-sender') ? 'doc-sender' : !input('doc-body') ? 'doc-body' : '';
-  if (missing) {
-    el('doc-status').textContent = 'Pred vytvorením dokumentu vyplňte aspoň meno a text dokumentu.';
-    el(missing).focus();
+  const labels:Record<string,string> = {sender:'meno odosielateľa',body:'text dokumentu',recipient:'adresáta',subject:'predmet',date:'dátum',reference:'identifikáciu zmluvy alebo objednávky'};
+  const values = Object.fromEntries(Object.keys(labels).map(key=>[key,input('doc-'+key)]));
+  const missing = documentMissingFields(type.value, values);
+  for (const key of Object.keys(labels)) el('doc-'+key).removeAttribute('aria-invalid');
+  if (missing.length) {
+    el('doc-status').textContent = 'Doplňte: ' + missing.map(key=>labels[key]).join(', ') + '.';
+    for (const key of missing) el('doc-'+key).setAttribute('aria-invalid','true');
+    el('doc-'+missing[0]).focus();
     return false;
   }
   update();
@@ -50,7 +58,7 @@ el('doc-print').addEventListener('click', () => {
   window.print();
 });
 const wordFilenames: Record<string, string> = {
-  request: 'ziadost.docx', statement: 'cestne-vyhlasenie.docx', handover: 'odovzdavaci-protokol.docx'
+  request: 'ziadost.docx', statement: 'cestne-vyhlasenie.docx', handover: 'odovzdavaci-protokol.docx', termination: 'vypoved-sluzby.docx', complaint: 'reklamacia.docx'
 };
 el('doc-word').addEventListener('click', () => {
   if (!prepareOutput()) return;
@@ -68,7 +76,55 @@ el('doc-word').addEventListener('click', () => {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
   el('doc-status').textContent = 'Dokument vo formáte Word je pripravený na stiahnutie.';
 });
-el('doc-clear').addEventListener('click',()=>{if(!confirm('Vymazať všetky vyplnené údaje?'))return;document.querySelectorAll<HTMLInputElement|HTMLTextAreaElement>('.editor input,.editor textarea').forEach(x=>x.value='');type.value='request';update();el('doc-status').textContent='Formulár bol vymazaný.';el('doc-sender').focus();});
+function outputParagraphs() {
+  return ['print-sender','print-recipient','print-subject','print-body','print-date'].map(id=>el(id).textContent||'').concat(['','........................................................','Podpis']);
+}
+let pdfFont:Promise<ArrayBuffer>|null=null;
+el('doc-pdf').addEventListener('click', async () => {
+  if (!prepareOutput()) return;
+  const button=el('doc-pdf') as HTMLButtonElement;
+  button.disabled=true;
+  el('doc-status').textContent='Pripravuje sa PDF v tomto prehliadači…';
+  try {
+    pdfFont ??= fetch('/fonts/document-sans.ttf').then(response=>{if(!response.ok)throw new Error('Písmo PDF nie je dostupné.');return response.arrayBuffer();}).catch(error=>{pdfFont=null;throw error;});
+    const blob=createPdfDocument(el('print-heading').textContent||'Dokument',outputParagraphs(),await pdfFont);
+    const url=URL.createObjectURL(blob), link=document.createElement('a');
+    link.href=url;link.download=wordFilenames[type.value].replace('.docx','.pdf');document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+    el('doc-status').textContent='PDF je pripravené na stiahnutie. Pred odoslaním skontrolujte obsah a požadovaný podpis.';
+  } catch(error) { el('doc-status').textContent=error instanceof Error?error.message:'PDF sa nepodarilo vytvoriť. Skúste Word alebo tlač.'; }
+  finally {button.disabled=false;}
+});
+const approveReplacement=()=>!(input('doc-subject')||input('doc-body'))||confirm('Nahradiť vyplnený predmet a text novým návrhom? Ostatné údaje zostanú zachované.');
+el('doc-load-template').addEventListener('click',()=>{
+  const template=documentTemplate(type.value);
+  if(!template.body){el('doc-status').textContent='Pre tento typ vyplňte vlastný text podľa účelu dokumentu.';return;}
+  if(!approveReplacement())return;
+  (el('doc-subject') as HTMLInputElement).value=template.subject;(el('doc-body') as HTMLTextAreaElement).value=template.body;
+  update();el('doc-status').textContent='Vložený všeobecný vzor. Nahraďte pokyny konkrétnymi údajmi a overte podmienky zmluvy.';el('doc-body').focus();
+});
+function refreshDocumentCases(){
+  const select=el('doc-case') as HTMLSelectElement;
+  const previous=select.value;select.replaceChildren(new Option('Vyberte situáciu',''));
+  try {
+    const workspace=readWorkspace(localStorage);
+    for(const item of workspace.cases)select.add(new Option(item.title,item.id));
+    select.value=workspace.cases.some(item=>item.id===previous)?previous:workspace.activeCaseId||'';
+    el('doc-case-status').textContent=workspace.cases.length?'Údaje sa prenesú len po stlačení tlačidla.':'Nemáte uloženú situáciu. Vytvorte ju v Mojich situáciách.';
+  }catch{el('doc-case-status').textContent='Uložené situácie nie sú dostupné. Dokument môžete vyplniť ručne.';}
+}
+el('doc-load-case').addEventListener('click',()=>{
+  try{
+    const workspace=readWorkspace(localStorage), id=(el('doc-case') as HTMLSelectElement).value;
+    const selected=workspace.cases.find(item=>item.id===id);
+    if(!selected){el('doc-case-status').textContent='Najprv vyberte uloženú situáciu.';return;}
+    if(!approveReplacement())return;
+    const draft=caseDocumentDraft(selected);type.value=draft.type;
+    (el('doc-subject') as HTMLInputElement).value=draft.subject;(el('doc-body') as HTMLTextAreaElement).value=draft.body;
+    update();el('doc-case-status').textContent='Návrh bol pripravený. Doplňte odosielateľa a adresáta, upravte text a skontrolujte náhľad.';el('doc-sender').focus();
+  }catch{el('doc-case-status').textContent='Situáciu nemožno načítať. Uložené údaje sa nezmenili; formulár vyplňte ručne.';}
+});
+window.addEventListener('pageshow',refreshDocumentCases);window.addEventListener('storage',refreshDocumentCases);refreshDocumentCases();
+el('doc-clear').addEventListener('click',()=>{if(!confirm('Vymazať všetky vyplnené údaje?'))return;document.querySelectorAll<HTMLInputElement|HTMLTextAreaElement>('.editor input,.editor textarea').forEach(x=>x.value='');type.value='request';document.querySelectorAll('[aria-invalid]').forEach(node=>node.removeAttribute('aria-invalid'));update();el('doc-status').textContent='Formulár bol vymazaný.';el('doc-sender').focus();});
 window.addEventListener('beforeprint',update);
 window.addEventListener('pageshow',update);
 update();

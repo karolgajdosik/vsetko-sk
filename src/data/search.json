@@ -656,5 +656,26 @@
     "url": "/novinky/",
     "description": "Osobný prehľad, financie, auto, dokumenty a kalendár.",
     "keywords": "nové osobné nástroje"
+  },
+  {
+    "title": "Moje rozpracované situácie",
+    "category": "Osobné nástroje",
+    "url": "/moje-situacie/",
+    "description": "Uložený postup kúpy auta, bývania a úspor s prepojenými výpočtami a dokumentmi.",
+    "keywords": "pripad situacia auto byt uspory osobny pomocnik v5"
+  },
+  {
+    "title": "Centrum úspor domácnosti",
+    "category": "Financie",
+    "url": "/centrum-uspor/",
+    "description": "Čistá úspora po poplatkoch, viazanosť, akcie a návratnosť zmeny služby.",
+    "keywords": "usetrit uspora energia telefon poistenie poplatky"
+  },
+  {
+    "title": "Šifrovaná záloha a prenos údajov",
+    "category": "Osobné nástroje",
+    "url": "/zaloha/",
+    "description": "Prenos situácií, termínov, profilu, rozpočtu a evidencie auta cez šifrovaný súbor.",
+    "keywords": "zaloha heslo obnova prenos zariadenie rodina"
   }
 ]

@@ -29,6 +29,7 @@ jobs:
           VSETKO_ORIGIN=http://127.0.0.1:4321 node scripts/check-production-content.mjs
           node tests/browser-layout.mjs
           node tests/browser-assistant.mjs
+          node tests/v5-browser.mjs
           VSETKO_ORIGIN=http://127.0.0.1:4321 node tests/production-contact.mjs
           VSETKO_ORIGIN=http://127.0.0.1:4321 node scripts/check-production-ui.mjs
           VSETKO_ORIGIN=http://127.0.0.1:4321 node tests/production-mobile-calculators.mjs
@@ -37,6 +38,7 @@ jobs:
         with:
           name: responsive-layout-screenshots
           path: |
+            v5-*.png
             layout-*.png
             production-mobile-*.png
           if-no-files-found: ignore

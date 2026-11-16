@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import ContentTrust from '../../components/ContentTrust.astro';
 import {photoFor} from '../../lib/editorial-photos.mjs';
 import scenarios from '../../data/scenarios.json';
 import guides from '../../data/guides.json';
@@ -21,6 +22,7 @@ const options=scenario.questions?.[0]?.options ?? [];
 <label class="step"><input type="checkbox" data-step="official"/><span><strong>Overiť aktuálne podmienky na oficiálnom portáli</strong><small><a href={scenario.official} target="_blank" rel="noopener noreferrer">Otvoriť oficiálny zdroj ↗</a></small></span></label>
 </div><button id="reset-steps" type="button">Začať odznova</button><p class="note">Postup je orientačný. Poradie a potrebné úkony sa môžu líšiť podľa konkrétnej situácie.</p>
 </section>
+<ContentTrust sources={[{url:scenario.official,label:'Zdroj pre túto životnú situáciu'}]} />
 <p class="notice">Informácie sú orientačné. Aktuálne podmienky overte na <a href={scenario.official} target="_blank" rel="noopener noreferrer">oficiálnom portáli ↗</a>.</p><p><a href="/sprievodca/">← Všetky situácie</a></p></main>
 {scenario.questions?.length>0 && <script define:vars={{options}} is:inline>
 const select=document.getElementById('answer');const output=document.getElementById('personalized');select.addEventListener('change',()=>{output.replaceChildren();const chosen=options.find(o=>o.value===select.value);if(!chosen)return;const heading=document.createElement('h3');heading.textContent='Odporúčané ďalšie kroky';output.append(heading);for(const slug of chosen.guides||[]){const p=document.createElement('p');const a=document.createElement('a');a.href='/navody/'+slug+'/';a.textContent=slug.replaceAll('-',' ');p.append(a);output.append(p);}for(const url of chosen.calculators||[]){const p=document.createElement('p');const a=document.createElement('a');a.href=url;a.textContent='Otvoriť súvisiacu kalkulačku';p.append(a);output.append(p);}});

@@ -6,7 +6,7 @@ import hubs from '../data/hubs.json';
 import tools from '../data/suite-tools.json';
 import search from '../data/search.json';
 
-const paths = ['/', '/sluzby/', '/ai/', '/kalendar/', '/moje-centrum/', '/dokumenty/', '/hladat/', ...hubs.map(h=>`/sluzby/${h.slug}/`), ...tools.map(t=>`/nastroje/${t.slug}/`), '/financie/', '/auto/', '/urady/', '/o-projekte/', '/kontakt/', '/ochrana-sukromia/', '/kalkulacky/', '/navody/', '/financie/porovnanie-hypotek/', '/auto/porovnanie-nakladov/', '/kalkulacky/naklady-na-auto/', '/sprievodca/', '/data/', '/data/kurzy/', '/data/firmy/', '/data/nabijacky/', '/data/ukazovatele/', '/data/hypoteky-nbs/', '/data/statdata/', '/pristupnost/', ...scenarios.map(s=>`/sprievodca/${s.slug}/`),...calculators.map(t=>`/kalkulacky/${t.slug}/`),...guides.map(g=>`/navody/${g.slug}/`)];
+const paths = ['/moje-situacie/', '/centrum-uspor/', '/zaloha/', '/', '/sluzby/', '/ai/', '/kalendar/', '/moje-centrum/', '/dokumenty/', '/hladat/', ...hubs.map(h=>`/sluzby/${h.slug}/`), ...tools.map(t=>`/nastroje/${t.slug}/`), '/financie/', '/auto/', '/urady/', '/o-projekte/', '/kontakt/', '/ochrana-sukromia/', '/kalkulacky/', '/navody/', '/financie/porovnanie-hypotek/', '/auto/porovnanie-nakladov/', '/kalkulacky/naklady-na-auto/', '/sprievodca/', '/data/', '/data/kurzy/', '/data/firmy/', '/data/nabijacky/', '/data/ukazovatele/', '/data/hypoteky-nbs/', '/data/statdata/', '/pristupnost/', ...scenarios.map(s=>`/sprievodca/${s.slug}/`),...calculators.map(t=>`/kalkulacky/${t.slug}/`),...guides.map(g=>`/navody/${g.slug}/`)];
 // The shared public catalogue also contains links to sections of a page.
 const discoverablePaths = new Set([...paths, ...search.map(entry => entry.url.split('#')[0])]);
 export const GET: APIRoute = ({site}) => {

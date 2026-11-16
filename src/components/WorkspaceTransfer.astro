@@ -1,0 +1,97 @@
+---
+const {mode} = Astro.props;
+const notes = {
+  finance: 'Uložiť: mesačný príjem a priemer výdavkov vrátane ročných platieb. Použiť: iba príjem; rozpis výdavkov zostane zachovaný.',
+  auto: 'Uložiť a použiť: ročný nájazd, servis a poistenie (v prípade vedené mesačne). Pohon, spotreba a cena energie sa neprenášajú, pretože majú rozdielne jednotky.',
+  loan: 'Uložiť: ročný úrok a splatnosť. Použiť: cenu mínus vlastné zdroje ako výšku úveru, úrok a splatnosť. Nejde o posúdenie dostupnosti úveru.',
+  downpayment: 'Uložiť a použiť: cenu nehnuteľnosti a vlastné zdroje.',
+  savings: 'Použiť: kladný mesačný zostatok prípadu ako návrh mesačného vkladu. Jeho vhodnosť si zvoľte podľa vlastnej rezervy a ostatných plánov. Úrok ani dobu sporenia nemeníme.'
+};
+---
+<section class="panel workspace-transfer" data-workspace-mode={mode} aria-labelledby={'workspace-transfer-'+mode}>
+  <h2 id={'workspace-transfer-'+mode}>Prepojiť s mojím prípadom</h2>
+  <p>{notes[mode]}</p>
+  <p class="note">Hodnoty sa prenesú až po stlačení príslušného tlačidla. Uloženie pridá vybrané údaje do aktívneho prípadu v tomto prehliadači. <a href="/moje-situacie/">Vybrať alebo vytvoriť prípad</a>.</p>
+  <p data-transfer-case role="status"></p>
+  <details><summary>Hodnoty z prípadu, ktoré sa použijú</summary><ul data-transfer-preview></ul></details>
+  <div class="transfer-actions"><button type="button" data-transfer-apply>Použiť hodnoty z prípadu</button>{mode!=='savings' && <button type="button" data-transfer-save>Uložiť vybrané hodnoty do prípadu</button>}</div>
+  <p data-transfer-status role="status" aria-live="polite"></p>
+</section>
+<script>
+import { readWorkspace, writeWorkspace } from '../lib/workspace-store.mjs';
+import { captureTransfer, planTransfer, TRANSFER_LABELS } from '../lib/workspace-values.mjs';
+const storageMessage = (error:unknown) => {
+  if (error instanceof Error && ['SecurityError','QuotaExceededError','InvalidStateError'].includes(error.name)) return 'Osobné úložisko je zablokované alebo plné. Prenos ani uloženie sa nevykonali. Kalkulačku môžete používať samostatne.';
+  if (error instanceof SyntaxError) return 'Uložený prípad má poškodený formát. Skontrolujte ho v Mojich situáciách; údaje sme neprepísali.';
+  return error instanceof Error ? error.message : 'Osobné úložisko nie je dostupné. Kalkulačku môžete používať samostatne.';
+};
+for (const panel of document.querySelectorAll<HTMLElement>('[data-workspace-mode]')) {
+  const mode = panel.dataset.workspaceMode!;
+  const message = panel.querySelector<HTMLElement>('[data-transfer-status]')!;
+  const caseName = panel.querySelector<HTMLElement>('[data-transfer-case]')!;
+  const preview = panel.querySelector<HTMLElement>('[data-transfer-preview]')!;
+  const buttons = panel.querySelectorAll<HTMLButtonElement>('button');
+  function current() {
+    const state = readWorkspace(localStorage);
+    const item = state.cases.find((item:any) => item.id === state.activeCaseId);
+    if (!item) throw new Error('Najprv vyberte aktívny prípad v Mojich situáciách.');
+    return {state, item};
+  }
+  function refresh() {
+    preview.replaceChildren();
+    try {
+      const { item } = current();
+      caseName.textContent = 'Aktívny prípad: ' + item.title;
+      const plan = planTransfer(mode, item.values);
+      for (const [id, value] of Object.entries(plan)) {
+        const input = document.getElementById(id) as HTMLInputElement | null;
+        const label = input?.labels?.[0]?.textContent?.trim() || id;
+        const row = document.createElement('li');
+        row.textContent = label + ': ' + new Intl.NumberFormat('sk-SK', { maximumFractionDigits: 2 }).format(value as number);
+        preview.append(row);
+      }
+      if (!Object.keys(plan).length) preview.textContent = 'Prípad zatiaľ neobsahuje vhodné hodnoty pre túto kalkulačku.';
+      buttons.forEach(button => button.disabled = false);
+    } catch (error) {
+      caseName.textContent = storageMessage(error);
+      buttons.forEach(button => button.disabled = true);
+    }
+  }
+  panel.querySelector('[data-transfer-apply]')?.addEventListener('click', () => {
+    try {
+      const { item } = current();
+      const plan = planTransfer(mode, item.values);
+      if (!Object.keys(plan).length) throw new Error('V prípade chýbajú vhodné hodnoty. Doplňte ich v Mojich situáciách alebo uložte rozpočet.');
+      const elements = Object.entries(plan).map(([id, value]) => ({input: document.getElementById(id) as HTMLInputElement, value}));
+      if (elements.some(({input}) => !input)) throw new Error('Polia kalkulačky nie sú dostupné.');
+      // Apply only after explicit consent; every event recalculates or invalidates the existing result.
+      for (const {input, value} of elements) { input.value = String(value); input.dispatchEvent(new Event('input', {bubbles:true})); }
+      message.textContent = 'Hodnoty boli prenesené. Skontrolujte ich a prípadne spustite výpočet. Ostatné vstupy zostali zachované.';
+    } catch (error) { message.textContent = storageMessage(error); }
+  });
+  panel.querySelector('[data-transfer-save]')?.addEventListener('click', () => {
+    try {
+      const {state, item} = current();
+      const ids = mode === 'finance' ? ['income','housing','food','transport','debt','other','annual'] : mode === 'auto' ? ['km','service','insurance'] : mode === 'loan' ? ['rate','years'] : ['amount','monthly'];
+      const inputs:Record<string,number> = {};
+      for (const id of ids) {
+        const input = document.getElementById(mode === 'finance' ? 'finance-'+id : id) as HTMLInputElement | null;
+        if (!input || input.value.trim() === '' || !input.checkValidity()) throw new Error('Pred uložením opravte alebo doplňte vstupy kalkulačky.');
+        inputs[id] = input.valueAsNumber;
+      }
+      const values = captureTransfer(mode, inputs);
+      item.values = {...item.values, ...values};
+      item.updatedAt = new Date().toISOString();
+      writeWorkspace(localStorage, state);
+      refresh();
+      message.textContent = 'Uložené iba v tomto prehliadači do prípadu „'+item.title+'“: '+Object.keys(values).map(key => TRANSFER_LABELS[key] || key).join(', ')+'.';
+    } catch (error) { message.textContent = storageMessage(error); }
+  });
+  window.addEventListener('storage', refresh);
+  window.addEventListener('pageshow', refresh);
+  refresh();
+}
+</script>
+<style>
+.workspace-transfer{padding:1.4rem;margin:1.4rem 0}.workspace-transfer h2{font-size:1.35rem}.workspace-transfer summary{cursor:pointer;min-height:44px;padding:.5rem 0}.transfer-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin:1rem 0}.transfer-actions button{padding:.8rem 1rem;min-height:44px;border:1px solid #8191a5;border-radius:.65rem;background:var(--surface);color:var(--ink);font:inherit;cursor:pointer}.transfer-actions button:disabled{opacity:.65;cursor:default}.transfer-actions button:focus-visible{outline:3px solid currentColor;outline-offset:3px}@media print{.workspace-transfer{display:none!important}}
+</style>

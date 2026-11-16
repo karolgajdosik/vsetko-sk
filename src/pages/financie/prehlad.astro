@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import WorkspaceTransfer from '../../components/WorkspaceTransfer.astro';
 const fields = [
   {id:'income', label:'Čistý príjem domácnosti mesačne (€)'},
   {id:'housing', label:'Bývanie vrátane energií mesačne (€)'},
@@ -16,7 +17,7 @@ const fields = [
     <p class="eyebrow">Financie 360° · Domácnosť</p>
     <h1>Váš finančný prehľad</h1>
     <p class="intro section-intro">Zistite, koľko vám mesačne zostáva, ako dlho vám vydrží rezerva a aká je hodnota vášho majetku po odpočítaní dlhov.</p>
-    <p class="note">Hodnoty spracúva iba táto stránka vo vašom prehliadači. Neukladajú sa ani neposielajú na server; po obnovení stránky ich zadáte znovu. Nezadávajte čísla účtov ani osobné identifikátory.</p>
+    <p class="note">Hodnoty spracúva iba táto stránka vo vašom prehliadači a neposiela ich na server. Vybraný príjem a výdavky môžete výslovne uložiť do svojho lokálneho prípadu tlačidlom nižšie; ostatné vstupy sa po obnovení stránky vymažú. Nezadávajte čísla účtov ani osobné identifikátory.</p>
     <noscript><p>Na výpočet je potrebný JavaScript. Odkazy na ďalšie finančné nástroje sú dostupné aj bez neho.</p></noscript>
     <form id="finance-overview-form" class="panel" novalidate>
       <h2>1. Rozpočet a rezerva</h2>
@@ -57,6 +58,7 @@ const fields = [
       <button type="button" id="finance-print" class="finance-button">Vytlačiť alebo uložiť prehľad ako PDF</button>
     </section>
     <p id="finance-status" role="status" aria-live="polite"></p>
+    <WorkspaceTransfer mode="finance" />
     <section class="panel" aria-labelledby="net-worth-title">
       <h2 id="net-worth-title">3. Majetok a dlhy</h2>
       <p>Odhadnite čistú hodnotu domácnosti k dnešnému dňu. Zadajte aktuálne hodnoty majetku a nesplatené istiny dlhov, nie mesačné splátky. Každú položku započítajte iba raz. Údaje sa neukladajú.</p>
