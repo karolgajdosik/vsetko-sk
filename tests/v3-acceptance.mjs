@@ -63,7 +63,7 @@ export async function checkV3Acceptance(browser, base) {
       assert.match(ics, /DTSTART;VALUE=DATE:20270115/);
       assert.match(ics, /DTEND;VALUE=DATE:20270116/);
       assert.ok(ics.includes('SUMMARY:Akceptácia V3\\, termín\\; test'));
-      await page.locator('.event button').click();
+      await page.getByRole('button', {name: 'Odstrániť termín: Akceptácia V3, termín; test', exact: true}).click();
       assert.equal(await page.locator('.event').count(), 0);
 
       await page.goto(base + '/generator-reklamacie/', {waitUntil: 'load'});
