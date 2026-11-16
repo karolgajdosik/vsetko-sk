@@ -1,0 +1,59 @@
+---
+import Base from '../../layouts/Base.astro';
+const fields=[['income','Čistý mesačný príjem domácnosti (€)','2500'],['expenses','Celkové mesačné výdavky vrátane splátok (€)','1500'],['reserve','Dostupná finančná rezerva (€)','3000'],['debtPayments','Z výdavkov: mesačné splátky dlhov (€)','400'],['savingMonthly','Plánovaný mesačný vklad do rezervy (€)','250']];
+---
+<Base title="Kontrola domácich financií" description="Skontrolujte mesačný prebytok, krytie výdavkov rezervou a čas dosiahnutia vlastného cieľa. Transparentný výpočet bez registrácie.">
+<main id="obsah" class="wrap main finance-check">
+ <nav aria-label="Navigácia"><a href="/">Úvod</a> / <a href="/financie/">Financie</a> / Kontrola rozpočtu</nav>
+ <p class="eyebrow">VŠETKO24 · Rozhodnutia domácnosti</p><h1>Kontrola domácich financií</h1>
+ <p class="intro">Koľko vám mesačne zostáva a ako dlho by rezerva pokryla vaše výdavky? Zadajte vlastné čísla a cieľ, ktorý si chcete preveriť.</p>
+ <p class="note">Údaje sa neukladajú ani neodosielajú. Ide o aritmetický prehľad vášho rozpočtu. Nevyhodnocuje nárok na úver ani vhodnosť finančného produktu.</p>
+ <form id="health-form" class="panel">
+  <h2>Váš rozpočet a cieľ rezervy</h2>
+  <p>Výdavky zahŕňajú splátky aj mesačnú rezervu na nepravidelné platby. Plánovaný vklad do finančnej rezervy sem nepripočítavajte. Príklady v poliach nie sú vyplnené údaje; potvrdenú nulu zadajte ako 0.</p>
+  <div class="health-grid">{fields.map(([id,label,placeholder])=><label for={`health-${id}`}>{label}<input id={`health-${id}`} type="number" min="0" max="1000000" step="0.01" inputmode="decimal" required placeholder={`Napr. ${placeholder}`} /></label>)}
+  <label for="health-targetMonths">Váš cieľ rezervy v mesiacoch výdavkov (1–36)<input id="health-targetMonths" type="number" min="1" max="36" step="1" inputmode="numeric" placeholder="Napr. 6" required /></label></div>
+  <details><summary>Jednorazové načítanie uloženého rozpočtu</summary><p>Načíta sa príjem a súčet kategórií výdavkov z <a href="/moje-centrum/">osobného centra</a>. Splátky sa vyplnia z kategórie úverov. Rezervu, jej cieľ a plánovaný vklad doplňte ručne. Uložené údaje sa nezmenia.</p><label class="health-consent"><input id="health-import-consent" type="checkbox" /> Súhlasím s načítaním lokálneho rozpočtu do tohto formulára.</label><button id="health-import" type="button">Načítať rozpočet</button><p id="health-import-status" role="status"></p></details>
+  <div class="health-actions"><button type="submit">Skontrolovať rozpočet</button><button type="reset">Vymazať vstupy</button></div>
+ </form>
+ <p id="health-status" role="status" aria-live="polite"></p>
+ <section id="health-results" class="panel" hidden aria-labelledby="health-result-heading"><h2 id="health-result-heading" tabindex="-1">Výsledok kontroly</h2><dl id="health-metrics" class="health-metrics"></dl><ul id="health-notes"></ul><p id="health-plan-status"></p><p><a href="/moj-plan/">Vytvoriť plán ďalších krokov</a> · <a href="/centrum-uspor/">Porovnať možnosti zníženia výdavkov</a> · <a href="/moje-situacie/">Moje situácie</a></p></section>
+ <section class="panel"><h2>Ako počítame výsledok</h2><ul><li>Mesačný prebytok = príjem − celkové výdavky. Splátky druhýkrát neodpočítavame.</li><li>Krytie rezervou = dostupná rezerva ÷ mesačné výdavky.</li><li>Cieľ rezervy = mesačné výdavky × vami zvolený počet mesiacov.</li><li>Chýbajúca rezerva = cieľ − dostupná rezerva, najmenej 0 €.</li><li>Čas do cieľa = chýbajúca rezerva ÷ plánovaný mesačný vklad, zaokrúhlený na celé mesiace nahor. Nepočítame úrok, infláciu ani zmeny príjmov a výdavkov.</li><li>Podiel splátok = splátky ÷ čistý príjem × 100 %. Nie je to bankový ukazovateľ schválenia úveru.</li></ul><p>Výsledok závisí od úplnosti vstupov. <a href="/rocne-vydavky/">Nepravidelné platby</a> pomôžu zohľadniť aj výdavky, ktoré neprichádzajú každý mesiac.</p></section>
+</main>
+</Base>
+<script>
+import {calculateFinanceHealth,FINANCE_HEALTH_FIELDS} from '../../lib/finance-health.mjs';
+const el=(id:string)=>document.getElementById('health-'+id)!;
+const field=(id:string)=>el(id) as HTMLInputElement;
+const form=el('form') as HTMLFormElement,results=el('results'),status=el('status');
+const euro=(value:number)=>new Intl.NumberFormat('sk-SK',{style:'currency',currency:'EUR'}).format(value);
+const number=(value:number)=>new Intl.NumberFormat('sk-SK',{maximumFractionDigits:2}).format(value);
+function invalidate(){results.hidden=true;status.textContent='Vstupy sa zmenili. Výsledok znovu prepočítajte.';}
+form.addEventListener('input',invalidate);
+form.addEventListener('submit',event=>{
+ event.preventDefault();results.hidden=true;
+ try{
+  const input=Object.fromEntries(FINANCE_HEALTH_FIELDS.map(key=>[key,field(key).value===''?null:field(key).valueAsNumber]));
+  const value=calculateFinanceHealth(input);
+  const metrics=[['Mesačný prebytok / deficit',euro(value.surplus)],['Priestor na mesačné sporenie',euro(value.savingCapacity)],['Krytie výdavkov rezervou',value.reserveMonths===null?'Neurčené pri nulových výdavkoch':number(value.reserveMonths)+' mesiaca'],['Vlastný cieľ rezervy',euro(value.targetReserve)],['Do cieľa chýba',euro(value.reserveGap)],['Čas do cieľa pri zadanom vklade',value.monthsToTarget===null?'Neurčený bez mesačného vkladu':value.monthsToTarget===0?'Cieľ už dosiahnutý':value.monthsToTarget+' mesiacov'],['Podiel splátok na príjme',value.debtShare===null?'Neurčený pri nulovom príjme':number(value.debtShare)+' %']];
+  el('metrics').replaceChildren(...metrics.map(([label,text])=>{const box=document.createElement('div'),dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=label;dd.textContent=text;box.append(dt,dd);return box;}));
+  el('notes').replaceChildren(...value.notes.map((note:string)=>{const li=document.createElement('li');li.textContent=note;return li;}));
+  el('plan-status').textContent=value.planFunded?'Plánovaný vklad nepresahuje vypočítaný prebytok. Výsledok predpokladá nezmenený rozpočet.':'Plánovaný vklad presahuje vypočítaný prebytok. Pred použitím termínu cieľa upravte rozpočet alebo výšku vkladu.';
+  window.dispatchEvent(new CustomEvent('v24:complete',{detail:{tool:'health'}}));results.hidden=false;status.textContent='Výpočet dokončený. Vstupy ani výsledok sa neuložili.';el('result-heading').focus();
+ }catch(error){status.textContent=error instanceof Error?error.message:'Skontrolujte vstupy.';}
+});
+el('import').addEventListener('click',()=>{
+ const message=el('import-status');if(!field('import-consent').checked){message.textContent='Najprv potvrďte načítanie lokálneho rozpočtu.';field('import-consent').focus();return;}
+ try{
+  const raw=localStorage.getItem('v24-personal-center-v1');if(raw===null)throw new Error('V osobnom centre nie je uložený rozpočet.');
+  const state=JSON.parse(raw),budget=state?.budget,keys=['income','housing','loans','food','transport','other'];
+  if(state?.version!==1||!budget||typeof budget!=='object'||!keys.every(key=>typeof budget[key]==='number'&&Number.isFinite(budget[key])&&budget[key]>=0&&budget[key]<=1000000&&Math.abs(budget[key]*100-Math.round(budget[key]*100))<0.000001))throw new Error('Uložený rozpočet nie je úplný alebo má neplatné hodnoty. Doplňte čísla ručne.');
+  const expenses=keys.filter(key=>key!=='income').reduce((sum,key)=>sum+Math.round(budget[key]*100),0)/100;if(expenses>1000000)throw new Error('Súčet výdavkov presahuje limit formulára.');
+  field('income').value=String(budget.income);field('expenses').value=String(expenses);field('debtPayments').value=String(budget.loans);invalidate();message.textContent='Príjem, výdavky a splátky načítané. Skontrolujte ich a doplňte rezervu, cieľ a plánovaný vklad.';
+ }catch(error){message.textContent=error instanceof Error?error.message:'Lokálne ukladanie nie je dostupné. Zadajte údaje ručne.';}
+});
+form.addEventListener('reset',()=>queueMicrotask(()=>{results.hidden=true;status.textContent='Vstupy vymazané.';el('import-status').textContent='';}));
+</script>
+<style>
+.finance-check{max-width:1050px}.finance-check .panel{padding:1.3rem;margin:1.3rem 0}.health-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.finance-check label{display:block;font-weight:650;margin:.7rem 0}.finance-check input[type=number]{display:block;box-sizing:border-box;width:100%;font:inherit;padding:.8rem;margin-top:.4rem;border:1px solid #8290a5;border-radius:8px;background:var(--surface);color:var(--ink)}.health-actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.2rem}.finance-check button{min-height:44px;font:inherit;padding:.7rem 1rem;border:1px solid #8290a5;border-radius:8px;background:var(--surface);color:var(--ink);cursor:pointer}.finance-check summary{cursor:pointer;padding:.8rem 0;min-height:44px;box-sizing:border-box;font-weight:650}.finance-check .health-consent{display:flex;gap:.7rem;align-items:flex-start}.health-consent input{width:1.2rem;height:1.2rem;flex:0 0 1.2rem;margin-top:.2rem}.health-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.health-metrics>div{padding:1rem;border:1px solid #8290a5;border-radius:8px}.health-metrics dd{margin:.5rem 0 0;font-size:1.35rem;font-weight:750;overflow-wrap:anywhere}.finance-check :is(input,button,summary):focus-visible{outline:3px solid currentColor;outline-offset:3px}.finance-check [hidden]{display:none!important}@media(max-width:650px){.health-grid,.health-metrics{grid-template-columns:1fr}.finance-check .panel{padding:1rem}}
+</style>

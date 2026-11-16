@@ -1,3 +1,6 @@
+import { DECISIONS_KEY, normalizeDecisions } from './decision-comparison.mjs';
+import { CONTRACTS_KEY, normalizeContracts } from './contract-store.mjs';
+import { ANNUAL_EXPENSES_KEY, normalizeAnnualExpenses } from './annual-expenses.mjs';
 import { PROFILE_KEY, PROFILE_TOPICS, PROFILE_LINKS } from './profile-store.mjs';
 import { VEHICLE_COST_KEY, validVehicleCosts } from './vehicle-costs.mjs';
 import { WORKSPACE_KEY, normalizeWorkspace } from './workspace-store.mjs';
@@ -6,7 +9,8 @@ export const BACKUP_MAX_BYTES = 2_000_000;
 export const BACKUP_ITERATIONS = 210000;
 const GUIDE_PREFIX = 'vsetko24:guide:v1:';
 const GUIDE_LENGTHS = Object.freeze({ 'strata-dokladov': 5, 'zalozenie-zivnosti': 5, 'umrtie-v-rodine': 5, 'kupa-nehnutelnosti': 5, 'stahovanie-bytu': 7 });
-export const BACKUP_KEYS = Object.freeze([WORKSPACE_KEY, 'v24-personal-center-v1', PROFILE_KEY, VEHICLE_COST_KEY, ...Object.keys(GUIDE_LENGTHS).map(key => GUIDE_PREFIX + key)]);
+const LEGACY_KEYS = Object.freeze([WORKSPACE_KEY, 'v24-personal-center-v1', PROFILE_KEY, VEHICLE_COST_KEY, ...Object.keys(GUIDE_LENGTHS).map(key => GUIDE_PREFIX + key)]);
+export const BACKUP_KEYS = Object.freeze([...LEGACY_KEYS, DECISIONS_KEY, CONTRACTS_KEY, ANNUAL_EXPENSES_KEY]);
 const encoder = new TextEncoder();
 const aad = encoder.encode('vsetko24-encrypted-backup:1');
 const record = value => value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -39,6 +43,9 @@ function validateProfile(value) {
 }
 function validateSlot(key, value) {
   if (value === null) return null;
+  if (key === DECISIONS_KEY) return normalizeDecisions(value);
+  if (key === CONTRACTS_KEY) return normalizeContracts(value);
+  if (key === ANNUAL_EXPENSES_KEY) return normalizeAnnualExpenses(value);
   if (key === WORKSPACE_KEY) return normalizeWorkspace(value);
   if (key === 'v24-personal-center-v1') return validateCenter(value);
   if (key === PROFILE_KEY) return validateProfile(value);
@@ -51,9 +58,9 @@ function validateSlot(key, value) {
   return value;
 }
 export function validateBackupPayload(value) {
-  if (!ownKeys(value, ['format','version','createdAt','entries']) || value.format !== 'vsetko24-workspace-data' || value.version !== 1 || typeof value.createdAt !== 'string' || !Number.isFinite(Date.parse(value.createdAt)) || !record(value.entries) || Object.keys(value.entries).length !== BACKUP_KEYS.length || !BACKUP_KEYS.every(key => Object.hasOwn(value.entries, key))) invalid();
+  if (!ownKeys(value, ['format','version','createdAt','entries']) || value.format !== 'vsetko24-workspace-data' || value.version !== 1 || typeof value.createdAt !== 'string' || !Number.isFinite(Date.parse(value.createdAt)) || !record(value.entries) || !((Object.keys(value.entries).length === BACKUP_KEYS.length && BACKUP_KEYS.every(key => Object.hasOwn(value.entries,key))) || (Object.keys(value.entries).length === LEGACY_KEYS.length && LEGACY_KEYS.every(key => Object.hasOwn(value.entries,key))))) invalid();
   const entries = {};
-  for (const key of BACKUP_KEYS) entries[key] = validateSlot(key, value.entries[key]);
+  for (const key of BACKUP_KEYS) if (Object.hasOwn(value.entries,key)) entries[key] = validateSlot(key, value.entries[key]);
   // Canonical independent object; no caller-owned references are retained.
   const result = JSON.parse(JSON.stringify({ format: value.format, version: 1, createdAt: value.createdAt, entries }));
   if (encoder.encode(JSON.stringify(result)).byteLength > BACKUP_MAX_BYTES / 2) invalid();
@@ -131,7 +138,7 @@ export function restoreBackup(storage, payload, expectedSnapshot) {
   const valid = validateBackupPayload(payload);
   const before = snapshotBackupStorage(storage);
   if (!expectedSnapshot || !BACKUP_KEYS.every(key => Object.hasOwn(expectedSnapshot, key) && expectedSnapshot[key] === before[key])) throw new Error('Údaje sa od náhľadu zmenili. Načítajte zálohu znovu; nič sa neprepísalo.');
-  const next = Object.fromEntries(BACKUP_KEYS.map(key => [key, valid.entries[key] === null ? null : JSON.stringify(valid.entries[key])]));
+  const next = Object.fromEntries(BACKUP_KEYS.map(key => [key, !Object.hasOwn(valid.entries,key) ? before[key] : valid.entries[key] === null ? null : JSON.stringify(valid.entries[key])]));
   const changed = [];
   try {
     for (const key of BACKUP_KEYS) {

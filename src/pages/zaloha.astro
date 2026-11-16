@@ -7,7 +7,7 @@ import Base from '../layouts/Base.astro';
   <h1>Šifrovaná záloha a prenos údajov</h1>
   <p class="intro">Pokračujte na inom zariadení alebo si bezpečne odložte svoj postup. Súbor sa vytvorí aj otvorí iba v tomto prehliadači.</p>
   <p><a href="/moje-situacie/">Moje rozpracované situácie</a> · <a href="/moj-prehlad/">Osobný prehľad</a></p>
-  <aside class="panel note"><h2>Čo záloha obsahuje</h2><p>Situácie V5 a ich výpočtové vstupy, úlohy, termíny a rozpočet z Môjho centra, obľúbené odkazy a témy, evidenciu auta a postup v piatich kontrolných zoznamoch. Neobsahuje vyplnené dokumenty, heslá, účty ani súbory stiahnuté do zariadenia.</p><p>Záloha je zašifrovaná pomocou AES-256-GCM a hesla odvodeného cez PBKDF2-SHA256 (210 000 iterácií). Heslo si uschovajte oddelene: bez neho zálohu neobnovíme. Zdieľaním súboru aj hesla sprístupníte jeho údaje príjemcovi.</p></aside>
+  <aside class="panel note"><h2>Čo záloha obsahuje</h2><p>Porovnania rozhodnutí V6, zmluvy a ročné výdavky, situácie V5 a ich výpočtové vstupy, úlohy, termíny a rozpočet z Môjho centra, obľúbené odkazy a témy, evidenciu auta a postup v piatich kontrolných zoznamoch. Staršia záloha V5 neprepíše záznamy V6. Neobsahuje surové CSV transakcie, miestne počítadlá, vyplnené dokumenty, heslá, účty ani súbory stiahnuté do zariadenia.</p><p>Záloha je zašifrovaná pomocou AES-256-GCM a hesla odvodeného cez PBKDF2-SHA256 (210 000 iterácií). Heslo si uschovajte oddelene: bez neho zálohu neobnovíme. Zdieľaním súboru aj hesla sprístupníte jeho údaje príjemcovi.</p></aside>
   <section class="panel" aria-labelledby="backup-export-title">
     <h2 id="backup-export-title">1. Uložiť šifrovanú zálohu</h2>
     <p id="backup-local-summary" role="status">Načítavam prehľad uložených údajov…</p>
@@ -20,7 +20,7 @@ import Base from '../layouts/Base.astro';
   </section>
   <section class="panel" aria-labelledby="backup-import-title">
     <h2 id="backup-import-title">2. Otvoriť zálohu na tomto zariadení</h2>
-    <p>Najprv sa zobrazí obsah v číselnom prehľade. Obnovenie až po samostatnom potvrdení <strong>nahradí všetky podporované sekcie</strong>, vrátane vymazania sekcií, ktoré v zálohe neboli uložené. Údaje sa nezlučujú. Najskôr si vytvorte zálohu aktuálneho zariadenia. Ak sú aktuálne údaje poškodené alebo úložisko zablokované, obnovenie sa bezpečne zastaví; nič sa automaticky nevymaže.</p>
+    <p>Najprv sa zobrazí obsah v číselnom prehľade. Obnovenie až po samostatnom potvrdení <strong>nahradí všetky podporované sekcie</strong>, vrátane vymazania sekcií, ktoré v zálohe neboli uložené. Pri staršej zálohe V5 zostanú sekcie V6 na tomto zariadení zachované. Údaje ostatných sekcií sa nezlučujú. Najskôr si vytvorte zálohu aktuálneho zariadenia. Ak sú aktuálne údaje poškodené alebo úložisko zablokované, obnovenie sa bezpečne zastaví; nič sa automaticky nevymaže.</p>
     <form id="backup-import-form">
       <label for="backup-file">Šifrovaný súbor zálohy (najviac 2 MB)</label><input id="backup-file" type="file" accept=".v24backup,.json,application/json" required />
       <label for="backup-import-password">Heslo tohto súboru</label><input id="backup-import-password" type="password" minlength="12" maxlength="1024" autocomplete="off" required />
@@ -50,7 +50,7 @@ let generation = 0;
 let busy = false;
 const summary = (value:ReturnType<typeof collectBackup>) => {
   const s = backupSummary(value);
-  return `${s.cases} situácií, ${s.tasks} úloh, ${s.deadlines} termínov, ${s.vehicleEntries} výdavkov auta, ${s.favorites} obľúbených odkazov a ${s.completedGuideSteps} vybavených krokov. Uložených sekcií: ${s.storedSections}.`;
+  return `${s.cases} situácií, ${s.tasks} úloh, ${s.deadlines} termínov, ${s.vehicleEntries} výdavkov auta, ${s.favorites} obľúbených odkazov a ${s.completedGuideSteps} vybavených krokov. Uložených sekcií: ${s.storedSections}. V6: ${value.entries['v24-contracts-v6']?.entries.length ?? 0} zmlúv, ${value.entries['v24-decisions-v6']?.comparisons.length ?? 0} porovnaní, ${value.entries['v24-annual-expenses-v6']?.expenses.length ?? 0} ročných výdavkov.`;
 };
 function message(value:string) { el('backup-status').textContent = value; }
 function localSummary() { try { el('backup-local-summary').textContent = 'Na tomto zariadení: ' + summary(collectBackup(localStorage)); } catch { el('backup-local-summary').textContent = 'Uložené údaje sa nepodarilo overiť. Export bude možný až po sprístupnení úložiska a oprave prípadných poškodených údajov.'; } }
