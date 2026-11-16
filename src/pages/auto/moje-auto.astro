@@ -68,6 +68,17 @@ import { VEHICLE_CATEGORIES } from '../../lib/vehicle-costs.mjs';
     <p id="vehicle-trip-result" role="status" aria-live="polite"></p>
     <p class="note">Pri EV použite spotrebu vrátane odhadovaných strát nabíjania a priemernú cenu za kWh. Výsledok nezohľadňuje dojazd, dostupnosť stojanov ani aktuálnu premávku. Vstupy sa neukladajú.</p>
   </section>
+  <section class="panel"><h2>Energetický plán cesty elektromobilom</h2><p>Odhad potrebnej energie a počtu nabíjaní pri konštantnej spotrebe. Nejde o navigáciu ani potvrdenie dostupnosti staníc.</p>
+    <form id="vehicle-ev-plan"><div class="vehicle-fields">
+        <div><label for="ev-plan-distance">Dĺžka trasy (km)</label><input id="ev-plan-distance" type="number" min="1" max="100000" step="1" value="300" required /></div>
+        <div><label for="ev-plan-capacity">Využiteľná kapacita batérie (kWh)</label><input id="ev-plan-capacity" type="number" min="1" max="300" step="0.1" value="90" required /></div>
+        <div><label for="ev-plan-rate">Spotreba z batérie (kWh/100 km)</label><input id="ev-plan-rate" type="number" min="0.1" max="100" step="0.1" value="25" required /></div>
+        <div><label for="ev-plan-start">Nabitie pri štarte (%)</label><input id="ev-plan-start" type="number" min="0" max="100" step="1" value="85" required /></div>
+        <div><label for="ev-plan-reserve">Minimálna rezerva (%)</label><input id="ev-plan-reserve" type="number" min="0" max="99" step="1" value="15" required /></div>
+        <div><label for="ev-plan-target">Nabitie po zastávke (%)</label><input id="ev-plan-target" type="number" min="1" max="100" step="1" value="80" required /></div>
+    </div><button type="submit">Vypočítať energetický plán</button> <button type="reset">Obnoviť vstupy</button></form>
+    <p id="ev-plan-result" role="status" aria-live="polite"></p><p class="note">Model predpokladá nabíjanie pri dosiahnutí rezervy a nezahŕňa obchádzky, počasie, prevýšenie ani straty nabíjania. Skutočné zastávky plánujte vopred s dodatočnou rezervou. Vstupy sa neukladajú.</p>
+  </section>
   <section class="panel"><h2>Moje údaje</h2><p>Záloha JSON obsahuje kilometre a všetky výdavky. Súbor si odložte bezpečne. Zálohu môžete obnoviť z platného JSON súboru. Obnovenie nahradí celú aktuálnu evidenciu až po vašom potvrdení.</p>
     <div class="vehicle-actions"><button id="vehicle-export" type="button">Stiahnuť záznamy JSON</button><button id="vehicle-delete" type="button">Vymazať evidenciu auta</button></div>
     <div class="vehicle-import"><label for="vehicle-import">Obnoviť zálohu JSON (najviac 256 kB)</label><input id="vehicle-import" type="file" accept=".json,application/json" /><button id="vehicle-import-apply" type="button" disabled>Obnoviť vybranú zálohu</button><p id="vehicle-import-status" role="status"></p></div>
@@ -202,6 +213,20 @@ tripForm.addEventListener('submit',event=>{
  const energy=distance*rate/100;
  const cost=energy*price;
  tripResult.textContent='Odhad spotreby: '+new Intl.NumberFormat('sk-SK',{maximumFractionDigits:2}).format(energy)+' '+unit+'; energia: '+euro(cost)+'; celá cesta: '+euro(cost+extra)+'.';
+});
+
+const evPlan=element('vehicle-ev-plan') as HTMLFormElement;
+const evResult=element('ev-plan-result');
+evPlan.addEventListener('input',()=>{evResult.textContent='';});
+evPlan.addEventListener('reset',()=>{evResult.textContent='';});
+evPlan.addEventListener('submit',event=>{
+ event.preventDefault();if(!evPlan.reportValidity())return;
+ const [distance,capacity,rate,start,reserve,target]=['distance','capacity','rate','start','reserve','target'].map(key=>field('ev-plan-'+key).valueAsNumber);
+ if(![distance,capacity,rate,start,reserve,target].every(Number.isFinite)||start<reserve||target<=reserve){evResult.textContent='Štart nesmie byť pod rezervou a cieľ nabíjania musí byť nad rezervou.';return;}
+ const need=distance*rate/100, initial=capacity*(start-reserve)/100, cycle=capacity*(target-reserve)/100;
+ const additional=Math.max(0,need-initial), stops=Math.ceil(Math.max(0,additional-1e-9)/cycle);
+ const fmt=(n:number)=>new Intl.NumberFormat('sk-SK',{maximumFractionDigits:1}).format(n);
+ evResult.textContent='Energia na cestu: '+fmt(need)+' kWh. Dojazd po rezervu pri štarte: '+fmt(initial/rate*100)+' km. Minimálne doplniť do batérie: '+fmt(additional)+' kWh. Modelový počet nabíjaní: '+fmt(stops)+'. Dojazd medzi nabitiami po rezervu: '+fmt(cycle/rate*100)+' km.';
 });
 </script>
 <style>
