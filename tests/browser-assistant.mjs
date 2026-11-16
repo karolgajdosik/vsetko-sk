@@ -86,6 +86,39 @@ try{
    }finally{await page.close();}
   }
  }
+ {
+   const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+   try {
+     let requests = 0;
+     page.on('request', request => { if (new URL(request.url()).pathname === '/api/assistant') requests++; });
+     await page.goto(new URL('/ai/', origin).href);
+     const goal = page.locator('#ai-goal');
+     const progress = page.locator('#ai-path-status');
+     const plan = page.locator('#ai-path-links');
+     await goal.selectOption('home');
+     assert.equal(await plan.locator('li').count(), 5);
+     await plan.getByRole('checkbox').first().check();
+     const tools = ['/sprievodca/kupa-bytu/', '/financie/porovnanie-hypotek/', '/kupa-nehnutelnosti/'];
+     for (const path of tools) {
+       await plan.locator('a[href="' + path + '"]').click();
+       await page.waitForURL(url => url.pathname === path);
+       assert.ok(await page.locator('main h1').isVisible(), path);
+       await page.goBack();
+       await page.waitForURL(url => url.pathname === '/ai/');
+       assert.equal(await goal.inputValue(), 'home');
+       assert.equal(await plan.getByRole('checkbox').first().isChecked(), true);
+     }
+     await goal.selectOption('documents');
+     assert.match(await progress.innerText(), /0 z 3/);
+     await goal.selectOption('home');
+     assert.match(await progress.innerText(), /1 z 5/);
+     await page.locator('#ai-path-reset').click();
+     assert.match(await progress.innerText(), /0 z 5/);
+     assert.equal(await plan.getByRole('checkbox').first().isChecked(), false);
+     assert.equal(requests, 0);
+     console.log('PASS mobile local assistant plan: guide, calculator, checklist, back navigation and scoped progress');
+   } finally { await page.close(); }
+ }
  if (!live) {
    const page = await browser.newPage();
    try {
