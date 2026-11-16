@@ -677,5 +677,61 @@
     "url": "/zaloha/",
     "description": "Prenos situácií, termínov, profilu, rozpočtu a evidencie auta cez šifrovaný súbor.",
     "keywords": "zaloha heslo obnova prenos zariadenie rodina"
+  },
+  {
+    "title": "Osobné rozhodovanie V6",
+    "url": "/rozhodovanie/",
+    "description": "Výdavky, porovnania a plán na jednom mieste.",
+    "category": "Osobné nástroje",
+    "keywords": "V6 financie rozhodovanie plán domácnosť"
+  },
+  {
+    "title": "Kontrola domácich financií",
+    "url": "/financie/kontrola/",
+    "description": "Rezerva, rozpočet a vlastné ciele.",
+    "category": "Osobné nástroje",
+    "keywords": "V6 financie rozhodovanie plán domácnosť"
+  },
+  {
+    "title": "Porovnanie rozhodnutí",
+    "url": "/porovnanie-rozhodnuti/",
+    "description": "Porovnajte dva varianty s financovaním.",
+    "category": "Osobné nástroje",
+    "keywords": "V6 financie rozhodovanie plán domácnosť"
+  },
+  {
+    "title": "Môj odporúčaný plán",
+    "url": "/moj-plan/",
+    "description": "Prijmite konkrétne kroky do úloh.",
+    "category": "Osobné nástroje",
+    "keywords": "V6 financie rozhodovanie plán domácnosť"
+  },
+  {
+    "title": "Moje zmluvy a predplatné",
+    "url": "/moje-zmluvy/",
+    "description": "Platby, vlastné lehoty a dokumenty.",
+    "category": "Osobné nástroje",
+    "keywords": "V6 financie rozhodovanie plán domácnosť"
+  },
+  {
+    "title": "Ročné a nepravidelné výdavky",
+    "url": "/rocne-vydavky/",
+    "description": "Mesačné rezervy na budúce platby.",
+    "category": "Osobné nástroje",
+    "keywords": "V6 financie rozhodovanie plán domácnosť"
+  },
+  {
+    "title": "Import výdavkov z CSV",
+    "url": "/import-vydavkov/",
+    "description": "Miestny import a kontrola mesačného rozpočtu.",
+    "category": "Osobné nástroje",
+    "keywords": "V6 financie rozhodovanie plán domácnosť"
+  },
+  {
+    "title": "Moje dokončené kroky",
+    "url": "/moje-vysledky/",
+    "description": "Dobrovoľné miestne počítadlá dokončenia.",
+    "category": "Osobné nástroje",
+    "keywords": "V6 financie rozhodovanie plán domácnosť"
   }
 ]

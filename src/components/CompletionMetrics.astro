@@ -1,0 +1,4 @@
+<script>
+import {recordCompletion} from '../lib/completion-metrics.mjs';
+window.addEventListener('v24:complete',((event:CustomEvent)=>{try{const detail=event.detail;if(detail&&Object.keys(detail).length===1&&typeof detail.tool==='string')recordCompletion(localStorage,detail.tool);}catch{/* Optional counters never block a tool. */}}) as EventListener);
+</script>
