@@ -57,6 +57,12 @@ export async function checkV5Deadlines(browser, origin) {
     await page.evaluate(()=>{const state=JSON.parse(localStorage.getItem('v24-workspace-v5'));state.cases[0].title='A'.repeat(100);localStorage.setItem('v24-workspace-v5',JSON.stringify(state));});
     await page.setViewportSize({width:320,height:844});await page.reload();
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,'Long case title must wrap at 320px');
+    await page.evaluate(()=>localStorage.setItem('v24-personal-center-v1',JSON.stringify({version:1,tasks:[],budget:{},deadlines:[null,{id:'valid',title:'Platný termín',date:'2037-01-01'}]})));
+    await page.reload();
+    assert.equal(await page.locator('#calendar-items article').count(),1,'Malformed stored records must not break valid deadlines');
+    await page.locator('#calendar-items article').getByRole('button',{name:'Odstrániť termín:',exact:false}).click();
+    assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('v24-personal-center-v1')).deadlines.length),2,'Malformed original data must not be overwritten');
+    assert.match(await page.locator('#calendar-status').innerText(),/neboli prepísané/);
     console.log('PASS V5 deadline types, preparation links, reminder edit/ICS VALARM and explicit case association/unlink and preservation of tasks/budget');
   } finally { await page.close(); }
 }

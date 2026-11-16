@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { contentSourceUrl, publicReportPath, reportText, reportMailto } from '../src/lib/content-trust.mjs';
@@ -23,4 +24,16 @@ test('mailto encodes report content and cannot inject mail headers', () => {
   const result = reportMailto('sukromie@vsetko24.sk', 'Text & bcc=evil@example.sk\nĽšč');
   assert.equal(new URL(result).searchParams.get('body'), 'Text & bcc=evil@example.sk\nĽšč');
   assert.equal(new URL(result).searchParams.get('bcc'), null);
+});
+
+test('all configured external guide sources remain visible in the trust panel', () => {
+  const guides = JSON.parse(readFileSync(new URL('../src/data/guides.json', import.meta.url)));
+  const details = JSON.parse(readFileSync(new URL('../src/data/guide-details.json', import.meta.url)));
+  for (const guide of guides) {
+    const links = [guide.source, ...(guide.detail?.links ?? details[guide.slug]?.links ?? [])];
+    for (const link of links) {
+      if (new URL(link.url).hostname === 'vsetko24.sk') continue;
+      assert.ok(contentSourceUrl(link.url), `${guide.slug}: ${link.url}`);
+    }
+  }
 });

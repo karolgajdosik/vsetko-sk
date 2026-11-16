@@ -28,6 +28,9 @@ export async function checkCaseDocuments(browser, origin) {
     assert.match(await page.locator('#doc-status').innerText(),/identifikáciu zmluvy/);
     assert.equal(await page.locator('#doc-reference').getAttribute('aria-invalid'),'true');
     assert.equal(await page.evaluate(()=>localStorage.getItem('v24-workspace-v5').includes('Ľubomír')),false);
+    await page.emulateMedia({media:'print'});
+    assert.equal(await page.locator('.case-draft').isVisible(),false,'case import controls stay out of the printed document');
+    assert.equal(await page.locator('#document-preview').isVisible(),true);
     console.log('PASS V5 case document import, real Unicode PDF and Word downloads, template validation and no document persistence');
   } finally { await context.close(); }
 }
