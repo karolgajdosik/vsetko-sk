@@ -29,6 +29,16 @@ import Base from '../layouts/Base.astro';
     <div class="offers">{['A','B'].map(id=><fieldset><legend>Poistná ponuka {id}</legend>{[['premium','Ročné poistné (€)'],['deductible','Spoluúčasť pri tejto škode (€)']].map(([key,label])=><div><label for={`insurance-${id}-${key}`}>{label}</label><input id={`insurance-${id}-${key}`} type="number" min="0" max="1000000" step="0.01" value="0" required /></div>)}</fieldset>)}</div>
     <div class="actions"><button class="primary" type="submit">Porovnať poistné scenáre</button><button type="reset">Vymazať scenár</button></div><p id="insurance-result" role="status" aria-live="polite"></p>
   </form><p class="note">Model predpokladá plne krytú škodu okrem spoluúčasti. Nezahŕňa limity, výluky, zmenu poistného ani pravdepodobnosť škody. Nejde o odporúčanie poistenia.</p></section>
+  <section class="panel" aria-labelledby="bank-title"><h2 id="bank-title">Porovnanie bankových účtov</h2><p>Zadajte vlastné mesačné poplatky po splnení podmienok zľavy a počet spoplatnených výberov za mesiac.</p>
+  <form id="bank-comparison-form"><label for="bank-count">Spoplatnené výbery mesačne</label><input id="bank-count" type="number" min="0" max="1000" step="1" value="0" required />
+    <div class="offers">{['A','B'].map(id=><fieldset><legend>Účet {id}</legend>{[['monthly','Vedenie účtu mesačne (€)'],['card','Karta ročne (€)'],['withdrawal','Poplatok za jeden výber (€)']].map(([key,label])=><div><label for={`bank-${id}-${key}`}>{label}</label><input id={`bank-${id}-${key}`} type="number" min="0" max="100000" step="0.01" value="0" required /></div>)}</fieldset>)}</div>
+    <div class="actions"><button class="primary" type="submit">Porovnať účty</button><button type="reset">Vymazať</button></div><p id="bank-result" role="status" aria-live="polite"></p>
+  </form><p class="note">Nezahŕňa úroky, kurzové rozdiely ani úvery. Zahrnuté služby nezapočítajte dvakrát.</p></section>
+  <section class="panel" aria-labelledby="telecom-title"><h2 id="telecom-title">Porovnanie mobilných dát</h2><p>Porovnajte mesačné náklady pri rovnakej spotrebe dát, vrátane prípadného dokupovania celých balíkov.</p>
+  <form id="telecom-comparison-form"><label for="telecom-demand">Mesačná spotreba dát (GB)</label><input id="telecom-demand" type="number" min="0" max="10000" step="0.01" value="10" required />
+    <div class="offers">{['A','B'].map(id=><fieldset><legend>Program {id}</legend>{[['monthly','Mesačný paušál (€)',0,100000],['included','Dáta v paušále (GB)',0,10000],['pack','Veľkosť dokupovaného balíka (GB)',0.01,10000],['price','Cena balíka (€)',0,100000]].map(([key,label,min,max])=><div><label for={`telecom-${id}-${key}`}>{label}</label><input id={`telecom-${id}-${key}`} type="number" min={min} max={max} step="0.01" value={key==='pack'?1:0} required /></div>)}</fieldset>)}</div>
+    <div class="actions"><button class="primary" type="submit">Porovnať programy</button><button type="reset">Vymazať</button></div><p id="telecom-result" role="status" aria-live="polite"></p>
+  </form><p class="note">Model predpokladá dostupnosť opakovaných dokupovaných balíkov bez obmedzenia. Nezahŕňa roaming, prenos dát, viazanosť ani zariadenia. Pri neobmedzenom programe zadajte zahrnuté dáta aspoň vo výške spotreby.</p></section>
   <noscript><p>Na výpočet potrebujete JavaScript.</p></noscript>
 </main>
 </Base>
@@ -97,6 +107,23 @@ insuranceForm.addEventListener('submit',event=>{
 });
 insuranceForm.addEventListener('input',()=>{insuranceResult.textContent='Vstupy sa zmenili. Prepočítajte scenár.';});
 insuranceForm.addEventListener('reset',()=>{insuranceResult.textContent='';});
+const numeric=(id:string)=>document.querySelector<HTMLInputElement>('#'+id)!.valueAsNumber;
+const hundredths=(id:string)=>Math.round(numeric(id)*100);
+function wireScenario(name:string,calculate:()=>number[],period:string){
+ const scenario=document.querySelector<HTMLFormElement>('#'+name+'-comparison-form')!;
+ const output=document.getElementById(name+'-result')!;
+ scenario.addEventListener('submit',event=>{
+  event.preventDefault();if(!scenario.reportValidity())return;
+  const totals=calculate();
+  if(!totals.every(n=>Number.isSafeInteger(n)&&n>=0)){output.textContent='Skontrolujte vstupy.';return;}
+  const diff=totals[0]-totals[1];
+  output.textContent=period+': A '+money(totals[0]/100)+', B '+money(totals[1]/100)+'. '+(diff===0?'Rovnaké náklady.':'Ponuka '+(diff<0?'A':'B')+' má nižšie náklady o '+money(Math.abs(diff)/100)+'.');
+ });
+ scenario.addEventListener('input',()=>{output.textContent='Vstupy sa zmenili. Prepočítajte porovnanie.';});
+ scenario.addEventListener('reset',()=>{output.textContent='';});
+}
+wireScenario('bank',()=>['A','B'].map(id=>12*(hundredths('bank-'+id+'-monthly')+numeric('bank-count')*hundredths('bank-'+id+'-withdrawal'))+hundredths('bank-'+id+'-card')),'Ročne');
+wireScenario('telecom',()=>['A','B'].map(id=>hundredths('telecom-'+id+'-monthly')+Math.ceil(Math.max(0,hundredths('telecom-demand')-hundredths('telecom-'+id+'-included'))/hundredths('telecom-'+id+'-pack'))*hundredths('telecom-'+id+'-price')),'Mesačne');
 </script>
 <style>
 .comparison{max-width:1040px}.comparison .panel{padding:1.4rem;margin:1.3rem 0}.comparison label{display:block;font-weight:650;margin:.8rem 0 .4rem}.comparison :is(input,select){font:inherit;max-width:100%;width:100%;box-sizing:border-box;padding:.75rem;border:1px solid #8191a5;border-radius:.5rem;background:transparent;color:inherit}.comparison fieldset{min-width:0;border:1px solid #8191a5;border-radius:.7rem;padding:1rem}.offers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1rem 0}.actions{display:flex;gap:1rem;flex-wrap:wrap}.comparison button{font:inherit;padding:.8rem;cursor:pointer}.comparison :is(input,select,button):focus-visible{outline:3px solid currentColor;outline-offset:3px}.table-scroll{overflow-x:auto}.comparison table{border-collapse:collapse;width:100%}.comparison :is(td,th){padding:.8rem;text-align:left;border-bottom:1px solid #8191a5}@media(max-width:650px){.offers{grid-template-columns:1fr}}
