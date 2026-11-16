@@ -14,6 +14,18 @@ import { PROFILE_TOPICS, PROFILE_LINKS } from '../lib/profile-store.mjs';
       <p id="profile-summary" role="status">Po zapnutí JavaScriptu sa načíta počet uložených úloh a budúcich termínov.</p>
       <p><a href="/moje-centrum/#ulohy">Otvoriť úlohy</a> · <a href="/kalendar/">Otvoriť termíny</a> · <a href="/moje-kontrolne-zoznamy/">Kontrolné zoznamy</a></p>
     </section>
+    <section class="panel" aria-labelledby="profile-dashboard-heading">
+      <h2 id="profile-dashboard-heading">Osobný dashboard</h2>
+      <p>Prejdite priamo do jednotlivých častí svojho centra. Citlivé finančné údaje sa tu nezobrazujú.</p>
+      <ul class="profile-links">
+        <li><a href="/moje-centrum/#ulohy"><strong>Úlohy</strong><span id="dashboard-tasks">Otvoriť zoznam úloh</span></a></li>
+        <li><a href="/moje-centrum/#terminy"><strong>Termíny osobného centra</strong><span id="dashboard-deadlines">Otvoriť termíny</span></a></li>
+        <li><a href="/kalendar/"><strong>Kalendár povinností</strong><span>Samostatný kalendár a export</span></a></li>
+        <li><a href="/financie/prehlad/"><strong>Financie 360°</strong><span>Rozpočet, rezerva a majetok</span></a></li>
+        <li><a href="/auto/moje-auto/"><strong>Auto 360°</strong><span>Výdavky a spotreba vozidla</span></a></li>
+        <li><a href="/dokumenty/"><strong>Dokumenty</strong><span>Vzory a formuláre</span></a></li>
+      </ul>
+    </section>
     <section class="panel" aria-labelledby="profile-shortcuts-heading">
       <h2 id="profile-shortcuts-heading">Moje skratky</h2>
       <p id="profile-empty">Zatiaľ nemáte nastavené skratky. Vyberte si ich vo formulári nižšie.</p>
@@ -57,7 +69,9 @@ import { PROFILE_TOPICS, PROFILE_LINKS } from '../lib/profile-store.mjs';
       const today = [now.getFullYear(), String(now.getMonth() + 1).padStart(2, '0'), String(now.getDate()).padStart(2, '0')].join('-');
       const counts = centerSummary(raw === null ? null : JSON.parse(raw), today);
       summary.textContent = `Nedokončené úlohy: ${counts.tasks}. Termíny od dneška: ${counts.deadlines}.`;
-    } catch { summary.textContent = 'Uložené úlohy a termíny sa nepodarilo načítať. Otvorte osobné centrum alebo kalendár.'; }
+      document.getElementById('dashboard-tasks')!.textContent = `Nedokončené: ${counts.tasks}`;
+      document.getElementById('dashboard-deadlines')!.textContent = `Od dneška: ${counts.deadlines}`;
+    } catch { document.getElementById('dashboard-tasks')!.textContent = 'Otvoriť zoznam úloh'; document.getElementById('dashboard-deadlines')!.textContent = 'Otvoriť termíny'; summary.textContent = 'Uložené úlohy a termíny sa nepodarilo načítať. Otvorte osobné centrum alebo kalendár.'; }
   }
   try { profile = readProfile(localStorage); } catch { status.textContent = 'Profil sa nepodarilo načítať. Výber môžete nastaviť znovu; pôvodné údaje sa automaticky neprepísali.'; }
   form.addEventListener('submit', event => {
@@ -89,5 +103,5 @@ import { PROFILE_TOPICS, PROFILE_LINKS } from '../lib/profile-store.mjs';
   render(); renderSummary();
 </script>
 <style>
-  .profile{max-width:70rem}.panel{margin-block:1.25rem}fieldset{border:1px solid var(--border,#aab9c7);border-radius:.65rem;padding:1rem;margin:1rem 0}legend{font-weight:700;padding-inline:.4rem}.profile-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:.5rem}.profile-options label{display:flex;align-items:center;gap:.6rem;padding:.65rem;border-radius:.4rem;cursor:pointer}.profile-options input{width:1.15rem;height:1.15rem;flex-shrink:0}.profile-actions{display:flex;gap:.75rem;flex-wrap:wrap}.profile-actions button{padding:.7rem 1rem;border:1px solid var(--border,#aab9c7);border-radius:.5rem;background:var(--card,#fff);color:var(--text,#123b69);cursor:pointer;font:inherit}.profile-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.65rem;list-style:none;padding:0}.profile-links a{display:block;border:1px solid var(--border,#aab9c7);border-radius:.5rem;padding:.8rem}.profile :global(:focus-visible){outline:3px solid var(--accent,#0f766e);outline-offset:3px}
+  .profile{max-width:70rem}.profile-links a strong,.profile-links a span{display:block}.profile-links a span{font-size:.9rem;margin-top:.35rem}.panel{margin-block:1.25rem}fieldset{border:1px solid var(--border,#aab9c7);border-radius:.65rem;padding:1rem;margin:1rem 0}legend{font-weight:700;padding-inline:.4rem}.profile-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:.5rem}.profile-options label{display:flex;align-items:center;gap:.6rem;padding:.65rem;border-radius:.4rem;cursor:pointer}.profile-options input{width:1.15rem;height:1.15rem;flex-shrink:0}.profile-actions{display:flex;gap:.75rem;flex-wrap:wrap}.profile-actions button{padding:.7rem 1rem;border:1px solid var(--border,#aab9c7);border-radius:.5rem;background:var(--card,#fff);color:var(--text,#123b69);cursor:pointer;font:inherit}.profile-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.65rem;list-style:none;padding:0}.profile-links a{display:block;border:1px solid var(--border,#aab9c7);border-radius:.5rem;padding:.8rem}.profile :global(:focus-visible){outline:3px solid var(--accent,#0f766e);outline-offset:3px}
 </style>
