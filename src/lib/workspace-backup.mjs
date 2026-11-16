@@ -24,7 +24,7 @@ function validateCenter(value) {
   }
   ids.clear();
   for (const deadline of value.deadlines) {
-    if (!ownKeys(deadline, ['id','title','date','type','reminderDays']) || !text(deadline.id) || ids.has(deadline.id) || !text(deadline.title) || !realDate(deadline.date) || (deadline.type !== undefined && !['','stk','pzp','service','identity','passport','driving','insurance','mortgage','contract'].includes(deadline.type)) || (deadline.reminderDays !== undefined && ![0,1,7,14,30,60].includes(deadline.reminderDays))) invalid();
+    if (!ownKeys(deadline, ['id','title','date','type','reminderDays','caseId']) || !text(deadline.id) || ids.has(deadline.id) || !text(deadline.title) || !realDate(deadline.date) || (deadline.type !== undefined && !['','stk','pzp','service','identity','passport','driving','insurance','mortgage','contract'].includes(deadline.type)) || (deadline.reminderDays !== undefined && ![0,1,7,14,30,60].includes(deadline.reminderDays)) || (deadline.caseId !== undefined && (typeof deadline.caseId !== 'string' || !/^[a-zA-Z0-9_-]{1,80}$/.test(deadline.caseId)))) invalid();
     ids.add(deadline.id);
   }
   return value;
