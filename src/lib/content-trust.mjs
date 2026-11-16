@@ -3,7 +3,12 @@ const SOURCE_HOSTS = new Set([
   'nbs.sk', '5penazi.sk', 'www.skp.sk', 'www.slovensko.sk',
   'alternative-fuels-observatory.ec.europa.eu', 'eznamka.sk',
   'beta.skgeodesy.sk', 'rpmn.nbs.sk', 'www.zsdis.sk', 'www.mindop.sk',
-  'www.slov-lex.sk', 'www.justice.gov.sk'
+  'www.slov-lex.sk', 'static.slov-lex.sk', 'www.justice.gov.sk',
+  'zsedrive.sk', 'www.mzv.sk', 'pes.minv.sk', 'www.zrsr.sk',
+  'nove.slovensko.sk', 'www.nove.slovensko.sk', 'www.financnasprava.sk',
+  'socpoist.sk', 'www.socpoist.sk', 'www.ives.sk', 'mirri.gov.sk',
+  'www.employment.gov.sk', 'www.skgeodesy.sk', 'kataster.vugk.sk',
+  'kataster.skgeodesy.sk'
 ]);
 export const REPORT_CATEGORIES = Object.freeze({
   outdated: 'Neaktuálna informácia', broken: 'Nefunkčný odkaz', other: 'Iná nepresnosť'

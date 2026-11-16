@@ -141,7 +141,17 @@ form.addEventListener('reset', () => queueMicrotask(() => {
 get('export').addEventListener('click', () => {
   if (!latest) return;
   const rows:(string|number)[][] = [
-    ['Centrum úspor domácnosti – vlastné ponuky'], ['Obdobie v mesiacoch',latest.months],
+    ['Centrum úspor domácnosti – vlastné ponuky'], ['Oblasť', category.selectedOptions[0].textContent ?? ''], ['Obdobie v mesiacoch',latest.months],
+    ['Zadané ponuky', 'Súčasná služba', 'Nová služba'],
+    ...([
+      ['Bežná mesačná platba (€)', 'monthly'], ['Akciová mesačná platba (€)', 'promoMonthly'],
+      ['Zostávajúce akciové mesiace', 'promoMonths'], ['Ročná platba (€)', 'annual'],
+      ['Viazanosť v mesiacoch', 'commitment'],
+    ] as [string,string][]).map(([label,key]) => [label,field('current-'+key).valueAsNumber,field('alternative-'+key).valueAsNumber]),
+    ['Jednorazové náklady novej služby', field('setup').valueAsNumber],
+    ['Náklady ukončenia súčasnej služby', field('exit').valueAsNumber],
+    ...(field('income').value !== '' ? [['Mesačný príjem domácnosti',field('income').valueAsNumber],['Mesačné výdavky domácnosti',field('expenses').valueAsNumber]] : []),
+    ['Výsledok porovnania'],
     ['Súčasné náklady celkom',latest.currentTotal],['Nové náklady celkom vrátane prechodu',latest.alternativeTotal],
     ['Náklady prechodu',latest.transition],['Úspora pred prechodom',latest.grossSavings],['Čistá úspora',latest.netSavings],
     ['Priemerná mesačná úspora',latest.averageMonthlySavings],['Prvá platba pri prechode',latest.initialCashNeeded],
