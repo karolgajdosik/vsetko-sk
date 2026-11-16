@@ -16,6 +16,13 @@ import Base from '../layouts/Base.astro';
   <section id="comparison-results" class="panel" hidden aria-labelledby="comparison-result-title"><h2 id="comparison-result-title" tabindex="-1">Výsledok porovnania</h2><div class="table-scroll"><table><caption>Náklady za zvolené obdobie</caption><thead><tr><th scope="col">Náklady</th><th scope="col">Ponuka A</th><th scope="col">Ponuka B</th></tr></thead><tbody id="comparison-rows"></tbody></table></div><p id="comparison-difference"></p><p class="note">Výpočet nezahŕňa ďalšie zľavy, valorizáciu, viazanosť, sankcie za zrušenie ani kvalitu služby. Pred rozhodnutím porovnajte aj tieto podmienky.</p></section>
   <p id="comparison-status" role="status" aria-live="polite"></p>
   <section class="panel"><h2>Ako pristupujeme k odporúčaniam</h2><p>Tento nástroj neobsahuje platené poradie ani partnerské ponuky. Ak neskôr pridáme reklamu alebo partnerské odkazy, označíme ich pri konkrétnej ponuke. Nižšia vypočítaná cena sama osebe neznamená vhodnejšiu službu.</p><a href="/financie/prehlad/">Zahrnúť služby do rozpočtu domácnosti</a> · <a href="/sluzby/">Prehľad služieb portálu</a></section>
+  <section class="panel" aria-labelledby="usage-title"><h2 id="usage-title">Porovnanie podľa spotreby</h2><p>Pre energie alebo nabíjanie EV porovnajte rovnakú mesačnú spotrebu a vlastné jednotkové ceny vrátane daní. Fixný poplatok zadajte samostatne; nezahrňte ho druhýkrát do jednotkovej ceny.</p>
+  <form id="usage-comparison-form">
+    <label for="usage-kwh">Mesačná spotreba (kWh)</label><input id="usage-kwh" type="number" min="0" max="1000000" step="0.01" required value="100" />
+    <div class="offers">{['A','B'].map(id=><fieldset><legend>Spotrebná ponuka {id}</legend><label for={`usage-${id}-rate`}>Cena za kWh (€)</label><input id={`usage-${id}-rate`} type="number" min="0" max="100" step="0.0001" required value="0" /><label for={`usage-${id}-fixed`}>Fixný mesačný poplatok (€)</label><input id={`usage-${id}-fixed`} type="number" min="0" max="1000000" step="0.01" required value="0" /></fieldset>)}</div>
+    <div class="actions"><button class="primary" type="submit">Porovnať spotrebu</button><button type="reset">Vymazať spotrebu</button></div>
+    <p id="usage-result" role="status" aria-live="polite"></p>
+  </form><p class="note">Orientačný model s rovnakou spotrebou každý mesiac; nezahŕňa pásma, časové tarify, roaming ani jednorazové poplatky. Nejde o aktuálne cenníky.</p></section>
   <noscript><p>Na výpočet potrebujete JavaScript.</p></noscript>
 </main>
 </Base>
@@ -57,6 +64,19 @@ form.addEventListener('submit',event=>{event.preventDefault();if(!form.reportVal
  }catch{results.hidden=true;status.textContent='Skontrolujte obdobie a nezáporné sumy vo všetkých poliach.';}
 });
 form.addEventListener('reset',()=>{results.hidden=true;status.textContent='Vstupy a výsledky boli vymazané.';});
+const usageForm=document.querySelector<HTMLFormElement>('#usage-comparison-form')!;
+const usageResult=document.getElementById('usage-result')!;
+const usageValue=(id:string)=>document.querySelector<HTMLInputElement>('#'+id)!.valueAsNumber;
+usageForm.addEventListener('submit',event=>{
+ event.preventDefault();if(!usageForm.reportValidity())return;
+ const kwh=usageValue('usage-kwh');
+ const totals=['A','B'].map(id=>Math.round((kwh*usageValue('usage-'+id+'-rate')+usageValue('usage-'+id+'-fixed'))*100));
+ if(!totals.every(Number.isSafeInteger)||totals.some(n=>n<0)){usageResult.textContent='Skontrolujte vstupy.';return;}
+ const diff=totals[0]-totals[1];
+ usageResult.textContent='Mesačne: A '+money(totals[0]/100)+', B '+money(totals[1]/100)+'. Ročne pri rovnakej spotrebe: A '+money(totals[0]*12/100)+', B '+money(totals[1]*12/100)+'. '+(diff===0?'Rovnaké náklady.':'Ponuka '+(diff<0?'A':'B')+' je mesačne lacnejšia o '+money(Math.abs(diff)/100)+'.');
+});
+usageForm.addEventListener('input',()=>{usageResult.textContent='Vstupy sa zmenili. Prepočítajte spotrebu.';});
+usageForm.addEventListener('reset',()=>{usageResult.textContent='';});
 </script>
 <style>
 .comparison{max-width:1040px}.comparison .panel{padding:1.4rem;margin:1.3rem 0}.comparison label{display:block;font-weight:650;margin:.8rem 0 .4rem}.comparison :is(input,select){font:inherit;max-width:100%;width:100%;box-sizing:border-box;padding:.75rem;border:1px solid #8191a5;border-radius:.5rem;background:transparent;color:inherit}.comparison fieldset{min-width:0;border:1px solid #8191a5;border-radius:.7rem;padding:1rem}.offers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1rem 0}.actions{display:flex;gap:1rem;flex-wrap:wrap}.comparison button{font:inherit;padding:.8rem;cursor:pointer}.comparison :is(input,select,button):focus-visible{outline:3px solid currentColor;outline-offset:3px}.table-scroll{overflow-x:auto}.comparison table{border-collapse:collapse;width:100%}.comparison :is(td,th){padding:.8rem;text-align:left;border-bottom:1px solid #8191a5}@media(max-width:650px){.offers{grid-template-columns:1fr}}
