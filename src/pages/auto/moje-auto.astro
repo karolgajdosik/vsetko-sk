@@ -48,6 +48,11 @@ import { VEHICLE_CATEGORIES } from '../../lib/vehicle-costs.mjs';
     <p id="vehicle-consumption-result" role="status" aria-live="polite"></p>
     <p class="note">Pri elektrine používajte konzistentne energiu z batérie alebo zo stojana; straty nabíjania môžu výsledky odlišovať. Pri plug-in hybride vyhodnoťte oba druhy energie samostatne.</p>
   </section>
+  <section class="panel"><h2>Servis a poistenie</h2>
+    <p>Prehľad zaplateného servisu, pneumatík a poistenia zo všetkých záznamov. Dátumy sú dátumy platieb, nie potvrdené dátumy servisných úkonov.</p>
+    <div class="vehicle-summary"><div><span>Servis a pneumatiky spolu</span><strong id="vehicle-service-total">0 €</strong></div><div><span>Poistenie spolu</span><strong id="vehicle-insurance-total">0 €</strong></div><div><span>Posledná platba za servis alebo pneumatiky</span><strong id="vehicle-service-last">—</strong></div></div>
+    <p>Budúce termíny si zapíšte do <a href="/kalendar/">kalendára povinností</a> podľa servisného plánu výrobcu a poistnej zmluvy. Portál ich neurčuje automaticky.</p>
+  </section>
   <section class="panel"><h2>Moje údaje</h2><p>Záloha JSON obsahuje kilometre a všetky výdavky. Súbor si odložte bezpečne. Zálohu môžete obnoviť z platného JSON súboru. Obnovenie nahradí celú aktuálnu evidenciu až po vašom potvrdení.</p>
     <div class="vehicle-actions"><button id="vehicle-export" type="button">Stiahnuť záznamy JSON</button><button id="vehicle-delete" type="button">Vymazať evidenciu auta</button></div>
     <div class="vehicle-import"><label for="vehicle-import">Obnoviť zálohu JSON (najviac 256 kB)</label><input id="vehicle-import" type="file" accept=".json,application/json" /><button id="vehicle-import-apply" type="button" disabled>Obnoviť vybranú zálohu</button><p id="vehicle-import-status" role="status"></p></div>
@@ -106,6 +111,10 @@ function render(){
  element('vehicle-per-km').textContent=summary.perKm===null?'—':new Intl.NumberFormat('sk-SK',{minimumFractionDigits:2,maximumFractionDigits:3}).format(summary.perKm)+' €/km';
  element('vehicle-count').textContent=String(state.entries.length);
  element('vehicle-km-note').textContent=state.distance>0?'Priemer zo všetkých výdavkov a '+new Intl.NumberFormat('sk-SK').format(state.distance)+' km za rovnaké obdobie.':'Zadajte kilometre za rovnaké obdobie na výpočet priemeru.';
+ element('vehicle-service-total').textContent=euro(summary.categories.service/100);
+ element('vehicle-insurance-total').textContent=euro(summary.categories.insurance/100);
+ const lastService=state.entries.filter(entry=>entry.category==='service').map(entry=>entry.date).sort().pop();
+ element('vehicle-service-last').textContent=lastService?new Date(lastService+'T12:00:00').toLocaleDateString('sk-SK'):'—';
  const breakdown=element('vehicle-breakdown');breakdown.replaceChildren();
  for(const [key,label] of Object.entries(VEHICLE_CATEGORIES)){const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=label;dd.textContent=euro(summary.categories[key]/100);breakdown.append(dt,dd);}
  const list=element('vehicle-entries');list.replaceChildren();
