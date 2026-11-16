@@ -23,6 +23,12 @@ import Base from '../layouts/Base.astro';
     <div class="actions"><button class="primary" type="submit">Porovnať spotrebu</button><button type="reset">Vymazať spotrebu</button></div>
     <p id="usage-result" role="status" aria-live="polite"></p>
   </form><p class="note">Orientačný model s rovnakou spotrebou každý mesiac; nezahŕňa pásma, časové tarify, roaming ani jednorazové poplatky. Nejde o aktuálne cenníky.</p></section>
+  <section class="panel" aria-labelledby="insurance-title"><h2 id="insurance-title">Porovnanie poistných scenárov</h2><p>Porovnajte ročné poistné a vlastné náklady pri jednej modelovej škode. Použite rovnaké krytie a zadajte skutočnú spoluúčasť v eurách pre danú škodu podľa podmienok ponuky.</p>
+  <form id="insurance-comparison-form">
+    <label for="insurance-loss">Výška krytej škody (€)</label><input id="insurance-loss" type="number" min="0" max="1000000" step="0.01" value="1000" required />
+    <div class="offers">{['A','B'].map(id=><fieldset><legend>Poistná ponuka {id}</legend>{[['premium','Ročné poistné (€)'],['deductible','Spoluúčasť pri tejto škode (€)']].map(([key,label])=><div><label for={`insurance-${id}-${key}`}>{label}</label><input id={`insurance-${id}-${key}`} type="number" min="0" max="1000000" step="0.01" value="0" required /></div>)}</fieldset>)}</div>
+    <div class="actions"><button class="primary" type="submit">Porovnať poistné scenáre</button><button type="reset">Vymazať scenár</button></div><p id="insurance-result" role="status" aria-live="polite"></p>
+  </form><p class="note">Model predpokladá plne krytú škodu okrem spoluúčasti. Nezahŕňa limity, výluky, zmenu poistného ani pravdepodobnosť škody. Nejde o odporúčanie poistenia.</p></section>
   <noscript><p>Na výpočet potrebujete JavaScript.</p></noscript>
 </main>
 </Base>
@@ -77,6 +83,20 @@ usageForm.addEventListener('submit',event=>{
 });
 usageForm.addEventListener('input',()=>{usageResult.textContent='Vstupy sa zmenili. Prepočítajte spotrebu.';});
 usageForm.addEventListener('reset',()=>{usageResult.textContent='';});
+const insuranceForm=document.querySelector<HTMLFormElement>('#insurance-comparison-form')!;
+const insuranceResult=document.getElementById('insurance-result')!;
+insuranceForm.addEventListener('submit',event=>{
+ event.preventDefault();if(!insuranceForm.reportValidity())return;
+ const cents=(id:string)=>Math.round((document.getElementById(id) as HTMLInputElement).valueAsNumber*100);
+ const loss=cents('insurance-loss');
+ const premiums=['A','B'].map(id=>cents('insurance-'+id+'-premium'));
+ const deductibles=['A','B'].map(id=>cents('insurance-'+id+'-deductible'));
+ if(![loss,...premiums,...deductibles].every(n=>Number.isSafeInteger(n)&&n>=0)){insuranceResult.textContent='Skontrolujte vstupy.';return;}
+ const totals=premiums.map((p,i)=>p+Math.min(loss,deductibles[i]));
+ insuranceResult.textContent='Bez škody: A '+money(premiums[0]/100)+', B '+money(premiums[1]/100)+'. Pri jednej krytej škode: A '+money(totals[0]/100)+', B '+money(totals[1]/100)+'. '+(totals[0]===totals[1]?'Rovnaké náklady pri škode.':'Pri tejto škode má ponuka '+(totals[0]<totals[1]?'A':'B')+' nižšie náklady o '+money(Math.abs(totals[0]-totals[1])/100)+'.');
+});
+insuranceForm.addEventListener('input',()=>{insuranceResult.textContent='Vstupy sa zmenili. Prepočítajte scenár.';});
+insuranceForm.addEventListener('reset',()=>{insuranceResult.textContent='';});
 </script>
 <style>
 .comparison{max-width:1040px}.comparison .panel{padding:1.4rem;margin:1.3rem 0}.comparison label{display:block;font-weight:650;margin:.8rem 0 .4rem}.comparison :is(input,select){font:inherit;max-width:100%;width:100%;box-sizing:border-box;padding:.75rem;border:1px solid #8191a5;border-radius:.5rem;background:transparent;color:inherit}.comparison fieldset{min-width:0;border:1px solid #8191a5;border-radius:.7rem;padding:1rem}.offers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1rem 0}.actions{display:flex;gap:1rem;flex-wrap:wrap}.comparison button{font:inherit;padding:.8rem;cursor:pointer}.comparison :is(input,select,button):focus-visible{outline:3px solid currentColor;outline-offset:3px}.table-scroll{overflow-x:auto}.comparison table{border-collapse:collapse;width:100%}.comparison :is(td,th){padding:.8rem;text-align:left;border-bottom:1px solid #8191a5}@media(max-width:650px){.offers{grid-template-columns:1fr}}
