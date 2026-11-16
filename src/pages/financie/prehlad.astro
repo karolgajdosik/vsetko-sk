@@ -57,6 +57,23 @@ const fields = [
       <button type="button" id="finance-print" class="finance-button">Vytlačiť alebo uložiť prehľad ako PDF</button>
     </section>
     <p id="finance-status" role="status" aria-live="polite"></p>
+    <section class="panel" aria-labelledby="net-worth-title">
+      <h2 id="net-worth-title">3. Majetok a dlhy</h2>
+      <p>Odhadnite čistú hodnotu domácnosti k dnešnému dňu. Zadajte aktuálne hodnoty majetku a nesplatené istiny dlhov, nie mesačné splátky. Každú položku započítajte iba raz. Údaje sa neukladajú.</p>
+      <form id="net-worth-form">
+        <div class="finance-inputs">
+          {[{id:'cash',label:'Peniaze a úspory (€)'},{id:'investments',label:'Investície (€)'},{id:'property',label:'Nehnuteľnosti (€)'},{id:'otherAssets',label:'Vozidlá a ostatný majetok (€)'},{id:'mortgage',label:'Zostatok hypoték (€)'},{id:'otherDebt',label:'Zostatok ostatných dlhov (€)'}].map(field=><div class="finance-field"><label for={'net-'+field.id}>{field.label}</label><input id={'net-'+field.id} type="number" min="0" max="10000000" step="0.01" inputmode="decimal" value="0" required /></div>)}
+        </div>
+        <div class="finance-actions"><button type="submit" class="primary">Vypočítať čistú hodnotu</button><button type="reset" class="finance-button">Vymazať majetok a dlhy</button></div>
+      </form>
+      <div id="net-worth-results" hidden class="finance-metrics">
+        <div><span>Majetok spolu</span><strong id="net-assets">—</strong></div>
+        <div><span>Dlhy spolu</span><strong id="net-debts">—</strong></div>
+        <div><span>Čistá hodnota (majetok mínus dlhy)</span><strong id="net-value">—</strong></div>
+      </div>
+      <p id="net-status" role="status" aria-live="polite"></p>
+      <p class="note">Ide o orientačný stav majetku, nie dostupnú hotovosť ani posúdenie bonity. Nezahŕňa náklady predaja, dane ani budúce úroky. Tento výpočet je oddelený od mesačného rozpočtu.</p>
+    </section>
     <section class="panel" aria-labelledby="finance-tools-title">
       <h2 id="finance-tools-title">Pokračujte podrobnejším výpočtom</h2>
       <ul class="finance-tools"><li><a href="/kalkulacky/naklady-na-byvanie/">Rozpočítať náklady na bývanie</a></li><li><a href="/kalkulacky/naklady-na-auto/">Rozpočítať náklady na auto</a></li><li><a href="/kalkulacky/financna-rezerva/">Samostatná kalkulačka finančnej rezervy</a></li><li><a href="/kalkulacky/refinancovanie/">Porovnať splátky pri refinancovaní</a></li><li><a href="/financie/">Všetky finančné nástroje a návody</a></li></ul>
@@ -70,9 +87,9 @@ const fields = [
   .finance-actions{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}.finance-button{padding:.8rem 1rem;border:1px solid #8191a5;border-radius:.65rem;background:transparent;color:inherit;font:inherit;cursor:pointer}
   .finance-field input:focus-visible,.finance-button:focus-visible{outline:3px solid currentColor;outline-offset:3px}
   .finance-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:1rem}.finance-metrics>div{display:flex;flex-direction:column;gap:.6rem;padding:1rem;border:1px solid #8191a5;border-radius:.75rem;min-width:0}.finance-metrics strong{font-size:clamp(1.2rem,3vw,1.8rem);overflow-wrap:anywhere;font-variant-numeric:tabular-nums}.finance-tools{display:grid;gap:.7rem}
-  #finance-error[hidden],#finance-results[hidden]{display:none}
+  #finance-error[hidden],#finance-results[hidden],#net-worth-results[hidden]{display:none}
   .finance-assumptions{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:.7rem}.finance-assumptions div{min-width:0}.finance-assumptions dd{margin:0;font-weight:650;overflow-wrap:anywhere}#finance-assumptions summary{cursor:pointer;margin:1rem 0}
-  @media print{#finance-overview-form,.finance-button,.finance-tools,#finance-status{display:none!important}.finance-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.finance-metrics>div{break-inside:avoid}}
+  @media print{#finance-overview-form,#net-worth-form,.finance-button,.finance-tools,#finance-status,#net-status{display:none!important}.finance-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.finance-metrics>div{break-inside:avoid}}
 </style>
 <script>
   import {calculateFinanceOverview} from '../../lib/finance-overview.mjs';
@@ -98,4 +115,23 @@ const fields = [
   form.addEventListener('input',()=>{output('results').hidden=true;output('status').textContent='Vstupy sa zmenili. Pre aktuálny výsledok stlačte Vypočítať prehľad.';output('error').hidden=true;});
   form.addEventListener('reset',()=>{output('results').hidden=true;output('error').hidden=true;output('status').textContent='Vstupy a výsledky boli vymazané.';requestAnimationFrame(()=>input('income').focus());});
   document.getElementById('finance-print')?.addEventListener('click',()=>{const details=document.getElementById('finance-assumptions') as HTMLDetailsElement;const wasOpen=details.open;details.open=true;try{window.print();}finally{details.open=wasOpen;}});
+
+  const netForm=document.getElementById('net-worth-form') as HTMLFormElement;
+  const netResults=document.getElementById('net-worth-results')!;
+  const netStatus=document.getElementById('net-status')!;
+  const netKeys=['cash','investments','property','otherAssets','mortgage','otherDebt'];
+  netForm.addEventListener('submit',event=>{
+    event.preventDefault();
+    const values=netKeys.map(key=>(document.getElementById('net-'+key) as HTMLInputElement).valueAsNumber);
+    if(!netForm.checkValidity()||values.some(v=>!Number.isFinite(v)||v<0||v>10000000)){netResults.hidden=true;netStatus.textContent='Skontrolujte nezáporné sumy.';return;}
+    const cents=values.map(v=>Math.round(v*100));
+    const assets=cents.slice(0,4).reduce((a,b)=>a+b,0);
+    const debts=cents.slice(4).reduce((a,b)=>a+b,0);
+    document.getElementById('net-assets')!.textContent=currency(assets/100);
+    document.getElementById('net-debts')!.textContent=currency(debts/100);
+    document.getElementById('net-value')!.textContent=currency((assets-debts)/100);
+    netResults.hidden=false;netStatus.textContent='Čistá hodnota: '+currency((assets-debts)/100)+'.';
+  });
+  netForm.addEventListener('input',()=>{netResults.hidden=true;netStatus.textContent='Vstupy sa zmenili. Vypočítajte čistú hodnotu znovu.';});
+  netForm.addEventListener('reset',()=>{netResults.hidden=true;netStatus.textContent='Majetok a dlhy boli vymazané.';});
 </script>
