@@ -1,3 +1,4 @@
+import { checkFinancePlanning } from './v4-finance-planning.mjs';
 import { checkPersonalTools } from './v4-personal-tools.mjs';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
@@ -19,4 +20,5 @@ try{
   console.log('PASS rendered privacy contact '+route);
  }
  await checkPersonalTools(browser,origin);
+ await checkFinancePlanning(browser,origin);
 }finally{await browser.close();}
