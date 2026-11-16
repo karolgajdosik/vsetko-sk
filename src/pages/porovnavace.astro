@@ -39,6 +39,11 @@ import Base from '../layouts/Base.astro';
     <div class="offers">{['A','B'].map(id=><fieldset><legend>Program {id}</legend>{[['monthly','Mesačný paušál (€)',0,100000],['included','Dáta v paušále (GB)',0,10000],['pack','Veľkosť dokupovaného balíka (GB)',0.01,10000],['price','Cena balíka (€)',0,100000]].map(([key,label,min,max])=><div><label for={`telecom-${id}-${key}`}>{label}</label><input id={`telecom-${id}-${key}`} type="number" min={min} max={max} step="0.01" value={key==='pack'?1:0} required /></div>)}</fieldset>)}</div>
     <div class="actions"><button class="primary" type="submit">Porovnať programy</button><button type="reset">Vymazať</button></div><p id="telecom-result" role="status" aria-live="polite"></p>
   </form><p class="note">Model predpokladá dostupnosť opakovaných dokupovaných balíkov bez obmedzenia. Nezahŕňa roaming, prenos dát, viazanosť ani zariadenia. Pri neobmedzenom programe zadajte zahrnuté dáta aspoň vo výške spotreby.</p></section>
+  <section class="panel" aria-labelledby="housing-title"><h2 id="housing-title">Porovnanie nákladov na nájomné bývanie</h2><p>Porovnajte dve nájomné ponuky za rovnaké obdobie. Vratná kaucia je viazaná hotovosť, nie náklad; uvádzame ju oddelene.</p>
+  <form id="housing-comparison-form"><label for="housing-months">Obdobie (mesiace)</label><input id="housing-months" type="number" min="1" max="120" step="1" value="12" required />
+    <div class="offers">{['A','B'].map(id=><fieldset><legend>Bývanie {id}</legend>{[['rent','Mesačný nájom (€)'],['utilities','Mesačné energie a služby (€)'],['other','Ostatné mesačné náklady (€)'],['setup','Jednorazové nevratné poplatky (€)'],['deposit','Vratná kaucia (€)']].map(([key,label])=><div><label for={`housing-${id}-${key}`}>{label}</label><input id={`housing-${id}-${key}`} type="number" min="0" max="1000000" step="0.01" value="0" required /></div>)}</fieldset>)}</div>
+    <div class="actions"><button class="primary" type="submit">Porovnať bývanie</button><button type="reset">Vymazať</button></div><p id="housing-result" role="status" aria-live="polite"></p><p id="housing-cash" role="status"></p>
+  </form><p class="note">Predpokladá nemenné mesačné ceny a úplné vrátenie kaucie. Nezahŕňa kúpu nehnuteľnosti, hypotéku, infláciu ani sankcie. Energie zahrnuté v nájme nezapočítajte dvakrát.</p></section>
   <noscript><p>Na výpočet potrebujete JavaScript.</p></noscript>
 </main>
 </Base>
@@ -124,6 +129,16 @@ function wireScenario(name:string,calculate:()=>number[],period:string){
 }
 wireScenario('bank',()=>['A','B'].map(id=>12*(hundredths('bank-'+id+'-monthly')+numeric('bank-count')*hundredths('bank-'+id+'-withdrawal'))+hundredths('bank-'+id+'-card')),'Ročne');
 wireScenario('telecom',()=>['A','B'].map(id=>hundredths('telecom-'+id+'-monthly')+Math.ceil(Math.max(0,hundredths('telecom-demand')-hundredths('telecom-'+id+'-included'))/hundredths('telecom-'+id+'-pack'))*hundredths('telecom-'+id+'-price')),'Mesačne');
+const housingForm=document.querySelector<HTMLFormElement>('#housing-comparison-form')!;
+const housingCash=document.getElementById('housing-cash')!;
+const housingMonthly=(id:string)=>['rent','utilities','other'].reduce((sum,key)=>sum+hundredths('housing-'+id+'-'+key),0);
+wireScenario('housing',()=>['A','B'].map(id=>numeric('housing-months')*housingMonthly(id)+hundredths('housing-'+id+'-setup')),'Náklady za zvolené obdobie');
+housingForm.addEventListener('submit',()=>{if(!housingForm.checkValidity())return;
+ const initial=['A','B'].map(id=>housingMonthly(id)+hundredths('housing-'+id+'-setup')+hundredths('housing-'+id+'-deposit'));
+ housingCash.textContent=initial.every(n=>Number.isSafeInteger(n)&&n>=0)?'Hotovosť na prvý mesiac vrátane kaucie: A '+money(initial[0]/100)+', B '+money(initial[1]/100)+'.':'';
+});
+housingForm.addEventListener('input',()=>{housingCash.textContent='';});
+housingForm.addEventListener('reset',()=>{housingCash.textContent='';});
 </script>
 <style>
 .comparison{max-width:1040px}.comparison .panel{padding:1.4rem;margin:1.3rem 0}.comparison label{display:block;font-weight:650;margin:.8rem 0 .4rem}.comparison :is(input,select){font:inherit;max-width:100%;width:100%;box-sizing:border-box;padding:.75rem;border:1px solid #8191a5;border-radius:.5rem;background:transparent;color:inherit}.comparison fieldset{min-width:0;border:1px solid #8191a5;border-radius:.7rem;padding:1rem}.offers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1rem 0}.actions{display:flex;gap:1rem;flex-wrap:wrap}.comparison button{font:inherit;padding:.8rem;cursor:pointer}.comparison :is(input,select,button):focus-visible{outline:3px solid currentColor;outline-offset:3px}.table-scroll{overflow-x:auto}.comparison table{border-collapse:collapse;width:100%}.comparison :is(td,th){padding:.8rem;text-align:left;border-bottom:1px solid #8191a5}@media(max-width:650px){.offers{grid-template-columns:1fr}}
