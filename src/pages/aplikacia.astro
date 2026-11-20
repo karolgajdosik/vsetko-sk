@@ -22,12 +22,41 @@ import Base from '../layouts/Base.astro';
     <p>Portál neposiela push upozornenia a po zatvorení aplikácie nevykonáva úlohy na pozadí. Termíny môžete z <a href="/kalendar/">kalendára povinností</a> exportovať do vlastnej kalendárovej aplikácie.</p>
     <p class="note">Pridanie na plochu nezálohuje ani nesynchronizuje vaše lokálne záznamy. Samostatná webová aplikácia môže podľa zariadenia používať iné úložisko ako karta prehliadača.</p>
   </section>
+  <section class="panel" aria-labelledby="app-check-title">
+    <h2 id="app-check-title">Kontrola pripravenosti v tomto zariadení</h2>
+    <p>Táto kontrola prebieha iba vo vašom prehliadači. Overí pripojenie, samostatný režim a ovládanie stránky offline pracovníkom. Neoveruje obsah cache ani dostupnosť všetkých stránok bez internetu.</p>
+    <p id="app-connection" role="status" aria-live="polite">Stav pripojenia sa zisťuje…</p>
+    <p id="app-worker" role="status" aria-live="polite">Stav offline režimu sa zisťuje…</p>
+    <p id="app-mode" role="status">Režim otvorenia sa zisťuje…</p>
+    <button id="app-recheck" type="button">Skontrolovať znova</button>
+    <p class="note">Skutočnú dostupnosť offline obrazovky overíte až po prvom online načítaní: vypnite internet a skúste otvoriť novú stránku. Neskúšajte to s neuloženými formulármi.</p>
+  </section>
   <section class="panel" aria-labelledby="app-start-title"><h2 id="app-start-title">Kam chcete pokračovať?</h2><nav class="app-links" aria-label="Hlavné nástroje aplikácie"><a href="/ai/">Asistent a vyhľadávanie</a><a href="/kalkulacky/">Kalkulačky</a><a href="/navody/">Praktické návody</a><a href="/moje-centrum/">Moje centrum</a></nav></section>
 </main>
 <script>
 type InstallPromptEvent = Event & {prompt:()=>Promise<void>;userChoice:Promise<{outcome:string}>};
 const installButton=document.querySelector<HTMLButtonElement>('#app-install');
 const installStatus=document.querySelector<HTMLElement>('#app-install-status');
+const connectionStatus=document.querySelector<HTMLElement>('#app-connection');
+const workerStatus=document.querySelector<HTMLElement>('#app-worker');
+const modeStatus=document.querySelector<HTMLElement>('#app-mode');
+async function checkReadiness(){
+  if(connectionStatus)connectionStatus.textContent=navigator.onLine?'Prehliadač hlási pripojenie k sieti (dostupnosť servera nie je overená).':'Prehliadač hlási režim bez pripojenia.';
+  if(modeStatus)modeStatus.textContent=(window.matchMedia('(display-mode: standalone)').matches||('standalone' in navigator&&navigator.standalone===true))?'Otvorené ako samostatná aplikácia.':'Otvorené v prehliadači; samostatná inštalácia nie je potvrdená.';
+  if(!workerStatus)return;
+  if(!('serviceWorker' in navigator)){workerStatus.textContent='Offline pracovník nie je v tomto prehliadači podporovaný.';return;}
+  try{
+    const registration=await navigator.serviceWorker.getRegistration();
+    if(navigator.serviceWorker.controller)workerStatus.textContent='Táto stránka je ovládaná offline pracovníkom. Dostupnosť offline obsahu ešte nie je overená.';
+    else if(registration?.active)workerStatus.textContent='Offline pracovník je aktívny, ale túto stránku zatiaľ neovláda. Skúste stránku znovu načítať.';
+    else workerStatus.textContent='Pre túto stránku zatiaľ nie je potvrdený aktívny offline pracovník. Otvorte ju online a skúste to znova.';
+  }catch{workerStatus.textContent='Stav offline pracovníka sa nepodarilo zistiť. Offline dostupnosť nie je potvrdená.';}
+}
+document.querySelector<HTMLButtonElement>('#app-recheck')?.addEventListener('click',()=>{void checkReadiness();});
+window.addEventListener('online',()=>{void checkReadiness();});
+window.addEventListener('offline',()=>{void checkReadiness();});
+if('serviceWorker' in navigator)navigator.serviceWorker.addEventListener('controllerchange',()=>{void checkReadiness();});
+void checkReadiness();
 let pendingPrompt:InstallPromptEvent|null=null;
 const standalone=window.matchMedia('(display-mode: standalone)').matches||('standalone' in navigator&&navigator.standalone===true);
 if(standalone&&installStatus)installStatus.textContent='Portál je otvorený ako samostatná webová aplikácia.';
@@ -48,5 +77,5 @@ window.addEventListener('appinstalled',()=>{
   if(installStatus)installStatus.textContent='Prehliadač potvrdil pridanie aplikácie. Nájdete ju medzi aplikáciami alebo na ploche.';
 });
 </script>
-<style>.app-page{max-width:900px}.app-page section{padding:1.4rem;margin:1.2rem 0}.app-page li{margin:.6rem 0}.app-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.app-links a{border:1px solid #8290a5;border-radius:10px;padding:.8rem;overflow-wrap:anywhere}#app-install{min-height:48px;padding:.8rem 1rem;border-radius:10px;border:1px solid #14508c;background:#14508c;color:white;font:inherit;font-weight:700;cursor:pointer}#app-install[hidden]{display:none}@media(max-width:550px){.app-links{grid-template-columns:1fr}}</style>
+<style>.app-page{max-width:900px}.app-page section{padding:1.4rem;margin:1.2rem 0}.app-page li{margin:.6rem 0}.app-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.app-links a{border:1px solid #8290a5;border-radius:10px;padding:.8rem;overflow-wrap:anywhere}#app-install,#app-recheck{min-height:48px;padding:.8rem 1rem;border-radius:10px;border:1px solid #14508c;background:#14508c;color:white;font:inherit;font-weight:700;cursor:pointer}#app-install[hidden]{display:none}@media(max-width:550px){.app-links{grid-template-columns:1fr}}</style>
 </Base>
