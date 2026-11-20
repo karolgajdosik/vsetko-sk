@@ -62,7 +62,7 @@ const fields = [
     <section class="panel" aria-labelledby="net-worth-title">
       <h2 id="net-worth-title">3. Majetok a dlhy</h2>
       <p>Odhadnite čistú hodnotu domácnosti k dnešnému dňu. Zadajte aktuálne hodnoty majetku a nesplatené istiny dlhov, nie mesačné splátky. Každú položku započítajte iba raz. Údaje sa neukladajú.</p>
-      <form id="net-worth-form">
+      <form id="net-worth-form" novalidate>
         <div class="finance-inputs">
           {[{id:'cash',label:'Peniaze a úspory (€)'},{id:'investments',label:'Investície (€)'},{id:'property',label:'Nehnuteľnosti (€)'},{id:'otherAssets',label:'Vozidlá a ostatný majetok (€)'},{id:'mortgage',label:'Zostatok hypoték (€)'},{id:'otherDebt',label:'Zostatok ostatných dlhov (€)'}].map(field=><div class="finance-field"><label for={'net-'+field.id}>{field.label}</label><input id={'net-'+field.id} type="number" min="0" max="10000000" step="0.01" inputmode="decimal" value="0" required /></div>)}
         </div>
@@ -125,7 +125,7 @@ const fields = [
   netForm.addEventListener('submit',event=>{
     event.preventDefault();
     const values=netKeys.map(key=>(document.getElementById('net-'+key) as HTMLInputElement).valueAsNumber);
-    if(!netForm.checkValidity()||values.some(v=>!Number.isFinite(v)||v<0||v>10000000)){netResults.hidden=true;netStatus.textContent='Skontrolujte nezáporné sumy.';return;}
+    if(!netForm.checkValidity()||values.some(v=>!Number.isFinite(v)||v<0||v>10000000)){netResults.hidden=true;netStatus.textContent='Skontrolujte všetkých šesť polí. Zadajte sumy od 0 do 10 miliónov € s presnosťou na centy.';netForm.reportValidity();return;}
     const cents=values.map(v=>Math.round(v*100));
     const assets=cents.slice(0,4).reduce((a,b)=>a+b,0);
     const debts=cents.slice(4).reduce((a,b)=>a+b,0);
