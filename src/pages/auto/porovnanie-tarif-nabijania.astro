@@ -1,0 +1,51 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Porovnanie taríf nabíjania EV" description="Nezávislé porovnanie dvoch vlastných cien nabíjania elektromobilu, paušálov a spotreby. Bez registrácie a odosielania údajov.">
+<main id="obsah" class="wrap main">
+  <p class="eyebrow">VŠETKO24 · Porovnávače</p>
+  <h1>Porovnanie taríf nabíjania elektromobilu</h1>
+  <p>Porovnajte dva ľubovoľné programy podľa vlastných cien. Nezobrazujeme živé cenníky, nezaručujeme dostupnosť staníc a nemáme potvrdené obchodné partnerstvá. Vstupy sa neukladajú ani neodosielajú.</p>
+  <section class="panel" aria-labelledby="compare-title">
+    <h2 id="compare-title">Vlastné tarify a mesačná spotreba</h2>
+    <form id="ev-tariff-form">
+      <div class="vehicle-fields">
+        <div><label for="ev-kwh">Nabíjanie mesačne (kWh)</label><input id="ev-kwh" type="number" min="0" max="100000" step="0.1" value="300" required inputmode="decimal" /></div>
+        <div><label for="ev-a-name">Názov programu A</label><input id="ev-a-name" type="text" maxlength="40" value="Program A" /></div>
+        <div><label for="ev-a-fee">Paušál A (€/mesiac)</label><input id="ev-a-fee" type="number" min="0" max="10000" step="0.01" value="0" required inputmode="decimal" /></div>
+        <div><label for="ev-a-price">Cena A (€/kWh)</label><input id="ev-a-price" type="number" min="0" max="100" step="0.001" value="0.49" required inputmode="decimal" /></div>
+        <div><label for="ev-b-name">Názov programu B</label><input id="ev-b-name" type="text" maxlength="40" value="Program B" /></div>
+        <div><label for="ev-b-fee">Paušál B (€/mesiac)</label><input id="ev-b-fee" type="number" min="0" max="10000" step="0.01" value="9.90" required inputmode="decimal" /></div>
+        <div><label for="ev-b-price">Cena B (€/kWh)</label><input id="ev-b-price" type="number" min="0" max="100" step="0.001" value="0.39" required inputmode="decimal" /></div>
+      </div>
+      <button type="submit">Porovnať mesačné náklady</button> <button type="reset">Obnoviť príklad</button>
+    </form>
+    <p id="ev-tariff-result" role="status" aria-live="polite">Zadajte svoje ceny a spustite porovnanie.</p>
+    <p id="ev-tariff-break-even"></p>
+    <p class="note">Vzorec: mesačný paušál + spotrebované kWh × cena za kWh. Nezahŕňa parkovné, blokovacie poplatky, roaming, zľavy, rozdiely AC/DC, straty nabíjania ani časové obmedzenia. Porovnávajte rovnaký typ nabíjania a overte aktuálny cenník priamo u poskytovateľa.</p>
+  </section>
+  <p><a href="/auto/moje-auto/">Späť na Moje auto</a></p>
+</main>
+<script>
+const form=document.querySelector<HTMLFormElement>('#ev-tariff-form')!;
+const result=document.querySelector<HTMLElement>('#ev-tariff-result')!;
+const breakEven=document.querySelector<HTMLElement>('#ev-tariff-break-even')!;
+const number=(id:string)=>(document.getElementById(id) as HTMLInputElement).valueAsNumber;
+const name=(id:string)=>(document.getElementById(id) as HTMLInputElement).value.trim()||'Program';
+const eur=(n:number)=>new Intl.NumberFormat('sk-SK',{style:'currency',currency:'EUR'}).format(n);
+form.addEventListener('submit',event=>{
+  event.preventDefault();
+  if(!form.reportValidity())return;
+  const kwh=number('ev-kwh'),fa=number('ev-a-fee'),pa=number('ev-a-price'),fb=number('ev-b-fee'),pb=number('ev-b-price');
+  if(![kwh,fa,pa,fb,pb].every(Number.isFinite)||kwh<0||kwh>100000||[fa,fb].some(x=>x<0||x>10000)||[pa,pb].some(x=>x<0||x>100)){result.textContent='Skontrolujte nezáporné a povolené hodnoty.';breakEven.textContent='';return;}
+  const a=fa+kwh*pa,b=fb+kwh*pb,delta=Math.abs(a-b);
+  result.textContent=name('ev-a-name')+': '+eur(a)+' / mesiac; '+name('ev-b-name')+': '+eur(b)+' / mesiac. '+(Math.abs(a-b)<0.005?'Pri tejto spotrebe vychádzajú náklady rovnako.':(a<b?name('ev-a-name'):name('ev-b-name'))+' vychádza lacnejšie o '+eur(delta)+' mesačne ('+eur(delta*12)+' ročne).');
+  const difference=pa-pb;
+  if(Math.abs(difference)<1e-12){breakEven.textContent='Ceny za kWh sú rovnaké; poradie určuje iba paušál.';return;}
+  const threshold=(fb-fa)/difference;
+  breakEven.textContent=threshold>=0&&Number.isFinite(threshold)?'Bod rovnakých nákladov: '+new Intl.NumberFormat('sk-SK',{maximumFractionDigits:1}).format(threshold)+' kWh mesačne. Pri vyššej alebo nižšej spotrebe sa môže výhodnosť zmeniť.':'Pri nezápornej spotrebe sa tarify podľa zadaných cien nepretnú.';
+});
+form.addEventListener('input',()=>{result.textContent='Vstupy sa zmenili. Spustite nové porovnanie.';breakEven.textContent='';});
+form.addEventListener('reset',()=>{result.textContent='Zadajte svoje ceny a spustite porovnanie.';breakEven.textContent='';});
+</script>
+</Base>
