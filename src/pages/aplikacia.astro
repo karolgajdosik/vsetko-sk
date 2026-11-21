@@ -34,6 +34,24 @@ import Base from '../layouts/Base.astro';
     <p class="note">Kopírovaný text obsahuje len technické stavy zobrazené vyššie a čas kontroly, nie vaše formuláre, údaje účtu ani obsah úložiska. Skopírovanie sa spustí iba po stlačení tlačidla.</p>
     <p class="note">Skutočnú dostupnosť offline obrazovky overíte až po prvom online načítaní: vypnite internet a skúste otvoriť novú stránku. Neskúšajte to s neuloženými formulármi.</p>
   </section>
+  <section class="panel" aria-labelledby="app-offline-test-title">
+    <h2 id="app-offline-test-title">Praktický test offline režimu</h2>
+    <p>Nasledujúci postup overuje správanie na vašom zariadení, nie iba stav registrácie pracovníka. Výsledky sa nikam neukladajú ani neodosielajú. Pred vypnutím siete uložte rozpracované formuláre.</p>
+    <ol>
+      <li>Keď ste online, otvorte portál a počkajte na dokončenie načítania. Potom označte prvý krok.</li>
+      <li>Vypnite Wi-Fi aj mobilné dáta, otvorte novú kartu alebo okno aplikácie a skúste načítať portál. Označte druhý krok iba vtedy, ak sa zobrazila užitočná offline obrazovka.</li>
+      <li>Obnovte pripojenie a overte, že sa portál opäť načíta. Potom označte tretí krok.</li>
+    </ol>
+    <fieldset class="app-offline-steps">
+      <legend>Výsledok ručného testu v tomto zariadení</legend>
+      <label><input type="checkbox" data-offline-step /> Prvé načítanie online prebehlo</label>
+      <label><input type="checkbox" data-offline-step /> Offline obrazovka sa skutočne zobrazila bez internetu</label>
+      <label><input type="checkbox" data-offline-step /> Po obnovení internetu stránka opäť funguje</label>
+    </fieldset>
+    <p id="app-offline-test-status" role="status" aria-live="polite">Ručný test zatiaľ nie je dokončený.</p>
+    <button id="app-offline-test-reset" type="button">Vynulovať ručný test</button>
+    <p class="note">Zaškrtnutia sú iba vaše potvrdenia, nie automaticky namerané dôkazy. Po opätovnom načítaní stránky sa vynulujú. Offline režim nezaručuje prístup ku kalkulačkám ani k údajom z externých API.</p>
+  </section>
   <section class="panel" aria-labelledby="app-start-title"><h2 id="app-start-title">Kam chcete pokračovať?</h2><nav class="app-links" aria-label="Hlavné nástroje aplikácie"><a href="/ai/">Asistent a vyhľadávanie</a><a href="/kalkulacky/">Kalkulačky</a><a href="/navody/">Praktické návody</a><a href="/moje-centrum/">Moje centrum</a></nav></section>
 </main>
 <script>
@@ -44,6 +62,19 @@ const connectionStatus=document.querySelector<HTMLElement>('#app-connection');
 const workerStatus=document.querySelector<HTMLElement>('#app-worker');
 const modeStatus=document.querySelector<HTMLElement>('#app-mode');
 const copyStatus=document.querySelector<HTMLElement>('#app-copy-status');
+const offlineSteps=Array.from(document.querySelectorAll<HTMLInputElement>('[data-offline-step]'));
+const offlineTestStatus=document.querySelector<HTMLElement>('#app-offline-test-status');
+function updateOfflineTest(){
+  const completed=offlineSteps.filter(step=>step.checked).length;
+  if(offlineTestStatus)offlineTestStatus.textContent=completed===3
+    ? 'Všetky tri kroky ste manuálne potvrdili. Ide o výsledok vášho testu, nie o automatické overenie.'
+    : 'Ručný test: '+completed+' z 3 krokov potvrdených. Offline funkčnosť zatiaľ nie je úplne potvrdená.';
+}
+offlineSteps.forEach(step=>step.addEventListener('change',updateOfflineTest));
+document.querySelector<HTMLButtonElement>('#app-offline-test-reset')?.addEventListener('click',()=>{
+  offlineSteps.forEach(step=>{step.checked=false;});updateOfflineTest();
+});
+updateOfflineTest();
 let lastCheckTime='';
 async function checkReadiness(){
   lastCheckTime=new Date().toLocaleString('sk-SK',{timeZone:'Europe/Bratislava'});
@@ -93,5 +124,5 @@ window.addEventListener('appinstalled',()=>{
   if(installStatus)installStatus.textContent='Prehliadač potvrdil pridanie aplikácie. Nájdete ju medzi aplikáciami alebo na ploche.';
 });
 </script>
-<style>.app-page{max-width:900px}.app-page section{padding:1.4rem;margin:1.2rem 0}.app-page li{margin:.6rem 0}.app-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.app-links a{border:1px solid #8290a5;border-radius:10px;padding:.8rem;overflow-wrap:anywhere}#app-install,#app-recheck,#app-copy-diagnostics{min-height:48px;padding:.8rem 1rem;border-radius:10px;border:1px solid #14508c;background:#14508c;color:white;font:inherit;font-weight:700;cursor:pointer}#app-install[hidden]{display:none}@media(max-width:550px){.app-links{grid-template-columns:1fr}}</style>
+<style>.app-page{max-width:900px}.app-page section{padding:1.4rem;margin:1.2rem 0}.app-page li{margin:.6rem 0}.app-offline-steps{border:1px solid #8290a5;border-radius:10px;padding:1rem}.app-offline-steps label{display:block;margin:.7rem 0}.app-offline-steps input{margin-right:.5rem;min-width:20px;min-height:20px}.app-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.app-links a{border:1px solid #8290a5;border-radius:10px;padding:.8rem;overflow-wrap:anywhere}#app-install,#app-recheck,#app-copy-diagnostics,#app-offline-test-reset{min-height:48px;padding:.8rem 1rem;border-radius:10px;border:1px solid #14508c;background:#14508c;color:white;font:inherit;font-weight:700;cursor:pointer}#app-install[hidden]{display:none}@media(max-width:550px){.app-links{grid-template-columns:1fr}}</style>
 </Base>
