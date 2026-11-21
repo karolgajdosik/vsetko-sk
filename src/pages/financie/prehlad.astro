@@ -74,6 +74,17 @@ const fields = [
         <div><span>Čistá hodnota (majetok mínus dlhy)</span><strong id="net-value">—</strong></div>
       </div>
       <p id="net-status" role="status" aria-live="polite"></p>
+      <section id="net-scenario" hidden aria-labelledby="net-scenario-title">
+        <h3 id="net-scenario-title">Model vývoja čistej hodnoty</h3>
+        <p>Model bez úrokov, inflácie a zmeny cien majetku. Splácanie istiny nezapočítajte zároveň ako sporenie.</p>
+        <div class="finance-inputs">
+          <div class="finance-field"><label for="net-monthly-saving">Nové úspory mesačne (€)</label><input id="net-monthly-saving" type="number" min="0" max="10000000" step="0.01" value="0" /></div>
+          <div class="finance-field"><label for="net-monthly-principal">Zníženie istiny dlhov mesačne (€)</label><input id="net-monthly-principal" type="number" min="0" max="10000000" step="0.01" value="0" /></div>
+          <div class="finance-field"><label for="net-months">Počet mesiacov</label><input id="net-months" type="number" min="1" max="120" step="1" value="12" /></div>
+        </div>
+        <button type="button" id="net-forecast" class="finance-button">Vypočítať model</button>
+        <p id="net-forecast-result" role="status" aria-live="polite"></p>
+      </section>
       <p class="note">Ide o orientačný stav majetku, nie dostupnú hotovosť ani posúdenie bonity. Nezahŕňa náklady predaja, dane ani budúce úroky. Tento výpočet je oddelený od mesačného rozpočtu.</p>
     </section>
     <section class="panel" aria-labelledby="finance-tools-title">
@@ -122,18 +133,35 @@ const fields = [
   const netResults=document.getElementById('net-worth-results')!;
   const netStatus=document.getElementById('net-status')!;
   const netKeys=['cash','investments','property','otherAssets','mortgage','otherDebt'];
+  let netBaseline:{assets:number;debts:number}|null=null;
+  const scenario=document.getElementById('net-scenario')!;
+  const forecastResult=document.getElementById('net-forecast-result')!;
   netForm.addEventListener('submit',event=>{
     event.preventDefault();
     const values=netKeys.map(key=>(document.getElementById('net-'+key) as HTMLInputElement).valueAsNumber);
-    if(!netForm.checkValidity()||values.some(v=>!Number.isFinite(v)||v<0||v>10000000)){netResults.hidden=true;netStatus.textContent='Skontrolujte všetkých šesť polí. Zadajte sumy od 0 do 10 miliónov € s presnosťou na centy.';netForm.reportValidity();return;}
+    if(!netForm.checkValidity()||values.some(v=>!Number.isFinite(v)||v<0||v>10000000)){netBaseline=null;scenario.hidden=true;netResults.hidden=true;netStatus.textContent='Skontrolujte všetkých šesť polí. Zadajte sumy od 0 do 10 miliónov € s presnosťou na centy.';netForm.reportValidity();return;}
     const cents=values.map(v=>Math.round(v*100));
     const assets=cents.slice(0,4).reduce((a,b)=>a+b,0);
     const debts=cents.slice(4).reduce((a,b)=>a+b,0);
     document.getElementById('net-assets')!.textContent=currency(assets/100);
     document.getElementById('net-debts')!.textContent=currency(debts/100);
     document.getElementById('net-value')!.textContent=currency((assets-debts)/100);
+    netBaseline={assets,debts};scenario.hidden=false;forecastResult.textContent='Zadajte hodnoty a vypočítajte model.';
     netResults.hidden=false;netStatus.textContent='Čistá hodnota: '+currency((assets-debts)/100)+'.';
   });
-  netForm.addEventListener('input',()=>{netResults.hidden=true;netStatus.textContent='Vstupy sa zmenili. Vypočítajte čistú hodnotu znovu.';});
-  netForm.addEventListener('reset',()=>{netResults.hidden=true;netStatus.textContent='Majetok a dlhy boli vymazané.';});
+  netForm.addEventListener('input',()=>{netBaseline=null;scenario.hidden=true;netResults.hidden=true;netStatus.textContent='Vstupy sa zmenili. Vypočítajte čistú hodnotu znovu.';});
+  netForm.addEventListener('reset',()=>{netBaseline=null;scenario.hidden=true;netResults.hidden=true;netStatus.textContent='Majetok a dlhy boli vymazané.';});
+  document.getElementById('net-forecast')?.addEventListener('click',()=>{
+    if(!netBaseline)return;
+    const ids=['net-monthly-saving','net-monthly-principal','net-months'];
+    const inputs=ids.map(id=>document.getElementById(id) as HTMLInputElement);
+    if(inputs.some(el=>!el.checkValidity()||!Number.isFinite(el.valueAsNumber))||!Number.isInteger(inputs[2].valueAsNumber)){forecastResult.textContent='Skontrolujte sumy a celé mesiace od 1 do 120.';return;}
+    const [saving,principal,months]=inputs.map(el=>el.valueAsNumber);
+    const added=Math.round(saving*100)*months;
+    const repaid=Math.round(principal*100)*months;
+    if(repaid>netBaseline.debts){forecastResult.textContent='Modelované splatenie presahuje aktuálny dlh. Znížte splátku alebo počet mesiacov.';return;}
+    const projected=netBaseline.assets+added-netBaseline.debts+repaid;
+    forecastResult.textContent='Po '+months+' mesiacoch: orientačná čistá hodnota '+currency(projected/100)+'. Nárast '+currency((added+repaid)/100)+'. Bez úrokov, zhodnotenia a ďalších zmien.';
+  });
+  for(const id of ['net-monthly-saving','net-monthly-principal','net-months'])document.getElementById(id)?.addEventListener('input',()=>{forecastResult.textContent='Vstupy sa zmenili. Prepočítajte model.';});
 </script>
