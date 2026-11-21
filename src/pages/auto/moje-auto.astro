@@ -226,7 +226,12 @@ evPlan.addEventListener('submit',event=>{
  const need=distance*rate/100, initial=capacity*(start-reserve)/100, cycle=capacity*(target-reserve)/100;
  const additional=Math.max(0,need-initial), stops=Math.ceil(Math.max(0,additional-1e-9)/cycle);
  const fmt=(n:number)=>new Intl.NumberFormat('sk-SK',{maximumFractionDigits:1}).format(n);
- evResult.textContent='Energia na cestu: '+fmt(need)+' kWh. Dojazd po rezervu pri štarte: '+fmt(initial/rate*100)+' km. Minimálne doplniť do batérie: '+fmt(additional)+' kWh. Modelový počet nabíjaní: '+fmt(stops)+'. Dojazd medzi nabitiami po rezervu: '+fmt(cycle/rate*100)+' km.';
+ const firstLeg=initial/rate*100, nextLeg=cycle/rate*100;
+ const checkpoints:number[]=[];
+ // Ide len o kilometrové orientačné body; nezodpovedajú polohe ani dostupnosti stojanov.
+ for(let i=0;i<Math.min(stops,20);i++)checkpoints.push(Math.min(distance,firstLeg+i*nextLeg));
+ const checkpointText=stops===0?'Nabíjacia zastávka podľa modelu nie je potrebná.':stops<=20?'Orientačné kilometre, kde by bolo potrebné nabíjanie: '+checkpoints.map(km=>fmt(km)+' km').join(', ')+'.':'Model predpokladá '+fmt(stops)+' nabíjaní; kilometrový zoznam pri viac než 20 zastávkach nezobrazujeme.';
+ evResult.textContent='Energia na cestu: '+fmt(need)+' kWh. Dojazd po rezervu pri štarte: '+fmt(firstLeg)+' km. Minimálne doplniť do batérie: '+fmt(additional)+' kWh. Modelový počet nabíjaní: '+fmt(stops)+'. Dojazd medzi nabitiami po rezervu: '+fmt(nextLeg)+' km. '+checkpointText+' Nejde o skutočné polohy nabíjačiek.';
 });
 </script>
 <style>
