@@ -44,6 +44,14 @@ import Base from '../layouts/Base.astro';
     <div class="offers">{['A','B'].map(id=><fieldset><legend>Bývanie {id}</legend>{[['rent','Mesačný nájom (€)'],['utilities','Mesačné energie a služby (€)'],['other','Ostatné mesačné náklady (€)'],['setup','Jednorazové nevratné poplatky (€)'],['deposit','Vratná kaucia (€)']].map(([key,label])=><div><label for={`housing-${id}-${key}`}>{label}</label><input id={`housing-${id}-${key}`} type="number" min="0" max="1000000" step="0.01" value="0" required /></div>)}</fieldset>)}</div>
     <div class="actions"><button class="primary" type="submit">Porovnať bývanie</button><button type="reset">Vymazať</button></div><p id="housing-result" role="status" aria-live="polite"></p><p id="housing-cash" role="status"></p>
   </form><p class="note">Predpokladá nemenné mesačné ceny a úplné vrátenie kaucie. Nezahŕňa kúpu nehnuteľnosti, hypotéku, infláciu ani sankcie. Energie zahrnuté v nájme nezapočítajte dvakrát.</p></section>
+  <section class="panel" aria-labelledby="ev-session-title"><h2 id="ev-session-title">EV tarify s poplatkom za nabíjanie</h2><p>Pri rovnakom mesačnom odbere porovnajte aj poplatok za každé nabíjanie a paušál. Použite vlastné ceny vrátane DPH; nejde o aktuálne tarify poskytovateľov.</p>
+  <form id="ev-session-form">
+    <label for="ev-session-kwh">Mesačne nabitá energia (kWh)</label><input id="ev-session-kwh" type="number" min="0" max="100000" step="0.01" value="200" required />
+    <label for="ev-session-count">Počet nabíjaní mesačne</label><input id="ev-session-count" type="number" min="0" max="10000" step="1" value="8" required />
+    <div class="offers">{['A','B'].map(id=><fieldset><legend>EV tarifa {id}</legend>{[['rate','Cena za kWh (€)'],['session','Poplatok za nabíjanie (€)'],['monthly','Mesačný paušál (€)']].map(([key,label])=><div><label for={`ev-session-${id}-${key}`}>{label}</label><input id={`ev-session-${id}-${key}`} type="number" min="0" max="100000" step="0.01" value="0" required /></div>)}</fieldset>)}</div>
+    <div class="actions"><button type="submit" class="primary">Porovnať EV tarify</button><button type="reset">Vymazať EV porovnanie</button></div>
+    <p id="ev-session-result" role="status" aria-live="polite"></p>
+  </form><p class="note">Model predpokladá rovnaký odber a počet nabíjaní každý mesiac. Nezahŕňa časové sadzby, roaming, blokovacie poplatky, parkovanie, nabíjacie straty ani prípadné cenové pásma. Ak má tarifa iné podmienky, výsledok nemusí byť porovnateľný.</p></section>
   <noscript><p>Na výpočet potrebujete JavaScript.</p></noscript>
 </main>
 </Base>
@@ -139,6 +147,23 @@ housingForm.addEventListener('submit',()=>{if(!housingForm.checkValidity())retur
 });
 housingForm.addEventListener('input',()=>{housingCash.textContent='';});
 housingForm.addEventListener('reset',()=>{housingCash.textContent='';});
+const evSessionForm=document.querySelector<HTMLFormElement>('#ev-session-form')!;
+const evSessionResult=document.getElementById('ev-session-result')!;
+evSessionForm.addEventListener('submit',event=>{
+ event.preventDefault();if(!evSessionForm.reportValidity())return;
+ const kwh=hundredths('ev-session-kwh'),sessions=numeric('ev-session-count');
+ const totals=['A','B'].map(id=>{
+  const rate=hundredths('ev-session-'+id+'-rate');
+  const session=hundredths('ev-session-'+id+'-session');
+  const monthly=hundredths('ev-session-'+id+'-monthly');
+  return Math.round(kwh*rate/100)+sessions*session+monthly;
+ });
+ if(!Number.isSafeInteger(sessions)||sessions<0||!totals.every(n=>Number.isSafeInteger(n)&&n>=0)){evSessionResult.textContent='Skontrolujte vstupy.';return;}
+ const diff=totals[0]-totals[1];
+ evSessionResult.textContent='Mesačne: A '+money(totals[0]/100)+', B '+money(totals[1]/100)+'. Ročne pri rovnakom odbere: A '+money(totals[0]*12/100)+', B '+money(totals[1]*12/100)+'. '+(diff===0?'Rovnaké náklady.':'Tarifa '+(diff<0?'A':'B')+' je mesačne lacnejšia o '+money(Math.abs(diff)/100)+'.');
+});
+evSessionForm.addEventListener('input',()=>{evSessionResult.textContent='Vstupy sa zmenili. Prepočítajte EV tarify.';});
+evSessionForm.addEventListener('reset',()=>{evSessionResult.textContent='';});
 </script>
 <style>
 .comparison{max-width:1040px}.comparison .panel{padding:1.4rem;margin:1.3rem 0}.comparison label{display:block;font-weight:650;margin:.8rem 0 .4rem}.comparison :is(input,select){font:inherit;max-width:100%;width:100%;box-sizing:border-box;padding:.75rem;border:1px solid #8191a5;border-radius:.5rem;background:transparent;color:inherit}.comparison fieldset{min-width:0;border:1px solid #8191a5;border-radius:.7rem;padding:1rem}.offers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1rem 0}.actions{display:flex;gap:1rem;flex-wrap:wrap}.comparison button{font:inherit;padding:.8rem;cursor:pointer}.comparison :is(input,select,button):focus-visible{outline:3px solid currentColor;outline-offset:3px}.table-scroll{overflow-x:auto}.comparison table{border-collapse:collapse;width:100%}.comparison :is(td,th){padding:.8rem;text-align:left;border-bottom:1px solid #8191a5}@media(max-width:650px){.offers{grid-template-columns:1fr}}
