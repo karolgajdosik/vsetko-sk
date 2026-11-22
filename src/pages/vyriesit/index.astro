@@ -1,0 +1,74 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Moje prípady V7 – súkromná schránka" description="Prehľad potvrdených lokálnych prípadov zo všetkých troch scenárov V7.">
+<main id="obsah" class="wrap main">
+  <p class="eyebrow">VŠETKO24 · V7 · osobná schránka</p>
+  <h1>Moje prípady</h1>
+  <p>Jedno miesto na prezeranie prípadov, ktoré ste výslovne vytvorili v troch sprievodcoch. Údaje zostávajú iba v tomto prehliadači. Táto schránka ich neupravuje, neposiela ani nezahŕňa do šifrovanej zálohy V5/V6.</p>
+  <nav aria-label="Sprievodcovia prípadmi">
+    <a href="/vyriesit/zdrazena-sluzba/">Zdražená služba</a> ·
+    <a href="/vyriesit/reklamacia-nakupu/">Reklamácia nákupu</a> ·
+    <a href="/vyriesit/koniec-zmluvy/">Koniec zmluvy</a>
+  </nav>
+  <p id="inbox-status" role="status" aria-live="polite">Načítavam miestne záznamy…</p>
+  <div id="inbox-cases"></div>
+  <p>Ak je úložisko poškodené alebo zablokované, príslušné záznamy nezobrazíme a nič neprepíšeme. Na úpravu, export alebo odstránenie otvorte konkrétneho sprievodcu. Na iných zariadeniach sa prípady automaticky nezobrazia.</p>
+  <noscript>Na zobrazenie lokálnych prípadov je potrebný JavaScript.</noscript>
+</main>
+<style>
+#inbox-cases{display:grid;gap:1rem;margin:1.5rem 0}
+.inbox-card{border:1px solid var(--border, #aaa);border-radius:.75rem;padding:1rem;overflow-wrap:anywhere}
+.inbox-card h2{margin:.2rem 0;font-size:1.15rem}
+.inbox-card p{margin:.45rem 0}
+</style>
+<script>
+type Entry=Record<string,unknown>;
+const sources=[
+  {key:'v24-v7-service-cases-v1',title:'Zdražená služba',path:'/vyriesit/zdrazena-sluzba/',name:'service'},
+  {key:'v24-v7-complaint-cases-v1',title:'Reklamácia nákupu',path:'/vyriesit/reklamacia-nakupu/',name:'item'},
+  {key:'v24-v7-contract-end-v1',title:'Koniec zmluvy',path:'/vyriesit/koniec-zmluvy/',name:'name'}
+] as const;
+const root=document.getElementById('inbox-cases')!;
+const status=document.getElementById('inbox-status')!;
+let total=0,errors=0;
+const text=(value:unknown,max=90)=>typeof value==='string'?value.slice(0,max):'';
+for(const source of sources){
+  let entries:Entry[]=[];
+  try{
+    const raw=localStorage.getItem(source.key);
+    if(raw!==null){
+      if(raw.length>250000)throw Error('Príliš veľký záznam');
+      const parsed:unknown=JSON.parse(raw);
+      if(!parsed||typeof parsed!=='object'||Array.isArray(parsed))throw Error('Neplatný formát');
+      const data=parsed as {version?:unknown;entries?:unknown};
+      if(data.version!==1||!Array.isArray(data.entries)||data.entries.length>20||
+        !data.entries.every((entry:unknown)=>entry!==null&&typeof entry==='object'&&!Array.isArray(entry)&&typeof (entry as Entry).id==='string')){
+        throw Error('Neplatná verzia alebo štruktúra');
+      }
+      entries=data.entries as Entry[];
+    }
+  }catch{
+    errors++;
+    const warning=document.createElement('p');
+    warning.textContent='Záznamy „'+source.title+'“ sa nedajú bezpečne načítať. Skontrolujte ich v pôvodnom sprievodcovi; nič nebolo zmenené.';
+    root.append(warning);
+    continue;
+  }
+  for(const entry of entries){
+    total++;
+    const card=document.createElement('article');card.className='inbox-card';
+    const heading=document.createElement('h2');
+    heading.textContent=text(entry[source.name])||'Nepomenovaný prípad';
+    const category=document.createElement('p');category.textContent=source.title;
+    const state=document.createElement('p');
+    const hasReply=typeof entry.reply==='string'&&entry.reply.trim().length>0;
+    const hasResult=typeof entry.actual==='number'&&Number.isFinite(entry.actual);
+    state.textContent=hasResult?'Skutočný výsledok zaznamenaný':hasReply?'Odpoveď zaznamenaná':'Rozpracovaný prípad';
+    const link=document.createElement('a');link.href=source.path;link.textContent='Otvoriť sprievodcu';
+    card.append(heading,category,state,link);root.append(card);
+  }
+}
+status.textContent=total+' miestnych prípadov'+(errors?' · '+errors+' zdrojov sa nepodarilo bezpečne načítať':'')+'.';
+if(!total&&!errors){const empty=document.createElement('p');empty.textContent='Zatiaľ nemáte uložené prípady. Začnite niektorým zo sprievodcov vyššie.';root.append(empty);}
+</script>
