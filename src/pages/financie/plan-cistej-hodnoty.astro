@@ -30,7 +30,7 @@ const eur = (cents: number) => new Intl.NumberFormat('sk-SK', {style:'currency',
 const cents = (id: string): number | null => {
   const input = document.getElementById(id) as HTMLInputElement;
   const raw = input.value.trim();
-  if (!/^\\d+(?:\\.\\d{1,2})?$/.test(raw)) return null;
+  if (!/^\d+(?:\.\d{1,2})?$/.test(raw)) return null;
   const number = Number(raw);
   if (!Number.isFinite(number) || number < 0 || number > Number(input.max)) return null;
   const value = Math.round(number * 100);
