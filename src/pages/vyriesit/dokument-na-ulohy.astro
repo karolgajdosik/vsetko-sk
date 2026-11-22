@@ -1,0 +1,75 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Dokument na návrh úloh – V7" description="Z vlastného prepisu dokumentu pripravte a výslovne potvrďte úlohy do osobného centra.">
+<main class="wrap main doc-tasks" id="obsah">
+<p class="eyebrow">VŠETKO24 · V7 · dokument → úlohy</p>
+<h1>Z dokumentu k úlohám</h1>
+<p>Dokument sa automaticky nečíta ani neodosiela. Vyberte jeho druh a vlastnými slovami opíšte situáciu. Návrhy sú všeobecné kontrolné kroky, nie rozpoznané povinnosti či právne lehoty. Text dokumentu sa nikam neukladá.</p>
+<form id="dt-form" class="panel">
+<label>Druh dokumentu<select id="dt-kind"><option value="price">Oznámenie o zmene ceny</option><option value="complaint">Doklad k reklamácii</option><option value="contract">Zmluva alebo poistné obdobie</option></select></label>
+<label>Vlastný stručný opis (neukladá sa)<textarea id="dt-note" maxlength="500" rows="3" placeholder="Bez rodného čísla, adries a iných identifikátorov"></textarea></label>
+<label>Pôvod údajov<select id="dt-source"><option value="manual">Vlastný prepis dokumentu</option><option value="estimate">Vlastný odhad – neoverené</option></select></label>
+<button type="submit">Navrhnúť kontrolné kroky – bez uloženia</button>
+</form>
+<section class="panel" id="dt-preview" hidden><h2>Skontrolujte návrh</h2><p id="dt-origin"></p><p>Žiadna lehota ani povinnosť nebola z dokumentu automaticky extrahovaná. Vyberte iba kroky, ktoré chcete sami vykonať.</p><div id="dt-steps"></div>
+<label class="consent"><input type="checkbox" id="dt-confirm"> Overil(a) som pôvod údajov a výslovne súhlasím s uložením vybraných názvov úloh.</label>
+<button type="button" id="dt-save">Pridať vybrané úlohy</button></section>
+<p id="dt-status" role="status" aria-live="polite"></p>
+<p><a href="/moje-centrum/#ulohy">Moje úlohy</a> · <a href="/dokumenty/">Generátor dokumentov</a> · <a href="/kalendar/">Kalendár</a> · <a href="/vyriesit/">Moje prípady V7</a> · <a href="/zaloha/">Šifrovaná záloha</a></p>
+<p>Ukladáme len názvy výslovne vybraných úloh do existujúceho osobného centra. Nepridávame termíny bez vášho zadania, neposielame dokumenty a neprepisujeme poškodené údaje.</p>
+<noscript>Na vytvorenie návrhu úloh je potrebný JavaScript.</noscript>
+</main></Base>
+<style>
+.doc-tasks{max-width:850px}.doc-tasks .panel{padding:1.2rem;margin:1.3rem 0}.doc-tasks label{display:block;margin:.8rem 0}.doc-tasks select,.doc-tasks textarea{display:block;width:100%;box-sizing:border-box;min-height:44px;padding:.7rem;background:var(--surface);color:var(--ink);border:1px solid #8290a5;border-radius:8px;font:inherit}.doc-tasks button{min-height:44px;padding:.7rem 1rem;border:1px solid #8290a5;border-radius:8px;background:var(--surface);color:var(--ink);font:inherit}.doc-tasks .consent{display:flex;gap:.6rem;align-items:start}.doc-tasks :is(button,select,textarea,input):focus-visible{outline:3px solid currentColor;outline-offset:2px}.doc-tasks [hidden]{display:none!important}
+</style>
+<script>
+import { PERSONAL_CENTER_KEY, validatePlanCenter } from '../../lib/action-plan.mjs';
+const el=(id:string)=>document.getElementById('dt-'+id)!;
+const kinds:Record<string,string[]> = {
+price:['Overiť pôvodnú a novú cenu v oznámení','Skontrolovať zmluvné podmienky a prípadné lehoty','Porovnať možnosti a rozhodnúť o ďalšom postupe','Pripraviť vlastnú odpoveď poskytovateľovi'],
+complaint:['Skontrolovať doklad o nákupe a popis vady','Overiť podmienky reklamácie a príslušné lehoty','Pripraviť a skontrolovať reklamačný dokument','Zaznamenať odpoveď a skutočný výsledok'],
+contract:['Overiť dátum skončenia a podmienky obnovy','Overiť výpovednú lehotu priamo v zmluve','Porovnať celkové náklady dostupných možností','Pripraviť a skontrolovať vlastné oznámenie']
+};
+let draft:string[]|null=null;
+const status=(s:string)=>el('status').textContent=s;
+const form=el('form') as HTMLFormElement;
+form.addEventListener('submit',e=>{
+ e.preventDefault();
+ const kind=(el('kind') as HTMLSelectElement).value;
+ if(!Object.hasOwn(kinds,kind)){status('Neznámy druh dokumentu.');return;}
+ draft=[...kinds[kind]];
+ const steps=el('steps');steps.replaceChildren();
+ for(let i=0;i<draft.length;i++){
+  const label=document.createElement('label'),check=document.createElement('input'),span=document.createElement('span');
+  check.type='checkbox';check.value=String(i);check.name='dt-step';span.textContent=draft[i];
+  label.append(check,span);steps.append(label);
+ }
+ el('origin').textContent='Pôvod: '+((el('source') as HTMLSelectElement).value==='estimate'?'vlastný neoverený odhad':'vlastný prepis dokumentu')+'. Opis nie je automaticky analyzovaný.';
+ (el('confirm') as HTMLInputElement).checked=false;el('preview').hidden=false;
+ status('Návrh pripravený bez uloženia. Skontrolujte jednotlivé kroky.');
+});
+form.addEventListener('input',()=>{draft=null;el('preview').hidden=true;});
+el('save').addEventListener('click',()=>{
+ if(!draft||!(el('confirm') as HTMLInputElement).checked){status('Najprv skontrolujte a výslovne potvrďte návrh.');return;}
+ const chosen=[...document.querySelectorAll<HTMLInputElement>('#dt-steps input:checked')].map(x=>Number(x.value));
+ if(!chosen.length||chosen.some(i=>!Number.isInteger(i)||i<0||i>=draft!.length)){status('Vyberte aspoň jednu platnú úlohu.');return;}
+ try{
+  const before=localStorage.getItem(PERSONAL_CENTER_KEY);
+  const state=before===null?{version:1,tasks:[],deadlines:[],budget:{}}:validatePlanCenter(JSON.parse(before));
+  const next=structuredClone(state);let added=0;
+  for(const i of chosen){
+   const title=draft[i];
+   if(next.tasks.some((t:{title:string})=>t.title===title))continue;
+   if(next.tasks.length>=500)throw Error('Limit 500 úloh. Pôvodné údaje sa nezmenili.');
+   next.tasks.push({id:'v7-document-'+crypto.randomUUID(),title,done:false});added++;
+  }
+  if(added){
+   if(localStorage.getItem(PERSONAL_CENTER_KEY)!==before)throw Error('Úlohy sa zmenili v inom okne. Obnovte stránku.');
+   localStorage.setItem(PERSONAL_CENTER_KEY,JSON.stringify(validatePlanCenter(next)));
+  }
+  status('Pridané úlohy: '+added+'. Existujúce rovnaké názvy sa nezdvojili. Opis dokumentu nebol uložený.');
+  draft=null;el('preview').hidden=true;
+ }catch(e){status(e instanceof Error?e.message:'Úlohy sa nepodarilo bezpečne uložiť.');}
+});
+</script>
