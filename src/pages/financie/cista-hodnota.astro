@@ -1,0 +1,59 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Čistá hodnota domácnosti" description="Lokálny výpočet majetku, dlhov a čistej hodnoty domácnosti bez odosielania alebo ukladania údajov.">
+  <main id="obsah" class="wrap main">
+    <p class="eyebrow">VŠETKO24 · Financie360</p>
+    <h1>Majetok, dlhy a čistá hodnota</h1>
+    <p>Zadajte aktuálnu hodnotu majetku a nesplatené zostatky dlhov. Výpočet prebieha iba vo vašom prehliadači; údaje sa neukladajú ani neodosielajú.</p>
+    <section class="panel" aria-labelledby="worth-heading">
+      <h2 id="worth-heading">Súvaha domácnosti</h2>
+      <form id="worth-form">
+        <div class="vehicle-fields">
+          <div><label for="cash">Hotovosť a účty (€)</label><input id="cash" type="number" min="0" max="1000000000" step="0.01" value="0" required inputmode="decimal" /></div>
+          <div><label for="investments">Investície a úspory (€)</label><input id="investments" type="number" min="0" max="1000000000" step="0.01" value="0" required inputmode="decimal" /></div>
+          <div><label for="property">Nehnuteľnosti (€)</label><input id="property" type="number" min="0" max="1000000000" step="0.01" value="0" required inputmode="decimal" /></div>
+          <div><label for="other-assets">Vozidlá a ďalší majetok (€)</label><input id="other-assets" type="number" min="0" max="1000000000" step="0.01" value="0" required inputmode="decimal" /></div>
+          <div><label for="mortgage">Zostatok hypoték (€)</label><input id="mortgage" type="number" min="0" max="1000000000" step="0.01" value="0" required inputmode="decimal" /></div>
+          <div><label for="loans">Zostatok úverov a leasingu (€)</label><input id="loans" type="number" min="0" max="1000000000" step="0.01" value="0" required inputmode="decimal" /></div>
+          <div><label for="other-debts">Ostatné dlhy (€)</label><input id="other-debts" type="number" min="0" max="1000000000" step="0.01" value="0" required inputmode="decimal" /></div>
+        </div>
+        <button type="submit">Vypočítať čistú hodnotu</button>
+        <button type="reset">Vymazať hodnoty</button>
+      </form>
+      <p id="worth-result" role="status" aria-live="polite">Vyplňte hodnoty a spustite výpočet.</p>
+      <p class="note">Čistá hodnota = majetok − nesplatené dlhy. Uvádzajte trhové odhady majetku, nie jeho obstarávaciu cenu. Výpočet nie je finančné poradenstvo a nezahŕňa dane ani náklady na predaj.</p>
+    </section>
+  </main>
+  <script>
+    const form = document.querySelector<HTMLFormElement>('#worth-form')!;
+    const output = document.querySelector<HTMLElement>('#worth-result')!;
+    const assetIds = ['cash', 'investments', 'property', 'other-assets'];
+    const debtIds = ['mortgage', 'loans', 'other-debts'];
+    const eur = (cents: number) => new Intl.NumberFormat('sk-SK', {style:'currency', currency:'EUR'}).format(cents / 100);
+    const readCents = (id: string): number | null => {
+      const field = document.getElementById(id) as HTMLInputElement;
+      const raw = field.value.trim();
+      if (!/^\d+(?:\.\d{1,2})?$/.test(raw)) return null;
+      const value = Number(raw);
+      if (!Number.isFinite(value) || value < 0 || value > 1000000000) return null;
+      const cents = Math.round(value * 100);
+      return Number.isSafeInteger(cents) ? cents : null;
+    };
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      const assets = assetIds.map(readCents), debts = debtIds.map(readCents);
+      if ([...assets, ...debts].some(value => value === null)) {
+        output.textContent = 'Skontrolujte hodnoty: používajte nezáporné sumy s najviac dvoma desatinnými miestami.';
+        return;
+      }
+      const totalAssets = (assets as number[]).reduce((sum, value) => sum + value, 0);
+      const totalDebts = (debts as number[]).reduce((sum, value) => sum + value, 0);
+      const net = totalAssets - totalDebts;
+      output.textContent = 'Majetok: ' + eur(totalAssets) + '. Dlhy: ' + eur(totalDebts) + '. Čistá hodnota: ' + eur(net) + (net < 0 ? '. Dlhy prevyšujú majetok.' : net === 0 ? '. Majetok a dlhy sú vyrovnané.' : '. Majetok prevyšuje dlhy.');
+    });
+    form.addEventListener('input', () => { output.textContent = 'Hodnoty sa zmenili. Spustite nový výpočet.'; });
+    form.addEventListener('reset', () => { output.textContent = 'Vyplňte hodnoty a spustite výpočet.'; });
+  </script>
+</Base>
