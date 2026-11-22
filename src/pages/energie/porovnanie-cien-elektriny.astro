@@ -1,0 +1,73 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Porovnanie cien elektriny" description="Nezávislá kalkulačka ročných nákladov dvoch elektrických taríf podľa vlastných cien bez odosielania údajov.">
+<main id="obsah" class="wrap main">
+<p class="eyebrow">VŠETKO24 · Porovnávače</p>
+<h1>Porovnanie taríf elektriny pre domácnosť</h1>
+<p>Porovnajte dve ponuky podľa vlastnej ročnej spotreby, ceny za kWh a pravidelných poplatkov. Nejde o živý cenník ani odporúčanie konkrétneho dodávateľa. Údaje sa neukladajú ani neodosielajú.</p>
+<section class="panel" aria-labelledby="compare-heading">
+<h2 id="compare-heading">Vlastné ceny a spotreba</h2>
+<form id="energy-form">
+<div class="vehicle-fields">
+<div><label for="consumption">Ročná spotreba (kWh)</label><input id="consumption" type="number" min="0" max="1000000" step="1" value="3000" required inputmode="numeric" /></div>
+<div><label for="a-name">Ponuka A</label><input id="a-name" type="text" maxlength="50" value="Ponuka A" /></div>
+<div><label for="a-price">Cena A (€/kWh)</label><input id="a-price" type="number" min="0" max="10" step="0.0001" value="0.20" required inputmode="decimal" /></div>
+<div><label for="a-fee">Mesačné fixné poplatky A (€)</label><input id="a-fee" type="number" min="0" max="10000" step="0.01" value="5" required inputmode="decimal" /></div>
+<div><label for="b-name">Ponuka B</label><input id="b-name" type="text" maxlength="50" value="Ponuka B" /></div>
+<div><label for="b-price">Cena B (€/kWh)</label><input id="b-price" type="number" min="0" max="10" step="0.0001" value="0.18" required inputmode="decimal" /></div>
+<div><label for="b-fee">Mesačné fixné poplatky B (€)</label><input id="b-fee" type="number" min="0" max="10000" step="0.01" value="12" required inputmode="decimal" /></div>
+</div>
+<button type="submit">Porovnať ročné náklady</button> <button type="reset">Obnoviť príklad</button>
+</form>
+<p id="energy-result" role="status" aria-live="polite">Vyplňte ceny a spustite porovnanie.</p>
+<p id="energy-threshold"></p>
+<div id="energy-table-wrap" hidden class="table-scroll">
+<table><caption>Porovnanie pri zadanej ročnej spotrebe</caption><thead><tr><th scope="col">Položka</th><th scope="col">Ponuka A</th><th scope="col">Ponuka B</th></tr></thead><tbody id="energy-table"></tbody></table>
+</div>
+<p class="note">Vzorec: ročná spotreba × cena za kWh + 12 × mesačné fixné poplatky. Do oboch cien zahrňte rovnaké položky (dodávka, distribúcia, dane, DPH), inak porovnanie nie je férové. Nezahŕňa dvojtarifné pásma, časové ceny, istič, sankcie ani budúce zmeny cien. Aktuálne podmienky si overte u dodávateľa. Žiadne affiliate partnerstvá netvrdíme.</p>
+</section>
+</main>
+<script>
+const form = document.querySelector<HTMLFormElement>('#energy-form')!;
+const result = document.querySelector<HTMLElement>('#energy-result')!;
+const threshold = document.querySelector<HTMLElement>('#energy-threshold')!;
+const tableWrap = document.querySelector<HTMLElement>('#energy-table-wrap')!;
+const tbody = document.querySelector<HTMLTableSectionElement>('#energy-table')!;
+const get = (id:string) => (document.getElementById(id) as HTMLInputElement).valueAsNumber;
+const name = (id:string, fallback:string) => (document.getElementById(id) as HTMLInputElement).value.trim() || fallback;
+const eur = (value:number) => new Intl.NumberFormat('sk-SK',{style:'currency',currency:'EUR'}).format(value);
+const clear = () => { threshold.textContent=''; tableWrap.hidden=true; tbody.replaceChildren(); };
+form.addEventListener('submit', event => {
+ event.preventDefault(); clear();
+ if (!form.reportValidity()) return;
+ const kwh=get('consumption'), pa=get('a-price'), pb=get('b-price'), fa=get('a-fee'), fb=get('b-fee');
+ if (![kwh,pa,pb,fa,fb].every(Number.isFinite) || !Number.isInteger(kwh) || kwh<0 || kwh>1000000 || [pa,pb].some(x=>x<0||x>10) || [fa,fb].some(x=>x<0||x>10000)) {
+   result.textContent='Skontrolujte spotrebu a nezáporné ceny v povolenom rozsahu.'; return;
+ }
+ const energyA=kwh*pa, energyB=kwh*pb, fixedA=12*fa, fixedB=12*fb;
+ const totalA=energyA+fixedA, totalB=energyB+fixedB, difference=Math.abs(totalA-totalB);
+ const a=name('a-name','Ponuka A'), b=name('b-name','Ponuka B');
+ result.textContent=a+': '+eur(totalA)+' ročne; '+b+': '+eur(totalB)+' ročne. '+(difference<0.005?'Náklady sú pri zadanej spotrebe rovnaké.':(totalA<totalB?a:b)+' je lacnejšia o '+eur(difference)+' ročne ('+eur(difference/12)+' mesačne).');
+ const delta=pa-pb;
+ if (Math.abs(delta)<1e-12) threshold.textContent='Jednotkové ceny sú rovnaké; rozhodujú fixné poplatky.';
+ else {
+  const crossing=12*(fb-fa)/delta;
+  threshold.textContent=crossing>=0 && Number.isFinite(crossing)?'Bod rovnakých nákladov: '+new Intl.NumberFormat('sk-SK',{maximumFractionDigits:1}).format(crossing)+' kWh ročne.':'Pri nezápornej spotrebe sa náklady týchto ponúk nepretnú.';
+ }
+ for (const [label,one,two] of [['Spotreba',energyA,energyB],['Fixné poplatky',fixedA,fixedB],['Spolu za rok',totalA,totalB]] as const) {
+  const tr=document.createElement('tr');
+  for (const [i,value] of [label,eur(one),eur(two)].entries()) {
+   const cell=document.createElement(i===0?'th':'td');
+   if (i===0) cell.setAttribute('scope','row');
+   cell.textContent=value; tr.appendChild(cell);
+  }
+  tbody.appendChild(tr);
+ }
+ tableWrap.hidden=false;
+});
+form.addEventListener('input',()=>{clear();result.textContent='Vstupy sa zmenili. Spustite nové porovnanie.';});
+form.addEventListener('reset',()=>{clear();result.textContent='Vyplňte ceny a spustite porovnanie.';});
+</script>
+<style>.table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse}th,td{padding:.65rem;text-align:right;border-bottom:1px solid var(--border,#bbb)}th:first-child{text-align:left}</style>
+</Base>
