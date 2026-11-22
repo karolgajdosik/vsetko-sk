@@ -1,0 +1,72 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Pokles hodnoty auta a zostatok úveru – Auto360" description="Orientačný plán hodnoty vozidla, zostatku úveru a vlastného imania bez ukladania údajov.">
+  <main id="obsah" class="wrap main">
+    <p class="eyebrow">VŠETKO24 · Auto360</p>
+    <h1>Hodnota auta a nesplatený úver</h1>
+    <p>Porovnajte modelový pokles trhovej hodnoty vozidla so zostatkom financovania. Výpočet je iba orientačný, nie odhad trhovej ceny, ponuka výkupu ani úverový splátkový kalendár.</p>
+    <section class="panel" aria-labelledby="value-heading">
+      <h2 id="value-heading">Scenár vlastníctva</h2>
+      <form id="value-form">
+        <div class="vehicle-fields">
+          <div><label for="car-value">Dnešná odhadovaná hodnota auta (€)</label><input id="car-value" type="number" min="0" max="10000000" step="0.01" value="25000" required /></div>
+          <div><label for="car-decline">Predpokladaný ročný pokles hodnoty (%)</label><input id="car-decline" type="number" min="0" max="100" step="0.1" value="12" required /></div>
+          <div><label for="car-debt">Dnešný zostatok úveru alebo leasingu (€)</label><input id="car-debt" type="number" min="0" max="10000000" step="0.01" value="18000" required /></div>
+          <div><label for="car-principal">Predpokladaná mesačná splátka istiny (€)</label><input id="car-principal" type="number" min="0" max="1000000" step="0.01" value="400" required /></div>
+          <div><label for="car-years">Horizont (roky)</label><input id="car-years" type="number" min="1" max="15" step="1" value="5" required /></div>
+        </div>
+        <button type="submit">Vypočítať scenár</button>
+        <button type="reset">Obnoviť hodnoty</button>
+      </form>
+      <p id="value-message" role="status" aria-live="polite">Zadajte údaje a spustite výpočet.</p>
+      <div id="value-output" hidden>
+        <div style="overflow-x:auto"><table><caption>Modelový vývoj hodnoty vozidla a zostatku istiny</caption><thead><tr><th scope="col">Rok</th><th scope="col">Hodnota auta</th><th scope="col">Zostatok istiny</th><th scope="col">Rozdiel</th></tr></thead><tbody id="value-rows"></tbody></table></div>
+      </div>
+      <p class="note">Ročný pokles hodnoty sa uplatňuje z hodnoty predchádzajúceho roka. Istina klesá o zadanú mesačnú sumu, najviac na nulu. Rozdiel = hodnota auta mínus nesplatená istina; záporný rozdiel znamená, že zostatok dlhu je vyšší než modelová hodnota vozidla.</p>
+      <p class="note">Model nezahŕňa úroky, poplatky, akontáciu, poslednú zvýšenú splátku, poistné, servis, dane ani zmeny trhu. Mesačná splátka istiny nie je celková mesačná splátka úveru. Pri leasingu overte podmienky predčasného ukončenia v zmluve. Údaje sa neukladajú ani neodosielajú.</p>
+      <p><a href="/auto/moje-auto/">Späť na evidenciu nákladov Auto360</a></p>
+    </section>
+  </main>
+  <script>
+    const form = document.querySelector<HTMLFormElement>('#value-form')!;
+    const message = document.querySelector<HTMLElement>('#value-message')!;
+    const output = document.querySelector<HTMLElement>('#value-output')!;
+    const rows = document.querySelector<HTMLElement>('#value-rows')!;
+    const eur = (cents:number) => new Intl.NumberFormat('sk-SK',{style:'currency',currency:'EUR'}).format(cents/100);
+    function amount(id:string, maximum:number):number|null {
+      const field=document.getElementById(id) as HTMLInputElement;
+      const raw=field.value.trim();
+      if(!/^\d+(?:\.\d{1,2})?$/.test(raw))return null;
+      const number=Number(raw);
+      if(!Number.isFinite(number)||number<0||number>maximum)return null;
+      const cents=Math.round(number*100);
+      return Number.isSafeInteger(cents)?cents:null;
+    }
+    function clear(){rows.replaceChildren();output.hidden=true;}
+    form.addEventListener('input',()=>{clear();message.textContent='Vstupy sa zmenili. Spustite nový výpočet.';});
+    form.addEventListener('reset',()=>{clear();message.textContent='Zadajte údaje a spustite výpočet.';});
+    form.addEventListener('submit',(event)=>{
+      event.preventDefault();clear();
+      if(!form.reportValidity())return;
+      const value=amount('car-value',10000000), debt=amount('car-debt',10000000), principal=amount('car-principal',1000000);
+      const decline=Number((document.getElementById('car-decline') as HTMLInputElement).value);
+      const years=Number((document.getElementById('car-years') as HTMLInputElement).value);
+      if(value===null||debt===null||principal===null||!Number.isFinite(decline)||decline<0||decline>100||!Number.isInteger(years)||years<1||years>15){
+        message.textContent='Skontrolujte vstupy: sumy majú najviac dve desatinné miesta, pokles 0–100 % a horizont 1–15 rokov.';return;
+      }
+      const factor=1-decline/100;
+      for(let year=0;year<=years;year++){
+        const currentValue=Math.round(value*Math.pow(factor,year));
+        const remaining=Math.max(0,debt-principal*12*year);
+        const tr=document.createElement('tr');
+        for(const cell of [String(year),eur(currentValue),eur(remaining),eur(currentValue-remaining)]){
+          const td=document.createElement('td');td.textContent=cell;tr.append(td);
+        }
+        rows.append(tr);
+      }
+      output.hidden=false;
+      message.textContent='Scenár je vypočítaný. Záporný rozdiel znamená vyšší zostatok istiny než odhadovanú hodnotu auta.';
+    });
+  </script>
+</Base>
