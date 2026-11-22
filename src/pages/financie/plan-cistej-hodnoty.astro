@@ -1,0 +1,58 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Plán čistej hodnoty domácnosti" description="Orientačný scenár vývoja majetku a dlhov bez registrácie, ukladania alebo odosielania údajov.">
+<main id="obsah" class="wrap main">
+<p class="eyebrow">VŠETKO24 · Financie360</p>
+<h1>Plán čistej hodnoty domácnosti</h1>
+<p>Vypočítajte, ako by sa mohla meniť čistá hodnota pri pravidelnom sporení a splácaní istiny dlhu. Najprv môžete zistiť <a href="/financie/cista-hodnota/">súčasnú čistú hodnotu</a>.</p>
+<section class="panel" aria-labelledby="plan-heading">
+<h2 id="plan-heading">Vlastný scenár</h2>
+<form id="plan-form">
+<div class="vehicle-fields">
+<div><label for="assets">Súčasný majetok (€)</label><input id="assets" type="number" min="0" max="1000000000" step="0.01" value="10000" required inputmode="decimal" /></div>
+<div><label for="debts">Súčasné nesplatené dlhy (€)</label><input id="debts" type="number" min="0" max="1000000000" step="0.01" value="5000" required inputmode="decimal" /></div>
+<div><label for="savings">Mesačný prírastok majetku (€)</label><input id="savings" type="number" min="0" max="1000000" step="0.01" value="200" required inputmode="decimal" /></div>
+<div><label for="repayment">Mesačná splátka istiny (€)</label><input id="repayment" type="number" min="0" max="1000000" step="0.01" value="100" required inputmode="decimal" /></div>
+<div><label for="months">Horizont (mesiace)</label><input id="months" type="number" min="1" max="360" step="1" value="12" required inputmode="numeric" /></div>
+</div>
+<button type="submit">Vypočítať scenár</button>
+<button type="reset">Obnoviť hodnoty</button>
+</form>
+<p id="plan-result" role="status" aria-live="polite">Vyplňte údaje a spustite výpočet.</p>
+<p class="note">Zjednodušený model bez úrokov, poplatkov, daní, inflácie a zmien trhovej hodnoty. Splátka istiny sa zastaví po vyrovnaní dlhu; prebytok splátky sa automaticky nepripočíta k úsporám. Nejde o investičnú prognózu ani finančné poradenstvo. Údaje sa neukladajú ani neodosielajú.</p>
+</section>
+</main>
+<script>
+const form = document.querySelector<HTMLFormElement>('#plan-form')!;
+const result = document.querySelector<HTMLElement>('#plan-result')!;
+const eur = (cents: number) => new Intl.NumberFormat('sk-SK', {style:'currency',currency:'EUR'}).format(cents / 100);
+const cents = (id: string): number | null => {
+  const input = document.getElementById(id) as HTMLInputElement;
+  const raw = input.value.trim();
+  if (!/^\d+(?:\.\d{1,2})?$/.test(raw)) return null;
+  const number = Number(raw);
+  if (!Number.isFinite(number) || number < 0 || number > Number(input.max)) return null;
+  const value = Math.round(number * 100);
+  return Number.isSafeInteger(value) ? value : null;
+};
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  if (!form.reportValidity()) return;
+  const a = cents('assets'), d = cents('debts'), s = cents('savings'), p = cents('repayment');
+  const monthsInput = document.querySelector<HTMLInputElement>('#months')!;
+  const months = Number(monthsInput.value);
+  if ([a,d,s,p].some(v => v === null) || !Number.isInteger(months) || months < 1 || months > 360) {
+    result.textContent = 'Skontrolujte vstupy: nezáporné sumy s najviac dvoma desatinnými miestami a horizont 1 až 360 mesiacov.';
+    return;
+  }
+  const initial = a! - d!;
+  const finalAssets = a! + s! * months;
+  const finalDebts = Math.max(0, d! - p! * months);
+  const finalNet = finalAssets - finalDebts;
+  result.textContent = 'Dnes: ' + eur(initial) + '. Po ' + months + ' mesiacoch: majetok ' + eur(finalAssets) + ', zostatok dlhov ' + eur(finalDebts) + ', čistá hodnota ' + eur(finalNet) + '. Zmena: ' + eur(finalNet - initial) + '.';
+});
+form.addEventListener('input', () => { result.textContent = 'Vstupy sa zmenili. Spustite nový výpočet.'; });
+form.addEventListener('reset', () => { result.textContent = 'Vyplňte údaje a spustite výpočet.'; });
+</script>
+</Base>
