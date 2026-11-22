@@ -20,12 +20,21 @@ import Base from '../../layouts/Base.astro';
 <button type="reset">Obnoviť hodnoty</button>
 </form>
 <p id="plan-result" role="status" aria-live="polite">Vyplňte údaje a spustite výpočet.</p>
+<div id="milestones" hidden aria-label="Vývoj čistej hodnoty v čase">
+<h3>Kontrolné míľniky</h3>
+<div class="table-scroll"><table><caption>Orientačný vývoj bez úrokov a inflácie</caption><thead><tr><th scope="col">Mesiac</th><th scope="col">Majetok</th><th scope="col">Zostatok dlhov</th><th scope="col">Čistá hodnota</th></tr></thead><tbody id="milestones-body"></tbody></table></div>
+<p id="debt-payoff" class="note"></p>
+</div>
 <p class="note">Zjednodušený model bez úrokov, poplatkov, daní, inflácie a zmien trhovej hodnoty. Splátka istiny sa zastaví po vyrovnaní dlhu; prebytok splátky sa automaticky nepripočíta k úsporám. Nejde o investičnú prognózu ani finančné poradenstvo. Údaje sa neukladajú ani neodosielajú.</p>
 </section>
 </main>
 <script>
 const form = document.querySelector<HTMLFormElement>('#plan-form')!;
 const result = document.querySelector<HTMLElement>('#plan-result')!;
+const milestones = document.querySelector<HTMLElement>('#milestones')!;
+const milestonesBody = document.querySelector<HTMLTableSectionElement>('#milestones-body')!;
+const payoff = document.querySelector<HTMLElement>('#debt-payoff')!;
+const clearMilestones = () => { milestones.hidden = true; milestonesBody.replaceChildren(); payoff.textContent = ''; };
 const eur = (cents: number) => new Intl.NumberFormat('sk-SK', {style:'currency',currency:'EUR'}).format(cents / 100);
 const cents = (id: string): number | null => {
   const input = document.getElementById(id) as HTMLInputElement;
@@ -38,6 +47,7 @@ const cents = (id: string): number | null => {
 };
 form.addEventListener('submit', (event) => {
   event.preventDefault();
+  clearMilestones();
   if (!form.reportValidity()) return;
   const a = cents('assets'), d = cents('debts'), s = cents('savings'), p = cents('repayment');
   const monthsInput = document.querySelector<HTMLInputElement>('#months')!;
@@ -51,8 +61,31 @@ form.addEventListener('submit', (event) => {
   const finalDebts = Math.max(0, d! - p! * months);
   const finalNet = finalAssets - finalDebts;
   result.textContent = 'Dnes: ' + eur(initial) + '. Po ' + months + ' mesiacoch: majetok ' + eur(finalAssets) + ', zostatok dlhov ' + eur(finalDebts) + ', čistá hodnota ' + eur(finalNet) + '. Zmena: ' + eur(finalNet - initial) + '.';
+  const checkpoints = [0];
+  for (let m = 12; m < months; m += 12) checkpoints.push(m);
+  if (months !== 0) checkpoints.push(months);
+  for (const m of checkpoints) {
+    const assetsAt = a! + s! * m;
+    const debtsAt = Math.max(0, d! - p! * m);
+    const row = document.createElement('tr');
+    for (const value of [String(m), eur(assetsAt), eur(debtsAt), eur(assetsAt - debtsAt)]) {
+      const cell = document.createElement(m === 0 ? 'th' : 'td');
+      if (m === 0 && row.childElementCount === 0) cell.setAttribute('scope', 'row');
+      cell.textContent = value;
+      row.appendChild(cell);
+    }
+    milestonesBody.appendChild(row);
+  }
+  if (d === 0) payoff.textContent = 'Bez počiatočného dlhu.';
+  else if (p === 0) payoff.textContent = 'Bez splácania istiny sa dlh v tomto modeli neznižuje.';
+  else {
+    const payoffMonth = Math.ceil(d! / p!);
+    payoff.textContent = payoffMonth <= months ? 'Dlh sa podľa modelu splatí v ' + payoffMonth + '. mesiaci.' : 'Dlh sa počas zvoleného horizontu nesplatí; odhad splatenia: ' + payoffMonth + '. mesiac.';
+  }
+  milestones.hidden = false;
 });
-form.addEventListener('input', () => { result.textContent = 'Vstupy sa zmenili. Spustite nový výpočet.'; });
-form.addEventListener('reset', () => { result.textContent = 'Vyplňte údaje a spustite výpočet.'; });
+form.addEventListener('input', () => { clearMilestones(); result.textContent = 'Vstupy sa zmenili. Spustite nový výpočet.'; });
+form.addEventListener('reset', () => { clearMilestones(); result.textContent = 'Vyplňte údaje a spustite výpočet.'; });
 </script>
+<style>.table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse}th,td{padding:.65rem;text-align:right;border-bottom:1px solid var(--border,#bbb)}th:first-child,td:first-child{text-align:left}</style>
 </Base>
