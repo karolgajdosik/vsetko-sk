@@ -5,12 +5,45 @@ import { PROFILE_KEY, PROFILE_TOPICS, PROFILE_LINKS } from './profile-store.mjs'
 import { VEHICLE_COST_KEY, validVehicleCosts } from './vehicle-costs.mjs';
 import { WORKSPACE_KEY, normalizeWorkspace } from './workspace-store.mjs';
 
+
+// V7 case records use the same bounded, opt-in local format as their journey pages.
+const V7_SERVICE_KEY = 'v24-v7-service-cases-v1';
+const V7_COMPLAINT_KEY = 'v24-v7-complaint-cases-v1';
+const V7_CONTRACT_KEY = 'v24-v7-contract-end-v1';
+const V7_KEYS = Object.freeze([V7_SERVICE_KEY, V7_COMPLAINT_KEY, V7_CONTRACT_KEY]);
+const bounded = (v, max) => typeof v === 'string' && v.length <= max;
+const cents = v => Number.isSafeInteger(v) && v >= 0 && v <= 10000000;
+const optionalCents = v => v === null || cents(v);
+const choice = (v, choices) => choices.includes(v);
+function validateV7Case(key, item) {
+  if (!record(item) || !bounded(item.id, 99) || !item.id || !Array.isArray(item.history) || item.history.length > 100) invalid();
+  if (key === V7_SERVICE_KEY) {
+    if (!bounded(item.service, 90) || !choice(item.source, ['manual','contract','estimate']) || ![item.old,item.next,item.fee,item.actualFee].every(cents) || ![item.alternative,item.actual].every(optionalCents) || !choice(item.decision, ['review','negotiate','switch','accept']) || !bounded(item.reply, 500) || !bounded(item.replyDate, 10) || !item.history.every(h => record(h) && bounded(h.date,40) && bounded(h.message,700))) invalid();
+  } else if (key === V7_COMPLAINT_KEY) {
+    if (!text(item.item,90) || !choice(item.source,['receipt','order','memory']) || !cents(item.price) || !cents(item.cost) || !text(item.problem,500) || !choice(item.request,['repair','replace','refund','review']) || !choice(item.action,['review','send','wait','close']) || !bounded(item.reply,500) || !bounded(item.replyDate,10) || !optionalCents(item.actual) || !cents(item.paid) || !item.history.every(h => record(h) && bounded(h.at,40) && bounded(h.note,700))) invalid();
+  } else {
+    if (!text(item.name,90) || !choice(item.kind,['insurance','service','other']) || !choice(item.source,['contract','notice','estimate']) || !realDate(item.endDate) || !cents(item.current) || !optionalCents(item.alternative) || !cents(item.fee) || !bounded(item.action,40) || !bounded(item.reply,500) || !(item.replyDate === '' || realDate(item.replyDate)) || !optionalCents(item.actual) || !cents(item.paid) || !item.history.every(h => record(h) && bounded(h.at,40) && bounded(h.note,700))) invalid();
+  }
+  return item;
+}
+function validateV7Slot(key, value) {
+  if (!ownKeys(value,['version','entries']) || value.version !== 1 || !Array.isArray(value.entries) || value.entries.length > 20) invalid();
+  const ids = new Set();
+  for (const item of value.entries) {
+    validateV7Case(key,item);
+    if (ids.has(item.id)) invalid();
+    ids.add(item.id);
+  }
+  return value;
+}
+
 export const BACKUP_MAX_BYTES = 2_000_000;
 export const BACKUP_ITERATIONS = 210000;
 const GUIDE_PREFIX = 'vsetko24:guide:v1:';
 const GUIDE_LENGTHS = Object.freeze({ 'strata-dokladov': 5, 'zalozenie-zivnosti': 5, 'umrtie-v-rodine': 5, 'kupa-nehnutelnosti': 5, 'stahovanie-bytu': 7 });
 const LEGACY_KEYS = Object.freeze([WORKSPACE_KEY, 'v24-personal-center-v1', PROFILE_KEY, VEHICLE_COST_KEY, ...Object.keys(GUIDE_LENGTHS).map(key => GUIDE_PREFIX + key)]);
-export const BACKUP_KEYS = Object.freeze([...LEGACY_KEYS, DECISIONS_KEY, CONTRACTS_KEY, ANNUAL_EXPENSES_KEY]);
+const V6_KEYS = Object.freeze([...LEGACY_KEYS, DECISIONS_KEY, CONTRACTS_KEY, ANNUAL_EXPENSES_KEY]);
+export const BACKUP_KEYS = Object.freeze([...V6_KEYS, ...V7_KEYS]);
 const encoder = new TextEncoder();
 const aad = encoder.encode('vsetko24-encrypted-backup:1');
 const record = value => value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -43,6 +76,7 @@ function validateProfile(value) {
 }
 function validateSlot(key, value) {
   if (value === null) return null;
+  if (V7_KEYS.includes(key)) return validateV7Slot(key, value);
   if (key === DECISIONS_KEY) return normalizeDecisions(value);
   if (key === CONTRACTS_KEY) return normalizeContracts(value);
   if (key === ANNUAL_EXPENSES_KEY) return normalizeAnnualExpenses(value);
@@ -58,7 +92,7 @@ function validateSlot(key, value) {
   return value;
 }
 export function validateBackupPayload(value) {
-  if (!ownKeys(value, ['format','version','createdAt','entries']) || value.format !== 'vsetko24-workspace-data' || value.version !== 1 || typeof value.createdAt !== 'string' || !Number.isFinite(Date.parse(value.createdAt)) || !record(value.entries) || !((Object.keys(value.entries).length === BACKUP_KEYS.length && BACKUP_KEYS.every(key => Object.hasOwn(value.entries,key))) || (Object.keys(value.entries).length === LEGACY_KEYS.length && LEGACY_KEYS.every(key => Object.hasOwn(value.entries,key))))) invalid();
+  if (!ownKeys(value, ['format','version','createdAt','entries']) || value.format !== 'vsetko24-workspace-data' || value.version !== 1 || typeof value.createdAt !== 'string' || !Number.isFinite(Date.parse(value.createdAt)) || !record(value.entries) || !([BACKUP_KEYS,V6_KEYS,LEGACY_KEYS].some(keys => Object.keys(value.entries).length === keys.length && keys.every(key => Object.hasOwn(value.entries,key))))) invalid();
   const entries = {};
   for (const key of BACKUP_KEYS) if (Object.hasOwn(value.entries,key)) entries[key] = validateSlot(key, value.entries[key]);
   // Canonical independent object; no caller-owned references are retained.
