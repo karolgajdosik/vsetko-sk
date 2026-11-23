@@ -28,6 +28,7 @@ import Base from '../../layouts/Base.astro';
 .inbox-card p{margin:.45rem 0}
 </style>
 <script>
+import { createDeadlineCalendar } from '../../lib/deadline-center.mjs';
 import { formatCaseDate, localCaseDate, validCaseFollowUp } from '../../lib/case-follow-up.mjs';
 type Entry=Record<string,unknown>;
 const sources=[
@@ -115,6 +116,25 @@ for(const source of sources){
       card.append(date);
     }
     card.append(link);
+    if (followUp) {
+      const exportButton = document.createElement('button');
+      exportButton.type = 'button';
+      exportButton.textContent = 'Stiahnuť termín (.ics)';
+      exportButton.addEventListener('click', () => {
+        const calendar = createDeadlineCalendar([{
+          id: source.name + '-' + String(entry.id).slice(0, 99),
+          title: 'Ďalší kontakt · ' + source.title,
+          date: followUp.contactOn
+        }]);
+        const url = URL.createObjectURL(new Blob([calendar], {type: 'text/calendar;charset=utf-8'}));
+        const download = document.createElement('a');
+        download.href = url;
+        download.download = 'vsetko24-dalsi-kontakt.ics';
+        download.click();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      });
+      card.append(document.createTextNode(' '), exportButton);
+    }
     root.append(card);
   }
 }
