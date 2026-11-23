@@ -26,6 +26,16 @@ import Base from '../../layouts/Base.astro';
 <button type="button" id="end-doc-request">Pripraviť žiadosť o potvrdenie konca obdobia</button>
 <button type="button" id="end-doc-reminder">Pripraviť urgenciu</button>
 <p>Export je neodoslaný návrh na kontrolu, nie výpoveď ani právne záväzné podanie.</p>
+<fieldset><legend>Porovnanie nákladov za prvý rok</legend>
+<label>Nová ponuka u súčasného dodávateľa (€ za rok)<input type="number" id="end-renew-price" min="0" max="100000" step="0.01"></label>
+<label>Jednorazový poplatok novej ponuky (€)<input type="number" id="end-renew-fee" min="0" max="100000" step="0.01"></label>
+<label>Iný dodávateľ (€ za rok)<input type="number" id="end-switch-price" min="0" max="100000" step="0.01"></label>
+<label>Jednorazový poplatok pri zmene (€)<input type="number" id="end-switch-fee" min="0" max="100000" step="0.01"></label>
+<label>Vybraná možnosť<select id="end-option"><option value="stay">Zotrvanie</option><option value="renew">Nová ponuka</option><option value="switch">Zmena dodávateľa</option></select></label>
+<button type="button" id="end-options-save">Porovnať a uložiť výber</button>
+<p id="end-options-summary" role="status"></p></fieldset>
+<button type="button" id="end-prepared">Zaznamenať prípravu podkladov</button>
+<button type="button" id="end-archive">Archivovať prípad</button>
 <h3>Čakám na odpoveď</h3>
 <label>Dátum odoslania<input type="date" id="end-sent-on"></label>
 <label>Dátum ďalšieho kontaktu<input type="date" id="end-contact-on"></label>
@@ -38,10 +48,11 @@ import Base from '../../layouts/Base.astro';
 <style>.journey{max-width:950px}.journey .panel{padding:1.2rem;margin:1rem 0}.journey .fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.journey label{display:block;margin:.8rem 0;font-weight:600}.journey input:not([type=checkbox]),.journey select,.journey textarea{display:block;width:100%;box-sizing:border-box;min-height:44px;padding:.65rem;background:var(--surface);color:var(--ink);border:1px solid #8290a5;border-radius:8px;font:inherit}.journey button{min-height:44px;margin:.4rem;padding:.65rem;background:var(--surface);color:var(--ink);border:1px solid #8290a5;border-radius:8px;cursor:pointer}.journey :is(button,input,textarea,select):focus-visible{outline:3px solid currentColor;outline-offset:2px}.journey [hidden]{display:none!important}.journey :is(#end-title,#end-history){overflow-wrap:anywhere}@media(max-width:620px){.journey .fields{grid-template-columns:1fr}.journey .panel{padding:1rem}}</style>
 </Base>
 <script>
+import { caseOptionTotals, validCaseDetails } from '../../lib/case-details.mjs';
 import { isCaseDate, localCaseDate, validCaseFollowUp } from '../../lib/case-follow-up.mjs';
 const KEY='v24-v7-contract-end-v1',MAX=20;
 type Event={at:string;note:string};
-type Case={id:string;name:string;kind:string;source:string;endDate:string;current:number;alternative:number|null;fee:number;action:string;reply:string;replyDate:string;followUp?:{sentOn:string;contactOn:string};actual:number|null;paid:number;history:Event[]};
+type Case={id:string;name:string;kind:string;source:string;endDate:string;current:number;alternative:number|null;fee:number;action:string;reply:string;replyDate:string;archived?:boolean;options?:{choice:string;renew:number;renewFee:number;switch:number;switchFee:number};followUp?:{sentOn:string;contactOn:string};actual:number|null;paid:number;history:Event[]};
 const el=(id:string)=>document.getElementById('end-'+id)!;
 const field=(id:string)=>el(id) as HTMLInputElement;
 const say=(s:string)=>{el('status').textContent=s;};
@@ -50,16 +61,40 @@ const kinds=['insurance','service','other'],sources=['contract','notice','estima
 const amount=(v:any)=>Number.isSafeInteger(v)&&v>=0&&v<=10000000;
 const dateOK=(s:string)=>/^\d{4}-\d{2}-\d{2}$/.test(s)&&!Number.isNaN(Date.parse(s))&&new Date(s).toISOString().slice(0,10)===s;
 function cents(id:string,optional=false):number|null{const s=field(id).value.trim();if(optional&&!s)return null;if(!/^\d{1,6}(?:\.\d{1,2})?$/.test(s))throw Error('Zadajte nezápornú sumu do 100 000 € s najviac dvoma desatinnými miestami.');const n=Math.round(Number(s)*100);if(!amount(n))throw Error('Suma je mimo rozsahu.');return n;}
-function valid(r:any):r is Case{return r&&validCaseFollowUp(r.followUp)&&typeof r.id==='string'&&r.id.length<100&&typeof r.name==='string'&&r.name.length>0&&r.name.length<=90&&kinds.includes(r.kind)&&sources.includes(r.source)&&typeof r.endDate==='string'&&dateOK(r.endDate)&&amount(r.current)&&(r.alternative===null||amount(r.alternative))&&amount(r.fee)&&actions.includes(r.action)&&typeof r.reply==='string'&&r.reply.length<=500&&typeof r.replyDate==='string'&&(r.replyDate===''||dateOK(r.replyDate))&&(r.actual===null||amount(r.actual))&&amount(r.paid)&&Array.isArray(r.history)&&r.history.length<=100&&r.history.every((h:any)=>typeof h.at==='string'&&h.at.length<=40&&typeof h.note==='string'&&h.note.length<=700);}
+function valid(r:any):r is Case{return r&&validCaseDetails(r)&&validCaseFollowUp(r.followUp)&&typeof r.id==='string'&&r.id.length<100&&typeof r.name==='string'&&r.name.length>0&&r.name.length<=90&&kinds.includes(r.kind)&&sources.includes(r.source)&&typeof r.endDate==='string'&&dateOK(r.endDate)&&amount(r.current)&&(r.alternative===null||amount(r.alternative))&&amount(r.fee)&&actions.includes(r.action)&&typeof r.reply==='string'&&r.reply.length<=500&&typeof r.replyDate==='string'&&(r.replyDate===''||dateOK(r.replyDate))&&(r.actual===null||amount(r.actual))&&amount(r.paid)&&Array.isArray(r.history)&&r.history.length<=100&&r.history.every((h:any)=>typeof h.at==='string'&&h.at.length<=40&&typeof h.note==='string'&&h.note.length<=700);}
 let records:Case[]=[],selected:string|null=null,snapshot:string|null=null,blocked=false,preview:Pick<Case,'name'|'kind'|'source'|'endDate'|'current'|'alternative'|'fee'>|null=null;
 function load(){try{snapshot=localStorage.getItem(KEY);const x=snapshot?JSON.parse(snapshot):{version:1,entries:[]};if(x.version!==1||!Array.isArray(x.entries)||x.entries.length>MAX||!x.entries.every(valid))throw Error();records=x.entries;blocked=false;}catch{blocked=true;say('Úložisko je nedostupné alebo poškodené. Pôvodné údaje neprepíšeme.');}render();}
 function persist(){if(blocked)throw Error('Zápis je zablokovaný.');if(localStorage.getItem(KEY)!==snapshot)throw Error('Dáta sa zmenili v inom okne. Obnovte stránku.');const v=JSON.stringify({version:1,entries:records});localStorage.setItem(KEY,v);snapshot=v;}
 function change(fn:(r:Case)=>void){const r=records.find(x=>x.id===selected);if(!r){say('Vyberte prípad.');return;}const before=JSON.stringify(records);try{fn(r);r.history=r.history.slice(-100);persist();render();say('Zmena potvrdená a uložená lokálne.');}catch(e){records=JSON.parse(before);say(e instanceof Error?e.message:'Uloženie zlyhalo.');}}
-function render(){const list=el('list');list.replaceChildren();if(!records.length)list.textContent='Zatiaľ nemáte uložený prípad.';for(const r of records){const b=document.createElement('button');b.type='button';b.textContent=r.name+' · '+r.endDate;b.setAttribute('aria-pressed',String(r.id===selected));b.addEventListener('click',()=>{selected=r.id;render();});list.append(b);}const r=records.find(x=>x.id===selected);el('detail').hidden=!r;if(!r)return;field('sent-on').value=r.followUp?.sentOn ?? '';field('contact-on').value=r.followUp?.contactOn ?? '';el('title').textContent=r.name;el('impact').textContent='Uvedený koniec obdobia: '+r.endDate+' (nie overená lehota výpovede). Pôvod: '+r.source+'. Súčasný ročný náklad: '+money(r.current)+'. '+(r.alternative===null?'Alternatíva nezadaná.':'Modelová úspora prvého roka po poplatku: '+money(r.current-r.alternative-r.fee)+'.');field('action').value=r.action;field('reply').value=r.reply;field('reply-date').value=r.replyDate;field('actual').value=r.actual===null?'':(r.actual/100).toFixed(2);field('paid').value=(r.paid/100).toFixed(2);el('result').textContent=r.actual===null?'Skutočný výsledok zatiaľ nepotvrdený.':'Čistý rozdiel oproti pôvodnému ročnému nákladu: '+money(r.current-r.actual-r.paid)+'. Výpočet vychádza iba z potvrdených údajov.';const h=el('history');h.replaceChildren();for(const x of r.history){const li=document.createElement('li');li.textContent=x.at.slice(0,10)+' · '+x.note;h.append(li);}}
+function render(){const list=el('list');list.replaceChildren();if(!records.length)list.textContent='Zatiaľ nemáte uložený prípad.';for(const r of records){const b=document.createElement('button');b.type='button';b.textContent=r.name+' · '+r.endDate;b.setAttribute('aria-pressed',String(r.id===selected));b.addEventListener('click',()=>{selected=r.id;render();});list.append(b);}const r=records.find(x=>x.id===selected);el('detail').hidden=!r;if(!r)return;
+  el('archive').textContent = r.archived ? 'Znovu otvoriť prípad' : 'Archivovať prípad';
+  field('option').value=r.options?.choice ?? 'stay';
+  for (const [id, value] of [['renew-price',r.options?.renew],['renew-fee',r.options?.renewFee],['switch-price',r.options?.switch],['switch-fee',r.options?.switchFee]] as const) field(id).value=value===undefined?'':(value/100).toFixed(2);
+  const totals = r.options && caseOptionTotals(r.current, r.options);
+  el('options-summary').textContent=totals?'Zotrvanie: '+money(totals[0])+' · Nová ponuka: '+money(totals[1])+' · Zmena: '+money(totals[2]):'';
+  field('sent-on').value=r.followUp?.sentOn ?? '';field('contact-on').value=r.followUp?.contactOn ?? '';el('title').textContent=r.name;el('impact').textContent='Uvedený koniec obdobia: '+r.endDate+' (nie overená lehota výpovede). Pôvod: '+r.source+'. Súčasný ročný náklad: '+money(r.current)+'. '+(r.alternative===null?'Alternatíva nezadaná.':'Modelová úspora prvého roka po poplatku: '+money(r.current-r.alternative-r.fee)+'.');field('action').value=r.action;field('reply').value=r.reply;field('reply-date').value=r.replyDate;field('actual').value=r.actual===null?'':(r.actual/100).toFixed(2);field('paid').value=(r.paid/100).toFixed(2);el('result').textContent=r.actual===null?'Skutočný výsledok zatiaľ nepotvrdený.':'Čistý rozdiel oproti pôvodnému ročnému nákladu: '+money(r.current-r.actual-r.paid)+'. Výpočet vychádza iba z potvrdených údajov.';const h=el('history');h.replaceChildren();for(const x of r.history){const li=document.createElement('li');li.textContent=x.at.slice(0,10)+' · '+x.note;h.append(li);}}
 el('form').addEventListener('submit',e=>{e.preventDefault();try{const name=field('name').value.trim(),endDate=field('date').value;if(!name||name.length>90||!dateOK(endDate))throw Error('Doplňte názov a platný dátum.');preview={name,endDate,kind:field('kind').value,source:field('source').value,current:cents('current')!,alternative:cents('alternative',true),fee:cents('fee')!};el('summary').textContent='Zmluva: '+name+'. Koniec obdobia podľa vášho prepisu: '+endDate+'. Pôvod: '+(el('source') as HTMLSelectElement).selectedOptions[0].textContent+'. Ročný náklad: '+money(preview.current)+'. '+(preview.alternative===null?'Alternatíva nie je zadaná.':'Odhad úspory za prvý rok po poplatku: '+money(preview.current-preview.alternative-preview.fee)+'.')+' Dátum nie je automaticky výpovedná lehota.';field('confirm').checked=false;el('preview').hidden=false;say('Návrh pripravený bez uloženia.');}catch(e){say(e instanceof Error?e.message:'Neplatný vstup.');}});
 el('form').addEventListener('input',()=>{preview=null;el('preview').hidden=true;});
 el('create').addEventListener('click',()=>{if(!preview||!field('confirm').checked){say('Najprv potvrďte údaje.');return;}if(records.length>=MAX){say('Limit 20 prípadov.');return;}const r:Case={...preview,id:crypto.randomUUID(),action:'verify',reply:'',replyDate:'',actual:null,paid:0,history:[{at:new Date().toISOString(),note:'Výslovne potvrdené údaje a pôvod.'}]};records.push(r);try{persist();selected=r.id;preview=null;el('preview').hidden=true;render();say('Prípad uložený.');}catch(e){records.pop();say(e instanceof Error?e.message:'Uloženie zlyhalo.');}});
 el('action-save').addEventListener('click',()=>change(r=>{r.action=field('action').value;r.history.push({at:new Date().toISOString(),note:'Potvrdený krok: '+(el('action') as HTMLSelectElement).selectedOptions[0].textContent!.slice(0,90)});}));
+el('options-save').addEventListener('click', () => change(r => {
+  const choice = field('option').value;
+  if (!['stay','renew','switch'].includes(choice)) throw Error('Vyberte dostupnú možnosť.');
+  r.options = {choice, renew:cents('renew-price')!, renewFee:cents('renew-fee',true) ?? 0,
+    switch:cents('switch-price')!, switchFee:cents('switch-fee',true) ?? 0};
+  const label = (el('option') as HTMLSelectElement).selectedOptions[0].textContent;
+  const note = 'Vybraná možnosť porovnania: ' + label;
+  r.history.push({at:new Date().toISOString(),note});
+}));
+el('archive').addEventListener('click', () => change(r => {
+  r.archived = !r.archived;
+  const note = r.archived ? 'Prípad archivovaný.' : 'Prípad znovu otvorený.';
+  r.history.push({at:new Date().toISOString(),note});
+}));
+el('prepared').addEventListener('click', () => change(r => {
+  const note = 'Zaznamenaná príprava podkladov.';
+  r.history.push({at:new Date().toISOString(),note});
+}));
 el('follow-up-save').addEventListener('click', () => {
   const sentOn = field('sent-on').value;
   const contactOn = field('contact-on').value;
@@ -100,6 +135,24 @@ el('doc-reminder').addEventListener('click', () => openCaseDraft('reminder'));
 el('export').addEventListener('click',()=>{const r=records.find(x=>x.id===selected);if(!r)return;const body=['VŠETKO24 – neodoslané podklady k zmluve',r.name,'Zdroj: '+r.source,'Uvedený koniec obdobia: '+r.endDate,'Súčasný ročný náklad: '+money(r.current),'Potvrdený krok: '+r.action,'','NÁVRH SPRÁVY – nie výpoveď, pred odoslaním overte podmienky:','Dobrý deň, prosím o potvrdenie termínu skončenia aktuálneho obdobia pre '+r.name+' a o informáciu o možnostiach pokračovania, ukončenia, prípadných lehotách a poplatkoch.','', 'Odpoveď: '+(r.reply||'neevidovaná'),'Skutočný rozdiel: '+(r.actual===null?'nepotvrdený':money(r.current-r.actual-r.paid)),'História:',...r.history.map(x=>x.at+' '+x.note)].join('\n');const url=URL.createObjectURL(new Blob([body],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='vsetko24-koniec-zmluvy.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);say('Podklady stiahnuté, nie odoslané.');});
 el('delete').addEventListener('click',()=>{if(!confirm('Natrvalo vymazať tento prípad?'))return;const old=records;records=records.filter(r=>r.id!==selected);try{persist();selected=null;render();say('Prípad odstránený.');}catch(e){records=old;say(e instanceof Error?e.message:'Vymazanie zlyhalo.');}});
 load();
+
+if (new URLSearchParams(location.search).get('source') === 'v8-contract') {
+  try {
+    const raw = sessionStorage.getItem('v24-v8-new-case');
+    sessionStorage.removeItem('v24-v8-new-case');
+    const draft = raw && raw.length < 1000 ? JSON.parse(raw) : null;
+    if (draft && typeof draft.name === 'string' && draft.name.trim() && draft.name.length <= 90 &&
+        isCaseDate(draft.date) && amount(draft.current)) {
+      field('name').value = draft.name;
+      field('date').value = draft.date;
+      field('current').value = (draft.current / 100).toFixed(2);
+      field('source').value = 'contract';
+      say('Údaje zo zmluvy sú vo formulári. Skontrolujte ich a potvrďte vytvorenie prípadu.');
+    }
+  } catch {
+    say('Údaje zo zmluvy nie sú dostupné. Prípad môžete vyplniť ručne.');
+  }
+}
 
 const requestedCase = new URLSearchParams(location.hash.slice(1)).get('pripad');
 if (requestedCase !== null && !blocked) {

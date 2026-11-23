@@ -17,7 +17,13 @@ import Base from '../../layouts/Base.astro';
     <h2 id="inbox-due-title">Na vybavenie</h2>
     <ul id="inbox-due-list"></ul>
   </section>
+  <section aria-labelledby="inbox-results-title">
+    <h2 id="inbox-results-title">Výsledky prípadov</h2>
+    <p id="inbox-confirmed"></p>
+    <p id="inbox-estimates"></p>
+  </section>
   <div id="inbox-cases"></div>
+  <details id="inbox-archive" hidden><summary>Archív prípadov</summary><div id="inbox-archived-cases"></div></details>
   <p>Ak je úložisko poškodené alebo zablokované, príslušné záznamy nezobrazíme a nič neprepíšeme. Na úpravu, export alebo odstránenie otvorte konkrétneho sprievodcu. Na iných zariadeniach sa prípady automaticky nezobrazia.</p>
   <noscript>Na zobrazenie lokálnych prípadov je potrebný JavaScript.</noscript>
 </main>
@@ -41,6 +47,11 @@ const status=document.getElementById('inbox-status')!;
 const dueSection = document.getElementById('inbox-due')!;
 const dueList = document.getElementById('inbox-due-list')!;
 const today = localCaseDate();
+const archive = document.getElementById('inbox-archive')!;
+const archivedCases = document.getElementById('inbox-archived-cases')!;
+const money = (value: number) => new Intl.NumberFormat('sk-SK', {style:'currency',currency:'EUR'}).format(value / 100);
+const cents = (value: unknown): value is number => typeof value === 'number' && Number.isSafeInteger(value) && value >= 0 && value <= 10000000;
+let compensation=0, paid=0, annualSavings=0, estimated=0, confirmedCount=0, estimatedCount=0;
 let total=0,errors=0;
 const text=(value:unknown,max=90)=>typeof value==='string'?value.slice(0,max):'';
 for(const source of sources){
@@ -73,11 +84,25 @@ for(const source of sources){
     const category=document.createElement('p');category.textContent=source.title;
     const state=document.createElement('p');
     const hasReply=typeof entry.reply==='string'&&entry.reply.trim().length>0;
-    const hasResult=typeof entry.actual==='number'&&Number.isFinite(entry.actual);
+    const actual = entry.actual;
+    const hasResult = cents(actual);
+    const archived = entry.archived === true;
+    const recurringBaseline = source.name === 'service' && cents(entry.next) ? entry.next * 12
+      : source.name === 'name' && cents(entry.current) ? entry.current : null;
+    if (cents(actual)) {
+      confirmedCount++;
+      if (source.name === 'item') compensation += actual;
+      const cost = source.name === 'service' ? entry.actualFee : entry.paid;
+      if (cents(cost)) paid += cost;
+      if (recurringBaseline !== null) annualSavings += recurringBaseline - (source.name === 'service' ? actual * 12 : actual);
+    } else if (!archived && recurringBaseline !== null && cents(entry.alternative) && cents(entry.fee)) {
+      estimatedCount++;
+      estimated += recurringBaseline - (source.name === 'service' ? entry.alternative * 12 : entry.alternative) - entry.fee;
+    }
     const savedFollowUp = entry.followUp as {sentOn:string;contactOn:string} | undefined;
-    const followUp = !hasResult && validCaseFollowUp(savedFollowUp) ? savedFollowUp : undefined;
+    const followUp = !archived && !hasResult && validCaseFollowUp(savedFollowUp) ? savedFollowUp : undefined;
     const due = followUp && followUp.contactOn <= today;
-    state.textContent=followUp?'Čakám na odpoveď':hasResult?'Skutočný výsledok zaznamenaný':hasReply?'Odpoveď zaznamenaná':'Rozpracovaný prípad';
+    state.textContent=archived?'Archivovaný prípad':followUp?'Čakám na odpoveď':hasResult?'Skutočný výsledok zaznamenaný':hasReply?'Odpoveď zaznamenaná':'Rozpracovaný prípad';
     const link = document.createElement('a');
     link.href = source.path + '#' + new URLSearchParams({ pripad: String(entry.id) });
     link.textContent = 'Otvoriť prípad';
@@ -135,9 +160,20 @@ for(const source of sources){
       });
       card.append(document.createTextNode(' '), exportButton);
     }
-    root.append(card);
+    if (archived) {
+      archive.hidden = false;
+      archivedCases.append(card);
+    } else {
+      root.append(card);
+    }
   }
 }
+document.getElementById('inbox-confirmed')!.textContent = confirmedCount
+  ? 'Potvrdené výsledky (' + confirmedCount + '): kompenzácie ' + money(compensation) + ' · jednorazové náklady ' + money(paid) + ' · prepočítaná ročná úspora pred jednorazovými nákladmi ' + money(annualSavings) + '.'
+  : 'Zatiaľ bez potvrdených výsledkov.';
+document.getElementById('inbox-estimates')!.textContent = estimatedCount
+  ? 'Odhad čistej úspory v prvom roku (' + estimatedCount + ' rozpracovaných prípadov): ' + money(estimated) + '.'
+  : 'Zatiaľ bez odhadov rozpracovaných prípadov.';
 status.textContent=total+' miestnych prípadov'+(errors?' · '+errors+' zdrojov sa nepodarilo bezpečne načítať':'')+'.';
 if(!total&&!errors){const empty=document.createElement('p');empty.textContent='Zatiaľ nemáte uložené prípady. Začnite niektorým zo sprievodcov vyššie.';root.append(empty);}
 </script>
