@@ -13,6 +13,10 @@ import Base from '../../layouts/Base.astro';
   </nav>
   <p><a href="/vyriesit/dokument-na-ulohy/">Pripraviť úlohy podľa typu dokumentu</a></p>
   <p id="inbox-status" role="status" aria-live="polite">Načítavam miestne záznamy…</p>
+  <section id="inbox-due" hidden aria-labelledby="inbox-due-title">
+    <h2 id="inbox-due-title">Na vybavenie</h2>
+    <ul id="inbox-due-list"></ul>
+  </section>
   <div id="inbox-cases"></div>
   <p>Ak je úložisko poškodené alebo zablokované, príslušné záznamy nezobrazíme a nič neprepíšeme. Na úpravu, export alebo odstránenie otvorte konkrétneho sprievodcu. Na iných zariadeniach sa prípady automaticky nezobrazia.</p>
   <noscript>Na zobrazenie lokálnych prípadov je potrebný JavaScript.</noscript>
@@ -24,6 +28,7 @@ import Base from '../../layouts/Base.astro';
 .inbox-card p{margin:.45rem 0}
 </style>
 <script>
+import { formatCaseDate, localCaseDate, validCaseFollowUp } from '../../lib/case-follow-up.mjs';
 type Entry=Record<string,unknown>;
 const sources=[
   {key:'v24-v7-service-cases-v1',title:'Zdražená služba',path:'/vyriesit/zdrazena-sluzba/',name:'service'},
@@ -32,6 +37,9 @@ const sources=[
 ] as const;
 const root=document.getElementById('inbox-cases')!;
 const status=document.getElementById('inbox-status')!;
+const dueSection = document.getElementById('inbox-due')!;
+const dueList = document.getElementById('inbox-due-list')!;
+const today = localCaseDate();
 let total=0,errors=0;
 const text=(value:unknown,max=90)=>typeof value==='string'?value.slice(0,max):'';
 for(const source of sources){
@@ -65,7 +73,10 @@ for(const source of sources){
     const state=document.createElement('p');
     const hasReply=typeof entry.reply==='string'&&entry.reply.trim().length>0;
     const hasResult=typeof entry.actual==='number'&&Number.isFinite(entry.actual);
-    state.textContent=hasResult?'Skutočný výsledok zaznamenaný':hasReply?'Odpoveď zaznamenaná':'Rozpracovaný prípad';
+    const savedFollowUp = entry.followUp as {sentOn:string;contactOn:string} | undefined;
+    const followUp = !hasResult && validCaseFollowUp(savedFollowUp) ? savedFollowUp : undefined;
+    const due = followUp && followUp.contactOn <= today;
+    state.textContent=followUp?'Čakám na odpoveď':hasResult?'Skutočný výsledok zaznamenaný':hasReply?'Odpoveď zaznamenaná':'Rozpracovaný prípad';
     const link = document.createElement('a');
     link.href = source.path + '#' + new URLSearchParams({ pripad: String(entry.id) });
     link.textContent = 'Otvoriť prípad';
@@ -75,12 +86,27 @@ for(const source of sources){
     lastStep.textContent = 'Posledný zaznamenaný krok: ' + (lastMessage || 'bez záznamu');
 
     const nextStep = document.createElement('p');
-    const nextAction = hasResult ? 'Skontrolujte výsledok prípadu.'
+    const nextAction = followUp ? (due ? 'Ozvite sa k prípadu.' : 'Počkajte na odpoveď do termínu ďalšieho kontaktu.')
+      : hasResult ? 'Skontrolujte výsledok prípadu.'
       : hasReply ? 'Zapíšte skutočný výsledok, keď ho budete poznať.'
       : 'Otvorte prípad a skontrolujte ďalší postup a podklady.';
     nextStep.textContent = 'Najbližší krok: ' + nextAction;
 
     card.append(heading, category, state, lastStep, nextStep);
+    if (followUp) {
+      const date = document.createElement('p');
+      date.textContent = 'Ďalší kontakt: ' + formatCaseDate(followUp.contactOn);
+      card.append(date);
+      if (due) {
+        const item = document.createElement('li');
+        const dueLink = document.createElement('a');
+        dueLink.href = link.href;
+        dueLink.textContent = heading.textContent + ' · ' + formatCaseDate(followUp.contactOn);
+        item.append(dueLink);
+        dueList.append(item);
+        dueSection.hidden = false;
+      }
+    }
     const endDate = text(entry.endDate, 10);
     if (source.name === 'name' && /^\d{4}-\d{2}-\d{2}$/.test(endDate)) {
       const [year, month, day] = endDate.split('-');

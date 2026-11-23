@@ -1,3 +1,4 @@
+import { validCaseFollowUp } from './case-follow-up.mjs';
 import { DECISIONS_KEY, normalizeDecisions } from './decision-comparison.mjs';
 import { CONTRACTS_KEY, normalizeContracts } from './contract-store.mjs';
 import { ANNUAL_EXPENSES_KEY, normalizeAnnualExpenses } from './annual-expenses.mjs';
@@ -17,6 +18,7 @@ const optionalCents = v => v === null || cents(v);
 const choice = (v, choices) => choices.includes(v);
 function validateV7Case(key, item) {
   if (!record(item) || !bounded(item.id, 99) || !item.id || !Array.isArray(item.history) || item.history.length > 100) invalid();
+  if (!validCaseFollowUp(item.followUp)) invalid();
   if (key === V7_SERVICE_KEY) {
     if (!bounded(item.service, 90) || !choice(item.source, ['manual','contract','estimate']) || ![item.old,item.next,item.fee,item.actualFee].every(cents) || ![item.alternative,item.actual].every(optionalCents) || !choice(item.decision, ['review','negotiate','switch','accept']) || !bounded(item.reply, 500) || !bounded(item.replyDate, 10) || !item.history.every(h => record(h) && bounded(h.date,40) && bounded(h.message,700))) invalid();
   } else if (key === V7_COMPLAINT_KEY) {
