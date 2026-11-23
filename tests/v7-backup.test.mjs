@@ -40,3 +40,15 @@ test('damaged local JSON and unavailable storage block export',()=>{
  const target=memory(v7Entries);target.setItem(keys[1],'{broken');assert.throws(()=>collectBackup(target));
  assert.throws(()=>collectBackup({getItem(){throw Error('blocked');}}),/blocked/);
 });
+
+test('V8 case details survive encryption and restore alongside legacy case data',async()=>{
+ const populated=structuredClone(v7Entries);
+ populated[keys[0]].entries[0].options={choice:'switch',renew:29000,renewFee:300, switch:25000,switchFee:1000};
+ populated[keys[1]].entries[0].evidence=3;
+ populated[keys[1]].entries[0].archived=true;
+ populated[keys[2]].entries[0].followUp={sentOn:'2026-11-22',contactOn:'2026-12-01'};
+ const encoded=await encryptBackup(collectBackup(memory(populated)),password,webcrypto);
+ const decoded=await decryptBackup(encoded,password,webcrypto),target=memory();
+ restoreBackup(target,decoded,snapshotBackupStorage(target));
+ for(const key of keys) assert.deepEqual(JSON.parse(target.getItem(key)),populated[key]);
+});
