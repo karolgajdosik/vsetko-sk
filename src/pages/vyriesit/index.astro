@@ -1,9 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro';
 ---
-<Base title="Moje prípady V7 – súkromná schránka" description="Prehľad potvrdených lokálnych prípadov zo všetkých troch scenárov V7.">
+<Base title="Moje prípady – súkromná schránka" description="Prehľad potvrdených lokálnych prípadov zo všetkých troch scenárov V7.">
 <main id="obsah" class="wrap main">
-  <p class="eyebrow">VŠETKO24 · V7 · osobná schránka</p>
+  <p class="eyebrow">VŠETKO24 · osobná schránka</p>
   <h1>Moje prípady</h1>
   <p>Jedno miesto na prezeranie prípadov, ktoré ste výslovne vytvorili v troch sprievodcoch. Údaje zostávajú iba v tomto prehliadači. Táto schránka ich neupravuje ani neposiela. Prípady možno výslovne zahrnúť do šifrovanej zálohy cez stránku Záloha.</p>
   <nav aria-label="Sprievodcovia prípadmi">
@@ -69,7 +69,27 @@ for(const source of sources){
     const link = document.createElement('a');
     link.href = source.path + '#' + new URLSearchParams({ pripad: String(entry.id) });
     link.textContent = 'Otvoriť prípad';
-    card.append(heading,category,state,link);root.append(card);
+    const lastStep = document.createElement('p');
+    const lastEvent = Array.isArray(entry.history) ? entry.history.at(-1) : null;
+    const lastMessage = text(lastEvent?.note ?? lastEvent?.message, 700);
+    lastStep.textContent = 'Posledný zaznamenaný krok: ' + (lastMessage || 'bez záznamu');
+
+    const nextStep = document.createElement('p');
+    const nextAction = hasResult ? 'Skontrolujte výsledok prípadu.'
+      : hasReply ? 'Zapíšte skutočný výsledok, keď ho budete poznať.'
+      : 'Otvorte prípad a skontrolujte ďalší postup a podklady.';
+    nextStep.textContent = 'Najbližší krok: ' + nextAction;
+
+    card.append(heading, category, state, lastStep, nextStep);
+    const endDate = text(entry.endDate, 10);
+    if (source.name === 'name' && /^\d{4}-\d{2}-\d{2}$/.test(endDate)) {
+      const [year, month, day] = endDate.split('-');
+      const date = document.createElement('p');
+      date.textContent = 'Evidovaný koniec obdobia: ' + Number(day) + '. ' + Number(month) + '. ' + year;
+      card.append(date);
+    }
+    card.append(link);
+    root.append(card);
   }
 }
 status.textContent=total+' miestnych prípadov'+(errors?' · '+errors+' zdrojov sa nepodarilo bezpečne načítať':'')+'.';
