@@ -19,7 +19,7 @@ import Base from '../../layouts/Base.astro';
 <label>Odhad jednorazových nákladov zmeny (€)<input id="end-fee" type="number" min="0" max="100000" step="0.01" value="0" required></label>
 </div><button type="submit">Pripraviť návrh bez uloženia</button></form></section>
 <section class="panel" id="end-preview" hidden><h2>2. Skontrolovať a výslovne potvrdiť</h2><p id="end-summary"></p><label><input type="checkbox" id="end-confirm"> Overil(a) som vlastné údaje a ich neistotu; chcem vytvoriť lokálny prípad.</label><button type="button" id="end-create">Potvrdiť a uložiť</button></section>
-<section class="panel"><h2>3. Prípady a rozhodnutie</h2><div id="end-list"></div><div id="end-detail" hidden>
+<section class="panel"><h2>3. Prípady a rozhodnutie</h2><div id="end-list"></div><div id="end-detail" tabindex="-1" hidden>
 <h3 id="end-title"></h3><p id="end-impact"></p>
 <label>Potvrdený ďalší krok<select id="end-action"><option value="verify">Overím lehoty a podmienky</option><option value="renew">Preverím obnovenie zmluvy</option><option value="compare">Porovnám ponuky</option><option value="contact">Požiadam poskytovateľa o postup</option><option value="close">Vyhodnotím výsledok</option></select></label>
 <button type="button" id="end-action-save">Potvrdiť krok</button><button type="button" id="end-export">Stiahnuť podklady (.txt)</button>
@@ -58,4 +58,15 @@ el('result-save').addEventListener('click',()=>{try{const actual=cents('actual',
 el('export').addEventListener('click',()=>{const r=records.find(x=>x.id===selected);if(!r)return;const body=['VŠETKO24 – neodoslané podklady k zmluve',r.name,'Zdroj: '+r.source,'Uvedený koniec obdobia: '+r.endDate,'Súčasný ročný náklad: '+money(r.current),'Potvrdený krok: '+r.action,'','NÁVRH SPRÁVY – nie výpoveď, pred odoslaním overte podmienky:','Dobrý deň, prosím o potvrdenie termínu skončenia aktuálneho obdobia pre '+r.name+' a o informáciu o možnostiach pokračovania, ukončenia, prípadných lehotách a poplatkoch.','', 'Odpoveď: '+(r.reply||'neevidovaná'),'Skutočný rozdiel: '+(r.actual===null?'nepotvrdený':money(r.current-r.actual-r.paid)),'História:',...r.history.map(x=>x.at+' '+x.note)].join('\n');const url=URL.createObjectURL(new Blob([body],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='vsetko24-koniec-zmluvy.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);say('Podklady stiahnuté, nie odoslané.');});
 el('delete').addEventListener('click',()=>{if(!confirm('Natrvalo vymazať tento prípad?'))return;const old=records;records=records.filter(r=>r.id!==selected);try{persist();selected=null;render();say('Prípad odstránený.');}catch(e){records=old;say(e instanceof Error?e.message:'Vymazanie zlyhalo.');}});
 load();
+
+const requestedCase = new URLSearchParams(location.hash.slice(1)).get('pripad');
+if (requestedCase !== null && !blocked) {
+  if (records.some(record => record.id === requestedCase)) {
+    selected = requestedCase;
+    render();
+    el('detail').focus();
+  } else {
+    say('Tento prípad sa v tomto prehliadači nenašiel. Vyberte dostupný prípad zo zoznamu.');
+  }
+}
 </script>
