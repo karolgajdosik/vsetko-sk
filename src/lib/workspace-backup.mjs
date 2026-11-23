@@ -1,3 +1,4 @@
+import { HOUSEHOLD_KEY, normalizeHousehold, mergeHouseholds } from './household.mjs';
 import { validCaseDetails } from './case-details.mjs';
 import { validCaseFollowUp } from './case-follow-up.mjs';
 import { DECISIONS_KEY, normalizeDecisions } from './decision-comparison.mjs';
@@ -40,13 +41,14 @@ function validateV7Slot(key, value) {
   return value;
 }
 
-export const BACKUP_MAX_BYTES = 2_000_000;
+export const BACKUP_MAX_BYTES = 8_000_000;
 export const BACKUP_ITERATIONS = 210000;
 const GUIDE_PREFIX = 'vsetko24:guide:v1:';
 const GUIDE_LENGTHS = Object.freeze({ 'strata-dokladov': 5, 'zalozenie-zivnosti': 5, 'umrtie-v-rodine': 5, 'kupa-nehnutelnosti': 5, 'stahovanie-bytu': 7 });
 const LEGACY_KEYS = Object.freeze([WORKSPACE_KEY, 'v24-personal-center-v1', PROFILE_KEY, VEHICLE_COST_KEY, ...Object.keys(GUIDE_LENGTHS).map(key => GUIDE_PREFIX + key)]);
 const V6_KEYS = Object.freeze([...LEGACY_KEYS, DECISIONS_KEY, CONTRACTS_KEY, ANNUAL_EXPENSES_KEY]);
-export const BACKUP_KEYS = Object.freeze([...V6_KEYS, ...V7_KEYS]);
+const PRE_V9_KEYS = Object.freeze([...V6_KEYS, ...V7_KEYS]);
+export const BACKUP_KEYS = Object.freeze([...PRE_V9_KEYS, HOUSEHOLD_KEY]);
 const encoder = new TextEncoder();
 const aad = encoder.encode('vsetko24-encrypted-backup:1');
 const record = value => value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -79,6 +81,7 @@ function validateProfile(value) {
 }
 function validateSlot(key, value) {
   if (value === null) return null;
+  if (key === HOUSEHOLD_KEY) return normalizeHousehold(value);
   if (V7_KEYS.includes(key)) return validateV7Slot(key, value);
   if (key === DECISIONS_KEY) return normalizeDecisions(value);
   if (key === CONTRACTS_KEY) return normalizeContracts(value);
@@ -95,7 +98,7 @@ function validateSlot(key, value) {
   return value;
 }
 export function validateBackupPayload(value) {
-  if (!ownKeys(value, ['format','version','createdAt','entries']) || value.format !== 'vsetko24-workspace-data' || value.version !== 1 || typeof value.createdAt !== 'string' || !Number.isFinite(Date.parse(value.createdAt)) || !record(value.entries) || !([BACKUP_KEYS,V6_KEYS,LEGACY_KEYS].some(keys => Object.keys(value.entries).length === keys.length && keys.every(key => Object.hasOwn(value.entries,key))))) invalid();
+  if (!ownKeys(value, ['format','version','createdAt','entries']) || value.format !== 'vsetko24-workspace-data' || value.version !== 1 || typeof value.createdAt !== 'string' || !Number.isFinite(Date.parse(value.createdAt)) || !record(value.entries) || !([BACKUP_KEYS,PRE_V9_KEYS,V6_KEYS,LEGACY_KEYS].some(keys => Object.keys(value.entries).length === keys.length && keys.every(key => Object.hasOwn(value.entries,key))))) invalid();
   const entries = {};
   for (const key of BACKUP_KEYS) if (Object.hasOwn(value.entries,key)) entries[key] = validateSlot(key, value.entries[key]);
   // Canonical independent object; no caller-owned references are retained.
@@ -160,7 +163,7 @@ export async function encryptBackup(payload, password, provider) {
 }
 export async function decryptBackup(input, password, provider) {
   passwordCheck(password);
-  if (typeof input !== 'string' || encoder.encode(input).byteLength > BACKUP_MAX_BYTES) throw new Error('Záložný súbor je príliš veľký (maximum 2 MB).');
+  if (typeof input !== 'string' || encoder.encode(input).byteLength > BACKUP_MAX_BYTES) throw new Error('Záložný súbor je príliš veľký (maximum 8 MB).');
   const envelope = JSON.parse(input);
   if (!ownKeys(envelope, ['format','version','cipher','kdf','iterations','salt','iv','ciphertext']) || envelope.format !== 'vsetko24-encrypted-backup' || envelope.version !== 1 || envelope.cipher !== 'AES-256-GCM' || envelope.kdf !== 'PBKDF2-SHA256' || envelope.iterations !== BACKUP_ITERATIONS) invalid();
   const salt = unbase64(envelope.salt, 16, 16), iv = unbase64(envelope.iv, 12, 12), ciphertext = unbase64(envelope.ciphertext, 16, BACKUP_MAX_BYTES);
@@ -195,4 +198,22 @@ export function restoreBackup(storage, payload, expectedSnapshot) {
     throw error;
   }
   return backupSummary(valid);
+}
+
+// Record-level union for known collections, explicit conflict policy for each shared ID.
+// Other legacy sections remain atomic. Null in an imported backup never deletes in merge mode.
+export function mergeBackup(current, incoming, prefer = 'local') {
+  if (!['local','incoming'].includes(prefer)) throw Error('Neplatná voľba konfliktov.');
+  const a=validateBackupPayload(current),b=validateBackupPayload(incoming);
+  const entries={...a.entries};
+  const collections = { 'v24-contracts-v6':'entries', 'v24-annual-expenses-v6':'expenses', 'v24-decisions-v6':'comparisons', ...Object.fromEntries(V7_KEYS.map(k=>[k,'entries'])) };
+  for(const [key,value] of Object.entries(b.entries)) {
+    if(value===null)continue;
+    if(!entries[key]){entries[key]=value;continue;}
+    if(key===HOUSEHOLD_KEY){entries[key]=mergeHouseholds(entries[key],value,prefer);continue;}
+    const field=collections[key];
+    if(field){const map=new Map(entries[key][field].map(x=>[x.id,x]));for(const x of value[field])if(!map.has(x.id)||prefer==='incoming')map.set(x.id,x);entries[key]={...entries[key],[field]:[...map.values()]};}
+    else if(prefer==='incoming')entries[key]=value;
+  }
+  return validateBackupPayload({...a,entries});
 }

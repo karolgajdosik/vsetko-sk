@@ -1,5 +1,12 @@
 [
   {
+    "title": "Osobné centrum domácnosti",
+    "category": "Nástroje",
+    "url": "/domacnost/",
+    "description": "Prepojené zmluvy, povinnosti, finančný plán, životné situácie a lokálne dokumenty.",
+    "keywords": "domacnost v9 profil poistka stahovanie dokumenty plan"
+  },
+  {
     "title": "Hypotekárna kalkulačka",
     "category": "Financie",
     "url": "/financie/#hypoteka",

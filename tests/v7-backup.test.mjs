@@ -14,7 +14,7 @@ test('three populated V7 journeys survive encrypted export and confirmed restore
  for(const key of keys) assert.deepEqual(JSON.parse(target.getItem(key)),v7Entries[key]);
 });
 for(const version of [5,6]) test(`encrypted V${version} backup preserves newer populated stores`,async()=>{
- const p=sample();for(const key of keys)delete p.entries[key];
+ const p=sample();delete p.entries['v24-household-v9'];for(const key of keys)delete p.entries[key];
  const v6=['v24-decisions-v6','v24-contracts-v6','v24-annual-expenses-v6'];
  if(version===5)for(const key of v6)delete p.entries[key];
  const decoded=await decryptBackup(await encryptBackup(p,password,webcrypto),password,webcrypto);

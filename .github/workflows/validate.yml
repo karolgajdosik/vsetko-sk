@@ -32,6 +32,7 @@ jobs:
           node tests/v5-browser.mjs
           node tests/v6-browser.mjs
           node tests/v8-browser.mjs
+          node tests/v9-browser.mjs
           VSETKO_ORIGIN=http://127.0.0.1:4321 node tests/production-contact.mjs
           VSETKO_ORIGIN=http://127.0.0.1:4321 node scripts/check-production-ui.mjs
           VSETKO_ORIGIN=http://127.0.0.1:4321 node tests/production-mobile-calculators.mjs
