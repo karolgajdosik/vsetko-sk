@@ -7,7 +7,7 @@ import Base from '../layouts/Base.astro';
   <h1>Šifrovaná záloha a prenos údajov</h1>
   <p class="intro">Pokračujte na inom zariadení alebo si bezpečne odložte svoj postup. Súbor sa vytvorí aj otvorí iba v tomto prehliadači.</p>
   <p><a href="/moje-situacie/">Moje rozpracované situácie</a> · <a href="/moj-prehlad/">Osobný prehľad</a></p>
-  <aside class="panel note"><h2>Čo záloha obsahuje</h2><p>Prípady V7 (zdražená služba, reklamácia nákupu a koniec zmluvy) vrátane histórie a výsledkov, porovnania rozhodnutí V6, zmluvy a ročné výdavky, situácie V5 a ich výpočtové vstupy, úlohy, termíny a rozpočet z Môjho centra, obľúbené odkazy a témy, evidenciu auta a postup v piatich kontrolných zoznamoch. Staršia záloha V5 neprepíše záznamy V6 ani V7; záloha V6 neprepíše záznamy V7. Neobsahuje surové CSV transakcie, miestne počítadlá, vyplnené dokumenty, heslá, účty ani súbory stiahnuté do zariadenia.</p><p>Záloha je zašifrovaná pomocou AES-256-GCM a hesla odvodeného cez PBKDF2-SHA256 (210 000 iterácií). Heslo si uschovajte oddelene: bez neho zálohu neobnovíme. Zdieľaním súboru aj hesla sprístupníte jeho údaje príjemcovi.</p></aside>
+  <aside class="panel note"><h2>Čo záloha obsahuje</h2><p>Domácnosť V9 vrátane priložených súborov, verzií dokumentov, platieb a životných situácií. Staršie zálohy bez sekcie V9 ju zachovajú. Prípady V7 (zdražená služba, reklamácia nákupu a koniec zmluvy) vrátane histórie a výsledkov, porovnania rozhodnutí V6, zmluvy a ročné výdavky, situácie V5 a ich výpočtové vstupy, úlohy, termíny a rozpočet z Môjho centra, obľúbené odkazy a témy, evidenciu auta a postup v piatich kontrolných zoznamoch. Staršia záloha V5 neprepíše záznamy V6 ani V7; záloha V6 neprepíše záznamy V7. Neobsahuje surové CSV transakcie, miestne počítadlá, vyplnené dokumenty, heslá, účty ani súbory stiahnuté do zariadenia.</p><p>Záloha je zašifrovaná pomocou AES-256-GCM a hesla odvodeného cez PBKDF2-SHA256 (210 000 iterácií). Heslo si uschovajte oddelene: bez neho zálohu neobnovíme. Zdieľaním súboru aj hesla sprístupníte jeho údaje príjemcovi.</p></aside>
   <section class="panel" aria-labelledby="backup-export-title">
     <h2 id="backup-export-title">1. Uložiť šifrovanú zálohu</h2>
     <p id="backup-local-summary" role="status">Načítavam prehľad uložených údajov…</p>
@@ -20,17 +20,18 @@ import Base from '../layouts/Base.astro';
   </section>
   <section class="panel" aria-labelledby="backup-import-title">
     <h2 id="backup-import-title">2. Otvoriť zálohu na tomto zariadení</h2>
-    <p>Najprv sa zobrazí obsah v číselnom prehľade. Obnovenie až po samostatnom potvrdení <strong>nahradí všetky podporované sekcie</strong>, vrátane vymazania sekcií, ktoré v zálohe neboli uložené. Pri staršej zálohe V5 zostanú sekcie V6 a V7 zachované; pri zálohe V6 zostanú sekcie V7 zachované. Údaje ostatných sekcií sa nezlučujú. Najskôr si vytvorte zálohu aktuálneho zariadenia. Ak sú aktuálne údaje poškodené alebo úložisko zablokované, obnovenie sa bezpečne zastaví; nič sa automaticky nevymaže.</p>
+    <p>Najprv sa zobrazí obsah v číselnom prehľade. Obnovenie až po samostatnom potvrdení <strong>nahradí všetky podporované sekcie</strong>, vrátane vymazania sekcií, ktoré v zálohe neboli uložené. Pri staršej zálohe V5 zostanú sekcie V6 a V7 zachované; pri zálohe V6 zostanú sekcie V7 zachované. Voliteľné zlúčenie zachová oba zoznamy; pri rovnakom ID rozhodne vami zvolená priorita. Staršie sekcie bez zoznamov sa pri zlúčení zachovajú alebo nahradia ako celok podľa tejto priority. Najskôr si vytvorte zálohu aktuálneho zariadenia. Ak sú aktuálne údaje poškodené alebo úložisko zablokované, obnovenie sa bezpečne zastaví; nič sa automaticky nevymaže.</p>
     <form id="backup-import-form">
-      <label for="backup-file">Šifrovaný súbor zálohy (najviac 2 MB)</label><input id="backup-file" type="file" accept=".v24backup,.json,application/json" required />
+      <label for="backup-file">Šifrovaný súbor zálohy (najviac 8 MB)</label><input id="backup-file" type="file" accept=".v24backup,.json,application/json" required />
       <label for="backup-import-password">Heslo tohto súboru</label><input id="backup-import-password" type="password" minlength="12" maxlength="1024" autocomplete="off" required />
       <button type="submit" id="backup-preview">Overiť a zobraziť náhľad</button>
     </form>
     <div id="backup-confirm-panel" hidden>
       <h3>Náhľad zálohy</h3><p id="backup-created"></p><p id="backup-preview-summary"></p>
       <p id="backup-current-summary"></p>
-      <label class="confirmation"><input id="backup-confirm" type="checkbox" /> Rozumiem, že súčasné podporované údaje budú nahradené obsahom tejto zálohy.</label>
-      <div class="actions"><button type="button" id="backup-restore" disabled>Nahradiť údaje a obnoviť zálohu</button><button type="button" id="backup-cancel">Zrušiť bez zmeny</button></div>
+      <label for="backup-mode">Spôsob obnovy</label><select id="backup-mode"><option value="replace">Nahradiť sekcie zo zálohy</option><option value="local">Zlúčiť – pri duplicite zachovať miestny záznam</option><option value="incoming">Zlúčiť – pri duplicite použiť záznam zo zálohy</option></select><p id="backup-result-summary" aria-live="polite"></p>
+      <label class="confirmation"><input id="backup-confirm" type="checkbox" /> Potvrdzujem obnovu podľa zvoleného spôsobu a zobrazeného výsledku.</label>
+      <div class="actions"><button type="button" id="backup-restore" disabled>Potvrdiť obnovu údajov</button><button type="button" id="backup-cancel">Zrušiť bez zmeny</button></div>
     </div>
   </section>
   <p id="backup-status" role="status" aria-live="polite"></p>
@@ -39,7 +40,7 @@ import Base from '../layouts/Base.astro';
 </main>
 </Base>
 <script>
-import { BACKUP_MAX_BYTES, collectBackup, encryptBackup, decryptBackup, backupSummary, snapshotBackupStorage, restoreBackup } from '../lib/workspace-backup.mjs';
+import { BACKUP_MAX_BYTES, collectBackup, encryptBackup, decryptBackup, backupSummary, snapshotBackupStorage, restoreBackup, mergeBackup } from '../lib/workspace-backup.mjs';
 const el = (id:string) => document.getElementById(id)!;
 const field = (id:string) => el(id) as HTMLInputElement;
 const button = (id:string) => el(id) as HTMLButtonElement;
@@ -50,7 +51,7 @@ let generation = 0;
 let busy = false;
 const summary = (value:ReturnType<typeof collectBackup>) => {
   const s = backupSummary(value);
-  return `${s.cases} situácií, ${s.tasks} úloh, ${s.deadlines} termínov, ${s.vehicleEntries} výdavkov auta, ${s.favorites} obľúbených odkazov a ${s.completedGuideSteps} vybavených krokov. Uložených sekcií: ${s.storedSections}. V6: ${value.entries['v24-contracts-v6']?.entries.length ?? 0} zmlúv, ${value.entries['v24-decisions-v6']?.comparisons.length ?? 0} porovnaní, ${value.entries['v24-annual-expenses-v6']?.expenses.length ?? 0} ročných výdavkov. V7: ${value.entries['v24-v7-service-cases-v1']?.entries.length ?? 0} zdražených služieb, ${value.entries['v24-v7-complaint-cases-v1']?.entries.length ?? 0} reklamácií, ${value.entries['v24-v7-contract-end-v1']?.entries.length ?? 0} koncov zmlúv.`;
+  return `${s.cases} situácií, ${s.tasks} úloh, ${s.deadlines} termínov, ${s.vehicleEntries} výdavkov auta, ${s.favorites} obľúbených odkazov a ${s.completedGuideSteps} vybavených krokov. Uložených sekcií: ${s.storedSections}. V6: ${value.entries['v24-contracts-v6']?.entries.length ?? 0} zmlúv, ${value.entries['v24-decisions-v6']?.comparisons.length ?? 0} porovnaní, ${value.entries['v24-annual-expenses-v6']?.expenses.length ?? 0} ročných výdavkov. V7: ${value.entries['v24-v7-service-cases-v1']?.entries.length ?? 0} zdražených služieb, ${value.entries['v24-v7-complaint-cases-v1']?.entries.length ?? 0} reklamácií, ${value.entries['v24-v7-contract-end-v1']?.entries.length ?? 0} koncov zmlúv. V9: ${value.entries['v24-household-v9']?.entities.length ?? 0} položiek domácnosti, ${value.entries['v24-household-v9']?.journeys.length ?? 0} situácií, ${value.entries['v24-household-v9']?.documents.length ?? 0} dokumentov.`;
 };
 function message(value:string) { el('backup-status').textContent = value; }
 function localSummary() { try { el('backup-local-summary').textContent = 'Na tomto zariadení: ' + summary(collectBackup(localStorage)); } catch { el('backup-local-summary').textContent = 'Uložené údaje sa nepodarilo overiť. Export bude možný až po sprístupnení úložiska a oprave prípadných poškodených údajov.'; } }
@@ -63,7 +64,7 @@ function lock(value:boolean) {
   busy = value;
   for(const id of ['backup-export','backup-preview','backup-cancel']) button(id).disabled = value;
   button('backup-restore').disabled = value || !pending || !field('backup-confirm').checked;
-  for(const id of ['backup-file','backup-import-password','backup-export-password','backup-export-repeat','backup-confirm']) field(id).disabled = value;
+  for(const id of ['backup-file','backup-import-password','backup-export-password','backup-export-repeat','backup-confirm','backup-mode']) field(id).disabled = value;
 }
 function download(text:string) {
   const url = URL.createObjectURL(new Blob([text], {type:'application/json'}));
@@ -76,7 +77,9 @@ el('backup-export-form').addEventListener('submit', async event => {
   lock(true); message('Šifrujem zálohu v tomto prehliadači…');
   try {
     const data = emergency ?? collectBackup(localStorage);
-    download(await encryptBackup(data, field('backup-export-password').value));
+    const encoded = await encryptBackup(data, field('backup-export-password').value);
+    await decryptBackup(encoded, field('backup-export-password').value);
+    download(encoded);
     message(emergency ? 'Stiahli ste šifrovanú núdzovú zálohu údajov pred neúspešným obnovením. Skontrolujte priečinok so stiahnutými súbormi.' : 'Šifrovaná záloha bola pripravená na stiahnutie. Skontrolujte stiahnuté súbory a heslo si uschovajte oddelene.');
   } catch(error) { message(error instanceof Error ? error.message : 'Zálohu sa nepodarilo vytvoriť.'); }
   finally { field('backup-export-password').value = ''; field('backup-export-repeat').value = ''; lock(false); }
@@ -85,7 +88,7 @@ el('backup-import-form').addEventListener('submit', async event => {
   event.preventDefault(); if(busy)return; clearPending();
   const file = field('backup-file').files?.[0];
   if(!file)return;
-  if(file.size > BACKUP_MAX_BYTES) { message('Súbor je príliš veľký. Maximum je 2 MB.'); return; }
+  if(file.size > BACKUP_MAX_BYTES) { message('Súbor je príliš veľký. Maximum je 8 MB.'); return; }
   const token = generation; lock(true); message('Overujem heslo a formát zálohy. Údaje sa zatiaľ nemenia…');
   try {
     const data = await decryptBackup(await file.text(), field('backup-import-password').value);
@@ -94,15 +97,24 @@ el('backup-import-form').addEventListener('submit', async event => {
     // Require valid current data so a safe rollback/export is always available.
     const current = collectBackup(localStorage);
     pending = data;
+    updatePreview();
     el('backup-created').textContent = 'Vytvorená: ' + new Date(data.createdAt).toLocaleString('sk-SK');
     el('backup-preview-summary').textContent = 'Zo súboru: ' + summary(data);
-    el('backup-current-summary').textContent = 'Nahradíte tieto aktuálne údaje: ' + summary(current);
+    el('backup-current-summary').textContent = 'Aktuálne údaje: ' + summary(current);
     el('backup-confirm-panel').hidden = false;
     message('Záloha je platná. Skontrolujte náhľad a rozhodnite sa, či chcete údaje nahradiť.');
     el('backup-confirm-panel').scrollIntoView({block:'nearest'});
   } catch(error) { clearPending(); message(error instanceof Error ? error.message : 'Zálohu sa nepodarilo otvoriť. Žiadne údaje sa nezmenili.'); }
   finally { field('backup-import-password').value = ''; lock(false); }
 });
+function updatePreview() {
+  field('backup-confirm').checked = false; button('backup-restore').disabled = true;
+  if(!pending)return;
+  try {const current=collectBackup(localStorage);const mode=field('backup-mode').value;
+    el('backup-result-summary').textContent='Výsledok: '+summary(mode==='replace'?pending:mergeBackup(current,pending,mode));
+  } catch(error) {clearPending();message(error instanceof Error?error.message:'Zlúčenie nie je možné.');}
+}
+field('backup-mode').addEventListener('change',updatePreview);
 field('backup-file').addEventListener('change', () => { clearPending(); message('Vybraný súbor treba najprv overiť.'); });
 field('backup-import-password').addEventListener('input', () => { if(pending)clearPending(); });
 field('backup-confirm').addEventListener('change', () => { button('backup-restore').disabled = busy || !pending || !field('backup-confirm').checked; });
@@ -112,7 +124,7 @@ button('backup-restore').addEventListener('click', () => {
   lock(true);
   try {
     const recovery = collectBackup(localStorage);
-    try { restoreBackup(localStorage, pending, observed); }
+    try { restoreBackup(localStorage, field('backup-mode').value === 'replace' ? pending : mergeBackup(recovery, pending, field('backup-mode').value), observed); }
     catch(error) { if((error as {rollbackFailed?:boolean})?.rollbackFailed) { emergency = recovery; button('backup-export').textContent = 'Stiahnuť šifrovanú núdzovú zálohu'; } throw error; }
     emergency = null; button('backup-export').textContent = 'Stiahnuť šifrovanú zálohu';
     clearPending(); field('backup-file').value = ''; localSummary();
@@ -126,5 +138,5 @@ window.addEventListener('pageshow', localSummary);
 localSummary();
 </script>
 <style>
-.backup{max-width:950px}.backup .panel{padding:1.4rem;margin:1.4rem 0}.backup h2{margin-top:0}.backup label:not(.confirmation){display:block;font-weight:650;margin:.9rem 0 .4rem}.backup input:not([type=checkbox]){display:block;max-width:100%;width:100%;min-height:44px;padding:.75rem;border:1px solid #8290a5;border-radius:9px;background:var(--surface);color:var(--ink);font:inherit}.backup button{min-height:44px;padding:.75rem 1rem;border:1px solid #8290a5;border-radius:9px;background:var(--surface);color:var(--ink);font:inherit;cursor:pointer;margin:.8rem 0}.backup button:disabled{opacity:.65;cursor:default}.backup .actions{display:flex;flex-wrap:wrap;gap:.7rem}.backup .confirmation{display:flex;align-items:flex-start;gap:.75rem;font-weight:650;margin-top:1rem}.backup .confirmation input{width:1.3rem;height:1.3rem;flex:none;margin-top:.15rem}.backup [id=backup-confirm-panel]{border-top:1px solid #8290a5;margin-top:1.4rem;padding-top:1rem}.backup [role=status]{overflow-wrap:anywhere}.backup [id=backup-status]{font-weight:650}.backup :focus-visible{outline:3px solid #8177ed;outline-offset:3px}@media(max-width:550px){.backup .panel{padding:1rem}.backup button{width:100%}}
+.backup{max-width:950px}.backup .panel{padding:1.4rem;margin:1.4rem 0}.backup h2{margin-top:0}.backup label:not(.confirmation){display:block;font-weight:650;margin:.9rem 0 .4rem}.backup select,.backup input:not([type=checkbox]){display:block;max-width:100%;width:100%;min-height:44px;padding:.75rem;border:1px solid #8290a5;border-radius:9px;background:var(--surface);color:var(--ink);font:inherit}.backup button{min-height:44px;padding:.75rem 1rem;border:1px solid #8290a5;border-radius:9px;background:var(--surface);color:var(--ink);font:inherit;cursor:pointer;margin:.8rem 0}.backup button:disabled{opacity:.65;cursor:default}.backup .actions{display:flex;flex-wrap:wrap;gap:.7rem}.backup .confirmation{display:flex;align-items:flex-start;gap:.75rem;font-weight:650;margin-top:1rem}.backup .confirmation input{width:1.3rem;height:1.3rem;flex:none;margin-top:.15rem}.backup [id=backup-confirm-panel]{border-top:1px solid #8290a5;margin-top:1.4rem;padding-top:1rem}.backup [role=status]{overflow-wrap:anywhere}.backup [id=backup-status]{font-weight:650}.backup :focus-visible{outline:3px solid #8177ed;outline-offset:3px}@media(max-width:550px){.backup .panel{padding:1rem}.backup button{width:100%}}
 </style>

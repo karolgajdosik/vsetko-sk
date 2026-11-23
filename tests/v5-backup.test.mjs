@@ -107,8 +107,8 @@ test('storage quota failure rolls back every modified supported key', () => {
 });
 
 test('all supported slots are fixed and block unsupported keys from import', () => {
-  assert.equal(BACKUP_KEYS.length,15);
-  assert.equal(new Set(BACKUP_KEYS).size,15);
+  assert.equal(BACKUP_KEYS.length,16);
+  assert.equal(new Set(BACKUP_KEYS).size,16);
   const storage={getItem(){throw Error('blocked');}};
   assert.throws(() => collectBackup(storage), /blocked/);
 });
