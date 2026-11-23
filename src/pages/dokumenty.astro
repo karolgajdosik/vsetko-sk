@@ -24,6 +24,11 @@ import { documentCatalog } from '../lib/document-catalog.mjs';
 </section>
 <section class="panel case-draft" aria-labelledby="case-draft-title"><h2 id="case-draft-title">Pripraviť dokument zo situácie</h2><p>Vyberte uloženú situáciu. Až po potvrdení sa jej názov a vybrané hodnoty prenesú do upraviteľnej žiadosti. Meno a adresáta doplníte sami; obsah dokumentu sa neukladá.</p><label for="doc-case">Moja situácia</label><select id="doc-case"><option value="">Vyberte situáciu</option></select><button type="button" id="doc-load-case">Pripraviť návrh zo situácie</button><p id="doc-case-status" role="status"></p><a href="/moje-situacie/">Spravovať moje situácie</a></section>
 <section class="panel contract-draft" id="contract-draft" hidden><h2>Dokument zo zmluvy</h2><p id="contract-draft-info"></p><button type="button" id="contract-draft-load">Prevziať údaje do návrhu výpovede</button><p id="contract-draft-status" role="status"></p></section>
+<section class="panel" id="case-draft" hidden>
+  <h2>Dokument z prípadu</h2>
+  <p id="case-draft-info"></p>
+  <button type="button" id="case-draft-load">Vložiť návrh do dokumentu</button>
+</section>
 <section class="panel editor" id="doc-editor"><h2>Vyberte typ dokumentu</h2><label for="doc-type">Typ dokumentu</label><select id="doc-type"><option value="request">Všeobecná žiadosť</option><option value="statement">Čestné vyhlásenie</option><option value="handover">Odovzdávací protokol</option><option value="termination">Výpoveď služby</option><option value="complaint">Reklamácia</option></select>
 <button type="button" id="doc-load-template">Vložiť text vybraného vzoru</button><p class="note">Vloženie vzoru alebo návrhu nahradí predmet a text až po vašom potvrdení. Pred exportom doplňte vlastné údaje a skontrolujte celý náhľad.</p><div class="doc-fields"><label>Vaše meno a priezvisko / názov<input id="doc-sender" maxlength="120" placeholder="Meno a priezvisko"/></label><label>Adresát / druhá strana<input id="doc-recipient" maxlength="150" placeholder="Úrad alebo osoba"/></label><label>Miesto vyhotovenia<input id="doc-place" maxlength="100" placeholder="Bratislava"/></label><label>Dátum<input id="doc-date" type="date"/></label><label class="full">Identifikácia zmluvy / objednávky (pri výpovedi a reklamácii)<input id="doc-reference" maxlength="160" placeholder="Vlastná referencia alebo číslo zmluvy"/></label><label class="full">Predmet / názov<input id="doc-subject" maxlength="160" placeholder="Predmet dokumentu"/></label><label class="full">Text dokumentu<textarea id="doc-body" rows="7" maxlength="5000" placeholder="Uveďte vecné a presné informácie."></textarea></label></div>
 <button type="button" id="doc-print">Vytlačiť / uložiť ako PDF</button><button type="button" id="doc-pdf">Stiahnuť PDF (.pdf)</button><button type="button" id="doc-word">Stiahnuť Word (.docx)</button><button type="button" id="doc-clear">Vymazať formulár</button><p id="doc-status" role="status" aria-live="polite"></p>
@@ -33,6 +38,7 @@ import { documentCatalog } from '../lib/document-catalog.mjs';
 import { createWordDocument } from '../lib/document-word.mjs';
 import { createPdfDocument } from '../lib/document-pdf.mjs';
 import { caseDocumentDraft, documentHeadings, documentMissingFields, documentTemplate } from '../lib/document-case.mjs';
+import { isCaseDate } from '../lib/case-follow-up.mjs';
 import { readWorkspace } from '../lib/workspace-store.mjs';
 import { matchesDocumentSearch } from '../lib/document-catalog.mjs';
 const el=(id:string)=>document.getElementById(id)!;const input=(id:string)=>(el(id) as HTMLInputElement).value.trim();const type=el('doc-type') as HTMLSelectElement;
@@ -97,6 +103,39 @@ el('doc-pdf').addEventListener('click', async () => {
   finally {button.disabled=false;}
 });
 const approveReplacement=()=>!(input('doc-subject')||input('doc-body'))||confirm('Nahradiť vyplnený predmet a text novým návrhom? Ostatné údaje zostanú zachované.');
+let caseDraft: {name:string; date:string; kind:'request'|'reminder'} | null = null;
+if (new URLSearchParams(location.search).get('source') === 'v8-case') {
+  try {
+    const raw = sessionStorage.getItem('v24-v8-case-draft');
+    sessionStorage.removeItem('v24-v8-case-draft');
+    const draft = raw && raw.length <= 1500 ? JSON.parse(raw) : null;
+    if (draft && typeof draft.name === 'string' && draft.name.trim() && draft.name.length <= 90 &&
+        isCaseDate(draft.date) && (draft.kind === 'request' || draft.kind === 'reminder')) {
+      caseDraft = draft;
+      el('case-draft').hidden = false;
+      el('case-draft-info').textContent = 'Prípad: ' + draft.name;
+    }
+  } catch {
+    el('doc-status').textContent = 'Návrh prípadu sa nepodarilo načítať.';
+  }
+}
+el('case-draft-load').addEventListener('click', () => {
+  if (!caseDraft || !approveReplacement()) return;
+  const {name, date, kind} = caseDraft;
+  const subject = el('doc-subject') as HTMLInputElement;
+  const body = el('doc-body') as HTMLTextAreaElement;
+  type.value = 'request';
+  if (kind === 'reminder') {
+    subject.value = 'Urgencia: ' + name;
+    body.value = 'Dobrý deň, dňa ' + date + ' som vám zaslal(a) podklady k veci „' + name + '“. Prosím o informáciu o stave vybavenia a o predpokladanom termíne odpovede.';
+  } else {
+    subject.value = 'Žiadosť o potvrdenie konca obdobia: ' + name;
+    body.value = 'Dobrý deň, podľa údajov, ktoré mám k dispozícii, je koniec obdobia pre „' + name + '“ dňa ' + date + '. Prosím o potvrdenie dátumu a informáciu o možnostiach pokračovania alebo ukončenia.';
+  }
+  update();
+  el('doc-status').textContent = 'Návrh je vložený. Pred exportom ho môžete upraviť.';
+  body.focus();
+});
 let contractDraft:null|{provider:string,title:string,renewalDate:string,noticeDays:number}=null;
 try{
  if(new URLSearchParams(location.search).get('source')==='contract'){
