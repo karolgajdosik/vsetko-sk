@@ -18,7 +18,8 @@ import Base from '../../layouts/Base.astro';
 </div><button type="submit">Vypočítať návrh – bez uloženia</button></form>
 </section>
 <section class="panel" id="v7-preview" hidden><h2>2. Skontrolujte a potvrďte</h2><p id="v7-summary"></p><p id="v7-provenance"></p><p>Ročný rozdiel = 12 × (nová − pôvodná cena). Alternatíva = 12 × (nová − alternatívna cena) − jednorazový poplatok. Výpočet ignoruje dane a podmienky, ktoré ste nezadali. Záporná úspora znamená vyššie náklady.</p><label><input type="checkbox" id="v7-confirm"/> Skontroloval(a) som údaje a výslovne chcem vytvoriť tento prípad.</label><p><button id="v7-save" type="button">Potvrdiť a uložiť prípad</button></p></section>
-<section class="panel"><h2>3. Moje prípady a rozhodnutie</h2><div id="v7-list"></div><div id="v7-detail" tabindex="-1" hidden><h3 id="v7-heading"></h3><p id="v7-impact"></p><label>Moje rozhodnutie<select id="v7-decision"><option value="review">Overím podmienky a lehoty</option><option value="negotiate">Požiadam o zachovanie ceny</option><option value="switch">Zvážim alternatívu</option><option value="accept">Prijmem novú cenu</option></select></label><p><button id="v7-decision-save" type="button">Potvrdiť rozhodnutie</button> <button id="v7-export" type="button">Stiahnuť podklady (.txt)</button></p><p>Textový balík obsahuje údaje a návrh správy na vlastnú kontrolu. <strong>Nie je automaticky odoslaný.</strong> Pri právnych účinkoch si overte zmluvu a podmienky poskytovateľa.</p>
+<section class="panel"><h2>3. Moje prípady a rozhodnutie</h2><div id="v7-list"></div><div id="v7-detail" tabindex="-1" hidden><h3 id="v7-heading"></h3><p id="v7-impact"></p><label>Moje rozhodnutie<select id="v7-decision"><option value="review">Overím podmienky a lehoty</option><option value="negotiate">Požiadam o zachovanie ceny</option><option value="switch">Zvážim alternatívu</option><option value="accept">Prijmem novú cenu</option></select></label><p><button id="v7-decision-save" type="button">Potvrdiť rozhodnutie</button> <button id="v7-export" type="button">Stiahnuť podklady (.txt)</button>
+<button type="button" id="v7-doc-reminder">Pripraviť urgenciu</button></p><p>Textový balík obsahuje údaje a návrh správy na vlastnú kontrolu. <strong>Nie je automaticky odoslaný.</strong> Pri právnych účinkoch si overte zmluvu a podmienky poskytovateľa.</p>
 <h3>Čakám na odpoveď</h3>
 <label>Dátum odoslania<input type="date" id="v7-sent-on"></label>
 <label>Dátum ďalšieho kontaktu<input type="date" id="v7-contact-on"></label>
@@ -70,6 +71,22 @@ by('follow-up-save').addEventListener('click', () => {
 });
 by('reply-save').addEventListener('click',()=>{const reply=input('reply').value.trim(),day=input('reply-date').value;if(!reply||reply.length>500||!/^\d{4}-\d{2}-\d{2}$/.test(day)||Number.isNaN(Date.parse(day))){status('Zadajte platný dátum a stručnú odpoveď.');return;}update(r=>{r.reply=reply;r.replyDate=day;if(r.followUp && day >= r.followUp.sentOn) delete r.followUp;r.history.push({date:date(),message:'Odpoveď poskytovateľa zo dňa '+day+': '+reply});});});
 by('actual-save').addEventListener('click',()=>{try{const actual=cents('actual'),fee=cents('actual-fee');update(r=>{r.actual=actual;r.actualFee=fee!;r.history.push({date:date(),message:'Potvrdená mesačná cena '+money(actual!)+' a zaplatený poplatok '+money(fee!)+'.'});});}catch(e){status(e instanceof Error?e.message:'Neplatný výsledok.');}});
+function openCaseDraft(kind: 'request' | 'reminder') {
+  const record = records.find(item => item.id === selected);
+  if (!record) return;
+  const date = record.followUp?.sentOn;
+  if (!date) {
+    status('Najprv uložte dátum odoslania v časti Čakám na odpoveď.');
+    return;
+  }
+  try {
+    sessionStorage.setItem('v24-v8-case-draft', JSON.stringify({name: record.service, date, kind}));
+    location.assign('/dokumenty/?source=v8-case#case-draft');
+  } catch {
+    status('Návrh sa nepodarilo preniesť. Dokument môžete vyplniť ručne.');
+  }
+}
+by('doc-reminder').addEventListener('click', () => openCaseDraft('reminder'));
 by('export').addEventListener('click',()=>{const r=records.find(x=>x.id===selected);if(!r)return;const drafts:Record<string,string>={review:'žiadam o vysvetlenie oznámenej zmeny ceny a o informáciu o mojich možnostiach podľa platnej zmluvy',negotiate:'žiadam o možnosť zachovania pôvodnej ceny alebo o výhodnejšiu ponuku',switch:'žiadam o informáciu o podmienkach zmeny poskytovateľa a prípadných poplatkoch; táto žiadosť sama osebe nie je výpoveďou',accept:'beriem na vedomie oznámenú novú cenu; pred prípadným odoslaním si overím, či je oznámenie potrebné'};const text=['VŠETKO24 – podklady prípadu (neodoslané)',r.service,'Zdroj: '+r.source,'Pôvodná mesačná cena: '+money(r.old),'Nová mesačná cena: '+money(r.next),'Ročný rozdiel: '+money(12*(r.next-r.old)),'Rozhodnutie: '+r.decision,'','NÁVRH SPRÁVY – pred odoslaním upravte a overte:','Dobrý deň, v súvislosti so zmenou ceny služby '+r.service+' z '+money(r.old)+' na '+money(r.next)+' mesačne '+drafts[r.decision]+'.','', 'Odpoveď: '+(r.reply||'zatiaľ neevidovaná'),'Modelová ročná úspora podľa potvrdeného výsledku: '+(r.actual===null?'nepotvrdená':money(12*(r.next-r.actual)-r.actualFee)),'','História:',...r.history.map(e=>e.date+' '+e.message)].join('\n');const url=URL.createObjectURL(new Blob([text],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='vsetko24-pripad-zdrazena-sluzba.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);status('Podklady stiahnuté. Neodoslali sme ich poskytovateľovi.');});
 by('delete').addEventListener('click',()=>{if(!confirm('Natrvalo odstrániť tento lokálny prípad?'))return;const old=records;records=records.filter(r=>r.id!==selected);try{persist();selected=null;render();status('Prípad odstránený.');}catch(e){records=old;status(e instanceof Error?e.message:'Odstránenie zlyhalo.');}});
 load();

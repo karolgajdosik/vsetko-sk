@@ -22,6 +22,7 @@ import Base from '../../layouts/Base.astro';
 <h3 id="complaint-title"></h3><p id="complaint-impact"></p><label>Potvrdený ďalší krok<select id="complaint-action"><option value="prepare">Pripravím doklady a skontrolujem podmienky</option><option value="contact">Oslovím predajcu</option><option value="wait">Čakám na odpoveď</option><option value="finish">Vyhodnotím vybavenie</option></select></label>
 <button type="button" id="complaint-action-save">Potvrdiť krok</button>
 <button type="button" id="complaint-export">Stiahnuť balík (.txt)</button>
+<button type="button" id="complaint-doc-reminder">Pripraviť urgenciu</button>
 <p>Balík obsahuje iba návrh správy a zadané údaje. <strong>Nič sa automaticky neodosiela.</strong></p>
 <h3>Čakám na odpoveď</h3>
 <label>Dátum odoslania<input type="date" id="complaint-sent-on"></label>
@@ -80,6 +81,22 @@ el('follow-up-save').addEventListener('click', () => {
 });
 el('reply-save').addEventListener('click',()=>{const reply=field('reply').value.trim(),day=field('date').value;if(!reply||reply.length>500||!/^\d{4}-\d{2}-\d{2}$/.test(day)||Number.isNaN(Date.parse(day))){status('Vyplňte platný dátum a odpoveď.');return;}change(r=>{r.reply=reply;r.replyDate=day;if(r.followUp && day >= r.followUp.sentOn) delete r.followUp;r.history.push({at:now(),note:'Odpoveď zo dňa '+day+': '+reply});});});
 el('result-save').addEventListener('click',()=>{try{const actual=cents('actual'),paid=cents('paid');if(actual===null)throw Error('Zadajte skutočný výsledok.');change(r=>{r.actual=actual;r.paid=paid!;r.history.push({at:now(),note:'Potvrdená kompenzácia '+money(actual)+' a skutočné náklady '+money(paid!)+'.'});});}catch(e){status(e instanceof Error?e.message:'Neplatný výsledok.');}});
+function openCaseDraft(kind: 'request' | 'reminder') {
+  const record = cases.find(item => item.id === selected);
+  if (!record) return;
+  const date = record.followUp?.sentOn;
+  if (!date) {
+    status('Najprv uložte dátum odoslania v časti Čakám na odpoveď.');
+    return;
+  }
+  try {
+    sessionStorage.setItem('v24-v8-case-draft', JSON.stringify({name: record.item, date, kind}));
+    location.assign('/dokumenty/?source=v8-case#case-draft');
+  } catch {
+    status('Návrh sa nepodarilo preniesť. Dokument môžete vyplniť ručne.');
+  }
+}
+el('doc-reminder').addEventListener('click', () => openCaseDraft('reminder'));
 el('export').addEventListener('click',()=>{const r=cases.find(x=>x.id===selected);if(!r)return;const req:Record<string,string>={repair:'prosím o posúdenie možnosti opravy',replace:'prosím o posúdenie možnosti výmeny',refund:'prosím o posúdenie možnosti vrátenia kúpnej ceny',review:'prosím o vysvetlenie dostupných možností riešenia'};const body=['VŠETKO24 – neodoslaný návrh reklamácie',r.item,'Zdroj údajov: '+r.source,'Cena: '+money(r.price),'Opis problému: '+r.problem,'','NÁVRH SPRÁVY – upravte a overte pred odoslaním:','Dobrý deň, pri nákupe '+r.item+' evidujem problém: '+r.problem+'. '+req[r.request]+'. Prosím o informáciu o ďalšom postupe.','', 'Odpoveď: '+(r.reply||'zatiaľ neevidovaná'),'Skutočný peňažný výsledok: '+(r.actual===null?'nepotvrdený':money(r.actual-r.paid)),'História:',...r.history.map(h=>h.at+' '+h.note)].join('\n');const url=URL.createObjectURL(new Blob([body],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='vsetko24-reklamacia.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);status('Balík stiahnutý; nebol odoslaný.');});
 el('delete').addEventListener('click',()=>{if(!confirm('Natrvalo vymazať tento lokálny prípad?'))return;const old=cases;cases=cases.filter(x=>x.id!==selected);try{persist();selected=null;render();status('Prípad odstránený.');}catch(e){cases=old;status(e instanceof Error?e.message:'Vymazanie zlyhalo.');}});
 load();

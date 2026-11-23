@@ -23,6 +23,8 @@ import Base from '../../layouts/Base.astro';
 <h3 id="end-title"></h3><p id="end-impact"></p>
 <label>Potvrdený ďalší krok<select id="end-action"><option value="verify">Overím lehoty a podmienky</option><option value="renew">Preverím obnovenie zmluvy</option><option value="compare">Porovnám ponuky</option><option value="contact">Požiadam poskytovateľa o postup</option><option value="close">Vyhodnotím výsledok</option></select></label>
 <button type="button" id="end-action-save">Potvrdiť krok</button><button type="button" id="end-export">Stiahnuť podklady (.txt)</button>
+<button type="button" id="end-doc-request">Pripraviť žiadosť o potvrdenie konca obdobia</button>
+<button type="button" id="end-doc-reminder">Pripraviť urgenciu</button>
 <p>Export je neodoslaný návrh na kontrolu, nie výpoveď ani právne záväzné podanie.</p>
 <h3>Čakám na odpoveď</h3>
 <label>Dátum odoslania<input type="date" id="end-sent-on"></label>
@@ -78,6 +80,23 @@ el('follow-up-save').addEventListener('click', () => {
 });
 el('reply-save').addEventListener('click',()=>{const reply=field('reply').value.trim(),day=field('reply-date').value;if(!reply||reply.length>500||!dateOK(day)){say('Zadajte platný dátum a odpoveď.');return;}change(r=>{r.reply=reply;r.replyDate=day;if(r.followUp && day >= r.followUp.sentOn) delete r.followUp;r.history.push({at:new Date().toISOString(),note:'Odpoveď zo dňa '+day+': '+reply});});});
 el('result-save').addEventListener('click',()=>{try{const actual=cents('actual',true),paid=cents('paid');if(actual===null)throw Error('Zadajte skutočný nový ročný náklad.');change(r=>{r.actual=actual;r.paid=paid!;r.history.push({at:new Date().toISOString(),note:'Potvrdený ročný náklad '+money(actual)+' a jednorazový náklad '+money(paid!)+'.'});});}catch(e){say(e instanceof Error?e.message:'Neplatný výsledok.');}});
+function openCaseDraft(kind: 'request' | 'reminder') {
+  const record = records.find(item => item.id === selected);
+  if (!record) return;
+  const date = kind === 'request' ? record.endDate : record.followUp?.sentOn;
+  if (!date) {
+    say('Najprv uložte dátum odoslania v časti Čakám na odpoveď.');
+    return;
+  }
+  try {
+    sessionStorage.setItem('v24-v8-case-draft', JSON.stringify({name: record.name, date, kind}));
+    location.assign('/dokumenty/?source=v8-case#case-draft');
+  } catch {
+    say('Návrh sa nepodarilo preniesť. Dokument môžete vyplniť ručne.');
+  }
+}
+el('doc-request').addEventListener('click', () => openCaseDraft('request'));
+el('doc-reminder').addEventListener('click', () => openCaseDraft('reminder'));
 el('export').addEventListener('click',()=>{const r=records.find(x=>x.id===selected);if(!r)return;const body=['VŠETKO24 – neodoslané podklady k zmluve',r.name,'Zdroj: '+r.source,'Uvedený koniec obdobia: '+r.endDate,'Súčasný ročný náklad: '+money(r.current),'Potvrdený krok: '+r.action,'','NÁVRH SPRÁVY – nie výpoveď, pred odoslaním overte podmienky:','Dobrý deň, prosím o potvrdenie termínu skončenia aktuálneho obdobia pre '+r.name+' a o informáciu o možnostiach pokračovania, ukončenia, prípadných lehotách a poplatkoch.','', 'Odpoveď: '+(r.reply||'neevidovaná'),'Skutočný rozdiel: '+(r.actual===null?'nepotvrdený':money(r.current-r.actual-r.paid)),'História:',...r.history.map(x=>x.at+' '+x.note)].join('\n');const url=URL.createObjectURL(new Blob([body],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='vsetko24-koniec-zmluvy.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);say('Podklady stiahnuté, nie odoslané.');});
 el('delete').addEventListener('click',()=>{if(!confirm('Natrvalo vymazať tento prípad?'))return;const old=records;records=records.filter(r=>r.id!==selected);try{persist();selected=null;render();say('Prípad odstránený.');}catch(e){records=old;say(e instanceof Error?e.message:'Vymazanie zlyhalo.');}});
 load();
