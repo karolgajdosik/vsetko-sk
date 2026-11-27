@@ -1,6 +1,10 @@
 {
-  "operator": "IT Future s.r.o.",
+  "operator": "IT Future s. r. o.",
   "privacyEmail": "sukromie@vsetko24.sk",
   "privacyEmailActive": true,
-  "privacyEmailVerifiedAt": "2026-11-14"
+  "privacyEmailVerifiedAt": "2026-11-14",
+  "operatorAddress": "Černyševského 10, 851 01 Bratislava – mestská časť Petržalka, Slovenská republika",
+  "operatorIco": "52 966 593",
+  "operatorDic": "2121234544",
+  "operatorRegister": "Obchodný register Mestského súdu Bratislava III, oddiel Sro, vložka č. 144477/B"
 }
