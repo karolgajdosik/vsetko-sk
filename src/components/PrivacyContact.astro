@@ -3,3 +3,4 @@ import operations from '../data/site-operations.json';
 const active=operations.privacyEmailActive && Boolean(operations.privacyEmailVerifiedAt);
 ---
 <p>Prevádzkovateľom portálu je <strong>{operations.operator}</strong>. {active ? <span>Otázky a žiadosti o ochranu osobných údajov: <a href={'mailto:'+operations.privacyEmail}>{operations.privacyEmail}</a>.</span> : <span>Kontaktná adresa <strong>{operations.privacyEmail}</strong> čaká na aktiváciu. S odoslaním žiadosti počkajte do potvrdenia aktivácie.</span>}</p>
+<p>Sídlo: {operations.operatorAddress}<br />IČO: {operations.operatorIco}<br />DIČ: {operations.operatorDic}<br />Zápis: {operations.operatorRegister}</p>
